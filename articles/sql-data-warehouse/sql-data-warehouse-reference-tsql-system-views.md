@@ -3,7 +3,7 @@ title: "Vues système SQL Data Warehouse | Microsoft Docs"
 description: "Des liens vers le contenu des vues système pour SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>Vues système
 ## <a name="sql-data-warehouse-catalog-views"></a>Vues de catalogue SQL Data Warehouse
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>Vues de gestion dynamique (DMV) SQL Server applicables à SQL Data Warehouse
 Les DMV suivantes s’appliquent à SQL Data Warehouse, mais doivent être exécutées en se connectant à la base de données **master** .
@@ -137,16 +137,14 @@ Les DMV suivantes s’appliquent à SQL Data Warehouse, mais doivent être exéc
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>Vues de gestion dynamique SQL Server disponibles dans SQL Data Warehouse
 SQL Data Warehouse expose de nombreuses vues de gestion dynamique SQL Server. Ces vues, lorsqu’elles sont interrogées dans SQL Data Warehouse, signalent l'état des bases de données SQL en cours d’exécution sur les distributions.
 
-Puisque SQL Data Warehouse est basé sur la technologie MPP de Microsoft, SQL Data Warehouse et l’entrepôt de données parallèles (PDW) du système de plateforme d’analyse utilisent les mêmes vues système.
-
-C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne appelée « pdw_node_id ». Il s'agit de l'identificateur du nœud de calcul. Dans PDW, le nœud de calcul est un concept plus fort pour l'architecture. Dans SQL Data Warehouse, l'architecture s’appuie davantage sur les distributions.
+SQL Data Warehouse et l’entrepôt PDW (Parallel Data Warehouse) d’Analytics Platform System utilisent les mêmes vues système. Chaque vue de gestion dynamique dispose d’une colonne appelée pdw_node_id. Il s’agit de l’identificateur du nœud de calcul. 
 
 > [!NOTE]
-> Pour utiliser ces vues, insérez « pdw_nodes_ » dans le nom, comme indiqué dans le tableau suivant.
+> Pour utiliser ces vues, insérez pdw_nodes_ dans le nom, comme indiqué dans le tableau suivant :
 > 
 > 
 
-| Nom de la vue de gestion dynamique dans SQL Data Warehouse | Lien vers la rubrique Transact-SQL SQL Server sur MSDN |
+| Nom de la vue de gestion dynamique dans SQL Data Warehouse | Article Transact-SQL SQL Server|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -233,7 +231,7 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez la rubrique [Vue d’ensemble de référence de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

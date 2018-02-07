@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: f6d1b556a1b9ea806e4738acda99c5aa11c9438a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -34,7 +34,7 @@ Plus spécifiquement, ce connecteur Stockage Fichier Azure prend en charge la co
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Stockage Fichier Azure.
 
@@ -44,10 +44,10 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **FileServer**. | Oui |
-| host | Spécifie le point de terminaison Stockage Fichier Azure en tant que `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Oui |
-| userId | Spécifiez l’utilisateur pouvant accéder à Stockage Fichier Azure en tant que `"userid": "AZURE\\<storage name>"`. | Oui |
-| password | Spécifiez la clé d’accès au stockage. Marquez ce champ comme SecureString.<br/> | Oui |
+| Type | La propriété type doit être définie sur **FileServer**. | OUI |
+| host | Spécifie le point de terminaison Stockage Fichier Azure en tant que `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | OUI |
+| userId | Spécifiez l’utilisateur pouvant accéder à Stockage Fichier Azure en tant que `"userid": "AZURE\\<storage name>"`. | OUI |
+| password | Spécifiez la clé d’accès au stockage. Marquez ce champ comme SecureString.<br/> | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non pour Source, Oui pour Récepteur |
 
 >[!IMPORTANT]
@@ -85,8 +85,8 @@ Pour copier des données depuis/vers Stockage Fichier Azure, affectez la valeur 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **FileShare** |Oui |
-| folderPath | Chemin d'accès au dossier. |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **FileShare** |OUI |
+| folderPath | Chemin d'accès au dossier. |OUI |
 | fileName | Si vous souhaitez copier depuis/vers un fichier spécifique, spécifiez le nom de celui-ci dans **folderPath**. Si vous ne spécifiez aucune valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier en tant que source, et génère automatiquement le nom de fichier.<br/><br/>**Génération automatique de nom de fichier pour le récepteur :** lorsque fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité de copie génère le nom de fichier selon le modèle suivant : <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. Par exemple : `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- ou `[Table name].[format].[compression if configured]` pour la source relationnelle lorsque la requête n’est pas spécifiée. Par exemple : MySourceTable.orc. |Non  |
 | fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. S’applique uniquement lorsque fileName n’est pas spécifié. <br/><br/>Les caractères génériques autorisés sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/>- Exemple 1 : `"fileFilter": "*.log"`<br/>- Exemple 2 : `"fileFilter": 2017-09-??.txt"` |Non  |
 | format | Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers d’un format spécifique, les types de formats de fichier pris en charge sont les suivants : **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](supported-file-formats-and-compression-codecs.md#text-format), [format Json](supported-file-formats-and-compression-codecs.md#json-format), [format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
@@ -130,8 +130,8 @@ Pour copier des données depuis Stockage Fichier Azure, définissez **FileSystem
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |Oui |
-| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur fichier, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
 
 **Exemple :**
 
@@ -171,7 +171,7 @@ Pour copier des données vers Stockage Fichier Azure, définissez le type de ré
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur d’activité de copie doit être définie sur **FileSystemSink** |Oui |
+| Type | La propriété type du récepteur d’activité de copie doit être définie sur **FileSystemSink** |OUI |
 | copyBehavior | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Le nom des fichiers cibles est généré automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non  |
 
 **Exemple :**

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -41,7 +41,7 @@ Cloud Shell prend en charge les dernières versions de Microsoft Edge, Microsoft
 
 ### <a name="copy-and-paste"></a>Copier et coller
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Pour un utilisateur donné, un seul interpréteur de commandes peut être actif
 
@@ -56,7 +56,9 @@ Cloud Shell est destiné aux cas d’usage interactif. De fait, les sessions non
 ### <a name="user-permissions"></a>Autorisations utilisateur
 
 Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors du répertoire `$Home` ne sont pas conservées.
-Même si certaines commandes situées dans le répertoire `clouddrive` (par exemple, `git clone`) ne disposent pas des autorisations nécessaires, votre répertoire `$Home`, lui, dispose de ces autorisations.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Autorisations limitées SMB Clouddrive
+Certaines commandes situées dans le répertoire `clouddrive` (par exemple, `git clone`) ne disposent pas des autorisations nécessaires pour lire/écrire certains fichiers. Si vous rencontrez ce problème, réessayez à partir de votre répertoire `$Home` qui n’a pas de limitations SMB.
 
 ### <a name="editing-bashrc"></a>Modifier .bashrc
 
@@ -84,7 +86,7 @@ Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’
 
 Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD` ou `Login-AzureRMAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Dépannage de Cloud Shell](troubleshooting.md) <br>
 [Démarrage rapide pour Bash](quickstart.md) <br>

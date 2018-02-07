@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gérer des serveurs inscrits à Azure File Sync (préversion)
 La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -28,7 +28,7 @@ L’article suivant décrit comment inscrire un serveur au service de synchronis
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Inscrire/désinscrire un serveur au service de synchronisation de stockage
 L’inscription d’un serveur à Azure File Sync établit une relation d’approbation entre Windows Server et Azure. Cette relation peut ensuite être utilisée pour créer des *points de terminaison de serveur* sur le serveur, qui représentent des dossiers spécifiques qui doivent être synchronisés avec un partage de fichiers Azure (également appelé un *point de terminaison de cloud*). 
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>configuration requise
 Pour inscrire un serveur à un service de synchronisation de stockage, vous devez d’abord préparer votre serveur avec les prérequis nécessaires :
 
 * Votre appareil doit exécuter une version prise en charge de Windows Server. Pour plus d’informations, consultez [Versions de Windows Server prises en charge](storage-sync-files-planning.md#supported-versions-of-windows-server).
@@ -42,6 +42,26 @@ Pour inscrire un serveur à un service de synchronisation de stockage, vous deve
 
     > [!Note]  
     > Nous vous recommandons d’utiliser la version la plus récente du module AzureRM PowerShell pour inscrire/désinscrire un serveur. Si le package AzureRM a été installé précédemment sur ce serveur (et que la version de PowerShell sur ce serveur est 5.* ou supérieure), vous pouvez utiliser l’applet de commande `Update-Module` pour mettre à jour ce package. 
+* Si vous utilisez un serveur proxy de réseau dans votre environnement, configurez les paramètres de proxy sur votre serveur que l’agent de synchronisation doit utiliser.
+    1. Déterminez vos numéro de port et adresse IP de proxy
+    2. Modifiez ces deux fichiers :
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Ajoutez les lignes dans la figure 1 (en dessous de cette section) sous /System.ServiceModel dans les deux fichiers ci-dessus en remplaçant 127.0.0.1:8888 par l’adresse IP appropriée (remplacez 127.0.0.1) et le numéro de port approprié (remplacez 8888) :
+    4. Définissez les paramètres de proxy WinHTTP via la ligne de commande :
+        * Affichez le proxy : netsh winhttp show proxy
+        * Définissez le proxy : netsh winhttp set proxy 127.0.0.1:8888
+        * Réinitialisez le proxy : netsh winhttp reset proxy
+        * Si ces éléments sont configurés après l’installation de l’agent, redémarrez notre agent de synchronisation : net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Inscrire un serveur au service de synchronisation de stockage
 Pour utiliser un serveur comme *point de terminaison de serveur* dans un *groupe de synchronisation* d’Azure File Sync, celui-ci doit être inscrit à un *service de synchronisation de stockage*. Un serveur peut être inscrit à un seul service de synchronisation de stockage à la fois.

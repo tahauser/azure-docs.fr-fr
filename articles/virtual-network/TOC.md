@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Réseaux virtuels](virtual-networks-overview.md)
 ## [Routage](virtual-networks-udr-overview.md)
 ## [Homologation de réseaux virtuels](virtual-network-peering-overview.md)
@@ -15,7 +15,9 @@
 ### [Listes de contrôle d'accès](virtual-networks-acl.md)
 
 # Prise en main
-## [Créer votre premier réseau virtuel](virtual-network-get-started-vnet-subnet.md)
+## [Créer un réseau virtuel - Portail](quick-create-portal.md)
+## [Créer un réseau virtuel - PowerShell](quick-create-powershell.md)
+## [Créer un réseau virtuel - Azure CLI](quick-create-cli.md)
 
 # Procédure
 ## Planifier et concevoir

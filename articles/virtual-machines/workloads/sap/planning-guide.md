@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -607,7 +607,7 @@ Le stockage Azure Standard était le type de stockage disponible au lancement d�
 
 Les disques qui sont stockés sur des comptes de stockage Azure Standard sont facturés en fonction des données réelles stockées, du volume de transactions de stockage, du transfert de données sortantes et de l’option de redondance choisie. De nombreux disques peuvent être créés (de 1 To maximum), mais tant que ceux-ci sont vides, vous n’êtes pas facturé. Si vous remplissez ensuite un VHD avec 100 Go de données, vous êtes facturé pour le stockage de 100 Go et non pour la taille nominale pour laquelle le VHD a été créé.
 
-#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Stockage Premium Azure
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
 En avril 2015, Microsoft a introduit Stockage Premium Azure. Stockage Premium a été introduit dans le but de fournir :
 
 * une meilleure latence d’E/S ;
@@ -1626,7 +1626,7 @@ La configuration minimale requise est l’utilisation de protocoles de communica
 
 Les ports de communication SAP classiques sont répertoriés dans le tableau ci-dessous. À la base, l’ouverture du port de la passerelle SAP suffit.
 
-| Service | Nom du port | Exemple `<nn`> = 01 | Plage par défaut (min-max.) | Commentaire |
+| de diffusion en continu | Nom du port | Exemple `<nn`> = 01 | Plage par défaut (min-max.) | Commentaire |
 | --- | --- | --- | --- | --- |
 | Répartiteur |sapdp`<nn>` voir * |3201 |3200 - 3299 |Répartiteur SAP, utilisé par l’interface utilisateur graphique SAP pour Windows et Java |
 | Serveur de messagerie |sapms`<sid`> voir ** |3600 |sapms gratuit`<anySID`> |sid = SAP-System-ID |
@@ -1965,9 +1965,7 @@ La figure suivante illustre le même paysage à l’aide de disques managés.
 ![Architecture de haute disponibilité de l’application SAP NetWeaver avec SQL Server dans Azure IaaS][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] Haute disponibilité sous Linux
-L’architecture de haute disponibilité SAP sous Linux sur Azure est principalement la même que pour Windows comme décrit ci-dessus. Depuis janvier 2016, il n’existait encore aucune solution de haute disponibilité (A)SCS SAP prise en charge sous Linux sur Azure.
-
-Ainsi, depuis janvier 2016 un système SAP-Linux-Azure ne peut pas atteindre la même disponibilité qu’un système SAP-Windows-Azure en raison du manque de haute disponibilité pour l’instance (A)SCS et la base de données ASE SAP à instance unique.
+L’architecture de haute disponibilité SAP sous Linux sur Azure est principalement la même que pour Windows comme décrit ci-dessus. Consultez la note SAP [1928533] pour obtenir la liste des solutions de haute disponibilité prises en charge.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Utilisation du démarrage automatique pour les instances SAP
 SAP a proposé une fonctionnalité permettant de démarrer automatiquement des instances SAP immédiatement après le démarrage du système d’exploitation au sein de la machine virtuelle. Les étapes exactes ont été documentées dans l’article de base de connaissances SAP [1909114]. Toutefois, SAP recommande de ne plus utiliser ce paramètre, car aucun contrôle n’est exercé sur l’ordre de redémarrage de l’instance, en supposant que plusieurs machines virtuelles ont été affectées ou que plusieurs instances s’exécutent sur une machine virtuelle. Dans l’hypothèse d’un scénario Azure classique d’un serveur d’applications SAP sur une machine virtuelle et dans le cas du redémarrage éventuel d’une seule machine virtuelle, le démarrage automatique n’est pas vraiment critique et peut être activé en ajoutant ce paramètre :

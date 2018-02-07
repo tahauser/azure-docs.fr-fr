@@ -31,10 +31,10 @@ Les instances NCv2 représentent la nouvelle génération de machines de série 
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6. |112 | 336 | 1 | 12 |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24r_v2* |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC6s_v2 |6. |112 | 336 | 1 | 12 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = une carte P100.
 
@@ -50,10 +50,10 @@ Les machines virtuelles de la série ND sont une nouveauté de la famille de GPU
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Disques de données max. |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6. |112 | 336 | 1 | 12 |
-| Standard_ND12 |12 |224 | 672 | 2 | 24 |
-| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24r* |24 |1448 | 1344 | 4 | 32 |
+| Standard_ND6s |6. |112 | 336 | 1 | 12 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 |
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = une carte P40.
 

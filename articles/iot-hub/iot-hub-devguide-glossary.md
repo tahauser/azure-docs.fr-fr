@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -178,8 +178,8 @@ L’[API REST de fournisseur de ressources IoT Hub](https://docs.microsoft.com/r
 ## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite inclut plusieurs services Azure et des solutions préconfigurées. Ces solutions préconfigurées vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Suite ?](../iot-suite/iot-suite-overview.md).
 
-## <a name="iothub-explorer"></a>iothub-explorer
-L’[iothub-explorer](https://github.com/azure/iothub-explorer) est un outil en ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.
+## <a name="the-iot-extension-for-azure-cli-20"></a>Extension IoT pour Azure CLI 2.0
+[L’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) est un outil de ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.
 
 ## <a name="job"></a>Travail
 Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide-jobs.md) pour planifier et suivre des activités sur un ensemble d’appareils inscrits auprès de votre IoT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). [IoT Hub](#iot-hub) utilise également des travaux pour [importer dans et exporter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) à partir du [registre des identités](#identity-registry).

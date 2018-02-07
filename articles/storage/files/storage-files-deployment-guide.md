@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
 
 Avant de suivre les étapes décrites dans cet article, nous recommandons vivement de lire l’article [Planification d’un déploiement d’Azure Files](storage-files-planning.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Cet article suppose que vous avez déjà accompli les étapes suivantes :
 
 - Créé un compte de stockage Azure avec les options de chiffrement et de résilience, et dans la région de votre choix. Pour obtenir des instructions pas à pas concernant la création d’un compte de stockage, voir [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
@@ -35,7 +35,7 @@ Cet article suppose que vous avez déjà accompli les étapes suivantes :
 Vous pouvez migrer des partages de fichiers existants tels que ceux stockés localement vers votre nouveau partage de fichiers Azure. Cette section montre comment déplacer des données dans un partage de fichiers Azure à l’aide de plusieurs méthodes populaires détaillées dans le [guide de planification](storage-files-planning.md#data-transfer-method).
 
 ### <a name="azure-file-sync-preview"></a>Synchronisation de fichiers Azure (préversion)
-La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+Azure File Sync (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Vous pouvez utiliser la synchronisation de fichiers Azure pour migrer des données dans un partage de fichiers Azure, même si le mécanisme de synchronisation n’est pas souhaité pour une utilisation à long terme. Pour plus d’informations sur l’utilisation de la synchronisation de fichiers Azure pour transférer des données vers un partage de fichiers Azure, consultez [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) et [Déploiement de la synchronisation de fichiers Azure](storage-sync-files-deployment-guide.md).
 
@@ -145,15 +145,15 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Un simple script bash combiné avec SSH peut produire le même résultat dans l’exemple suivant. De même, la variable `$computer` est laissée pour être entrée par l’utilisateur :
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Planifier un déploiement de la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-planning.md)
 - [Résoudre les problèmes d’Azure Files sous Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Résoudre les problèmes d’Azure Files sous Linux](storage-troubleshoot-linux-file-connection-problems.md)

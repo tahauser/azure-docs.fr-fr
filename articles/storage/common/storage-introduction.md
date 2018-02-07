@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 
@@ -149,19 +149,17 @@ Pour en savoir plus sur la sécurisation de votre compte de stockage et sur le c
 
 ## <a name="replication"></a>Réplication
 
-Pour assurer la durabilité de vos données, le stockage Azure est capable de conserver (et de gérer) plusieurs copies de vos données. On parle alors de réplication, ou parfois de redondance. Lorsque vous configurez votre compte de stockage, vous choisissez un type de réplication. Dans la plupart des cas, ce paramètre peut être modifié après avoir configuré le compte de stockage.
-
-Tous les comptes de stockage ont un **stockage localement redondant (LRS)** conçu pour fournir une durabilité des objets d’au moins 99,999999999 % (11 neuf) sur une année donnée. Cela signifie que de nombreuses copies de vos données sont gérées par le stockage Azure dans le centre de données spécifié lors de la configuration du compte de stockage. Lorsque les modifications sont validées, toutes les copies sont mises à jour avant de retourner les cas de réussite. Cela signifie que les réplicas sont toujours synchronisés. En outre, les copies résident dans des domaines d’erreur et des domaines de mise à niveau distincts, ce qui signifie que vos données sont disponibles même si un nœud de stockage contenant vos données tombe en panne ou est mis hors ligne en vue d’une mise à jour.
+Pour assurer la durabilité de vos données, le stockage Azure conserve (et gère) plusieurs copies de vos données. On parle alors de réplication, ou parfois de redondance. Lorsque vous configurez votre compte de stockage, vous choisissez un type de réplication. Dans la plupart des cas, ce paramètre peut être modifié après avoir configuré le compte de stockage.
 
 **Stockage localement redondant (LRS)**
 
-Comme expliqué ci-dessus, avec le stockage LRS, vous disposez de nombreuses copies de vos données dans un seul centre de données. Cela permet de parer à l’indisponibilité des données si un nœud de stockage tombe en panne ou est mis hors ligne en vue d’une mise à jour, mais pas à l’indisponibilité de l’ensemble d’un centre de données.
+Le stockage localement redondant (LRS) est conçu pour fournir une durabilité des objets d’au moins 99,999999999 % (11 neuf) sur une année donnée. Cela signifie que de nombreuses copies de vos données sont gérées par le stockage Azure dans le centre de données spécifié lors de la configuration du compte de stockage. Lorsque les modifications sont validées, toutes les copies sont mises à jour avant de retourner les cas de réussite. Cela signifie que les réplicas sont toujours synchronisés. En outre, les copies résident dans des domaines d’erreur et des domaines de mise à niveau distincts, ce qui signifie que vos données sont disponibles même si un nœud de stockage contenant vos données tombe en panne ou est mis hors ligne en vue d’une mise à jour.
 
-**Stockage redondant dans une zone (ZRS)**
+**Stockage redondant dans une zone (ZRS) (préversion)**
 
-Un stockage redondant dans une zone (ZRS) est conçu pour fournir une durabilité des objets d’au moins 99,9999999999 % (12 neuf) sur une année donnée, en conservant des copies locales de vos données ainsi qu’un autre ensemble de copies. Le deuxième jeu de copies est répliqué de manière asynchrone dans les centres de données au sein d’une ou deux régions. Remarque : Le stockage ZRS est uniquement disponible pour les objets blob de blocs dans les comptes de stockage à usage général. Une fois votre compte de stockage créé et la réplication ZRS sélectionnée, vous ne pouvez plus revenir en arrière et choisir un autre type de réplication (ou inversement).
+Le stockage redondant dans une zone (ZRS) est conçu pour simplifier le développement d’applications hautement disponibles. Le stockage ZRS offre une durabilité des objets de stockage d’au moins 99,9999999999 % (12 neuf) sur une année donnée. Le stockage ZRS réplique vos données de façon synchrone sur plusieurs zones de disponibilité. Envisagez le stockage ZRS pour des scénarios tels que des applications transactionnelles dans lesquelles un temps d’arrêt n’est pas acceptable. Le stockage ZRS permet aux clients de lire et d’écrire les données même si une zone est indisponible ou irrécupérable. Les insertions et mises à jour de données sont effectuées de façon synchrone et sont hautement cohérentes.    
 
-Les comptes ZRS fournissent confère une durabilité supérieure par rapport au stockage LRS, mais les comptes ZRS ne disposent pas de mesures ni de capacité d’enregistrement.
+L’ancienne fonctionnalité ZRS est maintenant appelée ZRS classique. Les comptes ZRS classiques sont disponibles uniquement pour les objets Blob de bloc dans des comptes de stockage V1 à usage général. ZRS classique réplique les données de manière asynchrone entre les centres de données d’une à deux régions. Il est possible qu’un réplica ne soit disponible que si Microsoft lance le basculement vers la région secondaire. Un compte ZRS classique ne peut pas être converti vers ou depuis le stockage LRS ou GRS et n’a pas de fonctionnalité de mesures ou de journalisation.
 
 **Stockage géo-redondant (GRS)**
 
@@ -172,10 +170,10 @@ Le stockage géo-redondant (GRS) est conçu pour fournir une durabilité des obj
 Un stockage géo-redondant avec accès en lecture est similaire au stockage GRS, à la différence que vous avez un accès en lecture aux données situées à l’emplacement secondaire. Si le centre de données principal devient temporairement indisponible, vous pouvez continuer à lire les données à partir de l’emplacement secondaire. Cela peut être très utile. Par exemple, une application Web pourrait passer en lecture seule et désigner la copie secondaire, vous laissant un certain degré d’accès même si aucune mise à jour n’est disponible.
 
 > [!IMPORTANT]
-> Vous pouvez modifier le mode de réplication de vos données après la création de votre compte de stockage, sauf si vous avez défini la réplication ZRS à cette étape. Toutefois, notez qu’il vous faudra éventuellement subir un coût forfaitaire supplémentaire lié au transfert de données si vous passez de LRS à GRS ou RA-GRS.
+> Vous pouvez modifier le mode de réplication de vos données après la création de votre compte de stockage. Toutefois, il vous faudra éventuellement subir un coût forfaitaire supplémentaire lié au transfert de données si vous passez de LRS ou ZRS à GRS ou RA-GRS.
 >
 
-Pour en savoir plus, consultez [Réplication de Stockage Azure](storage-redundancy.md).
+Pour en savoir plus sur les options de réplication, consultez [Réplication de Stockage Azure](storage-redundancy.md).
 
 Pour en savoir plus sur la récupération d’urgence, consultez [Que faire en cas de panne de stockage Azure](storage-disaster-recovery-guidance.md).
 

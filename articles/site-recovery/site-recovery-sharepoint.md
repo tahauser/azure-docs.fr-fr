@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Répliquer une application SharePoint multiniveau pour la récupération d’urgence à l’aide d’Azure Site Recovery
 
@@ -40,7 +40,7 @@ Vous pouvez regarder la vidéo ci-dessous sur la récupération d’une applicat
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -68,9 +68,10 @@ Pour la création de cet article, des machines virtuelles VMware avec Windows Se
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Oui | Oui
-**VMware** | Oui | Oui
-**Serveur physique** | Oui | Oui
+**Hyper-V** | OUI | OUI
+**VMware** | OUI | OUI
+**Serveur physique** | OUI | OUI
+**Microsoft Azure** | N/D | OUI
 
 ### <a name="sharepoint-versions"></a>Versions de SharePoint
 Les versions suivantes de SharePoint Server sont prises en charge.
@@ -211,5 +212,5 @@ Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.
 3.  Cliquez sur « Basculement ».
 4.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

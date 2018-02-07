@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Chiffrement de base de données Azure Cosmos DB au repos
 
@@ -26,7 +26,7 @@ Le chiffrement au repos est une expression qui se réfère en général au chiff
 
 Cosmos DB, en tant que service PaaS, est très facile à utiliser. Comme toutes les données utilisateur stockées dans Cosmos DB sont chiffrées au repos et lors du transport, vous n’avez aucune action à effectuer. En d’autres termes, le chiffrement au repos est « activé » par défaut. Il n’existe aucun contrôle à activer ou à désactiver. Nous fournissons cette fonctionnalité dans le cadre de nos efforts pour respecter notre [contrat SLA de disponibilité et de performances](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Implémenter le chiffrement au repos
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implémentation du chiffrement au repos pour Azure Cosmos DB
 
 Le chiffrement au repos est implémenté à l’aide d’un certain nombre de technologies de sécurité, notamment des systèmes de stockage de clés sécurisés, des réseaux chiffrés et des API de chiffrement. Les systèmes qui déchiffrent et traitent les données doivent communiquer avec les systèmes de gestion de clés. Le schéma montre la façon dont le stockage des données chiffrées et la gestion des clés sont séparés. 
 
@@ -40,7 +40,7 @@ Le flux de base d’une demande d’un utilisateur est le suivant :
 - Le document JSON et les données d’index sont écrits dans le stockage sécurisé.
 - Périodiquement, les données sont lues à partir du stockage sécurisé et sauvegardées dans le magasin d’objets blob chiffré d’Azure.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>Q : Quel est le coût supplémentaire de Stockage Azure si le chiffrement du service de stockage est activé ?
 R : Aucun coût supplémentaire n’est facturé.
@@ -64,7 +64,7 @@ R : L’activation du chiffrement au repos sur tous les comptes (existants et no
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>Q : L’émulateur local prend-il en charge le chiffrement au repos ?
 R : L’émulateur est un outil de développement/test autonome, qui n’exploite pas les services de gestion de clés que le service Cosmos DB géré utilise. Nous vous conseillons d’activer BitLocker sur les lecteurs où vous stockez des données de test d’émulateur sensibles. [L’émulateur prend en charge la modification du répertoire de données par défaut](local-emulator.md) ainsi que l’utilisation d’un emplacement connu.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour une vue d’ensemble de la sécurité de Cosmos DB et des dernières améliorations, consultez [Sécurité de la base de données Azure Cosmos DB](database-security.md).
 Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de confidentialité Azure](https://azure.microsoft.com/en-us/support/trust-center/).

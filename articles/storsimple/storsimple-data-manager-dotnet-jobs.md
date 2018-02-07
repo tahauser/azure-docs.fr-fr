@@ -1,10 +1,10 @@
 ---
 title: "Utiliser le kit SDK .NET pour les travaux Microsoft Azure StorSimple Data Manager | Microsoft Docs"
-description: "Découvrez comment utiliser le Kit SDK .NET pour lancer les travaux StorSimple Data Manager (version préliminaire privée)"
+description: "Découvrez comment utiliser le kit SDK .NET pour lancer les tâches StorSimple Data Manager"
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,36 +12,45 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
-ms.author: vidarmsft
-ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/16/2018
+ms.author: alkohli
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Utiliser le kit SDK .NET pour initier la transformation des données (préversion privée)
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utiliser le kit SDK .NET pour lancer la transformation de données
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Cet article vous explique comment utiliser la fonctionnalité de transformation des données au sein du service StorSimple Data Manager afin de transformer les données de l’appareil StorSimple. Les données transformées sont ensuite utilisées par d’autres services Azure dans le cloud. L’article comporte également une procédure pas à pas pour créer un exemple d’application console .NET pour initier un travail de transformation de données et effectuer son suivi.
+Cet article vous explique comment utiliser la fonctionnalité de transformation des données au sein du service StorSimple Data Manager afin de transformer les données de l’appareil StorSimple. Les données transformées sont ensuite utilisées par d’autres services Azure dans le cloud.
+
+Vous pouvez lancer une tâche de transformation de données de deux manières :
+
+ - Utiliser le kit .NET SDK
+ - Utiliser le runbook Azure Automation
+ 
+ Cet article décrit en détail comment créer un exemple d’application console .NET pour lancer une tâche de transformation de données et effectuer son suivi. Pour en savoir plus sur le lancement de la transformation de données via Automation, accédez à [Utiliser le runbook Azure Automation pour déclencher les tâches de transformation de données](storsimple-data-manager-job-using-automation.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
-*   Un système avec Visual Studio 2012, 2013, 2015 ou 2017 installé.
-*   Azure Powershell installé. [Téléchargez Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   Les paramètres de configuration pour initialiser le travail de transformation des données (les instructions pour obtenir ces paramètres sont disponibles ici).
-*   Une définition de travail qui a été configurée correctement dans une ressource de données hybride dans un groupe de ressources.
-*   Toutes les DLL requises. Téléchargez ces DLL à partir du [dépôt GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   `Get-ConfigurationParams.ps1` Le [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) du dépôt GitHub.
+Avant de commencer, veillez à avoir :
+*   Un ordinateur exécutant :
 
-## <a name="step-by-step"></a>Procédure pas à pas
+    - Visual Studio 2012, 2013, 2015 ou 2017.
+
+    - Azure Powershell. [Téléchargez Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Une définition de tâche correctement configurée dans StorSimple Data Manager au sein d’un groupe de ressources.
+*   Toutes les DLL requises. Téléchargez ces DLL à partir du [dépôt GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   Script [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) du dépôt GitHub.
+
+## <a name="step-by-step-procedure"></a>Procédure pas à pas
 
 Procédez comme suit pour utiliser .NET pour lancer un travail de transformation de données.
 
 1. Pour récupérer les paramètres de configuration, procédez comme suit :
-    1. Téléchargez l’élément `Get-ConfigurationParams.ps1` à partir du script du dépôt GitHub, dans l’emplacement `C:\DataTransformation`.
+    1. Téléchargez `Get-ConfigurationParams.ps1` à partir du script du dépôt GitHub dans `C:\DataTransformation`.
     1. Exécutez le script `Get-ConfigurationParams.ps1` à partir du dépôt GitHub. Tapez la commande suivante :
 
         ```
@@ -49,28 +58,37 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
          ```
         Vous pouvez saisir les valeurs de votre choix pour les éléments ActiveDirectoryKey et AppName.
 
-
 2. Ce script génère les valeurs suivantes :
     * ID client
     * ID client
     * Clé Active Directory (identique à celle entrée ci-dessus)
     * Identifiant d’abonnement
 
+        ![Sortie du script des paramètres de configuration](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
+
 3. À l'aide de Visual Studio 2012, 2013 ou 2015, créez une application console Visual C# .NET.
 
     1. Lancez **Visual Studio 2012/2013/2015**.
-    1. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**.
-    2. Développez **Modèles**, puis sélectionnez **Visual C#**.
-    3. Sélectionnez **Application console** dans la liste des types de projet située sur la droite.
-    4. Saisissez **DataTransformationApp** pour le **Nom**.
-    5. Sélectionnez **C:\DataTransformation** pour l’**Emplacement**.
+    1. Sélectionnez **Fichier > Nouveau > Projet**.
+
+        ![Créer un projet 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
+    2. Sélectionnez **Installé > Modèles > Visual C# > Application console**.
+    3. Saisissez **DataTransformationApp** pour le **Nom**.
+    4. Sélectionnez **C:\DataTransformation** pour l’**Emplacement**.
     6. Cliquez sur **OK** pour créer le projet.
 
-4.  Maintenant, ajoutez l’ensemble des DLL présentes dans le dossier [dédié](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) en tant que **Références**dans le projet que vous avez créé. Pour télécharger les fichiers DLL, procédez comme suit :
+        ![Créer un projet 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
+
+4.  Maintenant, ajoutez l’ensemble des DLL présentes dans le [dossier des DLL](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) en tant que **Références** dans le projet que vous avez créé. Pour ajouter les fichiers DLL, effectuez les étapes suivantes :
 
     1. Dans Visual Studio, accédez à **Affichage > Explorateur de solutions**.
-    1. Cliquez sur la flèche à gauche du projet de l’application de transformation des données. Cliquez sur **Références**, puis cliquez avec le bouton droit sur **Ajouter une référence**.
-    2. Accédez à l’emplacement du dossier des packages, sélectionnez l’ensemble des DLL, puis cliquez sur **Ajouter** et sur **OK**.
+    2. Cliquez sur la flèche à gauche du projet de l’application de transformation des données. Cliquez sur **Références**, puis cliquez avec le bouton droit sur **Ajouter une référence**.
+    
+        ![Ajouter les DLL 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+
+    3. Accédez à l’emplacement du dossier des packages, sélectionnez l’ensemble des DLL, puis cliquez sur **Ajouter** et sur **OK**.
+
+        ![Ajouter les DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Ajoutez les instructions **using** suivantes au fichier source (Program.cs) dans le projet.
 
@@ -82,9 +100,8 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
     ```
-
-
-6. Le code suivant initialise l’instance du travail de transformation de données. Add this in the **Méthode Main**. Remplacez les valeurs des paramètres de configuration obtenues précédemment. Insérez les valeurs de **Nom du groupe de ressources** et **Nom de la ressource de données hybride**. Le **Nom du groupe de ressources**est celui qui héberge la ressource de données hybride sur laquelle a été configurée la définition de travail.
+    
+6. Le code suivant initialise l’instance du travail de transformation de données. Add this in the **Méthode Main**. Remplacez les valeurs des paramètres de configuration obtenues précédemment. Insérez les valeurs de **ResourceGroupName** et **ResourceName**. **ResourceGroupName** est associé au service StorSimple Data Manager sur lequel la définition de tâche a été configurée. **ResourceName** est le nom de votre service StorSimple Data Manager.
 
     ```
     // Setup the configuration parameters.
@@ -100,16 +117,14 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-
+   
 7. Spécifiez les paramètres avec lesquels exécuter la définition de travail
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OU)
@@ -139,7 +154,6 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Après l’initialisation, ajoutez le code suivant pour déclencher un travail de transformation de données sur la définition de travail. Insérez le **Job Definition Name** (Nom de définition de travail).
@@ -149,12 +163,17 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Une fois que le code est collé, générez la solution. Voici une capture d’écran de l’extrait de code pour initialiser l’instance de tâche de transformation de données.
 
-9. Ce travail charge les fichiers correspondants présents sous le répertoire racine du volume StorSimple sur le conteneur spécifié. Lorsqu’un fichier est chargé, un message est déposé dans la file d’attente (dans le compte de stockage du conteneur), avec le nom de la définition de travail. Ce message peut être utilisé comme un déclencheur pour initier le traitement ultérieur du fichier.
+   ![Extrait de code pour initialiser la tâche de transformation de données](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Une fois le travail déclenché, ajoutez le code suivant afin de suivre son exécution.
+9. Cette tâche transforme les données qui correspondent au répertoire racine et aux filtres de fichier dans le volume StorSimple et les place dans le partage de fichiers/conteneur spécifié. Quand un fichier est transformé, un message est ajouté à une file d’attente de stockage (dans le même compte de stockage que le partage de fichiers/conteneur) avec le même nom que la définition de tâche. Ce message peut être utilisé comme un déclencheur pour initier le traitement ultérieur du fichier.
+
+10. Une fois la tâche déclenchée, vous pouvez utiliser le code suivant afin de suivre son exécution. Il n’est pas obligatoire d’ajouter ce code pour l’exécution de la tâche.
 
     ```
     Job jobDetails = null;
@@ -176,7 +195,9 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
     Console.Read();
 
     ```
+ Voici une capture d’écran de l’exemple de code entier utilisé pour déclencher la tâche à l’aide de .NET.
 
+ ![Extrait de code complet pour déclencher une tâche .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

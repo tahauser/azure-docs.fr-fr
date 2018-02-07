@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Exemples sur les machines virtuelles DSVM (Data Science Virtual Machine)
 
@@ -28,13 +28,13 @@ Les machines virtuelles DSVM comportent des exemples complets, la plupart sous l
 > Reportez-vous à la section [Blocs-notes Jupyter](#access-jupyter) pour activer les blocs-notes Jupyter sur votre machine virtuelle DSVM.
 
 ## <a name="quick-reference-of-samples"></a>Référence rapide d’exemples
-| Catégorie d’exemples | Description | Emplacements |
+| Catégorie d’exemples | DESCRIPTION | Emplacements |
 | ------------- | ------------- | ------------- |
 | Langage **R**  | Exemples en **R** expliquant des scénarios tels que la connexion à des magasins de données cloud Azure, la comparaison d’Open Source R et de Microsoft R et la mise en application de modèles sur Microsoft R Server ou SQL Server. <br/> [Capture d’écran](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Langage **Python**  | Exemples en **Python** expliquant des scénarios tels que la connexion à des magasins de données cloud Azure et l’utilisation **d’Azure Machine Learning**.  <br/> [Capture d’écran](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Langage **Julia**  | Exemples en **Julia** qui décrivent la réalisation de graphiques en Julia, l’apprentissage profond en Julia, l’appel de C et Python depuis Julia, etc. <br/> [Capture d’écran](#julia-language) |<br/> **Windows** :<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux** :<br/> `~notebooks/julia`<br/><br/> |
-| **CNTK (COMPUTATIONAL NETWORK TOOLKIT DE MICROSOFT RESEARCH)** <br/> (Microsoft Cognitive Toolkit)  | Exemples d’apprentissage profond publiés par l’équipe Microsoft Cognitive Toolkit.  <br/> [Capture d’écran](#cntk) | <br/>**Windows** :<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux** :<br/> `~notebooks/CNTK`<br/> <br/>|
-| Blocs-notes **MXnet**  | Exemples d’apprentissage profond utilisant des réseaux neuronaux basés sur **MXnet**. Il existe une multitude de blocs-notes allant des scénarios d’initiation aux scénarios avancés.  <br/> [Capture d’écran](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **CNTK (COMPUTATIONAL NETWORK TOOLKIT DE MICROSOFT RESEARCH)** <br/> (Microsoft Cognitive Toolkit)  | Exemples d’apprentissage profond publiés par l’équipe Microsoft Cognitive Toolkit.  <br/> [Capture d’écran](#cntk) | <br/>**Windows** :<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux** :<br/> `~notebooks/CNTK`<br/> <br/>|
+| Blocs-notes **MXnet**  | Exemples d’apprentissage profond utilisant des réseaux neuronaux basés sur **MXNet**. Il existe une multitude de blocs-notes allant des scénarios d’initiation aux scénarios avancés.  <br/> [Capture d’écran](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interaction avec **Azure Machine Learning** Studio et création de points de terminaison de service web à partir de modèles formés localement, pour les workflows de notation informatiques. <br/> [Capture d’écran](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Exemples d’apprentissage profond utilisant des réseaux neuronaux basés sur **caffe2**. Il existe plusieurs blocs-notes conçus pour familiariser les utilisateurs avec caffe2 et sur la façon de l’utiliser efficacement, y compris des exemples comme le prétraitement des images, la création de jeux de données, la régression et l’utilisation de modèles préformés. <br/> [Capture d’écran](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Exemples basés sur Python utilisant **H2O** pour de nombreux problèmes autour de scénarios concrets. <br/> [Capture d’écran](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Trouver des données avec les recherches de journaux dans Log Analytics
 
@@ -30,7 +30,7 @@ La fonctionnalité de recherche de journal se trouve au cœur de Log Analytics e
 
 Sur la page Recherche, vous pouvez créer une requête, puis lorsque vous effectuez une recherche, vous pouvez filtrer les résultats en utilisant des contrôles de facette. Vous pouvez également créer des requêtes avancées pour la transformation, le filtrage et les rapports relatifs aux résultats.
 
-Les requêtes de recherche de journal courantes apparaissent dans la plupart des pages de solutions. Vous pouvez cliquer sur les vignettes ou explorer d’autres éléments dans l’ensemble de la console OMS afin d’afficher les détails de l’élément à l’aide de la recherche de journal.
+Les requêtes de recherche de journal courantes apparaissent dans la plupart des pages de solutions. Vous pouvez cliquer sur les vignettes ou explorer d’autres éléments dans l’ensemble du portail OMS afin d’afficher les détails de l’élément à l’aide de la recherche dans les journaux.
 
 Dans ce didacticiel, nous examinerons des exemples afin de couvrir toutes les notions de base dont vous avez besoin lorsque vous utilisez la recherche de journal.
 
@@ -39,7 +39,7 @@ Nous allons commencer par des exemples simples et pratiques, puis nous développ
 Une fois que vous êtes familiarisé avec les techniques de recherche, vous pouvez consulter les [informations de référence sur la recherche de journal Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Utilisation de filtres de base
-La première chose à savoir est que la première partie d’une requête de recherche avant un caractère de barre verticale « | » est toujours un *filtre*. Considérez-la comme une clause WHERE dans TSQL : elle détermine *quel* sous-ensemble de données doit être extrait du magasin de données OMS. La recherche dans un magasin de données consiste principalement à préciser les caractéristiques de données que vous souhaitez extraire ; il est donc naturel qu’une requête commence par la clause WHERE.
+La première chose à savoir est que la première partie d’une requête de recherche avant un caractère de barre verticale « | » est toujours un *filtre*. Considérez-la comme une clause WHERE dans TSQL : elle détermine *quel* sous-ensemble de données doit être extrait de l’espace de travail Log Analytics. La recherche dans un magasin de données consiste principalement à préciser les caractéristiques de données que vous souhaitez extraire ; il est donc naturel qu’une requête commence par la clause WHERE.
 
 Les filtres les plus simples que vous pouvez utiliser sont des *mots clés*tels que « error » ou « timeout » ou un nom d'ordinateur. Ces types de requêtes simples retournent généralement différentes formes de données dans le même jeu de résultats. Cela est dû au fait que Log Analytics dispose de différents *types* de données dans le système.
 
@@ -126,7 +126,7 @@ Chaque requête est évaluée dans l'ordre explicite suivant. Notez la parenthè
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-Comme le champ du journal des événements, vous pouvez récupérer des données uniquement pour un ensemble d'ordinateurs spécifiques en ajoutant OR. Par exemple :
+Comme le champ du journal des événements, vous pouvez récupérer des données uniquement pour un ensemble d'ordinateurs spécifiques en ajoutant OR. Par exemple : 
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -322,7 +322,7 @@ Ensuite, la fonction **Measure count** ne retourne pour le moment que les 100 p
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Utilisation des fonctions min et max avec la commande measure
 Il existe plusieurs situations où les commandes **Measure Max()** et **Measure Min()** sont utiles. Toutefois, étant donné que chaque fonction est l'opposé de l'autre, nous démontrerons la fonction Max() et vous pourrez ensuite tester vous-même la fonction Min().
 
-Si vous interrogez des événements de sécurité, ceux-ci ont une propriété **Level** qui peut varier. Par exemple :
+Si vous interrogez des événements de sécurité, ceux-ci ont une propriété **Level** qui peut varier. Par exemple : 
 
 ```
 Type=SecurityEvent
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Utilisation de la fonction avg avec la commande measure
 La fonction statistique Avg() utilisée avec measure vous permet de calculer la valeur moyenne pour un champ et de grouper les résultats selon ce même champ ou un autre. Cela est utile dans de nombreux cas, pour les données de performances par exemple.
 
-Nous allons commencer par les données de performances. Remarque : OMS collecte actuellement les compteurs de performance pour les ordinateurs Windows et Linux.
+Nous allons commencer par les données de performances. Remarque : Log Analytics collecte actuellement les compteurs de performances pour les ordinateurs Windows et Linux.
 
 Pour rechercher *toutes* les données de performances, la requête la plus simple est :
 
@@ -414,7 +414,7 @@ Vous pouvez maintenant ajouter des ordinateurs et des compteurs avec l'exemple s
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Étant donné que vous avez une sélection très spécifique, la commande **measure Avg()** peut retourner la moyenne non par ordinateur mais pour l’ensemble de la batterie de serveurs, simplement en effectuant un regroupement par CounterName. Par exemple :
+Étant donné que vous avez une sélection très spécifique, la commande **measure Avg()** peut retourner la moyenne non par ordinateur mais pour l’ensemble de la batterie de serveurs, simplement en effectuant un regroupement par CounterName. Par exemple : 
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -448,7 +448,7 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ## <a name="use-the-where-command"></a>Utilisation de la commande where
 La commande where fonctionne comme un filtre, mais elle peut être appliquée dans le pipeline pour filtrer davantage les résultats agrégés résultant d’une commande Measure – au lieu des résultats bruts qui sont filtrés au début d'une requête.
 
-Par exemple :
+Par exemple : 
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer
@@ -592,7 +592,7 @@ Voici un autre exemple :
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les recherches de journal, consultez les ressources suivantes :
 
 * Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparer les versions V1 et V2 d’Azure Data Factory
 Cet article compare la version V2 à la version V1 d’Azure Data Factory. Pour une présentation de V1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). Pour une présentation de V2, consultez [Présentation d’Azure Data Factory (V2 - préversion)](introduction.md).
@@ -86,7 +86,7 @@ Utilisez Azure SSIS si vous souhaitez déplacer vos charges de travail SSIS dans
 
 Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de machines virtuelles Azure (nœuds) dédiées à l’exécution de vos packages SSIS dans le cloud. Une fois que vous avez approvisionné le runtime d’intégration Azure-SSIS, vous pouvez utiliser les mêmes outils que ceux utilisés pour déployer des packages SSIS dans un environnement SSIS local. 
 
-Par exemple, vous pouvez utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des packages SSIS sur ce runtime dans Azure. Pour obtenir des instructions pas à pas, consultez le didacticiel [Déployer des packages SQL Server Integration Services vers Azure](tutorial-deploy-ssis-packages-azure.md). 
+Par exemple, vous pouvez utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des packages SSIS sur ce runtime dans Azure. Pour obtenir des instructions pas à pas, consultez le didacticiel [Déployer des packages SQL Server Integration Services vers Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Planification flexible
 Dans Data Factory V2, vous n’avez pas besoin de définir de planifications de disponibilité de jeu de données. Vous pouvez définir une ressource de déclencheur qui permet de planifier des pipelines à partir d’un paradigme de planificateur d’horloge. Vous pouvez également transmettre des paramètres à des pipelines à partir d’un déclencheur pour une planification flexible et un modèle d’exécution. 

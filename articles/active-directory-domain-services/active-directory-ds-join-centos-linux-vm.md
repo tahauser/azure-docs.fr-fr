@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé
 Cet article indique comment joindre une machine virtuelle Linux CentOS dans Azure à un domaine managé par Azure AD Domain Services.
@@ -34,8 +34,8 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Provisionner une machine virtuelle Linux CentOS
 Provisionnez une machine virtuelle CentOS dans Azure, en utilisant l’une des méthodes suivantes :
-* [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
+* [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
+* [interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
@@ -82,11 +82,11 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE]
-      > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+    > [!NOTE]
+    > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :  
+      * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).  
+      * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible. 
+      * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.  
       >
 
 2. Initialisez Kerberos. Sur votre terminal SSH, saisissez la commande suivante :

@@ -5,21 +5,21 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure
 
 Azure Container Registry est un service de registre de conteneurs Docker géré utilisé pour stocker des images de conteneurs Docker privés. Ce guide décrit en détail la création d’une instance Azure Container Registry à l’aide de l’interface de ligne de commande Azure.
 
-Ce guide de démarrage rapide nécessite l’exécution de l’interface de ligne de commande Azure 2.0.21 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0][azure-cli].
+Ce guide de démarrage rapide nécessite d’exécuter Azure CLI 2.0.25 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0][azure-cli].
 
 Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -41,7 +41,7 @@ Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *
 
 Créez une instance ACR à l’aide de la commande [az acr create][az-acr-create].
 
-Le nom du registre **doit être unique**. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
+Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -116,7 +116,7 @@ L’exemple suivant répertorie les référentiels d’un registre :
 az acr repository list --name <acrName> --output table
 ```
 
-Sortie :
+Sortie :
 
 ```bash
 Result
@@ -130,7 +130,7 @@ L’exemple suivant répertorie les étiquettes sur le référentiel **aci-hello
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-Sortie :
+Sortie :
 
 ```bash
 Result
@@ -146,7 +146,7 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group d
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry avec Azure CLI. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
 

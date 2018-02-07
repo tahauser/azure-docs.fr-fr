@@ -1,9 +1,17 @@
 
-**Dernière mise à jour du document** : 6 janvier, 18 h 30 PST.
+
+
+**Dernière mise à jour du document** : 22 janvier, 15:00 PST.
 
 La divulgation récente d’une [nouvelle classe de vulnérabilités de processeur](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) appelées attaques par canal latéral de l’exécution spéculative a généré des questions de la part de clients recherchant plus d’explications.  
 
 L’infrastructure qui exécute Azure et isole les différentes charges de travail des clients est protégée.  Cela signifie que d’autres clients utilisant Azure ne peuvent pas attaquer votre application avec ces vulnérabilités.
+
+> [!NOTE] 
+> Les solutions d’atténuation des risques Azure présentées le 3 janvier 2018 ne sont pas affectées par la [mise à jour des conseils](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) récente d’Intel. Aucune activité de maintenance supplémentaire n’est prévue sur les machines virtuelles des clients à la suite de ces nouvelles informations.
+>
+> Nous continuerons à mettre à jour ces bonnes pratiques à mesure que nous recevrons des mises à jour du microcode des fournisseurs de matériel. Consultez de nouveau la mise à jour des conseils.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Maintien à jour de vos systèmes d’exploitation
 
@@ -40,11 +48,6 @@ Si vous utilisez Windows et hébergez du code non approuvé, vous devez égaleme
 
 ### <a name="linux"></a>Linux
 Si vous utilisez Linux et hébergez du code non approuvé, vous devez également mettre à jour Linux vers une version plus récente qui implémente KPTI (Kernel Page Table Isolation, isolation de tables de pages du noyau) séparant les tables de pages utilisées par le noyau de celles appartenant à l’espace utilisateur. Ces solutions d’atténuation nécessitent une mise à jour du système d’exploitation Linux et peuvent être obtenues auprès de votre fournisseur de solutions de distribution dès qu’elles sont disponibles. Votre fournisseur de système d’exploitation peut vous indiquer si les protections sont activées ou désactivées par défaut.
-
-
-
-
-
 
 
 

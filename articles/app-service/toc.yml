@@ -1,6 +1,6 @@
 - name: Documentation App Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Web Apps
       href: app-service-web-overview.md
@@ -41,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java avec MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python avec PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 - Créer des API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Mapper un domaine personnalisé

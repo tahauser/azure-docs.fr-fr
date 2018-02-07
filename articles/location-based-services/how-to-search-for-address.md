@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 Search Service est un ensemble d’API RESTful destinées aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de lieux, de points d’intérêt, de listes d’entreprises et autres informations d’ordre géographique. Search Service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude retournées par les API Search Service peuvent être utilisées comme paramètres dans d’autres services Azure Location Based Services, tels que les API Route et Traffic Flow.
 
 ## <a name="prerequisites"></a>configuration requise
-Installer [l’application Postman](https://www.getpostman.com/apps).
+* Installer [l’application Postman](https://www.getpostman.com/apps).
 
-Un compte et une clé d’abonnement Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé d’abonnement, consultez [Guide pratique pour gérer vos compte et clés Azure Location Based Services](how-to-manage-account-keys.md). 
+* Disposer d’un compte et d’une clé Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [Guide pratique pour gérer votre compte et vos clés Azure Location Based Services](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Utilisation de Fuzzy Search
 
@@ -53,7 +53,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage « m
     | Clé | Valeur |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *Clé d’abonnement* |
+    | subscription-key | \<votre clé Azure Location Based Services\> |
     | query | pizza |
 
 4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
@@ -103,7 +103,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     | Clé | Valeur |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *Clé d’abonnement* |
+    | subscription-key | \<votre clé Azure Location Based Services\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
@@ -143,7 +143,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     | Clé | Valeur |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *Clé d’abonnement* |
+    | subscription-key | \<votre clé Azure Location Based Services\> |
     | query | 47.59093,-122.33263 |
     
 3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
@@ -209,7 +209,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     | Clé | Valeur |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *Clé d’abonnement* |
+    | subscription-key | \<votre clé Azure Location Based Services\> |
     | query | 47.59093,-122.33263 |
     
 4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 

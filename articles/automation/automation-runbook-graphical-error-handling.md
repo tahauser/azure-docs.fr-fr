@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Gestion des erreurs dans les runbooks graphiques Azure Automation
 
@@ -40,7 +40,7 @@ Les runbooks graphiques Azure Automation ont été améliorés avec la possibili
 
 Lorsqu’une activité critique génère une erreur ou une exception, il est important d’empêcher le traitement de l’activité suivante dans votre runbook et de gérer l’erreur comme il se doit. Cela est tout particulièrement vital lorsque vos runbooks prennent en charge un processus d’entreprise ou de service.
 
-Pour chaque activité susceptible de générer une erreur, l’auteur du runbook peut ajouter un lien d’erreur pointant vers une autre activité.  L’activité de destination peut être de tout type : activité de code, appel d’une cmdelt, appel d’un autre runbook, etc.
+Pour chaque activité susceptible de générer une erreur, l’auteur du runbook peut ajouter un lien d’erreur pointant vers une autre activité. L’activité de destination peut être de tout type : activité de code, appel d’une cmdelt, appel d’un autre runbook, etc.
 
 En outre, l’activité de destination peut également avoir des liens sortants. Ces liens peuvent être des liens réguliers ou des liens d’erreur. Cela signifie que l’auteur du runbook peut implémenter une logique complexe de gestion des erreurs sans avoir recours à une activité de code. La pratique recommandée consiste à créer un runbook de gestion des erreurs dédié avec des fonctionnalités communes, mais cela n’a rien d’obligatoire. L’introduction d’une logique de gestion des erreurs dans un code d’activité PowerShell n’est pas la seule option proposée.  
 
@@ -63,7 +63,7 @@ Lorsque ce paramètre est configuré, vous créez une activité qui gère l’er
 
 Dans l’exemple suivant, un runbook récupère une variable contenant le nom d’ordinateur d’une machine virtuelle. Il tente ensuite de démarrer la machine virtuelle avec l’activité suivante.<br><br> ![Exemple de gestion des erreurs d’un runbook Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-L’activité **Get-AutomationVariable** et **AzureRmVm-Start** sont configurés pour transformer des exceptions en erreurs.  Si l’obtention de la variable ou le démarrage de la machine virtuelle pose problème, des erreurs sont générées.<br><br> ![Paramètres d’activité de gestion des erreurs d’un runbook Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+L’activité **Get-AutomationVariable** et **AzureRmVm-Start** sont configurés pour transformer des exceptions en erreurs. Si l’obtention de la variable ou le démarrage de la machine virtuelle pose problème, des erreurs sont générées.<br><br> ![Paramètres d’activité de gestion des erreurs d’un runbook Automation](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Les liens d’erreur transitent depuis ces activités vers une seule activité de **gestion des erreurs** (code d’activité). Cette activité est configurée avec une simple expression PowerShell qui utilise le mot clé *Throw* pour arrêter le traitement, ainsi qu’avec *$Error.Exception.Message* pour obtenir le message qui décrit l’exception actuelle.<br><br> ![Exemple de code de gestion des erreurs d’un runbook Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

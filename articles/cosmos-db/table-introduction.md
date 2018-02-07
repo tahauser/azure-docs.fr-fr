@@ -2,7 +2,7 @@
 title: "Introduction à l’API de table d’Azure Cosmos DB | Microsoft Docs"
 description: "Découvrez comment vous pouvez utiliser Azure Cosmos DB pour stocker et interroger d’immenses volumes de données clé-valeur avec une faible latence, avec les API MongoDB OSS populaires."
 services: cosmos-db
-author: mimig
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.openlocfilehash: 9321cf648e149408e68456d30e331e05720b60ab
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.author: mimig
+ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation de l’API Table d’Azure Cosmos DB
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/28/2017
 * Une haute disponibilité garantie.
 * [Une indexation secondaire automatique](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Les applications écrites pour le stockage de table Azure peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table contient un Kit de développement logiciel (SDK) client disponible pour .NET.
+Les applications écrites pour le stockage de table Azure peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table a des kits de développement logiciel (SDK) pour .NET, Java, Python et Node.js.
 
 Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique comment prendre en main l’API de table d’Azure Cosmos DB :
 
@@ -47,9 +47,9 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 | Throughput | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s. | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est appuyé par des contrats de niveau de service. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table. |
 | Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. Vous ne pouvez pas lancer le basculement. | [Une distribution mondiale clé en main](distribute-data-globally.md) de 1 à plus de 30 régions. Prise en charge des [basculements automatiques et manuels](regional-failover.md) à tout moment, partout dans le monde. |
 | Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire. | Indexation automatique et complète de toutes les propriétés, aucune gestion des index. |
-| Interroger | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. |
+| Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. |
 | Cohérence | Forte au sein de la région primaire. Éventuelle au sein de la région secondaire. | [Cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application. |
-| Tarification | Optimisation pour le stockage. | Optimisation pour le débit. |
+| Tarifs | Optimisation pour le stockage. | Optimisation pour le débit. |
 | Contrats SLA | Disponibilité de 99,99 %. | Un contrat SLA avec une disponibilité à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions [Contrats SLA complets à la pointe du secteur](https://azure.microsoft.com/support/legal/sla/cosmos-db/) sur la disponibilité générale. |
 
 ## <a name="get-started"></a>Prise en main
@@ -60,7 +60,7 @@ Créez un compte Azure Cosmos DB dans le [portail Azure](https://portal.azure.c
 > Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Voici quelques conseils pour vous aider à démarrer :
 * [Azure Cosmos DB : Créer une application .NET à l’aide de l’API de table](create-table-dotnet.md)

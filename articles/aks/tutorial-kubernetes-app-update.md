@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fdd3e621ac97da86897b8cc8b20466fab0b0a42
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Mettre à jour une application dans Azure Container Service (AKS)
 
@@ -77,7 +77,7 @@ Accédez à http://localhost:8080 pour afficher l’application en cours d’ex�
 
 Marquez l’image `azure-vote-front` avec le loginServer du registre de conteneurs. 
 
-Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#list).
+Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

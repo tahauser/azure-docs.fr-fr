@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/12/2018
 ms.author: nepeters
-ms.openlocfilehash: d6f6688011ddebe2b486bb6ae00f1f3e095a931d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 86a160d8f2dbfb0e385d9dbed7cf6d789f5a8df6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>S’authentifier avec Azure Container Registry à partir d’Azure Container Service
 
@@ -74,7 +74,7 @@ Les informations d’identification du principal de service peuvent désormais �
 La commande suivante permet de créer le secret Kubernetes. Remplacez le nom du serveur par le nom du serveur de connexion ACR, le nom d’utilisateur par l’identifiant du principal de service et le mot de passe par le mot de passe du principal de service.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> 
+kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
 Le secret Kubernetes peut être utilisé dans un déploiement de pod à l’aide du paramètre `ImagePullSecrets`. 

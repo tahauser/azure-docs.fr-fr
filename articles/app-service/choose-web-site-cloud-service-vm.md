@@ -15,14 +15,14 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Azure propose plusieurs manières d’héberger des sites web : [Azure App Service][Azure App Service], [Machines virtuelles][Virtual Machines], [Service Fabric][Service Fabric] et [Services Cloud][Cloud Services]. Cet article vous aidera à comprendre ces différentes possibilités et à faire le bon choix en fonction de votre application web.
 
 Azure App Service est le meilleur choix pour la plupart des applications web. Le déploiement et la gestion sont intégrés à la plateforme, les sites peuvent rapidement gérer des volumes importants de trafic et le gestionnaire d'équilibrage de charge et de trafic assurent une haute disponibilité. Vous pouvez facilement déplacer des sites existants vers Azure App Service avec un [outil de migration en ligne](https://www.migratetoazure.net/), utiliser une application open source de la galerie d’applications web ou bien créer un site avec l’infrastructure et les outils de votre choix. La fonctionnalité [WebJobs][WebJobs] simplifie l’ajout du traitement de tâches en arrière-plan à votre application web App Service.
@@ -49,7 +49,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Hébergement des services Web ou niveaux d'une architecture multiniveau |X |X |X |X | |
 | Hébergement du niveau intermédiaire d'une architecture multiniveau |X |X |X |X |Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. |
 | Prise en charge intégrée de MySQL-as-a-service |X |X | | | |
-| Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python |X |X |X |X |Service Fabric prend en charge la création d’un serveur web frontal à l’aide [d’ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md), ou vous pouvez déployer n’importe quel type d’application (Node.js, Java, etc.) en tant que [fichier exécutable invité](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python |X |X |X |X |Service Fabric prend en charge la création d’un serveur web frontal à l’aide [d’ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md), ou vous pouvez déployer n’importe quel type d’application (Node.js, Java, etc.) en tant que [fichier exécutable invité](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Montée en charge vers plusieurs instances sans redéploiement |X |X |X |X |Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle. |
 | Prise en charge de SSL |X |X |X |X |Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](app-service-web-tutorial-custom-ssl.md). |
 | Intégration de Visual Studio |X |X |X |X | |

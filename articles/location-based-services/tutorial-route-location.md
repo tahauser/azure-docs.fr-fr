@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Obtenir l’itinéraire vers un point d’intérêt à l’aide d’Azure Location Based Services
 
-Ce didacticiel montre comment utiliser votre compte Azure Location Based Services et le SDK Route Service pour trouver l’itinéraire vers un point d’intérêt. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment utiliser votre compte Azure Location Based Services et le SDK Route Service pour trouver l’itinéraire vers un point d’intérêt. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Obtenir les coordonnées d’une adresse
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Services](./tutorial-search-location.md#createaccount) et [d’obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey). Vous pouvez également apprendre à utiliser les API Map Control et Search Service en consultant le didacticiel [Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services](./tutorial-search-location.md).
 
@@ -38,7 +38,7 @@ Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Se
 Utilisez les étapes suivantes pour créer une page HTML statique incorporée avec l’API Map Control de Location Based Services. 
 
 1. Sur votre ordinateur local, créez un fichier et nommez-le **MapRoute.html**. 
-2. Ajoutez les composants HTML au fichier :
+2. Ajoutez les composants HTML suivants au fichier :
 
     ```HTML
     <!DOCTYPE html>
@@ -77,13 +77,13 @@ Utilisez les étapes suivantes pour créer une page HTML statique incorporée av
     ```
     Comme vous pouvez le constater, l’en-tête HTML contient les emplacements des fichiers CSS et JavaScript pour la bibliothèque Azure Location Based Services. Notez en outre le segment *script* dans le corps du fichier HTML, destiné à contenir le code JavaScript inline permettant d’accéder aux API d’Azure Location Based Service.
 
-3. Ajoutez le code JavaScript suivant au bloc *script* du fichier HTML. Remplacez l’espace réservé *<insert-key>* par la clé primaire de votre compte Location Based Services.
+3. Ajoutez le code JavaScript suivant au bloc *script* du fichier HTML. Utilisez la clé primaire à partir de votre compte Location Based Services dans le script.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive et est un composant de l’API Azure Map Control.
@@ -179,22 +179,22 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    La requête ci-dessus montre les paramètres obligatoires, à savoir la clé d’abonnement de votre compte et les coordonnées des points de départ et d’arrivée, dans l’ordre indiqué. 
+    La requête ci-dessus montre les paramètres obligatoires, à savoir votre clé de compte et les coordonnées des points de départ et d’arrivée, dans l’ordre indiqué. 
 
 3. Enregistrez le fichier **MapRoute.html** localement, ouvrez-le dans le navigateur web de votre choix, puis observez le résultat. Si la connexion aux API Location Based Services réussit, vous devez voir une carte semblable à celle ci-après. 
 
     ![Azure Map Control et Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+## <a name="next-steps"></a>étapes suivantes
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Obtenir les coordonnées d’une adresse

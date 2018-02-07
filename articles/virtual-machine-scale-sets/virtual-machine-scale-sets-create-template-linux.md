@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Créer un groupe de machines virtuelles identiques Linux à l’aide d’un modèle Azure
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Dans cet article de prise en main, vous créez un groupe de machines virtuelles identiques Linux avec un modèle Azure Resource Manager. Vous pouvez également créer un groupe identique avec [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou le [portail Azure](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ Vous pouvez déployer le modèle de [serveur HTTP Python sur Linux](https://gith
 
 [![Déployer le modèle sur Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Vous pouvez également utiliser l’interface Azure CLI 2.0 pour installer le serveur HTTP Python sur Linux avec [az group deployment create](/cli/azure/group/deployment#create) comme suit :
+Vous pouvez également utiliser l’interface Azure CLI 2.0 pour installer le serveur HTTP Python sur Linux avec [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) comme suit :
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Renseignez le nom du groupe identique, le nombre d’instances et les informatio
 
 
 ## <a name="test-your-sample-application"></a>Tester votre exemple d’application
-Pour voir votre application en action, obtenez l’adresse IP publique de l’équilibreur de charge avec [az network public-ip list](/cli/azure/network/public-ip#show) comme suit :
+Pour voir votre application en action, obtenez l’adresse IP publique de l’équilibreur de charge avec [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) comme suit :
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Entrez l’adresse IP publique de l’équilibreur de charge dans un navigateur 
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, le groupe identique et toutes les ressources associées, comme suit :
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le groupe identique et toutes les ressources associées, comme suit :
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

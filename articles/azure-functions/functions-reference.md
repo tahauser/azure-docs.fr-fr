@@ -7,7 +7,7 @@ author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "guide de développement, azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless"
+keywords: "guide de développement, azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -53,9 +53,9 @@ La propriété `bindings` vous permet de configurer les liaisons et les déclenc
 
 | Propriété | Valeurs/types | Commentaires |
 | --- | --- | --- |
-| `type` |string |Type de liaison. Par exemple, `queueTrigger`. |
+| `type` |chaîne |Type de liaison. Par exemple, `queueTrigger`. |
 | `direction` |'in', 'out' |Indique si la liaison sert à recevoir des données dans la fonction ou à envoyer des données à partir de la fonction. |
-| `name` |string |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
+| `name` |chaîne |Le nom utilisé pour les données liées dans la fonction. Pour C#, il s’agit d’un nom d'argument ; pour JavaScript, il s’agit de la clé dans une liste de clés/valeurs. |
 
 ## <a name="function-app"></a>Conteneur de fonctions
 Un conteneur de fonctions est constitué d’une ou de plusieurs des fonctions individuelles qui sont gérées ensemble par Azure App Service. Toutes les fonctions d’un conteneur de fonctions partagent le même plan de tarification, le même déploiement continu et la même version du runtime. Les fonctions écrites dans plusieurs langages peuvent partager le même conteneur de fonctions. Considérez un conteneur de fonctions comme un moyen d’organiser et de gérer collectivement vos fonctions. 
@@ -102,7 +102,7 @@ Lorsque plusieurs événements de déclenchement se produisent plus rapidement q
 
 ## <a name="functions-runtime-versioning"></a>Contrôle de version du runtime Functions
 
-Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Pour obtenir plus d’informations, notamment sur la façon d’afficher la version exacte de votre application de fonction, consultez [Guide pratique pour cibler des versions du runtime Azure Functions](functions-versions.md).
+Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Pour obtenir plus d’informations, notamment sur la façon d’afficher la version exacte de votre application de fonction, consultez [Guide pratique pour cibler des versions du runtime Azure Functions](set-runtime-version.md).
 
 ## <a name="repositories"></a>Référentiels
 Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :
@@ -121,13 +121,13 @@ Voici un tableau de toutes les liaisons prises en charge.
 ## <a name="reporting-issues"></a>Problèmes liés aux rapports
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
 * [Informations de référence pour les développeurs F# sur Azure Functions](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
-* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
+* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 * [Azure Functions : The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Découverte d’Azure Functions) sur le blog d’Azure App Service. Un historique sur le développement d’Azure Functions.
 

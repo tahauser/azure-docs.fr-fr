@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer la stratégie d’adoption du cycle de vie des identités hybrides | Microsoft Docs"
+title: "Conception d’identités hybrides : Stratégie d’adoption du cycle de vie Azure | Microsoft Docs"
 description: "Permet de définir les tâches de gestion des identités hybrides selon les options disponibles pour chaque phase du cycle de vie."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Déterminer la stratégie d’adoption du cycle de vie des identités hybrides
 Dans cette tâche, vous allez définir la stratégie de gestion des identités pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

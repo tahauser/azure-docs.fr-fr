@@ -4,7 +4,7 @@ description: "La sécurité Recherche Azure est basée sur la conformité SOC 2,
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Sécurité des données et contrôle d’accès aux opérations de Recherche Azure
+# <a name="security-and-controlled-access-in-azure-search"></a>Sécurité et contrôle d’accès dans Recherche Azure
 
 Recherche Azure est [conforme à la norme SOC 2](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), avec une architecture de sécurité complète incluant la sécurité physique, les transmissions chiffrées, le stockage chiffré et les dispositifs de protection logiciels à l’échelle de la plateforme. Sur le plan opérationnel, Recherche Azure accepte uniquement les demandes authentifiées. Si vous le souhaitez, vous pouvez ajouter des contrôles d’accès par utilisateur au contenu. Cet article traite de la sécurité au niveau de chaque couche, en se centrant principalement sur la façon dont les données et les opérations sont sécurisées dans Recherche Azure.
 
 ![Diagramme de blocs des couches de sécurité](media/search-security-overview/azsearch-security-diagram.png)
-
-Même si Recherche Azure hérite des dispositifs de protection de la plateforme Azure, le mécanisme principal utilisé par le service lui-même est l’authentification basée sur les clés, où le type de clé détermine le niveau d’accès. Une clé peut être une clé d’administration ou une clé de requête pour un accès en lecture seule.
-
-L’accès à votre service est basé sur une combinaison d’autorisations fournies par la clé (complète ou en lecture seule), ainsi que sur un contexte qui définit l’étendue des opérations. Chaque demande est composée d’une clé obligatoire, d’une opération et d’un objet. Quand ils sont chaînés, les deux niveaux d’autorisation et le contexte sont suffisants pour fournir une sécurité couvrant l’ensemble des opérations de service. 
 
 ## <a name="physical-security"></a>Sécurité physique
 
@@ -38,11 +34,17 @@ Les centres de données Microsoft fournissent une sécurité physique de pointe 
 
 ## <a name="encrypted-transmission-and-storage"></a>Stockage et transmission chiffrés
 
-Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. 
+Le chiffrement s’étend dans tout le pipeline d’indexation : des connexions aux données indexées stockées dans Recherche Azure, en passant par la transmission.
 
-Sur le stockage principal utilisé pour les index et d’autres constructions, Recherche Azure tire parti des fonctionnalités de chiffrement de ces plateformes. La [conformité totale à AICPA SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) est disponible pour tous les services de recherche (nouveaux et existants), dans tous les centres de données proposant Recherche Azure. Pour accéder au rapport complet sur la conformité d’Azure et d’Azure Government à SOC 2 de type II, consultez le document [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+| Calque de sécurité | DESCRIPTION |
+|----------------|-------------|
+| Chiffrement en transit | Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. |
+| Chiffrement au repos | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.|
+| [Conformité SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Tous les services de recherche sont entièrement conformes à AICPA SOC 2, dans tous les centres de données proposant le service Recherche Azure. Pour accéder au rapport complet sur la conformité d’Azure et d’Azure Government à SOC 2 de type II, consultez le document [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
-Le chiffrement est transparent, avec des clés de chiffrement gérées en interne et appliquées universellement. Vous ne pouvez pas le désactiver pour des index ou des services de recherche spécifiques, ni gérer les clés directement ou fournir les vôtres. 
+Le chiffrement est interne à Recherche Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme. 
+
+Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris les services partagés (gratuits), dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.
 
 ## <a name="azure-wide-logical-security"></a>Sécurité logique à l’échelle d’Azure
 
@@ -53,15 +55,15 @@ Plusieurs mécanismes de sécurité sont disponibles dans Azure Stack et, de ce 
 
 Tous les services Azure prennent en charge les contrôles d’accès en fonction du rôle (RBAC) pour permettre une définition des niveaux d’accès cohérente à travers tous les services. Par exemple, l'affichage de données sensibles, comme la clé d'administration, est réservé aux rôles Propriétaire et Collaborateur, tandis que l'affichage de l'état du service est disponible aux membres de tous les rôles. RBAC fournit des rôles Propriétaire, Collaborateur et Lecteur. Par défaut, tous les administrateurs de service sont propriétaires.
 
-## <a name="service-authentication"></a>Authentification du service
+## <a name="service-access-and-authentication"></a>Accès au service et authentification
 
-Recherche Azure fournit sa propre méthode d’authentification. L’authentification est effectuée pour chaque demande et basée sur une clé d’accès qui détermine l’étendue des opérations. Une clé d’accès valide est considérée comme la preuve que la demande provient d’une entité approuvée. 
+Alors que le service Recherche Azure hérite des fonctions de sécurité de la plateforme Azure, il fournit également sa propre authentification basée sur clé. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
 
-L’authentification par service existe à deux niveaux : droits complets et requêtes uniquement. Le type de clé détermine le niveau d’accès en vigueur.
+L’authentification est requise à chaque requête, chaque requête étant composée d’une clé obligatoire, d’une opération et d’un objet. Quand ils sont chaînés, les deux niveaux d’autorisation (totale ou lecture seule) et le contexte sont suffisants pour fournir une sécurité couvrant l’ensemble des opérations de service. 
 
 |Clé|DESCRIPTION|limites|  
 |---------|-----------------|------------|  
-|Admin|Accorde des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des **index**, des **indexeurs** et des **sources de données**.<br /><br /> Deux **clés API** d’administration, appelées clés *principale* et *secondaire* dans le portail, sont générées quand le service est créé et peuvent être régénérées individuellement à la demande. La possession de deux clés permet de substituer une clé quand l’autre est utilisée pour un accès continu au service.<br /><br /> Les clés d’administration sont spécifiées uniquement dans les en-têtes de requête HTTP. Vous ne pouvez pas insérer de **clé API** d’administration dans une URL.|2 max. par service|  
+|Admin|Accorde des droits d’accès complets à toutes les opérations, avec notamment la possibilité de gérer le service ou de créer et supprimer des index, des indexeurs et des sources de données.<br /><br /> Deux **clés API** d’administration, appelées clés *principale* et *secondaire* dans le portail, sont générées quand le service est créé et peuvent être régénérées individuellement à la demande. La possession de deux clés permet de substituer une clé quand l’autre est utilisée pour un accès continu au service.<br /><br /> Les clés d’administration sont spécifiées uniquement dans les en-têtes de requête HTTP. Vous ne pouvez pas insérer de clé API d’administration dans une URL.|2 max. par service|  
 |Requête|Accorde un accès en lecture seule aux index et aux documents. Ces clés sont généralement distribuées aux applications clientes qui émettent des demandes de recherche.<br /><br /> Les clés de requête sont créées à la demande. Vous pouvez les créer manuellement dans le portail ou par programme via l’[API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Les clés de requête peuvent être spécifiées dans un en-tête de requête HTTP pour les opérations de recherche, de suggestion ou de consultation. Vous pouvez également transmettre une clé de requête en tant que paramètre pour une URL. Selon la façon dont votre application cliente formule la demande, il peut être plus facile de transmettre la clé en tant que paramètre de requête :<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 par service|  
 
  Visuellement, il n’existe aucune distinction entre une clé d’administration et une clé de requête. Les deux clés sont des chaînes composées de 32 caractères alphanumériques générés de façon aléatoire. Si vous n’êtes pas sûr du type de clé spécifié dans votre application, vous pouvez [vérifier les valeurs de clé dans le portail](https://portal.azure.com) ou utiliser l’[API REST](https://docs.microsoft.com/rest/api/searchmanagement/) pour retourner la valeur et le type de clé.  

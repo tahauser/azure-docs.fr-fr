@@ -1,4 +1,5 @@
 # <a name="secure-your-iot-deployment"></a>Sécuriser votre déploiement IoT
+
 Cet article fournit davantage de détails sur la sécurisation de l’infrastructure Internet des objets (IoT) basée sur Azure IoT. Il est lié à la procédure au niveau de l’implémentation pour la configuration et le déploiement de chaque composant. Il fournit également des comparaisons et des choix entre les différentes méthodes.
 
 La sécurisation du déploiement Azure IoT peut être divisée selon les trois zones de sécurité suivantes :
@@ -10,6 +11,7 @@ La sécurisation du déploiement Azure IoT peut être divisée selon les trois z
 ![Trois zones de sécurité][img-overview]
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Approvisionnement et authentification sécurisés des appareils
+
 Azure IoT Suite sécurise les appareils IoT à l’aide des deux méthodes suivantes :
 
 * En fournissant une clé d’identité unique (jetons de sécurité) pour chaque appareil, qui peut être utilisée par l’appareil pour communiquer avec IoT Hub.
@@ -18,7 +20,8 @@ Azure IoT Suite sécurise les appareils IoT à l’aide des deux méthodes suiva
 La méthode du jeton de sécurité fournit une authentification pour chaque appel effectué par l’appareil à IoT Hub en associant la clé symétrique à chaque appel. L’authentification basée sur le certificat X.509 permet l’authentification d’un appareil IoT au niveau physique dans le cadre de l’établissement d’une connexion TLS. La méthode basée sur le jeton de sécurité peut être utilisée sans l’authentification X.509 qui constitue un modèle moins sécurisé. Le choix entre les deux méthodes dépend principalement du niveau requis pour l’authentification de l’appareil et de la disponibilité d’un stockage sécurisé sur l’appareil (pour stocker la clé privée en toute sécurité).
 
 ## <a name="iot-hub-security-tokens"></a>Jetons de sécurité IoT Hub
-IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les Kits de développement logiciel (SDK) Azure IoT Hub génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios requièrent toutefois que l’utilisateur génère et utilise directement des jetons de sécurité. Par exemple, il peut s’agir de l’utilisation directe des surfaces MQTT, AMQP ou HTTP, ou de l’implémentation du modèle de service de jeton.
+
+IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les Kits de développement logiciel (SDK) Azure IoT Hub génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios requièrent toutefois que l’utilisateur génère et utilise directement des jetons de sécurité. Ces scénarios peuvent comprendre l’utilisation directe des surfaces MQTT, AMQP ou HTTP, ou de l’implémentation du modèle de service de jeton.
 
 Vous trouverez plus d’informations sur la structure du jeton de sécurité et son utilisation dans les articles suivants :
 
@@ -29,13 +32,14 @@ Chaque IoT Hub dispose d’un [registre d’identité][lnk-identity-registry] s
 
 [IoT Hub prend en charge les protocoles tels que MQTT, AMQP, and HTTP][lnk-protocols]. Chacun de ces protocoles utilise des jetons de sécurité à partir de l’appareil IoT vers IoT Hub différemment :
 
-* AMQP : sécurité basée sur des revendications AMQP et SASL PLAIN ({policyName}@sas.root.{iothubName} dans le cas de jetons de niveau IoT hub ; {deviceId} dans le cas de jetons à l’échelle de l’appareil).
-* MQTT : le paquet CONNECT utilise {deviceId} en tant que {ClientId}, {IoThubhostname}/{deviceId} dans le champ **Nom d’utilisateur** et un jeton SAS dans le champ **Mot de passe**.
+* AMQP : sécurité basée sur des revendications AMQP et SASL PLAIN (`{policyName}@sas.root.{iothubName}` avec des jetons au niveau d’IoT Hub ; `{deviceId}` dans le cas de jetons à l’échelle de l’appareil).
+* MQTT : le paquet CONNECT utilise `{deviceId}` en tant que `{ClientId}`, `{IoThubhostname}/{deviceId}` dans le champ **Nom d’utilisateur** et un jeton SAS dans le champ **Mot de passe**.
 * HTTP : le jeton valide se trouve dans l’en-tête de la requête d’autorisation.
 
 Vous pouvez utiliser le registre d’identité IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil. Cependant, si une solution IoT représente déjà un investissement significatif dans un [registre d’identité des appareils personnalisé et/ou un schéma d’authentification][lnk-custom-auth], vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un service de jeton.
 
 ### <a name="x509-certificate-based-device-authentication"></a>Authentification des appareils basée sur un certificat X.509
+
 L’utilisation d’un [certificat X.509 basé sur un appareil][lnk-use-x509] et sa paire de clés privée et publique associée permet d’obtenir une authentification supplémentaire au niveau de la couche physique. La clé privée est stockée en toute sécurité dans l’appareil et n’est pas détectable en dehors de l’appareil. Le certificat X.509 contient des informations sur l’appareil, telles que l’identifiant de l’appareil et d’autres détails organisationnels. Une signature du certificat est générée à l’aide de la clé privée.
 
 Flux d’approvisionnement des appareils de haut niveau :
@@ -45,12 +49,15 @@ Flux d’approvisionnement des appareils de haut niveau :
 * Stocker en toute sécurité l’empreinte numérique du certificat X.509 dans le Registre d’identité IoT Hub.
 
 ### <a name="root-certificate-on-device"></a>Certificat racine sur un appareil
+
 Lors de l’établissement d’une connexion TLS sécurisée avec IoT Hub, l’appareil IoT authentifie IoT Hub à l’aide d’un certificat racine qui fait partie du Kit de développement logiciel (SDK) de l’appareil. Pour le Kit de développement logiciel (SDK) du client C, le certificat se trouve dans le dossier « \\c\\certs » sous la racine du référentiel. Bien que ces certificats racine soient de longue durée, ils peuvent malgré tout expirer ou être révoqués. S’il n’existe aucun moyen de mettre à jour le certificat sur l’appareil, il est possible que celui-ci ne puisse pas se connecter ultérieurement à IoT Hub (ou tout autre service cloud). Pour minimiser ce risque, nous vous conseillons de disposer d’un moyen de mettre à jour le certificat racine une fois l’appareil IoT déployé.
 
 ## <a name="securing-the-connection"></a>Sécurisation de la connexion
-La connexion Internet entre l’appareil IoT et IoT Hub est sécurisée à l’aide de la norme TLS (Transport Layer Security). Azure IoT prend en charge [TLS 1.2][lnk-tls12], TLS 1.1 et TLS 1.0, dans cet ordre. La prise en charge de TLS 1.0 est fournie uniquement à des fins de compatibilité descendante. Il est recommandé d’utiliser TLS 1.2, qui fournit la meilleure sécurité.
+
+La connexion Internet entre l’appareil IoT et IoT Hub est sécurisée à l’aide de la norme TLS (Transport Layer Security). Azure IoT prend en charge [TLS 1.2][lnk-tls12], TLS 1.1 et TLS 1.0, dans cet ordre. La prise en charge de TLS 1.0 est fournie uniquement à des fins de compatibilité descendante. Si possible, utilisez TLS 1.2 car il fournit le plus de sécurité.
 
 ## <a name="securing-the-cloud"></a>Sécurisation du cloud
+
 Azure IoT Hub permet la définition de [stratégies de contrôle d’accès][lnk-protocols] pour chaque clé de sécurité. Azure IoT Hub utilise l’ensemble d’autorisations qui suit pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un IoT Hub selon la fonctionnalité.
 
 * **RegistryRead**. Accorde l’accès en lecture au registre des identités. Pour plus d’informations, consultez la rubrique dédiée au [registre des identités][lnk-identity-registry].
@@ -64,7 +71,7 @@ Les [composants de service peuvent uniquement créer des jetons de sécurité][l
 
 Azure IoT Hub et d’autres services pouvant faire partie de la solution autorisent la gestion des utilisateurs à l’aide d’Azure Active Directory.
 
-Les données reçues par Azure IoT Hub peuvent être utilisées par une variété de services comme Azure Stream Analytics et le stockage d’objets blob. Ces services permettent un accès en gestion. En savoir plus sur ces services et les options disponibles ci-dessous :
+Les données reçues par Azure IoT Hub peuvent être utilisées par une variété de services comme Azure Stream Analytics et le stockage d’objets blob. Ces services permettent un accès en gestion. En savoir plus sur ces services et les options disponibles :
 
 * [Azure Cosmos DB][lnk-cosmosdb] : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous approvisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
 * [Azure Stream Analytics][lnk-asa] : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
@@ -73,6 +80,7 @@ Les données reçues par Azure IoT Hub peuvent être utilisées par une variét�
 * [Blob Storage][lnk-blob] : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
 
 ## <a name="conclusion"></a>Conclusion
+
 Cet article fournit une vue d’ensemble des détails au niveau de l’implémentation pour concevoir et déployer une infrastructure IoT à l’aide d’Azure IoT. La configuration de chaque composant afin qu’il soit sécurisé est essentielle pour sécuriser l’infrastructure IoT dans son ensemble. Les choix de conception disponibles dans Azure IoT offrent un certain degré de souplesse et de choix. Toutefois, chaque choix peuvent avoir des implications en matière de sécurité. Nous vous recommandons d’évaluer chacun de ces choix à l’aide d’une évaluation des risques et du coût.
 
 [img-overview]: media/iot-secure-your-deployment/overview.png

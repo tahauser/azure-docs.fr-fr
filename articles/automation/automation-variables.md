@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ressources de variables dans Azure Automation
 
@@ -51,20 +51,20 @@ Voici la liste des types de variable disponibles dans Automation :
 * Booléen
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Scripts de création et de gestion de variables
+## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
+Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies avec le [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
 
-Les applets de commande du tableau suivant permettent de créer et de gérer les variables Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md) , utilisable dans les Runbooks Automation et les configurations DSC.
-
-|Applets de commande|DESCRIPTION|
+| Applets de commande | DESCRIPTION |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Récupère la valeur d'une variable existante.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Crée une variable et définit sa valeur.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Supprime une variable existante.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Définit la valeur d'une variable existante.|
 
-Les activités de workflow du tableau suivant sont utilisées pour accéder aux variables Automation d'un Runbook. Elles sont uniquement disponibles pour être utilisées dans un Runbook ou une configuration DSC et ne sont pas fournies dans le cadre du module Azure PowerShell.
+## <a name="activities"></a>Activités
+Les activités dans le tableau suivant sont utilisées pour accéder aux informations d’identification dans un Runbook ou dans des configurations DSC.
 
-|Activités de workflow|DESCRIPTION|
+| Activités | DESCRIPTION |
 |:---|:---|
 |Get-AutomationVariable|Récupère la valeur d'une variable existante.|
 |Set-AutomationVariable|Définit la valeur d'une variable existante.|
@@ -205,4 +205,3 @@ L'image suivante montre des exemples d'activité pour mettre à jour une variabl
 
 * Pour en savoir plus sur la connexion d’activités lors de la création graphique, consultez [Liens lors de la création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md) 
-

@@ -1,22 +1,22 @@
 ---
-title: "Applications gérées Azure sur la Place de marché | Microsoft Docs"
-description: "Décrit les applications gérées Azure disponibles via la Place de marché."
+title: "Applications managées Azure sur la Place de marché | Microsoft Docs"
+description: "Décrit les applications managées Azure disponibles via la Place de marché."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
+# <a name="azure-managed-applications-in-the-marketplace"></a>Applications managées Azure sur la Place de marché
 
 Les fournisseurs peuvent utiliser les applications managées Azure pour offrir leurs solutions à tous les clients de la Place de marché Azure. Il peut s’agir de fournisseurs de services managés, d’éditeurs de logiciels indépendants et d’intégrateurs de système. Les applications managées réduisent les opérations de maintenance et de mise à jour des clients. Les fournisseurs vendent des infrastructures et des logiciels sur la Place de marché. Ils peuvent joindre des services et le support opérationnel pour les applications gérées. Pour plus d’informations, consultez [Vue d’ensemble des applications gérées](overview.md).
 
@@ -33,29 +33,21 @@ Il existe également plusieurs prérequis métier. Il s'agit de :
 * Consentez tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
 * Gérez les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
 * Fournissez du contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de Marché et sur le portail Microsoft Azure.
-* Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de Marché Microsoft Azure.
+* Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Microsoft Azure.
 * Engagez-vous à respecter les Conditions d’utilisation, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Configurer votre compte pour le portail de publication
+## <a name="become-a-publisher"></a>Devenir éditeur
 
-Le portail de publication permet de publier et de gérer vos offres. Pour publier une application de Place de Marché, vous devez avoir un compte approuvé Développeur Microsoft pour la Place de Marché Azure. Si vous ne vous êtes pas inscrit pour obtenir un compte approuvé, consultez [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Pour devenir éditeur sur la Place de marché Azure, vous devez :
 
-Si vous avez un compte **Centre de développement Microsoft** approuvé mais que vous n’avez pas encore utilisé le [portail de publication Azure](https://cloudpartner.azure.com/), vous devez vous inscrire auprès du portail de publication.
-
-1. Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour être sûr de ne pas être connecté à un compte personnel.
-2. Accédez à [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. Si vous êtes un nouvel utilisateur et que vous vous connectez au portail de publication pour la première fois, vous devez vous connecter avec le même ID de messagerie que celui de votre compte du centre de développement. À présent, le compte du centre de développement et le compte du portail de publication sont liés.
-
-Vous pourrez ajouter ultérieurement les autres membres de la société en tant que [coadministrateurs](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) dans le portail de publication. Si vous êtes ajouté en tant que coadministrateur dans le portail de publication, vous pouvez vous connecter avec votre compte de coadministrateur.
-
-> [!TIP]
-> Les politiques concernant la participation sont décrites sur le [site web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Créer un identifiant Microsoft - Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne. Cette adresse e-mail est utilisée pour le Portail Cloud Partner et pour le Centre de développement Microsoft. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish? (Quelle solution avez-vous l’intention de publier ?)**, sélectionnez **Managed Application (Application managée)**. Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
+1. Vous inscrire auprès du [Centre de développement](https://developer.microsoft.com) - Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) - Dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Création d’une offre d’application Azure
 
-Une fois que les conditions préalables sont remplies, vous êtes prêt à créer votre offre d’application managée.
+Une fois que vous avez créé votre compte du portail de partenaire, vous êtes prêt à créer votre offre d’application managée.
 
 ### <a name="set-up-an-offer"></a>Configuration d’une offre
 
@@ -65,11 +57,7 @@ Une offre d’application gérée correspond à une classe d’offre de produit 
 
 1. Dans le volet de navigation de gauche, sélectionnez **+ Nouvelle offre** > **Applications Azure**.
 
-   ![Nouvelle offre](./media/publish-marketplace-app/newOffer.png)
-
 1. Les formulaires nécessaires sont affichés dans la vue **Éditeur**. Chaque formulaire est décrit plus loin dans cet article.
-
-   ![Paramètres de l’offre](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Formulaire des paramètres de l’offre
 
@@ -95,13 +83,9 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
 
 1. Sélectionnez **Références** > **Nouvelle référence**.
 
-   ![Sélectionner option de nouvelle référence](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Saisissez un **ID de référence**. Un SKU ID (ID de référence) est un identificateur unique pour la référence (SKU) au sein d’une offre. Cet ID est visible dans les URL de produit, les modèles Resource Manager et les états de facturation. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Ce champ est verrouillé une fois l’offre publiée. Vous pouvez avoir plusieurs références (SKU) au sein d’une même offre. Vous avez besoin d’une référence (SKU) pour chaque image que vous prévoyez de publier.
 
 1. Remplissez la section **Détails de la référence** sur le formulaire suivant :
-
-   ![Fournir une nouvelle référence (SKU)](./media/publish-marketplace-app/sku-settings.png)
 
    Renseignez les champs suivants :
 
@@ -110,14 +94,9 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
    * **Description** : saisissez une description détaillée de la référence (SKU).
    * **SKU Type** (Type de référence) - Les valeurs autorisées sont *Managed Application* (Application gérée) et *Solution Templates* (Modèles de solution). Dans le cas présent, sélectionnez *Managed Application* (Application gérée).
    * **Disponibilité par pays/région** : sélectionnez les pays où l’application managée est disponible.
-
-      ![Sélectionner les pays](./media/publish-marketplace-app/select-country.png)
-
    * **Tarification** : spécifiez un prix pour la gestion de l’application. Sélectionnez les pays disponibles avant de définir le prix.
 
 1. Ajoutez un nouveau package. Remplissez la section **Détails du package** sur le formulaire suivant :
-
-   ![Package](./media/publish-marketplace-app/new-package.png)
 
    Renseignez les champs suivants :
 

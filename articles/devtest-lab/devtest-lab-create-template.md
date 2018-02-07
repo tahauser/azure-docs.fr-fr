@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Créer une image personnalisée à partir d’un fichier de disque dur virtuel
 
@@ -57,7 +57,16 @@ La procédure suivante décrit comment créer une image personnalisée à partir
 
 1. Sélectionnez un **disque dur virtuel** dans le menu déroulant. Il s’agit du disque dur virtuel qui sera utilisé pour créer la nouvelle image personnalisée. Si nécessaire, sélectionnez pour **Upload a VHD using PowerShell** (Télécharger un disque dur virtuel à l’aide de PowerShell).
 
-1. Vous pouvez également entrer un nom de plan, une offre de plan et un éditeur de plan si l’image utilisée pour créer l’image personnalisée n’est pas publiée par Microsoft.
+1. Vous pouvez également entrer un nom de plan, une offre de plan et un éditeur de plan si l’image utilisée pour créer l’image personnalisée n’est pas une image sous licence (publiée par Microsoft).
+
+   - **Nom du plan :** entrez le nom de l’image de la Place de marché (SKU) à partir de laquelle cette image personnalisée est créée. 
+   - **Offre du plan :** entrez le produit (offre) de l’image de la Place de marché à partir de laquelle cette image personnalisée est créée. 
+   - **Éditeur du plan :** entrez l’éditeur de l’image de la Place de marché à partir de laquelle cette image personnalisée est créée.
+
+   > [!NOTE]
+   > Si l’image que vous utilisez pour créer une image personnalisée n’est **pas** une image sous licence, ces champs sont vides et peuvent être renseignés si vous le choisissez. Si l’image **est** une image sous licence, les champs sont renseignés automatiquement avec les informations du plan. Si vous essayez de les modifier, un message d’avertissement s’affiche.
+   >
+   >
 
 1. Cliquez sur **OK** pour créer l’image personnalisée.
 

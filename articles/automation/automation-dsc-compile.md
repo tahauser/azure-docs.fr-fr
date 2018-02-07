@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilation de configurations dans Azure Automation DSC
 
@@ -299,7 +299,7 @@ Pour apprendre à signer des configurations de nœuds, consultez le site https:/
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importation d’une configuration de nœuds dans le portail Azure
 
-1. Dans votre compte Automation, cliquez sur **Configurations de nœuds DSC**.
+1. Dans votre compte Automation, cliquez sur **Configurations de nœuds DSC** sous **Gestion de la configuration**.
 
     ![Configurations de nœuds DSC](./media/automation-dsc-compile/node-config.png)
 2. Dans le panneau **Configurations de nœuds DSC**, cliquez sur **Ajouter une configuration de nœuds**.

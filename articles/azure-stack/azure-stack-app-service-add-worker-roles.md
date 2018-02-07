@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service sur Azure Stack : ajouter des rôles d’infrastructure ou de travail
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
 
 Ce document fournit des instructions sur la mise à l’échelle d’App Service sur des rôles d’infrastructure et de travail Azure Stack. Il contient les étapes de création de rôles de travail supplémentaires pour prendre en charge des applications de n’importe quelle taille.
 
@@ -40,15 +41,15 @@ Ajouter des Workers supplémentaires directement à partir de l’administrateur
 2. Parcourir **App Services**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Cliquez sur **Rôles**. La répartition de tous les rôles App Service déployés s’affiche ici.
 
 4. Cliquez avec le bouton droit sur la ligne du type que vous voulez mettre à l’échelle, puis cliquez sur **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Cliquez sur **Mise à l’échelle**, sélectionnez le nombre d’instances vers lequel vous voulez faire la mise à l’échelle, puis cliquez sur **Enregistrer**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. App Service sur Azure Stack ajoute ensuite les machines virtuelles supplémentaires, les configure, installe tous les logiciels requis et les marque comme Prêt lorsque ce processus est terminé. Ce processus peut prendre environ 80 minutes.
@@ -64,6 +65,6 @@ Une fois qu’ils sont entièrement déployés et prêts, les utilisateurs peuve
 
 Pour la montée en charge des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés comme groupes de machines virtuelles identiques : par conséquent, vous devez déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>étapes suivantes
 
 [Configurer des sources de déploiement](azure-stack-app-service-configure-deployment-sources.md)

@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-new-storage-account"></a>Création d’un nouveau compte de stockage
+# <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Un compte de stockage Azure fournit un espace de noms unique dans le cloud pour stocker vos objets de données dans le stockage Azure et y accéder. Un compte de stockage contient des objets blob, des fichiers, des files d’attente, des tables et des disques que vous créez sous ce compte. 
 
@@ -120,7 +120,7 @@ $location = "westus"
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
 
-Pour créer un groupe de ressources avec Azure CLI, utilisez la commande [az group create](/cli/azure/group#create). 
+Pour créer un groupe de ressources avec Azure CLI, utilisez la commande [az group create](/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive
 az group create \
@@ -128,7 +128,7 @@ az group create \
     --location westus
 ```
 
-Si vous ne savez pas quelle région spécifier pour le paramètre `--location`, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](/cli/azure/account#list).
+Si vous ne savez pas quelle région spécifier pour le paramètre `--location`, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account list-locations \
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Créer un compte de stockage à usage général
+## <a name="create-a-general-purpose-storage-account"></a>Créer un compte de stockage à usage général
 
-Un compte de stockage à usage général fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente et tables. Un compte de stockage à usage général peut être créé dans un niveau premium ou standard. Les exemples de cet article montrent comment créer un compte de stockage à usage général dans le niveau standard (valeur par défaut). Pour plus d’informations sur les options de compte de stockage, consultez la page [Introduction au Stockage Microsoft Azure](storage-introduction.md).
+Un compte de stockage à usage général fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente et tables. Un compte de stockage à usage général peut être créé dans un niveau premium ou standard. Les exemples de cet article montrent comment créer un compte de stockage à usage général dans le niveau standard (valeur par défaut).
+
+Le stockage Azure propose deux types de compte de stockage à usage général :
+
+- Les comptes de stockage à usage général v2 
+- Les comptes de stockage à usage général v1 
+
+> [!NOTE]
+> Il est recommandé de créer des comptes de stockage en tant que **comptes à usage général v2** afin de tirer parti des nouvelles fonctionnalités disponibles pour ces comptes.  
+
+Pour plus d’informations sur les types de compte de stockage, consultez l’article [Options de compte de stockage Azure](storage-account-options.md).
 
 Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de stockage :
 
@@ -149,43 +159,72 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 
 # <a name="portaltabportal"></a>[Portail](#tab/portal)
 
-Pour créer un compte de stockage à usage général dans le portail Azure, procédez comme suit :
+Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
 
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Plus de services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
 2. Entrez un nom pour votre compte de stockage.
-3. Laissez ces champs définis sur leurs valeurs par défaut : **Modèle de déploiement**, **Type de compte**, **Performances**, **Réplication**, **Transfert sécurisé requis**.
-4. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
-5. Dans la section **Groupe de ressources**, sélectionnez **Use existing** (Utiliser l’existant), puis choisissez le groupe de ressources que vous avez créé dans la section précédente.
-6. Choisissez l’emplacement de votre nouveau compte de stockage.
-7. Cliquez sur **Créer** pour créer le compte de stockage.      
+3. Définissez le champ **Type de compte** sur **StorageV2 (usage général v2)**.
+4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (préversion ZRS)**, **Stockage géo-redondant (GRS)** ou **Stockage géo-redondant avec accès en lecture (RA-GRS)**.
+5. Laissez ces champs définis sur leurs valeurs par défaut : **Modèle de déploiement**, **Performances** et **Transfert sécurisé requis**.
+6. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
+7. Dans la section **Groupe de ressources**, sélectionnez **Use existing** (Utiliser l’existant), puis choisissez le groupe de ressources que vous avez créé dans la section précédente.
+8. Choisissez l’emplacement de votre nouveau compte de stockage.
+9. Cliquez sur **Créer** pour créer le compte de stockage.      
 
 ![Capture d’écran montrant la création du compte de stockage dans le portail Azure](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Pour créer un compte de stockage à usage général à partir de PowerShell, utilisez la commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) : 
+Pour créer un compte de stockage à usage général v2 à partir de PowerShell avec l’option Stockage localement redondant (LRS), utilisez la commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) : 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (préversion ZRS), Stockage géo-redondant (GRS) ou Stockage géo-redondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
+
+|Option de réplication  |Paramètre SkuName  |
+|---------|---------|
+|Stockage localement redondant (LRS)     |Standard_LRS         |
+|Stockage redondant dans une zone (ZRS)     |Standard_ZRS         |
+|Stockage géo-redondant (GRS)     |Standard_GRS         |
+|Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
 
-Pour créer un compte de stockage à usage général à partir d’Azure CLI, utilisez la commande [az storage account create](/cli/azure/storage/account#create).
+Pour créer un compte de stockage à usage général v2 à partir d’Azure CLI avec l’option Stockage localement redondant, utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (préversion ZRS), Stockage géo-redondant (GRS) ou Stockage géo-redondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **sku**. 
+
+|Option de réplication  |Paramètre sku  |
+|---------|---------|
+|Stockage localement redondant (LRS)     |Standard_LRS         |
+|Stockage redondant dans une zone (ZRS)     |Standard_ZRS         |
+|Stockage géo-redondant (GRS)     |Standard_GRS         |
+|Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> L’option [Stockage redondant dans une zone](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) est actuellement en préversion et disponible uniquement dans les zones suivantes :
+>    - Est des États-Unis 2
+>    - Centre des États-Unis
+>    - France-Centre (cette zone est actuellement en préversion. Consultez [Préversion de Microsoft Azure avec des zones de disponibilité Azure désormais ouvertes en France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) pour demander l’accès.)
+    
+Pour plus d’informations sur les différentes options de réplication disponibles, consultez l’article [Storage replication options](storage-redundancy.md) (Options de réplication de stockage).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -209,7 +248,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
 
-Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [az group delete](/cli/azure/group#delete).
+Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

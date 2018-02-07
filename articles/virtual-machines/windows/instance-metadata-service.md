@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -53,7 +53,7 @@ Le service de métadonnées Instance fait l’objet d’une gestion de version. 
 > [!NOTE] 
 > Les préversions précédentes des événements planifiés prenaient en charge {dernière version} en tant que version de l’api. Ce format n’est plus pris en charge et sera déconseillé à l’avenir.
 
-Au fur et à mesure que nous ajoutons des versions plus récentes, les versions antérieures sont toujours accessibles pour des questions de compatibilité si vos scripts ont des dépendances sur des formats de données spécifiques. Notez cependant que la préversion précédente (2017-03-01) ne sera peut-être pas disponible lors de la mise à la disposition générale du service.
+Au fur et à mesure que des versions plus récentes sont ajoutées, les versions antérieures sont toujours accessibles pour des questions de compatibilité si vos scripts ont des dépendances sur des formats de données spécifiques. Notez cependant que la préversion précédente (2017-03-01) ne sera peut-être pas disponible lors de la mise à la disposition générale du service.
 
 ### <a name="using-headers"></a>Utilisation d’en-têtes
 Quand vous interrogez le service de métadonnées d’instance, vous devez fournir l’en-tête `Metadata: true` pour garantir que la demande n’a pas été redirigée involontairement.
@@ -62,7 +62,7 @@ Quand vous interrogez le service de métadonnées d’instance, vous devez fourn
 
 Les métadonnées Instance sont disponibles pour l’exécution de machines virtuelles créées/gérées à l’aide [d’Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Accédez à toutes les catégories de données pour une instance de machine virtuelle à l’aide de la demande suivante :
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | Format de données par défaut | Autres formats
 
 Pour accéder à un format de réponse autre que le format par défaut, spécifiez le format demandé en tant que paramètre de chaîne de requête dans la demande. Par exemple :
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Sécurité
 Le point de terminaison du service de métadonnées d’instance est accessible uniquement à partir de l’instance de machine virtuelle active sur une adresse IP non routable. En outre, toute demande contenant un en-tête `X-Forwarded-For` est rejetée par le service.
-Nous exigeons également que toute demande contienne un en-tête `Metadata: true` garantissant que la demande est réellement intentionnelle et ne fait pas partie d’une redirection involontaire. 
+Toute demande doit contenir un en-tête `Metadata: true` garantissant que la demande est réellement intentionnelle et ne fait pas partie d’une redirection involontaire. 
 
 ### <a name="error"></a>Error
 S’il existe un élément de données introuvable ou une requête mal formée, le service de métadonnées d’instance retourne des erreurs HTTP standard. Par exemple :
@@ -109,7 +109,7 @@ Code d’état HTTP | Motif
 
 **Requête**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Récupération de l’adresse IP publique
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Requête**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Les métadonnées d’instance peuvent être récupérées dans Windows via l’utilitaire Powershell `curl` : 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Ou via l’applet de commande `Invoke-RestMethod` :
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -302,7 +302,7 @@ subnet/address | Adresse de sous-réseau de la machine virtuelle | 2017-04-02
 subnet/prefix | Préfixe de sous-réseau, par exemple 24 | 2017-04-02 
 ipv6/ipAddress | Adresse IPv6 locale de la machine virtuelle | 2017-04-02 
 macAddress | Adresse MAC de la machine virtuelle | 2017-04-02 
-scheduledevents | Actuellement en préversion publique. Voir [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | Actuellement disponible en préversion publique. Consultez [Événements planifiés](scheduled-events.md). | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemples de scénarios d’utilisation  
 
@@ -312,7 +312,7 @@ En tant que fournisseur de service, vous aurez peut-être besoin de suivre le no
 
 **Requête**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ Vous pouvez interroger ces données directement via le service de métadonnées 
 
 **Requête**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ En tant que fournisseur de services, vous recevrez peut-être un appel du suppor
 
 **Requête**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -393,7 +393,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 1. J’obtiens l’erreur `400 Bad Request, Required metadata header not specified`. Qu’est-ce que cela signifie ?
    * Le service de métadonnées d’instance requiert que l’en-tête `Metadata: true` soit transmis dans cette demande. La transmission de cet en-tête dans l’appel REST permet d’accéder au service de métadonnées d’instance. 
 2. Pourquoi je n’obtiens pas les informations de calcul pour ma machine virtuelle ?
-   * Actuellement, le service de métadonnées d’instance prend uniquement en charge les instances créées avec Azure Resource Manager. À l’avenir, il se peut que nous ajoutions la prise en charge de machines virtuelles du service cloud.
+   * Actuellement, le service de métadonnées d’instance prend uniquement en charge les instances créées avec Azure Resource Manager. À l’avenir, il se peut que la prise en charge des machines virtuelles du service cloud soit ajoutée.
 3. J’ai créé une machine virtuelle via Azure Resource Manager il y quelque temps déjà. Pourquoi ne puis-je pas voir les informations de métadonnées de calcul ?
    * Pour les machines virtuelles créées après septembre 2016, ajoutez une [balise](../../azure-resource-manager/resource-group-using-tags.md) pour commencer à voir les métadonnées de calcul. Pour une machine virtuelle plus ancienne (créée avant septembre 2016), ajoutez/supprimez des extensions ou des disques de données à la machine virtuelle pour actualiser les métadonnées.
 4. Je ne vois pas toutes les données renseignées pour la nouvelle version 2017-08-01

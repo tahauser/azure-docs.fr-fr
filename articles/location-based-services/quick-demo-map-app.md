@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Lancer une démonstration de recherche interactive sur une carte avec Azure Location Based Services (préversion)
 
@@ -38,13 +38,13 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
     ![Créer un compte Location Based Services dans le portail](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Une fois votre compte créé, ouvrez-le et accédez à ses **Paramètres**. Cliquez sur **Clés** pour obtenir les clés d’abonnement principale et secondaire de votre compte. Copiez la valeur de la **Clé primaire** dans le Presse-papiers local afin de pouvoir l’utiliser dans la section suivante. 
+5. Une fois votre compte créé, ouvrez-le et accédez à ses **Paramètres**. Cliquez sur **Clés** pour obtenir les clés principale et secondaire de votre compte Azure Location Based Services. Copiez la valeur de la **Clé primaire** dans le Presse-papiers local afin de pouvoir l’utiliser dans la section suivante. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Télécharger l’application de démonstration pour Azure Maps
 
 1. Téléchargez ou copiez le contenu du fichier [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Enregistrez le contenu de ce fichier localement en tant que **AzureMapDemo.html** et ouvrez-le dans un éditeur de texte.
-3. Recherchez la chaîne **&#60;insert-key&#62;** et remplacez-la par la valeur de la **Clé primaire** obtenue dans la section précédente. 
+3. Recherchez la chaîne `<insert-key>` et remplacez-la par la valeur de la **Clé primaire** obtenue dans la section précédente. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Lancer l’application de démonstration pour Azure Maps
@@ -64,7 +64,7 @@ Les didacticiels expliquent en détail comment utiliser et configurer Azure Loca
 1. Fermez le navigateur qui exécute l’application web **AzureMapDemo.html**.
 2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre compte LBS. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé votre compte Azure LBS et vous avez lancé une application de démonstration à l’aide de votre compte. Pour découvrir comment créer votre propre application à l’aide des API Azure Location Based Services, passez au didacticiel suivant.
 

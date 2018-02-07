@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Présentation d’iDNS pour Azure Stack
 
@@ -47,7 +47,7 @@ Dans Azure, vous avez la possibilité de spécifier une étiquette de nom DNS po
 
 Dans l’image ci-dessus, Azure crée un enregistrement « A » dans DNS pour l’étiquette du nom DNS spécifiée dans la zone **westus.cloudapp.azure.com**. Le préfixe et le suffixe ensemble représentent un nom de domaine complet (FQDN) pouvant être résolu n’importe où sur le réseau Internet public.
 
-Azure Stack prend en charge iDNS uniquement pour l’enregistrement de noms internes. Dans ce sens, il ne peut pas effectuer les opérations suivantes.
+Azure Stack prend en charge iDNS uniquement pour l’enregistrement de noms internes. Dans ce sens, il ne peut pas effectuer les opérations suivantes :
 
 * Créer un enregistrement DNS dans une zone DNS existante hébergée (par exemple, local.azurestack.external).
 * Créer une zone DNS (par exemple, Contoso.com).

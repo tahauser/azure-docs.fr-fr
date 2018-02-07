@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Utiliser un ACR avec un cluster DC/OS pour déployer votre application
 
@@ -33,7 +33,7 @@ Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az -
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
-Si nécessaire, créez un registre de conteneurs Azure à l’aide de la commande [créer az acr](/cli/azure/acr#create). 
+Si nécessaire, créez un registre de conteneurs Azure à l’aide de la commande [créer az acr](/cli/azure/acr#az_acr_create). 
 
 L’exemple suivant crée un registre avec un nom généré de façon aléatoire. Le registre est également configuré avec un compte d’administrateur à l’aide de `--admin-enabled` l’argument.
 
@@ -190,7 +190,7 @@ Déployez l’application avec le CLI DC/OC.
 dcos marathon app add acrDemo.json
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configurer le contrôleur de domaine/système d’exploitation pour utiliser Azure Container Registry, y compris les tâches suivantes :
 

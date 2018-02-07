@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : appareil Cisco ASA (IKEv2/sans BGP)
 Cet article fournit des exemples de configurations pour la connexion de périphériques Cisco ASA (Adaptive Security Appliance) à des passerelles VPN Azure. L’exemple s’applique à des périphériques Cisco ASA qui exécutent IKEv2 sans protocole de passerelle frontière (BGP). 
@@ -34,7 +34,7 @@ Cet article fournit des exemples de configurations pour la connexion de périph�
 | Modèle testé           | ASA 5505                          |
 | Version testée         | 9.2                               |
 | Version IKE            | IKEv2                             |
-| BGP                    | Non                                |
+| BGP                    | Non                                 |
 | Type de passerelle VPN Azure | Passerelle VPN basée sur le routage           |
 |                        |                                   |
 
@@ -98,10 +98,7 @@ Le tableau suivant répertorie les algorithmes et paramètres IPsec/IKE utilisé
 
 * La prise en charge des groupes Diffie-Hellman et PFS au-delà du groupe 5 nécessitent la version 9.x d’ASA.
 
-* La prise en charge du chiffrement IPsec avec AES-GCM et l’intégrité IPsec avec SHA-256, SHA-384 ou SHA-512 exigent la version 9.x d’ASA. Cette exigence de prise en charge s’applique aux derniers périphériques ASA.
-
-    > [!NOTE]
-    > Les modèles de périphérique ASA 5505, 5510, 5520, 5540, 5550 et 5580 ne sont pas pris en charge. Consultez les spécifications de votre périphérique VPN pour vérifier les algorithmes pris en charge pour vos modèles de périphérique VPN et vos versions de microprogramme.
+* La prise en charge du chiffrement IPsec avec AES-GCM et l’intégrité IPsec avec SHA-256, SHA-384 ou SHA-512 exigent la version 9.x d’ASA. Cette exigence de prise en charge s’applique aux derniers périphériques ASA. Au moment de la publication, les modèles ASA 5505, 5510, 5520, 5540, 5550 et 5580 ne prennent pas en charge ces algorithmes. Consultez les spécifications de votre périphérique VPN pour vérifier les algorithmes pris en charge pour vos modèles de périphérique VPN et vos versions de microprogramme.
 
 
 ### <a name="sample-device-configuration"></a>Exemple de configuration de périphérique
@@ -310,5 +307,5 @@ sysopt connection tcpmss 1350
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour configurer des connexions entre différents locaux et entre deux réseaux virtuels en mode actif/actif, consultez [Configurer des passerelles VPN en mode actif/actif](vpn-gateway-activeactive-rm-powershell.md).

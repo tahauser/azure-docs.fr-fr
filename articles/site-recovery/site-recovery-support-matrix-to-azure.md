@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
@@ -116,9 +116,9 @@ Les tableaux suivants récapitulent la prise en charge de la configuration rése
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-Association de cartes réseau | Oui<br/><br/>Non pris en charge lorsque les machines physiques sont répliquées| Oui
-VLAN | Oui | Oui
-IPv4 | Oui | Oui
+Association de cartes réseau | OUI<br/><br/>Non pris en charge lorsque les machines physiques sont répliquées| OUI
+VLAN | OUI | OUI
+IPv4 | OUI | OUI
 IPv6 | Non  | Non 
 
 ### <a name="guest-vm-network-configuration"></a>Configuration du réseau de machines virtuelles invitées
@@ -126,24 +126,24 @@ IPv6 | Non  | Non
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
 Association de cartes réseau | Non  | Non 
-IPv4 | Oui | Oui
+IPv4 | OUI | OUI
 IPv6 | Non  | Non 
-Adresse IP statique (Windows) | Oui | Oui
-Adresse IP statique (Linux) | Oui <br/><br/>Les machines virtuelles sont configurées pour utiliser le protocole DHCP lors de la restauration automatique  | Non 
-Plusieurs cartes réseau | Oui | Oui
+Adresse IP statique (Windows) | OUI | OUI
+Adresse IP statique (Linux) | OUI <br/><br/>Les machines virtuelles sont configurées pour utiliser le protocole DHCP lors de la restauration automatique  | Non 
+Plusieurs cartes réseau | OUI | OUI
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuration de réseau des machines virtuelles Azure basculées
 
 **Mise en réseau Azure** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-ExpressRoute | Oui | Oui
-ILB | Oui | Oui
-ELB | Oui | Oui
-Traffic Manager | Oui | Oui
-Plusieurs cartes réseau | Oui | Oui
-Adresse IP réservée | Oui | Oui
-IPv4 | Oui | Oui
-Conserver l’adresse IP source | Oui | Oui
+ExpressRoute | OUI | OUI
+ILB | OUI | OUI
+ELB | OUI | OUI
+Traffic Manager | OUI | OUI
+Plusieurs cartes réseau | OUI | OUI
+Adresse IP réservée | OUI | OUI
+IPv4 | OUI | OUI
+Conserver l’adresse IP source | OUI | OUI
 Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) | Non  | Non 
 
 
@@ -154,43 +154,49 @@ Les tableaux suivants récapitulent la prise en charge de la configuration du st
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques | Non applicable
-SMB 3.0 | Non applicable | Oui
-SAN (ISCSI) | Oui | Oui
-Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui
+NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques | N/A
+SMB 3.0 | N/A | OUI
+SAN (ISCSI) | OUI | OUI
+Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | OUI | OUI
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Configuration du stockage sur serveur physique ou invité
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Oui | Non applicable
-VHD/VHDX | Non applicable | Oui
-Machine virtuelle de 2e génération | Non applicable | Oui
-EFI/UEFI| Non  | Oui
+VMDK | OUI | N/A
+VHD/VHDX | N/A | OUI
+Machine virtuelle de 2e génération | N/A | OUI
+EFI/UEFI| Migration vers Azure pour Windows Server 2012 et versions ultérieures uniquement. </br></br> ** Voir la remarque à la fin du tableau.  | OUI
 Disque de cluster partagé | Non  | Non 
 Disque chiffré | Non  | Non 
-NFS | Non  | Non applicable
+NFS | Non  | N/A
 SMB 3.0 | Non  | Non 
-RDM | Oui<br/><br/> N/A pour les serveurs physiques | Non applicable
-Disque > 1 To | Oui<br/><br/>Jusqu’à 4095 Go | Oui<br/><br/>Jusqu’à 4095 Go
-Disque avec une taille de secteur logique de 4 K et physique de 4 K | Oui | Non prise en charge pour les machines virtuelles de génération 1<br/><br/>Les machines virtuelles de génération 2 ne sont pas prises en charge.
-Disque avec une taille de secteur logique de 4 K et physique de 512 octets | Oui |  Oui
-Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | Oui | Oui
-Espaces de stockage | Non  | Oui
+RDM | OUI<br/><br/> N/A pour les serveurs physiques | N/A
+Disque > 1 To | OUI<br/><br/>Jusqu’à 4095 Go | OUI<br/><br/>Jusqu’à 4095 Go
+Disque avec une taille de secteur logique de 4 K et physique de 4 K | OUI | Non prise en charge pour les machines virtuelles de génération 1<br/><br/>Les machines virtuelles de génération 2 ne sont pas prises en charge.
+Disque avec une taille de secteur logique de 4 K et physique de 512 octets | OUI |  OUI
+Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | OUI | OUI
+Espaces de stockage | Non  | OUI
 Ajout/suppression de disque à chaud | Non  | Non 
-Exclure le disque | Oui | Oui
-Chemins d’accès multiples (MPIO) | Non applicable | Oui
+Exclure le disque | OUI | OUI
+Chemins d’accès multiples (MPIO) | N/A | OUI
 
-**Stockage Azure** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
+> [!NOTE]
+> ** Les machines virtuelles VMware à démarrage UEFI ou serveurs physiques exécutant Windows Server 2012 ou version ultérieure peuvent être migrés vers Azure. Les restrictions suivantes s’appliquent.
+> - Migration vers Azure uniquement. Restauration automatique vers le site VMware local non prise en charge.
+> - 4 partitions maximum sont prises en charge sur le disque du système d’exploitation du serveur.
+> - Requiert la version du service Azure Site Recovery mobilité 9.13 ou version ultérieure.
+
+**Azure Storage** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-LRS | Oui | Oui
-GRS | Oui | Oui
-RA-GRS | Oui | Oui
+LRS | OUI | OUI
+GRS | OUI | OUI
+RA-GRS | OUI | OUI
 Stockage froid | Non  | Non 
 Stockage chaud| Non  | Non 
 Objets blob de blocs | Non  | Non 
-Chiffrement au repos (SSE)| Oui | Oui
-Stockage Premium | Oui | Oui
+Chiffrement au repos (SSE)| OUI | OUI
+Stockage Premium | OUI | OUI
 Service Import/Export | Non  | Non 
 Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) configurés sur le compte de stockage cible ou le compte de stockage de cache utilisé pour stocker les données de réplication | Non  | Non 
 Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non  | Non 
@@ -200,9 +206,9 @@ Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non  | Non
 
 **Fonctionnalité de calcul** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-Groupes à haute disponibilité | Oui | Oui
-HUB | Oui | Oui  
-Disques gérés | Oui | Oui<br/><br/>La restauration automatique locale depuis une machine virtuelle Azure avec disques gérés n’est actuellement pas prise en charge.
+Groupes à haute disponibilité | OUI | OUI
+HUB | OUI | OUI  
+Disques gérés | OUI | OUI<br/><br/>La restauration automatique locale depuis une machine virtuelle Azure avec disques gérés n’est actuellement pas prise en charge.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Configuration requise des machines virtuelles Azure basculées
 

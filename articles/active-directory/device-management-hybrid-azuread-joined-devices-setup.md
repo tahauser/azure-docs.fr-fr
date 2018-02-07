@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -41,7 +41,7 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
 
 ### <a name="windows-current-devices"></a>Appareils Windows actuels
 
-- Pour les appareils qui exécutent le système d’exploitation d’ordinateur Windows, nous recommandons d’utiliser Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. 
+- Pour les appareils qui fonctionnent avec le système d’exploitation d’ordinateur Windows, la version prise en charge est la Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. 
 - L’inscription des appareils Windows actuels **est** prise en charge dans les environnements non fédérés tels que les configurations de synchronisation du hachage de mot de passe.  
 
 
@@ -58,7 +58,7 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Avant de commencer à activer des appareils hybrides joints à Azure AD dans votre organisation, vous devez vous assurer que vous exécutez une version à jour d’Azure AD Connect.
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Toutes les machines virtuelles étant configurées de la même façon, les groupes identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun pré-approvisionnement de machine virtuelle n’est nécessaire). Ainsi, il est plus facile de créer des services à grande échelle pour le Big Compute, les données volumineuses et les charges de travail en conteneurs.
@@ -35,10 +35,7 @@ Regardez ces vidéos pour en savoir plus sur les groupes identiques :
 ## <a name="creating-and-managing-scale-sets"></a>Création et gestion des groupes identiques
 Vous pouvez créer un groupe identique sur le [Portail Azure](https://portal.azure.com) en sélectionnant **Nouveau** et en tapant **identique** dans la barre de recherche. **Groupe de machines virtuelles identiques** apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. Vous pouvez également configurer les règles de mise à l’échelle automatique de base en fonction de l’utilisation du processeur. Pour gérer votre groupe identique, vous pouvez utiliser le portail Azure, les [cmdlets Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou Azure CLI 2.0.
 
-Les groupes identiques peuvent être déployés dans une [zone de disponibilité](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> Actuellement, les groupes de machines virtuelles identiques ne prennent en charge que le déploiement dans une seule zone de disponibilité. Le déploiement dans plusieurs zones sera pris en charge prochainement.
+Les groupes identiques peuvent être déployés dans des [zones de disponibilité](virtual-machine-scale-sets-use-availability-zones.md).
 
 Vous pouvez définir et déployer des groupes identiques à l’aide de modèles JSON et d’[API REST](https://msdn.microsoft.com/library/mt589023.aspx), tout comme des machines virtuelles Azure Resource Manager individuelles. Par conséquent, vous pouvez utiliser toute méthode de déploiement standard d’Azure Resource Manager. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,7 +49,7 @@ Pour conserver la cohérence des performances d’applications, vous pouvez augm
 
 Pour des règles de mise à l’échelle automatique de base, vous pouvez utiliser les indicateurs de performance basés sur les hôtes tels que l’utilisation UC, ou le disque E/S. Ces indicateurs basés sur les hôtes sont disponibles automatiquement, sans agents ni extensions supplémentaires à installer ou configurer. Les règles de mise à l’échelle qui utilisent des indicateurs basés sur les hôtes peuvent être créées avec l’un des outils suivants :
 
-- [Portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -94,7 +91,7 @@ Si vous souhaitez afficher ou modifier la définition JSON sous-jacente d’une 
 Cette section répertorie quelques scénarios de groupe identique classiques. Certains services Azure de niveau supérieur (comme Batch, Service Fabric, Container Service) utilisent également ces scénarios.
 
 * **Utiliser RDP ou SSH pour se connecter à des instances de groupe identique** : un groupe identique est créé dans un réseau virtuel et les machines virtuelles individuelles du groupe ne reçoivent pas d’adresses IP publiques par défaut. Cette stratégie évite la surcharge de gestion et de coût liée à l’attribution d’adresses IP publiques distinctes sur tous les nœuds dans la grille de calcul. Si vous avez besoin de connexions externes directes vers les machines virtuelles d’un groupe identique, vous pouvez configurer un groupe de sorte qu’il affecte automatiquement des adresses IP publiques aux nouvelles machines virtuelles. Vous pouvez également vous connecter à ces machines virtuelles à partir d’autres ressources dans votre réseau virtuel, par exemple les équilibreurs de charge et les machines virtuelles autonomes, auxquels vous pouvez allouer des adresses IP publiques. 
-* **Se connecter à des machines virtuelles à l’aide de règles NAT** – Vous pouvez créer une adresse IP publique, l’affecter à un équilibreur de charge, puis définir un pool de règles NAT entrantes. Ces actions mappent les ports de l’adresse IP sur un port de machine virtuelle, dans le groupe identique. Par exemple :
+* **Se connecter à des machines virtuelles à l’aide de règles NAT** – Vous pouvez créer une adresse IP publique, l’affecter à un équilibreur de charge, puis définir un pool de règles NAT entrantes. Ces actions mappent les ports de l’adresse IP sur un port de machine virtuelle, dans le groupe identique. Par exemple : 
   
   | Source | Port source | Destination | Port de destination |
   | --- | --- | --- | --- |

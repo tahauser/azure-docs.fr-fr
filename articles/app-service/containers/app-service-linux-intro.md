@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Présentation d’Azure App Service sur Linux
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/25/2017
 
 App Service sur Linux prend en charge de nombreuses images intégrées afin d’augmenter la productivité des développeurs. Si le runtime nécessaire à votre application n’est pas pris en charge dans les images intégrées, il existe des instructions sur la façon de [créer votre propre image Docker](tutorial-custom-docker-image.md) en vue de son déploiement sur Web App pour conteneurs.
 
-| language | Versions prises en charge |
+| Langage | Versions prises en charge |
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
@@ -73,9 +73,9 @@ Certaines fonctionnalités, telles que l’intégration de réseau virtuel, l’
 App Service sur Linux n’est pris en charge que par les plans App Service [De base et Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) et ne dispose pas d’un niveau [Gratuit ou Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). Voici d’autres restrictions importantes concernant App Service sur Linux :
 
 * Il n’est pas possible de créer des applications Web App for Containers dans un plan App Service qui héberge déjà des applications web autres que Linux.
-* Quand vous créez des applications Web App for Containers dans un groupe de ressources contenant des applications web autres que Linux, vous devez créer un plan App Service dans une région autre que celle du plan App Service existant.
+* Quand vous créez des applications Web App for Containers dans un groupe de ressources contenant des applications web autres que Linux, vous devez créer un plan App Service dans un groupe de ressources autre que celui du plan App Service existant.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP.
 Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation de conteneur Docker** sous **Journaux de diagnostic**.
@@ -86,7 +86,7 @@ Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez a
 
 Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu **Outils de développement**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

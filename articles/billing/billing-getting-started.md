@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -143,7 +143,7 @@ Utilisez nos API de facturation pour obtenir les données d’utilisation par pr
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clients EA, CSP et Sponsoring
 Contactez votre responsable de compte ou votre partenaire Azure pour commencer.
 
-| Offer | les ressources |
+| Offre | Ressources |
 |-------------------------------|-----------------------------------------------------------------------------------|
 | Contrat Entreprise (EA) | [Portail EA](https://ea.azure.com/), [documents d’aide](https://ea.azure.com/helpdocs), et [Rapport Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Fournisseur de solutions cloud (CSP) | Contactez votre fournisseur |
@@ -157,6 +157,7 @@ Les vues des coûts d’entreprise sont actuellement en préversion publique. É
 - Les coûts d’abonnement sont basés sur l’utilisation et ne tiennent pas compte des montants prépayés, dépassements, quantités incluses, ajustements et taxes. Les frais réels sont calculés au niveau de l’inscription. 
 - Les montants affichés dans le portail Azure peuvent être différés par rapport aux valeurs indiquées dans le portail d’entreprise.  
 - Si vous ne voyez pas les coûts, l’une des raisons suivantes peut expliquer cette situation :
+    - Vous ne disposez pas de l’autorisation RBAC suffisante au niveau de l’abonnement. Pour afficher les vues de coût d’entreprise, vous devez être un lecteur de facturation, un lecteur, un contributeur ou un propriétaire au niveau de l’abonnement.
     - Vous êtes propriétaire de compte et votre administrateur en charge de l’inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de compte ».  Contactez l’administrateur en charge de votre inscription pour obtenir l’accès aux coûts. 
     - Vous êtes administrateur de service et l’administrateur de votre inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de service ».  Contactez l’administrateur en charge de votre inscription pour obtenir l’accès. 
     - Vous avez acheté Azure par le biais d’un partenaire et ce dernier n’a pas publié d’informations tarifaires.  

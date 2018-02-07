@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
 Cet article décrit les options de sécurisation de votre hub IoT. IoT Hub utilise des *autorisations* pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
 
-Cet article explique :
+Cet article aborde les points suivants :
 
 * Les différentes autorisations que vous pouvez accorder à une application d’appareil ou de serveur principal pour accéder à votre hub IoT.
 * Le processus d’authentification et les jetons qu’il utilise pour vérifier les autorisations.
@@ -87,7 +87,7 @@ Dans les deux cas, le champ de mot de passe contient le jeton, comme le décrit 
 
 Le protocole HTTPS implémente l’authentification en incluant un jeton valide dans l’en-tête de requête **Authorization**.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>exemples
 
 Nom d’utilisateur (DeviceId respecte la casse) : `iothubname.azure-devices.net/DeviceId`
 
@@ -130,7 +130,7 @@ Le jeton de sécurité présente le format suivant :
 
 Voici les valeurs attendues :
 
-| Valeur | Description |
+| Valeur | DESCRIPTION |
 | --- | --- |
 | {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256. |
 | {resourceURI} |Préfixe URI (par segment) des points de terminaison qui sont accessibles avec ce jeton, en commençant par le nom d’hôte IoT Hub (sans protocole). Par exemple, `myHub.azure-devices.net/devices/device1` |
@@ -193,7 +193,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 La fonctionnalité en C# pour générer un jeton de sécurité est la suivante :
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;
@@ -268,7 +268,7 @@ Le résultat, qui accorde l’accès à toutes les fonctionnalités de device1, 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Il est possible de générer un jeton SAP à l’aide de l’outil [Explorateur d’appareils][lnk-device-explorer] .NET ou de l’utilitaire de ligne de commande multiplateforme et basé sur des nœuds [iothub-explorer][lnk-iothub-explorer].
+> Il est possible de générer un jeton SAS à l’aide de l’outil [Explorateur d’appareils][lnk-device-explorer] .NET ou de l’utilitaire de ligne de commande multiplateforme et basé sur Python [Extension IoT pour Azure CLI 2.0][lnk-IoT-extension-CLI-2.0].
 
 ### <a name="use-a-shared-access-policy"></a>Utilisation d’une stratégie d’accès partagé
 
@@ -416,7 +416,7 @@ Pour qu’un appareil se connecte à votre hub, vous devez l’ajouter au regist
 
 Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Ce modèle est recommandé car il laisse IoT Hub gérer la plupart du trafic de la solution. Toutefois, si l’entrelacement entre le schéma d’authentification personnalisé et le protocole SSL est conséquent, vous aurez peut-être besoin d’une *passerelle personnalisée* pour traiter tout le trafic. [Le protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, consultez l’article [Passerelle de protocole][lnk-protocols].
 
-## <a name="reference-topics"></a>Rubriques de référence :
+## <a name="reference-topics"></a>Rubriques de référence :
 
 Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur le contrôle de l’accès à votre hub IoT.
 
@@ -424,7 +424,7 @@ Les rubriques de référence suivantes vous fournissent des informations supplé
 
 Le tableau suivant répertorie les autorisations que vous pouvez utiliser pour contrôler l’accès à votre IoT Hub.
 
-| Autorisation | Remarques |
+| Autorisation | Notes |
 | --- | --- |
 | **RegistryRead**. |Accorde l’accès en lecture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. <br/>Cette autorisation est utilisée par les services cloud principaux. |
 | **RegistryReadWrite**. |Accorde l’accès en lecture et en écriture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. <br/>Cette autorisation est utilisée par les services cloud principaux. |
@@ -441,7 +441,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous savez comment contrôler l’accès à IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
@@ -487,7 +487,7 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

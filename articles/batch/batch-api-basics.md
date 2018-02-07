@@ -3,8 +3,8 @@ title: "Vue d’ensemble d’Azure Batch pour développeurs | Microsoft Docs"
 description: "Découvrez les fonctionnalités du service Batch et de ses API du point de vue du développeur."
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -242,7 +242,7 @@ La planification de travail entre pools est indépendante. Entre des pools diff�
 ### <a name="scheduled-jobs"></a>Scheduled jobs
 Les [planifications de travaux][rest_job_schedules] vous permettent de créer des travaux périodiques au sein du service Batch. Une planification de travail indique le moment où exécuter des tâches et les spécifications des travaux à exécuter. Vous pouvez spécifier la durée de la planification (durée proprement dite et date d’entrée en vigueur de la planification), ainsi que la fréquence de création des travaux au cours de la période de planification.
 
-## <a name="task"></a>Task
+## <a name="task"></a>Tâche
 Une tâche est une unité de calcul associée à un travail. Elle s’exécute sur un nœud. Les tâches sont affectées à un nœud afin d’être exécutées ou sont mises en file d’attente jusqu’à ce qu’un nœud soit disponible. Une tâche exécute un ou plusieurs programmes ou scripts sur un nœud de calcul afin d’effectuer le travail nécessaire.
 
 Lorsque vous créez une tâche, vous pouvez spécifier les éléments suivants :
@@ -263,7 +263,7 @@ Lorsque vous créez une tâche, vous pouvez spécifier les éléments suivants :
 * Une référence d’**image de conteneur** dans Docker Hub ou bien un registre privé et des paramètres supplémentaires pour créer un conteneur Docker dans lequel la tâche s’exécute sur le nœud. Vous spécifiez uniquement ces informations si le pool est configuré avec une configuration de conteneur.
 
 > [!NOTE]
-> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 7 jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
+> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 7 jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 
 Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
 
@@ -501,7 +501,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
 * Passez en revue un exemple d’application Batch détaillée dans [Prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md). Il existe également une [version Python](batch-python-tutorial.md) du didacticiel qui exécute une charge de travail sur des nœuds de calcul Linux.
 * Téléchargez et installez [BatchLabs][batch_labs] pour l’utiliser lors du développement de vos solutions Batch. Utilisez BatchLabs pour aider à créer, déboguer et analyser les applications de Azure Batch. 

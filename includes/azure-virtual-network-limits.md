@@ -31,7 +31,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
 | Interfaces réseau (NIC) |350 |20000 |
 | Groupes de sécurité réseau (NSG) |100 |5 000 |
-| Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |500 |
+| Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |1 000 |
 | Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |2000 |4000 |
 | Groupes de sécurité d’application |200 |500 |
 | Groupes de sécurité d’application par configuration IP, par carte réseau |10 |20 |
@@ -55,7 +55,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Configurations d’adresses IP frontales, De base | 10 | contacter le support |
 | Configurations d’adresses IP frontales, Standard | 10 | 600 |
 | Pool principal, De base | 100, un seul groupe à haute disponibilité | - |
-| Pool principal, Standard | 1000, un seul réseau virtuel | contacter le support |
+| Pool principal, Standard | 1000, un seul réseau virtuel | - |
 | Ports à haute disponibilité, Standard | 1 par serveur frontal interne | - |
 
 Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).

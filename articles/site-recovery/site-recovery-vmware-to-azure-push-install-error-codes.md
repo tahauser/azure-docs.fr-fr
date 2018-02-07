@@ -2,23 +2,18 @@
 title: "Résolution des problèmes Azure Site Recovery depuis VMware vers Azure | Microsoft Docs"
 description: "Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -74,7 +69,7 @@ Cette erreur peut être levée par le service pour plusieurs raisons. Choisissez
 
 **Code d’erreur** | **Causes possibles** | **Recommandations propres à l’erreur**
 --- | --- | ---
-95108 </br>**Message** : échec de l’installation Push du service de mobilité sur la machine source avec le code d’erreur **EP0859**. <br>| Soit les informations d’identification fournies pour installer le service Mobilité sont incorrectes, soit le compte d’utilisateur dispose de privilèges insuffisants <br>| Assurez-vous que les informations d’identification fournies sont les informations d’identification du compte **racine**. Pour [ajouter ou modifier les informations d’identification](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords) de l’utilisateur : accédez au serveur de configuration, puis cliquez sur l’icône de raccourci « Cspsconfigtool » sur le bureau. Cliquez sur « Gérer le compte » pour ajouter/modifier les informations d’identification.|
+95108 </br>**Message** : échec de l’installation Push du service de mobilité sur la machine source avec le code d’erreur **EP0859**. <br>| Soit les informations d’identification fournies pour installer le service Mobilité sont incorrectes, soit le compte d’utilisateur dispose de privilèges insuffisants <br>| Assurez-vous que les informations d’identification fournies sont les informations d’identification du compte **racine**. Pour ajouter ou modifier des informations d’identification de l’utilisateur, accédez au serveur de configuration, puis cliquez sur l’icône de raccourci « Cspsconfigtool » sur le Bureau. Cliquez sur « Gérer le compte » pour ajouter/modifier les informations d’identification.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Erreur 95265 - Impossible d’activer la protection (EP0902)
 
@@ -92,13 +87,14 @@ Cette erreur peut être levée par le service pour plusieurs raisons. Choisissez
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Ressource pour résoudre les problèmes d’installation Push
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Résoudre les problèmes de partage de fichiers et d’impression
-*  [Activer ou désactiver le partage de fichiers avec la stratégie de groupe](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Comment activer le partage de fichiers et d’impression via le pare-feu Windows](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Activer ou désactiver le partage de fichiers avec la stratégie de groupe](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Comment activer le partage de fichiers et d’impression via le pare-feu Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Résoudre les problèmes WMI
 * [Test de base WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [Résolution des problèmes WMI](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Résolution des problèmes avec des scripts et des Services WMI](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [Résolution des problèmes WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Résolution des problèmes avec des scripts et des Services WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
-## <a name="next-steps"></a>Étapes suivantes
-- [Activer la réplication des machines virtuelles VMware](vmware-walkthrough-enable-replication.md)
+## <a name="next-steps"></a>étapes suivantes
+
+[Découvrez comment](tutorial-vmware-to-azure.md) configurer la récupération d’urgence de machines virtuelles VMware.

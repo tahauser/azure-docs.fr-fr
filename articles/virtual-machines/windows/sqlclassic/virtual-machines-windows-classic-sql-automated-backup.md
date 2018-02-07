@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](../sql/virtual-machines-windows-sql-automated-backup.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md)
 > * [Classique](../classic/sql-automated-backup.md)
 > 
 > 
@@ -33,7 +33,7 @@ La sauvegarde automatisée configure automatiquement une [sauvegarde managée su
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version Resource Manager de cet article, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-backup.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -48,9 +48,7 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> SQL Server 2016 n’est pas encore pris en charge pour la sauvegarde automatisée.
-> 
-> 
+> La sauvegarde automatisée pour SQL Server 2016 est prise en charge avec des machines virtuelles Resource Manager. Pour plus d’informations, consultez [Sauvegarde automatisée v2 pour des machines virtuelles Azure SQL Server 2016 (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Configuration de la base de données**:
 
@@ -67,7 +65,7 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 ## <a name="settings"></a>Paramètres
 Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée. Pour les machines virtuelles classiques, vous devez utiliser PowerShell pour configurer ces paramètres.
 
-| Paramètre | Plage (par défaut) | Description |
+| Paramètre | Plage (par défaut) | DESCRIPTION |
 | --- | --- | --- |
 | **Sauvegarde automatisée** |Activer/Désactiver (désactivé) |Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. |
 | **Période de rétention** |1 à 30 jours (30 jours) |Nombre de jours durant lesquels une sauvegarde est conservée. |
@@ -106,7 +104,7 @@ Pour désactiver la sauvegarde automatisée, exécutez le même script sans le p
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 La sauvegarde automatisée configure une sauvegarde managée sur les machines virtuelles Azure. Il est donc important de [lire la documentation relative à la sauvegarde gérée](https://msdn.microsoft.com/library/dn449496.aspx) pour comprendre son comportement et ses implications.
 
 Vous trouverez des conseils supplémentaires pour la sauvegarde et la restauration de SQL Server sur les machines virtuelles Azure dans la rubrique suivante : [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).

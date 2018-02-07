@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -36,9 +36,9 @@ Les actions de script peuvent être appliquées selon les méthodes suivantes :
 
 | Utilisez cette méthode pour appliquer un script... | Pendant la création du cluster... | Sur un cluster en cours d'exécution... |
 | --- |:---:|:---:|
-| Portail Azure |✓  |✓ |
+| Portail Azure |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Interface de ligne de commande Azure |&nbsp; |✓ |
+| Azure CLI |&nbsp; |✓ |
 | Kit de développement logiciel (SDK) .NET de HDInsight |✓ |✓ |
 | Modèle Azure Resource Manager |✓ |&nbsp; |
 
@@ -118,7 +118,7 @@ La meilleure pratique consiste à tout télécharger et à tout archiver dans un
 > [!IMPORTANT]
 > Le compte de stockage utilisé doit être le compte de stockage par défaut du cluster ou un conteneur public en lecture seule d’un autre compte de stockage.
 
-Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Il s’agit d’un conteneur public en lecture seule géré par l’équipe de HDInsight.
+Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Cet emplacement est un conteneur public en lecture seule géré par l’équipe de HDInsight.
 
 ### <a name="bPS4"></a>Utiliser des ressources précompilées
 
@@ -156,13 +156,13 @@ HDInsight journalise la sortie de script qui est écrite dans STDOUT et STDERR. 
 > [!NOTE]
 > Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour découvrir d’autres façons d’accéder aux informations de journalisation.
 
-La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple :
+La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple : 
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Par défaut, `echo` envoie la chaîne vers STDOUT. Pour la diriger vers STDERR, ajoutez `>&2` avant `echo`. Par exemple :
+Par défaut, `echo` envoie la chaîne vers STDOUT. Pour la diriger vers STDERR, ajoutez `>&2` avant `echo`. Par exemple : 
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -230,7 +230,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 Les programmes d’assistance suivants disponibles pour une utilisation dans votre script :
 
-| Utilisation de l’aide | Description |
+| Utilisation de l’aide | DESCRIPTION |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Télécharge un fichier de l’URI source vers le chemin d’accès de fichier spécifié. Par défaut, il ne remplace pas un fichier existant. |
 | `untar_file TARFILE DESTDIR` |Extrait un fichier tar (à l’aide de `-xf`,) dans le répertoire de destination. |
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Liste de vérification pour le déploiement d'une action de script
 
-Voici les étapes à suivre avant de déployer des scripts :
+Voici les étapes à suivre avant de déployer un script :
 
 * Placez les fichiers qui contiennent les scripts personnalisés dans un emplacement accessible aux nœuds du cluster lors du déploiement. Par exemple, l’emplacement de stockage par défaut du cluster. Les fichiers peuvent également être stockés dans les services d’hébergement lisibles publiquement.
 * Vérifiez que le script est impotent. Ainsi, le script peut être exécuté plusieurs fois sur le même nœud.
@@ -341,7 +341,7 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 * [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Installer ou mettre à niveau Mono sur les clusters HDInsight](hdinsight-hadoop-install-mono.md)
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Voici les erreurs que vous pouvez rencontrer lorsque vous utilisez les scripts que vous avez développé :
 
@@ -356,7 +356,7 @@ Ce problème se produit souvent lorsque le script est créé dans un environneme
 > [!NOTE]
 > Les commandes suivantes sont à peu près équivalentes dans la mesure où elles doivent changer les fins de ligne CRLF en LF. Sélectionnez-en une basée sur les utilitaires disponibles sur votre système.
 
-| Commande | Remarques |
+| Commande | Notes |
 | --- | --- |
 | `unix2dos -b INFILE` |Le fichier d’origine est sauvegardé avec une extension .BAK |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE contient une version avec des terminaisons LF uniquement |

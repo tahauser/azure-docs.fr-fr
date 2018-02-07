@@ -1,10 +1,10 @@
 ---
-title: "Démarrage rapide du déploiement du Kit de développement Azure Stack | Microsoft Docs"
-description: "En savoir plus sur le déploiement du Kit de développement Azure Stack"
+title: "Évaluer le Kit de développement Azure Stack | Microsoft Docs"
+description: "En savoir plus sur le déploiement du Kit de développement Azure Stack à des fins d’évaluation."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/10/2017
-ms.author: erikje
+ms.date: 01/22/2018
+ms.author: jeffgilb
 ms.custom: mvc
-ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 4ad2e0a91e2fd5023417722fc0a1a6fae93960d0
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Démarrage rapide du déploiement du Kit de développement Azure Stack
+# <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>Démarrage rapide : préparer le Kit de développement Azure Stack
 
 *S’applique à : Kit de développement Azure Stack*
 

@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Présentation de Services cloud](cloud-services-choose-me.md)
 ## [Création de packages et fichiers de configuration de service cloud](cloud-services-model-and-package.md)
 
@@ -44,12 +44,12 @@
 ### [Se connecter à un contrôleur de domaine personnalisé](cloud-services-connect-to-custom-domain.md)
 
 ## Gérer le service
-### [Atténuation de l’exécution spéculative] (mitigate-se.md}
 ### [Tâches de gestion courantes](cloud-services-how-to-manage-portal.md)
 ### [Configurer le service cloud](cloud-services-how-to-configure-portal.md)
 ### [Gérer un service cloud à l’aide d’Azure Automation](automation-manage-cloud-services.md)
 ### [Configurer la mise à l’échelle automatique](cloud-services-how-to-scale-portal.md)
 ### [Gérer les ressources Azure avec Python](cloud-services-python-how-to-use-service-management.md)
+### [Atténuation de l’exécution spéculative](mitigate-se.md)
 
 ### [Correctifs du SE invité](cloud-services-guestos-msrc-releases.md)
 ### Suppression du SE invité

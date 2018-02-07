@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5ecaa3a79270e29ac002e91065f7df4f7e8914e7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 34b08111863df99dc05a7b269464ce65a916a171
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Mettre à jour une application dans Kubernetes
 
@@ -79,7 +79,7 @@ Accédez à http://localhost:8080 pour afficher l’application en cours d’ex�
 
 Marquez l’image `azure-vote-front` avec le loginServer du registre de conteneurs. 
 
-Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#list).
+Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -105,7 +105,7 @@ Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instan
 kubectl get pod
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -134,7 +134,7 @@ Pour surveiller le déploiement, utilisez la commande [kubectl get pod](https://
 kubectl get pod
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -156,7 +156,7 @@ Accédez à l’adresse IP pour voir l’application mise à jour.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, nous avons mis à jour une application et nous avons déployé cette mise à jour sur un cluster Kubernetes. Les tâches suivantes ont été accomplies :
 

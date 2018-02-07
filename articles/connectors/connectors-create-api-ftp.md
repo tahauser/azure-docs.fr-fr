@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Prise en main du connecteur FTP
 Utilisez le connecteur FTP pour surveiller, gérer et créer des fichiers sur un serveur FTP. 
 
-Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Se connecter à FTP
 Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.  
@@ -35,7 +35,7 @@ Pour que votre application logique puisse accéder à un service, vous devez com
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Utiliser un déclencheur FTP
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > Le connecteur FTP requiert un serveur FTP accessible à partir d’Internet et configuré pour fonctionner en mode PASSIF. En outre, le connecteur FTP **n’est pas compatible avec le protocole FTPS (FTP sur SSL) implicite**. Le connecteur FTP prend uniquement en charge FTPS (FTP sur SSL) en mode explicite.  
@@ -61,7 +61,7 @@ Dans cet exemple, nous allons vous indiquer comment utiliser le déclencheur **F
 > 
 
 ## <a name="use-a-ftp-action"></a>Utiliser une action FTP
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action qui récupérera le contenu du fichier nouveau ou modifié trouvé par le déclencheur.    
 
@@ -86,10 +86,10 @@ L’application logique a également été configurée avec une action destinée
 
 Vous pouvez à présent ajouter une autre action, telle que l’action [SQL Server - Insérer une ligne](connectors-create-api-sqlazure.md), pour insérer le contenu du fichier nouveau ou modifié dans une table de base de données SQL.  
 
-## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/ftpconnector/). 
+Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
+[Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

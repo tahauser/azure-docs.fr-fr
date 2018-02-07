@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
 ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Utilisation du stockage de tables Azure à partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Cette rubrique décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de Table Azure dans une application Node.js.
 
 Les exemples de code de cette rubrique partent du principe que vous disposez déjà d'une application Node.js. Pour plus d’informations sur la création d’une application Node.js dans Azure, consultez les rubriques suivantes :

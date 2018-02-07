@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: Authentification, abonnement et modification du profil .NET Azure Active Directory B2C | Microsoft Docs
 description: "Comment créer une application de bureau Windows comprenant connexion, inscription et gestion de profil à l’aide d’Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.custom: seohack1
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C : création d’une application de bureau Windows
 Avec Azure Active Directory (Azure AD) B2C, vous pouvez ajouter de puissantes fonctionnalités de gestion des identités en libre-service à vos applications de bureau, en seulement quelques étapes. Cet article explique comment créer une application WPF (Windows Presentation Foundation) .NET de type « liste des tâches », qui inclut l’inscription d’utilisateur, la connexion et la gestion de profil. L’application prendra en charge l’inscription et la connexion à l’aide d’un nom d’utilisateur ou d’une adresse e-mail. Elle prendra également en charge l’inscription et la connexion à l’aide d’un compte de réseau social comme Facebook et Google.
@@ -71,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>saisissez les informations B2C
 Ouvrez le fichier `Globals.cs` , puis remplacez chacune des valeurs de propriété par vos propres valeurs. Cette classe est utilisée dans `TaskClient` pour référencer des valeurs couramment utilisées.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -92,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Création de la PublicClientApplication
 La classe principale de la bibliothèque MSAL est `PublicClientApplication`. Cette classe représente votre application dans le système Azure AD B2C. Quand l’application démarre, créez une instance `PublicClientApplication` dans `MainWindow.xaml.cs`. Celle-ci peut être utilisée dans l’ensemble de la fenêtre.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -110,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Lancement d’un flux d'inscription
 Quand un utilisateur choisit de s’inscrire, vous devez lancer un flux d’inscription qui utilise la stratégie d’inscription que vous avez créée. À l’aide de la bibliothèque MSAL, il vous suffit d’appeler `pca.AcquireTokenAsync(...)`. Les paramètres que vous transmettez à `AcquireTokenAsync(...)` déterminent, entre autres, le jeton que vous recevez et la stratégie utilisée dans la demande d’authentification.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -161,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Lancement d’un flux de connexion
 Vous pouvez lancer un flux de connexion de la même façon que vous lancez un flux d’inscription. Quand un utilisateur se connecte, effectuez le même appel à la bibliothèque MSAL, en utilisant cette fois votre stratégie de connexion :
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -176,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Lancement d’un flux de modification de profil
 Là encore, vous pouvez exécuter une stratégie de modification de profil de la même manière :
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -192,7 +193,7 @@ Dans tous ces cas, la bibliothèque MSAL retourne un jeton dans `AuthenticationR
 ### <a name="check-for-tokens-on-app-start"></a>Vérification des jetons sur le démarrage de l’application
 Vous pouvez également utiliser la bibliothèque MSAL pour effectuer le suivi de l’état de connexion de l’utilisateur.  Dans cette application, nous voulons que l’utilisateur reste connecté même après la fermeture et la réouverture de l’application.  Pour le remplacement de `OnInitialized`, utilisez la méthode `AcquireTokenSilent` de la bibliothèque MSAL pour rechercher les jetons mis en cache :
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -231,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Appel de l’API de tâche
 Vous avez maintenant utilisé la bibliothèque MSAL pour exécuter des stratégies et obtenir des jetons.  Si vous souhaitez utiliser un de ces jetons pour appeler l’API de tâche, vous pouvez utiliser à nouveau la méthode `AcquireTokenSilent` de la bibliothèque MSAL pour rechercher les jetons mis en cache :
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -276,7 +277,7 @@ private async void GetTodoList()
 
 Quand l’appel à `AcquireTokenSilentAsync(...)` réussit et qu’un jeton est trouvé dans le cache, vous pouvez ajouter le jeton à l’en-tête `Authorization` de la demande HTTP. L’API web de tâche utilisera cet en-tête pour authentifier la demande afin de lire la liste des tâches de l’utilisateur :
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -289,7 +290,7 @@ Quand l’appel à `AcquireTokenSilentAsync(...)` réussit et qu’un jeton est 
 ## <a name="sign-the-user-out"></a>Déconnexion de l'utilisateur
 Enfin, vous pouvez utiliser la bibliothèque MSAL pour mettre fin à la session d’un utilisateur dans l’application quand l’utilisateur sélectionne **Se déconnecter**.  À l’aide de la bibliothèque MSAL, vous pouvez effectuer cette opération en effaçant tous les jetons du cache de jetons :
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

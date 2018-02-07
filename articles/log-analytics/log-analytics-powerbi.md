@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importation de données Azure Log Analytics dans Power BI
 
@@ -86,12 +86,12 @@ Lorsque vous configurez Power BI avec un [espace de travail Log Analytics exista
 ![Log Analytics vers Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Planifications Power BI
-Une *planification Power BI* inclut une recherche de journal qui exporte un jeu de données du référentiel OMS vers un jeu de données correspondant dans Power BI, ainsi qu’une planification qui définit la fréquence d’exécution de cette recherche afin de maintenir à jour le jeu de données.
+Une *planification Power BI* inclut une recherche dans les journaux qui exporte un jeu de données de Log Analytics vers un jeu de données correspondant dans Power BI, ainsi qu’une planification qui définit la fréquence d’exécution de cette recherche afin de maintenir à jour le jeu de données.
 
 Les champs du jeu de données correspondent aux propriétés des enregistrements renvoyés par la recherche de journal.  Si la recherche renvoie des enregistrements de différents types, le jeu de données inclura toutes les propriétés de chacun des types d’enregistrements inclus.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Connexion de l’espace de travail OMS à Power BI
-Avant de pouvoir exporter des données de Log Analytics vers Power BI, vous devez connecter à votre espace de travail OMS à votre compte Power BI. Pour cela, procédez comme suit :  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Connexion de l’espace de travail Log Analytics à Power BI
+Avant de pouvoir exporter des données de Log Analytics vers Power BI, vous devez connecter votre espace de travail à votre compte Power BI à l’aide de la procédure suivante.  
 
 1. Dans la console OMS, cliquez sur la vignette **Paramètres** .
 2. Sélectionnez **Comptes**.
@@ -106,9 +106,9 @@ Créez une planification Power BI pour chaque jeu de données à l’aide de la 
 3. Cliquez sur le bouton **Power BI** en haut de la page pour ouvrir la boîte de dialogue **Power BI**.
 4. Renseignez les informations du tableau suivant et cliquez sur **Enregistrer**.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
-| Nom |Nom permettant d’identifier la planification dans la liste des planifications Power BI. |
+| NOM |Nom permettant d’identifier la planification dans la liste des planifications Power BI. |
 | Recherche enregistrée |Recherche de journal à exécuter.  Vous pouvez sélectionner la requête en cours ou sélectionner une recherche enregistrée dans la zone de liste déroulante. |
 | Planification |Fréquence d’exécution de la recherche enregistrée et d’exportation des résultats vers le jeu de données Power BI.  La valeur doit être comprise entre 15 minutes et 24 heures. |
 | Nom du jeu de données |Nom du jeu de données dans Power BI.  Ce nom sera créé s’il n’existe pas ; dans le cas contraire, il sera mis à jour. |
@@ -169,6 +169,6 @@ Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’é
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
 * Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux
 
@@ -29,13 +29,13 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
 > [!IMPORTANT]
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur Azure HDInsight version 3.4 ou ultérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * **Un cluster HDInsight**. Consultez la rubrique [Bien démarrer avec Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) pour savoir comment créer un cluster HDInsight basé sur Linux.
 
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md).
 
-* **Interface de ligne de commande Azure**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure 1.0](../cli-install-nodejs.md) pour connaître les étapes à suivre.
+* **Azure CLI**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure 1.0](../cli-install-nodejs.md) pour connaître les étapes à suivre.
 
 ## <a name="download-the-flight-data"></a>Téléchargement des données de vol
 
@@ -43,7 +43,7 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
 
 2. Sur la page, sélectionnez les valeurs suivantes :
 
-   | Nom | Valeur |
+   | NOM | Valeur |
    | --- | --- |
    | Filtre année |2013 |
    | Filtre période |Janvier |
@@ -200,9 +200,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 > Il existe de nombreuses façons de se connecter à la base de données SQL et de créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
 
 
-1. Utilisez le protocole SSH pour vous connecter au cluster HDInsight Linux et exécutez les étapes suivantes à partir de la session SSH.
-
-2. Utilisez la commande suivante pour installer FreeTDS :
+1. Pour installer FreeTDS, utilisez la commande suivante à partir d’une connexion SSH avec le cluster :
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 3. Dès l’installation terminée, utilisez la commande suivante pour vous connecter au serveur SQL Database. Remplacez **serverName** par le nom du serveur de base de données SQL. Remplacez **adminLogin** et **adminPassword** par les informations d’identification de la base de données SQL. Remplacez **databaseName** par le nom de la base de données.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Lorsque vous y êtes invité, entrez le mot de passe de connexion administrateur de SQL Database.
 
     Le résultat ressemble au texte suivant :
 
@@ -251,7 +251,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. Pour quitter l’utilitaire psql, entrez `exit` at the `1>` .
+5. Entrée `exit` at the `1>` .
 
 ## <a name="export-data-with-sqoop"></a>Exportation de données avec Sqoop
 
@@ -286,7 +286,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     Vous devez voir une liste des données dans la table. Tapez `exit` pour quitter l’utilitaire tsql.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour découvrir d’autres façons d’utiliser les données dans HDInsight, consultez les articles suivants :
 

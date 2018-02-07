@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -58,7 +58,7 @@ Une fois que vous avez ajouté une offre, vous devez définir/identifier vos ré
 3. Si vous utilisez des références SKU basées sur Windows, suivez les liens suggérés pour acquérir les versions approuvées de Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Créer un disque dur virtuel compatible avec Azure (Linux)
-Cette section se concerne sur les meilleures pratiques pour la création d’une image de machine virtuelle Linux pour Azure Marketplace. Pour consulter la procédure détaillée, consultez la documentation suivante : [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Cette section se concerne sur les meilleures pratiques pour la création d’une image de machine virtuelle Linux pour Azure Marketplace. Pour une procédure pas à pas, consultez la documentation suivante : [Créer un disque dur virtuel compatible avec Azure (Linux)](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Créer un disque dur virtuel compatible avec Azure (Windows)
 Cette section décrit la procédure de création d’une référence SKU basée sur Windows Server pour Azure Marketplace.
@@ -84,11 +84,11 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 
 1. À partir de la page des images de base, sélectionnez **Créer une machine virtuelle** pour accéder au nouveau [Portail Microsoft Azure][link-azure-portal].
 
-    ![dessin][img-acom-1]
+    ![drawing][img-acom-1]
 2. Connectez-vous au portail en utilisant le compte Microsoft et mot de passe de l’abonnement Azure que vous voulez utiliser.
 3. Suivez les invites pour créer une machine virtuelle à l’aide de l’image de base que vous avez sélectionnée. Vous devez fournir un nom d’hôte (nom de l’ordinateur), un nom d’utilisateur (administrateur inscrit) et un mot de passe correspondant à la machine virtuelle.
 
-    ![dessin][img-portal-vm-create]
+    ![drawing][img-portal-vm-create]
 4. Sélectionnez la taille de la machine virtuelle à déployer :
 
     a.    Si vous envisagez de développer le disque dur virtuel localement, la taille n’a pas d’importance. Vous pouvez utiliser une des machines virtuelles plus petites.
@@ -97,7 +97,7 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 
     c.    Pour plus d’informations sur la tarification, consultez le sélecteur de **niveaux tarifaires recommandés** inclus dans le portail. Celui-ci indique les trois tailles recommandées fournies par l’éditeur (dans ce cas, l’éditeur est Microsoft).
 
-    ![dessin][img-portal-vm-size]
+    ![drawing][img-portal-vm-size]
 5. Définissez les propriétés :
 
     a.    Pour accélérer le déploiement, vous pouvez conserver les valeurs par défaut des propriétés qui figurent sous **Configuration facultative** et **Groupe de ressources**.
@@ -111,8 +111,8 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 
     b.    Si vous envisagez de développer l’image dans Azure, vous pouvez utiliser dès le départ une des régions Microsoft Azure basées aux États-Unis. Ceci permet d’accélérer le processus de copie du disque dur virtuel effectué automatiquement par Microsoft lorsque vous soumettez votre image à des fins de certification.
 
-    ![dessin][img-portal-vm-location]
-7. Cliquez sur **Create**. La machine virtuelle commence à se déployer. L’opération ne dure que quelques minutes. Vous pouvez ensuite commencer à créer l’image pour votre référence SKU.
+    ![drawing][img-portal-vm-location]
+7. Cliquez sur **Créer**. La machine virtuelle commence à se déployer. L’opération ne dure que quelques minutes. Vous pouvez ensuite commencer à créer l’image pour votre référence SKU.
 
 ### <a name="33-develop-your-vhd-in-the-cloud"></a>3.3 Développer votre disque dur virtuel dans le cloud
 Il est vivement recommandé de développer votre disque dur virtuel dans le cloud à l’aide du protocole RDP (Remote Desktop Protocol). Vous pouvez vous connecter au bureau à distance à l’aide des nom d’utilisateur et mot de passe spécifiés pendant l’approvisionnement.
@@ -139,7 +139,7 @@ Pour télécharger un fichier de bureau à distance sur une machine locale, util
 4. Cliquez sur **Propriétés**.
 5. La première portion du nom de domaine est le nom du service. Le nom d’hôte est celui de la machine virtuelle.
 
-    ![dessin][img-portal-vm-rdp]
+    ![drawing][img-portal-vm-rdp]
 6. L’applet de commande qui permet de télécharger le fichier RDP pour la machine virtuelle créée sur le Bureau local de l’administrateur se présente comme suit.
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
@@ -211,13 +211,13 @@ Pour déployer une machine virtuelle à partir d’une image de machine virtuell
 
 1. Accédez à **Nouveau** > **Calcul** > **Machine virtuelle** > **De la galerie**.
 
-    ![dessin][img-manage-vm-new]
+    ![drawing][img-manage-vm-new]
 2. Accédez à **Mes images**, puis sélectionnez l’image de machine virtuelle à partir de laquelle déployer une machine virtuelle :
 
    1. Sélectionnez celle-ci avec soin, car l’affichage **Mes images** répertorie les images de système d’exploitation et les images de machine virtuelle.
    2. L’examen du nombre de disques peut vous aider à déterminer le type d’image que vous déployez, car la majorité des images de machine virtuelle inclut plusieurs disques. Il est toutefois toujours possible d’avoir une image de machine virtuelle avec un seul disque de système d’exploitation dont le **nombre de disques** est défini sur 1.
 
-      ![dessin][img-manage-vm-select]
+      ![drawing][img-manage-vm-select]
 3. Suivez les étapes de l’Assistant de création de machine virtuelle en spécifiant le nom de la machine virtuelle, sa taille, son emplacement, ainsi que les nom d’utilisateur et mot de passe.
 
 **Déployer une machine virtuelle à partir de vos disques durs virtuels**
@@ -299,9 +299,9 @@ Remarque : les instructions suivantes s’appliquent uniquement aux disques non 
 L’URL SAS peut être générée de plusieurs manières pour partager votre disque dur virtuel sur Azure Marketplace.
 Voici les 3 outils recommandés :
 
-1.  Azure Storage Explorer
+1.  Explorateur de stockage Azure
 2.  Explorateur de stockage Microsoft
-3.  Interface de ligne de commande Azure
+3.  Azure CLI
 
 **Azure Storage Explorer (recommandé pour les utilisateurs Windows)**
 
@@ -309,40 +309,40 @@ Voici les étapes pour générer des URL SAS à l’aide d’Azure Storage Explo
 
 1. Téléchargez [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) à partir de CodePlex. Accédez à [Azure Storage Explorer 6 Preview](https://azurestorageexplorer.codeplex.com/), puis cliquez sur **« Téléchargements »**.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_01.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_01.png)
 
 2. Téléchargez [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) et installez après avoir décompressé l’archive.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_02.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_02.png)
 
 3. Après l’installation, ouvrez l’application.
 4. Cliquez sur **Ajouter un compte**.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
 5. Spécifiez le nom du compte de stockage, la clé du compte de stockage et le domaine des points de terminaison de stockage. Il s’agit du compte de stockage dans votre abonnement Azure pour lequel vous avez conservé votre disque dur virtuel sur le portail Azure.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
 6. Une fois qu’Azure Storage Explorer est connecté à votre compte de stockage spécifique, il démarrera pour afficher tout le contenu du compte de stockage. Sélectionnez le conteneur dans lequel vous avez copié le fichier de disque dur virtuel du système d’exploitation (et les disques de données, s’ils s’appliquent à votre scénario).
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
 
 7. Après avoir sélectionné le conteneur d’objets Blobs, Azure Storage Explorer démarrera en affichant les fichiers associés au conteneur. Sélectionnez le fichier image (.vhd) qui doit être soumis.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
 8.  Après avoir sélectionné le fichier .vhd dans le conteneur, cliquez sur l’onglet **Security** (Sécurité).
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
 9.  Dans la boîte de dialogue **Blob Container Security** (Sécurité du conteneur d’objets blob), conservez les valeurs par défaut de l’onglet **Access Level** (Niveau d’accès), puis cliquez sur l’onglet **Shared Access Signatures** (Signatures d’accès partagé).
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
 10. Suivez les étapes ci-dessous pour générer une signature d’accès partagé URI de l’image .vhd :
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
     a. **Accès autorisé à partir de** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
 
@@ -372,7 +372,7 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
 1.  Téléchargez Microsoft Azure Storage Explorer depuis le site web [http://storageexplorer.com/](http://storageexplorer.com/). Accédez à [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) et cliquez sur **Download for Windows**.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
 2.  Après l’installation, ouvrez l’application.
 
@@ -380,17 +380,17 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
 4.  Configurez Microsoft Azure Storage Explorer pour votre abonnement en vous connectant à votre compte
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
 5.  Accédez au compte de stockage et sélectionnez le conteneur
 
 6.  Sélectionnez **« Obtenir la signature de partage d’accès... »** en cliquant avec le bouton droit de la souris sur le **conteneur**
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
 7.  Date de début, date d’expiration et autorisations de la mise à jour comme suit
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
     a.  **Start Time** (Date de début) : Afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
 
@@ -400,7 +400,7 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
 8.  Copiez l’URI de signature d’accès partagé du conteneur
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
     L’URL SAS générée représente le niveau de conteneur, et nous devons maintenant y ajouter le nom du disque dur virtuel.
 
@@ -410,7 +410,7 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
     Exemple :
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
     TestRGVM201631920152.vhd est le nom du disque dur virtuel, alors l’URL SAS du disque dur virtuel sera `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
@@ -460,7 +460,7 @@ Voici les étapes pour générer des URL SAS à l’aide de l’interface de lig
 
     La sortie de la signature SAS suivra. Copiez la partie en surbrillance dans un bloc-notes
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
 6.  Maintenant, vous obtenez l’URL SAS au niveau conteneur et vous devez lui ajouter le nom du disque dur virtuel.
 
@@ -505,7 +505,7 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
 10. Si des disques de données sont associés à cette référence SKU, sélectionnez le numéro d’unité logique que vous voulez utiliser pour le montage de ce disque de données lors du déploiement.
 11. Dans la zone **URL de disque dur virtuel LUN X** entrez la signature d’accès partagé créée pour les données du premier disque dur virtuel.
 
-    ![dessin](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 
 ## <a name="common-sas-url-issues--fixes"></a>Problèmes communs avec les URL SAS et résolution

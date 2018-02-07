@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Vue d’ensemble d’App Service sur Azure Stack
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Azure App Service sur Azure Stack est une offre PaaS (platform-as-a-service) de Microsoft Azure disponible sur Azure Stack. Le service permet à vos clients internes ou externes de créer des applications web, d’API et Azure Functions pour n’importe quelle plate-forme ou périphérique. Ils peuvent intégrer des applications locales à vos applications et automatiser leurs processus d’entreprise. Les opérateurs de cloud Azure Stack peuvent exécuter les applications client sur des machines virtuelles entièrement gérées, avec les ressources de machines virtuelles partagées ou les machines virtuelles dédiées de votre choix.
 
@@ -59,7 +60,7 @@ Dans Azure, il existe des Workers partagés et dédiés. Un Worker partagé pren
 
 App Service sur Azure Stack utilise la même interface utilisateur que celle utilisée par Azure App Service, ce qui est également le cas du serveur principal. Certaines fonctionnalités sont désactivées et ne sont pas fonctionnelles dans Azure Stack. Les exigences ou les services spécifiques à Azure dont ces fonctionnalités ont besoin ne sont pas encore disponibles dans Azure Stack.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 
 - [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)

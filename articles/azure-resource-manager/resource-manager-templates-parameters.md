@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Section des paramètres des modèles Azure Resource Manager
 C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Il est inutile de fournir des paramètres dans votre modèle, mais sans les paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
@@ -82,17 +82,17 @@ L’exemple précédent a seulement illustré quelques-unes des propriétés que
 }
 ```
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--- |:--- |:--- |
-| nom_paramètre |Oui |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| type |Oui |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
-| defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
-| allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
-| minValue |Non |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
-| maxValue |Non |Valeur maximale pour les paramètres de type int. Cette valeur est inclusive. |
-| minLength |Non |Valeur minimale pour les paramètres de type string, secureString et array. Cette valeur est inclusive. |
-| maxLength |Non |Valeur maximale pour les paramètres de type string, secureString et array. Cette valeur est inclusive. |
-| Description |Non |Description du paramètre qui apparaît aux utilisateurs dans le portail. |
+| nom_paramètre |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
+| Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
+| defaultValue |Non  |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
+| allowedValues |Non  |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
+| minValue |Non  |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
+| maxValue |Non  |Valeur maximale pour les paramètres de type int. Cette valeur est inclusive. |
+| minLength |Non  |Valeur minimale pour les paramètres de type string, secureString et array. Cette valeur est inclusive. |
+| maxLength |Non  |Valeur maximale pour les paramètres de type string, secureString et array. Cette valeur est inclusive. |
+| description |Non  |Description du paramètre qui apparaît aux utilisateurs dans le portail. |
 
 ## <a name="template-functions-with-parameters"></a>Fonctions de modèle avec des paramètres
 
@@ -131,6 +131,7 @@ Définissez le paramètre dans votre modèle, puis spécifiez un objet JSON au l
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Référencez ensuite les sous-propriétés du paramètre en utilisant l’opéra
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
    }
    ```
 
-* Si possible, n’utilisez pas de paramètre pour spécifier l’emplacement. Au lieu de cela, utilisez la propriété **d’emplacement** du groupe de ressources. Avec l’expression **resourceGroup ().location** pour toutes vos ressources, les ressources dans le modèle sont déployées dans le même emplacement que le groupe de ressources :
+* Utilisez un paramètre pour indiquer l’emplacement et partagez cette valeur de paramètre autant que possible avec les ressources qui sont susceptibles de se trouver dans le même emplacement. Cette approche réduit le nombre de fois où les utilisateurs sont invités à fournir des informations d’emplacement. Si un type de ressource est uniquement pris en charge dans un nombre limité d’emplacements, envisagez de spécifier un emplacement valide directement dans le modèle, ou ajoutez un autre paramètre d’emplacement. Si une organisation limite les régions autorisées pour les utilisateurs, l’expression **resourceGroup().location** peut empêcher un utilisateur de déployer le modèle. Par exemple, un utilisateur crée un groupe de ressources dans une région. Un deuxième utilisateur doit effectuer un déploiement vers ce groupe de ressources, mais n’a pas accès à la région. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Si un type de ressource est uniquement pris en charge dans un nombre limité d’emplacements, envisagez de spécifier un emplacement valide directement dans le modèle. Si vous devez utiliser un paramètre **d’emplacement**, partagez cette valeur de paramètre autant que possible avec les ressources qui sont susceptibles de se trouver dans le même emplacement. Cette approche réduit le nombre de fois où les utilisateurs sont invités à fournir des informations d’emplacement.
+    
 * Évitez d’utiliser un paramètre ou une variable pour la version de l’API pour un type de ressource. Les propriétés de ressource et les valeurs peuvent varier selon le numéro de version. IntelliSense dans des éditeurs de code n’est pas en mesure de déterminer le schéma correct lorsque la version de l’API est définie sur un paramètre ou une variable. Au lieu de cela, codez en dur la version de l’API dans le modèle.
 * Évitez d’indiquer dans votre modèle un nom de paramètre correspondant à un paramètre dans la commande de déploiement. Resource Manager élimine ce risque de conflit de noms en ajoutant le suffixe **FromTemplate** au paramètre du modèle. Par exemple, si vous incluez dans votre modèle un paramètre nommé **ResourceGroupName**, celui-ci est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Pendant le déploiement, vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**.
 
@@ -259,12 +259,12 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 Ces exemples de modèles montrent quelques scénarios d’utilisation de paramètres. Déployez-les pour tester la façon dont les paramètres sont gérés dans différents cas de figure.
 
-|Modèle  |Description  |
+|Modèle  |DESCRIPTION  |
 |---------|---------|
 |[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Montre comment utiliser les fonctions de modèle durant la définition des valeurs par défaut des paramètres. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 |[Objet de paramètre](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Montre comment utiliser un objet pour un paramètre. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 * Pour plus d’informations sur la saisie des valeurs de paramètre au cours du déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md). 

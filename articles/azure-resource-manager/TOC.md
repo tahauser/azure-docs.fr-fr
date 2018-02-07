@@ -20,8 +20,6 @@
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)
 ### [Créer plusieurs instances](resource-group-create-multiple.md)
 ### [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Modèles pour la conception de modèles](best-practices-resource-manager-design-templates.md)
-
 
 ## Déployer
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Problèmes de déploiement Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Comprendre les erreurs de déploiement](resource-manager-troubleshoot-tips.md)
 
-# Référence
+# Informations de référence
 ## [Format de modèle](/azure/templates/)
 ## [Fonctions des modèles de gestionnaire des ressources Azure](resource-group-template-functions.md)
 ### [Fonctions de tableau et d’objet](resource-group-template-functions-array.md)

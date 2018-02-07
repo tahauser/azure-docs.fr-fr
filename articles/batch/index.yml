@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Batch
+metadata:
+  title: "Documentation Azure Batch - Didacticiels et informations de référence sur les API | Microsoft Docs"
+  description: "Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches de calcul intensif et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples."
+  services: batch
+  author: czeumault
+  manager: carolz
+  ms.service: batch
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/30/2017
+  ms.author: carolz
+  ms.openlocfilehash: 9e9a160762ae31087a2be36734ca528f65723818
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/01/2018
+abstract:
+  description: "Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples."
+sections:
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment exécuter votre premier travail Batch dans Azure."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: quick-create-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
+      text: Portail Azure
+      href: quick-create-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_NET.svg
+      text: .NET
+      href: quick-run-dotnet
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_python.svg
+      text: Python
+      href: quick-run-python
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: "Découvrez comment exécuter des charges de travail nécessitant beaucoup de ressources système sur Batch."
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"tutorial-parallel-dotnet\">Traitement parallèle de fichiers avec le Kit de développement logiciel (SDK) .NET</a>"
+    - html: "<a href=\"tutorial-parallel-python\">Traitement parallèle de fichiers avec le Kit de développement logiciel (SDK) Python</a>"
+    - html: "<a href=\"tutorial-rendering-cli\">Rendu de scènes avec Arnold</a>"
+    - html: "<a href=\"tutorial-r-doazureparallel\">Simulation parallèle R</a>"
+- title: Exemples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="cli-samples">interface de ligne de commande Azure</a>
+- title: "Informations de référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Ligne de commande
+      html: <p><a href="/cli/azure/batch">interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.batch">Azure PowerShell</a></p>
+    - title: Langues
+      html: <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p><p><a href="/java/api/com.microsoft.azure.batch">Java</a></p><p><a href="/nodejs/api/overview/azure/batch">Node.JS</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/batchservice">API REST du service Batch</a></p><p><a href="/rest/api/batchmanagement/">API REST de gestion Batch</a></p>

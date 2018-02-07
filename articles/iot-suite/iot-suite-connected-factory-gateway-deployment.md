@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour la solution préconfigurée Usine connectée sur Windows ou Linux
 
@@ -57,7 +57,7 @@ Pendant l’installation de Docker pour Windows, sélectionnez sur l’ordinateu
 ![Installer Docker pour Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Vous pouvez également effectuer cette étape après l’installation de Docker, à partir de la boîte de dialogue **Paramètres**. Cliquez avec le bouton droit sur l’icône **Docker** dans la barre d’état du système Windows, puis choisissez **Paramètres**.
+> Vous pouvez également effectuer cette étape après l’installation de Docker, à partir de la boîte de dialogue **Paramètres**. Cliquez avec le bouton droit sur l’icône **Docker** dans la barre d’état du système Windows, puis choisissez **Paramètres**. Si des mises à jour Windows importantes ont été déployées sur le système, telles que la mise à jour de Windows Fall Creators, annulez le partage des lecteurs, puis partagez-les de nouveau pour actualiser les droits d’accès.
 
 Si vous utilisez Linux, aucune configuration supplémentaire n’est requise pour activer l’accès au système de fichiers.
 
@@ -65,7 +65,7 @@ Sur Windows, créez un dossier sur le lecteur que vous avez partagé avec Docker
 
 Quand vous faites référence à `<SharedFolder>` dans une commande Docker, veillez à utiliser la syntaxe correcte pour votre système d’exploitation. Voici deux exemples, l’un pour Windows et l’autre pour Linux :
 
-- Si vous utilisez le dossier `D:\shared` sur Windows en tant que `<SharedFolder>`, la syntaxe de la commande Docker est `//d/shared`.
+- Si vous utilisez le dossier `D:\shared` sur Windows en tant que `<SharedFolder>`, la syntaxe de la commande Docker est `d:/shared`.
 
 - Si vous utilisez le dossier `/shared` sur Linux en tant que `<SharedFolder>`, la syntaxe de la commande Docker est `/shared`.
 
@@ -77,7 +77,7 @@ Avant d’installer les composants OPC, effectuez les étapes suivantes pour pr�
 
 1. Pour procéder au déploiement de passerelle, vous avez besoin de la chaîne de connexion **iothubowner** du hub IoT dans votre déploiement de la solution Usine connectée. Dans le [portail Azure](http://portal.azure.com/), accédez à votre hub IoT dans le groupe de ressources créé durant le déploiement de la solution Usine connectée. Cliquez sur **Stratégies d’accès partagé** pour accéder à la chaîne de connexion **iothubowner** :
 
-    ![Recherche de la chaîne de connexion IoT Hub](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
+    ![Recherche de la chaîne de connexion de l’IoT Hub](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
     Copiez la valeur **Clé primaire de la chaîne de connexion**.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - `<IoTHubOwnerConnectionString>` est la chaîne de connexion **iothubowner** de stratégie d’accès partagé à partir du portail Azure. Vous avez copié cette chaîne de connexion à l’étape précédente. Vous n’avez besoin de cette chaîne de connexion que pour la première exécution de l’Éditeur d’OPC. Pour les exécutions suivantes, vous devez l’omettre, car elle présente un risque de sécurité.
 
-- Le `<SharedFolder>` que vous utilisez et sa syntaxe sont décrits dans la section [Installer et configurer Docker](#install-and-configure-docker). L’Éditeur d’OPC utilise le `<SharedFolder>` pour lire son fichier de configuration, écrire le fichier journal et rendre ces deux fichiers disponibles en dehors du conteneur.
+- Le `<SharedFolder>` que vous utilisez et sa syntaxe sont décrits dans la section [Installer et configurer Docker](#install-and-configure-docker). L’Éditeur d’OPC utilise le `<SharedFolder>` pour lire et écrire son fichier de configuration, écrire dans le fichier journal et rendre ces deux fichiers disponibles en dehors du conteneur.
 
-- L’Éditeur d’OPC lit sa configuration à partir du fichier **publishednodes.json**, que vous devez placer dans le dossier `<SharedFolder>/docker`. Ce fichier de configuration définit les données de nœud OPC UA sur un serveur OPC UA spécifique auxquelles l’Éditeur d’OPC doit s’abonner.
-
-- Chaque fois que le serveur OPC UA notifie l’Éditeur d’OPC d’une modification de données, la nouvelle valeur est envoyée à IoT Hub. Selon les paramètres de traitement par lot, l’Éditeur d’OPC peut accumuler les données avant de les envoyer à IoT Hub dans un lot.
-
-- La syntaxe complète du fichier **publishednodes.json** est décrite dans la page GitHub consacrée à [l’Éditeur d’OPC](https://github.com/Azure/iot-edge-opc-publisher).
-
-    L’extrait de code suivant montre un exemple simple d’un fichier **publishednodes.json**. Cet exemple montre comment publier la valeur **CurrentTime** à partir d’un serveur OPC UA avec le nom d’hôte **win10pc** :
+- L’Éditeur d’OPC lit sa configuration à partir du fichier **publishednodes.json**, qui est lu à partir de et écrit dans le dossier `<SharedFolder>/docker`. Ce fichier de configuration définit les données de nœud OPC UA sur un serveur OPC UA spécifique auxquelles l’Éditeur d’OPC doit s’abonner. La syntaxe complète du fichier **publishednodes.json** est décrite dans la page GitHub consacrée à [l’Éditeur d’OPC](https://github.com/Azure/iot-edge-opc-publisher). Quand vous ajoutez une passerelle, placez un fichier **publishednodes.json** vide dans le dossier :
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    Dans le fichier **publishednodes.json**, le serveur OPC UA est spécifié par l’URL du point de terminaison. Si vous spécifiez le nom d’hôte à l’aide d’une étiquette de nom d’hôte (telle que **win10pc**), comme dans l’exemple précédent, au lieu d’une adresse IP, la résolution d’adresse réseau dans le conteneur doit être en mesure de résoudre cette étiquette de nom d’hôte en une adresse IP.
+- Chaque fois que le serveur OPC UA notifie l’Éditeur d’OPC d’une modification de données, la nouvelle valeur est envoyée à IoT Hub. Selon les paramètres de traitement par lot, l’Éditeur d’OPC peut accumuler les données avant de les envoyer à IoT Hub dans un lot.
 
 - Docker ne prend pas en charge la résolution de noms NetBIOS, mais uniquement la résolution de noms DNS. Si vous n’avez pas de serveur DNS sur le réseau, vous pouvez utiliser la solution de contournement indiquée dans l’exemple de ligne de commande précédent. L’exemple de ligne de commande précédent utilise le paramètre `--add-host` pour ajouter une entrée dans le fichier d’hôtes de conteneurs. Cette entrée permet d’effectuer une recherche de nom d’hôte pour le `<OpcServerHostname>` donné et de le résoudre en l’adresse IP `<IpAddressOfOpcServerHostname>` donnée.
 
@@ -169,11 +155,16 @@ Vous pouvez désormais vous connecter à la passerelle à partir du cloud et ajo
 
 Pour ajouter vos propres serveurs OPC UA à la solution préconfigurée Usine connectée :
 
-1. Accédez à la page **Connectez votre propre serveur OPC UA** du portail de solution Usine connectée. Suivez les mêmes étapes que dans la section précédente pour établir une relation d’approbation entre le portail de la solution Usine connectée et le serveur OPC UA.
+1. Accédez à la page **Connectez votre propre serveur OPC UA** du portail de solution Usine connectée.
 
-    ![Portail de la solution](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Démarrez le serveur OPC UA auquel vous souhaitez vous connecter. Assurez-vous que votre serveur OPC UA est accessible à partir de l’Éditeur OPC et du proxy OPC exécutés dans le conteneur (reportez-vous aux commentaires précédents sur la résolution des noms).
+    1. Entrez l’URL du point de terminaison de votre serveur OPC UA (`opc.tcp://<host>:<port>`) et cliquez sur **Connexion**.
+    1. Durant la configuration de la connexion, une relation d’approbation entre le portail Usine connectée (client OPC UA) et le serveur OPC UA auquel vous essayez de vous connecter est établie. Dans le tableau de bord Usine connectée, un avertissement du type **Impossible de vérifier le certificat du serveur auquel vous souhaitez vous connecter** s’affiche. Quand vous voyez un avertissement de certificat, cliquez sur **Continuer**.
+    1. La configuration du certificat du serveur OPC UA auquel vous essayez de vous connecter est plus difficile à effectuer. Pour les serveurs OPC UA de type PC, il vous suffit généralement de confirmer une boîte de dialogue d’avertissement qui s’affiche dans le tableau de bord. Pour les systèmes de serveur OPC UA incorporés, consultez la documentation de votre serveur OPC UA pour connaître la procédure à suivre. Pour effectuer cette tâche, vous aurez peut-être besoin du certificat du client OPC UA du portail Usine connectée. Les administrateurs peuvent télécharger ce certificat à partir de la page **Connectez votre propre serveur OPC UA** :
 
-1. Naviguez dans l’arborescence de nœuds OPC UA de votre serveur OPC UA, cliquez avec le bouton droit sur les nœuds OPC à envoyer à Usine connectée, puis sélectionnez **Publier**.
+        ![Portail de la solution](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Naviguez dans l’arborescence de nœuds OPC UA de votre serveur OPC UA, cliquez avec le bouton droit sur les nœuds OPC pour envoyer les valeurs à Usine connectée, puis sélectionnez **Publier**.
 
 1. Les données de télémétrie transitent maintenant à partir de la passerelle. Vous pouvez afficher les données de télémétrie dans la vue **Emplacements des usines** du portail de solution Usine connectée, sous **Nouvelle fabrique**.
 

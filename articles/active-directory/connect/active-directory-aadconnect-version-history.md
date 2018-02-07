@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -57,7 +57,7 @@ Verrouillez l’accès au compte AD DS en implémentant les changements d’auto
 *   Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF. Il faut conserver les autorisations par défaut intactes quand il s’agit de SELF.
 *   Attribuez ces autorisations spécifiques :
 
-Type     | Nom                          | Accès               | S'applique à
+type     | NOM                          | Access               | S'applique à
 ---------|-------------------------------|----------------------|--------------|
 AUTORISER    | SYSTEM                        | Contrôle total         | Cet objet  |
 AUTORISER    | Administrateurs de l’entreprise             | Contrôle total         | Cet objet  |
@@ -82,7 +82,7 @@ Pour utiliser le script PowerShell afin d’appliquer ces paramètres à un comp
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Où 
+Where 
 
 **$ObjectDN** = compte Active Directory dont les autorisations doivent être renforcées.
 
@@ -473,7 +473,7 @@ Synchronisation d’Azure AD Connect
   * Mise à jour de la règle de synchronisation par défaut définie pour ne pas exporter les attributs **userCertificate** et **userSMIMECertificate** si ceux-ci comportent plus de 15 valeurs.
   * Les attributs AD **employeeID** et **msExchBypassModerationLink** sont désormais inclus dans l’ensemble de règles de synchronisation par défaut.
   * L’attribut AD **photo** a été supprimé de l’ensemble de règles de synchronisation par défaut.
-  * Ajout de **preferredDataLocation** au schéma Metaverse et au schéma du connecteur AAD. Les clients désireux de mettre à jour les attributs dans Azure AD peuvent implémenter des règles de synchronisation personnalisées à cette fin. Pour en savoir plus sur l’attribut, voir la section de l’article [Synchronisation Azure AD Connect : comment modifier la configuration par défaut - Activer la synchronisation de PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Ajout de **preferredDataLocation** au schéma Metaverse et au schéma du connecteur AAD. Les clients désireux de mettre à jour les attributs dans Azure AD peuvent implémenter des règles de synchronisation personnalisées à cette fin. 
   * Ajout de **userType** au schéma Metaverse et au schéma du connecteur AAD. Les clients désireux de mettre à jour les attributs dans Azure AD peuvent implémenter des règles de synchronisation personnalisées à cette fin.
 
 * Azure AD Connect permet désormais l’utilisation de l’attribut ConsistencyGuid en tant qu’attribut sourceAnchor pour les objets Active Directory locaux. En outre, Azure AD Connect remplit l’attribut ConsistencyGuid avec la valeur de l’attribut objectGuid s’il est vide. Cette fonctionnalité s’applique uniquement au nouveau déploiement. Pour en savoir plus sur cette fonctionnalité, voir la section de l’article [Principes de conception Azure AD Connect - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

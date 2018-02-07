@@ -1,6 +1,6 @@
 ---
 title: "Conservation et stockage des données dans Azure Application Insights | Microsoft Docs"
-description: Retention and privacy policy statement
+description: "Déclaration de confidentialité et politique de rétention"
 services: application-insights
 documentationcenter: 
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -99,10 +99,10 @@ Vous ou les membres de votre équipe pouvez les exporter et les copier à d’au
 Microsoft n’utilise les données que pour vous fournir le service.
 
 ## <a name="where-is-the-data-held"></a>Où sont conservées les données ?
-* Aux États-Unis ou en Europe. Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. 
+* Aux États-Unis, en Europe ou en Asie du Sud-Est. Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis ou en Europe ?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis, en Europe ou en Asie du Sud-Est ?
 * Non. Votre application peut s’exécuter n’importe où, sur vos propres hôtes locaux ou dans le cloud.
 
 ## <a name="how-secure-is-my-data"></a>Mes données sont-elles sécurisées ?
@@ -158,15 +158,15 @@ Les Kits SDK varient en fonction des plateformes et vous pouvez installer plusie
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classes de données envoyées dans différents scénarios
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requêtes<br/>**Exceptions**<br/>Session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>session<br/>users |
 | [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>Session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>users |
 | [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Définir les propriétés par défaut][apiproperties] |**Propriétés** sur tous les événements standard et personnalisés |
 | [Appeler TrackMetric][api] |Valeurs numériques<br/>**Propriétés** |
 | [Appeler Track*][api] |Nom de l'événement<br/>**Propriétés** |
 | [Appeler TrackException][api] |**Exceptions**<br/>Vidage de pile<br/>**Propriétés** |
-| Le Kit SDK ne peut pas collecter les données. Par exemple : <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
+| Le Kit SDK ne peut pas collecter les données. Par exemple :  <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
 
 Pour les [Kits de développement logiciel (SDK) des autres plateformes][platforms], consultez les documents correspondants.
 
@@ -176,7 +176,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | **Propriétés** |**Toutes les données - en fonction de votre code** |
 | DeviceContext |ID, adresse IP, paramètres régionaux, modèle d’appareil, réseau, type de réseau, nom OEM, résolution d’écran, instance de rôle, nom du rôle, type d’appareil |
 | ClientContext  |Système d’exploitation, paramètres régionaux, langue, réseau, résolution de la fenêtre |
-| Session |ID de session |
+| session |ID de session |
 | ServerContext |Nom de l’ordinateur, paramètres régionaux, système d’exploitation, appareil, session utilisateur, contexte utilisateur, opération |
 | Inferred |Emplacement géographique à partir de l’adresse IP, horodatage, système d’exploitation, navigateur |
 | Mesures |Valeur et nom de la mesure |
@@ -184,13 +184,13 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | PageViews |URL et nom de la page ou de l’écran |
 | Client perf |URL/nom de la page, temps de chargement du navigateur |
 | Ajax |Appels HTTP de la page web au serveur |
-| Requêtes |URL, durée, code de réponse |
+| Requests |URL, durée, code de réponse |
 | Les dépendances |Type (SQL, HTTP, ...), chaîne de connexion ou URI, synchronisation/désynchronisation, durée, réussite, instruction SQL (avec Status Monitor) |
 | **Exceptions** |Type, **message**, piles d’appels, fichier source et numéro ligne, ID du thread |
 | Crashes |ID de processus, ID de processus parent, ID de thread d’incident ; correctif de l’application, ID, version ; type d’exception, adresse, motif ; symboles et enregistrements masqués, adresses binaires de début et de fin, nom et chemin du fichier binaire, type de processeur |
 | Trace |**Message** et niveau de gravité |
 | Perf counters |Temps processeur, mémoire disponible, taux de demande, taux d’exception, octets privés du processus, taux d’E/S, durée de la demande, longueur de file d’attente de la demande |
-| Availability |Code de réponse de test web, durée de chaque étape de test, nom de test, horodatage, réussite, temps de réponse, emplacement de test |
+| Disponibilité |Code de réponse de test web, durée de chaque étape de test, nom de test, horodatage, réussite, temps de réponse, emplacement de test |
 | SDK diagnostics |Message de suivi ou exception |
 
 Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config].

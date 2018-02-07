@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour Microsoft Azure Storage Explorer (préversion)
 
-Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.9.3 (préversion), ainsi que celles des versions précédentes.
+Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.9.4 (préversion), ainsi que celles des versions précédentes.
 
 [Microsoft Azure Storage Explorer (préversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux.
 
-## <a name="version-093"></a>Version 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Version 0.9.4 / 0.9.3
+21/01/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Télécharger l’Explorateur Stockage Azure 0.9.3 (préversion)
-- [Explorateur Stockage Azure 0.9.3 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur Stockage Azure 0.9.3 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur Stockage Azure 0.9.3 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Télécharger l’Explorateur Stockage Azure 0.9.4 (préversion)
+- [Explorateur Stockage Azure 0.9.4 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 0.9.4 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 0.9.4 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nouveau
 * La fenêtre Explorateur Stockage existante est réutilisée dans les cas suivants :
@@ -44,6 +44,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.
     * Pour Mac, une nouvelle option « Nouvelle fenêtre » est disponible sous le menu App.
 
 ### <a name="fixes"></a>Correctifs
+* Correction d’un problème de sécurité. Veuillez mettre à niveau vers 0.9.4 dès que possible.
 * Les anciennes activités n’étaient pas correctement nettoyées. Ce problème impactait les performances des travaux de longue durée. Ces activités sont maintenant correctement nettoyées.
 * Les actions impliquant beaucoup de fichiers et de répertoires entraînaient parfois le gel de l’Explorateur Stockage. Les demandes de partages de fichiers Azure sont désormais limitées pour restreindre l’utilisation des ressources système.
 
@@ -94,7 +95,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.
 
 ### <a name="new"></a>Nouveau
 * Prise en charge de la préversion pour Azure Cosmos DB :
-    * [Documentation en ligne](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Documentation en ligne](./cosmos-db/storage-explorer.md)
     * Créer des bases de données et des collections
     * Manipuler des données
     * Interroger, créer ou supprimer des documents
@@ -174,7 +175,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.
 20/10/2017
 ### <a name="new"></a>Nouveau
 * Prise en charge de la préversion pour Azure Cosmos DB :
-    * [Documentation en ligne](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Documentation en ligne](./cosmos-db/storage-explorer.md)
     * Créer des bases de données et des collections
     * Manipuler des données
     * Interroger, créer ou supprimer des documents

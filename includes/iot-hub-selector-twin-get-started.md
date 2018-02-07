@@ -3,10 +3,11 @@
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Les représentations d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez.
 
-Vous pouvez utiliser des représentations d’appareil pour répondre aux besoins suivants :
+Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivants :
 
 * Stockez les métadonnées d’appareil à partir de votre serveur principal de solution.
 * Signaler les informations d’état actuel, telles que les capacités disponibles et les conditions (par exemple, méthode de connectivité utilisée), à partir de votre application d’appareil
@@ -14,7 +15,7 @@ Vous pouvez utiliser des représentations d’appareil pour répondre aux besoin
 * Interroger les métadonnées, la configuration ou l’état de vos appareils
 
 > [!NOTE]
-> Les représentations d’appareil sont conçues pour les synchronisations et pour l’interrogation des configurations et des conditions d’appareil. Pour plus d’informations sur l’utilisation des représentations d’appareils, consultez l’article [Comprendre les représentations d’appareils][lnk-twins].
+> Les représentations d’appareil sont conçues pour les synchronisations et pour l’interrogation des configurations et des conditions d’appareil. Pour plus d’informations sur l’utilisation des jumeaux d’appareil, consultez [Comprendre les jumeaux d’appareil][lnk-twins].
 
 Les représentations d’appareil sont stockées dans un IoT Hub et contiennent les éléments suivants :
 

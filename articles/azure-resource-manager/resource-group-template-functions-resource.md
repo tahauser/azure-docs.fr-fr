@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -43,12 +43,12 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 
 Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge l’opération list. L’utilisation la plus courante est `listKeys`. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | DESCRIPTION |
 |:--- |:--- |:--- |:--- |
-| nom_ressource ou identificateur_ressource |Oui |string |Identificateur unique pour la ressource. |
-| apiVersion |Oui |string |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
+| nom_ressource ou identificateur_ressource |OUI |chaîne |Identificateur unique pour la ressource. |
+| apiVersion |OUI |chaîne |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -93,7 +93,7 @@ Pour déterminer les types de ressources qui ont une opération de liste, utilis
 
 Spécifiez la ressource en utilisant la [fonction resourceId](#resourceid) ou le format `{providerNamespace}/{resourceType}/{resourceName}`.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) suivant montre comment retourner les clés primaires et secondaires à partir d’un compte de stockage dans la section outputs.
 
@@ -149,12 +149,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction renvoie tous les types pris en charge pour le fournisseur de ressources.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | DESCRIPTION |
 |:--- |:--- |:--- |:--- |
-| espacedenoms_fournisseur |Oui |string |Espace de noms du fournisseur. |
-| resourceType |Non |string |Type de ressource dans l'espace de noms spécifié. |
+| espacedenoms_fournisseur |OUI |chaîne |Espace de noms du fournisseur. |
+| resourceType |Non  |chaîne |Type de ressource dans l'espace de noms spécifié. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -170,7 +170,7 @@ Chaque type pris en charge est renvoyé au format suivant :
 
 Le classement du tableau des valeurs renvoyées n’est pas garanti.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) suivant montre comment utiliser la fonction provider :
 
@@ -237,13 +237,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Renvoie un objet représentant l’état d’exécution d’une ressource.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | DESCRIPTION |
 |:--- |:--- |:--- |:--- |
-| nom_ressource ou identificateur_ressource |Oui |string |Nom ou identificateur unique d’une ressource. |
-| apiVersion |Non |string |Version d’API de la ressource spécifiée. Incluez ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
-| 'Full' |Non |string |Valeur qui spécifie si l’objet de ressource complet doit être retourné. Si vous ne spécifiez pas `'Full'`, seul l’objet de propriétés de la ressource est retourné. L’objet complet comprend des valeurs telles que l’ID de ressource et l’emplacement. |
+| nom_ressource ou identificateur_ressource |OUI |chaîne |Nom ou identificateur unique d’une ressource. |
+| apiVersion |Non  |chaîne |Version d’API de la ressource spécifiée. Incluez ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
+| 'Full' |Non  |chaîne |Valeur qui spécifie si l’objet de ressource complet doit être retourné. Si vous ne spécifiez pas `'Full'`, seul l’objet de propriétés de la ressource est retourné. L’objet complet comprend des valeurs telles que l’ID de ressource et l’emplacement. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -251,7 +251,7 @@ Chaque type de ressource retourne des propriétés différentes pour la fonction
 
 ### <a name="remarks"></a>Remarques
 
-La fonction reference dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle. 
+La fonction reference dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d’un modèle ou d’un [modèle lié](resource-group-linked-templates.md#link-or-nest-a-template). Elle ne peut pas être utilisée dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié. 
 
 En utilisant la fonction « reference », vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété dependsOn. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
@@ -298,7 +298,7 @@ Utilisez `'Full'` quand vous avez besoin de valeurs de ressource qui ne font pas
 
 Pour voir l’exemple complet du modèle précédent, consultez [Windows et le coffre de clés](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Un exemple similaire est disponible pour [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) suivant déploie, puis référence une ressource.
 
@@ -479,7 +479,7 @@ Une utilisation courante de la fonction resourceGroup consiste à créer des res
 ]
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) suivant retourne les propriétés du groupe de ressources.
 
@@ -524,20 +524,20 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourceid" />
 
-## <a name="resourceid"></a>resourceId
+## <a name="resourceid"></a>ResourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Requis | Type | Description |
+| Paramètre | Obligatoire | type | DESCRIPTION |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Non |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
-| resourceGroupName |Non |string |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
-| resourceType |Oui |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
-| nom_ressource1 |Oui |string |Nom de la ressource. |
-| nom_ressource2 |Non |string |Segment de nom de ressource suivant si la ressource est imbriquée. |
+| subscriptionId |Non  |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
+| nom_groupe_ressources |Non  |chaîne |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
+| resourceType |OUI |chaîne |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
+| nom_ressource1 |OUI |chaîne |Nom de la ressource. |
+| nom_ressource2 |Non  |chaîne |Segment de nom de ressource suivant si la ressource est imbriquée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -620,7 +620,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) suivant retourne l’ID de ressource pour un compte de stockage appartenant au groupe de ressources :
 
@@ -652,12 +652,12 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | Type | Valeur |
+| NOM | type | Valeur |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | Chaîne | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Chaîne | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Chaîne | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Chaîne | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -673,7 +673,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="subscription" />
 
-## <a name="subscription"></a>abonnement
+## <a name="subscription"></a>subscription
 `subscription()`
 
 Retourne des détails concernant l’abonnement pour le déploiement actuel. 
@@ -691,7 +691,7 @@ La fonction retourne les informations au format suivant :
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) suivant montre la fonction subscription qui est appelée dans la section outputs. 
 
@@ -721,7 +721,7 @@ Pour déployer cet exemple de modèle avec PowerShell, utilisez :
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).

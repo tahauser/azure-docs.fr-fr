@@ -12,19 +12,19 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services
 
-Ce didacticiel montre comment configurer un compte avec Azure Location Based Services, puis utiliser les API fournies pour rechercher un point d’intérêt. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment configurer un compte avec Azure Location Based Services, puis utiliser les API fournies pour rechercher un point d’intérêt. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un compte avec Azure Location Based Services
-> * Obtenir la clé d’abonnement pour votre compte
+> * Connaître la clé primaire de votre compte Azure Location Based Services
 > * Créer une page web à l’aide de l’API Map Control
 > * Utiliser Search Service pour rechercher des points d’intérêt de proximité
 
@@ -55,7 +55,7 @@ Suivez ces étapes pour créer un compte Location Based Services.
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Obtenir la clé d’abonnement pour votre compte
+## <a name="get-the-primary-key-for-your-account"></a>Obtenir la clé primaire de votre compte
 
 Une fois votre compte Location Based Services correctement créé, suivez les étapes ci-après pour le lier à ses API de recherche de cartes :
 
@@ -113,16 +113,16 @@ L’API Azure Map Control est une bibliothèque cliente pratique qui vous permet
     ``` 
     Notez que l’en-tête HTML inclut les fichiers de ressources CSS et JavaScript hébergés par la bibliothèque Azure Map Control. En outre, un segment *script* a été ajouté au corps (*body*) du fichier HTML. Ce segment est destiné à contenir du code JavaScript inline pour accéder aux API d’Azure Location Based Service.
  
-3.  Ajoutez le code JavaScript suivant au bloc *script* du fichier HTML. Remplacez l’espace réservé *<insert-key>* par la clé primaire de votre compte Location Based Services. 
+3.  Ajoutez le code JavaScript suivant au bloc *script* du fichier HTML. Utilisez la clé primaire à partir de votre compte Location Based Services dans le script. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Ce segment lance l’API Map Control pour votre clé d’abonnement. **Atlas** est l’espace de noms qui contient les API Azure Map Control et les composants visuels associés. **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive. Vous pouvez voir à quoi ressemble la carte en ouvrant la page HTML dans le navigateur. 
+    Ce segment lance l’API Map Control pour votre clé de compte Azure Location Based Services. **Atlas** est l’espace de noms qui contient les API Azure Map Control et les composants visuels associés. **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive. Vous pouvez voir à quoi ressemble la carte en ouvrant la page HTML dans le navigateur. 
 
 4. Ajoutez le code JavaScript suivant au bloc *script* pour ajouter une couche de marqueurs de recherche au contrôle de carte :
 
@@ -193,7 +193,7 @@ Cette section montre comment utiliser l’API Search Service d’Azure Location 
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,7 +201,7 @@ Cette section montre comment utiliser l’API Search Service d’Azure Location 
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Cet extrait de code utilise l’API de recherche de base de Search Service, appelée **Fuzzy Search** (recherche approximative). Il gère le jeu d’entrées le plus approximatif de n’importe quelle combinaison de jetons d’adresse ou de *point d’intérêt*. Il recherche les **stations-service** de proximité en fonction d’une adresse, exprimée en latitude et longitude, et d’un rayon. Il utilise la clé d’abonnement de votre compte fournie plus haut dans l’exemple de fichier pour appeler Location Based Services. Il retourne les résultats sous forme de paires latitude/longitude correspondant aux emplacements trouvés. Vous pouvez voir les marqueurs de recherche en ouvrant la page HTML dans le navigateur. 
+    Cet extrait de code utilise l’API de recherche de base de Search Service, appelée **Fuzzy Search** (recherche approximative). Il gère le jeu d’entrées le plus approximatif de n’importe quelle combinaison de jetons d’adresse ou de *point d’intérêt*. Il recherche les **stations-service** de proximité en fonction d’une adresse, exprimée en latitude et longitude, et d’un rayon. Il utilise la clé principale de votre compte fournie plus haut dans l’exemple de fichier pour appeler Location Based Services. Il retourne les résultats sous forme de paires latitude/longitude correspondant aux emplacements trouvés. Vous pouvez voir les marqueurs de recherche en ouvrant la page HTML dans le navigateur. 
 
 3. Ajoutez les lignes suivantes au bloc *script* afin de créer des fenêtres contextuelles pour les points d’intérêt retournés par Search Service :
 
@@ -239,12 +239,12 @@ Cette section montre comment utiliser l’API Search Service d’Azure Location 
     ![Azure Map Control et Search Service](./media/tutorial-search-location/lbs-map-search.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+## <a name="next-steps"></a>étapes suivantes
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un compte avec Azure Location Based Services
-> * Obtenir la clé d’abonnement pour votre compte
+> * Obtenir la clé primaire de votre compte
 > * Créer une page web à l’aide de l’API Map Control
 > * Utiliser Search Service pour rechercher des points d’intérêt de proximité
 

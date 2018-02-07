@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Planifier des tâches et flux de travail à exécuter régulièrement avec des applications logiques
 
-Pour planifier des tâches, actions, charges de travail ou processus à exécuter régulièrement, vous pouvez créer un flux de travail d’application logique qui démarre avec le **déclencheur** [Planification - Périodicité](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). Ce déclencheur permet de définir une date et une heure de démarrage de la périodicité et une planification périodique de tâches comme les suivantes, entre autres :
+Pour planifier des tâches, actions, charges de travail ou processus à exécuter régulièrement, vous pouvez créer un flux de travail d’application logique qui démarre avec le **déclencheur** [Planification - Périodicité](../logic-apps/logic-apps-overview.md#logic-app-concepts). Ce déclencheur permet de définir une date et une heure de démarrage de la périodicité et une planification périodique de tâches comme les suivantes, entre autres :
 
 * Obtenir des données internes : [exécuter une procédure stockée SQL](../connectors/connectors-create-api-sqlazure.md) tous les jours.
 * Obtenir des données externes : extraire des rapports météorologiques de NOAA toutes les 15 minutes.
@@ -42,15 +42,15 @@ Ce déclencheur prend en charge de nombreux modèles, par exemple :
 
 Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée et exécute une nouvelle instance de votre flux de travail d’application logique.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 ## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>Ajouter un déclencheur de périodicité à votre application logique
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez une application logique vide ou découvrez [comment créer une application logique vide](../logic-apps/logic-apps-create-a-logic-app.md).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez une application logique vide ou découvrez [comment créer une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Une fois affiché le concepteur Logic Apps, dans la zone de recherche, entrez « périodicité » comme filtre. Sélectionnez le déclencheur **Planification - Périodicité**. 
 
@@ -96,15 +96,15 @@ Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée e
 
 Vous pouvez configurer ces propriétés pour le déclencheur de périodicité.
 
-| Nom | Requis | Nom de la propriété | Type | Description | 
+| NOM | Obligatoire | Nom de la propriété | type | DESCRIPTION | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Fréquence** | Oui | frequency | String | L’unité de temps de la périodicité est : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois**. | 
-| **Intervalle** | Oui | interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>L’intervalle par défaut est de 1 minute. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. | 
-| **Fuseau horaire** | Non | timeZone | String | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Sélectionnez le fuseau horaire à appliquer. | 
-| **Heure de début** | Non | startTime | String | Fournissez une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Time » (Heure du Pacifique). Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence à l’équivalent en [temps nautique](https://en.wikipedia.org/wiki/Nautical_time). <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?*](#start-time) | 
-| **Aux jours indiqués** | Non | weekDays | Chaîne ou tableau de chaînes | Si vous sélectionnez « Semaine », vous pouvez sélectionner un ou plusieurs jours pour l’exécution du flux de travail : **Lundi**, **Mardi**, **Mercredi**, **Jeudi**, **Vendredi**, **Samedi** et **Dimanche** | 
-| **Aux heures indiquées** | Non | hours | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 23 pour les heures de la journée durant lesquelles exécuter le flux de travail. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
-| **Aux minutes indiquées** | Non | minutes | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 59 pour les minutes de l’heure durant lesquelles exécuter le flux de travail. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
+| **Fréquence** | OUI | frequency | Chaîne | L’unité de temps de la périodicité est : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois**. | 
+| **Intervalle** | OUI | interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>L’intervalle par défaut est de 1 minute. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. | 
+| **Fuseau horaire** | Non  | timeZone | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Sélectionnez le fuseau horaire à appliquer. | 
+| **Heure de début** | Non  | startTime | Chaîne | Fournissez une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Time » (Heure du Pacifique). Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence à l’équivalent en [temps nautique](https://en.wikipedia.org/wiki/Nautical_time). <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?*](#start-time) | 
+| **Aux jours indiqués** | Non  | weekDays | Chaîne ou tableau de chaînes | Si vous sélectionnez « Semaine », vous pouvez sélectionner un ou plusieurs jours pour l’exécution du flux de travail : **Lundi**, **Mardi**, **Mercredi**, **Jeudi**, **Vendredi**, **Samedi** et **Dimanche** | 
+| **Aux heures indiquées** | Non  | hours | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 23 pour les heures de la journée durant lesquelles exécuter le flux de travail. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
+| **Aux minutes indiquées** | Non  | minutes | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 59 pour les minutes de l’heure durant lesquelles exécuter le flux de travail. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
 ||||| 
 
 ## <a name="json-example"></a>Exemple JSON
@@ -200,7 +200,7 @@ Dans ce scénario, le moteur Logic Apps calcule les heures d’exécution en fon
 
 Par conséquent, pour ce scénario, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première heure d’exécution est la même.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Actions et déclencheurs de flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Connecteurs](../connectors/apis-list.md)

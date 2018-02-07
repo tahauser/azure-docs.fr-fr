@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service 
 
 Quand vous exécutez une application web, vous souhaitez anticiper tout problème, des erreurs 500 à l’arrêt de votre site. Avec les diagnostics App Service, vous pouvez résoudre les problèmes de votre application web de manière intelligente et interactive sans effectuer de configuration particulière. Si vous rencontrez des problèmes avec votre application web, les diagnostics App Service vous en indiquent la nature afin que vous disposiez des informations appropriées pour les résoudre plus facilement et plus rapidement. 
  
 Cette fonctionnalité est particulièrement utile quand vous rencontrez des problèmes avec votre application web au cours des dernières 24 heures, mais vous pouvez aussi analyser tous les graphes de diagnostic à tout moment. Des outils de dépannage supplémentaires et des liens vers de la documentation et des forums utiles sont indiqués dans la colonne de droite.
+
+## <a name="open-app-service-diagnostics"></a>Ouvrir les diagnostics App Service
+
+Pour accéder aux diagnostics App Service, accédez à votre application web App Service dans le [portail Azure](https://portal.azure.com). 
+
+Dans le volet de navigation de gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
 
 ![Page d’accueil](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Que vous exécutiez un [contrôle d’intégrité](#health-checkup) pour obtenir
 
 ![Rapport de diagnostic](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Ouvrir les diagnostics App Service
-
-Pour accéder aux diagnostics App Service, accédez à votre application web App Service dans le [portail Azure](https://portal.azure.com). 
-
-Dans le volet de navigation de gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.

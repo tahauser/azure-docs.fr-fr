@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestion et maintenance de l’agent Log Analytics sous Windows et Linux
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agent Linux
-Effectuez les opérations suivantes si vos ordinateurs Linux doivent communiquer avec Log Analytics via un serveur proxy ou Passerelle OMS.  La valeur de configuration de proxy a la syntaxe suivante `[protocol://][user:password@]proxyhost[:port]`.
+Effectuez les opérations suivantes si vos ordinateurs Linux doivent communiquer avec Log Analytics via un serveur proxy ou Passerelle OMS.  La valeur de configuration de proxy a la syntaxe suivante `[protocol://][user:password@]proxyhost[:port]`.  La propriété *proxyhost* accepte un nom de domaine complet ou l’adresse IP du serveur proxy.
 
 1. Modifiez le fichier `/etc/opt/microsoft/omsagent/proxy.conf` en exécutant les commandes suivantes et modifiez les valeurs en vous basant sur vos paramètres spécifiques.
 
@@ -178,6 +178,6 @@ Procédez comme suit pour configurer l’Agent OMS pour Linux pour envoyer des r
 2. Vérifiez que la ligne commençant par `httpsport=` spécifie le port 1270. Par exemple : `httpsport=1270`
 3. Redémarrez le serveur OMI : `sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez [Résolution des problèmes de l’agent Linux](log-analytics-agent-linux-support.md) si vous rencontrez des problèmes lors de l’installation ou de gestion de l’agent.  

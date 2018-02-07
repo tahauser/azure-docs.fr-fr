@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Didacticiel Azure Container Service - Gérer DC/OS
 
@@ -33,7 +33,7 @@ Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az -
 
 ## <a name="create-dcos-cluster"></a>Créer un cluster DC/OS
 
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *westeurope*.
 
@@ -41,7 +41,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location westeurope
 ```
 
-Ensuite, créez un cluster DC/OS avec la commande [az acs create](/cli/azure/acs#create).
+Ensuite, créez un cluster DC/OS avec la commande [az acs create](/cli/azure/acs#az_acs_create).
 
 L’exemple suivant crée un cluster DC/OS nommé *myDCOSCluster* et crée des clés SSH si elles n’existent pas déjà. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
 
@@ -239,13 +239,13 @@ Le site NGINX par défaut vous est retourné dès lors que vous accédez à cett
 
 Dans les exemples précédents, une application a été mise à l’échelle pour présenter plusieurs instances. L’infrastructure DC/OS peut aussi être mise à l’échelle pour fournir plus ou moins de capacité de calcul. Cette opération s’effectue via la commande [az acs scale](). 
 
-Pour afficher le nombre actuel d’agents DC/OS, utilisez la commande [az acs show](/cli/azure/acs#show).
+Pour afficher le nombre actuel d’agents DC/OS, utilisez la commande [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Pour faire passer le nombre à 5, utilisez la commande [acs az scale](/cli/azure/acs#scale). 
+Pour faire passer le nombre à 5, utilisez la commande [acs az scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -253,13 +253,13 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Supprimer un cluster DC/OS
 
-Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, le cluster DC/OS et toutes les ressources associées.
+Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le cluster DC/OS et toutes les ressources associées.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a permis de vous familiariser avec certaines tâches de gestion DC/OS de base, qui sont répertoriées ci-dessous. 
 

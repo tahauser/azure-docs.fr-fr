@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transférer des objets vers/à partir du stockage Blob Azure à l’aide d’Azure CLI
 
@@ -35,9 +35,9 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob de la même façon que vous organisez vos fichiers dans des dossiers sur l’ordinateur.
+Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob de la même façon que vous organisez vos fichiers dans les dossiers de l’ordinateur.
 
-Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container#create).
+Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -50,7 +50,7 @@ Le stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages
 Commencez par créer un fichier à charger dans un objet blob.
 Avec Azure Cloud Shell, procédez ainsi pour créer un fichier : utilisez `vi helloworld` lorsque le fichier s’ouvre, appuyez sur **Insérer**, tapez « Hello world », appuyez sur **Échap**, puis entrez `:x` et appuyez sur **Entrée**.
 
-Dans cet exemple, vous chargez un objet blob dans le conteneur que vous avez créé à la dernière étape avec la commande [az storage blob upload](/cli/azure/storage/blob#upload).
+Dans cet exemple, vous chargez un objet blob dans le conteneur que vous avez créé à la dernière étape avec la commande [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -70,11 +70,11 @@ az storage blob upload \
 
 Cette opération crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe. Chargez autant de fichiers que vous le souhaitez avant de continuer.
 
-Pour charger plusieurs fichiers à la fois, vous pouvez utiliser la commande [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
+Pour charger plusieurs fichiers à la fois, vous pouvez utiliser la commande [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
-Listez les objets blob d’un conteneur avec la commande [az storage blob list](/cli/azure/storage/blob#list).
+Listez les objets blob d’un conteneur avec la commande [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -84,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Télécharger un objet blob
 
-Utilisez la commande [az storage blob download](/cli/azure/storage/blob#download) pour télécharger l’objet blob chargé au préalable.
+Utilisez la commande [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) pour télécharger l’objet blob chargé au préalable.
 
 ```azurecli-interactive
 az storage blob download \
@@ -109,7 +109,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, y compris du compte de stockage que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group#delete).
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, y compris du compte de stockage que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

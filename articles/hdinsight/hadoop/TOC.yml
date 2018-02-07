@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop sur HDInsight
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: apache-hadoop-introduction.md
     - name: Architecture Hadoop dans HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -207,6 +207,21 @@
             - name: Publier des applications HDInsight dans la Place de marché Azure
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: 'Installer une application publiée : CDAP (Cask Data Application Platform)'
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Dataiku'
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Datameer'
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 'Installer une application publiée : H2O'
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Streamsets'
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Sécuriser
       items:
         - name: Utiliser SSH avec HDInsight
@@ -364,7 +379,7 @@
   items:
     - name: Sécurité d’entreprise
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planifier la sécurité d’entreprise

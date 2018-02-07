@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentation Azure Event Grid
 metadata:
-  title: 'Documentation Azure Event Grid - Didacticiels, informations de référence sur les API'
-  description: Utilisez Azure Event Grid pour réagir à des événements pertinents sur les services Azure et non Azure en quasi temps réel.
+  title: "Documentation Azure Event Grid - Didacticiels, informations de référence sur les API"
+  description: "Utilisez Azure Event Grid pour réagir à des événements pertinents sur les services Azure et non Azure en quasi temps réel."
   services: event-grid
   author: czeumault
   manager: carolz
@@ -13,47 +13,65 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
+  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/01/2018
 abstract:
-  description: 'Azure Event Grid est un service de routage d’événement intelligent et entièrement géré qui permet une consommation d’événements uniforme à l’aide d’un modèle publication-abonnement. Utilisez Azure Event Grid pour réagir à des événements pertinents sur les services Azure et non Azure en quasi temps réel. Découvrez comment utiliser Azure Event Grid avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
+  description: "Azure Event Grid est un service de routage d’événement intelligent et entièrement géré qui permet une consommation d’événements uniforme à l’aide d’un modèle publication-abonnement. Utilisez Azure Event Grid pour réagir à des événements pertinents sur les services Azure et non Azure en quasi temps réel. Découvrez comment utiliser Azure Event Grid avec nos guides de démarrage rapide, nos didacticiels et nos exemples."
 sections:
-  - title: "Démarrages en 5\_minutes"
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment créer des événements personnalisés et s’y abonner."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Découvrez comment créer des événements personnalisés et s’y abonner.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: Interface de ligne de commande Azure
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: "Azure\_PowerShell"
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Portail Azure
-            href: /azure/event-grid/custom-event-quickstart-portal
-  - title: Didacticiels pas à pas
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/event-grid/custom-event-quickstart
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: "Azure PowerShell"
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image:
+        src: /azure/event-grid/media/index/portal.svg
+      text: Portail Azure
+      href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: "Découvrez comment acheminer des événements de stockage Blob."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Découvrez comment développer des applications qui réagissent aux événements.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Surveiller les modifications apportées aux machines virtuelles avec les applications logiques</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionner les images chargées</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Intégration d’Azure Automation avec Event Grid</a>
-  - title: Référence
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: "Azure PowerShell"
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: "Découvrez comment développer des applications qui réagissent aux événements."
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: <p><a href="/cli/azure/eventgrid">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
-          - title: API REST
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Schémas
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Schéma d’abonnement</a></p><p><a href="/azure/event-grid/event-schema">Schéma d’événement</a></p>
+    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Surveiller les modifications apportées aux machines virtuelles avec les applications logiques</a>"
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Redimensionner les images chargées</a>"
+    - html: "<a href=\"/azure/event-grid/ensure-tags-exists-on-new-virtual-machines\">Intégration d’Azure Automation avec Event Grid</a>"
+- title: "Informations de référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Ligne de commande
+      html: <p><a href="/cli/azure/eventgrid">interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: API REST
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+    - title: "Schémas"
+      html: "<p><a href=\"/azure/event-grid/subscription-creation-schema \">Schéma d’abonnement</a></p><p><a href=\"/azure/event-grid/event-schema\">Schéma d’événement</a></p>"

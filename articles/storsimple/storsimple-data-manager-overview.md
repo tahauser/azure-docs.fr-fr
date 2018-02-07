@@ -1,6 +1,6 @@
 ---
 title: "Vue d’ensemble de Microsoft Azure StorSimple Data Manager | Microsoft Docs"
-description: "Offre une vue d’ensemble du service StorSimple Data Manager (version préliminaire privée)"
+description: "Cet article offre une vue d’ensemble du service StorSimple Data Manager."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -12,63 +12,75 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
+ms.date: 01/16/2018
 ms.author: vidarmsft
-ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="storsimple-data-manager-overview-private-preview"></a>Vue d’ensemble de StorSimple Data Manager (version préliminaire privée)
+# <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Microsoft Azure StorSimple est une solution de stockage de cloud hybride qui gère les complexités des données non structurées couramment associées aux partages de fichiers. StorSimple utilise le stockage cloud pour étendre la solution sur site et hiérarchise automatiquement les données sur le stockage local et le stockage cloud. La protection des données intégrée, qui comprend à la fois des instantanés en local et des instantanés sur le cloud, évite d’avoir à s’appuyer sur une immense infrastructure de stockage. L’archivage et la récupération d’urgence se font également en toute transparence, le cloud faisant office d’emplacement hors site.
+Microsoft Azure StorSimple utilise le stockage cloud pour étendre la solution locale, et hiérarchise automatiquement les données sur le stockage local et le cloud. Les données sont stockées dans le cloud dans un format dédupliqué et compressé, de façon à maximiser l’efficacité et à réduire les coûts. Étant au format StorSimple, elles ne sont pas directement utilisables par d’autres applications cloud.
 
-Le service de transformation de données présenté dans ce document permet d’accéder facilement aux données StorSimple dans le cloud. Ce service fournit des API conçues pour extraire des données de StorSimple et les présenter aux autres services Azure dans des formats qui peuvent être immédiatement utilisés. Les formats pris en charge dans cette version préliminaire sont les objets blob Azure et les ressources Azure Media Services. Cette transformation vous permet de lier facilement des services tels que Azure Media Services, Azure HDInsight, Azure Machine Learning et Azure Search afin d’exploiter les données sur un appareil local de la gamme StorSimple 8000.
+StorSimple Data Manager permet d’y accéder et de les utiliser en toute simplicité dans le cloud. Pour cela, il transforme le format StorSimple en fichiers et en objets blob natifs utilisables avec d’autres services, par exemple, Azure Media Services, Azure HDInsights et Azure Machine Learning.
 
-Le diagramme de blocs général ci-dessous illustre cela.
+Cet article offre une vue d’ensemble de la solution StorSimple Data Manager. Il explique également comment utiliser ce service pour écrire des applications qui utilisent des données de StorSimple et les autres services Azure dans le cloud.
 
-![Diagramme général](./media//storsimple-data-manager-overview/high-level-diagram.png)
+## <a name="how-it-works"></a>Fonctionnement
 
-Ce document explique comment s’inscrire à la version préliminaire privée de ce service. Il explique également comment utiliser ce service pour écrire des applications qui utilisent des données de StorSimple et les autres services Azure dans le cloud.
+Le service StorSimple Data Manager identifie les données StorSimple dans le cloud sur un appareil local de la série StorSimple 8000. Les données StorSimple dans le cloud sont dédupliquées et compressées au format StorSimple. Le service Data Manager fournit des API pour extraire les données dans ce format et les convertir dans d’autres formats, par exemple des objets blob Azure et des fichiers Azure Files. Ces données transformées sont alors facilement consommées par Azure HDInsight et Azure Media Services. La transformation de données permet donc à ces services d’exploiter les données StorSimple converties sur l’appareil local de la série StorSimple 8000. Ce flux est illustré par le diagramme suivant :
 
-## <a name="sign-up-for-data-manager-preview"></a>Inscription à la version préliminaire de Data Manager
-Avant de vous inscrire au service Data Manager, passez en revue les conditions préalables suivantes.
-
-### <a name="prerequisites"></a>Composants requis
-
-Cet exercice suppose que vous disposiez :
-* d’un abonnement Azure actif ;
-* d’un accès à un appareil de la gamme StorSimple 8000 inscrit ;
-* de toutes les clés associées à l’appareil de la gamme StorSimple 8000.
-
-### <a name="sign-up"></a>Inscription
-
-StorSimple Data Manager est disponible en version préliminaire privée. Pour vous inscrire à la version préliminaire privée de ce service, procédez comme suit :
-
-1.  Connectez-vous au portail Azure avec l’extension StorSimple Data Manager à l’adresse : [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager). Utilisez vos informations d’identification Azure pour vous connecter.
-
-2.  Cliquez sur l’icône **+** pour créer un service. Cliquez sur **Stockage**, puis sur **Afficher tout** dans le panneau qui s’ouvre.
-
-    ![Rechercher l’icône de StorSimple Data Manager](./media/storsimple-data-manager-overview/search-data-manager-icon.png)
-
-3. L’icône de StorSimple Data Manager est affichée.
-
-    ![Sélectionner l’icône de StorSimple Data Manager](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
-
-4. Cliquez sur l’icône de StorSimple Data Manager, puis sur **Créer**. Sélectionnez l’abonnement que vous souhaitez activer pour la version préliminaire privée, puis cliquez sur **Sign me up!** (Inscription).
-
-    ![Inscription](./media/storsimple-data-manager-overview/sign-me-up.png)
-
-5. Une demande d’intégration est envoyée. Nous vous intégrerons dès que possible. Une fois votre abonnement activé, vous pouvez créer un service StorSimple Data Manager.
-
-6. Pour accéder facilement au service StorSimple Data Manager, cliquez sur l’étoile pour l’épingler à vos favoris.
-
-    ![Accéder à StorSimple Data Manager](./media/storsimple-data-manager-overview/access-data-managers.png)
+![Diagramme général](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="data-manager-use-cases"></a>Cas d’usage de Data Manager
+
+Vous pouvez utiliser Data Manager avec Azure Functions, Azure Automation et Azure Data Factory pour exécuter des workflows sur vos données au fur et à mesure de leur ajout à StorSimple. Vous avez la possibilité de traiter le contenu multimédia stocké sur StorSimple avec Azure Media Services, d’exécuter un algorithme de Machine Learning sur ces données ou de monter un cluster Hadoop pour analyser les données stockées sur StorSimple. Grâce au large éventail des services disponibles sur Azure et aux données présentes sur StorSimple, vous pourrez exploiter toute la puissance de vos données.
+
+
+## <a name="region-availability"></a>Disponibilité des régions
+
+StorSimple Data Manager est disponible dans les sept régions suivantes :
+
+ - Asie du Sud-Est
+ - Est des États-Unis
+ - États-Unis de l’Ouest
+ - Ouest des États-Unis 2
+ - Centre-Ouest des États-Unis
+ - Europe du Nord
+ - Europe de l'Ouest
+
+Toutefois, StorSimple Data Manager peut permettre de transformer les données dans les régions suivantes : 
+
+![Régions disponibles pour les données](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+
+La seconde liste est plus longue, car le déploiement de ressources dans l’une des régions de la première est capable d’élargir le processus de transformation aux régions de la seconde. Par conséquent, tant que vos données se trouvent dans l’une des 26 régions, vous pouvez les transformer à l’aide de ce service.
+
+
+## <a name="choosing-a-region"></a>Choisir une région
+
+Nous vous recommandons :
+ - que votre compte de stockage source (associé à votre appareil StorSimple) se trouve dans la même région Azure que votre compte de stockage cible (où vous souhaitez placer les données au format natif) ;
+ - de placer votre service Data Manager et la définition de la tâche dans la région qui contient le compte de stockage StorSimple. Si ce n’est pas possible, placez Data Manager dans la région Azure le plus proche, puis créez la définition de la tâche dans la même région que votre compte de stockage StorSimple. 
+
+    Si votre compte de stockage StorSimple ne se trouve pas dans l’une des 26 régions qui prennent en charge la création de définitions de tâches, nous vous recommandons de ne pas exécuter StorSimple Data Manager, car vous constateriez de grandes latences et des frais de sortie potentiellement élevés.
+
+## <a name="security-considerations"></a>Considérations relatives à la sécurité
+
+StorSimple Data Manager a besoin de la clé de chiffrement des données de service pour transformer le format StorSimple en format natif. Elle est générée lors de l’inscription du premier appareil auprès du service StorSimple. Pour plus d’informations sur cette clé, consultez la page [Sécurité StorSimple](storsimple-8000-security.md).
+
+La clé de chiffrement de données de service fournie en entrée est stockée dans un coffre de clés généré à la création d’un service Data Manager. Le coffre se trouve dans la même région Azure que votre service StorSimple Data Manager. Cette clé est supprimée lors de la suppression du service Data Manager.
+
+Cette clé est utilisée par les ressources de calcul pour effectuer la transformation. Ces ressources se trouvent dans la même région Azure que la définition de la tâche. Cette région n’est pas nécessairement identique à celle du service Data Manager.
+
+Si la région de votre service Data Manager est différente de celle de votre définition de tâche, il est important que vous sachiez quelles données/métadonnées se trouvent dans chacune d’entre elles. Le diagramme suivant illustre l’effet produit lorsque la région de Data Manager est différente de celle de la définition de la tâche.
+
+![Service et définition de la tâche dans des régions différentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="next-steps"></a>étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Automatisez la création, la maintenance et la suppression d’identités utilis
 | Découvrir son fonctionnement et trouver les réponses aux questions les plus fréquentes |[Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md) |
 | Configurer le mappage des informations entre Azure AD et votre application SaaS |[Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Comment activer l’approvisionnement automatique pour toute application qui prend en charge le protocole SCIM |[Configurer l’approvisionnement automatique des utilisateurs pour toute application prenant en charge le protocole SCIM](active-directory-scim-provisioning.md) |
-| Comment créer des rapports et résoudre les problèmes d’approvisionnement d’utilisateurs |[Création de rapports sur l’approvisionnement d’utilisateurs automatique](active-directory-saas-provisioning-reporting.md)<br><br>[Notifications d’approvisionnement](active-directory-saas-account-provisioning-notifications.md)<br><br>[Résolution des problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md) |
+| Comment créer des rapports et résoudre les problèmes d’approvisionnement d’utilisateurs |[Création de rapports sur l’approvisionnement d’utilisateurs automatique](active-directory-saas-provisioning-reporting.md)<br><br>[Résolution des problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md) |
 | Limiter les personnes pouvant être approvisionnées pour une application en fonction de ses valeurs d’attribut |[Filtres d’étendue](active-directory-saas-scoping-filters.md) |
 
 L’approvisionnement automatique des utilisateurs est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour gérer les utilisateurs pouvant être approvisionnés](#managing-access-to-applications).

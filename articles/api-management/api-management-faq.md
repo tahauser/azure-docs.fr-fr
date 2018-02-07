@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -26,14 +26,13 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 ## <a name="contact-us"></a>Nous contacter
 * [Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 * [Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Comment sécuriser la connexion entre la passerelle de gestion des API et mes services principaux ?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [Comment copier une instance de service Gestion des API vers une nouvelle instance ?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 * [Puis-je gérer mon instance de gestion des API par programme ?](#can-i-manage-my-api-management-instance-programmatically)
 * [Comment ajouter un utilisateur au groupe d’administrateurs ?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Comment utiliser le contrôle de version d’API dans Gestion des API ?](#how-do-i-use-api-versioning-in-api-management)
 * [Comment configurer plusieurs environnements dans une seule API ?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Puis-je utiliser SOAP avec le service Gestion des API ?](#can-i-use-soap-with-api-management)
 * [L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Importer et publier votre première API](import-and-publish.md).
 * Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
-* Utiliser une liste blanche des adresses IP sur votre service principal. Si vous avez une instance de gestion des API de niveau Standard ou Premium, l’adresse IP de la passerelle reste constante. Vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
+* Utiliser une liste blanche des adresses IP sur votre service principal. Dans tous les niveaux de gestion des API, l’adresse IP de la passerelle reste constante, avec quelques [mises en garde](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
 * Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?
@@ -83,7 +82,7 @@ Oui, vous pouvez gérer le service Gestion des API par programme en utilisant :
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Comment ajouter un utilisateur au groupe d’administrateurs ?
 Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API que vous souhaitez mettre à jour.
 3. Dans Gestion des API, attribuez le rôle **collaborateur de gestion des API** à l’utilisateur.
 
@@ -97,13 +96,6 @@ Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de c
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?
 Si la stratégie que vous souhaitez ajouter apparaît grisée dans l’éditeur de stratégie, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour être utilisée dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section Utilisation de cette stratégie dans [Stratégies Gestion des API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Comment utiliser le contrôle de version d’API dans Gestion des API ?
-Vous pouvez utiliser le contrôle de version de différentes manières dans Gestion des API :
-
-* Dans Gestion des API, vous pouvez configurer des API représentant différentes versions. Par exemple, vous pouvez avoir deux API différentes, MonAPIv1 et MonAPIv2. Un développeur peut choisir la version qu’il souhaite utiliser.
-* Vous pouvez également configurer votre API avec une URL de service qui n’inclut pas un segment de version, par exemple https://mon.api. Ensuite, configurez un segment de version pour chaque modèle de [réécriture de l’URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL). 
-* Si vous souhaitez conserver un segment de version « par défaut » dans l’URL de service de l’API, vous pouvez définir, sur les opérations concernées, une stratégie qui utilise la stratégie [Définir le service principal](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) pour modifier le chemin d’accès de requête principal.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Comment configurer plusieurs environnements dans une seule API ?
 Il existe deux manières de configurer plusieurs environnements, par exemple un environnement de test et un environnement de production, dans une seule API. Vous pouvez :
 
@@ -114,7 +106,7 @@ Il existe deux manières de configurer plusieurs environnements, par exemple un 
 Les [requêtes SOAP directes](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) sont désormais prises en charge. Les administrateurs peuvent importer le WSDL de leur service SOAP afin que le service Gestion des API Azure puisse créer un composant frontal SOAP. Une documentation relative au portail des développeurs, une console de test, des stratégies et des outils d’analyse sont disponibles pour les services SOAP.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?
-Pour les niveaux Standard et Premium, l’adresse IP publique (VIP, adresse IP virtuelle) du client de gestion des API est statique pour la durée de vie du client, avec néanmoins quelques exceptions. L’adresse IP est modifiée dans les cas suivants :
+Dans tous les niveaux de la gestion des API, l’adresse IP publique (VIP, adresse IP virtuelle) du client de gestion des API est statique pour la durée de vie du client, avec néanmoins quelques exceptions. L’adresse IP est modifiée dans les cas suivants :
 
 * Le service est supprimé, puis recréé.
 * L’abonnement au service est [suspendu](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ou [fait l’objet d’un avertissement ](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)(par exemple pour non-paiement), puis réactivé.

@@ -3,30 +3,30 @@ title: "Intégrer DNS Azure avec vos ressources Azure | Documents Microsoft"
 description: "Découvrez comment utiliser DNS Azure pour fournir un DNS pour vos ressources Azure."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 1/19/2018
+ms.author: kumud
+ms.openlocfilehash: cbc769cd7356b3057fd2aae295071b04d2e40d91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
 DNS Azure fournit un DNS pour un domaine personnalisé, pour toutes vos ressources Azure prenant en charge les domaines personnalisés ou ayant un nom de domaine complet (FQDN). C’est le cas, par exemple, si vous avez une application web Azure et souhaitez que vos utilisateurs y accèdent en utilisant soit contoso.com, soit www.contoso.com en tant que FQDN.utilisateur. Cet article vous guide tout au long de la configuration de votre service Azure avec DNS Azure pour l’utilisation de domaines personnalisés.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour pouvoir utiliser DNS Azure pour votre domaine personnalisé, vous devez tout d’abord déléguer votre domaine à DNS d’Azure. Pour obtenir des instructions sur la façon de configurer vos serveurs de noms pour la délégation, voir [Délégation de domaine à Azure DNS](./dns-delegate-domain-azure-dns.md). Une fois votre domaine délégué à votre zone DNS Azure, vous êtes en mesure de configurer les enregistrements DNS nécessaires.
 
-Vous pouvez configurer un domaine personnalisé pour [Applications Azure Function](#azure-function-app), [Azure IoT](#azure-iot), [Adresses IP publiques](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Stockage Blob](#blob-storage) et [Azure CDN](#azure-cdn).
+Vous pouvez configurer un domaine personnalisé pour [Applications Azure Function](#azure-function-app), [Adresses IP publiques](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Stockage Blob](#blob-storage) et [Azure CDN](#azure-cdn).
 
 ## <a name="azure-function-app"></a>Application Azure Function
 
@@ -42,10 +42,10 @@ Notez l’URL actuelle affichée sur le panneau **Domaines personnalisés**. Cet
 
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
-|Propriété  |Valeur  |Description  |
+|Propriété  |Valeur  |DESCRIPTION  |
 |---------|---------|---------|
-|Nom     | myFunctionApp        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
+|NOM     | myFunctionApp        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Alias     | adatumfunction.azurewebsites.net        | Nom DNS pour lequel vous créez l’alias. Dans cet exemple, il s’agit du nom DNS adatumfunction.azurewebsites.net fourni par défaut à l’application de fonction.        |
@@ -55,27 +55,6 @@ Revenez à votre application de fonction, cliquez sur **Fonctionnalités de la p
 Sur le panneau **Ajouter un nom d’hôte**, dans le champ de texte **nom d’hôte** entrez l’enregistrement CNAME, puis cliquez sur **Valider**. Si l’enregistrement a été trouvé, le bouton **Ajouter un nom d’hôte** s’affiche. Pour ajouter l’alias, cliquez sur **Ajouter un nom d’hôte**.
 
 ![Panneau Ajouter un nom d’hôte pour application de fonction](./media/dns-custom-domain/functionaddhostname.png)
-
-## <a name="azure-iot"></a>Azure IoT
-
-Azure IoT ne nécessite aucune personnalisation du service proprement dit. Pour utiliser un domaine personnalisé avec un seul IoT Hub, un enregistrement CNAME pointé sur les ressources est nécessaire.
-
-Accédez à **Internet des objets** > **IoT Hub**, puis sélectionnez votre IoT Hub. Sur le panneau **Vue d’ensemble**, notez le FQDN de l’IoT hub.
-
-![Panneau IoT Hub](./media/dns-custom-domain/iot.png)
-
-Ensuite, accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
-
-
-|Propriété  |Valeur  |Description  |
-|---------|---------|---------|
-|Nom     | myiothub        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.
-|TTL     | 1        | 1 est utilisé pour 1 heure        |
-|Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
-|Alias     | adatumIOT.azure-devices.net        | Nom DNS pour lequel vous créez l’alias. Dans cet exemple, il s’agit du nom d’hôte adatumIOT.azure-devices.net fourni par l’IoT Hub.
-
-Une fois l’enregistrement créé, testez la résolution de nom avec l’enregistrement CNAME en utilisant `nslookup`.
 
 ## <a name="public-ip-address"></a>Adresse IP publique
 
@@ -88,10 +67,10 @@ Accédez à **Mise en réseau** > **Adresse IP publique**, sélectionnez la ress
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
 
-|Propriété  |Valeur  |Description  |
+|Propriété  |Valeur  |DESCRIPTION  |
 |---------|---------|---------|
-|Nom     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | A        | Utiliser un enregistrement A si la ressource est une adresse IP.        |
+|NOM     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|type     | A        | Utiliser un enregistrement A si la ressource est une adresse IP.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Adresse IP     | <your ip address>       | Adresse IP publique.|
@@ -115,10 +94,10 @@ Notez l’URL actuelle affichée sur le panneau **Domaines personnalisés**. Cet
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
 
-|Propriété  |Valeur  |Description  |
+|Propriété  |Valeur  |DESCRIPTION  |
 |---------|---------|---------|
-|Nom     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias. Si la ressource utilisait une adresse IP, un enregistrement A serait utilisé.        |
+|NOM     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias. Si la ressource utilisait une adresse IP, un enregistrement A serait utilisé.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Alias     | webserver.azurewebsites.net        | Nom DNS pour lequel vous créez l’alias. Dans cet exemple, il s’agit du nom DNS webserver.azurewebsites.net fourni par défaut à l’application web.        |
@@ -149,10 +128,10 @@ Accédez à **Stockage** > **Comptes de stockage**, sélectionnez votre compte d
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
 
-|Propriété  |Valeur  |Description  |
+|Propriété  |Valeur  |DESCRIPTION  |
 |---------|---------|---------|
-|Nom     | asverify.mystorageaccount        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
+|NOM     | asverify.mystorageaccount        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Nom DNS pour lequel vous créez l’alias. Dans cet exemple, il s’agit du nom DNS asverify.adatumfunctiona9ed.blob.core.windows.net fourni par défaut au compte de stockage.        |
@@ -177,10 +156,10 @@ Sélectionnez le point de terminaison que vous utilisez, puis cliquez sur **+ Do
 
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
-|Propriété  |Valeur  |Description  |
+|Propriété  |Valeur  |DESCRIPTION  |
 |---------|---------|---------|
-|Nom     | cdnverify.mycdnendpoint        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
+|NOM     | cdnverify.mycdnendpoint        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Nom DNS pour lequel vous créez l’alias. Dans cet exemple, il s’agit du nom DNS cdnverify.adatumcdnendpoint.azureedge.net fourni par défaut au compte de stockage.        |
@@ -189,6 +168,6 @@ Revenez au point de terminaison CDN en cliquant sur **Mise en réseau** > **Prof
 
 Une fois cette étape accomplie, revenez à votre zone DNS, puis créez un enregistrement CNAME sans le préfixe cdnverify.  Ensuite, vous pouvez supprimer en toute sécurité l’enregistrement CNAME avec le préfixe cdnverify. Pour plus d’informations sur le CDN et la façon de configurer un domaine personnalisé sans l’étape d’inscription intermédiaire, voir [Mapper du contenu Azure CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrir comment [Configurer des DNS inversés dans les services hébergés par Azure](dns-reverse-dns-for-azure-services.md).

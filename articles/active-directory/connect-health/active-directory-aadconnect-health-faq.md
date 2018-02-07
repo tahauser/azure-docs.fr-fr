@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -45,6 +45,7 @@ Notez que les fonctionnalités proposées par le service peuvent varier selon le
 * Le premier agent Connect Health nécessite au moins une licence Azure AD Premium.
 * Chaque nouvel agent inscrit nécessite 25 licences Azure AD Premium supplémentaires.
 * Le nombre d’agents est équivalent au nombre total d’agents inscrits auprès de tous les rôles surveillés (AD FS, Azure AD Connect et/ou AD DS).
+* Avec les licences AAD Connect Health, il n’est pas nécessaire d’attribuer chaque licence à des utilisateurs spécifiques. Vous devez simplement disposer du nombre de licences valides requis.
 
 Les informations relatives aux licences se trouvent également sur la [page Azure Active Directory Tarification](https://aka.ms/aadpricing).
 
@@ -56,7 +57,7 @@ Exemple :
 | 2 | 26| 1 serveur Azure AD Connect et 1 contrôleur de domaine |
 | 3 | 51 | 1 serveur Active Directory Federation Services (AD FS), 1 proxy AD FS et 1 contrôleur de domaine |
 | 4 | 76 | 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
-| 5 | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
+| 5. | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
 
 **Q : Azure AD Connect Health prend-il en charge Azure Germany Cloud ?**
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Créer des images conteneurs pour Service Fabric
 
@@ -40,7 +40,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 > * [Créer et exécuter une application Service Fabric avec des conteneurs](service-fabric-tutorial-package-containers.md)
 > * [Gestion du basculement et de la mise à l’échelle dans Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 - Configuration de l’environnement de développement Linux pour Service Fabric. Suivez les instructions [ici](service-fabric-get-started-linux.md) pour configurer votre environnement Linux. 
 - Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-La solution contient deux dossiers et un fichier « docker-compse.yml ». Le dossier « azure-vote » contient le service frontal Python, ainsi que le fichier Dockerfile utilisé pour créer l’image. Le répertoire « Voting » contient le package d’application Service Fabric qui est déployé sur le cluster. Ces répertoires contiennent les ressources nécessaires à ce didacticiel.  
+La solution contient deux dossiers et un fichier docker-compose.yml. Le dossier « azure-vote » contient le service frontal Python, ainsi que le fichier Dockerfile utilisé pour créer l’image. Le répertoire « Voting » contient le package d’application Service Fabric qui est déployé sur le cluster. Ces répertoires contiennent les ressources nécessaires à ce didacticiel.  
 
 ## <a name="create-container-images"></a>Créer des images de conteneur
 
@@ -188,7 +188,7 @@ Les commandes Docker de type push prennent quelques minutes.
 
 ## <a name="list-images-in-registry"></a>Créer la liste des images du registre
 
-Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#list). Mettez à jour la commande avec le nom d’instance ACR.
+Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Mettez à jour la commande avec le nom d’instance ACR.
 
 ```bash
 az acr repository list --name <acrName> --output table

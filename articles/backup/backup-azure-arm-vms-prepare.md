@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
@@ -54,7 +54,7 @@ Avant de préparer votre environnement, assurez-vous de noter les limitations su
 * La sauvegarde de machines virtuelles avec des tailles de disque de données supérieures à 1 023 Go n’est pas prise en charge.
 
   > [!NOTE]
-  > Nous avons une préversion privée pour prendre en charge les sauvegardes des machines virtuelles dotées de disques non managés d’une taille supérieure ou égale à 1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Nous avons une préversion privée qui prenden charge les sauvegardes des machines virtuelles dotées de disques de plus de 1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
@@ -181,7 +181,7 @@ Après avoir activé la sauvegarde, votre stratégie de sauvegarde est exécuté
 Si vous avez des problèmes lors de l’inscription de la machine virtuelle, consultez les informations suivantes sur l’installation de l’agent de machine virtuelle et la connectivité réseau. Vous n’avez probablement pas besoin des informations suivantes si vous protégez des machines virtuelles créées dans Azure. Toutefois, si vous avez migré vos machines virtuelles dans Azure, vérifiez que vous avez correctement installé l’agent de machine virtuelle et que votre machine virtuelle peut communiquer avec le réseau virtuel.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installer l’agent de machine virtuelle sur la machine virtuelle
-Pour que l’extension de sauvegarde fonctionne, [l’agent de machine virtuelle](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) Azure doit être installé sur la machine virtuelle Azure. Si votre machine virtuelle a été créée à partir de Place de Marché Azure, l’agent y est déjà installé. 
+Pour que l’extension de sauvegarde fonctionne, [l’agent de machine virtuelle](../virtual-machines/windows/agent-user-guide.md) Azure doit être installé sur la machine virtuelle Azure. Si votre machine virtuelle a été créée à partir de Place de Marché Azure, l’agent y est déjà installé. 
 
 Ces informations sont fournies pour les situations dans lesquelles vous n’utilisez *pas* de machine virtuelle créée à partir de Place de Marché Azure, par exemple, si vous avez migré une machine virtuelle à partir d’un centre de données local. Dans ce cas, l’agent de machine virtuelle doit être installé afin de protéger la machine virtuelle.
 
@@ -219,7 +219,7 @@ Vous pouvez autoriser les connexions au stockage de la région spécifique à l�
 ![Groupe de sécurité réseau avec des balises de stockage pour une région](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Les balises de stockage sont en préversion et disponibles uniquement dans des régions spécifiques. Pour obtenir une liste de régions, consultez [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
+> Les balises de service de stockage sont en préversion et disponibles uniquement dans certaines régions. Pour obtenir une liste de régions, consultez [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Utiliser un proxy HTTP pour les sauvegardes de machine virtuelle
 Quand vous sauvegardez une machine virtuelle, l’extension de sauvegarde sur la machine virtuelle envoie les commandes de gestion de capture instantanée au stockage Azure à l’aide d’une API HTTPS. Acheminez le trafic de l’extension de sauvegarde via le proxy HTTP, car il s’agit du seul composant configuré pour l’accès Internet public.

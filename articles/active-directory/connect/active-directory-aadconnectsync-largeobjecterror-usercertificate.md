@@ -1,9 +1,9 @@
 ---
-title: "Synchronisation Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate | Microsoft Docs"
+title: "Azure AD Connect : erreurs LargeObject provoquées par l’attribut userCertificate | Microsoft Docs"
 description: "Cette rubrique propose une procédure de correction des erreurs LargeObject provoquées par l’attribut userCertificate."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
 
@@ -101,10 +102,10 @@ Il existe normalement une règle de synchronisation activée et configurée pour
 7. Dans l’écran de modification, sélectionnez l’onglet **Filtre d’étendue**.
 8. Notez la configuration du filtre d’étendue. Si vous utilisez la règle de synchronisation OOB, il doit y avoir exactement **un groupe de filtres d’étendue comportant deux clauses**, notamment :
 
-    | Attribut | Opérateur  | Valeur |
+    | Attribut | Operator | Valeur |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilisateur |
-    | cloudMastered | NOTEQUAL | true |
+    | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Étape 3. Créer la règle de synchronisation sortante nécessaire
 La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue** et une **priorité plus élevée** que la règle de synchronisation existante. Cela garantit que la nouvelle règle de synchronisation s’applique au même jeu d’objets que la règle de synchronisation existante, et la remplace pour l’attribut userCertificate. Pour créer la règle de synchronisation :
@@ -113,8 +114,8 @@ La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue*
 
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
-    | Nom | *Donnez-lui un nom* | Ex. *« Out to AAD – Custom override for userCertificate »* |
-    | Description | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
+    | NOM | *Donnez-lui un nom* | Ex. *« Out to AAD – Custom override for userCertificate »* |
+    | DESCRIPTION | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
     | Système connecté | *Sélectionnez le connecteur Azure AD* |
     | Type d’objet système connecté | **user** | |
     | Type d’objet métaverse | **person** | |
@@ -177,6 +178,6 @@ Maintenant que le problème est résolu, réactivez le planificateur de synchron
 > [!Note]
 > Les étapes précédentes ne s’appliquent qu’aux versions récentes (1.1.xxx.x) d’Azure AD Connect avec le planificateur intégré. Si vous utilisez des versions plus anciennes (1.0.xxx.x) d’Azure AD Connect, qui utilisent le planificateur de tâches Windows, ou votre propre planificateur personnalisé (peu courant) pour déclencher une synchronisation périodique, vous devez les désactiver en conséquence.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 

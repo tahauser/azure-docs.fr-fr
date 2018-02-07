@@ -1,6 +1,6 @@
 ---
-title: "Déployer un modèle pour les services Azure Machine Learning (préversion) | Microsoft Docs"
-description: "Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (préversion) de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement."
+title: "Déployer un modèle pour les services Azure Machine Learning (version préliminaire) | Microsoft Docs"
+description: "Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (version préliminaire) de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement."
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
-Les services Azure Machine Learning (préversion) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
+Les services Azure Machine Learning (version préliminaire) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
-Ce didacticiel est le troisième d’une série de trois. Dans cette partie du didacticiel, vous utilisez les services Azure Machine Learning (préversion) pour :
+Ce didacticiel est le troisième d’une série de trois. Dans cette partie du didacticiel, vous utilisez les services Azure Machine Learning (version préliminaire) pour :
 
 > [!div class="checklist"]
 > * Rechercher le fichier de modèle.
@@ -32,7 +32,7 @@ Ce didacticiel est le troisième d’une série de trois. Dans cette partie du d
 
  Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 Effectuer les deux premières parties de cette série de didacticiels :
 
    * Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Machine Learning et installer l’application Azure Machine Learning Workbench.
@@ -134,37 +134,7 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
 
    L’invite de ligne de commande s’ouvre dans l’emplacement actuel du dossier de votre projet **c:\temp\myIris>**.
 
-2. Vérifiez que le fournisseur de ressources Azure **Microsoft.ContainerRegistry** est inscrit dans votre abonnement. Vous devez inscrire ce fournisseur de ressources avant de pouvoir créer un environnement à l’étape 3. Vous pouvez vérifier s’il est déjà inscrit à l’aide de la commande suivante :
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Un résultat similaire à ceci s’affiche normalement : 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Si **Microsoft.ContainerRegistry** n’est pas inscrit, vous pouvez l’inscrire à l’aide de la commande suivante :
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   L’inscription peut prendre quelques minutes. Vous pouvez vérifier son état à l’aide de la commande **az provider list** précédente ou de la commande suivante :
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   La troisième ligne de la sortie affiche **"registrationState": "Registering"**. Attendez quelques instants et répétez la commande **show**, jusqu’à ce que la sortie affiche **"registrationState": "Registered"**.
-
-   >[!NOTE] 
-   Si vous déployez sur un cluster ACS, vous devez inscrire le fournisseur de ressources **Microsoft.ContainerService** et utiliser exactement la même approche.
-
-3. Créez l’environnement. Vous devez exécuter cette étape une fois par environnement. Par exemple, exécutez-la une fois pour l’environnement de développement et une fois pour l’environnement de production. Utilisez le _mode local_ pour ce premier environnement. Vous pouvez essayer le commutateur `-c` ou `--cluster` dans la commande suivante pour configurer un environnement en _mode cluster_ ultérieurement.
+2. Créez l’environnement. Vous devez exécuter cette étape une fois par environnement. Par exemple, exécutez-la une fois pour l’environnement de développement et une fois pour l’environnement de production. Utilisez le _mode local_ pour ce premier environnement. Vous pouvez essayer le commutateur `-c` ou `--cluster` dans la commande suivante pour configurer un environnement en _mode cluster_ ultérieurement.
 
    Notez que pour la commande de configuration suivante, vous devez disposer d’un accès collaborateur à l’abonnement. Si vous n’en avez pas, il vous faudra au moins un accès collaborateur au groupe de ressources dans lequel vous déployez. Pour l’obtenir, vous devez spécifier le nom du groupe de ressources dans la commande de configuration à l’aide de l’indicateur `-g`. 
 
@@ -176,25 +146,25 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
    
    Le nom du cluster est un moyen d’identifier l’environnement. L’emplacement doit être identique à celui du compte de Gestion des modèles que vous avez créé à partir du portail Azure.
 
-4. Créez un compte de Gestion des modèles. (Il s’agit d’une configuration unique.)  
+3. Créez un compte de Gestion des modèles. (Il s’agit d’une configuration unique.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Définissez le compte de Gestion des modèles.  
+4. Définissez le compte de Gestion des modèles.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Définissez l’environnement.
+5. Définissez l’environnement.
 
-   Une fois la configuration terminée, utilisez la commande suivante pour définir les variables d’environnement nécessaires à l’opérationnalisation de l’environnement. Utilisez le même nom d’environnement que celui utilisé précédemment à l’étape 4. Utilisez le même nom de groupe de ressources généré dans la fenêtre de commande lorsque le processus d’installation s’est terminé.
+   Une fois la configuration terminée, utilisez la commande suivante pour définir les variables d’environnement nécessaires à l’opérationnalisation de l’environnement. Utilisez le même nom d’environnement que celui utilisé précédemment à l’étape 2. Utilisez le même nom de groupe de ressources généré dans la fenêtre de commande lorsque le processus d’installation s’est terminé.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Pour vérifier que vous avez correctement configuré votre environnement mis en œuvre pour le déploiement du service web local, entrez la commande suivante :
+6. Pour vérifier que vous avez correctement configuré votre environnement mis en œuvre pour le déploiement du service web local, entrez la commande suivante :
 
    ```azurecli
    az ml env show

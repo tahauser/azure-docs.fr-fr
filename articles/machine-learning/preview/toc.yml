@@ -1,6 +1,6 @@
 - name: Documentation Azure Machine Learning (préversion)
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu'est-ce que Azure Machine Learning\_?"
@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: Sources de données prises en charge
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Charger Azure Cosmos DB en tant que source de données
+          href: data-prep-load-azure-cosmos-db.md
         - name: Inspecteurs pris en charge
           href: data-prep-appendix4-supported-inspectors.md
         - name: Destinations de données prises en charge

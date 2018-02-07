@@ -4,8 +4,8 @@ description: "Découvrez comment mettre à jour les informations d’identificat
 keywords: "informations d’identification"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
@@ -13,236 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a1a927fa9c34b38e54fdb22782e80fd13bf430c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/11/2018
+ms.author: sngun
+ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Rotation des informations d'identification pour les entrées et les sorties dans des travaux Stream Analytics
-## <a name="abstract"></a>Résumé
-Actuellement, Azure Stream Analytics n’autorise pas le remplacement des informations d’identification d’une entrée/sortie pendant l’exécution du travail.
+# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotation des informations d'identification pour les entrées et les sorties dans un travail Stream Analytics
 
-Bien qu’Azure Stream Analytics ne prenne pas en charge la reprise d’une tâche à partir de la dernière sortie, nous souhaitons partager l’ensemble du processus pour réduire le délai entre l’arrêt et le démarrage de la tâche et pour procéder à la rotation des informations d’identification.
+Chaque fois que vous régénérez les informations d’identification pour l’entrée ou la sortie d’un travail Stream Analytics, vous devez mettre à jour ce travail avec les nouvelles informations d’identification. Vous devez arrêter le travail avant de mettre à jour les informations d’identification car vous ne pouvez pas remplacer les informations d’identification pendant l’exécution du travail. Pour réduire le délai entre l’arrêt et le redémarrage du travail, Stream Analytics est capable de reprendre un travail à partir de sa dernière sortie. Cette rubrique décrit le processus de rotation des informations d’identification de connexion et le redémarrage du travail avec les nouvelles informations d’identification.
 
-## <a name="part-1---prepare-the-new-set-of-credentials"></a>Partie 1 – Préparation du nouveau jeu d’informations d’identification :
-Cette partie concerne les entrées/sorties suivantes :
+## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>Régénérer les nouvelles informations d’identification et mettre à jour votre travail avec les nouvelles informations d’identification 
 
-* Stockage d’objets blob
-* Hubs d'événements
-* Base de données SQL
-* Stockage de tables
-
-Pour les autres entrées/sorties, passez à la partie 2.
+Dans cette section, nous vous guiderons tout au long du processus de régénération des informations d’identification pour Stockage d’objets blob, Event Hubs, SQL Database et Stockage de tables. 
 
 ### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
-1. Dans le portail de gestion Azure, accédez à l’extension Stockage :   
-   ![graphic1][graphic1]
-2. Recherchez le stockage utilisé par votre travail et accédez-y :   
-   ![graphic2][graphic2]
-3. Cliquez sur la commande Gérer les clés d’accès :   
-   ![graphic3][graphic3]
-4. Entre la clé d’accès primaire et la clé d’accès secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.
-5. Appuyez sur Régénérer :   
-   ![graphic4][graphic4]
-6. Copiez la clé qui vient d’être générée :   
-   ![graphic5][graphic5]
-7. Passez à la partie 2.
+1. Connectez-vous au portail Azure > accédez au compte de stockage que vous avez utilisé comme entrée/sortie pour le travail Stream Analytics.    
+2. Dans la section des paramètres, ouvrez **Clés d’accès**. Entre les clés par défaut (key1, key2), sélectionnez celle qui n’est pas utilisée par votre travail puis régénérez-la :  
+   ![Régénérer les clés pour le compte de stockage](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+3. Copiez la clé qui vient d’être générée.    
+4. Dans le portail Azure, accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
+5. Recherchez l’entrée/la sortie du stockage d’objets blob/de tables dont souhaitez mettre à jour les informations d’identification.    
+6. Recherchez le champ **Clé du compte de stockage** et collez-y la clé qui vient d’être générée > cliquez sur **Enregistrer**.    
+7. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications, et vous pouvez le visualiser dans l’onglet des notifications. Il existe deux notifications : une correspond à l’enregistrement de la mise à jour et l’autre au test de la connexion :  
+   ![Notifications après modification de la clé](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+8. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt] (#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hubs d'événements
-1. Dans le portail de gestion Azure, accédez à l’extension Service Bus :   
-   ![graphic6][graphic6]
-2. Recherchez l’espace de noms Service Bus utilisé par votre travail et accédez-y :   
-   ![graphic7][graphic7]
-3. Si votre travail utilise une stratégie d’accès partagé sur l’espace de noms Service Bus, passez à l’étape 6  
-4. Accédez à l’onglet Hubs d’événements :   
-   ![graphic8][graphic8]
-5. Recherchez le hub d’événements utilisé par votre travail et accédez-y :   
-   ![graphic9][graphic9]
-6. Cliquez sur l’onglet Configurer :   
-   ![graphic10][graphic10]
-7. Dans la liste déroulante Nom de la stratégie, recherchez la stratégie d’accès partagé utilisée par votre travail :   
-   ![graphic11][graphic11]
-8. Entre la clé primaire et la clé secondaire, **choisissez celle qui n’est pas utilisée par votre travail**.  
-9. Appuyez sur Régénérer :   
-   ![graphic12][graphic12]
-10. Copiez la clé qui vient d’être générée :   
-   ![graphic13][graphic13]
-11. Passez à la partie 2.  
+
+1. Connectez-vous au portail Azure > accédez au hub d’événements que vous avez utilisé comme entrée/sortie pour le travail Stream Analytics.    
+2. Dans la section des paramètres, ouvrez **Stratégies d'accès partagé** et sélectionnez la stratégie d’accès requise. Entre la **clé primaire** et la **clé secondaire**, choisissez celle qui n’est pas utilisée par votre travail et régénérez-la :  
+   ![Régénérer les clés pour le hub d’événements](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+3. Copiez la clé qui vient d’être générée.    
+4. Dans le portail Azure, accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
+5. Recherchez l’entrée/la sortie des hubs d’événements dont souhaitez mettre à jour les informations d’identification.    
+6. Recherchez le champ **Clé de la stratégie du hub d’événements** et collez votre nouvelle clé > cliquez sur **Enregistrer**.    
+7. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.    
+8. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="sql-database"></a>Base de données SQL
-> [!NOTE]
-> Remarque : vous devez vous connecter au service Base de données SQL. Nous allons montrer comment procéder à l’aide de l’expérience de gestion sur le portail de gestion Azure, mais vous pouvez également choisir d’utiliser un outil côté client tel que SQL Server Management Studio.
->
-> 
 
-1. Dans le portail de gestion Azure, accédez à l’extension SQL Database :   
-   ![graphic14][graphic14]
-2. Recherchez la SQL Database utilisée par votre travail et **cliquez sur le lien du serveur** sur la même ligne :  
-   ![graphic15][graphic15]
-3. Cliquez sur la commande Gérer :   
-   ![graphic16][graphic16]
-4. Tapez Base de données principale :   
-   ![graphic17][graphic17]
-5. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session :   
-   ![graphic18][graphic18]
-6. Cliquez sur Nouvelle requête :   
-   ![graphic19][graphic19]
-7. Entrez la requête suivante en remplaçant <login_name> par votre nom d’utilisateur et <enterStrongPasswordHere> par votre nouveau mot de passe :  
-   `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
-8. Cliquez sur Exécuter :   
-   ![graphic20][graphic20]
-9. Revenez à l’étape 2 et, cette fois, cliquez sur la base de données :   
-   ![graphic21][graphic21]
-10. Cliquez sur la commande Gérer :   
-   ![graphic22][graphic22]
-11. Tapez votre nom d’utilisateur, votre mot de passe, puis cliquez sur Ouvrir une session :   
-   ![graphic23][graphic23]
-12. Cliquez sur Nouvelle requête :   
-   ![graphic24][graphic24]
-13. Entrez la requête suivante en remplaçant <user_name> par le nom avec lequel vous souhaitez identifier cette connexion dans le contexte de cette base de données (vous pouvez fournir la même valeur que celle attribuée à <login_name>, par exemple) et en remplaçant <login_name> par votre nouveau nom d’utilisateur :  
-   `CREATE USER <user_name> FROM LOGIN <login_name>`
-14. Cliquez sur Exécuter :   
-   ![graphic25][graphic25]
-15. Vous devez maintenant fournir à votre nouvel utilisateur les mêmes rôles et privilèges que ceux de l’utilisateur d’origine.
-16. Passez à la partie 2.
+Vous devez vous connecter à la base de données SQL pour mettre à jour les informations d’identification de connexion d’un utilisateur existant. Vous pouvez mettre à jour les informations d’identification en utilisant le portail Azure ou un outil côté client comme SQL Server Management Studio. Cette section décrit le processus de mise à jour des informations d’identification à l’aide du portail Azure.
 
-## <a name="part-2-stopping-the-stream-analytics-job"></a>Partie 2 – Arrêt du travail Stream Analytics
-1. Dans le portail de gestion Azure, accédez à l’extension Stream Analytics :   
-   ![graphic26][graphic26]
-2. Recherchez votre travail et accédez-y :   
-   ![graphic27][graphic27]
-3. Accédez à l’onglet Entrées ou à l’onglet Sorties selon que vous remplacez les informations d’identification d’une entrée ou d’une sortie.  
-   ![graphic28][graphic28]
-4. Cliquez sur la commande d’arrêt et vérifiez que le travail s’est arrêté :   
-   ![graphic29][graphic29] Attendez que le travail s’arrête.
-5. Recherchez l’entrée/la sortie pour laquelle vous souhaitez remplacer les informations d’identification et accédez-y :   
-   ![graphic30][graphic30]
-6. Passez à la partie 3.
+1. Connectez-vous au portail Azure > accédez à la base de données SQL que vous avez utilisée comme sortie pour le travail Stream Analytics.    
+2. À partir de l’**Explorateur de données**, connectez-vous à votre base de données > sélectionnez le type d’autorisation **Authentification SQL Server** > entrez votre **identifiant** et votre **mot de passe** > sélectionnez **Ok**.  
+   ![Régénérer les informations d’identification pour la base de données SQL](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
 
-## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Partie 3 – Modification des informations d’identification pour le travail Stream Analytics
-### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
-1. Recherchez le champ Clé du compte de stockage et collez la clé qui vient d’être générée dans ce dernier :   
-   ![graphic31][graphic31]
-2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
-   ![graphic32][graphic32]
-3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
-4. Passez à la partie 4.
+3. Sous l’onglet de la requête, modifiez le mot de passe d’un de vos utilisateurs en exécutant la requête suivante (veillez à remplacer `<user_name>` par votre nom d’utilisateur et `<new_password>` par votre nouveau mot de passe) :  
 
-### <a name="event-hubs"></a>Hubs d'événements
-1. Recherchez le champ Clé de la stratégie du hub d’événements et collez votre nouvelle clé dans ce dernier :   
-   ![graphic33][graphic33]
-2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
-   ![graphic34][graphic34]
-3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
-4. Passez à la partie 4.
+   ```SQL
+   Alter user `<user_name>` WITH PASSWORD = '<new_password>'
+   Alter role db_owner Add member `<user_name>`
+   ```
+
+4. Notez ce nouveau mot de passe.    
+5. Dans le portail Azure, accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
+6. Recherchez la sortie de la base de données SQL dont vous souhaitez remplacer les informations d’identification. Mettez à jour le mot de passe et enregistrez les modifications.    
+7. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.    
+8. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="power-bi"></a>Power BI
-1. Cliquez sur Renouveler l’autorisation :  
+1. Connectez-vous au portail Azure > accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
+2. Recherchez la sortie Power BI pour laquelle vous souhaitez renouveler les informations d’identification > cliquez sur **Renouveler l’autorisation** (un message de réussite devrait apparaître) > **enregistrez** les modifications.    
+3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.    
+4. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt](#start-your-job-from-the-last-stopped-time).
 
-   ![graphic35][graphic35]
-2. Le message de confirmation suivant s’affiche.  
+## <a name="start-your-job-from-the-last-stopped-time"></a>Démarrer votre travail à partir de l’heure du dernier arrêt
 
-   ![graphic36][graphic36]
-3. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
-   ![graphic37][graphic37]
-4. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.
-5. Passez à la partie 4.
+1. Accédez au volet **Vue d’ensemble** du travail > sélectionnez **Démarrer** pour démarrer le travail.    
+2. Sélectionnez **Lors du dernier arrêt** > cliquez sur **Démarrer**. Notez que l’option « Lors du dernier arrêt » s’affiche uniquement si vous avez précédemment exécuté le travail et généré une sortie. Le travail redémarre en fonction de l’heure de la dernière valeur de sortie.
+   ![Démarrer le travail](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
-### <a name="sql-database"></a>Base de données SQL
-1. Recherchez les champs Nom d’utilisateur et Mot de passe, et collez votre jeu d’informations d’identification nouvellement créé dans ces derniers :   
-   ![graphic38][graphic38]
-2. Cliquez sur la commande Enregistrer et confirmez l’enregistrement de vos modifications :   
-   ![graphic39][graphic39]
-3. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications ; assurez-vous qu’il a réussi.  
-4. Passez à la partie 4.
-
-## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Partie 4 – Démarrage de votre travail à partir de l’heure du dernier arrêt
-1. Naviguez en dehors de l’entrée/sortie :   
-   ![graphic40][graphic40]
-2. Cliquez sur la commande Démarrer :   
-   ![graphic41][graphic41]
-3. Sélectionnez l’heure du dernier arrêt et cliquez sur OK :   
-   ![graphic42][graphic42]
-4. Passez à la partie 5.  
-
-## <a name="part-5-removing-the-old-set-of-credentials"></a>Partie 5 – Suppression de l’ancien jeu d’informations d’identification
-Cette partie concerne les entrées/sorties suivantes :
-
-* Stockage d’objets blob
-* Hubs d'événements
-* Base de données SQL
-* Stockage de tables
-
-### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
-Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.
-
-### <a name="event-hubs"></a>Hubs d'événements
-Répétez la partie 1 pour la clé qui était précédemment utilisée par votre travail afin de renouveler la clé maintenant inutilisée.
-
-### <a name="sql-database"></a>Base de données SQL
-1. Revenez à la fenêtre de requête de la partie 1, étape 7, puis entrez la requête suivante, en remplaçant <previous_login_name> par le nom d’utilisateur qui était précédemment utilisé par votre travail :  
-   `DROP LOGIN <previous_login_name>`  
-2. Cliquez sur Exécuter :   
-   ![graphic43][graphic43]  
-
-Le message de confirmation suivant s’affiche. 
-
-    Command(s) completed successfully.
-
-## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-[graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
-[graphic2]: ./media/stream-analytics-login-credentials-inputs-outputs/2-stream-analytics-login-credentials-inputs-outputs.png
-[graphic3]: ./media/stream-analytics-login-credentials-inputs-outputs/3-stream-analytics-login-credentials-inputs-outputs.png
-[graphic4]: ./media/stream-analytics-login-credentials-inputs-outputs/4-stream-analytics-login-credentials-inputs-outputs.png
-[graphic5]: ./media/stream-analytics-login-credentials-inputs-outputs/5-stream-analytics-login-credentials-inputs-outputs.png
-[graphic6]: ./media/stream-analytics-login-credentials-inputs-outputs/6-stream-analytics-login-credentials-inputs-outputs.png
-[graphic7]: ./media/stream-analytics-login-credentials-inputs-outputs/7-stream-analytics-login-credentials-inputs-outputs.png
-[graphic8]: ./media/stream-analytics-login-credentials-inputs-outputs/8-stream-analytics-login-credentials-inputs-outputs.png
-[graphic9]: ./media/stream-analytics-login-credentials-inputs-outputs/9-stream-analytics-login-credentials-inputs-outputs.png
-[graphic10]: ./media/stream-analytics-login-credentials-inputs-outputs/10-stream-analytics-login-credentials-inputs-outputs.png
-[graphic11]: ./media/stream-analytics-login-credentials-inputs-outputs/11-stream-analytics-login-credentials-inputs-outputs.png
-[graphic12]: ./media/stream-analytics-login-credentials-inputs-outputs/12-stream-analytics-login-credentials-inputs-outputs.png
-[graphic13]: ./media/stream-analytics-login-credentials-inputs-outputs/13-stream-analytics-login-credentials-inputs-outputs.png
-[graphic14]: ./media/stream-analytics-login-credentials-inputs-outputs/14-stream-analytics-login-credentials-inputs-outputs.png
-[graphic15]: ./media/stream-analytics-login-credentials-inputs-outputs/15-stream-analytics-login-credentials-inputs-outputs.png
-[graphic16]: ./media/stream-analytics-login-credentials-inputs-outputs/16-stream-analytics-login-credentials-inputs-outputs.png
-[graphic17]: ./media/stream-analytics-login-credentials-inputs-outputs/17-stream-analytics-login-credentials-inputs-outputs.png
-[graphic18]: ./media/stream-analytics-login-credentials-inputs-outputs/18-stream-analytics-login-credentials-inputs-outputs.png
-[graphic19]: ./media/stream-analytics-login-credentials-inputs-outputs/19-stream-analytics-login-credentials-inputs-outputs.png
-[graphic20]: ./media/stream-analytics-login-credentials-inputs-outputs/20-stream-analytics-login-credentials-inputs-outputs.png
-[graphic21]: ./media/stream-analytics-login-credentials-inputs-outputs/21-stream-analytics-login-credentials-inputs-outputs.png
-[graphic22]: ./media/stream-analytics-login-credentials-inputs-outputs/22-stream-analytics-login-credentials-inputs-outputs.png
-[graphic23]: ./media/stream-analytics-login-credentials-inputs-outputs/23-stream-analytics-login-credentials-inputs-outputs.png
-[graphic24]: ./media/stream-analytics-login-credentials-inputs-outputs/24-stream-analytics-login-credentials-inputs-outputs.png
-[graphic25]: ./media/stream-analytics-login-credentials-inputs-outputs/25-stream-analytics-login-credentials-inputs-outputs.png
-[graphic26]: ./media/stream-analytics-login-credentials-inputs-outputs/26-stream-analytics-login-credentials-inputs-outputs.png
-[graphic27]: ./media/stream-analytics-login-credentials-inputs-outputs/27-stream-analytics-login-credentials-inputs-outputs.png
-[graphic28]: ./media/stream-analytics-login-credentials-inputs-outputs/28-stream-analytics-login-credentials-inputs-outputs.png
-[graphic29]: ./media/stream-analytics-login-credentials-inputs-outputs/29-stream-analytics-login-credentials-inputs-outputs.png
-[graphic30]: ./media/stream-analytics-login-credentials-inputs-outputs/30-stream-analytics-login-credentials-inputs-outputs.png
-[graphic31]: ./media/stream-analytics-login-credentials-inputs-outputs/31-stream-analytics-login-credentials-inputs-outputs.png
-[graphic32]: ./media/stream-analytics-login-credentials-inputs-outputs/32-stream-analytics-login-credentials-inputs-outputs.png
-[graphic33]: ./media/stream-analytics-login-credentials-inputs-outputs/33-stream-analytics-login-credentials-inputs-outputs.png
-[graphic34]: ./media/stream-analytics-login-credentials-inputs-outputs/34-stream-analytics-login-credentials-inputs-outputs.png
-[graphic35]: ./media/stream-analytics-login-credentials-inputs-outputs/35-stream-analytics-login-credentials-inputs-outputs.png
-[graphic36]: ./media/stream-analytics-login-credentials-inputs-outputs/36-stream-analytics-login-credentials-inputs-outputs.png
-[graphic37]: ./media/stream-analytics-login-credentials-inputs-outputs/37-stream-analytics-login-credentials-inputs-outputs.png
-[graphic38]: ./media/stream-analytics-login-credentials-inputs-outputs/38-stream-analytics-login-credentials-inputs-outputs.png
-[graphic39]: ./media/stream-analytics-login-credentials-inputs-outputs/39-stream-analytics-login-credentials-inputs-outputs.png
-[graphic40]: ./media/stream-analytics-login-credentials-inputs-outputs/40-stream-analytics-login-credentials-inputs-outputs.png
-[graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
-[graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
-[graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-

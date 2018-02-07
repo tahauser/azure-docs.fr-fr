@@ -3,8 +3,8 @@ title: "Systèmes d’exploitation invités pour Azure Stack | Microsoft Docs"
 description: "Ces systèmes d’exploitation invités peuvent être utilisés avec Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: Brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: JeffGoldner
-ms.openlocfilehash: 0a31da6cbc2c245b959825a4e715d0dc7511ba99
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.date: 01/18/2018
+ms.author: Brenduns
+ms.reviewer: JeffGoldner
+ms.openlocfilehash: c9f5bee38772623fb79fa081be8eaece981cc8ab
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
@@ -37,14 +38,18 @@ Au cours du déploiement, Azure Stack s’assure qu’une version appropriée de
 | Windows Server 2016 | 64 bits | Microsoft | Windows | Centre de données, centre de données principal, centre de données avec conteneurs |
 | Windows 7 | 64 bits, Professionnel et Entreprise | Microsoft | Windows | Non  |
 | Windows 8.1 | 64 bits, Professionnel et Entreprise | Microsoft | Windows | Non  |
-| Windows 10 | 64 bits, Professionnel et Entreprise | Microsoft | Windows | Non  |
+| Windows 10 *(voir remarque 1)* | 64 bits, Professionnel et Entreprise | Microsoft | Windows | Non  |
+
+***Remarque 1 :*** *pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack, vous devez disposer d’une [licence Windows par utilisateur](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) ou acheter auprès d’un Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+
 
 ## <a name="linux"></a>Linux
 
-Les distributions Linux répertoriées ici incluent l’agent Windows Azure Linux (WALA) nécessaire. 
+Les distributions Linux répertoriées ici incluent l’agent Windows Azure Linux (WALA) nécessaire.
 
-> [!NOTE]
-> Les images créées avec des versions WALA antérieures à la version 2.2.3 ne sont *pas* prises en charge et risquent de ne pas se déployer.
+> [!NOTE]   
+> Les images créées avec des versions WALA antérieures à la version 2.2.3 ne sont *pas* prises en charge et risquent de ne pas se déployer. Certaines versions de l’agent WALA sont connues pour ne pas fonctionner sur les machines virtuelles Azure Stack, notamment les versions 2.2.12 et 2.2.13.
+
 
 | Distribution | DESCRIPTION | Publisher | Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -62,7 +67,3 @@ Les distributions Linux répertoriées ici incluent l’agent Windows Azure Linu
 | Ubuntu 16.04-LTS | 64 bits | Canonical | OUI |
 
 D’autres distributions de Linux pourraient être prises en charge à l’avenir.
-
-
-
-

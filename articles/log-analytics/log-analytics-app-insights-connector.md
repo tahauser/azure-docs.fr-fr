@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solution Application Insights Connector (préversion) dans Operations Management Suite (OMS)
 
@@ -37,14 +37,14 @@ Lorsque vous utilisez la solution, vous pouvez :
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour Application Insights Connector par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Pris en charge | Description |
+| Source connectée | Prise en charge | DESCRIPTION |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agent.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
-| [Agents Linux](log-analytics-linux-agents.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
-| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
-| [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
+| [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
+| [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
+| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
+| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.
@@ -55,7 +55,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 1. Activez la solution Azure Web Apps Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
 2. Dans le portail OMS, cliquez sur **Paramètres** &gt; **Données** &gt; **Application Insights**.
 3. Sous **Sélectionner un abonnement**, sélectionnez un abonnement qui contient des ressources Application Insights, puis sous **Nom de l’application**, sélectionnez une ou plusieurs applications.
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 
 Après environ 30 minutes, les données deviennent disponibles et la vignette Application Insights est mise à jour avec les données, comme sur l’image suivante :
 
@@ -84,7 +84,7 @@ Cliquez sur la vignette **Application Insights** pour ouvrir le tableau de bord 
 
 Le tableau de bord comprend les panneaux figurant dans le tableau. Chaque panneau répertorie jusqu'à 10 éléments répondant à ses critères en ce qui concerne l’étendue et l’intervalle de temps spécifiés. Vous pouvez exécuter une recherche dans les journaux qui renvoie tous les enregistrements lorsque vous cliquez sur **Afficher tout** en bas du panneau ou lorsque vous cliquez sur l’en-tête de panneau.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Colonne** | **Description** |
 | --- | --- |
@@ -156,9 +156,9 @@ L’échantillonnage affecte uniquement le nombre total d’entrées générées
 
 La solution reçoit les types de données de télémétrie suivants à partir de vos applications Application Insights connectées :
 
-- Availability
+- Disponibilité
 - Exceptions
-- Requêtes
+- Requests
 - Affichages de pages – Pour que votre espace de travail reçoive des affichages de pages, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Événements personnalisés – Pour que votre espace de travail reçoive des événements personnalisés, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
@@ -170,9 +170,9 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="generic-fields"></a>Champs génériques
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Heure de l’enregistrement |
 | ApplicationId | Clé d’instrumentation de l’application Application Insights |
@@ -196,9 +196,9 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="availability-specific-fields"></a>Champs spécifiques à la disponibilité
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| TelemetryType | Availability |
+| TelemetryType | Disponibilité |
 | AvailabilityTestName | Nom du test web |
 | AvailabilityRunLocation | Source géographique de la requête http |
 | AvailabilityResult | Indique si le test web a réussi |
@@ -221,7 +221,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="exception-specific-fields"></a>Champs spécifiques à l’exception
 
-| Type | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exception |
 | ExceptionType | Type de l’exception |
@@ -238,10 +238,10 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="request-specific-fields"></a>Champs spécifiques à la requête
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Type | ApplicationInsights |
-| TelemetryType | Demande |
+| type | ApplicationInsights |
+| TelemetryType | Requête |
 | ResponseCode | Réponse HTTP envoyée au client |
 | RequestSuccess | Indique la réussite ou l’échec. True ou false. |
 | RequestID | ID permettant d’identifier la requête de manière unique |
@@ -257,10 +257,10 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 | RequestDurationMax | Pour les enregistrements échantillonnés, ce champ affiche la durée maximale de la requête (en millisecondes) pour les points de données représentés |
 | RequestDurationStdDev | Pour les enregistrements échantillonnés, ce champ affiche la déviation standard entre toutes les durées de requête (en millisecondes) pour les points de données représentés |
 
-## <a name="sample-log-searches"></a>Exemples de recherches de journaux
+## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 
 Cette solution ne dispose pas d’un ensemble d’exemples de recherches dans les journaux affiché sur le tableau de bord. Toutefois, les requêtes d’exemples de recherches dans les journaux avec les descriptions sont affichées dans la section [Consulter les informations Application Insights Connector](#view-application-insights-connector-information).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Utilisez [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées sur vos applications Application Insights.

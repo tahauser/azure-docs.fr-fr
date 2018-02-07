@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Comment créer des machines virtuelles SQL Server avec Azure PowerShell
 
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Configurer les propriétés du système d’exploitation de la machine virtuelle
-Maintenant, nous allons définir les propriétés du système d’exploitation du machine virtuelle avec l’applet de commande [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) pour configurer le système d’exploitation Windows, exiger l’installation de l’[agent de machine virtuelle](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), spécifier que l’applet de commande autorise la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
+Maintenant, nous allons définir les propriétés du système d’exploitation du machine virtuelle avec l’applet de commande [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) pour configurer le système d’exploitation Windows, exiger l’installation de l’[agent de machine virtuelle](../agent-user-guide.md), spécifier que l’applet de commande autorise la mise à jour automatique et définir le nom de la machine virtuelle, le nom de l’ordinateur et les informations d’identification à l’aide des variables que vous avez déjà initialisées.
 
 Exécutez l’applet de commande suivante pour définir les propriétés du système d’exploitation de votre machine virtuelle.
 
@@ -307,7 +307,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 La machine virtuelle est créée.
 
 > [!NOTE]
-> Vous pouvez ignorer l’erreur concernant les diagnostics de robot. Un compte de stockage standard est créé pour les diagnostics de démarrage, car le compte de stockage spécifié pour le disque de la machine virtuelle est un compte Premium Storage.
+> Vous pouvez ignorer l’erreur concernant les diagnostics de démarrage. Un compte de stockage standard est créé pour les diagnostics de démarrage, car le compte de stockage spécifié pour le disque de la machine virtuelle est un compte Premium Storage.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installer l’agent IaaS SQL
 Les machines virtuelles SQL Server prennent en charge les fonctionnalités de gestion automatisées avec l’[Extension de l’Agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour installer l’agent sur la nouvelle machine virtuelle, exécutez la commande suivante après sa création.
@@ -394,7 +394,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois la machine virtuelle créée, vous pouvez :
 
 - Vous connecter à la machine virtuel à l’aide du Bureau à distance (RDP).

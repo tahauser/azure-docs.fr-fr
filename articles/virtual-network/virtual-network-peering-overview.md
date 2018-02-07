@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -35,7 +35,7 @@ Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
 
 ## <a name="requirements-constraints"></a>Exigences et contraintes
 
-* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels appartenant à des régions différentes est actuellement en préversion dans les régions États-Unis Centre-Ouest, Centre du Canada et Ouest des États-Unis 2. Avant de procéder à l’homologation de réseaux virtuels dans des régions différentes, vous devez d’abord [enregistrer votre abonnement](virtual-network-create-peering.md#register) pour la préversion. Toute tentative d’homologation entre des réseaux virtuels se trouvant dans des régions différentes échoue si vous n’avez pas suivi la procédure d’enregistrement pour la préversion.
+* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage des réseaux virtuels de différentes régions est actuellement en préversion dans les régions suivantes : États-Unis Centre-Ouest, Centre du Canada, Ouest des États-Unis 2, Corée du Sud, Royaume-Uni Sud, Royaume-Uni Ouest, Est du Canada, Inde Sud, Inde Centre et Inde Ouest. Avant de procéder à l’homologation de réseaux virtuels dans des régions différentes, vous devez d’abord [enregistrer votre abonnement](virtual-network-create-peering.md#register) pour la préversion. Toute tentative d’homologation entre des réseaux virtuels se trouvant dans des régions différentes échoue si vous n’avez pas suivi la procédure d’enregistrement pour la préversion.
     > [!WARNING]
     > Les homologations de réseaux virtuels créées entre les régions peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que les homologations d’une version publique. Les appairages de réseaux virtuels peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -116,7 +116,7 @@ Vous pouvez aussi résoudre les problèmes de connectivité à une machine virtu
 
 Le nombre d’homologations autorisées pour un même réseau virtuel est limité. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 
 Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une connexion d’homologation de réseau virtuel. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/virtual-network).
 

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser l’identité de service managée (préversion publique) dans App Service et Azure Functions
 
@@ -56,7 +56,7 @@ Pour configurer une identité de service managée avec Azure CLI, vous devez uti
 
 Les étapes suivantes vous guident dans la création d’une application web à laquelle vous attribuez une identité en utilisant l’interface CLI :
 
-1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/#login). Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez déployer l’application :
+1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/#az_login). Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez déployer l’application :
 
     ```azurecli-interactive
     az login
@@ -159,17 +159,17 @@ Une application avec une identité de service managée a deux variables d’envi
 **MSI_ENDPOINT** est une URL locale à partir de laquelle votre application peut demander des jetons. Pour obtenir un jeton pour une ressource, effectuez une requête HTTP GET à destination de ce point de terminaison, en indiquant notamment les paramètres suivants :
 
 > [!div class="mx-tdBreakAll"]
-> |Nom du paramètre|Dans|Description|
+> |Nom du paramètre|Dans|DESCRIPTION|
 > |-----|-----|-----|
-> |resource|Interroger|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu.|
-> |api-version|Interroger|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
+> |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu.|
+> |api-version|Requête|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
 > |secret|En-tête|Valeur de la variable d’environnement MSI_SECRET.|
 
 
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :
 
 > [!div class="mx-tdBreakAll"]
-> |Nom de la propriété|Description|
+> |Nom de la propriété|DESCRIPTION|
 > |-------------|----------|
 > |access_token|Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service web de destination.|
 > |expires_on|L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache.|

@@ -1,6 +1,6 @@
 - name: Documentation Azure Logic Apps
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Logic Apps\_?"
       href: logic-apps-overview.md
@@ -62,25 +62,7 @@
         - name: Sécuriser vos applications logiques
           href: logic-apps-securing-a-logic-app.md
         - name: Développer des connecteurs personnalisés
-          items:
-            - name: Vue d’ensemble des connecteurs personnalisés
-              href: custom-connector-overview.md
-            - name: Créer des connecteurs à partir d’API web
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Sécuriser des connecteurs avec Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: Décrire des API avec Postman
-              href: custom-connector-api-postman-collection.md
-            - name: Étendre OpenAPI pour les connecteurs personnalisés
-              href: custom-connector-openapi-extensions.md
-            - name: Créer et inscrire un connecteur OpenAPI
-              href: logic-apps-custom-connector-register.md
-            - name: Créer et inscrire un connecteur SOAP
-              href: logic-apps-soap-connector-create-register.md
-            - name: Certifier le connecteur
-              href: custom-connector-submit-certification.md
-            - name: FAQ pour les connecteurs personnalisés
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Développer des API personnalisées
           items:
             - name: Créer des API personnalisées pour les applications logiques
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Ajouter des mappages de transformation XML
           href: logic-apps-enterprise-integration-maps.md
+        - name: Transformer JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Ajouter des certificats de sécurité
           href: logic-apps-enterprise-integration-certificates.md
         - name: Résoudre les erreurs B2B

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-cost-reports"></a>Compréhension des rapports sur les coûts
 
@@ -65,7 +65,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
     ![Balises des groupes](./media/understanding-cost-reports/groups-tags02.png)
 
     Dans les rapports d’allocation des coûts, les groupes des catégories de groupes avec indicateur doivent inclure :
-      - Tags
+      - Balises
       - Balises des groupes de ressources
       - Balises des entités de coûts Cloudyn
       - Catégories de balises d’abonnement à des fins d’allocation des coûts
@@ -132,6 +132,6 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez Action pour enregistrer, exporter ou planifier le rapport.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-- Si vous n’avez pas encore terminé le premier didacticiel sur la Gestion des coûts, consultez-le à la rubrique [Réviser l’utilisation et les coûts](tutorial-review-usage.md).
+- Si vous n’avez pas encore suivi le premier didacticiel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).

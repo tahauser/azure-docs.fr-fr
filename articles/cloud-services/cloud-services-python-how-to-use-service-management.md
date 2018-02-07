@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Utilisation de la gestion des services à partir de Python
 Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure][management-portal] (telles que la **création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
@@ -107,9 +107,9 @@ Quand vous créez un service cloud ou un service de stockage, vous devez fournir
 * Asie du Sud-Est
 * Est de l'Asie
 * Centre des États-Unis
-* États-Unis - partie centrale septentrionale
-* Centre-Sud des États-Unis
-* Ouest des États-Unis
+* Centre-Nord des États-Unis
+* États-Unis - partie centrale méridionale
+* États-Unis de l’Ouest
 * Est des États-Unis
 * Est du Japon
 * Ouest du Japon
@@ -394,9 +394,9 @@ Enfin, pour créer la machine virtuelle à l’aide de l’image capturée, util
         role_size='Small',
         vm_image_name = image_name)
 
-Pour en savoir plus sur la capture d’une machine virtuelle Linux, consultez la page [Capture d’une machine virtuelle Linux](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Pour en savoir plus sur la capture d’une machine virtuelle Linux dans le modèle de déploiement classique, consultez la page [Capture d’une machine virtuelle Linux](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Pour en savoir plus sur la capture d’une machine virtuelle Windows, consultez la page [Capture d’une machine virtuelle Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Pour en savoir plus sur la capture d’une machine virtuelle Windows dans le modèle de déploiement classique, consultez la page [Capture d’une machine virtuelle Windows](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"></a>Étapes suivantes
 Vous connaissez désormais les principes de base de la gestion des services. Vous pouvez maintenant accéder à la [documentation complète de référence sur l’API du kit SDK Azure pour Python](http://azure-sdk-for-python.readthedocs.org/) et effectuer facilement des tâches complexes pour gérer votre application python.

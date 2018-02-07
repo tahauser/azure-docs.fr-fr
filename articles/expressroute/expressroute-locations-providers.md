@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 01/17/2018
 ms.author: kaanan
-ms.openlocfilehash: d7b7204f218cf67b1749e4fcdbc78d134e6d80e7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 679c3093a1feb4589ff96dab398d38a866c9ad2a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -44,7 +44,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
 | **Amérique du Sud** |Sud du Brésil |São Paulo |
 | **Europe** |Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni |Amsterdam, Dublin, Londres, Newport (Pays de Galles), Paris |
-| **Asie** |Asie orientale, Asie du Sud-Est |Hong Kong, Singapour |
+| **Asie** |Asie orientale, Asie du Sud-Est |Hong Kong, Singapour, Singapour2 |
 | **Japon** |Ouest du Japon, Est du Japon |Osaka, Tokyo |
 | **Australie** |Sud-est de l’Australie |Est de l’Australie |Melbourne, Sydney |
 | **Inde** |Inde-Ouest, Inde-Centre, Inde-Sud |Chennai, Mumbai |
@@ -67,7 +67,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 
 
 ### <a name="production-azure"></a>Production Azure
-| **Emplacement** | **Fournisseurs de services** |
+| **Lieu** | **Fournisseurs de services** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo Group |
 | **Atlanta** |Equinix |
@@ -83,7 +83,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Miami** |C3ntro+, Megaport, Neutrona Networks |
-| **Montréal** |Bell Canada, Cologix |
+| **Montréal** |Bell Canada, Cologix, Telus |
 | **Mumbai** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
 | **New York** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo Group |
 | **Newport (Nouvelle-Galles du Sud)** |Communications de niveau 3, données de dernière génération |
@@ -96,6 +96,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Séoul** |KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Coresite, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapour** |Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapore2** |Megaport, SingTel |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. (IIJ), Level 3 Communications, NTT Communications, Softbank, Verizon |
 | **Toronto** |AT&T NetBond, Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
@@ -106,7 +107,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 ### <a name="national-cloud-environments"></a>Environnements de cloud national
 
 ### <a name="us-government-cloud"></a>Cloud du gouvernement des États-Unis
-| **Emplacement** | **Fournisseurs de services** |
+| **Lieu** | **Fournisseurs de services** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
@@ -116,7 +117,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Chine
-| **Emplacement** | **Fournisseurs de services** |
+| **Lieu** | **Fournisseurs de services** |
 | --- | --- |
 | **Beijing** |China Telecom |
 | **Shanghai** |China Telecom |
@@ -147,7 +148,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
   * Pour définir la connectivité, procédez de la manière décrite dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md) .
 
 ## <a name="c1partners"></a>Connectivité via d’autres fournisseurs de services
-| **Emplacement** | **Microsoft Exchange** | **Fournisseurs de connectivité** |
+| **Lieu** | **Microsoft Exchange** | **Fournisseurs de connectivité** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, MainOne, Nianet, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
@@ -178,7 +179,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **Amérique du Nord** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Amérique du Sud** |Avanade Inc. |
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 * Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 

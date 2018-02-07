@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Planifier et diffuser des travaux (Java)
 
@@ -50,7 +50,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > [!NOTE]
 > L’article relatif aux [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) fournit des informations sur les Kits de développement logiciel (SDK) Azure que l’on peut utiliser pour générer des applications pour périphérique et des applications principales.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -62,7 +62,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Si vous préférez créer l’identité de l’appareil par programmation, lisez la section correspondante dans l’article [Connecter votre appareil à votre IoT Hub à l’aide de Java](iot-hub-java-java-getstarted.md#create-a-device-identity). Vous pouvez également utiliser l’outil [iothub-explorer](https://github.com/Azure/iothub-explorer) pour ajouter un appareil à votre IoT Hub.
+Si vous préférez créer l’identité de l’appareil par programmation, lisez la section correspondante dans l’article [Connecter votre appareil à votre IoT Hub à l’aide de Java](iot-hub-java-java-getstarted.md#create-a-device-identity). Vous pouvez également utiliser l’outil [Extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) pour ajouter un appareil à votre IoT Hub.
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
 
@@ -477,7 +477,7 @@ Vous êtes maintenant prêt à exécuter les applications de console.
 
     ![Le client d’appareil répond aux modifications](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez créé une application principale pour exécuter deux travaux. Le premier travail a défini des valeurs de propriété de votre choix, et le deuxième a appelé une méthode directe.
 

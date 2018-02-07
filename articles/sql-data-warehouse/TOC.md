@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 
 ## [À propos de SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 ## [Aide-mémoire](cheat-sheet.md)
@@ -6,6 +6,14 @@
 # Démarrages rapides
 
 ## [Créer et connecter - portail](create-data-warehouse-portal.md)
+## Suspension et reprise du calcul
+### [Portail](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+## Mise à l’échelle des ressources de calcul
+### [Portail](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
+
 
 # Didacticiels
 ## [1 - Charger des données à partir d’un objet blob](load-data-from-azure-blob-storage-using-polybase.md)
@@ -109,8 +117,6 @@
 ### [Analyser votre charge de travail](analyze-your-workload.md)
 
 ## Montée en charge
-### [Gérer le calcul - portail](sql-data-warehouse-manage-compute-portal.md)
-### [Gérer le calcul - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Gérer le calcul - API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automatiser les niveaux de calcul](manage-compute-with-azure-functions.md)
 

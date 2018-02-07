@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Utilisation de iothub-explorer pour la gestion des appareils Azure IoT Hub
 
@@ -29,8 +29,8 @@ ms.lasthandoff: 10/11/2017
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) est un outil en ligne de commande que vous exécutez sur un ordinateur hôte pour gérer les identités d’appareil dans votre registre de IoT Hub. Il est fourni avec des options de gestion que vous pouvez utiliser pour effectuer diverses tâches.
 
-| Option de gestion          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Option de gestion          | Tâche                                                                                                                            |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Méthodes directes             | Faites agir un appareil comme commençant/arrêtant d’envoyer des messages ou comme redémarrant l’appareil.                                        |
 | Propriétés souhaitées pour la représentation    | Mettez un appareil dans certains états, par exemple en réglant un voyant sur le vert ou en définissant l’intervalle d’envoi de télémétrie sur 30 minutes.         |
 | Propriétés signalées pour la représentation   | Obtenez l’état signalé d’un appareil. Par exemple, l’appareil signale que le voyant clignote maintenant.                                    |
@@ -54,9 +54,9 @@ Exécutez iothub-diverses avec diverses options de gestion.
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
 - Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui traite des exigences suivantes :
-  - Un abonnement Azure actif.
-  - Une instance Azure IoT Hub associée à votre abonnement.
-  - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
+- Un abonnement Azure actif.
+- Une instance Azure IoT Hub associée à votre abonnement.
+- Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
 - Vérifiez que votre appareil exécute l’application cliente tout au long de ce didacticiel.
 - iothub-explorer, [Installez iothub-explorer](https://github.com/azure/iothub-explorer) sur votre ordinateur de développement.
 
@@ -82,7 +82,7 @@ Appelez la méthode `stop` dans l’application de l’appareil pour arrêter d�
 iothub-explorer device-method <your device Id> stop
 ```
 
-## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Utiliser iothub-explorer avec les propriétés de représentation souhaitées
+## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Utiliser iothub-explorer avec les propriétés souhaitées pour la représentation
 
 Définissez un intervalle de propriété = 3000 en exécutant la commande suivante :
 
@@ -102,7 +102,7 @@ iothub-explorer get-twin <your device id>
 
 Une des propriétés est $metadata.$lastUpdated qui indique la dernière fois que cet appareil a envoyé ou reçu un message.
 
-## <a name="use-iothub-explorer-with-twins-tags"></a>Utilisez iothub-explorer avec les balises de représentation
+## <a name="use-iothub-explorer-with-twins-tags"></a>Utiliser iothub-explorer avec les balises de représentation
 
 Affichez les balises et les propriétés de votre appareil en exécutant la commande suivante :
 
@@ -114,7 +114,6 @@ Ajoutez un champ role = temperature&humidity à l’appareil en exécutant la co
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Utiliser iothub-explorer avec les messages cloud vers appareil
@@ -141,7 +140,7 @@ Interrogez les appareils, à l’exception de ceux qui ont une balise role = tem
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez appris à utiliser iothub-explorer avec diverses options de gestion.
 

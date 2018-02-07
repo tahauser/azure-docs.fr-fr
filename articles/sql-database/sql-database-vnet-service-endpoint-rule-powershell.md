@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
-ms.date: 09/15/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8c27f22657f7f8d04aab96fbc2ee25aa19cebd9f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Utiliser PowerShell pour créer un point de terminaison de service virtuel et une règle pour la base de données SQL Azure
 
@@ -48,7 +48,8 @@ La liste suivante montre la séquence des autres *principales* applets de comman
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): mises à jour persistantes apportées à votre réseau virtuel.
 
-5. **New-AzureRmSqlServerVirtualNetworkRule** : lorsque fois votre sous-réseau devient un point de terminaison, ajoute votre sous-réseau en tant que règle de réseau virtuel à la liste ACL de votre serveur de base de données SQL Azure.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule) : lorsque fois votre sous-réseau devient un point de terminaison, ajoute votre sous-réseau en tant que règle de réseau virtuel à la liste ACL de votre serveur de base de données SQL Azure.
+    - Propose le paramètre **-IgnoreMissingVnetServiceEndpoint**, à compter du module AzureRM PowerShell version 5.1.1.
 
 #### <a name="prerequisites-for-running-powershell"></a>Prérequis pour l’exécution de PowerShell
 

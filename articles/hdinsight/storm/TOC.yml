@@ -70,6 +70,21 @@
             - name: Publier des applications HDInsight dans la Place de marché Azure
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: 'Installer une application publiée : CDAP (Cask Data Application Platform)'
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Dataiku'
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Datameer'
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 'Installer une application publiée : H2O'
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Streamsets'
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Sécuriser
       items:
         - name: Utiliser SSH avec HDInsight
@@ -181,7 +196,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: "Résoudre les problèmes d’un cluster\_HDInsight défaillant ou lent"
+        - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Résolution de problèmes HDFS
@@ -233,7 +248,7 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

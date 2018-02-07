@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -133,7 +133,7 @@ Pour modifier les paramètres pour un compte de stockage, utilisez [Set-AzureRmS
 
 * Les **balises** affectées au compte de stockage. Les balises sont souvent utilisées pour catégoriser les ressources à des fins de facturation.
 
-* Le nom de référence (**SKU**) est le paramètre de réplication pour le compte de stockage, comme LRS (stockage localement redondant). Par exemple, vous pouvez passer de Standard\_LRS à Standard\_GRS ou Standard\_RAGRS. Notez que vous ne pouvez pas passer du stockage Standard ZRS ou Premium LRS à d’autres références (SKU), ou modifier d’autres références sur celles-ci. 
+* Le nom de référence (**SKU**) est le paramètre de réplication pour le compte de stockage, comme LRS (stockage localement redondant). Par exemple, vous pouvez passer de Standard\_LRS à Standard\_GRS ou Standard\_RAGRS. Notez que vous ne pouvez pas passer du stockage Standard\_ZRS ou Premium\_LRS à d’autres références (SKU), ou modifier d’autres références sur celles-ci.
 
 * Le **niveau d’accès** pour les comptes de stockage d’objets blob. La valeur du niveau d’accès est définie sur **chaud** ou **froid**, et vous permet de réduire les coûts en sélectionnant le niveau d’accès qui s’aligne avec l’utilisation du compte de stockage. Pour plus d’informations, consultez [Niveaux de stockage chauds et froid et d’archivage](../blobs/storage-blob-storage-tiers.md).
 
@@ -223,7 +223,7 @@ L’API Table Azure Cosmos DB fournit des fonctionnalités premium pour le stock
 * Pour plus d’informations, consultez [API Table Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
 * Pour découvrir comment utiliser PowerShell pour effectuer des opérations d’API Table Azure Cosmos DB, consultez [Effectuer des opérations d’API Table Azure Cosmos DB avec PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Clouds indépendants Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Déploiements de cloud indépendant d’Azure
 
 La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure global. Pour des raisons de souveraineté, entre autres, il existe également des déploiements indépendants de Microsoft Azure. Ces déploiements indépendants sont appelés « environnements ». Voici les environnements disponibles :
 
@@ -240,7 +240,7 @@ Si vous avez créé un groupe de ressources et un compte de stockage pour cet ex
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Cet article couvre les opérations courantes utilisant les applets de commande de plan de gestion pour gérer les comptes de stockage. Vous avez appris à effectuer les actions suivantes : 
 

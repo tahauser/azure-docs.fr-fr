@@ -24,7 +24,7 @@
 ### [Se connecter en local - dédié](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Prise en main
-## [Créer votre premier réseau virtuel](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Créer votre premier réseau virtuel](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Procédures
 ## Connectivité Internet
@@ -42,28 +42,28 @@
 ### [Créer une connexion VPN P2S (SSTP avec certificats)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Créer une connexion privée dédiée (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-## Gestion
+## gestion
 ### [Topologie du réseau](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Gérer la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Déterminer le saut suivant routage](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Vérifier le flux IP pour une machine virtuelle](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Exemples de scripts
-### [Interface de ligne de commande Azure](cli-samples.md)
+### [interface de ligne de commande Azure](cli-samples.md)
 ### [Azure PowerShell](powershell-samples.md)
 
 ## Didacticiels
 ### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter un ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# Référence
-## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)
+# Informations de référence
+## [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.JS](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
-# les ressources
+# Ressources
 ## [Créer des modèles](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/resources/templates/)
@@ -71,6 +71,6 @@
 ## [Tarification](https://azure.microsoft.com/pricing)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 

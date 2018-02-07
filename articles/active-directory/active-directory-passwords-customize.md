@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -74,31 +74,7 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
     * En passant le paramètre *whr* à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?whr=contoso.com »
     * En passant le paramètre *username* à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?username= admin@contoso.com »
 
-### <a name="graphics-details"></a>Détails des éléments visuels
-
-Utilisez les paramètres suivants pour changer les caractéristiques visuelles de la page de connexion. Accédez à **Azure Active Directory** > **Marque de société** > **Modifier la marque de société** :
-
-* L’image de la page de connexion doit être un fichier .png ou .jpg de 1420 x 1200 pixels et ne dépassant pas 500 Ko. Pour de meilleurs résultats, nous vous recommandons d’utiliser une taille d’environ 200 Ko.
-* La couleur d’arrière-plan de la page de connexion est utilisée sur des connexions à latence élevée et doit être au format hexadécimal RVB.
-* L’image de la bannière doit être un fichier .png ou .jpg de 60 x 280 pixels ne dépassant pas 10 Ko.
-* Le logo carré (thèmes normal et foncé) doit être un fichier .png ou .jpg de 240 x 240 pixels (redimensionnable) ne dépassant pas 10 Ko.
-
-### <a name="sign-in-text-options"></a>Options de texte de connexion
-
-Utilisez les paramètres suivants pour ajouter du texte à la page de connexion propre à votre organisation. Accédez à **Azure Active Directory** > **Marque de société** > **Modifier la marque de société** :
-
-* **Indication du nom d’utilisateur** : remplace l’exemple de texte *someone@example.com* par un nom qui convient mieux à vos utilisateurs. Nous vous recommandons de conserver l’indicateur par défaut quand vous fournissez une assistance à des utilisateurs internes et externes.
-* **Texte de la page de connexion** : comporte au maximum 256 caractères. Ce texte apparaît partout où vos utilisateurs se connectent, et dans l’interface Azure AD Workplace Join sur Windows 10. Utilisez ce texte pour les conditions d’utilisation, les instructions et conseils pour vos utilisateurs. 
-
-   >[!IMPORTANT]
-   >N’importe qui peut voir votre page de connexion. Par conséquent, ne fournissez pas d’informations sensibles ici.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>Le paramètre « Désactiver le maintien de la connexion »
-
-Avec l’option **Désactiver le maintien de la connexion**, les utilisateurs peuvent rester connectés quand ils ferment et rouvrent la fenêtre du navigateur. Cette option n’affecte pas la durée de vie de session. Accédez à **Azure Active Directory** > **Marque de société** > **Modifier la marque de société**.
-
-Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent de la capacité des utilisateurs à cocher cette case. Si vous masquez cette option, les utilisateurs peuvent recevoir des invites de connexion supplémentaires et inattendues.
+Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Nom de l’annuaire
 

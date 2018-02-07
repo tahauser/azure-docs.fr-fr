@@ -1,6 +1,6 @@
 - name: Documentation pour opérateur Azure Stack
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack\_?"
       href: azure-stack-poc.md
@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
+    - name: Intégration du centre de données
+      items:
+        - name: Considérations générales relatives à l’intégration de Microsoft Azure Stack
+          href: azure-stack-datacenter-integration.md
+        - name: Modèles de connexion pour le déploiement de Microsoft Azure Stack
+          href: azure-stack-connection-models.md
+        - name: Remarques relatives au déploiement connecté
+          href: azure-stack-connected-deployment.md
+        - name: Remarques relatives au déploiement déconnecté
+          href: azure-stack-disconnected-deployment.md
+        - name: Intégration du réseau du centre de données
+          items:
+            - name: Intégration réseau
+              href: azure-stack-network.md
+            - name: Connectivité de la bordure
+              href: azure-stack-border-connectivity.md
+            - name: Intégration DNS
+              href: azure-stack-integrate-dns.md
+            - name: Intégration du pare-feu
+              href: azure-stack-firewall.md
+              items:
+                - name: Publier des points de terminaison
+                  href: azure-stack-integrate-endpoints.md
+        - name: Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Obtenir des certificats d’infrastructure à clé publique pour le déploiement Azure Stack
+              href: azure-stack-get-pki-certs.md
+        - name: Intégration des identités
+          href: azure-stack-integrate-identity.md
+        - name: Inscrire Azure Stack
+          href: azure-stack-registration.md
+        - name: Surveillance externe
+          href: azure-stack-integrate-monitor.md
+        - name: Intégration de la sécurité
+          href: azure-stack-integrate-security.md
     - name: Stratégie de maintenance
       href: azure-stack-servicing-policy.md
     - name: Principaux concepts et fonctionnalités
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Créer une machine virtuelle de test
           href: azure-stack-provision-vm.md
-    - name: Déployer des systèmes intégrés Azure Stack
-      items:
-        - name: Considérations en matière de planification du déploiement
-          href: azure-stack-deployment-planning.md
-        - name: Décisions relatives à la planification du déploiement
-          href: azure-stack-deployment-decisions.md
-        - name: Déployer des éléments connectés à Azure
-          href: azure-stack-connected-deployment.md
-        - name: Déployer des éléments déconnectés d’Azure
-          href: azure-stack-disconnected-deployment.md
-        - name: Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Obtenir des certificats d’infrastructure à clé publique pour le déploiement Azure Stack
-              href: azure-stack-get-pki-certs.md
-        - name: Inscrire Azure Stack
-          href: azure-stack-registration.md
-    - name: Intégration du centre de données
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Identité
-          href: azure-stack-integrate-identity.md
-        - name: Publier des points de terminaison
-          href: azure-stack-integrate-endpoints.md
-        - name: Surveillance externe
-          href: azure-stack-integrate-monitor.md
-        - name: Sécurité
-          href: azure-stack-integrate-security.md
     - name: gérer
       items:
         - name: Gestion des régions
@@ -241,7 +248,7 @@
               href: azure-stack-linux.md
         - name: Utilisation et facturation
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: azure-stack-billing-and-chargeback.md
             - name: Rapports des données d’utilisation
               href: azure-stack-usage-reporting.md

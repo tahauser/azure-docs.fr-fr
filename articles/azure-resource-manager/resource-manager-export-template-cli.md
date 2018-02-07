@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exporter des modèles Azure Resource Manager avec Azure CLI
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Enregistrer un modèle à partir de l’historique de déploiement
 
-Vous pouvez récupérer un modèle à partir de votre historique de déploiement à l’aide de la commande [az group deployment export](/cli/azure/group/deployment#export). L’exemple suivant enregistre le modèle que vous déployez précédemment :
+Vous pouvez récupérer un modèle à partir de votre historique de déploiement à l’aide de la commande [az group deployment export](/cli/azure/group/deployment#az_group_deployment_export). L’exemple suivant enregistre le modèle que vous déployez précédemment :
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ Il retourne le modèle. Copiez le JSON et enregistrez-le dans un fichier. Notez 
 
 ## <a name="export-resource-group-as-template"></a>Exporter un groupe de ressources en tant que modèle
 
-Au lieu de récupérer un modèle à partir de l’historique de déploiement, vous pouvez récupérer un modèle qui représente l’état actuel d’un groupe de ressources à l’aide de la commande [az group export](/cli/azure/group#export). Vous utilisez cette commande lorsque vous avez effectué de nombreuses modifications dans votre groupe de ressources et qu’aucun modèle existant ne représente toutes les modifications.
+Au lieu de récupérer un modèle à partir de l’historique de déploiement, vous pouvez récupérer un modèle qui représente l’état actuel d’un groupe de ressources à l’aide de la commande [az group export](/cli/azure/group#az_group_export). Vous utilisez cette commande lorsque vous avez effectué de nombreuses modifications dans votre groupe de ressources et qu’aucun modèle existant ne représente toutes les modifications.
 
 ```azurecli
 az group export --name ExampleGroup
@@ -203,7 +203,7 @@ Votre modèle doit maintenant ressembler à ceci :
 
 Redéployez le modèle modifié.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour plus d’informations sur l’utilisation du portail pour exporter un modèle, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 * Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).

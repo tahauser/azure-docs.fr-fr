@@ -53,14 +53,14 @@ Voici les tailles de disque disponible pour un disque managé Premium :
 
 | **Disques managés<br> Premium** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Taille du disque        | 32 Go   | 64 Go   | 128 Go  | 256 Go  | 512 Go  | 1024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) | 
+| Taille du disque        | 32 Gio   | 64 Gio   | 128 Go  | 256 Gio  | 512 Go  | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 
 
 
 Voici les tailles de disque disponible pour un disque managé Standard :
 
 | **Disques managés<br> Standard** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Taille du disque        | 32 Go   | 64 Go   | 128 Go | 512 Go | 1024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) | 
+| Taille du disque        | 32 Gio   | 64 Gio   | 128 Go | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 
 
 
 **Nombre de transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Les transactions associées aux disques managés Premium ne sont pas facturées.
@@ -72,7 +72,7 @@ Pour plus d’informations sur la tarification d’Azure Managed Disks, consul
 
 ## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
 
-Une capture instantanée est une copie en lecture seule d’un disque géré qui est stockée comme un disque géré standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. Elles sont facturées en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque géré avec une capacité approvisionnée de 64 Go et une taille des données utilisées réelle de 10 Go, la capture instantanée sera facturée uniquement pour la taille des données utilisées de 10 Go.  
+Une capture instantanée est une copie en lecture seule d’un disque géré qui est stockée comme un disque géré standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. Elles sont facturées en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque managé avec une capacité approvisionnée de 64 Gio et une taille des données utilisées réelle de 10 Gio, la capture instantanée sera facturée uniquement pour la taille des données utilisées de 10 Gio.  
 
 Pour le moment, les [captures instantanées incrémentielles](../articles/virtual-machines/windows/incremental-snapshots.md) ne sont pas prises en charge pour les disques managés, mais elles le seront dans le futur.
 

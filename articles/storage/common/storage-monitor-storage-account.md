@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
 >
-> Pour l’instant, les fonctionnalités de métrique et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS).
+> Les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS) prennent en charge les mesures et la journalisation. Les comptes ZRS précédents, qui ont été renommés ZRS Classic, ne prennent pas en charge les mesures et la journalisation. Pour plus d’informations sur ZRS, consultez [Stockage redondant dans une zone](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -148,13 +148,13 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 1. Vérifiez que **l’état** est défini sur **On**, puis sélectionnez les **services** pour lesquels vous souhaitez activer la journalisation.
 
     ![Configurez la journalisation dans le portail Azure.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
-1. Cliquez sur **Save**.
+1. Cliquez sur **Enregistrer**.
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé $logs dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](http://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
 
 Pour plus d’informations sur l’accès au conteneur $logs, consultez [Activation de la journalisation du stockage et accès aux données des journaux](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * En savoir plus sur [les métriques, la journalisation et la facturation](../storage-analytics.md) pour Storage Analytics.
 * [Activer les métriques Stockage Azure et afficher les données des métriques](../storage-enable-and-view-metrics.md) à l’aide de PowerShell et par programme avec C#.

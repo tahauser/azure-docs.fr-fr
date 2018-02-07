@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
@@ -32,7 +32,7 @@ L’intégration de Amazon Web Services (AWS) dans Azure AD vous offre les avant
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD avec Amazon Web Services (AWS), vous avez besoin des éléments suivants :
 
@@ -131,6 +131,8 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
+
+    d. Dans la zone de texte **Espace de noms**, indiquez la valeur d’espace de noms pour cette ligne.
     
     d. Cliquez sur **OK**.
 
@@ -230,19 +232,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Création d’une stratégie](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Créez votre propre stratégie pour extraire tous les rôles à partir de comptes AWS. Dans la section **Create your own policy** (Créer votre propre stratégie), cliquez sur le bouton **Select** (Sélectionner).
-    
+25. Créez votre propre stratégie pour extraire tous les rôles à partir de comptes AWS en procédant comme suit :
+
     ![Création d’une stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Définissez la nouvelle stratégie en suivant ces étapes :
+    a. Dans la section **Créer une stratégie**, cliquez sur l’onglet **JSON**.
 
-    ![Définition de la nouvelle stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Indiquez **AzureAD_SSOUserRole_Policy** (Stratégie_RôleUtilisateurAuthentificationUnique_AzureAD) comme **Policy Name** (Nom de stratégie).
-
-    b. Vous pouvez fournir une **Description** (Description) pour la stratégie, par exemple **This policy will allow to fetch the roles from AWS accounts** (Cette stratégie permettra de récupérer les rôles à partir de comptes AWS).
-    
-    c. Dans le document de stratégie, ajoutez l’extrait au format JSON ci-dessous.
+    b. Dans le document de stratégie, ajoutez l’extrait au format JSON ci-dessous.
     
     ```
     
@@ -271,13 +267,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     }
     
     ```
+
+    c. Cliquez sur le bouton **Vérifier la stratégie** pour valider la stratégie.
+
+    ![Définition de la nouvelle stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Définissez la **nouvelle stratégie** en suivant ces étapes :
+
+    ![Définition de la nouvelle stratégie](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Indiquez **AzureAD_SSOUserRole_Policy** (Stratégie_RôleUtilisateurAuthentificationUnique_AzureAD) comme **Policy Name** (Nom de stratégie).
+
+    b. Vous pouvez fournir une **Description** (Description) pour la stratégie, par exemple **This policy will allow to fetch the roles from AWS accounts** (Cette stratégie permettra de récupérer les rôles à partir de comptes AWS).
     
-    d. Vérifiez que vous avez bien coché l’option **Use autoformatting for policy editing** (Utiliser la mise en forme automatique pour la modification de la stratégie).
-    
-    e. Cliquez sur le bouton **Validate Policy** (Valider la stratégie) situé en bas.
-    
-    f. Une fois la stratégie correctement validée, vous pouvez cliquer sur le bouton **Create Policy** (Créer une stratégie).
-    
+    c. Cliquez sur le bouton **Créer une stratégie**.
+        
 27. Créez un compte d’utilisateur dans AWS IAM Service en suivant ces étapes :
 
     a. Cliquez sur **Users** (Utilisateurs) dans la console AWS IAM.

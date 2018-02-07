@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 En suivant les instructions de cet article, vous pouvez installer le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) dans un environnement Azure Stack qui :
 - n’est pas connecté à internet ;
@@ -72,7 +73,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 7. Sur la page suivante :
     1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
         - Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous indiqués lors du déploiement d’Azure Stack. Cliquez sur **Se connecter**.
-        - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple, cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
+        - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
     2. Sélectionnez votre abonnement dans la zone **Abonnements Azure Stack**.
     3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
     4. Entrez un **Nom du groupe de ressources** pour votre déploiement App Service. Par défaut, il est défini sur **APPSERVICE-LOCAL**.
@@ -114,14 +115,14 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
      > [!NOTE]
      > Pour les déploiements de production, suivez le guide dans [Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
-    | Rôle | Nombre minimal d’instances | Nombre minimal de références (SKU) | Remarques |
+    | Rôle | Nombre minimal d’instances | Nombre minimal de références (SKU) | Notes |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
-    | Gestion | 1 | Standard_A2 - (2 processeurs virtuels, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
-    | Éditeur | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Publie du contenu via FTP et un déploiement web. |
+    | gestion | 1 | Standard_A2 - (2 processeurs virtuels, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
+    | Publisher | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Publie du contenu via FTP et un déploiement web. |
     | FrontEnd | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Achemine les demandes vers les applications App Service. |
     | Worker partagé | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Héberge les applications web ou d’API et Azure Functions. Il peut être nécessaire d’ajouter plus d’instances. En tant qu’opérateur, vous pouvez définir votre offre et choisir n’importe quel niveau de référence. Les niveaux doivent avoir au minimum un processeur virtuel. |
 
@@ -197,7 +198,7 @@ Vous *devez* disposer d’un abonnement locataire pour créer des applications q
 
 3. Si vous avez également déployé un fournisseur de ressources SQL Server, vous pouvez déployer un site web DNN à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, sélectionnez une base de données sur l’ordinateur exécutant SQL Server connecté à votre fournisseur de ressources.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez également tester d’autres [services PaaS](azure-stack-tools-paas-services.md).
 

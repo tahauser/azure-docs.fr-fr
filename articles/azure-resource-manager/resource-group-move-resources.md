@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -122,7 +122,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Key Vault
 * Équilibreurs de charge
 * Logic Apps
-* Apprentissage automatique
+* Machine Learning
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -131,11 +131,11 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Power BI
 * Cache Redis
 * Scheduler
-* Search
+* action
 * Gestion de serveur
 * Service Bus
 * Service Fabric
-* Storage
+* Stockage
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Stream Analytics - Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
 * Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
@@ -208,7 +208,7 @@ Vos options sont :
 
 Toutes les autres combinaisons impliquent l’abandon d’un type de ressource qui ne peut pas être abandonné lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
 
-Si votre application web réside dans un autre groupe de ressources que son plan App Service mais que vous souhaitez déplacer les deux dans un nouveau groupe de ressources, vous devez effectuer le déplacement en deux étapes. Par exemple :
+Si votre application web réside dans un autre groupe de ressources que son plan App Service mais que vous souhaitez déplacer les deux dans un nouveau groupe de ressources, vous devez effectuer le déplacement en deux étapes. Par exemple : 
 
 * **web-a** se trouve dans **web-group**
 * **plan-a** se trouve dans **plan-group**
@@ -315,6 +315,12 @@ Le déplacement n’est pas possible pour les ressources de stockage, de réseau
 
 Par exemple, supposons que vous avez configuré la réplication de vos machines locales vers un compte de stockage (Storage1) et que vous souhaitez que la machine protégée apparaisse après le basculement vers Azure comme une machine virtuelle (VM1) connectée à un réseau virtuel (Network1). Vous ne pouvez pas déplacer ces ressources Azure (Storage1, VM1 et Network1) sur différents groupes de ressources dans le même abonnement ou sur différents abonnements.
 
+Pour déplacer une machine virtuelle inscrite dans la **sauvegarde Azure** entre les groupes de ressources :
+ 1. Interrompre temporairement la sauvegarde et conserver les données de sauvegarde
+ 2. Déplacer la machine virtuelle vers le groupe de ressources cible
+ 3. Reprotégez-la sous le même coffre ou sous un nouveau coffre. Les utilisateurs peuvent effectuer des restaurations à partir des points de restauration créés avant le déplacement.
+Si l’utilisateur déplace la machine virtuelle sauvegardée entre des abonnements, les étapes 1 et 2 restent les mêmes. À l’étape 3, l’utilisateur doit protéger la machine virtuelle sous un nouveau coffre présent ou créé dans l’abonnement cible. Le coffre Recovery Services ne prend pas en charge les sauvegardes entre abonnements.
+
 ## <a name="hdinsight-limitations"></a>Limitations de HDInsight
 
 Vous pouvez déplacer des clusters HDInsight vers un nouvel abonnement ou groupe de ressources. Toutefois, vous ne pouvez pas déplacer sur différents abonnements les ressources réseau liées au cluster HDInsight (par exemple le réseau virtuel, une carte réseau ou un équilibrage de charge). En outre, vous ne pouvez pas déplacer vers un nouveau groupe de ressources une carte réseau connectée à une machine virtuelle pour le cluster.
@@ -380,7 +386,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 Dans le corps de la requête, vous indiquez le groupe de ressources cible et les ressources à déplacer. Pour plus d’informations sur l’opération REST de déplacement, consultez [Déplacer des ressources](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur les applets de commande PowerShell permettant de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
 * Pour plus d’informations sur les commandes de l’interface de ligne de commande Azure permettant de gérer votre abonnement, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).

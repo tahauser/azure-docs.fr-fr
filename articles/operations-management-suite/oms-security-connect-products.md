@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Connexion de vos produits de sécurité à la solution de sécurité et d’audit Operations Management Suite (OMS) 
 Ce document vous permet de connecter vos produits de sécurité à la solution de sécurité et d’audit OMS. Les sources suivantes sont prises en charge :
@@ -95,7 +95,7 @@ Sur la machine de l’agent, les événements doivent être envoyés du démon s
 
 ## <a name="reviewing-collected-security-events"></a>Examen des événements de sécurité collectés
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Une fois la configuration terminée, l’événement de sécurité commence à être ingéré par OMS Security. Pour visualiser ces événements, ouvrez la recherche de journal, tapez la commande *Type=CommonSecurityLog* dans le champ de recherche et appuyez sur ENTRÉE. L’exemple suivant montre le résultat de cette commande. Notez que dans ce cas OMS Security a déjà ingéré les journaux de sécurité de plusieurs fournisseurs :
    

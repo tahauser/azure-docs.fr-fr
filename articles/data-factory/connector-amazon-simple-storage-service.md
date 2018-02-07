@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,9 +53,9 @@ Les propriétés prises en charge pour le service lié Amazon S3 prises en charg
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AmazonS3**. | Oui |
-| accessKeyId | ID de la clé d’accès secrète. |Oui |
-| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ comme SecureString. |Oui |
+| Type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
+| accessKeyId | ID de la clé d’accès secrète. |OUI |
+| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ comme SecureString. |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 >[!NOTE]
@@ -92,8 +92,8 @@ Pour copier des données d’Amazon S3, affectez la valeur **AmazonS3Object** à
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **AmazonS3Object** |Oui |
-| bucketName | Le nom de compartiment S3. |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **AmazonS3Object** |OUI |
+| bucketName | Le nom de compartiment S3. |OUI |
 | key | La clé d’objet S3. S’applique uniquement lorsque le préfixe n’est pas spécifié. |Non  |
 | prefix | Préfixe de la clé d’objet S3. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque la clé n’est pas spécifiée. |Non  |
 | version | La version de l’objet S3 si le contrôle de version S3 est activé. |Non  |
@@ -170,8 +170,8 @@ Pour copier des données d’Amazon S3, définissez **FileSystemSource** (qui in
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |Oui |
-| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur fichier, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
 
 **Exemple :**
 

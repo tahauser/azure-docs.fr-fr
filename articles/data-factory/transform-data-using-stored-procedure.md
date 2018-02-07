@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 : disponibilité générale](v1/data-factory-stored-proc-activity.md)
-> * [Version 2 - Préversion](transform-data-using-stored-procedure.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-stored-proc-activity.md)
+> * [Version 2 - Préversion](transform-data-using-stored-procedure.md)
 
 
 Vous utilisez des activités de transformation dans un [pipeline](concepts-pipelines-activities.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s’appuie sur l’article [Transformer des données](transform-data.md) qui présente une vue d’ensemble de la transformation des données et des activités de transformation prises en charge dans Data Factory.
@@ -70,16 +70,16 @@ Voici le format JSON pour la définition d’une activité de procédure stocké
 
 Le tableau suivant décrit ces paramètres JSON :
 
-| Propriété                  | Description                              | Requis |
+| Propriété                  | DESCRIPTION                              | Obligatoire |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nom de l’activité                     | Oui      |
-| Description               | Texte décrivant la raison motivant l’activité. | Non       |
-| type                      | Pour l’activité de procédure stockée, le type d’activité est SqlServerStoredProcedure. | Oui      |
-| linkedServiceName         | Référence au service Azure SQL Database, Azure SQL Data Warehouse ou SQL Server enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
-| storedProcedureName       | Spécifiez le nom de la procédure stockée dans la base de données Azure SQL Database, Azure SQL Data Warehouse ou SQL Server qui est représenté par le service lié utilisé par la table de sortie. | Oui      |
-| storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. Utilisez `"param1": { "value": "param1Value","type":"param1Type" }` pour passer les valeurs de paramètre et leur type natif pris en charge par la source de données. Si vous avez besoin de passer la valeur Null pour un paramètre, utilisez *"param1": { "value": null }* (tout en minuscules). | Non       |
+| Nom                      | Nom de l’activité                     | OUI      |
+| description               | Texte décrivant la raison motivant l’activité. | Non        |
+| Type                      | Pour l’activité de procédure stockée, le type d’activité est **SqlServerStoredProcedure**. | OUI      |
+| linkedServiceName         | Référence au service **Azure SQL Database**, **Azure SQL Data Warehouse** ou **SQL Server** enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
+| storedProcedureName       | Spécifiez le nom de la procédure stockée à appeler. | OUI      |
+| storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. Utilisez `"param1": { "value": "param1Value","type":"param1Type" }` pour transmettre les valeurs des paramètres et leur type pris en charge par la source de données. Pour passer la valeur Null en paramètre, utilisez `"param1": { "value": null }` (tout en minuscules). | Non        |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

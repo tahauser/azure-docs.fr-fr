@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
@@ -30,7 +30,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Microsoft Cognitive Toolkit (CNTK) est installé sur Python 2.7, dans l’environnement _root_, ainsi que sur Python 3.5, dans l’environnement _py35_.   |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus.     |
@@ -41,7 +41,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Sur Linux, TensorFlow est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_). Sur Windows, Tensorflow est installé dans l’environnement Python 3.5 (_py35_).  |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus.     |
@@ -52,11 +52,11 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Keras est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_).   |
 | Liens vers des exemples      | https://github.com/fchollet/keras/tree/master/examples      |
-| Outils connexes sur la machine virtuelle DSVM      | Microsoft Cognitive Toolkit, TensorLlow, Theano      |
+| Outils connexes sur la machine virtuelle DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | Comment l’utiliser/l’exécuter ?    | Téléchargez les exemples à partir de l’emplacement Github, copiez-le dans un répertoire sous ~/notebooks et ouvrez-le dans Jupyter.   |
 
 
@@ -66,7 +66,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Caffe est installé dans `/opt/caffe`.    |
 | Liens vers des exemples      | Des exemples sont inclus dans `/opt/caffe/examples`.      |
@@ -86,7 +86,7 @@ Une nouvelle fenêtre de navigateur s’ouvre avec les exemples de bloc-notes.
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Caffe2 est installé dans `/opt/caffe2`. Il est également disponible pour l’environnement conda Python 2.7 (_root_).     |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus.     |
@@ -98,7 +98,7 @@ Une nouvelle fenêtre de navigateur s’ouvre avec les exemples de bloc-notes.
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Chainer est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_). ChainerRL et ChainerCV sont également installés.   |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus.      |
@@ -113,11 +113,11 @@ Sur un terminal, activez la version de Python souhaitée (_root_ ou _py35_), ex�
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond pour H2O      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond pour H2O      |
 | Éditions DSVM prises en charge      | Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Deep Water est installé dans `/dsvm/tools/deep_water`.   |
 | Liens vers des exemples      | Des exemples sont disponibles par le biais du serveur Deep Water.      |
-| Outils connexes sur la machine virtuelle DSVM      | H2o, Sparkling Water      |
+| Outils connexes sur la machine virtuelle DSVM      | H2O, Sparkling Water      |
 
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
 
@@ -133,7 +133,7 @@ Ensuite, ouvrez un navigateur et connectez-vous à `http://localhost:54321`.
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | MXNet est installé dans `C:\dsvm\tools\mxnet` sur Windows et `/dsvm/tools/mxnet` sur Linux. Les liaisons Python sont installées dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_). Les liaisons R sont également installées.   |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus.    |
@@ -144,7 +144,7 @@ Ensuite, ouvrez un navigateur et connectez-vous à `http://localhost:54321`.
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Système d’apprentissage profond de NVIDIA permettant une formation rapide des modèles d’apprentissage profond.      |
+| Qu’est-ce que c’est ?   | Système d’apprentissage profond de NVIDIA permettant une formation rapide des modèles d’apprentissage profond.      |
 | Éditions DSVM prises en charge      | Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | DIGITS est installé dans `/dsvm/tools/DIGITS` et disponible en tant que service appelé _digits_.   |
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
@@ -161,7 +161,7 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil NVIDIA pour interroger l’activité du GPU      |
+| Qu’est-ce que c’est ?   | Outil NVIDIA pour interroger l’activité du GPU      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | _nvidia-smi_ est disponible sur le chemin système.   |
 | Comment l’utiliser/l’exécuter ? | Démarrez une invite de commandes (sur Windows) ou un terminal (sur Linux), puis exécutez _nvidia-smi_.
@@ -172,7 +172,7 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Theano est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_).   |
 | Outils connexes sur la machine virtuelle DSVM      | Keras      |
@@ -184,7 +184,7 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Torch est installé dans `/dsvm/tools/torch`. PyTorch est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_).   |
 | Liens vers des exemples      | Des exemples Torch se trouvent dans `/dsvm/samples/torch`. Des exemples PyTorch se trouvent dans `/dsvm/samples/pytorch`.      |

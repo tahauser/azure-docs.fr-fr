@@ -1,6 +1,6 @@
 ---
-title: "Champs personnalisés dans Log Analytics | Microsoft Docs"
-description: "La fonction Champs personnalisés de Log Analytics vous permet de créer vos propres champs autorisant les recherches, à partir des données OMS qui s’ajoutent aux propriétés d’un enregistrement collecté.  Cet article décrit la création d’un champ personnalisé et fournit une procédure détaillée avec un exemple d’événement."
+title: "Champs personnalisés dans Azure Log Analytics | Microsoft Docs"
+description: "La fonction Champs personnalisés de Log Analytics vous permet de créer vos propres champs autorisant les recherches, à partir des données Log Analytics qui s’ajoutent aux propriétés d’un enregistrement collecté.  Cet article décrit la création d’un champ personnalisé et fournit une procédure détaillée avec un exemple d’événement."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Champs personnalisés dans Log Analytics
-La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans le référentiel OMS en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
+La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
 ![Vue d’ensemble des champs personnalisés](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Lorsque vous créez un champ personnalisé, Log Analytics doit savoir quelles do
 Les sections suivantes décrivent la procédure de création d’un champ personnalisé.  À la fin de cet article se trouve une procédure détaillée d’extraction.
 
 > [!NOTE]
-> Le champ personnalisé est renseigné lorsque des enregistrements correspondant aux critères spécifiés sont ajoutés au magasin de données OMS. Il ne s’affiche donc que sur les enregistrements collectés après la création du champ personnalisé.  Le champ personnalisé n’est pas ajouté aux enregistrements déjà présents dans le magasin de données lors de sa création.
-> 
+> Le champ personnalisé est renseigné lorsque des enregistrements correspondant aux critères spécifiés sont ajoutés à Log Analytics. Il ne s’affiche donc que sur les enregistrements collectés après la création du champ personnalisé.  Le champ personnalisé n’est pas ajouté aux enregistrements déjà présents dans le magasin de données lors de sa création.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Étape 1 : identifier les enregistrements qui contiendront le champ personnalisé
@@ -72,7 +71,7 @@ Une fois l’extraction initiale effectuée, Log Analytics affiche ses résultat
 7. Utilisez le champ personnalisé comme n’importe quelle autre propriété d’enregistrement.  Il peut vous servir à agréger et grouper les données, et même à produire d’autres connaissances.
 
 ## <a name="viewing-custom-fields"></a>Affichage de champs personnalisés
-Vous pouvez afficher la liste de tous les champs personnalisés de votre groupe d’administration, dans la mosaïque **Paramètres** du tableau de bord OMS.  Sélectionnez **Données** puis **Champs personnalisés** pour obtenir la liste de tous les champs personnalisés dans votre espace de travail.  
+Pour afficher une liste de l’ensemble des champs personnalisés de votre groupe de gestion, accédez au menu **Paramètres avancés** de votre espace de travail Log Analytics, dans le portail Azure.  Sélectionnez **Données** puis **Champs personnalisés** pour obtenir la liste de tous les champs personnalisés dans votre espace de travail.  
 
 ![Champs personnalisés](media/log-analytics-custom-fields/list.png)
 
@@ -84,7 +83,7 @@ La section suivante décrit la procédure complète de création d’un champ pe
 
 Nous spécifions la requête suivante pour renvoyer tous les événements du Gestionnaire de contrôle des services dont l’ID d’événement est 7036, c’est-à-dire l’événement indiquant le démarrage ou l’arrêt d’un service.
 
-![Interroger](media/log-analytics-custom-fields/query.png)
+![Requête](media/log-analytics-custom-fields/query.png)
 
 Ensuite, nous sélectionnons un enregistrement ayant l’ID d’événement 7036.
 
@@ -138,7 +137,7 @@ Nous pouvons maintenant utiliser le champ personnalisé comme n’importe quelle
 
 ![Regrouper par requête](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 * Surveillez les [fichiers journaux personnalisés](log-analytics-data-sources-custom-logs.md) que vous analysez à l’aide de champs personnalisés.
 

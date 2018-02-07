@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de protection des données | Microsoft Docs"
+title: "Conception d’identités hybrides : exigences de protection des données Azure | Microsoft Docs"
 description: "Lorsque vous planifiez votre solution d’identité hybride, vous devez identifier les exigences de protection des données pour votre entreprise et les options disponibles pour remplir au mieux ces exigences."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
 La première étape de protection des données consiste à identifier qui peut accéder à ces données et, dans le cadre de ce processus, vous devez avoir une solution d'identité pouvant être intégrée dans votre système pour fournir des fonctionnalités d'authentification et d'autorisation. Authentification et autorisation sont souvent confondues et leurs rôles mal compris. En réalité elles sont très différentes, comme l'illustre la figure ci-dessous :
@@ -79,7 +80,7 @@ Les règlements, les lois et les exigences de conformité aux réglementations v
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
  [Déterminer les exigences de gestion de contenu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

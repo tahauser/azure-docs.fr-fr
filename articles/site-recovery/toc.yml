@@ -1,6 +1,6 @@
 - name: Documentation Site Recovery
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Site Recovery\_?"
       href: site-recovery-overview.md
@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Ajouter des Runbooks Azure à des plans de récupération
           href: site-recovery-runbook-automation.md
+        - name: Ajouter des scripts VMM à des plans de récupération
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Effectuer un basculement
           items:
             - name: À propos du basculement

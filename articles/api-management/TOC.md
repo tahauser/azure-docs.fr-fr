@@ -20,7 +20,7 @@
 # Concepts
 ## [Terminologie](api-management-terminology.md)
 ## Stratégies
-### [Vue d'ensemble](api-management-howto-policies.md)
+### [Vue d’ensemble](api-management-howto-policies.md)
 ### [Index de référence de stratégie](api-management-policies.md)
 ## [Gérer à l’aide d’Automation](automation-manage-api-management.md)
 ## [Gestion des erreurs](api-management-error-handling-policies.md)
@@ -42,7 +42,7 @@
 ## Cache
 ### [Ajouter la mise en cache pour améliorer les performances](api-management-howto-cache.md)
 ## Sécuriser votre serveur principal
-### [Protéger le serveur principal d’API web avec AAD](api-management-howto-protect-backend-with-aad.md)
+### [Protéger le serveur principal d’API web avec Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Se connecter à un réseau virtuel](api-management-using-with-vnet.md)
 ### [Se connecter à un réseau virtuel interne](api-management-using-with-internal-vnet.md)
 ### [Intégrer Application Gateway à un réseau virtuel interne](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## Personnalisation de l’expérience de développement
 ### [Modifier la disposition et le contenu des pages](api-management-modify-content-layout.md)
 ### [Personnaliser les pages système à l’aide de modèles](api-management-developer-portal-templates.md)
-### [Authentification avec AAD](api-management-howto-aad.md)
-### [Authentification avec AAD B2C](api-management-howto-aad-b2c.md)
+### [Authentification avec Azure AD](api-management-howto-aad.md)
+### [Authentification avec Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Authentification déléguée](api-management-howto-setup-delegation.md)
 ### [Notifications électroniques et modèles](api-management-howto-configure-notifications.md)
 ### [Activer la prise en charge de la console OAuthActiver la prise en charge de la console OAuth](api-management-howto-oauth2.md)
@@ -91,14 +91,14 @@
 ### [Utiliser le contrôle d’accès en fonction du rôle](api-management-role-based-access-control.md)
 ### [Utiliser l’identité du service administré](api-management-howto-use-managed-service-identity.md)
 ### Intégrer avec Service Fabric
-#### [Vue d'ensemble](../service-fabric/service-fabric-api-management-overview.md)
+#### [Vue d’ensemble](../service-fabric/service-fabric-api-management-overview.md)
 #### [Didacticiel](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
-# Référence
+# Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 # Ressources
-## [FAQ](api-management-faq.md)
+## [FORUM AUX QUESTIONS](api-management-faq.md)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)
 ## [Guide de conception d’API](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [Recommandations relatives à l’implémentation de l’API](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)

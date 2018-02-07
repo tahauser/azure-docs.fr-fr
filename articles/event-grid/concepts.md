@@ -1,18 +1,18 @@
 ---
 title: "Concept d’Azure Event Grid"
-description: "Détaille le service Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid."
+description: "Détaille Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid."
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -52,7 +52,7 @@ Event Grid assure la sécurité lors de l’abonnement et de la publication de r
 
 Lorsque Event Grid ne peut pas confirmer qu’un événement a été reçu par le point de terminaison de l’abonné, il procède à une nouvelle distribution de l’événement. Pour plus d’informations, consultez la page [Distribution et nouvelle tentative de distribution de messages avec Event Grid](delivery-and-retry.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).
 * Pour une prise en main rapide d’Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).

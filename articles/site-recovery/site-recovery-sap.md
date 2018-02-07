@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide d’Azure Site Recovery
 
@@ -32,7 +32,7 @@ Avec Azure Site Recovery, vous pouvez :
 Cet article indique comment protéger les déploiements d’applications SAP NetWeaver à l’aide du service [Azure Site Recovery](site-recovery-overview.md). Cet article traite des bonnes pratiques de protection d’un déploiement SAP NetWeaver à trois niveaux dans Azure, par la réplication sur un autre centre de données Azure, au moyen d’Azure Site Recovery ; il aborde aussi les configurations et les scénarios pris en charge ainsi que la procédure de basculement, qu’il s’agisse d’un basculement test (exercices de récupération d’urgence) ou d’un basculement réel.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
 1. [Réplication d’une machine virtuelle dans Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Si vous utilisez une adresse IP statique, vous pouvez spécifier l’adresse IP 
 Un plan de récupération permet de séquencer le basculement de différents niveaux d’une application multiniveau, ce qui contribue au maintien de la cohérence de l’application. Suivez les étapes décrites [ici](site-recovery-create-recovery-plans.md) lorsque vous créez un plan de récupération pour une application web multiniveau.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Ajout de scripts au plan de récupération
-Vous devrez peut-être effectuer certaines opérations lors du post-basculement/test de basculement des machines virtuelles Azure pour vous assurer du bon fonctionnement de vos applications. Vous pouvez automatiser l’opération de post-basculement, comme la mise à jour des entrées DNS ou la modification des liaisons et connexions, en ajoutant les scripts correspondants dans le plan de récupération, comme indiqué dans [cet article](site-recovery-create-recovery-plans.md#add-scripts).
+Vous devrez peut-être effectuer certaines opérations lors du post-basculement/test de basculement des machines virtuelles Azure pour vous assurer du bon fonctionnement de vos applications. Vous pouvez automatiser l’opération de post-basculement, comme la mise à jour des entrées DNS ou la modification des liaisons et connexions, en ajoutant les scripts correspondants dans le plan de récupération, comme indiqué dans [cet article](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>Mise à jour DNS
 Si le service DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles le mettent généralement à jour avec la nouvelle adresse IP dès leur démarrage. Pour ajouter une étape explicite pour mettre à jour DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez ce [script pour mettre à jour les adresses IP dans DNS](https://aka.ms/asr-dns-update) en tant qu’action postérieure dans les groupes du plan de récupération.  
@@ -114,7 +114,7 @@ Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculeme
 3.  Cliquez sur « Basculement ».
 4.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez en détail la création d’une solution de récupération d’urgence pour les déploiements SAP NetWeaver à l’aide d’Azure Site Recovery dans [ce livre blanc](http://aka.ms/asr-sap). Ce livre blanc présente également les recommandations émises pour les différentes architectures SAP, il répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les plans de tests possibles pour votre solution de récupération d’urgence.
 
 Découvrez en détail la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

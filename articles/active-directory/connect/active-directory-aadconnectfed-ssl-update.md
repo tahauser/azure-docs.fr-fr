@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect : Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS) | Microsoft Docs"
+title: "Azure AD Connect - mettre à jour le certificat SSL pour une batterie de serveurs AD FS | Microsoft Docs"
 description: "Ce document détaille les étapes permettant de mettre à jour le certificat SSL d’une batterie de serveurs AD FS à l’aide d’Azure AD Connect."
 services: active-directory
 keywords: "azure ad connect, mise à jour de ssl adfs, mise à jour d’un certificat adfs, modifier un certificat adfs, nouveau certificat adfs, certificat adfs, mettre à jour un certificat ssl adf, mettre à jour un certificat adf ssl, configurer un certificat ssl adf, adfs, ssl, certificat, adfs certificat de communication de service, mettre à jour la fédération, configurer la fédération, aad connect"
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment utiliser Azure AD Connect pour mettre à jour le certificat SSL d’une batterie de serveurs Active Directory Federation Services (AD FS). Vous pouvez utiliser l’outil Azure AD Connect pour une mise à jour facile du certificat SSL pour la batterie de serveurs AD FS même si la méthode d’authentification sélectionnée n’est pas AD FS.
 
 Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certificat SSL pour la batterie de serveurs AD FS sur l’ensemble des serveurs de fédération et Proxy d’application Web (WAP) en trois étapes simples :
@@ -33,7 +34,7 @@ Vous pouvez effectuer l’ensemble de l’opération de mise à jour du certific
 >[!NOTE]
 >Pour en savoir plus sur les certificats utilisés par AD FS, consultez l’article [Présentation des certificats utilisés par les services ADFS (Active Directory Federation Services)](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * **Batterie de serveurs AD FS** : Assurez-vous que votre batterie AD FS est basée sur Windows Server 2012 R2 ou version ultérieure.
 * **Azure AD Connect** : vérifiez que la version d’Azure AD Connect est 1.1.553.0 ou ultérieure. Vous utiliserez la tâche **Mettre à jour le certificat SSL AD FS**.
@@ -86,7 +87,7 @@ Après avoir terminé la configuration, Azure AD Connect affiche le message qui 
 
     Azure AD Connect vérifie si le nom de sujet/l’autre nom de sujet du certificat contient le nom du service de fédération. Par exemple, si le nom de votre service de fédération est fs.contoso.com, le nom de sujet/l’autre nom de sujet doit être fs.contoso.com.  Les certificats à caractères génériques sont également acceptés.
 
-* **Pourquoi suis-je invité à respécifier des informations d’identification dans la page du serveur WAP ?**
+* **Pourquoi le système me redemande mes informations d’identification dans la page du serveur WAP ?**
 
     Si les informations d’identification que vous avez fournies pour la connexion aux serveurs AD FS ne disposent également pas du privilège permettant de gérer les serveurs WAP, Azure AD Connect vous demande des informations d’identification bénéficiant du privilège administratif sur les serveurs WAP.
 
@@ -102,7 +103,7 @@ Après avoir terminé la configuration, Azure AD Connect affiche le message qui 
 
     La suppression du serveur de la liste dans Azure AD Connect ne le supprime pas de la configuration AD FS. Azure AD Connect fait référence à AD FS (Windows Server 2016 ou version ultérieure) pour toutes les informations concernant la batterie de serveurs. Si le serveur est toujours présent dans la configuration AD FS, il sera répertorié dans la liste.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Fédération avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 - [Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect](active-directory-aadconnect-federation-management.md)

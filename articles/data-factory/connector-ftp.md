@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: debfa7b584e4172821801197be94e597066cdb8d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Les propriétés prises en charge pour le service lié FTP sont les suivantes :
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **FtpServer**. | Oui |
-| host | Spécifiez le nom ou l’adresse IP du serveur FTP. | Oui |
+| Type | La propriété type doit être définie sur **FtpServer**. | OUI |
+| host | Spécifiez le nom ou l’adresse IP du serveur FTP. | OUI |
 | port | Spécifiez le port sur lequel le serveur FTP écoute.<br/>Valeurs autorisées : integer, la valeur par défaut est **21**. | Non  |
 | enableSsl | Indiquez si vous souhaitez utiliser FTP sur un canal SSL/TLS.<br/>Valeurs autorisées : **true** (par défaut) et **false**. | Non  |
 | enableServerCertificateValidation | Indiquez si vous souhaitez activer la validation des certificats SSL lors de l’utilisation de FTP sur un canal SSL/TLS.<br/>Valeurs autorisées : **true** (par défaut) et **false**. | Non  |
-| authenticationType | Spécifiez le type d’authentification.<br/>Valeurs autorisées : **De base** et **Anonyme** | Oui |
+| authenticationType | Spécifiez le type d’authentification.<br/>Valeurs autorisées : **De base** et **Anonyme** | OUI |
 | userName | Spécifiez l’utilisateur ayant accès au serveur FTP. | Non  |
 | password | Spécifiez le mot de passe de l’utilisateur (username). Marquez ce champ comme SecureString. | Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
@@ -117,8 +117,8 @@ Pour copier des données de FTP, affectez la valeur **FileShare** à la proprié
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **FileShare** |Oui |
-| folderPath | Chemin d'accès au dossier. Par exemple : dossier/sous-dossier / |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **FileShare** |OUI |
+| folderPath | Chemin d'accès au dossier. Par exemple : dossier/sous-dossier / |OUI |
 | fileName | Si vous souhaitez copier à partir d’un fichier spécifique, spécifiez le nom de celui-ci dans **folderPath**. Si vous ne spécifiez aucune valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier en tant que source. |Non  |
 | fileFilter | Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. S’applique uniquement lorsque fileName n’est pas spécifié. <br/><br/>Les caractères génériques autorisés sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/>- Exemple 1 : `"fileFilter": "*.log"`<br/>- Exemple 2 : `"fileFilter": 2017-09-??.txt"` |Non  |
 | format | Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser des fichiers d’un format spécifique, les types de formats de fichier pris en charge sont les suivants : **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](supported-file-formats-and-compression-codecs.md#text-format), [format Json](supported-file-formats-and-compression-codecs.md#json-format), [format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
@@ -163,8 +163,8 @@ Pour copier des données de FTP, définissez **FileSystemSource** comme type de 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |Oui |
-| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur fichier, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
 
 **Exemple :**
 

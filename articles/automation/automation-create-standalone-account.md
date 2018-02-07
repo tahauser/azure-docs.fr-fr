@@ -1,6 +1,6 @@
 ---
 title: "Création d’un compte Azure Automation autonome | Microsoft Docs"
-description: "Ce didacticiel vous guide tout au long des procédures de création et de test d’une authentification de principal de sécurité dans Azure Automation. Il est complété par un exemple d’utilisation."
+description: "Cet article vous guide tout au long des procédures de création, de test et d’utilisation d’un exemple d’authentification de principal de sécurité dans Azure Automation."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,75 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
-Cette rubrique montre comment créer un compte Automation à partir du portail Azure si vous souhaitez évaluer et apprendre Azure Automation sans inclure les solutions de gestion supplémentaires ou une intégration avec OMS Log Analytics pour fournir une surveillance avancée des travaux Runbook.  Vous pourrez ajouter ces solutions de gestion ou effectuer une intégration à Log Analytics ultérieurement.  Avec le compte Automation, vous avez la possibilité d’identifier les ressources de gestion des Runbooks dans Azure Resource Manager ou le modèle de déploiement Azure Classic.
+Cet article vous montre comment créer un compte Azure Automation dans le portail Azure. Vous pouvez utiliser le compte Automation du portail pour évaluer Automation et vous familiariser avec la solution sans recourir à des solutions de gestions supplémentaires ni à l’intégration avec Azure Log Analytics dans Operations Management Suite (OMS). Ajoutez ces solutions de gestion ou procédez à l’intégration avec Log Analytics pour prendre en charge une surveillance avancée des tâches de runbook ultérieurement. 
 
-Lorsque vous créez un compte Automation dans le portail Azure, il crée automatiquement :
+Avec un compte Automation, vous pouvez authentifier des runbooks en gérant des ressources dans Azure Resource Manager ou dans le modèle de déploiement classique.
 
-* Un compte d’identification, qui crée un principal du service dans Azure Active Directory, un certificat, et attribue le contrôle d’accès en fonction du rôle (RBAC) Collaborateur, qui est utilisé pour gérer les ressources Resource Manager à l’aide de Runbooks.   
-* Un compte d’identification Classic en chargeant un certificat de gestion, qui est utilisé pour gérer les ressources classiques à l’aide de Runbooks.  
+Lorsque vous créez un compte Automation dans le portail Azure, ces comptes sont automatiquement créés :
 
-Le processus s’en trouve ainsi simplifié, et vous êtes en mesure de commencer rapidement à générer et déployer des Runbooks pour répondre à vos besoins d’automatisation.  
+* **Compte d’identification**. Ce compte effectue les tâches suivantes :
+  - Création d’un principal du service dans Azure Active Directory (Azure AD).
+  - Création d’un certificat.
+  - Affectation du rôle RBAC (contrôle d’accès en fonction du rôle) de contributeur qui gère les ressources Azure Resource Manager à l’aide de runbooks.
+* **Compte d’identification Classic**. Ce compte charge un certificat de gestion. Le certificat gère les ressources classiques à l’aide de runbooks.
 
-## <a name="permissions-required-to-create-automation-account"></a>Autorisations requises pour créer le compte Automation
-Pour créer ou mettre à jour un compte Automation conformément à cette rubrique, vous devez disposer des privilèges spécifiques suivants et des autorisations requises.   
- 
-* Pour créer un compte Automation, votre compte utilisateur AD doit être ajouté à un rôle disposant d’autorisations équivalentes à celles du rôle Propriétaire pour les ressources Microsoft.Automation, comme indiqué dans l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).  
-* Si le paramètre Inscriptions des applications possède la valeur **Oui**, les utilisateurs non administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Si le paramètre Inscriptions d’applications est défini sur **Non**, l’utilisateur qui effectue cette action doit être un administrateur général dans Azure AD. 
+Avec ces comptes créés pour vous, vous êtes en mesure de commencer rapidement à générer et à déployer des runbooks pour répondre à vos besoins d’automatisation.  
 
-Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce cas, vous recevez le message d’avertissement « Vous n’avez pas les autorisations pour créer… » dans le panneau **Ajouter un compte Automation**. Les utilisateurs ayant préalablement reçu le rôle administrateur général/coadministrateur peuvent être supprimés de l’instance Active Directory de l’abonnement, puis rajoutés pour devenir des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
+## <a name="permissions-required-to-create-an-automation-account"></a>Autorisations requises pour créer un compte Automation
+Pour créer ou mettre à jour un compte Automation et effectuer les tâches décrites dans cet article, vous devez disposer des privilèges et autorisations suivants : 
 
-## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Créer un compte Automation à partir du portail Azure
-Suivez les étapes suivantes dans cette section afin de créer un compte Azure Automation dans le portail Azure.    
+* Pour créer un compte Automation, votre compte utilisateur Azure Active Directory (Azure AD) doit être ajouté à un rôle disposant d’autorisations équivalentes à celles du rôle Propriétaire pour **Microsoft. Automation**. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).  
+* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Inscriptions des applications**, si **Inscriptions des applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD. 
+
+Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, la page **Ajouter un compte Automation** affiche le message « Vous n’avez pas les autorisations pour créer. » 
+
+Si un utilisateur reçoit d’abord le rôle Administrateur général/Coadministrateur, vous pouvez le supprimer de l’instance Active Directory de l’abonnement, puis le rajouter au rôle Utilisateur complet dans Active Directory.
+
+Pour vérifier les rôles d’utilisateur :
+1. Dans le portail Azure, accédez au volet **Azure Active Directory**.
+2. Sélectionnez **Utilisateurs et groupes**.
+3. Sélectionnez **Tous les utilisateurs**. 
+4. Après avoir sélectionné un utilisateur spécifique, sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
+
+## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Créer un compte Automation dans le portail Azure
+Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes suivantes :    
 
 1. Connectez-vous au portail Azure avec un compte membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement.
-2. Cliquez sur **Nouveau**.<br><br> ![Sélection de l’option Nouveau dans le portail Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Recherchez **Automation**, puis dans les résultats de recherche, sélectionnez **Automation & Control***.<br><br> ![Recherche et sélection d’Automation à partir de la Place de marché](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br><br>![Ajouter un compte Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-
-
-   > [!NOTE]
-   > Si l’avertissement suivant s’affiche dans le panneau **Ajouter un compte Automation**, cela signifie que votre compte n’est ni membre du rôle Administrateurs des abonnements ni coadministrateur de l’abonnement.<br><br>![Avertissement Ajouter un compte Automation](media/automation-create-standalone-account/create-account-without-perms.png)
-   > 
-   > 
-4. Dans le panneau **Ajouter un compte Automation**, entrez le nom de votre nouveau compte Automation dans la zone **Nom**.
-5. Si vous disposez de plusieurs abonnements, spécifiez-en un pour le nouveau compte, puis indiquez un **groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
-6. Vérifiez que l’option **Créer un compte d’identification Azure** est bien définie sur la valeur **Oui**, puis cliquez sur le bouton **Créer**.  
-   
-   > [!NOTE]
-   > Si vous choisissez de ne pas créer de compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affiche dans le panneau **Ajouter un compte Automation**.  Bien que le compte soit créé dans le portail Azure, il ne possède pas d’identité d’authentification correspondante au sein de votre service d’annuaire d’abonnement classique ou de votre service d’annuaire d’abonnement Gestionnaire des ressources. Par conséquent, il ne peut pas accéder aux ressources dans votre abonnement.  Cela empêche tous les Runbooks faisant référence à ce compte de pouvoir s’authentifier et d’effectuer des tâches sur les ressources de ces modèles de déploiement.
-   > 
-   > ![Avertissement Ajouter un compte Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
-   > Le rôle Contributeur n’est pas attribué en cas de non-création du principal du service.
-   > 
-
-7. Pour suivre la progression de la création du compte Automation, accédez à l’onglet **Notifications** du menu.
+2. Sélectionnez **+ Créer une ressource**.
+3. Recherchez **Automation**. Dans les résultats de recherche, sélectionnez **Automation**.<br><br> ![Rechercher et sélectionner Automation & Control dans la Place de marché](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. Sur l’écran suivant, sélectionnez **Créer**.
+  ![Ajouter un compte Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+  
+  > [!NOTE]
+  > Si le message suivant s’affiche dans le panneau **Ajouter un compte Automation**, votre compte n’est pas membre du rôle Administrateurs de l’abonnement ni coadministrateur de l’abonnement.
+  >
+  > ![Avertissement Ajouter un compte Automation](media/automation-create-standalone-account/create-account-without-perms.png)
+  >
+5. Dans le panneau **Ajouter un compte Automation**, dans la zone **Nom**, saisissez un nom à attribuer au nouveau compte Automation.
+6. Si vous possédez plus d’un abonnement, dans la zone **Abonnement**, spécifiez l’abonnement à utiliser pour le nouveau compte. 
+7. Pour **Groupe de ressources**, saisissez ou sélectionnez un groupe de ressources nouveau ou existant. 
+8. Pour **Emplacement**, sélectionnez un emplacement de centre de données Azure.
+9. Pour l’option **Créer un compte d’identification Azure**, assurez-vous que l’option **Oui** est sélectionnée, puis cliquez sur **Créer**.
+    
+  > [!NOTE]
+  > Si vous choisissez de ne pas créer le compte d’identification en sélectionnant **Non** pour l’option **Créer un compte d’identification Azure**, un message s’affiche dans le panneau **Ajouter un compte Automation**. Bien que le compte soit créé dans le portail Azure, il ne possède pas d’identité d’authentification correspondante au sein de votre abonnement du modèle de déploiement classique ou dans le service d’annuaire de l’abonnement Azure Resource Manager. Par conséquent, le compte Automation n’a pas accès aux ressources de votre abonnement. Cela empêche tous les Runbooks faisant référence à ce compte de pouvoir s’authentifier et d’effectuer des tâches sur les ressources de ces modèles de déploiement.
+  >
+  > ![Avertissement Ajouter un compte Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+  >
+  > Le rôle Contributeur n’est pas attribué en cas de non-création du principal du service.
+  >
+10. Pour suivre l’avancement de la création du compte Automation, dans le menu, sélectionnez **Notifications**.
 
 ### <a name="resources-included"></a>Ressources incluses
-Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées.  Le tableau ci-dessous récapitule les ressources du compte d’identification.<br>
+Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées. Le tableau ci-dessous récapitule les ressources du compte d’identification.
 
 | Ressource | DESCRIPTION |
 | --- | --- |
-| Runbook AzureAutomationTutorial |Exemple de Runbook Graphical qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
-| Runbook AzureAutomationTutorialScript |Exemple de Runbook PowerShell qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
-| Runbook AzureAutomationTutorialPython2 |Un exemple de runbook Python qui montre comment s’authentifier en utilisant le compte d’identification, puis répertorie les groupes de ressources présents dans l’abonnement spécifié. |
-| AzureRunAsCertificate |Ressource de certificat créée automatiquement lors de la création du compte Automation ou à l’aide du script PowerShell ci-dessous pour un compte existant.  Elle vous permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Resource Manager des Runbooks.  Ce certificat a une durée de vie d’un an. |
-| AzureRunAsConnection |Ressource de connexion créée automatiquement lors de la création du compte Automation ou à l’aide du script PowerShell ci-dessous pour un compte existant. |
+| Runbook AzureAutomationTutorial |Exemple de runbook graphique qui illustre l’authentification à l’aide du compte d’identification. Le runbook récupère toutes les ressources Resource Manager. |
+| Runbook AzureAutomationTutorialScript |Exemple de runbook PowerShell qui illustre comment s’authentifier à l’aide du compte d’identification. Le runbook récupère toutes les ressources Resource Manager. |
+| Runbook AzureAutomationTutorialPython2 |Exemple de runbook Python qui illustre comment s’authentifier à l’aide du compte d’identification. Le runbook répertorie l’ensemble des groupes de ressources présents dans l’abonnement. |
+| AzureRunAsCertificate |Ressource de certificat automatiquement créée lors de la création du compte Automation, ou à l’aide d’un script PowerShell pour un compte existant. Le certificat permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Resource Manager des runbooks. Ce certificat a une durée de vie d’un an. |
+| AzureRunAsConnection |Ressource de connexion automatiquement créée lors de la création du compte Automation, ou à l’aide d’un script PowerShell pour un compte existant. |
 
-Le tableau ci-dessous récapitule les ressources du compte d’identification Classic.<br>
+Le tableau ci-dessous récapitule les ressources du compte d’identification Classic.
 
 | Ressource | DESCRIPTION |
 | --- | --- |
-| Runbook AzureClassicAutomationTutorial |Exemple de Runbook Graphical qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et leur état. |
-| Runbook AzureClassicAutomationTutorialScript |Exemple de Runbook PowerShell qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et leur état. |
-| AzureClassicRunAsCertificate |Ressource de certificat créée automatiquement, qui est utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks.  Ce certificat a une durée de vie d’un an. |
-| AzureClassicRunAsConnection |Ressource de connexion créée automatiquement, qui est utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks. |
+| Runbook AzureClassicAutomationTutorial |Exemple de runbook graphique. Le runbook récupère l’ensemble des machines virtuelles classiques d’un abonnement à l’aide du compte d’identification Classic (certificat). Ensuite, il affiche le nom et l’état des machines virtuelles. |
+| Runbook AzureClassicAutomationTutorialScript |Exemple de runbook PowerShell. Le runbook récupère l’ensemble des machines virtuelles classiques d’un abonnement à l’aide du compte d’identification Classic (certificat). Ensuite, il affiche le nom et l’état des machines virtuelles. |
+| AzureClassicRunAsCertificate |Ressource de certificat créée automatiquement. Le certificat permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des runbooks. Ce certificat a une durée de vie d’un an. |
+| AzureClassicRunAsConnection |Ressource de connexion créée automatiquement. La ressource permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des runbooks. |
 
 
 ## <a name="next-steps"></a>étapes suivantes

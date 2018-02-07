@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 10c5394935c59b21139c0e141c348ce20a7c0800
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Évaluer les micro-services et applications Service Fabric avec le portail Azure | Microsoft Docs
 
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
 >
 >
@@ -37,7 +37,7 @@ La solution Service Fabric utilise les données de diagnostic Azure provenant de
 Pour commencer à utiliser la solution, connectez votre cluster Service Fabric à un espace de travail Log Analytics. Trois scénarios sont à envisager :
 
 1. Si vous n’avez pas déployé votre cluster Service Fabric, effectuez les étapes de la section ***Déployer un cluster Service Fabric connecté à un espace de travail Log Analytics*** pour déployer un nouveau cluster et le configurer pour qu’il rende compte à Log Analytics.
-2. Si vous avez besoin de collecter les compteurs de performances de vos hôtes pour utiliser d’autres solutions OMS, telles que Sécurité, sur votre cluster Service Fabric, effectuez les étapes de la section ***Déployer un cluster Service Fabric connecté à un espace de travail Log Analytics avec l’extension de machine virtuelle installée***.
+2. Si vous avez besoin de collecter les compteurs de performances de vos hôtes pour utiliser d’autres solutions de gestion, telles que Sécurité, sur votre cluster Service Fabric, effectuez les étapes de la section ***Déployer un cluster Service Fabric connecté à un espace de travail Log Analytics avec l’extension de machine virtuelle installée***.
 3. Si vous avez déjà déployé votre cluster Service Fabric et que vous souhaitez le connecter à Log Analytics, effectuez les étapes de la section ***Ajout d’un compte de stockage existant à Log Analytics***.
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Déployer un cluster Service Fabric connecté à un espace de travail Log Analytics
@@ -79,7 +79,7 @@ En suivant la même procédure que celle mentionnée ci-dessus, indiquez les par
 Pour afficher les données de performances de vos nœuds :
 
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Lancez l’espace de travail Log Analytics à partir du portail Azure.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)
@@ -123,7 +123,7 @@ Obtenez plus d’informations sur les métriques de performance dans Log Analyti
 
 Ce modèle ajoute simplement vos comptes de stockage existant à un espace de travail Log Analytics, nouveau ou existant.
 
-[![Déploiement sur Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
+[![Déployer sur Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
 > [!NOTE]
 > Si vous disposez déjà d’un espace de travail Log Analytics au moment de la sélection d’un groupe, sélectionnez Utiliser l’existant et recherchez le groupe de ressources contenant l’espace de travail Log Analytics. Dans le cas contraire, créez-en un.
@@ -152,7 +152,7 @@ Une fois les déploiements terminés et la solution Service Fabric activée dans
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte de la solution de données pour Service Fabric.
 
-| plateforme | Agent direct | Agent Operations Manager | Azure Storage | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minutes |
 
@@ -161,6 +161,6 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur les événements Service Fabric.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Questions fréquentes sur la solution préconfigurée d’usine connectée IoT Suite
 
@@ -117,7 +117,7 @@ La simulation inscrit elle-même les appareils suivants :
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-À l’aide de l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [iothub-explorer](https://github.com/azure/iothub-explorer), vous pouvez identifier les appareils inscrits auprès du hub IoT utilisé par votre solution. Pour utiliser ces outils, vous avez besoin de la chaîne de connexion du hub IoT de votre déploiement.
+À l’aide de l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [l’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension), vous pouvez identifier les appareils inscrits auprès du hub IoT utilisé par votre solution. Pour utiliser l’explorateur d’appareils, vous avez besoin de la chaîne de connexion du hub IoT de votre déploiement. Pour utiliser l’extension IoT pour Azure CLI 2.0, vous avez besoin de votre nom d’IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Comment obtenir les données de journal des composants de simulation ?
 
@@ -146,9 +146,15 @@ Si vous constatez qu’aucune donnée n’a été envoyée à IoT Hub, c’est q
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Comment activer une carte interactive dans une solution Connected Factory ?
 
-Pour activer une carte interactive dans une solution Connected Factory, vous devez disposer d’un plan API Bing Cartes pour les entreprises. Si vous disposez d’un plan API Bing Cartes pour les entreprises au moment où vous déployez la solution Connected Factory à partir de www.azureiotsuite.com, la carte interactive est automatiquement activée.
+Pour activer une carte interactive dans une solution Connected Factory, vous devez disposer d’un plan API Bing Cartes pour les entreprises.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Comment créer un compte API Bing Cartes pour les entreprises ?
+Lors d’un déploiement à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), le processus de déploiement vérifie que votre abonnement a une API Bing Maps activée pour le plan Entreprise et déploie automatiquement une carte interactive sur la fabrique connectée. Si ce n’est pas le cas, vous pouvez toujours activer une carte interactive dans votre déploiement comme suit :
+
+Lorsque vous déployez à l’aide du script `build.ps1` dans le référentiel GitHub de la fabrique connectée et que vous avez une API Bing Maps pour le plan Entreprise, définissez la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de création sur la clé de requête de votre plan. La carte interactive est ensuite automatiquement activée.
+
+Si vous ne disposez pas d’un plan API Bing Maps pour le plan Entreprise, déployez la solution Connected Factory à partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), ou à l’aide du script `build.ps1`. Ajoutez ensuite une API Bing Maps pour le plan Entreprise à votre abonnement, comme expliqué dans [Comment créer un compte API Bing Maps pour les entreprises ?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Recherchez la clé de requête de ce compte comme expliqué dans [Comment obtenir une clé de requête API Bing Maps pour les entreprises ?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) et enregistrez-la. Accédez au portail Azure et accédez à la ressource App Service dans votre déploiement de fabrique connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Définissez **MapApiQueryKey** sur la clé de requête que vous avez obtenue. Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Comment créer un compte API Bing Cartes pour les entreprises
 
 Vous pouvez obtenir gratuitement un plan *Bing Cartes pour les entreprises Transactions internes de niveau 1*. Toutefois, vous ne pouvez ajouter que deux plans de ce type à un abonnement Azure. Si vous ne disposez pas d’un compte API Bing Cartes pour les entreprises, créez-en-un sur le Portail Azure en cliquant sur **+ Créer une ressource**. Ensuite, recherchez **API Bing Cartes pour les entreprises** et suivez les invites pour le créer.
 

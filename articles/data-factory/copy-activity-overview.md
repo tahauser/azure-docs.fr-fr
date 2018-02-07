@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -146,38 +146,80 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 ## <a name="monitoring"></a>Surveillance
 
-Les détails de l’exécution de l’activité copie et les caractéristiques de performances sont retournés dans le résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Vous pouvez comparer les performances et la configuration de votre scénario aux [performances de référence](copy-activity-performance.md#performance-reference) de l’activité de copie testée en interne.
+Vous pouvez surveiller l’exécution de l’activité de copie dans l’interface utilisateur « Créer et surveiller » d’Azure Data Factory ou par programmation. Vous pouvez ensuite comparer les performances et la configuration de votre scénario aux [performances de référence](copy-activity-performance.md#performance-reference) de l’activité de copie testée en interne.
+
+### <a name="monitor-visually"></a>Surveiller visuellement
+
+Pour surveiller visuellement l’exécution de l’activité de copie, accédez à votre fabrique de données -> **Créer et surveiller** -> **onglet Surveiller**. Une liste d’exécutions de pipeline s’affiche avec un lien « Afficher les exécutions d’activité » dans la colonne  **Actions**. 
+
+![Surveiller des exécutions de pipelines](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Cliquez pour afficher la liste des activités dans cette exécution de pipeline. Dans la colonne **Actions** figurent des liens vers l’entrée, la sortie, les erreurs (si l’exécution de l’activité de copie échoue) et les détails de l’activité de copie.
+
+![Surveiller des exécutions d’activités](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détails et les caractéristiques de performances de l’exécution de l’activité de copie. Parmi les informations répertoriées figurent le volume/les lignes/les fichiers de données copiés de la source vers le récepteur, le débit, les étapes effectuées avec la durée correspondante, et les configurations utilisées pour votre scénario de copie.
+
+**Exemple : copier d’Amazon S3 vers Azure Data Lake Store**
+![Surveiller les détails de l’exécution d’activité](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Exemple : copier d’Azure SQL Database vers Azure SQL Data Warehouse à l’aide de la copie intermédiaire**
+![Surveiller les détails de l’exécution d’activité](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>Surveiller par programmation
+
+Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans le résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive ; seuls les détails applicables à votre scénario de copie seront affichés. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Nom de la propriété  | DESCRIPTION | Unité |
 |:--- |:--- |:--- |
-| dataRead | Taille des données lues à partir de la source | Valeur Int64 en octets |
-| dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en octets |
+| dataRead | Taille des données lues à partir de la source | Valeur Int64 en **octets** |
+| dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en **octets** |
+| filesRead | Nombre de fichiers copiés lors de la copie de données à partir du stockage de fichier. | Valeur Int64 (aucune unité) |
+| filesWritten | Nombre de fichiers copiés lors de la copie de données vers le stockage de fichier. | Valeur Int64 (aucune unité) |
 | rowsCopied | Nombre de lignes copiées (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
 | rowsSkipped | Nombre de lignes incompatibles ignorées. Vous pouvez activer la fonctionnalité en définissant « enableSkipIncompatibleRow » sur true. | Valeur Int64 (aucune unité) |
-| throughput | Taux de transfert des données | Nombre à virgule flottante exprimé en Ko/s |
+| throughput | Taux de transfert des données | Nombre à virgule flottante exprimé en **Ko/s** |
 | copyDuration | Durée de la copie | Valeur Int32 en secondes |
 | sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Booléen |
 | redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Booléen |
 | hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Booléen |
 | effectiveIntegrationRuntime | Affichez la ou les infrastructures Integration Runtime permettant de dynamiser l’exécution d’activité au format « `<IR name> (<region if it's Azure IR>)` ». | Texte (chaîne) |
 | usedCloudDataMovementUnits | Unités de déplacement de données cloud effectives pendant la copie. | Valeur Int32 |
+| usedParallelCopies | Nombre effectif de parallelCopies pendant la copie. | Valeur Int32|
 | redirectRowPath | Chemin d’accès du journal des lignes incompatibles ignorées dans le stockage blob que vous configurez sous « redirectIncompatibleRowSettings ». Voir exemple ci-dessous. | Texte (chaîne) |
-| billedDuration | Durée est facturée pour le déplacement des données. | Valeur Int32 en secondes |
+| executionDetails | Détails supplémentaires sur les étapes effectuées lors de l’activité de copie, ainsi que les étapes correspondantes, la durée, les configurations utilisées, et ainsi de suite. Il n’est pas recommandé d’analyser cette section, car elle peut changer. | Tableau |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 
