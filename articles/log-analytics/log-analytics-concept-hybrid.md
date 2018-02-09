@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Collecter des données d’ordinateurs dans un environnement avec Log Analytics
 
@@ -42,7 +42,11 @@ L’agent pour Linux et Windows ne sert pas seulement à la connexion à Log Ana
 
 Si vos stratégies de sécurité n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, l’agent peut être configuré pour se connecter à la passerelle OMS afin de recevoir des informations de configuration et d’envoyer les données collectées en fonction de la solution que vous avez activée. Pour plus d’informations, et pour savoir comment configurer l’agent Linux ou Windows pour communiquer par l’intermédiaire d’une passerelle OMS avec le service Log Analytics, consultez la page [Connecter des ordinateurs à OMS avec la passerelle OMS](log-analytics-oms-gateway.md). 
 
-## <a name="prerequisites"></a>Composants requis
+> [!NOTE]
+> L’agent pour Windows prend uniquement en charge le protocole TLS versions 1.0 et 1.1.  
+> 
+
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les prérequis système minimaux sont remplis.
 
 ### <a name="windows-operating-system"></a>Système d’exploitation Windows
@@ -56,10 +60,10 @@ Voici la liste des informations de configuration du proxy et du pare-feu requise
 
 | Ressource de l'agent | Ports | Ignorer l’inspection HTTPS|
 |----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Oui |
-|*.oms.opinsights.azure.com | 443 | Oui | 
-|*.blob.core.windows.net | 443 | Oui | 
-|*.azure-automation.net | 443 | Oui | 
+|*.ods.opinsights.azure.com |443 | OUI |
+|*.oms.opinsights.azure.com | 443 | OUI | 
+|*.blob.core.windows.net | 443 | OUI | 
+|*.azure-automation.net | 443 | OUI | 
 
 ### <a name="linux-operating-systems"></a>Systèmes d’exploitation Linux
 Les distributions Linux suivantes sont officiellement prises en charge.  Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste.
@@ -80,7 +84,7 @@ Voici la liste des informations de configuration du proxy et du pare-feu requise
 |*.ods.opinsights.azure.com | Port 443|   
 |*.oms.opinsights.azure.com | Port 443|   
 |*.blob.core.windows.net | Port 443|   
-|*.azure-automation.net | Port 443|  
+|* .azure-automation.net | Port 443|  
 
 L’agent Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle OMS avec le service Log Analytics suivant le protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Le serveur proxy peut être spécifié lors de l’installation ou en modifiant le fichier de configuration proxy.conf après l’installation.  
 
@@ -91,7 +95,7 @@ La valeur de configuration de proxy a la syntaxe suivante :
 > [!NOTE]
 > Si votre serveur proxy ne requiert pas d’authentification, l’agent Linux oblige en revanche à saisir un pseudo utilisateur/mot de passe. Il peut s’agir de n’importe quel nom d’utilisateur ou mot de passe.
 
-|Propriété| Description |
+|Propriété| DESCRIPTION |
 |--------|-------------|
 |Protocole | https |
 |user | Nom d’utilisateur facultatif pour l’authentification du proxy |
@@ -107,13 +111,13 @@ Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Installer et configurer l’agent 
 Pour connecter directement des ordinateurs locaux avec Log Analytics, différentes méthodes existent en fonction des besoins. Le tableau suivant décrit chacune d’entre elle, pour vous permettre d’identifier la plus adaptée à votre organisation.
 
-|Source | Méthode | Description|
+|Source | Méthode | DESCRIPTION|
 |-------|-------------|-------------|
 | Ordinateur Windows|- [Installation manuelle](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modèle Resource Manager avec Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installez Microsoft Monitoring Agent en ligne de commande ou suivant une méthode automatisée, par exemple, Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou avec un modèle Azure Resource Manager si vous avez déployé Microsoft Azure Stack dans votre centre de données.| 
 |Ordinateur Linux| [Installation manuelle](log-analytics-quick-collect-linux-computer.md)|Installez l’agent pour Linux, qui appelle un script wrapper hébergé sur GitHub. | 
 | System Center Operations Manager|[Intégration d’Operations Manager à Log Analytics](log-analytics-om-agents.md) | Configurez l’intégration entre Operations Manager et Log Analytics pour transférer les données collectées à partir d’ordinateurs Linux et Windows associés à un groupe d’administration.|  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Consultez les [sources de données](log-analytics-data-sources.md) pour connaître les sources de données disponibles pour collecter des données sur votre système Windows ou Linux. 
 

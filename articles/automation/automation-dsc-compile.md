@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilation de configurations dans Azure Automation DSC
 
@@ -40,14 +40,14 @@ Dans Azure Automation, vous pouvez compiler des configurations d’état souhait
 * Transmission ConfigurationData
 * Compilation de configurations utilisant des informations d’identification
 
-Une fois que vous avez choisi une méthode de compilation, vous pouvez suivre les procédures correspondantes ci-dessous pour lancer la compilation.
+Une fois que vous avez choisi une méthode de compilation, suivez les procédures ci-dessous pour lancer la compilation.
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilation d’une configuration DSC avec le portail Azure
 
 1. Dans votre compte Automation, cliquez sur **Configurations DSC**.
 2. Cliquez sur une configuration pour ouvrir son panneau.
 3. Cliquez sur **Compiler**.
-4. Si la configuration n’a aucun paramètre, vous devez confirmer si vous souhaitez la compiler. Si la configuration a des paramètres, le panneau **Compiler la configuration** s’ouvre et vous permet de fournir la valeur des paramètres. Pour plus d’informations sur les paramètres, voir la section [**Paramètres de base**](#basic-parameters) ci-dessous.
+4. Si la configuration n’a aucun paramètre, vous devez confirmer si vous souhaitez la compiler. Si la configuration a des paramètres, le panneau **Compiler la configuration** s’ouvre et vous permet de fournir la valeur des paramètres. Pour plus d’informations sur les paramètres, consultez la section [**Paramètres de base**](#basic-parameters) suivante.
 5. Le panneau **Tâche de compilation** est ouvert de sorte que vous pouvez suivre l’état de la tâche de compilation, ainsi que les configurations de nœud (documents de configuration MOF) qui ont dû être placés sur le serveur collecteur Azure Automation DSC.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Compilation d’une configuration DSC avec Windows PowerShell
@@ -131,10 +131,10 @@ Pour plus d’informations sur la transmission d’informations d’identificati
 
 ## <a name="composite-resources"></a>Ressources composites
 
-Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration. Cela vous permet d’appliquer plusieurs configurations à une seule ressource.  Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) pour en savoir plus sur les **Ressources composites**
+Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration. Cela vous permet d’appliquer plusieurs configurations à une seule ressource. Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) pour en savoir plus sur les **Ressources composites**
 
 > [!NOTE]
-> Afin que la compilation réalisée par les **Ressources composites** se déroule normalement, vous devez en premier lieu vous assurer que toutes les ressources DSC sur lesquelles le composite s’appuie soient d’abord installées dans le dépôt Modules de compte Azure Automation, sinon l’importation sera incorrecte.
+> Afin que la compilation réalisée par les **Ressources composites** se déroule normalement, vous devez en premier lieu vous assurer que toutes les ressources DSC sur lesquelles le composite s’appuie soient d’abord installées dans le dépôt Modules de compte Azure Automation, sinon l’importation est incorrecte.
 
 Pour ajouter une **Ressource composite** DSC, vous devez ajouter le module de ressources à une archive (*.zip). Accédez au dépôt Modules sur votre compte Azure Automation. Cliquez ensuite sur le bouton « Ajouter un module ».
 
@@ -144,7 +144,7 @@ Accédez au répertoire où se trouve votre archivage. Sélectionnez le fichier 
 
 ![Sélection d’un module](./media/automation-dsc-compile/select_dscresource.png)
 
-Vous revenez alors au répertoire des modules, où vous pouvez surveiller l’état de votre **Ressource composite** pendant sa décompression et son inscription auprès d’Azure Automation.
+Vous revenez au répertoire des modules, où vous pouvez surveiller l’état de votre **Ressource composite** pendant sa décompression et son inscription auprès d’Azure Automation.
 
 ![Importation d’une ressource composite](./media/automation-dsc-compile/register_composite_resource.png)
 
@@ -179,7 +179,7 @@ Vous pouvez ainsi appeler la **Ressource composite** dans votre configuration de
 > [!NOTE]
 > Vous pouvez utiliser **ConfigurationData** lors de la compilation dans Azure Automation DSC à l’aide d’Azure PowerShell, mais pas dans le portail Azure.
 
-L’exemple de configuration DSC suivant utilise **ConfigurationData** via les mots-clés **$ConfigurationData** et **$AllNodes**. Vous aurez également besoin du module [**xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/) pour cet exemple :
+L’exemple de configuration DSC suivant utilise **ConfigurationData** via les mots-clés **$ConfigurationData** et **$AllNodes**. Vous avez également besoin du module [**xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/) pour cet exemple :
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -200,7 +200,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Vous pouvez compiler la configuration DSC ci-dessus avec PowerShell. La commande PowerShell ci-dessous ajoute deux configurations de nœud au serveur collecteur Azure Automation DSC : **ConfigurationDataSample.MyVM1** et **ConfigurationDataSample.MyVM3** :
+Vous pouvez compiler la configuration DSC précédente avec PowerShell. La commande PowerShell suivante ajoute deux configurations de nœud au serveur collecteur Azure Automation DSC : **ConfigurationDataSample.MyVM1** et **ConfigurationDataSample.MyVM3** :
 
 ```powershell
 $ConfigData = @{
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-Vous pouvez compiler la configuration DSC ci-dessus avec PowerShell. La commande PowerShell ci-dessous ajoute deux configurations de nœud au serveur collecteur Azure Automation DSC : **CredentialSample.MyVM1** et **CredentialSample.MyVM2**.
+Vous pouvez compiler la configuration DSC précédente avec PowerShell. La commande PowerShell suivante ajoute deux configurations de nœud au serveur collecteur Azure Automation DSC : **CredentialSample.MyVM1** et **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{

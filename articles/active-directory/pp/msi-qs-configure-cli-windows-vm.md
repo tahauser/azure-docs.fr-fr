@@ -3,7 +3,7 @@ title: "Guide pratique pour configurer une identité MSI affectée à l’utilis
 description: "Instructions détaillées pour configurer une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Azure avec Azure CLI."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 495ed6daf0d73d89a4bc572f6bccf294cee7decb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Configurer une identité MSI (Managed Service Identity) affectée à l’utilisateur pour une machine virtuelle avec Azure CLI
 

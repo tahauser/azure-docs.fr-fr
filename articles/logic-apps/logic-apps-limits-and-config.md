@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites et configuration de Logic Apps
 
@@ -85,12 +85,12 @@ Ces limites s’appliquent à une seule exécution de l’application logique.
 Ces limites s’appliquent à une seule instance d’application logique.
 
 | NOM | Limite | Notes | 
-| ---- | ----- | ----- | 
-| Exécutions d’actions par tranche de 5 minutes | 100 000 | Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
+| ----- | ----- | ----- | 
+| Exécutions d’actions par tranche de 5 minutes | 100 000 |<p>La limite peut être augmentée jusqu’à 300 000, via l’exécution d’une application logique en mode `High Througput`. Pour ce faire, définissez la propriété `operationOptions` sous `runtimeConfiguration` de la ressource du workflow sur `OptimizedForHighThroughput`. <p>Notez que le mode de débit élevé est en version préliminaire. Par ailleurs, une charge de travail peut être distribuée entre plusieurs applications, au besoin. | 
 | Appels sortants simultanés des actions | ~2,500 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
-| Point de terminaison du runtime : appels entrants simultanés | ~1,000 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
-| Point de terminaison du runtime : appels de lecture toutes les cinq minutes | 60 000 | Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
-| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
+| Point de terminaison du runtime : appels entrants simultanés |~1,000 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
+| Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
+| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes| 45,000 |Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
 |||| 
 
 Pour dépasser ces limites dans le cadre d’un traitement normal, ou pour exécuter un test de charge qui risque de les dépasser, [contactez-nous](mailto://logicappsemail@microsoft.com) afin que nous puissions répondre à vos besoins.

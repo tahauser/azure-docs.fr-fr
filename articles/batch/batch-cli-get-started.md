@@ -3,8 +3,8 @@ title: "Prise en main des commandes Batch de la CLI Azure | Microsoft Docs"
 description: "Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch."
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -40,7 +40,7 @@ Pour installer l’interface de ligne de commande Azure, suivez les instructions
 
 ## <a name="command-help"></a>Aide relative aux commandes
 
-Vous pouvez afficher le texte d’aide de toutes les commandes de l’interface de ligne de commande Azure en ajoutant `-h` à la commande. Ignorez les autres options. Par exemple :
+Vous pouvez afficher le texte d’aide de toutes les commandes de l’interface de ligne de commande Azure en ajoutant `-h` à la commande. Ignorez les autres options. Par exemple : 
 
 * Pour obtenir l’aide de la commande `az`, entrez : `az -h`
 * Pour obtenir la liste de toutes les commandes Batch dans l’interface de ligne de commande, utilisez : `az batch -h`
@@ -69,7 +69,7 @@ Il existe différentes façons de se connecter à Azure, décrites en détail da
 1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
 2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
 
-Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](https://docs.microsoft.com/cli/azure/#login) dans la ligne de commande :
+Dans le cadre de cet article, nous montrons comment se connecter à Azure de manière interactive. Entrez [az login](https://docs.microsoft.com/cli/azure/#az_login) dans la ligne de commande :
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,20 +120,13 @@ Les exemples répertoriés dans la section [Exemples de scripts de l’interpré
 
 Vous pouvez utiliser l’interface Azure CLI pour exécuter des programmes de traitement par lots de bout en bout sans écrire de code. Avec l’interface de ligne de commande Azure, les modèles de fichier Batch prennent en charge la création de pools, de travaux et de tâches. Vous pouvez également utiliser l’interface Azure CLI pour charger les fichiers d’entrée de travail sur le compte de Stockage Azure associé au compte Batch. À partir de ce compte, vous pouvez également télécharger les fichiers de sortie de travail. Pour en savoir plus, consultez la section [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md) (Utiliser des modèles d’interface CLI Batch et de transfert de fichier (préversion)).
 
-## <a name="sample-shell-scripts"></a>Exemples de scripts de l’interpréteur de commandes
+## <a name="script-examples"></a>Exemples de scripts
 
-Les exemples de scripts répertoriés dans le tableau suivant illustrent l’utilisation des commandes Azure CLI avec le service Batch et le service Batch Management en vue d’accomplir des tâches courantes. Ces exemples de scripts couvrent la plupart des commandes disponibles dans Azure CLI pour Batch. 
-
-| Script | Remarques |
-|---|---|
-| [Création d’un compte Batch](./scripts/batch-cli-sample-create-account.md) | Crée un compte Batch et l’associe à un compte de stockage. |
-| [Ajouter une application](./scripts/batch-cli-sample-add-application.md) | Ajoute une application et télécharge les fichiers binaires du package.|
-| [Gérer les pools Batch](./scripts/batch-cli-sample-manage-pool.md) | Montre comment créer, redimensionner et gérer des pools. |
-| [Exécuter un travail et des tâches avec Batch](./scripts/batch-cli-sample-run-job.md) | Montre comment exécuter un travail et ajouter des tâches. |
+Consultez les [exemples de scripts de l’interface de ligne de commande](cli-samples.md) pour Batch pour accomplir des tâches courantes. Ces exemples couvrent la plupart des commandes disponibles dans Azure CLI pour Batch pour créer et gérer des comptes, des pools, des travaux et des tâches. 
 
 ## <a name="json-files-for-resource-creation"></a>Fichiers JSON pour la création de ressources
 
-Lorsque vous créez des ressources Batch comme des pools et des travaux, vous pouvez spécifier un fichier JSON contenant la configuration de la nouvelle ressource au lieu de transmettre ses paramètres en tant qu’options de ligne de commande. Par exemple :
+Lorsque vous créez des ressources Batch comme des pools et des travaux, vous pouvez spécifier un fichier JSON contenant la configuration de la nouvelle ressource au lieu de transmettre ses paramètres en tant qu’options de ligne de commande. Par exemple : 
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -163,7 +156,7 @@ Lorsque vous interrogez le service Batch avec une opération `list`, vous pouvez
 
 Le tableau suivant décrit les clauses OData prises en charge par le service Batch :
 
-| Clause | Description |
+| Clause | DESCRIPTION |
 |---|---|
 | `--select-clause [select-clause]` | Retourne un sous-ensemble de propriétés pour chaque entité. |
 | `--filter-clause [filter-clause]` | Retourne uniquement les entités qui correspondent à l’expression OData spécifiée. |
@@ -183,7 +176,7 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * Le [forum Batch][batch_forum] est géré par les membres de l’équipe Batch. Vous pouvez y publier vos questions si vous rencontrez des problèmes ou si vous avez besoin d’aide pour une opération spécifique.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur Azure CLI, consultez la [documentation relative à Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Pour plus d’informations sur les ressources Batch, consultez [Vue d’ensemble d’Azure Batch pour les développeurs](batch-api-basics.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -118,6 +118,9 @@ Ces liens sont également disponibles dans le Portail de publication sous la pag
 Il est vivement recommandé de développer votre disque dur virtuel dans le cloud à l’aide du protocole RDP (Remote Desktop Protocol). Vous pouvez vous connecter au bureau à distance à l’aide des nom d’utilisateur et mot de passe spécifiés pendant l’approvisionnement.
 
 > [!IMPORTANT]
+> **N’utilisez pas de disques gérés.** La machine virtuelle utilisée pour développer le disque dur virtuel vers le cloud ne doit pas être basée sur des disques gérés, car actuellement elle ne prend pas en charge la création d’une image à partir de ces disques.
+> La création de la machine virtuelle dans la fonctionnalité facultative change les paramètres par défaut pour les disques gérés.
+
 > Si vous développez votre disque dur virtuel sur site (ce qui n’est pas recommandé), consultez la page [Création d’une image de machine virtuelle sur site](marketplace-publishing-vm-image-creation-on-premise.md). Il est inutile de télécharger votre disque dur virtuel si vous développez dans le cloud.
 >
 >

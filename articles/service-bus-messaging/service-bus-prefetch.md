@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prérécupérer les messages Azure Service Bus
 
@@ -27,7 +27,7 @@ Par conséquent, un seul appel [Receive](/dotnet/api/microsoft.servicebus.messag
 
 ## <a name="enable-prefetch"></a>Activer la prérécupération
 
-Dans .NET, vous activez la fonctionnalité de prérécupération en définissant la propriété [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) d’un élément **MessageReceiver**, **QueueClient** ou **SubscriptionClient** sur une valeur supérieure à zéro. La définition de cette propriété sur la valeur zéro désactive la prérécupération.
+Avec .NET, vous activez la fonctionnalité de prérécupération en affectant une valeur supérieure à zéro à la propriété [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) d’un élément **MessageReceiver**, **QueueClient** ou **SubscriptionClient**. La définition de cette propriété sur la valeur zéro désactive la prérécupération.
 
 Vous pouvez facilement ajouter ce paramètre au côté réception des exemples de paramètres [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) ou [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) pour en découvrir l’effet dans ces contextes.
 
@@ -53,7 +53,7 @@ Si vous avez besoin d’un haut débit et que votre processus de traitement des 
 
 Le nombre maximal de prérécupérations et la durée de verrouillage configurés sur la file d’attente ou l’abonnement doivent être équilibrés, de sorte que le délai d’expiration du verrouillage dépasse au moins le temps de traitement des messages prévu cumulé pour la taille maximale de la mémoire tampon de prérécupération, plus un message. Parallèlement, il convient d’éviter que le délai d’expiration du verrouillage soit si long que les messages risquent de dépasser leur valeur [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) maximale lorsqu’ils sont accidentellement abandonnés, ce qui nécessite alors d’attendre l’arrivée à expiration du verrouillage des messages pour que ces derniers puissent faire l’objet d’une nouvelle tentative de remise.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

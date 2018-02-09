@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Travailler avec des objets BLOB - Python
       href: storage-quickstart-blobs-python.md
+    - name: Travailler avec des objets BLOB - Go
+      href: storage-quickstart-blobs-go.md
     - name: Travailler avec des objets BLOB - Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Utiliser le stockage Blob - .Node.js

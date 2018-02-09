@@ -1,5 +1,5 @@
 ---
-title: Inscription en libre-service ou virale dans Azure Active Directory | Microsoft Docs
+title: "Inscription en libre-service ou à la version d’évaluation dans Azure Active Directory | Microsoft Docs"
 description: "Utilisez l’inscription en libre-service dans un locataire Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 Cet article explique l’inscription en libre-service et comment la prendre en charge dans Azure Active Directory (Azure AD). Si vous souhaitez prendre le contrôle d’un nom de domaine d’un locataire Azure AD non géré, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur](domains-admin-takeover.md).
@@ -46,7 +46,12 @@ Les administrateurs peuvent désormais effectuer deux vérifications libre-servi
 Un administrateur peut configurer ces fonctionnalités à l’aide des paramètres Set-MsolCompanySettings d’applet de commande Azure AD suivants :
 
 * **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un répertoire non géré. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre le répertoire.
-* **AllowAdHocSubscriptions** contrôle la capacité des utilisateurs à effectuer une inscription en libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service.
+* **AllowAdHocSubscriptions** contrôle la capacité des utilisateurs à effectuer une inscription en libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service. 
+  
+  > [!NOTE]
+  > Les inscriptions à la version d’évaluation de Flow et de PowerApps ne sont pas contrôlées par le paramètre **AllowAdHocSubscriptions**. Pour plus d’informations, consultez les articles suivants :
+  > * [Comment faire pour empêcher les utilisateurs existants de commencer à utiliser Power BI ?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Questions et réponses sur Flow dans l’organisation](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Comment les vérifications parviennent-elles à fonctionner ensemble ?
 Ces deux paramètres peuvent être utilisés conjointement pour définir un contrôle plus précis de l’inscription en libre-service. Par exemple, la commande suivante permettra aux utilisateurs d’effectuer une inscription en libre-service, mais uniquement si ces utilisateurs possèdent déjà un compte dans Azure AD (en d’autres termes, les utilisateurs qui ont besoin qu’un compte vérifié par e-mail soit d’abord créé ne peuvent pas effectuer d’inscription en libre-service) :
@@ -60,11 +65,11 @@ L‘organigramme suivant décrit les différentes combinaisons de paramètres et
 
 Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, consultez [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajouter un nom de domaine personnalisé à Azure AD](add-custom-domain.md)
 * [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps)
+* [Guide de référence des cmdlets Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->

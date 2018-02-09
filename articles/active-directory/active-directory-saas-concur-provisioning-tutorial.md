@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Concur | Microsoft Docs"
+title: "Didacticiel : configurer Concur pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Concur."
 services: active-directory
 documentationCenter: na
@@ -11,29 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f39013785f000c7055aaa28f4c6f41998644cb6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 743d974c3711d5359cf7664c6a8709f7eaaeee20
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-concur-for-user-provisioning"></a>Didacticiel : Configuration de Concur pour l’approvisionnement des utilisateurs
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Didacticiel : configurer Concur pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Concur et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Concur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un locataire Azure Active Directory
+*   Un locataire Azure Active Directory.
 *   Un abonnement Concur pour lequel l’authentification unique est activée
 *   Un compte d’utilisateur dans Concur avec les autorisations d’administrateur d’équipe
 
 ## <a name="assigning-users-to-concur"></a>Affectation d’utilisateurs à Concur
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes d’utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique des comptes d’utilisateur, seuls les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD représentent les utilisateurs qui ont besoin d’accéder à votre application Concur. Une fois que vous avez choisi, vous pouvez affecter ces utilisateurs à votre application Concur en suivant les instructions fournies ici :
 
@@ -52,7 +52,7 @@ Cette section explique comment connecter votre annuaire Azure AD à l’API d’
 > [!Tip] 
 > Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Concur en suivant les instructions fournies dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités complète l’autre.
 
-### <a name="to-configure-user-account-provisioning"></a>Pour configurer l’approvisionnement de comptes d’utilisateur
+### <a name="to-configure-user-account-provisioning"></a>Pour configurer l’approvisionnement de comptes utilisateur :
 
 Cette section décrit comment activer l’approvisionnement des comptes d’utilisateurs Active Directory sur Concur.
 
@@ -90,7 +90,7 @@ Cette action ne doit pas être exécutée avec le profil utilisé pour l’admin
    
     ![Confirm Action](./media/active-directory-saas-concur-provisioning-tutorial/ic721732.png "Confirm Action")
 
-6. Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+6. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 7. Si vous avez déjà configuré Concur pour l’authentification unique, recherchez votre instance de Concur à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Concur** dans la galerie d’applications. Sélectionnez Concur dans les résultats de recherche et ajoutez-la à votre liste d’applications.
 

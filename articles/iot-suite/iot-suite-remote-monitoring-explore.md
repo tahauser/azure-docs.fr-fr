@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance
 
@@ -24,7 +24,7 @@ Ce didacticiel vous montre les fonctionnalités clés de la solution de surveill
 
 Le didacticiel vous aide à comprendre les scénarios IoT classiques que la solution de surveillance à distance fournit prêts à l’emploi.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Visualiser et filtrer les appareils sur le tableau de bord
@@ -32,7 +32,11 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mettre à jour le microprogramme de vos appareils
 > * Organiser vos ressources
 
-## <a name="prerequisites"></a>Composants requis
+La vidéo suivante offre une présentation pas à pas de la solution de surveillance à distance :
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -58,7 +62,7 @@ Contoso utilise différents types d’appareils connectés. Ces appareils, qui r
 
 Le tableau suivant récapitule les types d’appareils provisionnés :
 
-| Type d’appareil        | Télémétrie                                  | Propriétés                                  | Tags                    | Méthodes                                                                                      |
+| Type d’appareil        | Télémétrie                                  | properties                                  | Balises                    | Méthodes                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller (Refroidisseur)            | Temperature, Humidity, Pressure (Température, Humidité, Pression)            | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Floor, Campus (Emplacement, Étage, Campus) | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure (Redémarrage, Mise à jour du microprogramme, Déclenchement de la soupape de sécurité, Augmentation de la pression)                          |
 | Prototyping device (Appareil de prototypage) | Temperature, Pressure, Geo-location (Température, Pression, Géolocalisation)        | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Mode (Emplacement, Mode)          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase (Redémarrage, Mise à jour du microprogramme, Déplacement de l’appareil, Arrêt de l’appareil, Relâchement de la température, Augmentation de la température) |
@@ -73,7 +77,7 @@ Le tableau suivant récapitule les types d’appareils provisionnés :
 
 Les opérateurs chez Contoso connaissent les seuils qui déterminent si un appareil fonctionne correctement. Par exemple, un refroidisseur ne fonctionne pas correctement si la pression qu’il indique est supérieure à 250 PSI. Le tableau suivant présente les règles de seuil que Contoso définit pour chaque type d’appareil :
 
-| Nom de la règle | Description | Seuil | Severity | Appareils concernés |
+| Nom de la règle | DESCRIPTION | Seuil | Niveau de gravité | Appareils concernés |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Pression de refroidissement trop élevée | Émet une alerte si les refroidisseurs atteignent des niveaux de pression supérieurs à la normale   |P>250 psi       | Critique | Refroidisseurs            |
 | Température des appareils de prototypage trop élevée  | Émet une alerte si les appareils de prototypage atteignent des niveaux de température supérieurs à la normale  |T > 80&deg; F |Critique | Appareils de prototypage |
@@ -226,7 +230,7 @@ Vous pouvez utiliser les valeurs des étiquettes pour créer des filtres.
 
 L’opérateur Contoso peut à présent interroger les appareils en fonction de l’équipe d’exploitation sans avoir besoin d’apporter de modifications aux appareils.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

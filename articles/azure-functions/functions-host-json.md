@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Informations de référence sur le fichier host.json pour Azure Functions
 
@@ -49,6 +49,13 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -108,7 +115,7 @@ Spécifie le nombre d’appels de fonction agrégés lorsque vous [calculez des 
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | DESCRIPTION |
 |---------|---------|---------| 
 |batchSize|1 000|Nombre maximal de requêtes à agréger.| 
 |flushTimeout|00:00:30|Période maximale d’agrégation.| 
@@ -130,10 +137,10 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](f
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | DESCRIPTION |
 |---------|---------|---------| 
 |isEnabled|false|Active ou désactive l’échantillonnage.| 
-|maxTelemetryItemsPerSecond|5|Seuil à partir duquel l’échantillonnage débute.| 
+|maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
 
 ## <a name="eventhub"></a>eventHub
 
@@ -160,6 +167,30 @@ Indique la durée avant expiration du délai de toutes les fonctions. Dans les p
     "functionTimeout": "00:05:00"
 }
 ```
+
+## <a name="healthmonitor"></a>healthMonitor
+
+Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Propriété  |Default | DESCRIPTION |
+|---------|---------|---------| 
+|Activé|true|Indique si la fonctionnalité est activée. | 
+|healthCheckInterval|10 secondes|L’intervalle de temps entre les contrôles d’intégrité périodiques en arrière-plan. | 
+|healthCheckWindow|2 minutes|Une fenêtre de temps coulissante utilisée conjointement au paramètre `healthCheckThreshold`.| 
+|healthCheckThreshold|6.|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
+|counterThreshold|0.80|Le seuil auquel un compteur de performance est considéré comme non intègre.| 
 
 ## <a name="http"></a>http
 
@@ -196,7 +227,7 @@ Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-moni
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | DESCRIPTION |
 |---------|---------|---------| 
 |categoryFilter|n/a|Spécifie un filtrage par catégorie.| 
 |defaultLevel|Information|Pour toutes les catégories non spécifiées dans le tableau `categoryLevels`, envoie les journaux de ce niveau et des niveaux supérieurs à Application Insights.| 
@@ -218,12 +249,12 @@ Paramètre de configuration pour les [déclencheurs et liaisons de file d’atte
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | DESCRIPTION |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Intervalle maximal (en millisecondes) entre les interrogations de la file d’attente.| 
 |visibilityTimeout|0|Intervalle de temps entre les nouvelles tentatives en cas d’échec du traitement d’un message.| 
 |batchSize|16|Nombre de messages en file d’attente à récupérer et à traiter en parallèle. La valeur maximale est de 32.| 
-|maxDequeueCount|5|Nombre de tentatives de traitement d’un message avant de le placer dans la file d’attente de messages incohérents.| 
+|maxDequeueCount|5.|Nombre de tentatives de traitement d’un message avant de le placer dans la file d’attente de messages incohérents.| 
 |newBatchThreshold|batchSize/2|Seuil auquel un nouveau lot de messages est extrait.| 
 
 ## <a name="servicebus"></a>serviceBus
@@ -247,7 +278,7 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | DESCRIPTION |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Période pendant laquelle des verrous sont établis au niveau des fonctions. Les verrous se renouvellent automatiquement.| 
 |listenerLockPeriod|00:01:00|Période pendant laquelle des verrous sont établis au niveau des écouteurs.| 
@@ -268,7 +299,7 @@ Paramètres de configuration des journaux que vous créez à l’aide d’un obj
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | DESCRIPTION |
 |---------|---------|---------| 
 |consoleLevel|info|Niveau de suivi pour la journalisation de la console. Options : `off`, `error`, `warning`, `info` et `verbose`.|
 |fileLoggingMode|debugOnly|Niveau de suivi pour la journalisation des fichiers. Options : `never`, `always`, `debugOnly`.| 
@@ -298,7 +329,7 @@ Nom du [hub de tâches](durable-functions-task-hubs.md) pour l’extension [Fonc
 Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Découvrez comment mettre à jour le fichier host.json](functions-reference.md#fileupdate)

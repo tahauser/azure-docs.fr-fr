@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 08/20/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quels sont les niveaux de service Azure SQL Database
 
@@ -37,7 +37,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|Moyenne|
 |Débit d’E/S|Faible  | Moyenne | Ordre de grandeur supérieur à Standard|Identique à Premium|
 |Latence d’E/S|Supérieur à Premium|Supérieur à Premium|Inférieur aux niveaux De base et Standard|Identique à Premium|
-|OLTP en mémoire et indexation ColumnStore|N/A|N/A|Pris en charge|Pris en charge|
+|OLTP en mémoire et indexation ColumnStore|N/A|N/A|Prise en charge|Prise en charge|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Limites de niveau de performance et de taille de stockage
@@ -49,7 +49,7 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 |  | **De base** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Taille de stockage maximale* | 2 Go | 1 To | 4 To  | 1 To  |
-| DTU maximales | 5 | 3000 | 4000 | 1 000 |
+| DTU maximales | 5. | 3000 | 4000 | 1 000 |
 ||||||
 
 ### <a name="elastic-pools"></a>Pools élastiques
@@ -58,7 +58,7 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 | :-- | --: | --: | --: | --: |
 | Taille de stockage maximale par base de données*  | 2 Go | 1 To | 1 To | 1 To |
 | Taille de stockage maximale par pool* | 156 Go | 4 To | 4 To | 1 To |
-| Nombre maximal d’eDTU par base de données | 5 | 3000 | 4000 | 1 000 |
+| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 | 1 000 |
 | eDTU maximales par pool | 1 600 | 3000 | 4000 | 1 000 |
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 | 100 |
 ||||||
@@ -66,13 +66,13 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 > [!IMPORTANT]
 > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Pour plus d’informations sur les niveaux de performances et options de taille de stockage spécifiques disponibles, consultez [Limites de ressources de base de données SQL](sql-database-resource-limits.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur les [Ressources d’une base de données unique](sql-database-single-database-resources.md).
 - Pour en savoir plus sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).

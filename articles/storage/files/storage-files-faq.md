@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles par le biais du [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard du secteur (également connu sous le nom de Common Internet File System ou CIFS). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync (préversion) pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -73,7 +73,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="redundancy-options"></a>
 **Quelles sont les options de redondance de stockage prises en charge par Azure Files ?**  
-    À l’heure actuelle, Azure Files prend uniquement en charge le stockage localement redondant (LRS) et le stockage géoredondant (GRS). Nous envisageons la prise en charge du stockage redondant dans une zone (ZRS) et du stockage géographiquement redondant avec accès en lecture (RA-GRS), mais aucun calendrier n’est arrêté pour l’instant.
+    À l’heure actuelle, Azure Files prend en charge le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS) et le stockage géoredondant (GRS). Nous envisageons la prise en charge du stockage géoredondant avec accès en lecture (RA-GRS), mais aucun calendrier n’est arrêté pour l’instant.
 
 * <a id="tier-options"></a>
 **Quels sont les niveaux de stockage pris en charge par Azure Files ?**  
@@ -90,7 +90,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-region-availability"></a>
 **Quelles sont les régions prises en charge par Azure File Sync (préversion) ?**  
-    À l’heure actuelle, Azure File Sync est disponible dans les régions États-Unis de l’Est, États-Unis de l’Ouest, Europe de l’Ouest, Est de l’Australie et Sud-Est asiatique. La prise en charge d’autres régions sera ajoutée d’ici la date de disponibilité générale. Pour plus d’informations, consultez [Disponibilité des régions](storage-sync-files-planning.md#region-availability).
+    À l’heure actuelle, Azure File Sync est disponible dans les régions Est de l’Australie, Centre du Canada, États-Unis de l’Est, Sud-Est asiatique, Royaume-Uni Sud, Europe de l’Ouest et États-Unis de l’Ouest. La prise en charge d’autres régions sera ajoutée d’ici la date de disponibilité générale. Pour plus d’informations, consultez [Disponibilité des régions](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Un même groupe de synchronisation peut-il contenir des serveurs joints à un domaine et des serveurs non joints à un domaine ?**  

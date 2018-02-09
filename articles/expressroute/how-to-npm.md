@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurer Network Performance Monitor pour ExpressRoute (préversion)
 
@@ -46,6 +46,7 @@ Vous pouvez surveiller des circuits ExpressRoute dans n’importe quelle partie 
 * Europe de l'Ouest 
 * Est des États-Unis 
 * Asie du Sud-Est 
+* Australie du Sud-Est
 
 ## <a name="workflow"></a>Flux de travail
 
@@ -174,16 +175,13 @@ Pour les serveurs d’agent de surveillance se trouvant dans Azure, vous devez c
 
 Pour plus d’informations concernant le groupe de sécurité réseau, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Étape 4 : Demander à mettre sur liste verte l’espace de travail
-
 >[!NOTE]
 >Vérifiez que vous avez installé les agents (l’agent de serveur local et l’agent de serveur Azure) et que vous avez exécuté le script PowerShell avant de continuer avec cette étape.
 >
 >
 
-Avant de commencer à utiliser la fonctionnalité de surveillance ExpressRoute de NPM, vous devez demander à ce que votre espace de travail soit mis sur liste verte. [Cliquez ici pour accéder à la page et remplissez le formulaire de demande](https://aka.ms/npmcohort). (Conseil : vous pouvez ouvrir ce lien dans une nouvelle fenêtre ou un nouvel onglet). Le processus de mise sur liste verte peut prendre une journée de travail ou plus. Nous vous enverrons un e-mail une fois la mise sur liste verte terminée.
 
-## <a name="setupmonitor"></a>Étape 5 : Configurer NPM pour la surveillance ExpressRoute
+## <a name="setupmonitor"></a>Étape 4 : Configurer NPM pour la surveillance ExpressRoute
 
 >[!WARNING]
 >Ne continuez pas tant que votre espace de travail n’a pas été mis sur liste verte et que vous n’avez pas d’e-mail de confirmation.
@@ -208,7 +206,7 @@ Après avoir terminé les sections précédentes et vérifié que vous avez ét�
 
   ![vignettes de surveillance](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Étape 6 : Afficher des vignettes de surveillance
+## <a name="explore"></a>Étape 5 : Afficher des vignettes de surveillance
 
 ### <a name="dashboard"></a>Page Network Performance Monitor
 

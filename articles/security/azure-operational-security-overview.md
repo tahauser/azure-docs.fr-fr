@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 Azure Operational Security renvoie aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) est une infrastructure qui intègre les connaissances acquises via différentes fonctionnalités spécifiques de Microsoft, notamment Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
@@ -56,7 +56,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Consultez le [tableau des composants d’Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) assure la continuité d’activité en orchestrant la réplication des machines virtuelles et physiques locales vers Azure ou vers un site secondaire. Si votre site principal est inaccessible, vous effectuez un basculement vers l’emplacement secondaire afin que les utilisateurs puissent continuer à travailler, puis vous procédez à une restauration automatique lorsque le système redevient fonctionnel. Détection des menaces intelligente et efficace.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) assure la continuité d’activité en orchestrant la réplication des machines virtuelles et physiques locales vers Azure ou vers un site secondaire. Si votre site principal est inaccessible, vous effectuez un basculement vers l’emplacement secondaire afin que les utilisateurs puissent continuer à travailler, puis vous procédez à une restauration automatique lorsque le système redevient fonctionnel. Utilisez Azure Security Center pour effectuer une détection des menaces plus intelligente et efficace.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) est une solution Microsoft de type IDaaS (Identity as a Service) qui :
@@ -154,7 +154,7 @@ Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivan
 -   [L’infrastructure en tant que code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) est une pratique qui permet l’automatisation et la validation de la création et de la destruction des réseaux et des machines virtuelles pour permettre de proposer des plateformes d’hébergement d’applications stables et sûres.
 -   L’architecture de [microservices](https://www.visualstudio.com/learn/what-are-microservices/) est utilisée pour isoler des exemples d’utilisation métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur la solution de sécurité et d’audit d’OMS, consultez les articles suivants :
 
 - [Operations Management Suite | Security &amp; Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance).

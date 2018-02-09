@@ -2,21 +2,22 @@
 title: "Intégration au centre de données Azure Stack - Sécurité"
 description: "Découvrez comment intégrer la sécurité Azure Stack à la sécurité de votre centre de données"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Intégration au centre de données Azure Stack - Sécurité
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Azure Stack a été conçu et créé avec la sécurité comme préoccupation. Azure Stack est un système de verrouillage : l’installation de l’agent de sécurité logiciel n’est pas donc prise en charge.
 
@@ -91,6 +92,6 @@ Tous les appareils physiques dans Azure Stack peuvent envoyer des messages Syslo
 
 L’adresse de destination Syslog est un paramètre facultatif collecté pour le déploiement, mais il peut également être ajouté après le déploiement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-[Intégration au centre de données Azure Stack : publier des points de terminaison](azure-stack-integrate-endpoints.md)
+[Stratégie de maintenance](azure-stack-servicing-policy.md)

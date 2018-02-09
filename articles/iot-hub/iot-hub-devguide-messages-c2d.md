@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -41,12 +41,12 @@ Quand le service IoT Hub envoie un message à un appareil, il définit l’état
 
 Un appareil peut également choisir de :
 
-* *rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Deadlettered** (Lettre morte). Les appareils qui se connectent via le protocole MQTT ne peuvent pas rejeter les messages cloud-à-appareil.
-* *abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued**(En file attente). Les appareils qui se connectent par le biais du protocole MQTT ne peuvent pas abandonner les messages cloud-à-appareil.
+* *Rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Dead lettered** (Lettre morte). Les appareils qui se connectent via le protocole MQTT ne peuvent pas rejeter les messages cloud-à-appareil.
+* *Abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued**(En file attente). Les appareils qui se connectent par le biais du protocole MQTT ne peuvent pas abandonner les messages cloud-à-appareil.
 
 Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai d’attente de visibilité (ou de verrouillage)*. La valeur par défaut de ce délai est d’une minute.
 
-La propriété **nombre maximal de remises** sur IoT Hub détermine le nombre maximal de fois qu’un message peut passer de l’état **En file d’attente** à l’état **Invisible**, et inversement. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Deadlettered**(Lettre morte). De même, IoT Hub attribue à un message l’état **Deadlettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie][lnk-ttl]).
+La propriété **nombre maximal de remises** sur IoT Hub détermine le nombre maximal de fois qu’un message peut passer de l’état **En file d’attente** à l’état **Invisible**, et inversement. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état **Dead lettered** (Lettre morte). De même, IoT Hub attribue à un message l’état **Dead lettered** (Lettre morte) à l’issue de son délai d’expiration (consultez [Durée de vie][lnk-ttl]).
 
 La page [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial] (Guide pratique pour envoyer des messages cloud-à-appareil avec IoT Hub) explique comment envoyer des messages cloud-à-appareil depuis le cloud et comment les recevoir sur un appareil.
 
@@ -76,14 +76,14 @@ Lorsque vous envoyez un message cloud-à-appareil, le service peut demander la r
 | Propriété Ack | Comportement |
 | ------------ | -------- |
 | **positive** | Si le message cloud-à-appareil prend l’état **Completed** (Terminé), IoT Hub génère un message de commentaire. |
-| **negative** | Si le message cloud-à-appareil prend l’état **Deadlettered** (Lettre morte), IoT Hub génère un message de commentaire. |
+| **negative** | Si le message cloud-à-appareil prend l’état **Dead lettered** (Lettre morte), IoT Hub génère un message de commentaire. |
 | **full**     | IoT Hub génère un message de commentaires dans les deux cas. |
 
 Si la propriété **Ack** est définie sur **full** et que vous ne recevez pas de message de commentaire, cela signifie que le message de commentaire a expiré. Le service ne peut pas savoir ce qui est arrivé au message d’origine. Dans la pratique, un service doit s'assurer qu'il peut traiter les commentaires avant leur expiration. Le délai d’expiration maximal est de deux jours, ce qui vous laisse le temps de faire refonctionner le service en cas de défaillance.
 
 Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des commentaires sous la forme de messages par le biais d’un point de terminaison accessible au service (**/messages/servicebound/feedback**). La sémantique de réception des commentaires est identique à celle des messages cloud-à-appareil, et présente le même [cycle de vie des messages][lnk-lifecycle]. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
 
-| Propriété     | Description |
+| Propriété     | DESCRIPTION |
 | ------------ | ----------- |
 | EnqueuedTime | Horodatage indiquant la date et l’heure de création du message. |
 | UserId       | `{iot hub name}` |
@@ -91,12 +91,12 @@ Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fo
 
 Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant des propriétés suivantes :
 
-| Propriété           | Description |
+| Propriété           | DESCRIPTION |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
 | OriginalMessageId  | **MessageId** du message cloud-à-appareil auquel se rapportent ces informations de commentaires. |
 | StatusCode         | Chaîne obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> « Succès » <br/> « Expiré » <br/> « DeliveryCountExceeded »  <br/> « Rejeté » <br/> « Vidé » |
-| Description        | Valeurs de chaîne pour **StatusCode**. |
+| DESCRIPTION        | Valeurs de chaîne pour **StatusCode**. |
 | deviceId           | **DeviceId** de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
 | DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
 
@@ -125,7 +125,7 @@ L’exemple suivant montre le corps d’un message de commentaire.
 
 Chaque hub IoT expose les options de configuration suivantes pour la messagerie cloud-à-appareil :
 
-| Propriété                  | Description | Plage et valeur par défaut |
+| Propriété                  | DESCRIPTION | Plage et valeur par défaut |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Durée de vie par défaut pour les messages cloud-à-appareil. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
 | maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100. Par défaut : 10. |
@@ -134,7 +134,7 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 
 Pour plus d’informations sur la définition de ces options de configuration, consultez [Create IoT hubs][lnk-portal] (Créer des hubs IoT).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les SDK que vous pouvez utiliser pour recevoir des messages cloud-à-appareil, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
 

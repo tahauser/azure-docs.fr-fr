@@ -29,4 +29,4 @@ Pour accéder aux calendriers de l’utilisateur dans le contexte d’une applic
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](active-directory-develop-help-support-include.md)]

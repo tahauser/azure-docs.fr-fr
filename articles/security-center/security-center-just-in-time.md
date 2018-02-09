@@ -1,6 +1,6 @@
 ---
 title: "Accès Juste à temps à la machine virtuelle dans Azure Security Center | Microsoft Docs"
-description: "Ce document explique en quoi l’accès Juste à temps à la machine virtuelle dans Azure Security Center peut vous aider à contrôler l’accès à vos machines virtuelles Azure."
+description: "Ce document montre comment l’accès Juste à temps à la machine virtuelle dans Azure Security Center peut vous aider à contrôler l’accès à vos machines virtuelles Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gérer l’accès Juste à temps à la machine virtuelle (préversion)
 
@@ -50,11 +50,13 @@ Quand un utilisateur demande l’accès à une machine virtuelle, Security Cente
 
 ## <a name="using-just-in-time-access"></a>Utilisation de l’accès Juste à temps
 
-La vignette **Accès Juste à temps à la machine virtuelle** sous **Security Center** affiche le nombre de machines virtuelles configurées pour un accès Juste à temps ainsi que le nombre de requêtes d’accès approuvées pendant la semaine qui vient de s’écouler.
+1. Ouvrez le tableau de bord **Security Center**.
+
+2. Dans le volet gauche, sélectionnez **Accès Juste à temps à la machine virtuelle**.
 
 ![Vignette Accès Juste à temps à la machine virtuelle][2]
 
-Sélectionnez la vignette **Accès Juste à temps à la machine virtuelle** pour ouvrir **Accès Juste à temps à la machine virtuelle**.
+La fenêtre **Accès Juste à temps à la machine virtuelle** s’ouvre.
 
 ![Vignette Accès Juste à temps à la machine virtuelle][10]
 
@@ -163,24 +165,24 @@ Une fois cette vérification effectuée, vous devez installer la [dernière](htt
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configuration d’une stratégie Juste à temps pour une machine virtuelle
 
 Pour configurer une stratégie Juste à temps sur une machine virtuelle spécifique, vous devez exécuter la commande suivante dans votre session PowerShell : Set-ASCJITAccessPolicy.
-Consultez la documentation de l’applet de commande pour en savoir plus.
+Consultez la documentation de la cmdlet pour en savoir plus.
 
 ### <a name="requesting-access-to-a-vm"></a>Demande d’accès à une machine virtuelle
 
 Pour accéder à une machine virtuelle spécifique qui est protégée par la solution Juste à temps, vous devez exécuter la commande suivante dans votre session PowerShell : Invoke-ASCJITAccess.
-Consultez la documentation de l’applet de commande pour en savoir plus.
+Consultez la documentation de la cmdlet pour en savoir plus.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Cet article vous a fait découvrir en quoi l’accès Juste à temps à la machine virtuelle dans Security Center peut vous aider à contrôler l’accès à vos machines virtuelles Azure.
 
-Pour plus d’informations sur Security Center, consultez les rubriques suivantes :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 - [Définition des stratégies de sécurité](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des recommandations de sécurité](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
 - [Surveillance de l’intégrité de la sécurité](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 - [Surveillance des solutions de partenaire](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
-- [Questions fréquentes (FAQ) sur Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
+- [FAQ Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 - [Blog sur la sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
 

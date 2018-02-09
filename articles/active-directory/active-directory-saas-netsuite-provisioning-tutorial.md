@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Netsuite | Microsoft Docs"
+title: "Didacticiel : configurer Netsuite pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Netsuite."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3de048a88b2a14936f7a49afefc8c96e56909c37
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Netsuite pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Didacticiel : configuration de Netsuite pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans Netsuite et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD vers Netsuite.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -33,7 +33,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 ## <a name="assigning-users-to-netsuite"></a>Affectation d’utilisateurs à Netsuite
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, seuls les utilisateurs et les groupes qui ont été « assignés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, seuls les utilisateurs et les groupes qui ont été « assignés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD ont besoin d’accéder à votre application Netsuite. Une fois que vous avez effectuer votre choix, vous pouvez affecter ces utilisateurs à votre application Netsuite en suivant les instructions fournies ici :
 
@@ -45,7 +45,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 *   Quand vous affectez un utilisateur à Netsuite, vous devez sélectionner un rôle d’utilisateur valide. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
-## <a name="enable-user-provisioning"></a>Activer l’approvisionnement d’utilisateurs
+## <a name="enable-user-provisioning"></a>Activer l’approvisionnement des utilisateurs
 
 Cette section explique comment connecter votre Azure AD à l’API d’approvisionnement de comptes utilisateur de Netsuite pour créer, mettre à jour et désactiver les comptes utilisateur affectés dans Netsuite en fonction des attributions d’utilisateurs et de groupes dans Azure AD.
 
@@ -56,7 +56,7 @@ Cette section explique comment connecter votre Azure AD à l’API d’approvisi
 
 L’objectif de cette section est d’expliquer comment activer l’approvisionnement utilisateur des comptes utilisateur Active Directory sur Netsuite.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 2. Si vous avez déjà configuré Netsuite pour l’authentification unique, recherchez votre instance de Netsuite à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Netsuite** dans la galerie d’applications. Sélectionnez Netsuite dans les résultats de recherche et ajoutez-la à votre liste d’applications.
 

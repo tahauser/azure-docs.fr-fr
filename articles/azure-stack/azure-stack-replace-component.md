@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack
 
@@ -42,13 +42,13 @@ L’organigramme suivant illustre le processus FRU général de remplacement d�
 
 ![Organigramme montrant le flux de remplacement de composant](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-*Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
+* Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
-**Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support technique.
+**Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support.
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
-Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de surveillance du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.
+Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de surveillance du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.  
 
 ## <a name="component-replacement-process"></a>Processus de remplacement de composant
 
@@ -60,7 +60,7 @@ Les étapes suivantes fournissent une vue d’ensemble du processus de remplacem
    > Dans tous les cas, un seul nœud peut être purgé et mis hors tension en même temps sans endommager l’espace de stockage direct S2D.
 
 2. Une fois le nœud d’unité d’échelle en mode maintenance, utilisez l’action [Mettre hors tension](azure-stack-node-actions.md#scale-unit-node-actions). Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
- 
+
    > [!NOTE]
    > Dans le cas peu probable où la mise hors tension ne fonctionnerait pas, utilisez l’interface web du contrôleur de gestion de la carte de base (BMC).
 
@@ -74,4 +74,3 @@ Les étapes suivantes fournissent une vue d’ensemble du processus de remplacem
 
 - Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, voir [Remplacer un disque](azure-stack-replace-disk.md).
 - Pour plus d’informations sur le remplacement d’un nœud physique, voir [Remplacer un nœud d’unité d’échelle](azure-stack-replace-node.md).
-- 

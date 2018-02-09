@@ -1,4 +1,4 @@
-# [Vue d'ensemble](overview.md)
+# [Vue d’ensemble](overview.md)
 
 # Démarrage rapide
 ## [Démarrage rapide pour Bash](quickstart.md)
@@ -17,12 +17,14 @@
 # Exemples
 ## [Déployer des ressources Windows Azure avec Terraform dans un interpréteur de commandes Bash](example-terraform-bash.md)
 
+## [Exécuter Ansible dans Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+
 # [Intégrer Cloud Shell](embed-cloud-shell.md)
 
-# [Dépannage](troubleshooting.md)
+# [Résolution des problèmes](troubleshooting.md)
 
-# Référence
-## [Interface de ligne de commande Azure](/cli/azure)
+# Informations de référence
+## [interface de ligne de commande Azure](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Ressources

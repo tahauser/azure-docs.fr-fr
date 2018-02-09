@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -66,13 +66,14 @@ Azure Event Hubs est disponible dans toutes les régions Azure prises en charge.
 ## <a name="best-practices"></a>Meilleures pratiques
 
 ### <a name="how-many-partitions-do-i-need"></a>De combien de partitions ai-je besoin ?
-N’oubliez pas que le nombre de partitions sur un concentrateur d’événements ne peut pas être modifié après configuration. Avec cela à l’esprit, il est important de réfléchir au nombre de partitions dont vous avez besoin avant de commencer. 
+
+Notez que le nombre de partitions sur un hub d’événements ne peut pas être modifié après configuration. Avec cela à l’esprit, il est important de réfléchir au nombre de partitions dont vous avez besoin avant de commencer. 
 
 Event Hubs est conçu pour autoriser un lecteur de partition unique par groupe de consommateurs. Dans la plupart des cas, le paramètre par défaut de quatre partitions est suffisant. Si vous cherchez mettre à l’échelle le traitement des événements, vous souhaiterez peut-être ajouter des partitions supplémentaires. Il n’y a aucune limite de débit spécifique sur une partition, mais le débit cumulé dans votre espace de noms est limité par le nombre d’unités de débit. Lorsque vous augmentez le nombre d’unités de débit de votre espace de noms, vous souhaiterez peut-être avoir des partitions supplémentaires pour permettre aux lecteurs fonctionnant simultanément d’atteindre leur débit maximal.
 
 Toutefois, si vous disposez d’un modèle dans lequel votre application a une affinité avec une partition particulière, l’augmentation du nombre de partitions pourrait n’offrir aucun avantage. Pour plus d’informations à ce sujet, consultez [Disponibilité et cohérence](event-hubs-availability-and-consistency.md).
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 
 ### <a name="where-can-i-find-more-pricing-information"></a>Où puis-je obtenir des informations complémentaires sur la tarification ?
 Pour des informations complètes sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -115,9 +116,9 @@ Un support technique pour les hubs d'événements est disponible via les [forums
 
 Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) .
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Créer un concentrateur d’événements](event-hubs-create.md)
+* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Créer un hub d’événements](event-hubs-create.md)
 * [Majoration automatique Event Hubs](event-hubs-auto-inflate.md)

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Créer un appareil IoT Edge servant de passerelle transparente - Aperçu
 
@@ -61,7 +61,7 @@ Vous pouvez utiliser les exemples de scripts Powershell et Bash décrits dans [G
 >Cet exemple est uniquement destiné à des fins de test. Concernant les scénarios de production, reportez-vous à [Sécuriser votre déploiement IoT] [ lnk-iothub-secure-deployment] pour consulter les instructions de sécurisation de votre solution IoT et approvisionner votre certificat en conséquence.
 
 
-1. Cloner les [SDK et bibliothèques Microsoft Azure IoT pour C] depuis GitHub :
+1. Cloner les Kits de développement logiciel (SDK) et bibliothèques Microsoft Azure IoT pour C depuis GitHub :
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -104,12 +104,12 @@ Pour configurer votre appareil IoT Edge en tant que passerelle, vous devez simpl
 
 Nous attribuons les noms de fichiers suivants par défaut sur la base des exemples de scripts ci-dessus :
 
-| Sortie | Script Bash | PowerShell |
-| ------ | ----------- | ---------- |
-| Certificat d’appareil | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Clé d’appareil privée | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Chaîne de certificat d’appareil | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| Autorité de certification du propriétaire du Hub IoT | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Sortie | Nom de fichier |
+| ------ | --------- |
+| Certificat d’appareil | `certs/new-edge-device.cert.pem` |
+| Clé d’appareil privée | `private/new-edge-device.cert.pem` |
+| Chaîne de certificat d’appareil | `certs/new-edge-device-full-chain.cert.pem` |
+| Autorité de certification du propriétaire du Hub IoT | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Fournissez les informations sur l’appareil et le certificat pour le runtime IoT Edge. 
  
@@ -177,7 +177,7 @@ Pour ce faire, il faut ajouter la propriété `GatewayHostName` à votre chaîne
 
 Ces deux étapes permettent à votre application d’appareil de se connecter à l’appareil de passerelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Comprendre les exigences et outils de développement de modules IoT Edge][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

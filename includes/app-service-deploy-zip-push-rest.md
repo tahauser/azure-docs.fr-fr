@@ -7,7 +7,7 @@ L’exemple suivant utilise l’outil cURL pour envoyer une demande qui contient
 Remplacez l’espace réservé `<deployment_user>` par le nom d’utilisateur de vos informations d’identification de déploiement. Quand vous y êtes invité par cURL, tapez le mot de passe. Pour découvrir comment définir les informations d’identification de déploiement pour votre application, consultez [Définir et réinitialiser les informations d’identification de niveau utilisateur](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 Cette demande déclenche le déploiement par envoi (push) à partir du fichier .zip chargé. Vous pouvez examiner les déploiements en cours et passés en utilisant le point de terminaison https://<nom_application>.scm.azurewebsites.net/api/deployments, comme le montre l’exemple cURL suivant. Ici encore, remplacez `<app_name>` par le nom de votre application et `<deployment_user>` par le nom d’utilisateur de vos informations d’identification de déploiement.

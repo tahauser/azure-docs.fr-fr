@@ -3,7 +3,7 @@ title: "Guide pratique pour configurer une identité MSI affectée par l’utili
 description: "Instructions détaillées pour configurer une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Azure avec un SDK Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19b6179803b8de4102818c1522b00e6b4881d0f0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 097304162b85599acd1f4591091f986a646ebc2a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>Configurer une identité MSI (Managed Service Identity) affectée par l’utilisateur pour une machine virtuelle, à l’aide d’un SDK Azure
 
@@ -41,7 +41,7 @@ Azure prend en charge plusieurs plates-formes de programmation via une série de
 | Python | [Créer une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Créer une machine virtuelle Azure avec une MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour découvrir comment configurer une identité MSI affectée par l’utilisateur sur une machine virtuelle Azure, consultez les articles connexes sous « Configurer MSI pour une machine virtuelle Azure ».
 

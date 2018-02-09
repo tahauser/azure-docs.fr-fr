@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -158,11 +158,13 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 
 | Région | Emplacement du centre de données |
 |--------|---------------------|
-| Est des États-Unis | Virginie, États-Unis |
-| États-Unis de l’Ouest | Californie, États-Unis |
-| Europe de l'Ouest | Pays-bas |
+| Est de l’Australie | Nouvelle-Galles du Sud |
+| Centre du Canada | Toronto |
+| Est des États-Unis | Virginie |
 | Asie du Sud-Est | Singapour |
-| Est de l’Australie | Nouvelle-Galles du Sud, Australie |
+| Sud du Royaume-Uni | Londres |
+| Europe de l'Ouest | Pays-bas |
+| États-Unis de l’Ouest | Californie |
 
 La préversion prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
 

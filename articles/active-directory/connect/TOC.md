@@ -10,7 +10,7 @@
 
 
 # Prise en main
-## [Configuration requise](active-directory-aadconnect-prerequisites.md)
+## [Composants requis](active-directory-aadconnect-prerequisites.md)
 ## [Installer Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Paramètres Express](active-directory-aadconnect-get-started-express.md)
 ### [Paramètres personnalisés](active-directory-aadconnect-get-started-custom.md)
@@ -41,7 +41,7 @@
 ##### [Comment cela fonctionne-t-il ?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Mise à niveau des agents d’évaluation](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
-##### [Forum Aux Questions (FAQ)](active-directory-aadconnect-pass-through-authentication-faq.md)
+##### [Forum Aux Questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Résolution des problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Présentation approfondie de Sécurité](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [Prise en charge de plusieurs domaines pour la fédération](active-directory-aadconnect-multiple-domains.md)
@@ -55,6 +55,7 @@
 ### [Synchronisation du mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Compte de service Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Assistant d’installation](active-directory-aadconnectsync-installation-wizard.md)
+### [Mode de remplissage de UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [Modifier la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configurer le filtrage](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
@@ -84,7 +85,7 @@
 ### [Erreur de LargeObject provoquée par userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Comment récupérer depuis la limite de 10 Go de base de données locale](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Ports et protocoles nécessaires à l’identité hybride](active-directory-aadconnect-ports.md)

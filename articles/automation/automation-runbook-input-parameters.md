@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2934257e6feb6836492a4957e976abd02df12cfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 
-Les paramètres d’entrée de Runbook augmentent la flexibilité des Runbooks en vous permettant de lui transmettre des données lors de son démarrage. Les paramètres permettent que les actions du Runbook soient ciblées pour des scénarios et environnements spécifiques. Cet article vous guide dans différents scénarios où des paramètres d’entrée sont utilisés dans des Runbooks.
+Les paramètres d’entrée de Runbook augmentent la flexibilité des Runbooks en vous permettant de lui transmettre des données lors de son démarrage. Les paramètres permettent que les actions du Runbook soient ciblées pour des scénarios et environnements spécifiques. Cet article explore différents scénarios dans lesquels des paramètres d’entrée sont utilisés dans des runbooks.
 
 ## <a name="configure-input-parameters"></a>Configurer les paramètres d’entrée
 
@@ -30,14 +30,14 @@ Des paramètres d’entrée peuvent être configurés dans des Runbooks PowerShe
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Configurer les paramètres d’entrée dans des Runbooks PowerShell et PowerShell Workflow
 
-Les Runbooks PowerShell et les [Runbooks PowerShell Workflow](automation-first-runbook-textual.md) dans Azure Automation prennent en charge les paramètres d’entrée définis à l’aide des attributs suivants :  
+Les runbooks PowerShell et [PowerShell Workflow](automation-first-runbook-textual.md) dans Azure Automation prennent en charge les paramètres d’entrée définis à l’aide des attributs suivants :  
 
 | **Propriété** | **Description** |
 |:--- |:--- |
-| Type |Obligatoire. Type de données attendu pour la valeur du paramètre. Tout type .NET est valide. |
-| Nom |Obligatoire. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
+| type |Requis. Type de données attendu pour la valeur du paramètre. Tout type .NET est valide. |
+| NOM |Requis. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
 | Obligatoire |facultatif. Spécifie si une valeur doit être fournie pour le paramètre. Si vous définissez cette valeur sur **$true**, une valeur doit être fournie lors du démarrage du Runbook. Si vous définissez cette valeur sur **$false**, une valeur est facultative. |
-| Valeur par défaut |facultatif.  Spécifie une valeur à utiliser pour le paramètre si aucune valeur n’est transmise lors du démarrage du Runbook. Une valeur par défaut peut être définie pour tout paramètre, qui rend automatiquement le paramètre facultatif, indépendamment du paramètre Mandatory. |
+| Valeur par défaut |facultatif. Spécifie une valeur à utiliser pour le paramètre si aucune valeur n’est transmise lors du démarrage du runbook. Une valeur par défaut peut être définie pour tout paramètre, qui rend automatiquement le paramètre facultatif, indépendamment du paramètre Mandatory. |
 
 Windows PowerShell prend en charge d’autres attributs de paramètres d’entrée que ceux répertoriés ici, tels que la validation, les alias et les jeux de paramètres. Toutefois, Azure Automation ne prend actuellement en charge que les paramètres d’entrée ci-dessus.
 
@@ -55,7 +55,7 @@ Une définition de paramètre dans des Runbooks PowerShell Workflow a la forme g
    ```
 
 > [!NOTE]
-> Lorsque vous définissez des paramètres, si vous ne spécifiez pas l’attribut **Mandatory** , par défaut, le paramètre est considéré comme facultatif. De même, si vous définissez une valeur par défaut pour un paramètre dans des Runbooks PowerShell Workflow, il est traité par PowerShell comme un paramètre facultatif, indépendamment de la valeur de l’attribut **Mandatory**.
+> Lorsque vous définissez des paramètres, si vous ne spécifiez pas l’attribut **Mandatory** , par défaut, le paramètre est considéré comme facultatif. De même, si l’un des paramètres des runbooks PowerShell Workflow possède la valeur par défaut, il est traité par PowerShell comme un paramètre facultatif, indépendamment de la valeur de l’attribut **Mandatory**.
 > 
 > 
 
@@ -65,7 +65,7 @@ En guise d’exemple, nous allons configurer les paramètres d’entrée pour un
 
 Dans cette définition de paramètre, les paramètres **$VMName** et **$resourceGroupName** sont des paramètres simples de type chaîne. Toutefois, les Runbooks PowerShell et PowerShell Workflow prennent en charge tous les types, simples et complexes, tels que **object** ou **PSCredential** pour les paramètres d’entrée.
 
-Si votre Runbook comprend un paramètre d’entrée de type objet, utilisez une table de hachage PowerShell comportant des paires (nom,valeur) pour transmettre une valeur. Par exemple, si vous avez le paramètre suivant dans un Runbook :
+Si votre runbook comporte un paramètre d’entrée de type d’objet, utilisez une table de hachage PowerShell contenant des paires (nom, valeur) pour transmettre une valeur. Par exemple, si vous avez le paramètre suivant dans un Runbook :
 
      [Parameter (Mandatory = $true)]
      [object] $FullName
@@ -81,7 +81,7 @@ Pour configurer un Runbook graphique avec des paramètres d’entrée, nous allo
 
 [**Authentifier des Runbooks avec un compte d’identification Azure**](automation-sec-configure-azure-runas-account.md) pour s’authentifier avec Azure.
 
-[**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) pour récupérer les propriétés de machines virtuelles.
+[**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) pour récupérer les propriétés d’une machine virtuelle.
 
 Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) pour renvoyer les noms de machines virtuelles. L’activité **Get-AzureRmVm** accepte deux paramètres : le **nom de machine virtuelle** et le **nom du groupe de ressources**. Étant donné que ces paramètres peuvent nécessiter des valeurs différentes chaque fois que vous démarrez le Runbook, vous pouvez ajouter des paramètres d’entrée à votre Runbook. Voici les étapes pour ajouter des paramètres d’entrée :
 
@@ -93,11 +93,11 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
    
    | **Propriété** | **Description** |
    |:--- |:--- |
-   | Nom |Obligatoire.  Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
-   | Description |facultatif. Description de l’objectif du paramètre d’entrée. |
-   | Type |facultatif. Type de données attendu pour la valeur du paramètre. Les types de paramètres pris en charge sont **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** et **Object**. Si un type de données n’est pas sélectionné, le type par défaut est **String**. |
+   | NOM |Requis. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
+   | DESCRIPTION |facultatif. Description de l’objectif du paramètre d’entrée. |
+   | type |facultatif. Type de données attendu pour la valeur du paramètre. Les types de paramètres pris en charge sont **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** et **Object**. Si un type de données n’est pas sélectionné, le type par défaut est **String**. |
    | Obligatoire |facultatif. Spécifie si une valeur doit être fournie pour le paramètre. Si vous choisissez **yes**, une valeur doit être fournie lors du démarrage du Runbook. Si vous choisissez **no**, aucune valeur n’est requise lors du démarrage du Runbook, et une valeur par défaut peut être définie. |
-   | Valeur par défaut |facultatif. Spécifie une valeur à utiliser pour le paramètre si aucune valeur n’est transmise lors du démarrage du Runbook. Une valeur par défaut peut être définie pour un paramètre qui n’est pas obligatoire. Pour définir une valeur par défaut, choisissez **Custom**. Cette valeur est utilisée, sauf si une autre valeur est fournie lorsque du démarrage du Runbook. Choisissez **None** si vous ne souhaitez pas fournir de valeur par défaut. |
+   | Valeur par défaut |facultatif. Spécifie une valeur à utiliser pour le paramètre si aucune valeur n’est transmise lors du démarrage du runbook. Une valeur par défaut peut être définie pour un paramètre qui n’est pas obligatoire. Pour définir une valeur par défaut, choisissez **Custom**. Cette valeur est utilisée, sauf si une autre valeur est fournie lorsque du démarrage du Runbook. Choisissez **None** si vous ne souhaitez pas fournir de valeur par défaut. |
    
     ![Ajouter une nouvelle entrée](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Créez deux paramètres avec les propriétés suivantes qui seront utilisées par l’activité **Get-AzureRmVm** :
@@ -114,7 +114,7 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
      * Obligatoire : Non
      * Valeur par défaut : Personnalisé
      * Valeur par défaut personnalisée : \<Nom du groupe de ressources qui contient les machines virtuelles>
-5. Une fois les paramètres ajoutés, cliquez sur **OK**.  Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
+5. Une fois les paramètres ajoutés, cliquez sur **OK**. Vous pouvez maintenant les voir dans le panneau **Entrée et sortie**. Cliquez de nouveau sur **OK**, puis sur **Enregistrer** et **Publier** pour publier votre Runbook.
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>Configurer des paramètres d’entrée dans des Runbooks Python
 
@@ -127,7 +127,7 @@ Pour obtenir un exemple montrant comment utiliser les paramètres d’entrée da
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Affecter des valeurs aux paramètres d’entrée dans des Runbooks
 
-Vous pouvez transmettre des valeurs aux paramètres d’entrée dans des Runbooks dans les cas suivants.
+Vous pouvez transmettre des valeurs aux paramètres d’entrée de runbooks dans les cas suivants :
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Démarrer un Runbook et affecter des paramètres
 
@@ -135,16 +135,14 @@ Un Runbook peut être démarré de plusieurs façons : via le portail Azure, av
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Démarrer un Runbook publié à l’aide du portail Azure et affecter des paramètres
 
-Lorsque vous [démarrez le runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), le panneau **Démarrer le runbook** s’ouvre. Vous pouvez y entrer des valeurs pour les paramètres que vous venez de créer.
+Au [démarrage du runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), le panneau **Démarrer le runbook** s’ouvre. Vous pouvez y entrer les valeurs des paramètres que avez créés.
 
 ![Démarrer à l’aide du portail](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
 Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs qui ont été définis pour le paramètre. Les attributs incluent Obligatoire ou Facultatif, Type et Valeur par défaut. Dans la bulle d’aide en regard du nom de paramètre, vous pouvez voir toutes les informations clés dont vous avez besoin pour prendre des décisions sur les valeurs d’entrée du paramètre. Ces informations indiquent si un paramètre est obligatoire ou facultatif. Elles précisent également le type et la valeur par défaut (le cas échéant) et d’autres notes utiles.
 
-![Bulle d'aide](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
-
 > [!NOTE]
-> Les paramètres de type String prennent en charge les valeurs de chaîne **vides** .  La valeur **[EmptyString]** dans la zone du paramètre d’entrée a pour effet de transmettre une chaîne vide au paramètre. De même, les paramètres de type String ne prennent pas en charge la transmission de valeurs **Null** . Si vous ne transmettez pas de valeur au paramètre de type String, PowerShell interprète sa valeur comme null.
+> Les paramètres de type String prennent en charge les valeurs de chaîne **vides** .  La valeur **[EmptyString]** dans la zone des paramètres d’entrée a pour effet de transmettre une chaîne vide au paramètre. De même, les paramètres de type String ne prennent pas en charge la transmission de valeurs **Null** . Si vous ne transmettez pas de valeur au paramètre de type String, PowerShell interprète sa valeur comme Null.
 > 
 > 
 
@@ -152,16 +150,16 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 
 * **Applets de commande d’Azure Resource Manager :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources à l’aide de l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
   
-  **Exemple :**
+  **Exemple :**
   
   ```
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Applets de commande de gestion des services Azure :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources par défaut à l’aide de l’applet de commande [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+* **Cmdlets du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook Automation créé dans un groupe de ressources par défaut à l’aide de [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
   
-  **Exemple :**
+  **Exemple :**
   
   ```
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
@@ -195,7 +193,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
       return response.Job;
       }
   ```
-* **Méthode de gestion des services Azure :** vous pouvez démarrer un Runbook en utilisant le Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Méthode du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook à l’aide du Kit de développement logiciel (SDK) d’un langage de programmation. Voici un extrait de code C# permettant de démarrer un Runbook dans votre compte Automation. Vous pouvez voir le code complet dans notre [dépôt GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +227,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Démarrer un Runbook à l’aide de l’API REST et affecter des paramètres
-Vous pouvez créer et démarrer une tâche de Runbook avec l’API REST d’Azure Automation en utilisant la méthode **PUT** avec l’URI de demande suivant.
+Vous pouvez créer et démarrer une tâche de runbook avec l’API REST Azure Automation à l’aide de la méthode **PUT** et de l’URI de requête suivant :
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -259,15 +257,15 @@ Si vous souhaitez démarrer le Runbook **Get-AzureVMTextual** créé précédemm
     }
    ```
 
-Un code d’état HTTP 201 est retourné si le travail est correctement créé. Pour plus d’informations sur les en-têtes et corps de réponse, consultez l'article sur la [création d’une tâche de Runbook à l'aide de l'API REST.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+Un code d’état HTTP 201 est retourné si la tâche est correctement créée. Pour plus d’informations sur les en-têtes et les corps de réponse, consultez l'article [Guide pratique pour créer une tâche de runbook à l'aide de l'API REST](https://msdn.microsoft.com/library/azure/mt163849.aspx).
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Tester un Runbook et affecter des paramètres
-Lorsque vous [testez](automation-testing-runbook.md) le brouillon de votre Runbook à l’aide de l’option de test, le panneau **Test** s’ouvre, dans lequel vous pouvez configurer des valeurs pour les paramètres que vous venez de créer.
+Lorsque vous [testez le brouillon de votre runbook](automation-testing-runbook.md) à l’aide de l’option de test, la page **Test** s’ouvre, et vous pouvez y configurer les valeurs des paramètres que vous avez créés.
 
 ![Tester et affecter des paramètres](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Lier une planification à un Runbook et affecter des paramètres
-Vous pouvez [lier une planification](automation-schedules.md) à votre Runbook afin de démarrer celui-ci à un moment spécifique. Vous affectez des paramètres d’entrée lors de la création de la planification. Le Runbook utilise ces valeurs quand la planification le démarre. Vous ne pouvez pas enregistrer la planification tant que toutes les valeurs de paramètres obligatoires n’ont pas été fournies.
+Vous pouvez [lier une planification](automation-schedules.md) à votre Runbook afin de démarrer celui-ci à un moment spécifique. Lors de la création de la planification, vous affectez des paramètres d’entrée, que le runbook utilise quand la planification le démarre. Vous ne pouvez pas enregistrer la planification tant que toutes les valeurs de paramètres obligatoires n’ont pas été fournies.
 
 ![Planifier et affecter des paramètres](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
@@ -280,7 +278,7 @@ Lorsque vous exécutez un Runbook à l’aide d’un WebHook, un paramètre d’
 
 ![Paramètre WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour plus d’informations sur l’entrée et la sortie du Runbook, voir [Azure Automation : entrée et sortie de Runbook, et Runbook imbriqués](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)
 * Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).
 * Pour modifier un Runbook textuel, voir [Modification des Runbooks textuels](automation-edit-textual-runbook.md).

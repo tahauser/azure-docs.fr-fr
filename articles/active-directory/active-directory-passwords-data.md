@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
@@ -31,6 +31,8 @@ Pour déployer la réinitialisation du mot de passe libre-service (SSPR) d’Azu
 Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : +1 4255551234.
 
 > [!NOTE]
+> Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
+>
 > La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
 
 ## <a name="fields-populated"></a>Champs renseignés
@@ -42,6 +44,11 @@ Si vous utilisez les paramètres par défaut dans Azure AD Connect, les mappages
 | telephoneNumber | Téléphone de bureau | Autre téléphone |
 | mobile | Téléphone mobile | Téléphone |
 
+Ces champs peuvent être vides jusqu'à ce qu’un utilisateur confirme ses données d’authentification.
+
+Comme le montre la capture d’écran suivante, un administrateur global peut définir manuellement les informations de contact d’authentification de l’utilisateur.
+
+![Contact][Contact]
 
 ## <a name="security-questions-and-answers"></a>Questions et réponses de sécurité
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](active-directory-passwords-how-it-works.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Les administrateurs globaux peuvent modifier les informations de contact d’authentification d’un utilisateur"

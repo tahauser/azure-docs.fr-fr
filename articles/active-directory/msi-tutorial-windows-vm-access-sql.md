@@ -3,7 +3,7 @@ title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
 description: "Ce didacticiel vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity, identité de service managé) de machine virtuelle Windows pour accéder à Azure SQL."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: dfa5c75c803be0cda05b2906c3615300ad84bca6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -30,7 +30,7 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 > * Accorder à votre machine virtuelle l’accès à un serveur Azure SQL
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger un serveur Azure SQL
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

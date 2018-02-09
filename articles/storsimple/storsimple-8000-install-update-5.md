@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installer Update 5 sur votre appareil StorSimple
 
@@ -75,28 +75,28 @@ La méthode du correctif logiciel implique les trois étapes suivantes :
 
 Vous devez télécharger et installer les correctifs logiciels suivants dans l’ordre indiqué et les dossiers suggérés :
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| Ordre | Ko | DESCRIPTION | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Mise à jour logicielle<br> Télécharger les deux fichiers _HcsSfotwareUpdate.exe_ et _CisMSDAgent.exe_ |Standard  <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
+| 1. |KB4037264 |Mise à jour logicielle<br> Télécharger les deux fichiers _HcsSoftwareUpdate.exe_ et _CisMSDAgent.exe_ |Normal <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
 
 Si la mise à jour s’effectue à partir d’un appareil exécutant Update 4, vous devez installer les mises à jour cumulatives du système d’exploitation uniquement en tant que mises à jour de deuxième priorité.
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| Ordre | Ko | DESCRIPTION | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Package de mises à jour cumulatives de système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Package de mises à jour cumulatives de système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
 
 Si l’installation s’effectue depuis un appareil exécutant Update 3 ou une version antérieure, installez les éléments suivants en plus des mises à jour cumulatives.
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| Ordre | Ko | DESCRIPTION | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Standard  <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Package de mises à jour de sécurité du système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Package de mises à jour du système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Normal <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Package de mises à jour de sécurité du système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Package de mises à jour du système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
 
 
 En outre, vous devez peut-être installer les mises à jour du microprogramme de disque en plus de toutes les mises à jour indiquées dans les tableaux précédents. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion` . Si vous utilisez la version `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` du microprogramme, vous n’avez pas besoin d’installer ces mises à jour.
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
+| Ordre | Ko | DESCRIPTION | Type de mise à jour | Durée d’installation | Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Microprogramme de disque |Maintenance  <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
 
@@ -112,6 +112,6 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez plus en détail la [version Update 5](storsimple-update5-release-notes.md).
 

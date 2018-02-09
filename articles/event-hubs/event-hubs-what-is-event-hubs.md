@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm; babanisa
-ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/30/2018
+ms.author: sethm
+ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-event-hubs"></a>Qu’est-ce qu’Event Hubs ?
 
@@ -44,7 +44,7 @@ Cette solution fournit une fonctionnalité de gestion du flux de messages mais p
 
 ## <a name="event-hubs-features"></a>Fonctionnalités des concentrateurs d’événements
 
-Les concentrateurs d’événements incluent les éléments clés suivants :
+Les concentrateurs d’événements incluent les éléments clés suivants :
 
 - [**Producteurs/éditeurs d’événements**](event-hubs-features.md#event-publishers) : entité qui envoie des données à un concentrateur d’événements. Un événement est publié via AMQP 1.0 ou HTTPS.
 - [**Capture**](event-hubs-features.md#capture) : vous permet de capturer les données de streaming Event Hubs et de le stocker dans un compte de stockage Blob Azure.
@@ -56,7 +56,7 @@ Les concentrateurs d’événements incluent les éléments clés suivants :
 
 Pour obtenir des détails techniques sur ces fonctionnalités et d’autres fonctionnalités encore des concentrateurs d’événements, consultez la [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](event-hubs-features.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -64,7 +64,7 @@ Pour plus d’informations sur les concentrateurs d’événements, accédez aux
 
 * Prise en main avec un [didacticiel des concentrateurs d’événements](event-hubs-dotnet-standard-getstarted-send.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
-* [Exemples d’applications qui utilisent des Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+* [Exemples d’application complets qui utilisent des concentrateurs d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
 

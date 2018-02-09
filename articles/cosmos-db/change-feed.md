@@ -3,7 +3,7 @@ title: Utilisation du support de flux de modification dans Azure Cosmos DB | Mic
 description: "Utilisez le support de flux de modification d’Azure Cosmos DB pour suivre les modifications dans les documents et effectuer des opérations de traitement basées sur les événements tels que des déclencheurs et la mise à jour des systèmes de cache et d’analyse."
 keywords: change feed
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 
@@ -60,6 +60,7 @@ Informations supplémentaires :
 * Les modifications peuvent être synchronisées à partir de n’importe quel moment donné ; autrement dit, il n’existe aucune période de rétention de données fixes pendant laquelle les modifications sont disponibles.
 * Les modifications sont disponibles dans des blocs de plages de clés de partition. Cette fonctionnalité permet le traitement en parallèle de modifications de grandes collections par plusieurs consommateurs/serveurs.
 * Les applications peuvent demander plusieurs flux de modification simultanément sur la même collection.
+* ChangeFeedOptions.StartTime peut servir à fournir un point de départ initial, par exemple, pour trouver le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToke l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
 
 ## <a name="use-cases-and-scenarios"></a>Cas d'utilisation et scénarios
 
@@ -178,6 +179,7 @@ Le client de gauche a été démarré en premier et a commencé à analyser l’
 
 Notez que si vous avez deux fonctions Azure sans serveur qui analysent la même collection et utilisent le même bail, les deux fonctions peuvent obtenir des documents différents en fonction de la manière dont la bibliothèque du processeur décide de traiter les partitions.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Présentation de la bibliothèque du processeur de flux de modification
 
 L’implémentation du processeur de flux de modification fait appel à quatre composants principaux : la collection analysée, la collection de baux, l’hôte de processeur et les consommateurs. 

@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>Présentation de Gestion des API
 
@@ -30,9 +30,9 @@ Regardez la vidéo qui suit pour obtenir une vue d’ensemble de la gestion des 
 > 
 > 
 
-Cette rubrique fournit une vue d’ensemble des scénarios courants qui impliquent APIM.  Elle donne également une vue d’ensemble des principaux composants du système APIM. La rubrique fournit ensuite une présentation plus détaillée de chaque composant.
+Cet article fournit une vue d’ensemble des scénarios courants qui impliquent APIM.  Elle donne également une vue d’ensemble des principaux composants du système APIM. L’article fournit ensuite une présentation plus détaillée de chaque composant.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Pour utiliser Gestion des API, les administrateurs créent des API. Chaque API se compose d'une ou plusieurs opérations et chacune peut être ajoutée à un produit ou plusieurs. Pour utiliser une API, les développeurs s'abonnent à un produit qui contient cette API, puis ils peuvent appeler l'opération de l'API, sujette à toutes les stratégies d'utilisation pouvant être en vigueur. Scénarios courants :
 
@@ -50,14 +50,14 @@ Le système est constitué des composants suivants :
   * transforme votre API à la volée sans modification de code ;
   * met en cache les réponses du serveur principal lorsqu’il est configuré ;
   * enregistre les métadonnées relatives aux appels à des fins d’analyse.
-* Le **portail des éditeurs** est l’interface d’administration où vous configurez votre programme d’API. Utilisez-le pour :
+* Le **portail Azure** est l’interface d’administration où vous configurez votre programme d’API. Utilisez-le pour :
   
   * définir ou importer le schéma d’API ;
   * intégrer des API aux produits sous forme de packages ;
   * définir des stratégies, telles que des quotas ou des transformations sur les API ;
   * obtenir des informations issues de l’analyse ;
   * gérer les utilisateurs.
-* Le **portail des développeurs** est le principal lieu sur le web où les développeurs peuvent :
+* Le **portail des développeurs** est le principal lieu sur le web où les développeurs peuvent :
   
   * lire la documentation de l’API ;
   * essayer une API via la console interactive ;
@@ -99,12 +99,12 @@ Pour plus d’informations, consultez la page [Création et utilisation de group
 ## <a name="developers"></a> Développeurs
 Les développeurs représentent les comptes d'utilisateur dans une instance du service Gestion des API. Ils peuvent être créés ou invités à rejoindre le groupe par les administrateurs, ou ils peuvent s’inscrire dans le [Portail des développeurs][Developer portal]. Chaque développeur est membre d'un ou plusieurs groupes, et peut s'abonner aux produits qui accordent de la visibilité à ces groupes.
 
-Lorsque des développeurs s'abonnent à un produit, ils reçoivent les clés principale et secondaire pour le produit. Cette clé est utilisée pour les appels dans les API du produit.
+Lorsque des développeurs s’abonnent à un produit, ils reçoivent les clés principale et secondaire pour le produit. Cette clé est utilisée pour les appels dans les API du produit.
 
 Pour plus d’informations, consultez les pages [Création ou invitation de développeurs][How to create or invite developers] et [Association de groupes aux développeurs][How to associate groups with developers].
 
 ## <a name="policies"></a> Stratégies
-Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles permettent à l'éditeur de modifier le comportement de l'API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre le nombre d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
+Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles permettent au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre le nombre d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
 
 Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) et [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) et [Expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

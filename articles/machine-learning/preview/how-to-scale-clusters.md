@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Mise à l’échelle du cluster pour gérer le débit des services web
 
@@ -83,7 +83,7 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 Par exemple, la définition de la commande `autoscale-min-replicas` sur la valeur 5 créera cinq réplicas. Pour définir un nombre de réplicas optimal pour le service web, commencez par configurer ce nombre sur une valeur telle que 10, puis surveillez le nombre de messages d’erreur 503. Ajustez alors le nombre de réplicas en conséquence.
 
 
-| Nom du paramètre | Type | Description |
+| Nom du paramètre | type | DESCRIPTION |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | booléenne | Indique si la mise à l’échelle automatique est activée. Valeur par défaut : true. |
 | `autoscale-min-replicas` | integer | Indique le nombre minimal de pods. Cette valeur doit être supérieure ou égale à 0. Valeur par défaut : 1. |

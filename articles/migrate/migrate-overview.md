@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -42,7 +42,7 @@ Azure Migrate vous aide à :
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?
 
-Azure Migrate est disponible sans coût supplémentaire. Toutefois, pendant la période de la préversion publique, des frais supplémentaires s’appliquent pour l’utilisation des fonctionnalités de visualisation des dépendances. Pour prendre en charge la [visualisation de dépendance](concepts-dependency-visualization.md), Azure Migrate crée un espace de travail Log Analytics par défaut. Si vous utilisez la visualisation de dépendance ou que vous utilisez l’espace de travail en dehors d’Azure Migrate, vous êtes facturé pour l’utilisation de l’espace de travail. [En savoir plus](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) sur les frais. Lorsque le service sera généralement disponible, il n’y aura aucun frais lié à l’utilisation des fonctionnalités de visualisation de dépendance.
+En savoir plus sur la tarification Azure Migrate [ici](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Que comprend une évaluation ?

@@ -1,211 +1,186 @@
 ---
-title: "Créer une passerelle Application Gateway - Azure CLI 2.0 | Microsoft Docs"
-description: "Découvrez comment créer une passerelle Application Gateway à l’aide d’Azure CLI 2.0 dans Resource Manager."
+title: "Créer une passerelle d’application - Azure CLI | Microsoft Docs"
+description: "Découvrez comment créer une passerelle d’application à l’aide d’Azure CLI."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Créer une passerelle Application Gateway à l’aide d’Azure CLI 2.0
+# <a name="create-an-application-gateway-using-the-azure-cli"></a>Créer une passerelle d’application à l’aide d’Azure CLI
 
-> [!div class="op_single_selector"]
-> * [portail Azure](application-gateway-create-gateway-portal.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+Vous pouvez utiliser Azure CLI pour créer ou gérer des passerelles d’application à partir de la ligne de commande ou dans des scripts. Ce guide de démarrage rapide montre comment créer des ressources réseau, des serveurs principaux et une passerelle d’application.
 
-Une passerelle Application Gateway est une appliance virtuelle dédiée qui intègre Application Delivery Controller (ADC) en tant que service, offrant diverses fonctionnalités d’équilibrage de charge de couche 7 pour votre application.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="cli-versions"></a>Versions CLI
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Vous pouvez créer une passerelle Application Gateway en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.4 minimum d’Azure CLI. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) : Azure CLI pour les modèles de déploiement Classique et Azure Resource Manager
-* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) : CLI nouvelle génération pour le modèle de déploiement Resource Manager
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Condition préalable : installer Azure CLI 2.0
+Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer Azure CLI pour macOS, Linux et Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroupAG* à l’emplacement *eastus*.
 
-> [!NOTE]
-> Il vous faut un compte Azure pour créer une passerelle Application Gateway. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](../active-directory/sign-up-organization.md).
-
-## <a name="scenario"></a>Scénario
-
-Dans ce scénario, vous allez apprendre à créer une passerelle Application Gateway à l’aide du portail Azure.
-
-Ce scénario va :
-
-* créer une passerelle Application Gateway moyenne avec deux instances ;
-* créer un réseau virtuel nommé AdatumAppGatewayVNET avec un bloc CIDR réservé de 10.0.0.0/16 ;
-* créer un sous-réseau appelé Appgatewaysubnet qui utilise 10.0.0.0/28 comme bloc CIDR ;
-
-> [!NOTE]
-> La configuration supplémentaire de la passerelle Application Gateway, y compris les sondes d’intégrité personnalisées, les adresses de pool principal et les règles supplémentaires, se fait après avoir créé la passerelle Application Gateway et non lors du déploiement initial.
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Une passerelle Application Gateway requiert son propre sous-réseau. Lorsque vous créez un réseau virtuel, assurez-vous que vous laissez suffisamment d’espace d’adresse pour disposer de plusieurs sous-réseaux. Une fois que vous avez déployé une passerelle Application Gateway sur un sous-réseau, vous ne pouvez ajouter au sous-réseau que les passerelles supplémentaires.
-
-## <a name="sign-in-to-azure"></a>Connexion à Azure
-
-Ouvrez l’**Invite de commandes Microsoft Azure**et connectez-vous :
-
-```azurecli-interactive
-az login -u "username"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> Vous pouvez également utiliser `az login` sans le commutateur destiné à la connexion de l’appareil et qui nécessite la saisie d’un code sur aka.ms/devicelogin.
+## <a name="create-network-resources"></a>Créer des ressources réseau 
 
-Après avoir entré la commande précédente, vous recevez un code. Accédez à https://aka.ms/devicelogin dans un navigateur pour continuer le processus de connexion.
-
-![Invite de commande affichant le code de l’appareil][1]
-
-Dans le navigateur, entrez le code que vous avez reçu. Vous êtes redirigé vers une page de connexion.
-
-![Page de navigateur pour la saisie du code][2]
-
-Entrez le code pour vous connecter, puis fermez le navigateur pour continuer.
-
-![Connexion réussie][3]
-
-## <a name="create-the-resource-group"></a>Créer le groupe de ressources
-
-Avant de créer la passerelle Application Gateway, créez un groupe de ressource pour la contenir. Utilisez la commande suivante :
+Créez le réseau virtuel et le sous-réseau à l’aide de la commande [az network vnet create](/cli/azure/vnet#az_vnet_create). Créez l’adresse IP publique à l’aide de la commande [az network public-ip create](/cli/azure/public-ip#az_public_ip_create).
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location "eastus"
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet   \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-backend-servers"></a>Créer des serveurs principaux
+
+Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que serveurs principaux pour la passerelle d’application. Vous installez également NGINX sur les machines virtuelles pour vérifier que la passerelle d’application a bien été créée.
+
+### <a name="create-two-virtual-machines"></a>Créer deux machines virtuelles
+
+Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+Créez les interfaces réseau avec la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create). Créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm#az_vm_create).
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupAG \
+    --name myNic$i \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet
+  az vm create \
+    --resource-group myResourceGroupAG \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+done
 ```
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Utilisez les adresses IP principales comme adresses IP de votre serveur principal. Ces valeurs peuvent être des adresses IP privées dans le réseau virtuel, des adresses IP publiques ou des noms de domaine complets pour vos serveurs principaux. L’exemple suivant crée une passerelle Application Gateway avec des configurations supplémentaires pour les paramètres HTTP, les ports et les règles :
+Créez une passerelle d’application à l’aide de la commande [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create). Lorsque vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. Les adresses IP privées des interfaces réseau sont ajoutées en tant que serveurs dans le pool principal de la passerelle d’application.
 
 ```azurecli-interactive
+address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers 10.0.0.4 10.0.0.5 \
---capacity 2 \
---sku Standard_Small \
---http-settings-cookie-based-affinity Enabled \
---http-settings-protocol Http \
---frontend-port 80 \
---routing-rule-type Basic \
---http-settings-port 80 \
---public-ip-address "pip2" \
---public-ip-address-allocation "dynamic" \
-
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Enabled \
+  --public-ip-address myAGPublicIPAddress \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --servers "$address1" "$address2"
 ```
 
-L’exemple précédent indique plusieurs propriétés non requises lors de la création d’une passerelle Application Gateway. L’exemple de code suivant crée une passerelle Application Gateway avec les informations requises :
+La création de la passerelle d’application peut prendre plusieurs minutes. Une fois que la passerelle d’application est créée, vous pouvez voir ses fonctionnalités :
 
-```azurecli-interactive
-az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers "10.0.0.5"  \
---public-ip-address pip
+- *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses principal.
+- *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
+- *appGatewayHttpListener* : écouteur par défaut associé à *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
+- *rule1* : règle d’acheminement par défaut associée à *appGatewayHttpListener*.
+
+## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
+
+Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+``` 
+
+![Tester la passerelle d’application](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, la passerelle d’application et toutes les ressources associées.
+
+```azurecli-interactive 
+az group delete --name myResourceGroupAG
 ```
  
-> [!NOTE]
-> Pour obtenir la liste de paramètres à utiliser lors de la création, exécutez la commande suivante : `az network application-gateway create --help`.
+## <a name="next-steps"></a>étapes suivantes
 
-Cet exemple crée une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi.
+Dans ce guide de démarrage rapide, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Vous avez ensuite utilisé ces ressources pour créer une passerelle d’application. Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
 
-Si l’application web a été définie avec le pool principal dans les étapes précédentes, alors l’équilibrage de charge démarre maintenant.
-
-## <a name="get-the-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle Application Gateway
-Après avoir créé la passerelle, vous devez configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle Application Gateway, utilisez un enregistrement CNAME pour pointer vers le point de terminaison public de la passerelle Application Gateway. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
-
-Pour configurer un alias, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Utilisez le nom DNS de la passerelle d’application pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. N’utilisez pas de A-records car l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
-
-
-```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
-```
-
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
-
-## <a name="delete-all-resources"></a>Supprimer toutes les ressources
-
-Pour supprimer toutes les ressources créées dans cet article, exécutez la commande suivante :
-
-```azurecli-interactive
-az group delete --name AdatumAppGatewayRG
-```
- 
-## <a name="next-steps"></a>Étapes suivantes
-
-Pour apprendre à créer des sondes d’intégrité personnalisées, consultez [Créer une sonde personnalisée pour une passerelle Application Gateway à l’aide du portail](application-gateway-create-probe-portal.md).
-
-Pour apprendre à configurer le déchargement SSL et retirer les coûts de déchiffrement SSL de vos serveurs web, consultez [Configuration d’une passerelle Application Gateway pour le déchargement SSL à l’aide d’Azure Resource Manager](application-gateway-ssl-arm.md).
-
-<!--Image references-->
-
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png

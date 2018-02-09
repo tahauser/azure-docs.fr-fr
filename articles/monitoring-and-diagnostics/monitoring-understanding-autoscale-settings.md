@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par décrire le schéma et les propriétés d’un paramètre, puis vous guide à travers les différents types de profil qui peuvent être configurés et enfin explique comment la mise à l’échelle automatique évalue le profil à exécuter à un moment donné.
@@ -125,7 +125,7 @@ Il existe trois types de profils de mise à l’échelle automatique :
 
 1. **Profil régulier :** profil le plus courant. Si vous n’avez pas besoin de mettre à l’échelle votre ressource de manière différente selon le jour de la semaine ou un jour donné, il vous suffit de définir un profil régulier dans le paramètre de mise à l’échelle automatique. Ce profil peut ensuite être configuré à l’aide de règles de mesures qui déterminent l’augmentation et la diminution de la taille des instances. Un seul profil régulier doit être défini.
 
-    L’exemple de profil utilisé précédemment dans cet article est un exemple de profil régulier. Il est également possible de définir un profil à mettre à l’échelle sur un certain nombre d’instances statiques pour votre ressource.
+    L’exemple de profil utilisé précédemment dans cet article est un exemple de profil régulier. Notez qu’il est également possible de définir un profil à mettre à l’échelle sur un certain nombre d’instances statiques pour votre ressource.
 
 2. **Profil à date fixe :** lorsque le profil standard est défini, supposons qu’un événement important est à venir le 26 décembre 2017 (PST) et que vous souhaitiez que les capacités minimales/maximales de votre ressource soient différentes ce jour-là tout en effectuant la mise à l’échelle sur les mêmes mesures. Dans ce cas, vous devez ajouter un profil de date fixe à la liste des profils de votre paramètre. Le profil est configuré de manière à s’exécuter uniquement le jour de l’événement. Tous les autres jours, le profil régulier est exécuté.
 

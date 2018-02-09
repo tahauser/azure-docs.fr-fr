@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configuration de Workday pour l’approvisionnement automatique de l’utilisateur avec Active Directory et Azure Active Directory local | Microsoft Docs"
+title: "Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment utiliser Workday en tant que source de données d'identité pour Active Directory et Azure Active Directory."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Didacticiel : Configuration de Workday pour l’approvisionnement automatique de l’utilisateur avec Active Directory et Azure Active Directory local
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
+
 L’objectif de ce didacticiel est de vous présenter les étapes à suivre pour importer des contacts à partir de Workday dans Active Directory et Azure Active Directory, avec écriture différée facultative de certains attributs dans Workday. 
 
 
@@ -51,7 +52,7 @@ Les flux de travail d’approvisionnement de l’utilisateur Workday pris en cha
 
 Avant de commencer l’intégration de Workday, vérifiez les prérequis ci-dessous et lisez les conseils suivants sur la façon de faire correspondre votre architecture Active Directory et vos exigences d’approvisionnement de l’utilisateur avec la ou les solutions fournies par Azure Active Directory.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -91,7 +92,7 @@ Il existe une relation individuelle entre des instances de connecteurs d’appro
 
 Toutefois, lorsque vous travaillez avec Workday et Active Directory, il existe plusieurs systèmes source et cible à prendre en considération :
 
-| Système source | Système cible | Remarques |
+| Système source | Système cible | Notes |
 | ---------- | ---------- | ---------- |
 | Workday | Forêt Active Directory | Chaque forêt est traitée comme un système cible distinct |
 | Workday | Client Azure AD | Selon les besoins pour les utilisateurs « cloud only » |
@@ -341,7 +342,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Créer + mettre à jour |
 | **PostalCode**  |   postalCode  |     | Créer + mettre à jour |
 | **LocalReference** |  preferredLanguage  |     |  Créer + mettre à jour |
-| **Remplacer(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
 | **LastName**   |   sn   |     |  Créer + mettre à jour |
 | **CountryRegionReference** |  st     |     | Créer + mettre à jour |
 | **AddressLineData**    |  streetAddress  |     |   Créer + mettre à jour |
@@ -445,7 +446,7 @@ Une fois les parties 1 à 3 terminées, vous pouvez redémarrer le service d’a
 
 1.  Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
-2. Cliquez sur **Save**.
+2. Cliquez sur **Enregistrer**.
 
 3. Ceci démarre la synchronisation initiale, qui peut prendre un nombre variable d’heures en fonction du nombre d’utilisateurs dans Workday.
 
@@ -568,7 +569,7 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 
 1.  Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
-2. Cliquez sur **Save**.
+2. Cliquez sur **Enregistrer**.
 
 3. Ceci démarre la synchronisation initiale, qui peut prendre un nombre variable d’heures en fonction du nombre d’utilisateurs dans Workday.
 
@@ -629,7 +630,7 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 
 1.  Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
-2. Cliquez sur **Save**.
+2. Cliquez sur **Enregistrer**.
 
 3. Ceci démarre la synchronisation initiale, qui peut prendre un nombre variable d’heures en fonction du nombre d’utilisateurs dans Workday.
 
@@ -648,6 +649,6 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

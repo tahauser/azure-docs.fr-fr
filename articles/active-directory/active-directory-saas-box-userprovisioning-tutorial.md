@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Intégration d'Azure Active Directory à Box | Microsoft Docs"
+title: "Didacticiel : configurer Box pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Box."
 services: active-directory
 documentationCenter: na
@@ -11,29 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 0f13fa47ef8eacd822f5744b9dde2bb1f0f2909f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Box pour l’attribution automatique d’utilisateurs
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Didacticiel : configurer Box pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Box et Azure AD pour approvisionner automatiquement des comptes utilisateur Azure AD dans Box, ainsi que pour annuler leur approvisionnement.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un locataire Azure Active Directory
+*   Un locataire Azure Active Directory.
 *   Un abonnement Box pour lequel l’authentification unique est activée
 *   Un compte d’utilisateur Box avec des autorisations d’administrateur d’équipe
 
 ## <a name="assigning-users-to-box"></a>Attribution d’utilisateurs à Box 
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique des comptes d’utilisateur, les utilisateurs et les groupes qui ont été « attribués » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique des comptes d’utilisateur, seuls les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes Azure AD ont besoin d’accéder à votre application Box. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs à votre application Box en suivant les instructions fournies ici :
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser l'onglet **Attributs > Authentification unique** pour confi
 
 *   Quand vous assignez un utilisateur à Box, vous devez sélectionner un rôle d’utilisateur valide. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
 
-## <a name="enable-automated-user-provisioning"></a>Activer l’attribution automatique des utilisateurs
+## <a name="enable-automated-user-provisioning"></a>Activer l’approvisionnement automatique des utilisateurs
 
 Cette section explique comment connecter Azure AD à l’API d’approvisionnement de comptes d’utilisateur de Box pour créer, mettre à jour et désactiver les comptes d’utilisateur attribués dans Box, en fonction des attributions d’utilisateurs et de groupes dans Azure AD.
 
@@ -74,7 +74,7 @@ Si la configuration automatique est activée, les utilisateurs et/ou groupes aff
 
 Cette section décrit comment activer l'approvisionnement des comptes d'utilisateurs Active Directory sur Box.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 2. Si vous avez déjà configuré Box pour l’authentification unique, recherchez votre instance de Box à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Box** dans la galerie d’applications. Sélectionnez Box dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 

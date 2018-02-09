@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser les signatures d’accès partagé pou
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
@@ -33,7 +33,7 @@ HDInsight dispose d’un accès total aux données dans les comptes de stockage 
 
 ## <a name="requirements"></a>Configuration requise
 
-* Un abonnement Azure
+* Abonnement Azure
 * C# ou Python. Un exemple de code C# est fourni en tant que solution Visual Studio.
 
   * La version de Visual Studio doit être 2013, 2015 ou 2017
@@ -216,7 +216,7 @@ Si vous disposez d’un cluster existant basé sur Linux, vous pouvez ajouter la
    > [!IMPORTANT]
    > Vous devez redémarrer plusieurs services pour que la modification prenne effet.
 
-6. Dans l’interface utilisateur web Ambari, sélectionnez **HDFS** dans la liste sur la gauche, puis sélectionnez **Redémarrer tout** dans la liste déroulante **Actions de service** située à droite. Lorsque vous y êtes invité, sélectionnez **Activer le mode de maintenance**, puis sélectionnez __Conform Restart All".
+6. Dans l’interface utilisateur web Ambari, sélectionnez **HDFS** dans la liste sur la gauche, puis sélectionnez **Restart All Affected** (Redémarrer tous les éléments affectés) dans la liste déroulante **Actions de service** située à droite. Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
 
     Répétez ce processus pour les entrées MapReduce2 et YARN.
 
@@ -278,7 +278,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 
     Cette fois, l’opération doit se terminer normalement.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="a-task-was-canceled"></a>Une tâche a été annulée
 
@@ -300,7 +300,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 * Il doit contenir au moins un caractère non alphanumérique.
 * Il doit contenir au moins une lettre minuscule et une lettre majuscule.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez appris comment ajouter un stockage à accès limité à votre cluster HDInsight, découvrez d’autres façons de travailler avec des données sur votre cluster :
 

@@ -2,17 +2,17 @@
 title: "Service de rendu Batch Azure - création de rendus à l’échelle du cloud | Microsoft Docs"
 description: "Créez des travaux de rendu sur des machines virtuelles Azure directement à partir de Maya et sur une base de paiement à l’utilisation."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Prise en main du service Batch Rendering
 
@@ -25,14 +25,10 @@ Avec Maya et 3DS Max, vous pouvez exécuter des travaux à l’aide de l’appli
 
 Le service Batch Rendering prend actuellement en charge les applications suivantes :
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold pour Maya
-- Autodesk Arnold pour 3DS Max
-- Chaos Group V-Ray pour Maya
-- Chaos Group V-Ray pour 3DS Max
+•   Autodesk Maya I/O 2017 Update 4 (version 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (version 20.1.0.238) •   Autodesk Arnold pour Maya (version 5.0.1.1) •   Autodesk Arnold pour 3ds Max (version 1.0.836) •   Chaos Group V-Ray pour Maya (version 3.52.03) •   Chaos Group V-Ray pour 3ds Max (version 3.60.02)
 
-## <a name="prerequisites"></a>Composants requis
+
+## <a name="prerequisites"></a>configuration requise
 
 Pour utiliser le service Batch Rendering, vous avez besoin des éléments suivants :
 
@@ -56,7 +52,7 @@ Batch est un service de plateforme permettant d’exécuter des tâches nécessi
 
 Pour plus d’informations sur les nœuds de calcul et pools Batch, consultez les sections [Pool](batch-api-basics.md#pool) et [Nœud de calcul](batch-api-basics.md#compute-node) de l’article [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
 
-### <a name="jobs"></a>Travaux
+### <a name="jobs"></a>Tâches
 
 Un travail **Batch** est une collection de tâches qui s’exécutent sur les nœuds de calcul d’un pool. Lorsque vous envoyez un travail de rendu, Batch le divise en tâches et les distribue aux nœuds de calcul dans le pool à exécuter.
 
@@ -163,7 +159,7 @@ Les sections suivantes décrivent les options disponibles, accessibles via l’o
 
 #### <a name="specify-a-new-or-existing-pool"></a>Spécifier un pool nouveau ou existant
 
-Pour spécifier un pool sur lequel exécuter le travail de rendu, sélectionnez l’onglet **Envoyer**. Cet onglet propose des options permettant de créer un pool ou d’un sélectionner un existant :
+Pour spécifier un pool sur lequel exécuter le travail de rendu, sélectionnez l’onglet **Envoyer**. Cet onglet propose des options permettant de créer un pool ou d’en sélectionner un existant :
 
 - Vous pouvez **configurer automatiquement un pool pour ce travail** (option par défaut). Lorsque vous choisissez cette option, Batch crée le pool exclusivement pour le travail actuel et supprime automatiquement le pool lorsque le travail de rendu est terminé. Cette option est recommandée lorsque vous n’avez qu’un travail de rendu à réaliser.
 - Vous pouvez **réutiliser un pool persistant existant**. Si vous disposez d’un pool existant qui est inactif, vous pouvez spécifier ce pool pour l’exécution de la tâche de rendu en le sélectionnant dans la liste déroulante. La réutilisation d’un pool persistant existant vous permet de gagner du temps en évitant de configurer le pool.  
@@ -230,7 +226,7 @@ Lorsque vous chargez le plug-in, il analyse le fichier de scène pour toutes les
 - Le répertoire _sourceimages_ du projet actuel
 - Le répertoire de travail actuel 
 
-Si la ressource ne parvient pas à être localisée, elles est répertoriée avec une icône d’avertissement :
+Si la ressource ne parvient pas à être localisée, elle est répertoriée avec une icône d’avertissement :
 
 ![Les ressources manquantes sont affichées avec une icône d’avertissement](./media/batch-rendering-service/missing_assets.png)
 
@@ -244,7 +240,7 @@ Si votre scène requiert d’autres fichiers que le plug-in n’a pas détectés
 
 #### <a name="upload-assets-to-an-asset-project"></a>Charger des ressources dans un projet de ressources
 
-Lorsque vous envoyer un travail de rendu, les fichiers référencés affichés dans l’onglet **Ressources** sont automatiquement chargés vers le stockage Azure en tant que projet de ressources. Vous pouvez également charger les fichiers de ressources indépendamment d’un travail de rendu à l’aide du bouton **Charger** sur l’onglet **Ressources**. Le nom du projet de ressources est spécifié dans le champ **Projet** champ et est nommé d’après le projet Maya actif par défaut. Lorsque les fichiers de ressources sont chargés, la structure de fichier locale est conservée. 
+Lorsque vous envoyez un travail de rendu, les fichiers référencés affichés dans l’onglet **Ressources** sont automatiquement chargés vers le stockage Azure en tant que projet de ressources. Vous pouvez également charger les fichiers de ressources indépendamment d’un travail de rendu à l’aide du bouton **Charger** sur l’onglet **Ressources**. Le nom du projet de ressources est spécifié dans le champ **Projet** champ et est nommé d’après le projet Maya actif par défaut. Lorsque les fichiers de ressources sont chargés, la structure de fichier locale est conservée. 
 
 Une fois téléchargées, les ressources peuvent être référencées par n’importe quel nombre de travaux de rendu. Toutes les ressources chargées sont disponibles pour un travail qui fait référence au projet de ressources, qu’elles soient incluses dans la scène ou non. Pour modifier le projet de ressources référencé par votre travail suivant, modifiez le nom dans le champ **Projet** de l’onglet **Ressources**. S’il existe des fichiers référencés que vous souhaitez exclure du chargement, désélectionnez-les à l’aide du bouton vert en regard de la liste.
 
@@ -262,6 +258,6 @@ Pour télécharger des sorties, modifiez le champ **Sorties** pour définir le r
 
 Vous pouvez fermer Maya sans interrompre le processus de téléchargement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Batch, consultez [Exécuter des charges de travail intrinsèquement parallèles avec Batch](batch-technical-overview.md).

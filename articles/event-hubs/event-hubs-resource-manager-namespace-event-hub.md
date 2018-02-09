@@ -12,19 +12,19 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/30/2018
 ms.author: sethm;shvija
-ms.openlocfilehash: 4cc9a0b9eaabb15a5a316e094deb178ef2219692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fafd8f786f86dfbe701a8d4a61ad6b261b1590
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Créer un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms de type Event Hubs avec un concentrateur d’événements et un groupe de consommateurs. L’article montre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
+Cet article montre comment utiliser un modèle Azure Resource Manager pour créer un espace de noms de type [Event Hubs](event-hubs-what-is-event-hubs.md) avec un hub d’événements et un groupe de consommateurs. L’article montre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
+Pour obtenir des informations sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Pour le modèle complet, consultez [Modèle d’Event Hub et de groupe de consommateurs][Event Hub and consumer group template] sur GitHub.
 
@@ -34,20 +34,21 @@ Pour le modèle complet, consultez [Modèle d’Event Hub et de groupe de consom
 > 
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
-Avec ce modèle, vous allez déployer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) est un service de traitement des événements utilisé pour fournir des entrées d’événements et de télémétrie dans Azure à grande échelle, avec faible latence et fiabilité élevée.
+Avec ce modèle, vous déployez un espace de noms Event Hubs avec un hub d’événements et un groupe de consommateurs.
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
 [![Déploiement sur Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
+
 Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs des paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez ou l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent inchangées. Chaque valeur de paramètre dans le modèle définit les ressources déployées.
 
 Le modèle définit les paramètres suivants :
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
+
 Nom de l’espace de noms Event Hubs à créer.
 
 ```json
@@ -57,6 +58,7 @@ Nom de l’espace de noms Event Hubs à créer.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
+
 Nom du concentrateur d’événements créé dans l’espace de noms Event Hubs.
 
 ```json
@@ -66,6 +68,7 @@ Nom du concentrateur d’événements créé dans l’espace de noms Event Hubs.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+
 Nom du groupe de consommateurs créé pour le concentrateur d’événements.
 
 ```json
@@ -75,6 +78,7 @@ Nom du groupe de consommateurs créé pour le concentrateur d’événements.
 ```
 
 ### <a name="apiversion"></a>apiVersion
+
 Version d’API du modèle.
 
 ```json
@@ -84,7 +88,8 @@ Version d’API du modèle.
 ```
 
 ## <a name="resources-to-deploy"></a>Ressources à déployer
-Crée un espace de noms de type **Event Hubs**, avec un concentrateur d’événements et un groupe de consommateurs.
+
+Crée un espace de noms de type **Event Hubs**, avec un hub d’événements et un groupe de consommateurs :
 
 ```json
 "resources":[  
@@ -128,24 +133,28 @@ Crée un espace de noms de type **Event Hubs**, avec un concentrateur d’évén
 ```
 
 ## <a name="commands-to-run-deployment"></a>Commandes pour l’exécution du déploiement
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
-```azurecli
+## <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
+
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 

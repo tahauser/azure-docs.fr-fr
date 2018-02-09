@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Routage des messages avec IoT Hub (Python)
 
@@ -117,6 +117,9 @@ Dans cette section, vous allez modifier l’application pour appareils que vous 
 Dans cette section, vous allez créer une file d’attente Service Bus et un compte de stockage, les connecter à votre IoT Hub et configurer votre IoT Hub pour envoyer des messages à la file d’attente en fonction de la présence d’une propriété sur le message et tous les messages au compte de stockage. Pour plus d’informations sur le traitement des messages des files d’attente Service Bus, consultez [Prise en main des files d’attente][lnk-sb-queues-node] et pour plus d’informations sur la gestion du stockage, consultez [Prise en main du stockage Azure][Stockage Azure].
 
 1. Créez une file d’attente Service Bus, comme décrit dans [Prise en main des files d’attente][lnk-sb-queues-node]. Prenez note de l’espace de noms et de la file d’attente.
+
+    > [!NOTE]
+    > Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
 1. Dans le portail Azure, ouvrez votre IoT Hub, puis cliquez sur **Points de terminaison**.
 

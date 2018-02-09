@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -62,6 +62,11 @@ Il n’est actuellement pas possible de modifier les réponses. Pour savoir comm
 
 La configuration d’un proxy ne doit pas nécessairement être statique. Vous pouvez définir comme condition l’utilisation des variables de la demande client d’origine, de la réponse du backend ou des paramètres de l’application.
 
+### <a name="reference-localhost"></a>Fonctions locales de référence
+Vous pouvez utiliser `localhost` pour faire référence à une fonction au sein de la même application de fonction directement, sans demande proxy en aller-retour.
+
+`"backendurl": "localhost/api/httptriggerC#1"` fait référence à une fonction HTTP locale à l’itinéraire `/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Référencement des paramètres de la demande
 
 Les paramètres de la demande peuvent être entrés au niveau de la propriété d’URL du serveur principal ou peuvent être utilisés lors de la modification des demandes et des réponses. Certains paramètres peuvent être liés à partir du modèle de routage spécifié dans la configuration du proxy de base, alors que d’autres proviennent des propriétés de la demande entrante.
@@ -94,6 +99,18 @@ Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOS
 
 > [!TIP] 
 > Utilisez des paramètres d’application pour les hôtes de serveur principal lorsque vous avez plusieurs déploiements ou environnements de test. De cette façon, vous avez l’assurance de toujours parler au backend adapté à cet environnement.
+
+## <a name="debugProxies"></a>Résolution des problèmes de proxy
+
+En ajoutant l’indicateur `"debug":true` à tout proxy de votre instance `proxy.json`, vous activez la journalisation du débogage. Les journaux sont stockés dans `D:\home\LogFiles\Application\Proxies\DetailedTrace` et accessibles via les outils avancés (kudu). Toute réponse HTTP comporte également un en-tête `Proxy-Trace-Location` avec une URL dirigeant vers le fichier journal.
+
+Pour déboguer un proxy du côté client, ajoutez un jeu d’en-têtes `Proxy-Trace-Enabled` à `true`. Ce faisant, vous enregistrez également une trace sur le système de fichiers et renvoyez l’URL de suivi en tant qu’en-tête dans la réponse.
+
+### <a name="block-proxy-traces"></a>Bloquer les traces de proxy
+
+Pour des raisons de sécurité, vous pouvez interdire tout appel à votre service et ainsi éviter toute génération de trace. Le cas échéant, les utilisateurs ne pourront pas accéder aux contenu de suivi sans vos informations de connexion. Notez toutefois que la génération de trace consomme des ressources et expose votre utilisation des proxys de fonction.
+
+Désactivez les traces en ajoutant `"debug":false` à tout proxy de votre instance `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 
@@ -130,6 +147,24 @@ Chaque proxy a un nom convivial, tel que *proxy1* dans l’exemple ci-dessus. L�
 
 > [!NOTE] 
 > La propriété *route* dans Azure Functions Proxies n’honore pas la propriété *routePrefix* de la configuration d’hôte Function App. Si vous souhaitez inclure un préfixe tel que `/api`, il doit être inclus dans la propriété *route*.
+
+### <a name="disableProxies"></a>Désactiver des proxys individuels
+
+Pour désactivez des proxys individuels, ajoutez `"disabled": true` au proxy considéré dans le fichier `proxies.json`. Ainsi, toute requête correspondant à matchCondition renverra une erreur 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Définition d’un objet requestOverrides
 

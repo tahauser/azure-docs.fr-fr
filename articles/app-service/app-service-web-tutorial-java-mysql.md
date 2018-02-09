@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Créer une application web Java et MySQL dans Azure
 
@@ -41,14 +41,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Surveiller l’application dans le portail Azure
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>configuration requise
 
 1. [Téléchargement et installation de Git](https://git-scm.com/)
 1. [Téléchargement et installation du JDK Java 7 ou version ultérieure](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Téléchargement, installation et démarrage de MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>Préparation du MySQL local 
 
@@ -126,7 +125,7 @@ Arrêtez l’application en appuyant sur `Ctrl`+`C` dans le terminal.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique où les ressources associées comme les applications web, les bases de données et les comptes de stockage sont déployées et gérées. 
+Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) avec la commande [`az group create`](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique où les ressources associées comme les applications web, les bases de données et les comptes de stockage sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé dans la région Europe du Nord :
 
@@ -134,12 +133,11 @@ L’exemple suivant crée un groupe de ressources nommé dans la région Europe 
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
-Pour connaître les valeurs que vous pouvez utiliser pour `--location`, utilisez la commande [az appservice list-locations](/cli/azure/appservice#list-locations).
+Pour connaître les valeurs possibles que vous pouvez utiliser pour `--location`, utilisez la commande [`az appservice list-locations`](/cli/azure/appservice#list-locations).
 
 ### <a name="create-a-mysql-server"></a>Création d’un serveur MySQL
 
-Dans Cloud Shell, créez un serveur Azure Database pour MySQL (préversion) avec la commande [az mysql server create](/cli/azure/mysql/server#create).    
-Indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé `<mysql_server_name>`. Ce nom fait partie du nom d’hôte de votre serveur MySQL, `<mysql_server_name>.mysql.database.azure.com`, et doit donc être globalement unique. Remplacez également `<admin_user>` et `<admin_password>` par vos propres valeurs.
+Dans Cloud Shell, créez un serveur dans Azure Database pour MySQL (préversion) avec la commande [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé `<mysql_server_name>`. Ce nom fait partie du nom d’hôte de votre serveur MySQL, `<mysql_server_name>.mysql.database.azure.com`, et doit donc être globalement unique. Remplacez également `<admin_user>` et `<admin_password>` par vos propres valeurs.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -163,7 +161,7 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
+Dans Cloud Shell, créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -205,7 +203,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Déployer l’exemple dans Azure App Service
 
-Créez un plan Azure App Service avec le niveau tarifaire **Gratuit** à l’aide de la commande d’interface de ligne de commande [az appservice plan create](/cli/azure/appservice/plan#create). Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
+Créez un plan Azure App Service avec le niveau tarifaire **GRATUIT** à l’aide de la commande CLI [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create). Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -231,7 +229,7 @@ Lorsque le plan est prêt, l’interface de ligne de commande Azure affiche une 
 
 ### <a name="create-an-azure-web-app"></a>Création d’une application web Azure
 
- Dans Cloud Shell, utilisez la commande d’interface de ligne de commande [az webapp create](/cli/azure/appservice/web#create) pour créer une définition d’application web dans le plan App Service `myAppServicePlan`. La définition d’application web fournit une URL pour accéder à votre application et permet de configurer plusieurs options pour déployer votre code dans Azure. 
+Dans Cloud Shell, utilisez la commande CLI [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) pour créer une définition d’application web dans le plan App Service `myAppServicePlan`. La définition d’application web fournit une URL pour accéder à votre application et permet de configurer plusieurs options pour déployer votre code dans Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -258,7 +256,7 @@ Une fois que la définition de l’application web est prête, l’interface de 
 
 ### <a name="configure-java"></a>Configurer Java 
 
-Dans Cloud Shell, définissez la configuration runtime Java dont votre application a besoin avec la commande [az appservice web config update](/cli/azure/appservice/web/config#update).
+Dans Cloud Shell, définissez la configuration runtime Java dont votre application a besoin avec la commande [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
 
 La commande suivante configure l’application web de manière à ce qu’elle s’exécute sur un JDK Java 8 récent et sur [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -270,7 +268,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Avant d’exécuter l’exemple d’application, définissez les paramètres de l’application sur l’application web pour utiliser la base de données Azure MySQL que vous avez créée dans Azure. Ces propriétés sont exposées à l’application web en tant que variables d’environnement et remplacent les valeurs définies dans les propriétés d’application dans l’application web empaquetée. 
 
-Dans Cloud Shell, définissez les paramètres d’application à l’aide de [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) dans l’interface de ligne de commande :
+Dans Cloud Shell, définissez les paramètres d’application avec la commande [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) dans l’interface CLI :
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -287,7 +285,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Obtention des informations d’identification de déploiement FTP 
 Vous pouvez déployer votre application dans Azure App Service de plusieurs façons, notamment FTP, Git local ainsi que GitHub, Visual Studio Team Services et BitBucket. Pour cet exemple, FTP pour déployer le fichier .WAR basé précédemment sur votre ordinateur local dans Azure App Service.
 
-Pour déterminer les informations d’identification à transmettre dans une commande ftp à l’application web, utilisez la commande [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles), dans Cloud Shell : 
+Pour déterminer les informations d’identification à transmettre dans une commande ftp à l’application web, utilisez la commande [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) dans Cloud Shell : 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -372,7 +370,7 @@ Mettez à jour l’application pour inclure une colonne supplémentaire dans la 
     repository.save(item);
     ```
 
-4. Ajoutez la prise en charge pour le nouveau champ dans le modèle Thymeleaf. Mettez à jour *src/main/resources/templates/index.html* avec un nouvel en-tête de table pour l’horodatage et un nouveau champ pour afficher la valeur de l’horodatage dans chaque ligne de données de table.
+4. Ajoutez la prise en charge pour le nouveau champ dans le modèle `Thymeleaf`. Mettez à jour *src/main/resources/templates/index.html* avec un nouvel en-tête de table pour l’horodatage et un nouveau champ pour afficher la valeur de l’horodatage dans chaque ligne de données de table.
 
     ```html
     <th>Name</th>
@@ -401,7 +399,7 @@ Lorsque vous actualisez l’application, une colonne **Heure de création** est 
 
 Pendant l’exécution de votre application Java dans Azure App Service, vous pouvez acheminer les journaux de la console directement vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
-Pour démarrer la diffusion de journaux, utilisez la commande [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) dans Cloud Shell.
+Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) dans Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 
@@ -409,17 +407,15 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Gérer votre application web Azure
 
-Accédez au portail Azure pour voir l’application web que vous avez créée.
+Accédez au [portail Azure](https://portal.azure.com) pour voir l’application web que vous avez créée.
 
-Pour ce faire, connectez-vous au portail : [https://portal.azure.com](https://portal.azure.com).
-
-Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application web Azure.
 
 ![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-Par défaut, le panneau de votre application web affiche la page **Présentation**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion (arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets figurant sur le côté gauche du panneau affichent les différentes pages de configuration que vous pouvez ouvrir.
+Par défaut, la page de votre application web affiche la page **Présentation**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion (arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
 
-![Panneau App Service sur le portail Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![Page App Service du Portail Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
 Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous pouvez ajouter à votre application web. La liste suivante fournit quelques exemples des possibilités :
 * Mapper un nom DNS personnalisé

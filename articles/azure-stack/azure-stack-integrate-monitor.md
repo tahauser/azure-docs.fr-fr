@@ -3,7 +3,7 @@ title: "Intégrer une solution de surveillance externe à Azure Stack | Microsof
 description: "Découvrez comment intégrer Azure Stack à une solution de surveillance externe dans votre centre de données."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de surveillance externe à Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Pour une surveillance externe de l’infrastructure Azure Stack, vous devez surveiller logiciels, ordinateurs physiques et commutateurs de réseau physique d’Azure Stack. Chacune de ces parties propose une méthode de récupération des informations d’intégrité et d’alerte.
 
@@ -76,7 +77,7 @@ Le plug-in fonctionne avec Nagios Enterprise et Nagios Core. Vous pouvez le tél
 
 Configurez le fichier du plug-in « Azurestack_plugin.py » avec les paramètres suivants :
 
-| Paramètre | Description | Exemple |
+| Paramètre | DESCRIPTION | exemples |
 |---------|---------|---------|
 | *arm_endpoint* | Point de terminaison Azure Resource Manager (administrateur) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Point de terminaison Azure Resource Manager (administrateur)  | https://adminmanagement.local.azurestack.external |
@@ -144,7 +145,7 @@ La requête obtient toutes les alertes actives et fermées pour l’abonnement d
 
 **Arguments**
 
-|Argument  |Description  |
+|Argument  |DESCRIPTION  |
 |---------|---------|
 |armendpoint     |  Point de terminaison Azure Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.      |
@@ -203,7 +204,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Détails de la réponse**
 
 
-|  Argument  |Description  |
+|  Argument  |DESCRIPTION  |
 |---------|---------|
 |*id*     |      ID unique de l’alerte.   |
 |*name*     |     Nom interne de l’alerte.   |
@@ -247,7 +248,7 @@ La requête ferme une alerte par son ID unique.
 **Arguments**
 
 
-|Argument  |Description  |
+|Argument  |DESCRIPTION  |
 |---------|---------|
 |*armendpoint*     |   Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.     |
@@ -346,7 +347,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 **Détails de la réponse**
 
 
-|  Argument  |Description  |
+|  Argument  |DESCRIPTION  |
 |---------|---------|
 |*id*     |      ID unique de l’alerte.   |
 |*name*     |     Nom interne de l’alerte.   |
@@ -392,7 +393,7 @@ La requête obtient l’état d’intégrité de tous les fournisseurs de ressou
 **Arguments**
 
 
-|Arguments  |Description  |
+|Arguments  |DESCRIPTION  |
 |---------|---------|
 |*armendpoint*     |    Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.    |
@@ -432,7 +433,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Détails de la réponse**
 
 
-|Argument  |Description  |
+|Argument  |DESCRIPTION  |
 |---------|---------|
 |*Id*     |   ID unique de l’alerte.      |
 |*name*     |  Nom interne de l’alerte.       |
@@ -461,7 +462,7 @@ La requête obtient l’état d’intégrité d’un fournisseur de ressources i
 
 **Arguments**
 
-|Arguments  |Description  |
+|Arguments  |DESCRIPTION  |
 |---------|---------|
 |*armendpoint*     |    Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.         |
@@ -500,7 +501,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 **Détails de la réponse**
 
-|Argument  |Description  |
+|Argument  |DESCRIPTION  |
 |---------|---------|
 |*Id*     |   ID unique de l’alerte.      |
 |*name*     |  Nom interne de l’alerte.       |
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI de la ressource.   |
 |*alertSummary*     |   Résumé des alertes critiques et d’avertissement, de l’état d’intégrité.     |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="learn-more"></a>En savoir plus
 
-- Pour plus d’informations sur la surveillance de l’intégrité intégrée, consultez [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md).
+Pour plus d’informations sur la surveillance de l’intégrité intégrée, consultez [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md).
 
 
+## <a name="next-steps"></a>étapes suivantes
+
+[Intégration de la sécurité](azure-stack-integrate-security.md)

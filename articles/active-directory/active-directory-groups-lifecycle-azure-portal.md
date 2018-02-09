@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configurer l’expiration des groupes Office 365 (préversion)
 
@@ -34,11 +34,21 @@ Vous pouvez désormais gérer le cycle de vie des groupes Office 365 en définis
 
 Pour plus d’informations sur le téléchargement et l’installation des applets de commande Azure AD PowerShell, consultez [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Rôles et autorisations
+Voici les rôles que vous pouvez configurer et utiliser à l’expiration de groupes Office 365 dans Azure AD.
+
+Rôle | Autorisations
+-------- | --------
+Administrateur général<br>Administrateur de compte utilisateur | Peut créer, lire, mettre à jour ou supprimer les paramètres de stratégie d’expiration de groupes Office 365
+Utilisateur | Peut renouveler un groupe Office 365 dont il est propriétaire<br>Peut restaurer un groupe Office 365 dont il est propriétaire
+
+Pour plus d’informations sur les autorisations nécessaires pour restaurer un groupe supprimé, consultez [Restaurer un groupe Office 365 supprimé](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Définir l’expiration d’un groupe
 
 1. Ouvrez le [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte qui est un administrateur général dans votre locataire Azure AD.
 
-2. Ouvrez Azure AD et sélectionnez **Utilisateurs et groupes**.
+2. Sélectionnez **Utilisateurs et groupes**.
 
 3. Sélectionnez **Paramètres de groupe**, puis **Expiration** pour ouvrir les paramètres d’expiration.
   
@@ -48,7 +58,7 @@ Pour plus d’informations sur le téléchargement et l’installation des apple
 
   * Définir la durée de vie du groupe en jours. Vous pouvez sélectionner l’une des valeurs prédéfinies ou une valeur personnalisée (31 jours ou plus). 
   * Spécifier une adresse de messagerie à laquelle les notifications de renouvellement et d’expiration doivent être envoyées lorsqu’un groupe n’a pas de propriétaire. 
-  * Sélectionnez les groupes Office 365 qui expirent. Vous pouvez activer l’expiration pour **tous** les groupes Office 365, vous pouvez sélectionner certains groupes Office 365, ou vous pouvez sélectionner **Aucun** pour désactiver l’expiration de tous les groupes.
+  * Sélectionnez les groupes Office 365 qui expirent. Vous pouvez activer l’expiration pour **tous** les groupes Office 365, vous pouvez choisir d’activer les groupes Office 365 **sélectionnés** uniquement, ou vous pouvez sélectionner **Aucun** pour désactiver l’expiration de tous les groupes.
   * Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 

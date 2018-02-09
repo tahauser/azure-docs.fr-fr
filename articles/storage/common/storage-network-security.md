@@ -1,5 +1,5 @@
 ---
-title: "Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion) | Microsoft Docs"
+title: "Configurer des pare-feu et des réseaux virtuels dans Stockage Azure | Microsoft Docs"
 description: "Configurez une sécurité réseau en couche pour votre compte de stockage."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feu et des réseaux virtuels dans Stockage Azure
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
 
-## <a name="preview-availability-and-support"></a>Disponibilité et prise en charge de la préversion
-La fonctionnalité Pare-feu et réseaux virtuels de stockage est en préversion.  Cette fonctionnalité est actuellement disponible pour les comptes de stockage nouveaux ou existants dans toutes les régions de cloud public Azure.
-
-> [!NOTE]
-> Les charges de travail de production ne sont pas prises en charge dans la préversion.
+> [!IMPORTANT]
+> L’activation de règles de pare-feu pour votre compte de stockage bloque l’accès aux requêtes entrantes pour les données, notamment celles provenant d’autres services Azure.  Cela inclut l’utilisation du portail, l’écriture de journaux, et ainsi de suite.  Pour les services participants, vous pouvez réactiver la fonctionnalité dans la section [Exceptions](#Exceptions) ci-dessous.  Pour accéder au portail, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
 >
 
 ## <a name="scenarios"></a>Scénarios
@@ -55,9 +52,6 @@ Par défaut, les comptes de stockage acceptent les connexions des clients sur n�
 
 #### <a name="azure-portal"></a>Portail Azure
 1. Accédez au compte de stockage que vous voulez sécuriser.  
-> [!NOTE]
-> Vérifiez que votre compte de stockage est dans l’une des régions prises en charge pour la préversion publique.
->
 
 2. Cliquez sur le menu de paramètres appelé **Pare-feu et réseaux virtuels**.
 3. Pour refuser l’accès par défaut, choisissez d’autoriser l’accès à partir de « Réseaux sélectionnés ».  Pour autoriser le trafic de tous les réseaux, choisissez d’autoriser l’accès à partir de « Tous les réseaux ».
@@ -295,7 +289,7 @@ Pour que ce type de service fonctionne comme prévu, vous pouvez autoriser l’e
 
 Quand l’exception « Services Microsoft approuvés » est activée, les services suivants (s’ils sont inscrits dans votre abonnement) ont accès au compte de stockage :
 
-|de diffusion en continu|Nom du fournisseur de ressources|Objectif|
+|Service|Nom du fournisseur de ressources|Objectif|
 |:------|:---------------------|:------|
 |Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact.  [Plus d’informations](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview)|
 |Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob.  [Plus d’informations](https://docs.microsoft.com/azure/event-grid/overview)|

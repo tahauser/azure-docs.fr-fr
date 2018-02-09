@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -53,7 +53,10 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous devez contacter le [support technique](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) pour déplacer les ressources vers un nouveau client.
+  Si les ID client pour les abonnements source et de destination ne sont pas identiques, utilisez les méthodes suivantes pour rapprocher les ID client : 
+
+  * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
+  * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Le service doit activer la possibilité de déplacer des ressources. Cet article répertorie les services permettant de déplacer des ressources et les services qui ne le permettent pas.
 3. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource.
@@ -93,7 +96,7 @@ Vous pouvez déplacer la plupart des ressources via les opérations en libre-ser
 
 Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) quand vous devez :
 
-* Déplacer vos ressources vers un nouveau compte Azure (et un locataire Azure Active Directory).
+* Déplacer vos ressources vers un nouveau compte Azure (et client Azure Active Directory) et que vous avez besoin d’aide concernant les instructions de la section précédente.
 * Déplacer des ressources classiques, mais que vous rencontrez des problèmes avec les limitations.
 
 ## <a name="services-that-enable-move"></a>Services permettant le déplacement
@@ -319,7 +322,7 @@ Pour déplacer une machine virtuelle inscrite dans la **sauvegarde Azure** entre
  1. Interrompre temporairement la sauvegarde et conserver les données de sauvegarde
  2. Déplacer la machine virtuelle vers le groupe de ressources cible
  3. Reprotégez-la sous le même coffre ou sous un nouveau coffre. Les utilisateurs peuvent effectuer des restaurations à partir des points de restauration créés avant le déplacement.
-Si l’utilisateur déplace la machine virtuelle sauvegardée entre des abonnements, les étapes 1 et 2 restent les mêmes. À l’étape 3, l’utilisateur doit protéger la machine virtuelle sous un nouveau coffre présent ou créé dans l’abonnement cible. Le coffre Recovery Services ne prend pas en charge les sauvegardes entre abonnements.
+Si l’utilisateur déplace la machine virtuelle sauvegardée entre des abonnements, les étapes 1 et 2 restent les mêmes. À l’étape 3, l’utilisateur doit protéger la machine virtuelle sous un nouveau coffre existant/créé dans l’abonnement cible. Le coffre Recovery Services ne prend pas en charge les sauvegardes lors du passage d’un abonnement à un autre.
 
 ## <a name="hdinsight-limitations"></a>Limitations de HDInsight
 

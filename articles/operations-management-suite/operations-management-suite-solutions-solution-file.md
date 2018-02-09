@@ -1,6 +1,6 @@
 ---
-title: "Création de solutions de gestion dans Operations Management Suite (OMS) | Microsoft Docs"
-description: "Les solutions de gestion étendent les fonctionnalités OMS (Operations Management Suite) en fournissant des scénarios de gestion empaquetés que les clients peuvent ajouter à leur espace de travail OMS.  Cet article fournit des informations sur la manière dont vous pouvez créer des solutions de gestion à utiliser dans votre propre environnement ou à mettre à la disposition de vos clients."
+title: "Création d’un fichier de solution de gestion dans Azure | Microsoft Docs"
+description: "Les solutions de gestion fournissent des scénarios de gestion empaquetée que les clients peuvent ajouter à leur environnement Azure.  Cet article fournit des informations sur la manière dont vous pouvez créer des solutions de gestion à utiliser dans votre propre environnement ou à mettre à la disposition de vos clients."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Création d’un fichier de solutions de gestion dans Operations Management Suite (OMS) (préversion)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
-> Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans OMS qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
+> Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans Azure qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
 
-Les solutions de gestion dans Operations Management Suite (OMS) sont implémentées en tant que [modèles Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
+Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
 
 
 ## <a name="tools"></a>Outils
@@ -53,7 +53,8 @@ La structure de base d’un fichier solution de gestion est identique à un [mod
 ## <a name="parameters"></a>parameters
 Les [Paramètres](../azure-resource-manager/resource-group-authoring-templates.md#parameters) sont des valeurs que l’utilisateur doit indiquer lorsqu’il installe la solution de gestion.  Il existe des paramètres standard compris dans toutes les solutions, et vous pouvez ajouter des paramètres supplémentaires en fonction des besoins spécifiques de votre solution.  La manière dont les utilisateurs fournissent des valeurs de paramètre lors de l’installation de la solution dépend du paramètre lui-même et de la façon dont la solution est installée.
 
-Lorsqu’un utilisateur installe votre solution de gestion par le biais de la [Place de marché Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions) ou des [modèles de démarrage rapide Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), il est invité à sélectionner un [espace de travail OMS et un compte Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Ils sont utilisés pour remplir les valeurs de chacun des paramètres standard.  L’utilisateur n’est pas invité à fournir directement des valeurs pour les paramètres standard, mais il est invité à fournir une valeur pour tout paramètre supplémentaire.
+Quand un utilisateur installe votre solution de gestion par le biais de la [Place de Marché Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions) ou des [modèles de démarrage rapide Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), il est invité à sélectionner un [espace de travail Log Analytics et un compte Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Ils sont utilisés pour remplir les valeurs de chacun des paramètres standard.  L’utilisateur n’est pas invité à fournir directement des valeurs pour les paramètres standard, mais il est invité à fournir une valeur pour tout paramètre supplémentaire.
+
 
 Lorsque l’utilisateur installe votre solution par le biais [d’une autre méthode](operations-management-suite-solutions.md#finding-and-installing-management-solutions), il doit fournir une valeur pour tous les paramètres standard et tous les paramètres supplémentaires.
 
@@ -168,8 +169,9 @@ Les [ressources](../azure-resource-manager/resource-group-authoring-templates.md
 ### <a name="dependencies"></a>Les dépendances
 L’élément **dependsOn** spécifie une [dépendance](../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis d’une autre ressource.  Lorsque la solution est installée, aucune ressource n’est créée tant que toutes ses dépendances n’ont pas été créées.  Par exemple, votre solution peut [démarrer un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) lorsqu’il est installé à l’aide d’une [ressource de tâche](operations-management-suite-solutions-resources-automation.md#automation-jobs).  La ressource de tâche dépend de la ressource de runbook pour garantir que le runbook est créé avant la tâche.
 
-### <a name="oms-workspace-and-automation-account"></a>Espace de travail OMS et compte Automation
-Les solutions de gestion nécessitent un [espace de travail OMS](../log-analytics/log-analytics-manage-access.md) qui contient des vues et un [compte Automation](../automation/automation-security-overview.md#automation-account-overview) qui contient les Runbooks et les ressources associées.  Ces éléments doivent être disponibles avant que les ressources de la solution soient créées et ne doivent pas être définis dans la solution elle-même.  L’utilisateur [spécifiera un espace de travail et un compte](operations-management-suite-solutions.md#oms-workspace-and-automation-account) lors du déploiement de la solution, mais l’auteur doit tenir compte des points suivants.
+### <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
+Les solutions de gestion nécessitent un [espace de travail Log Analytics](../log-analytics/log-analytics-manage-access.md) qui contient des vues et un [compte Automation](../automation/automation-security-overview.md#automation-account-overview) qui contient les Runbooks et les ressources associées.  Ces éléments doivent être disponibles avant que les ressources de la solution soient créées et ne doivent pas être définis dans la solution elle-même.  L’utilisateur [spécifiera un espace de travail et un compte](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) lors du déploiement de la solution, mais l’auteur doit tenir compte des points suivants.
+
 
 ## <a name="solution-resource"></a>Ressource de la solution
 Chaque solution nécessite une entrée de ressource dans l’élément **resources** qui définit la solution elle-même.  Cette entrée est de type **Microsoft.OperationsManagement/solutions** et a la structure suivante. Cela inclut les [paramètres standard](#parameters) et les [variables](#variables) qui sont généralement utilisés pour définir les propriétés de la solution.

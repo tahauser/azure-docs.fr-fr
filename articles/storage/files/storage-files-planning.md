@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour la production dans votre organisation.
@@ -64,7 +64,7 @@ Azure Files propose plusieurs options intégrées pour garantir la sécurité de
     * Les clients qui ne prennent pas en charge SMB 3.0 peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Notez que les clients ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
     * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
 * Chiffrement au repos ([Chiffrement du service de Stockage Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : nous sommes en train d’autoriser le chiffrement du service de stockage sur la plateforme de stockage Azure sous-jacente. Le chiffrement sera donc autorisé par défaut pour tous les comptes de stockage. Si vous créez un compte de stockage dans une région où le chiffrement est autorisé par défaut, vous n’avez pas à l’autoriser. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
-* Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, vous ne pouvez pas accéder aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées. 
+* Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, il refuse l’accès aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées. 
 
     > [!Important]  
     > Si vous demandez un transfert sécurisé des données, les anciens clients SMB qui ne sont pas capables de communiquer avec SMB 3.0 échouent. Consultez [Montage sur Windows](storage-how-to-use-files-windows.md), [Montage sur Linux](storage-how-to-use-files-linux.md), [Montage sur macOS](storage-how-to-use-files-mac.md) pour plus d’informations.
@@ -74,10 +74,13 @@ Pour une sécurité maximale, nous vous recommandons vivement de toujours active
 Si vous utilisez Azure File Sync pour accéder à votre partage de fichiers Azure, utilisez toujours HTTPS et SMB 3.0 avec chiffrement pour synchroniser vos données sur vos serveurs Windows Server, que vous ayez besoin ou non du chiffrement des données au repos.
 
 ## <a name="data-redundancy"></a>Redondance des données
-Azure Files prend en charge deux options de redondance des données : le stockage localement redondant (LRS) et le stockage géoredondant (GRS). Les sections suivantes décrivent les différences entre le stockage localement redondant et le stockage géoredondant :
+Azure Files prend en charge trois options de redondance des données : le stockage localement redondant (LRS), le stockage localement redondant (ZRS) et le stockage géoredondant (GRS). Les sections suivantes décrivent les différences entre les différentes options de redondance :
 
 ### <a name="locally-redundant-storage"></a>Stockage localement redondant
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Stockage redondant dans une zone
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Stockage géo-redondant
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
@@ -95,7 +98,7 @@ Il existe de nombreuses options pour facilement transférer en bloc les données
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** : AzCopy est un utilitaire de ligne de commande conçu pour copier avec des performances optimales des données vers et à partir d’Azure Files, ou de Stockage Blob Azure, en utilisant des commandes simples. AzCopy est disponible pour Windows et Linux.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)
 * [Déploiement d’Azure Files](storage-files-deployment-guide.md)
 * [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)

@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
-Le parcours des messages (ou « peeking ») permet à un client d’énumérer tous les messages résidant dans une file d’attente ou un abonnement, en général pour des besoins de diagnostic et de débogage.
+Le parcours des messages (ou « peeking ») permet à un client Service Bus d’énumérer tous les messages résidant dans une file d’attente ou un abonnement, en général pour des besoins de diagnostic et de débogage.
 
-Les opérations de peeking retournent tous les messages contenus dans le journal des messages de la file d’attente ou de l’abonnement, au lieu de retourner uniquement les messages disponibles pour acquisition immédiate avec *Receive()* ou la boucle *OnMessage()*. La propriété *State* de chaque message vous indique si le message est actif (prêt à être reçu), différé (voir Report [lien TBD]) ou planifié (voir Messages planifiés [lien TBD]).
+Les opérations de peeking retournent tous les messages contenus dans le journal des messages de la file d’attente ou de l’abonnement, au lieu de retourner uniquement les messages disponibles pour acquisition immédiate avec `Receive()` ou la boucle `OnMessage()`. La propriété `State` de chaque message vous indique si le message est actif (prêt à être reçu), [différé](message-deferral.md) ou [planifié](message-sequencing.md).
 
-Les messages consommés ou expirés sont nettoyés par un processus asynchrone de nettoyage de la mémoire (« garbage collection ») qui ne se produit pas toujours au moment même de leur expiration. Par conséquent, Peek peut retourner des messages qui ont déjà expiré et qui seront supprimés ou mis dans la file d’attente de lettres mortes au prochain appel d’une opération de réception sur la file d’attente ou l’abonnement.
+Les messages consommés ou expirés sont nettoyés par un processus asynchrone de nettoyage de la mémoire (« garbage collection ») qui ne se produit pas toujours au moment même de leur expiration. Par conséquent, `Peek` peut retourner des messages qui ont déjà expiré et qui seront supprimés ou mis dans la file d’attente de lettres mortes au prochain appel d’une opération de réception sur la file d’attente ou l’abonnement.
 
 C’est un point très important à prendre en compte lorsque vous tentez de récupérer des messages différés de la file d’attente. Un message dont l’instant [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) est passé n’est plus éligible pour la récupération normale par d’autres moyens, même quand il est retourné par Peek. Le retour de ces messages est délibéré, car Peek est un outil de diagnostic reflétant l’état actuel du journal.
 
@@ -41,9 +41,9 @@ Quand elle est appelée à plusieurs reprises, la méthode Peek énumère tous l
 
 Vous pouvez également amorcer une surcharge de la méthode en définissant un [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) de démarrage, puis appeler la surcharge de la méthode sans paramètre pour continuer l’énumération. **PeekBatch** fonctionne de façon équivalente, mais récupère tout un ensemble de messages à la fois.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes :
+Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)

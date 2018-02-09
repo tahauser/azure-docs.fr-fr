@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considérations relatives aux machines virtuelles dans Azure Stack
 
@@ -59,9 +59,7 @@ Les tailles de machine virtuelle et les quantités de ressources associées sont
 
 ## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
 
- Azure Stack prend en charge les versions d’extension de machine virtuelle suivantes :
-
-![Extensions de machine virtuelle](media/azure-stack-vm-considerations/vm-extensions.png)
+ Azure Stack inclut un petit ensemble d’extensions. Des mises à jour et des extensions supplémentaires sont disponibles par le biais de la syndication de Place de marché.
 
 Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 

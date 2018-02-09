@@ -10,17 +10,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 04efb82addd0f307c68c73e28e46b602e5bc194a
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.date: 01/24/2018
+ms.author: mbullwin; daviste
+ms.openlocfilehash: 1a5380cac08ab32cfea4cf457aed1fb1510099ed
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse des utilisateurs, des sessions et des événements dans Application Insights
 
-Découvrez quand des personnes utilisent votre application web, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, les navigateurs et les systèmes d’exploitation qu’ils utilisent. Analysez les données de télémétrie d’utilisation et d’activité à l’aide d’[Azure Application Insights](app-insights-overview.md).
+Découvrez quand des personnes utilisent votre application web, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, ainsi que les navigateurs et les systèmes d’exploitation qu’ils utilisent. Analysez les données de télémétrie d’utilisation et d’activité à l’aide d’[Azure Application Insights](app-insights-overview.md).
+
+![Capture d’écran des utilisateurs d’Application Insights](./media/app-insights-usage-segmentation/0001-users.png)
 
 ## <a name="get-started"></a>Prise en main
 
@@ -36,35 +38,30 @@ Trois des panneaux d’utilisation exploitent le même outil pour segmenter et t
 
     Un événement personnalisé représente une occurrence de quelque chose qui se produit dans votre application, souvent une interaction utilisateur, comme un clic sur un bouton ou l’achèvement d’une tâche. Vous insérez le code dans votre application pour [générer des événements personnalisés](app-insights-api-custom-events-metrics.md#trackevent).
 
-![Outil d’utilisation](./media/app-insights-usage-segmentation/users.png)
+## <a name="querying-for-certain-users"></a>Interrogation de certains utilisateurs
 
-## <a name="querying-for-certain-users"></a>Interrogation de certains utilisateurs 
+Explorez les différents groupes d’utilisateurs en ajustant les options d’interrogation en haut de l’outil Utilisateurs :
 
-Explorez les différents groupes d’utilisateurs en ajustant les options d’interrogation en haut de l’outil Utilisateurs : 
-
-* Qui a utilisé : choisissez les événements personnalisés et les affichages de pages. 
-* Pendant : choisissez un intervalle de temps. 
-* Par : choisissez comment compartimenter les données, soit par période temporelle, soit par une autre propriété telle que le navigateur ou la ville. 
+* Afficher : choisissez une cohorte d’utilisateurs à analyser.
+* Qui a utilisé : choisissez les événements personnalisés et les affichages de pages.
+* Pendant : choisissez un intervalle de temps.
+* Par : choisissez comment compartimenter les données, soit par période temporelle, soit par une autre propriété telle que le navigateur ou la ville.
 * Fractionner par : choisissez une propriété selon laquelle fractionner ou segmenter les données. 
 * Ajouter des filtres : limitez la requête à certains utilisateurs, certaines sessions ou certains événements en fonction de leurs propriétés, telles que le navigateur ou la ville. 
  
 ## <a name="saving-and-sharing-reports"></a>Enregistrement et partage de rapports 
-Vous pouvez enregistrer des rapports d’utilisateurs, privés (uniquement pour vous) dans la section Mes rapports, ou partagés avec tout le monde, avec un accès à cette ressource Application Insights dans la section Rapports partagés.  
- 
-Lors de l’enregistrement d’un rapport ou de la modification de ses propriétés, choisissez « Current Relative Time Range » (Intervalle de temps relatif actuel) pour enregistrer un rapport avec des données actualisées en permanence, jusqu’à un instant donné.  
- 
-Choisissez « Current Absolute Time Range » (Intervalle de temps absolu actuel) pour enregistrer un rapport avec un ensemble fixe de données. N’oubliez pas que les données d’Application Insights sont uniquement stockées pendant 90 jours. Si plus de 90 jours se sont écoulés depuis l’enregistrement d’un rapport avec un intervalle de temps absolu, le rapport apparaîtra vide. 
- 
-## <a name="example-instances"></a>Exemples d’instances
+Vous pouvez enregistrer des rapports d’utilisateurs, privés (uniquement pour vous) dans la section Mes rapports, ou partagés avec tout le monde, avec un accès à cette ressource Application Insights dans la section Rapports partagés.
 
-La section Exemples d’instances affiche des informations sur un certain nombre d’utilisateurs, de sessions ou d’événements individuels qui correspondent à la requête actuelle. La prise en compte et l’analyse des comportements des personnes, en plus des agrégats, fournissent des informations sur la façon dont les personnes utilisent réellement votre application. 
- 
-## <a name="insights"></a>Insights 
+Pour partager un lien vers un rapport des utilisateurs, des sessions ou des événements ; cliquez sur **Partager** dans la barre d’outils, puis copiez le lien.
 
-La barre latérale Insights regroupe des clusters volumineux d’utilisateurs qui partagent des propriétés communes. Ces clusters peuvent révéler des tendances surprenantes sur la manière dont les personnes utilisent votre application. Par exemple, 40 % de l’utilisation globale de votre application provient de personnes utilisant une fonctionnalité unique.  
+Pour partager une copie des données dans un rapport des utilisateurs, des sessions ou des événements ; cliquez sur **Partager** dans la barre d’outils, puis cliquez sur l’**icône Word** pour créer un document Word avec les données. Ou cliquez sur l’**icône Word** au-dessus du graphique principal.
 
+## <a name="meet-your-users"></a>Découvrir vos utilisateurs
 
-## <a name="next-steps"></a>Étapes suivantes
+La section **Meet your users** (Découvrir vos utilisateurs) fournit des informations sur cinq exemples d’utilisateurs mis en correspondance par la requête actuelle. La prise en compte et l’analyse des comportements des personnes, en plus des agrégats, fournissent des informations sur la façon dont les personnes utilisent réellement votre application.
+
+## <a name="next-steps"></a>étapes suivantes
+
 - Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.
     - [Entonnoirs](usage-funnels.md)
@@ -72,4 +69,3 @@ La barre latérale Insights regroupe des clusters volumineux d’utilisateurs qu
     - [Flux d’utilisateurs](app-insights-usage-flows.md)
     - [Classeurs](app-insights-usage-workbooks.md)
     - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
-
