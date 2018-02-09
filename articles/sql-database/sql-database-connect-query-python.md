@@ -15,17 +15,17 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/09/2017
 ms.author: carlrab
-ms.openlocfilehash: f7496c7b78449d5ceae861dc0daac607acdb1f84
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bb3396c95d884f0ad90e2d1c07209fecd87ece15
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Utilisation de Python pour interroger une base de données SQL Azure
 
- Ce didacticiel de démarrage rapide montre comment utiliser [Python](https://python.org) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
+ Ce didacticiel de démarrage rapide montre comment utiliser [Python](https://python.org) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données. Pour plus d’informations de Kit de développement logiciel (SDK), consultez notre documentation de [référence](https://docs.microsoft.com/python/api/overview/azure/sql), un [exemple](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) pyodbc et le référentiel GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
@@ -65,7 +65,7 @@ while row:
     row = cursor.fetchone()
 ```
 
-## <a name="run-the-code"></a>Exécution du code
+## <a name="run-the-code"></a>Exécuter le code
 
 1. Exécutez ensuite les commandes suivantes dans l’invite de commandes :
 
@@ -75,7 +75,7 @@ while row:
 
 2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
 - [Python SQL Driver](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) (Pilote SQL Python)

@@ -1,6 +1,6 @@
 ---
-title: "Script automatisé permettant de créer l’application web Service Manager pour se connecter au connecteur de gestion des services informatiques dans OMS | Microsoft Docs"
-description: "Créez une application web Service Manager à l’aide d’un script automatisé pour vous connecter au connecteur de gestion des services informatiques dans OMS, et pour surveiller et gérer centralement les éléments de travail ITSM."
+title: "Script automatisé permettant de créer l’application web Service Manager pour se connecter au connecteur ITSM dans Azure | Microsoft Docs"
+description: "Créez une application web Service Manager à l’aide d’un script automatisé pour vous connecter au connecteur de gestion des services informatiques (ITSM) dans Azure, et pour surveiller et gérer les éléments de travail ITSM de manière centralisée."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Créer l’application web Service Manager en utilisant le script automatisé (préversion)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 
 Utilisez le script suivant pour créer l’application web pour votre instance Service Manager. Informations supplémentaires sur la connexion à Service Manager : [application web Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -28,7 +28,7 @@ Exécutez le script en fournissant les informations obligatoires suivantes :
 
 - Détails de l’abonnement Azure
 - Nom de groupe ressources
-- Emplacement
+- Lieu
 - Détails du serveur Service Manager (nom du serveur, domaine, nom d’utilisateur et mot de passe)
 - Préfixe de nom de site pour votre application Web
 - Espace de noms ServiceBus.
@@ -37,7 +37,7 @@ Le script va créer l’application web en utilisant le nom que vous avez spéci
 
 Enregistrez ces valeurs. Vous en aurez besoin lorsque vous créez une connexion avec le connecteur de gestion des services informatiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
  Windows Management Framework 5.0 ou version ultérieure.
 Par défaut, Windows 10 a la version 5.1. Vous pouvez télécharger l’infrastructure [ici](https://www.microsoft.com/download/details.aspx?id=53347) :
@@ -318,5 +318,5 @@ if(!$err)
 }
 
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Configurez la connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

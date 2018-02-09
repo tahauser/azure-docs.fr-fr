@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
@@ -96,11 +96,11 @@ Les rubriques de référence suivantes vous fournissent des informations supplé
 
 ## <a name="file-upload-notifications"></a>Notifications de téléchargement de fichier
 
-Éventuellement, lorsqu’un appareil informe IoT Hub de la fin d’un chargement, IoT Hub peut générer un message de notification contenant le nom et l’emplacement de stockage du fichier.
+Lorsqu’un appareil informe IoT Hub de la fin d’un chargement, IoT Hub peut éventuellement générer un message de notification contenant le nom et l’emplacement de stockage du fichier.
 
 Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des notifications de chargement de fichiers sous la forme de messages par le biais d’un point de terminaison côté service (**/messages/servicebound/fileuploadnotifications**). La sémantique de réception des notifications de chargement de fichiers est identique à celle des messages cloud-à-appareil et présente le même [cycle de vie des messages][lnk-lifecycle]. Chaque message récupéré à partir du point de terminaison de notification de téléchargement de fichier est un enregistrement JSON qui possède les propriétés suivantes :
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
 | EnqueuedTimeUtc |Horodatage indiquant la date et l’heure de création de la notification. |
 | deviceId |**DeviceId** de l’appareil qui a téléchargé le fichier. |
@@ -126,7 +126,7 @@ Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fo
 
 Chaque IoT Hub expose les options de configuration suivantes pour les notifications de téléchargement de fichier :
 
-| Propriété | Description | Plage et valeur par défaut |
+| Propriété | DESCRIPTION | Plage et valeur par défaut |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Indique si les notifications de téléchargement de fichier sont écrites dans le point de terminaison de notification de fichier. |Valeur booléenne. Par défaut : True. |
 | **fileNotifications.ttlAsIso8601** |Durée de vie par défaut des notifications de téléchargement de fichier. |Intervalle ISO_8601 jusqu’à 48h (minimum 1 minute). Par défaut : 1 heure. |
@@ -143,7 +143,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 À présent que vous savez comment télécharger des fichiers depuis des appareils avec IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT :
 
@@ -153,7 +153,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * [Appeler une méthode directe sur un appareil][lnk-devguide-directmethods]
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]
 
-Si vous souhaitez tenter de mettre en pratique certains des concepts décrits dans cet article, vous serez peut-être intéressé par le didacticiel IoT Hub suivant :
+Pour mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
 
 * [Charger des fichiers à partir d’appareils vers le cloud avec IoT Hub][lnk-fileupload-tutorial]
 

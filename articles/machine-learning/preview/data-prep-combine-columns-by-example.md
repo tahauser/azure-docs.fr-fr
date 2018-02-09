@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformation Combiner des colonnes par exemple
 Cette transformation permet à l’utilisateur d’ajouter une nouvelle colonne en combinant les valeurs de plusieurs colonnes. L’utilisateur peut spécifier un séparateur ou fournir des exemples de valeurs combinées pour effectuer cette transformation. Quand l’utilisateur fournit des exemples de combinaison, la transformation est gérée par le même moteur **Par exemple** que celui utilisé avec la transformation **Dériver des colonnes par exemple**.
@@ -37,6 +37,10 @@ La sélection de **Separator** (Séparateur) sous **Combine Columns by** (Combin
 La sélection de **Examples** sous **Combine Columns by** (Combiner les colonnes par) permet à l’utilisateur de fournir des exemples de valeurs combinées. Pour promouvoir une ligne en exemple, double-cliquez dessus dans la grille. Tapez la sortie attendue dans la zone de texte associée à la ligne promue. Appuyez sur la touche Tab pour sortir de la zone de texte **Separator** et afficher un aperçu des résultats dans la grille de données. Appuyez sur **OK** pour valider la transformation. 
 
 L’utilisateur peut basculer entre le **Mode de base** et le **Mode avancé** en cliquant sur les liens dans l’Éditeur de transformation.
+
+### <a name="transform-editor-send-feedback"></a>Éditeur de transformation : envoyer des commentaires
+
+Cliquez sur le lien **Envoyer des commentaires** pour ouvrir la boîte de dialogue **Commentaires** dans laquelle la zone de commentaires est préremplie avec les exemples fournis par l’utilisateur. L’utilisateur doit vérifier le contenu de la zone de commentaires et fournir plus de détails pour nous aider à comprendre le problème. Si l’utilisateur ne souhaite pas partager de données avec Microsoft, il doit supprimer les données d’exemple préremplies avant de cliquer sur le bouton **Envoyer des commentaires**. 
 
 ### <a name="editing-existing-transformation"></a>Modification d’une transformation existante
 

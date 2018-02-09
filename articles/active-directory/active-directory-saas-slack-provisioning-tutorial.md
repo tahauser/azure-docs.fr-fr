@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configuration de Slack pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Didacticiel : configurer Slack pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Slack."
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Slack pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Didacticiel : configurer Slack pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Slack et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Slack. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -81,7 +81,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD 
 
 8) Entrez l’adresse de messagerie d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **Adresse électronique de notification**, puis cochez la case se trouvant en dessous.
 
-9) Cliquez sur **Save**. 
+9) Cliquez sur **Enregistrer**. 
 
 10) Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Slack**.
 
@@ -89,7 +89,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD 
 
 12) Pour activer le service d’approvisionnement Azure AD pour Slack, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**
 
-13) Cliquez sur **Save**. 
+13) Cliquez sur **Enregistrer**. 
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou groupes affectés à Slack dans la section Utilisateurs et Groupes. Notez que la synchronisation initiale prendra plus de temps que les synchronisations suivantes, qui se produisent toutes les 10 minutes environ, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application Slack.
 
@@ -105,7 +105,7 @@ Si vous le souhaitez, vous pouvez activer l’approvisionnement des objets de gr
 
 3) Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui seront synchronisés d’Azure AD vers Slack. Notez que les attributs sélectionnés en tant que propriétés de **Correspondance** seront utilisés pour faire correspondre les groupes dans Slack pour les opérations de mise à jour. 
 
-4) Cliquez sur **Save**.
+4) Cliquez sur **Enregistrer**.
 
 Ainsi, les objets de groupe affectés à Slack dans la section **Utilisateurs et groupes** seront entièrement synchronisés d’Azure AD vers Slack. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application Slack.
 

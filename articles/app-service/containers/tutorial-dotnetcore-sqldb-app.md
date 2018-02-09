@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 804294e91375e0fb5b11190ae969710bbd4c15b1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux
+
+> [!NOTE]
+> Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer vers App Service sur _Windows_, voir [Créer une application web .NET Core et SQL Database dans Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
+>
 
 [App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans App Service sur Linux.
 
@@ -37,14 +41,14 @@ Vous apprendrez à :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gérer l’application dans le portail Azure
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
 1. [Installez Git](https://git-scm.com/)
 1. [Installez .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-local-net-core-app"></a>Création de l’application .NET Core locale
 
@@ -93,7 +97,7 @@ Pour l’instance SQL Database, ce didacticiel utilise [Azure SQL Database](/azu
 
 ### <a name="create-a-sql-database-logical-server"></a>Créer un serveur logique SQL Database
 
-Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
+Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
 Remplacez l’espace réservé *\<server_name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server_name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez  *\<db_username>* et  *\<db_password>* par le nom d’utilisateur et le mot de passe de votre choix. 
 
@@ -124,7 +128,7 @@ Lorsque le serveur logique SQL Database est créé, l’interface Azure CLI aff
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurer une règle de pare-feu du serveur
 
-Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) avec la commande [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
+Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) avec la commande [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Créer une base de données
 
-Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +170,7 @@ Dans cette étape, vous déployez votre application .NET Core connectée à SQL 
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
-Pour définir les chaînes de connexion de votre application Azure, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Dans la commande suivante, remplacez *\<app name>* ainsi que le paramètre *\<connection_string>* par la chaîne de connexion que vous avez créée précédemment.
+Pour définir les chaînes de connexion de votre application Azure, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Dans la commande suivante, remplacez *\<app name>* ainsi que le paramètre *\<connection_string>* par la chaîne de connexion que vous avez créée précédemment.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

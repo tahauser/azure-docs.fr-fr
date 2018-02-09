@@ -4,20 +4,20 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Didacticiel : intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO
 
@@ -27,11 +27,11 @@ L’intégration du logiciel Veritas Enterprise Vault.cloud SSO à Azure AD vous
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Veritas Enterprise Vault.cloud SSO
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Veritas Enterprise Vault.cloud SSO (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD à Veritas Enterprise Vault.cloud SSO, vous avez besoin des éléments suivants :
 
@@ -47,7 +47,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Veritas Enterprise SSO Vault.cloud à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +63,11 @@ Pour configurer son intégration à Azure AD, vous devez ajouter Veritas Enterpr
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **Veritas Enterprise Vault.cloud SSO**.
 
@@ -89,7 +89,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Veritas Ente
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Veritas Enterprise Vault.cloud SSO](#creating-a-veritas-enterprise-vaultcloud-sso-test-user)** pour avoir un équivalent de Britta Simon dans Veritas Enterprise Vault.cloud SSO, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,32 +100,48 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Veritas Enterprise Vault.cloud SSO**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_samlbase.png)
 
 3. Dans la section **Domaine et URL Veritas Enterprise Vault.cloud SSO**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. Dans la zone de texte **Identificateur**, utilisez l’URL du Centre de données.
+
+    | Centre de données| URL |
+    |----------|----|
+    | Amérique du Nord| `https://auth.lax.archivecloud.net` |
+    | Europe | `https://auth.ams.archivecloud.net` |
+    | Asie-Pacifique| `https://auth.syd.archivecloud.net`|
+
+    c. Dans la zone de texte **URL de réponse**, utilisez l’URL du Centre de données.
+
+    | Centre de données| URL |
+    |----------|----|
+    | Amérique du Nord| `https://auth.lax.archivecloud.net` |
+    | Europe | `https://auth.ams.archivecloud.net` |
+    | Asie-Pacifique| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Contactez l’[équipe de support Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html) pour obtenir cette valeur. 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez l’[équipe de support Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html) pour obtenir cette valeur. 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-veritas-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Veritas Enterprise Vault.cloud SSO**, cliquez sur **Configurer Veritas Enterprise Vault.cloud SSO** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Veritas Enterprise Vault.cloud SSO**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’URL du service d’authentification unique SAML** à [l’équipe de support technique Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html).
 
@@ -162,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-veritas-enterprise-vaultcloud-sso-test-user"></a>Création d’un utilisateur de test Veritas Enterprise Vault.cloud SSO
 
@@ -182,7 +198,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Veritas Enterprise Vault.cloud SSO**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

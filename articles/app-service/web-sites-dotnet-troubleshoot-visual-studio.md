@@ -3,8 +3,8 @@ title: "Dépanner une application web dans le Service d’application Microsoft
 description: "Découvrez comment dépanner une application web Microsoft Azure via des outils de journalisation, de suivi et de débogage distants intégrés dans Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
 ## <a name="overview"></a>Vue d'ensemble
@@ -89,7 +89,7 @@ En général, vous déployez un projet Web avec l’indicateur `customErrors` d
 
 ![Page d’erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Généralement, la méthode la plus simple pour rechercher la cause d’une erreur consiste à activer les messages d’erreur détaillés : la première capture d’écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet et redéployer ce dernier, ou vous pouvez créer une [transformation Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) et déployer un build de débogage, mais la solution la plus rapide est la suivante : dans **l’Explorateur de solutions**, vous pouvez afficher et modifier directement les fichiers dans l’application web distante à l’aide de la fonctionnalité *d’affichage distant*.
+Généralement, la méthode la plus simple pour rechercher la cause d’une erreur consiste à activer les messages d’erreur détaillés : la première capture d’écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet et redéployer ce dernier, ou vous pouvez créer une [transformation Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) et déployer une build de débogage, mais la solution la plus rapide est la suivante : dans **l’Explorateur de solutions**, vous pouvez afficher et modifier directement les fichiers dans l’application web distante à l’aide de la fonctionnalité *d’affichage distant*.
 
 1. Dans l’**Explorateur de serveurs**, développez l’élément **Azure**, **Service d’applications**, puis le groupe de ressources où se trouve votre application web et développez le nœud de votre application web.
 
@@ -117,9 +117,9 @@ Si le message d'erreur détaillé ne fournit pas assez d'informations et que vou
 
 Le débogage à distance ne fonctionne pas avec les éditions Express de Visual Studio.
 
-Cette section illustre comment déboguer à distance à l’aide du projet que vous créez dans [Créer une application web ASP.NET dans Azure][app-service-web-get-started-dotnet.md].
+Cette section illustre comment déboguer à distance à l’aide du projet que vous créez dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md).
 
-1. Ouvrez le projet web que vous avez créé dans [Créer une application web ASP.NET dans Azure][app-service-web-get-started-dotnet.md].
+1. Ouvrez le projet web que vous avez créé dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md).
 
 2. Ouvrez *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Cette section illustre comment déboguer à distance à l’aide du projet que v
 
 5. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
-6. Dans la liste déroulante **Profil**, sélectionnez le même profil que celui utilisé dans [Créer une application web ASP.NET dans Azure][app-service-web-get-started-dotnet.md]. Puis, cliquez sur Paramètres.
+6. Dans la liste déroulante **Profil**, sélectionnez le même profil que celui utilisé dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md). Puis, cliquez sur Paramètres.
 
 7. Dans la boîte de dialogue **Publier**, cliquez sur l’onglet **Paramètres** et remplacez **Configuration** par **Déboguer**, puis cliquez sur **Enregistrer**.
 

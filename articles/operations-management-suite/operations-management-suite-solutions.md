@@ -1,6 +1,6 @@
 ---
-title: "Solutions d’Operations Management Suite (OMS) | Microsoft Docs"
-description: "Les solutions étendent les fonctionnalités OMS (Operations Management Suite) en fournissant des scénarios de gestion empaquetés que les clients peuvent ajouter à leur espace de travail OMS.  Cet article explique comment les solutions personnalisées sont créées par les clients et partenaires."
+title: Solutions de gestion Azure | Microsoft Docs
+description: "Les solutions de gestion incluent des scénarios de gestion prêts à l’emploi dans Azure que les clients peuvent ajouter à leur espace de travail Log Analytics.  Cet article explique comment les solutions personnalisées sont créées par les clients et partenaires."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,34 +15,34 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>Utilisation de solutions de gestion dans Operations Management Suite (OMS) (préversion)
+# <a name="working-with-management-solutions-in-azure-preview"></a>Utilisation des solutions de gestion Azure (préversion)
 > [!NOTE]
-> Il s’agit d’une documentation préliminaire des solutions de gestion d’OMS qui sont actuellement en version préliminaire.    
+> Il s’agit d’une documentation préliminaire des solutions de gestion dans Azure qui sont actuellement en préversion.    
 > 
 > 
 
-Les solutions de gestion étendent les fonctionnalités d’Operations Management Suite (OMS) en offrant des scénarios de gestion empaquetés que les clients peuvent ajouter à leur environnement.  En plus des [solutions proposées par Microsoft](../log-analytics/log-analytics-add-solutions.md), les partenaires et les clients peuvent créer des solutions de gestion utilisables dans leur propre environnement ou mises à la disposition des clients par le biais de la communauté.
+Les solutions de gestion incluent des scénarios de gestion prêts à l’emploi que les clients peuvent ajouter à leur environnement Azure.  En plus des [solutions proposées par Microsoft](../log-analytics/log-analytics-add-solutions.md), les partenaires et les clients peuvent créer des solutions de gestion utilisables dans leur propre environnement ou mises à la disposition des clients par le biais de la communauté.
 
 ## <a name="finding-and-installing-management-solutions"></a>Recherche et installation de solutions de gestion
 Il existe plusieurs méthodes de localisation et d’installation de solutions de gestion, qui sont décrites dans les sections suivantes.
 
-### <a name="azure-marketplace"></a>Azure Marketplace
+### <a name="azure-marketplace"></a>Place de marché Azure
 Les solutions de gestion fournies par Microsoft et les partenaires approuvés peuvent être installées à partir de la Place de marché Azure, dans le Portail Azure.
 
 1. Connectez-vous au portail Azure.
-2. Dans le volet gauche, sélectionnez **Plus de services**.
+2. Dans le volet gauche, sélectionnez **Autres services**.
 3. Faites défiler la liste jusqu’à **Solutions**, ou bien tapez *solutions* dans la boîte de dialogue **Filtre**.
 4. Cliquez sur le bouton **+ Ajouter** .
 5. Recherchez les solutions qui vous intéressent en parcourant la liste, en cliquant sur le bouton **Filtre**, ou encore en tapant dans la boîte **Rechercher partout**.
 6. Cliquez sur un élément de la Place de marché pour afficher ses informations détaillées.
 7. Cliquez sur **Créer** pour ouvrir le volet **Ajouter une solution**.
-8. Vous êtes invité à entrer les informations requises, notamment [l’espace de travail OMS et le compte Automation](#oms-workspace-and-automation-account), en plus des valeurs des paramètres de la solution.
+8. Vous êtes invité à entrer les informations requises, notamment [l’espace de travail Log Analytics et le compte Automation](#log-analytics-workspace-and-automation-account), en plus des valeurs des paramètres de la solution.
 9. Cliquez sur **Créer** pour installer la solution.
 
 ### <a name="oms-portal"></a>Portail OMS
@@ -50,14 +50,14 @@ Les solutions de gestion fournies par Microsoft peuvent être installées à par
 
 1. Connectez-vous au portail OMS.
 2. Cliquez sur la vignette **Galerie de solutions**.
-3. Vous pouvez en savoir plus sur chaque solution disponible en consultant la page Galerie des solutions d'OMS. Cliquez sur le nom de la solution que vous souhaitez ajouter à OMS.
+3. Vous pouvez en savoir plus sur chaque solution disponible en consultant la page Galerie des solutions d'OMS. Cliquez sur le nom de la solution que vous souhaitez ajouter.
 4. Des informations détaillées sur la solution que vous avez choisie s'affichent dans la page de la solution en question. Cliquez sur **Add**.
-5. Une nouvelle vignette représentant la solution que vous avez ajoutée apparaît dans la page d'aperçu dans OMS. Vous pouvez commencer à l'utiliser une fois que le service OMS a traité vos données.
+5. Une nouvelle vignette représentant la solution que vous avez ajoutée apparaît dans la page d’aperçu dans le portail. Vous pouvez commencer à l’utiliser une fois que Log Analytics a traité vos données.
 
 ### <a name="azure-quickstart-templates"></a>Modèles de démarrage rapide Microsoft Azure
 Les membres de la communauté peuvent soumettre des solutions de gestion aux modèles de démarrage rapide Azure.  Vous pouvez télécharger ces modèles pour une installation ultérieure ou les inspecter pour apprendre à [créer vos propres solutions](#creating-a-solution).
 
-1. Suivez la procédure décrite dans [Espace de travail OMS et compte Automation](#oms-workspace-and-automation-account) pour lier un compte et un espace de travail.
+1. Suivez la procédure décrite dans [Espace de travail Log Analytics et compte Automation](#log-analytics-workspace-and-automation-account) pour lier un compte et un espace de travail.
 2. Accédez à [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).  
 3. Recherchez une solution qui vous intéresse.
 4. Sélectionnez la solution dans les résultats pour en afficher les détails.
@@ -66,29 +66,27 @@ Les membres de la communauté peuvent soumettre des solutions de gestion aux mod
 7. Cliquez sur **Achat** pour installer la solution.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Déployer un modèle Azure Resource Manager
-Les solutions que vous obtenez dans la communauté ou que vous [créez vous-même](#creating-a-solution) sont implémentées comme modèle Resource Manager ; vous pouvez utiliser toutes les méthodes standards de [déploiement d’un modèle](../azure-resource-manager/resource-group-template-deploy-portal.md).  Notez que vous devez créer et lier [l’espace de travail OMS et le compte Automation](#oms-workspace-and-automation-account) avant d’installer la solution.
+Les solutions que vous obtenez dans la communauté ou que vous [créez vous-même](#creating-a-solution) sont implémentées comme modèle Resource Manager ; vous pouvez utiliser toutes les méthodes standards de [déploiement d’un modèle](../azure-resource-manager/resource-group-template-deploy-portal.md).  Notez que vous devez créer et lier [l’espace de travail Log Analytics et le compte Automation](#log-analytics-workspace-and-automation-account) avant d’installer la solution.
 
-## <a name="oms-workspace-and-automation-account"></a>Espace de travail OMS et compte Automation
-La plupart des solutions de gestion nécessitent un [espace de travail OMS](../log-analytics/log-analytics-manage-access.md) qui contient les vues et un [compte Automation](../automation/automation-security-overview.md#automation-account-overview) qui contient les Runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
+## <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
+La plupart des solutions de gestion nécessitent un [espace de travail Log Analytics](../log-analytics/log-analytics-manage-access.md) avec des vues et un [compte Automation](../automation/automation-security-overview.md#automation-account-overview) contenant les runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
 
-* Une solution ne peut utiliser qu’un seul espace de travail OMS et un seul compte Automation.  
-* L’espace de travail OMS et le compte Automation utilisés par une solution doivent être liés l’un à l’autre. Un espace de travail OMS ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail OMS.
-* Pour être liés, l’espace de travail OMS et le compte Automation doivent se trouver dans le même groupe de ressources et la même région.  La configuration suivante fait figure d’exception : un espace de travail OMS dans la région États-Unis de l’Est et un compte Automation dans États-Unis de l’Est 2 .
+* Une solution ne peut utiliser qu’un seul espace de travail Log Analytics et un seul compte Automation.  
+* L’espace de travail Log Analytics et le compte Automation utilisés par une solution doivent être liés l’un à l’autre. Un espace de travail Log Analytics ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail Log Analytics.
+* Pour être liés, l’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même groupe de ressources et la même région.  La configuration suivante fait figure d’exception : un espace de travail Log Analytics dans la région États-Unis de l’Est et un compte Automation dans États-Unis de l’Est 2.
 
-### <a name="creating-a-link-between-an-oms-workspace-and-automation-account"></a>Création d’un lien entre un espace de travail OMS et un compte Automation
-Le mode de spécification de l’espace de travail OMS et du compte Automation dépend de la méthode d’installation de votre solution.
+### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Création d’un lien entre un espace de travail Log Analytics et un compte Automation
+Le mode de spécification de l’espace de travail Log Analytics et du compte Automation dépend de la méthode d’installation de votre solution.
 
-* Lorsque vous installez une solution Microsoft avec le portail OMS, elle est installée dans l’espace de travail OMS actif ; aucun compte Automation n’est requis.
-* Lorsque vous installez une solution sur la Place de marché Azure, vous êtes invité à choisir un espace de travail OMS et un compte Automation ; un lien est créé pour vous entre les deux.  
-* Pour les solutions extérieures à la Place de marché Azure, vous devez lier l’espace de travail OMS et le compte Automation avant d’installer la solution.  Pour ce faire, vous pouvez sélectionner n’importe quelle solution de la Place de marché Azure et choisir l’espace de travail OMS et le compte Automation.  Vous n’êtes pas obligé d’installer effectivement la solution, car le lien est créé dès que l’espace de travail OMS et le compte Automation sont sélectionnés.  Une fois le lien créé, vous pouvez utiliser cet espace de travail OMS et ce compte Automation pour toutes les solutions. 
+* Quand vous installez une solution Microsoft avec le portail OMS, elle est installée dans l’espace de travail Log Analytics actif ; aucun compte Automation n’est nécessaire.
+* Quand vous installez une solution sur la Place de marché Azure, vous êtes invité à choisir un espace de travail Log Analytics et un compte Automation ; un lien est créé pour vous entre les deux.  
+* Pour les solutions extérieures à la Place de marché Azure, vous devez lier l’espace de travail Log Analytics et le compte Automation avant d’installer la solution.  Pour ce faire, vous pouvez sélectionner n’importe quelle solution de la Place de marché Azure et choisir l’espace de travail Log Analytics et le compte Automation.  Vous n’êtes pas obligé d’installer effectivement la solution, car le lien est créé dès que l’espace de travail Log Analytics et le compte Automation sont sélectionnés.  Une fois le lien créé, vous pouvez utiliser cet espace de travail Log Analytics et ce compte Automation pour toutes les solutions. 
 
-### <a name="verifying-the-link-between-an-oms-workspace-and-automation-account"></a>Vérification du lien entre un espace de travail OMS et un compte Automation
-Vous pouvez vérifier le lien entre un espace de travail OMS et un compte Automation à l’aide de la procédure suivante.
+### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Vérification du lien entre un espace de travail Log Analytics et un compte Automation
+Vous pouvez vérifier le lien entre un espace de travail Log Analytics et un compte Automation à l’aide de la procédure suivante.
 
 1. Sélectionnez le compte Automation dans le Portail Azure.
-2. Faites défiler le volet **Paramètres** jusqu’en bas.
-3. S’il existe une section appelée **Ressources OMS** dans le volet **Paramètres**, ce compte est associé à un espace de travail OMS.
-4. Sélectionnez **Espace de travail** pour afficher les détails de l’espace de travail OMS lié à ce compte Automation.
+2. Si le paramètre **Espace de travail** dans la section **Ressources associées** du menu est activé, cela signifie que ce compte est attaché à un espace de travail Log Analytics.  Vous pouvez cliquer sur **Espace de travail** pour afficher les détails de l’espace de travail.
 
 ## <a name="listing-management-solutions"></a>Liste des solutions de gestion
 Utilisez la procédure suivante pour afficher les solutions de gestion des espaces de travail liés à votre abonnement Azure.

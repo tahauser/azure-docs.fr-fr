@@ -2,17 +2,17 @@
 title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: "Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid 
 
@@ -58,11 +58,11 @@ Event Grid utilise une stratégie de nouvelle tentative d’interruption exponen
 6. 30 minutes
 7. 1 heure
 
-Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle tentative.
+Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle tentative. La remise des événements est renouvelée après une heure, une fois par heure.
 
 ## <a name="retry-duration"></a>Durée des nouvelles tentatives
 
-Pendant la préversion d’Azure Event Grid, tous les événements qui ne sont pas distribués dans les deux heures expirent automatiquement.
+Azure Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures.
 
 ## <a name="next-steps"></a>étapes suivantes
 

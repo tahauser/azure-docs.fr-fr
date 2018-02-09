@@ -1,6 +1,6 @@
 ---
-title: Ciblage de solution dans OMS | Microsoft Docs
-description: "Le ciblage de solution est une fonctionnalité dans Operations Management Suite (OMS) qui vous permet de limiter les solutions de gestion à un ensemble spécifique d’agents.  Cet article décrit comment créer une configuration d’étendue et l’appliquer à une solution."
+title: Ciblage des solutions de gestion dans Azure | Microsoft Docs
+description: "Le ciblage des solutions de gestion vous permet de limiter les solutions de gestion à un ensemble spécifique d’agents.  Cet article décrit comment créer une configuration d’étendue et l’appliquer à une solution."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Utilisez le ciblage de solution dans Operations Management Suite (OMS) pour limiter les solutions de gestion à des agents spécifiques (version préliminaire)
-Lorsque vous ajoutez une solution à OMS, elle est déployée automatiquement par défaut à tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité OMS qui permet d’appliquer une étendue à vos solutions.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Ciblage des solutions de gestion dans Azure (préversion)
+Quand vous ajoutez une solution de gestion à votre abonnement, elle est déployée automatiquement par défaut sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.
 
 ## <a name="how-to-target-a-solution"></a>Ciblage d’une solution
-Il existe trois étapes au ciblage d’une solution, comme décrit dans les sections suivantes.  Remarque : vous aurez besoin du portail OMS et du portail Azure pour les différentes étapes.
+Il existe trois étapes au ciblage d’une solution, comme décrit dans les sections suivantes. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Créer un groupe d’ordinateurs
@@ -72,6 +72,6 @@ Le ciblage de solution ne peut pas être utilisé avec les solutions suivantes, 
 
 - Évaluation de l’intégrité de l’agent
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - En savoir plus sur les solutions de gestion, notamment les solutions qui peuvent être installées dans votre environnement en consultant [Ajout de solutions de gestion Azure Log Analytics dans votre espace de travail](../log-analytics/log-analytics-add-solutions.md).
 - En savoir plus sur la création de groupes d’ordinateurs en consultant [Groupes d’ordinateurs dans la recherche dans les journaux de Log Analytics](../log-analytics/log-analytics-computer-groups.md).

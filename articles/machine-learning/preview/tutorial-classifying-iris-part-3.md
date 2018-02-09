@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
 Les services Azure Machine Learning (version préliminaire) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -127,7 +127,7 @@ Utilisez le déploiement _en mode local_ pour effectuer une exécution dans des 
 Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteur Docker doit être exécuté localement pour que vous puissiez effectuer les étapes suivantes d’opérationnalisation du modèle. Vous pouvez utiliser l’indicateur `-h` à la fin d’une commande pour obtenir de l’aide sur celle-ci.
 
 >[!NOTE]
->Si vous n’avez pas de moteur Docker en local, vous pouvez toujours poursuivre en créant un cluster dans Azure à des fins de déploiement. Veillez simplement à supprimer le cluster après le didacticiel afin de ne peut subir de frais permanents.
+>Si vous n’avez pas de moteur Docker en local, vous pouvez toujours poursuivre en créant un cluster dans Azure à des fins de déploiement. Veillez simplement à supprimer le cluster après le didacticiel afin de ne pas subir de frais permanents.
 
 1. Ouvrez l’interface de ligne de commande (CLI).
    Dans l’application Azure Machine Learning Workbench, dans le menu **Fichier**, sélectionnez **Ouvrir une invite de commande**.
@@ -146,6 +146,17 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
    
    Le nom du cluster est un moyen d’identifier l’environnement. L’emplacement doit être identique à celui du compte de Gestion des modèles que vous avez créé à partir du portail Azure.
 
+   Pour parvenir à configurer correctement cet environnement, utilisez la commande suivante pour vérifier l’état :
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Vérifiez que la valeur de « État d’approvisionnement » est définie sur « Réussi » (comme indiqué ci-dessous) avant de définir l’environnement à l’étape 5.
+
+   ![État d’approvisionnement](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Créez un compte de Gestion des modèles. (Il s’agit d’une configuration unique.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -250,7 +261,7 @@ Vous êtes maintenant prêt à exécuter le service web.
 
 Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez un enregistrement JSON encodé contenant un tableau de quatre nombres aléatoires :
 
-1. Le service web inclut des exemples de données. Lors de l’exécution en mode local, vous pouvez appeler la commande **az ml service usage realtime**. Cet appel récupère un exemple de commande d’exécution qui vous pouvez utiliser pour tester le service. L’appel récupère également l’URL de notation que vous pouvez utiliser pour intégrer le service à votre propre application personnalisée :
+1. Le service web inclut des exemples de données. Lors de l’exécution en mode local, vous pouvez appeler la commande **az ml service usage realtime**. Cet appel récupère un exemple de commande d’exécution que vous pouvez utiliser pour tester le service. L’appel récupère également l’URL de notation que vous pouvez utiliser pour intégrer le service à votre propre application personnalisée :
 
    ```azurecli
    az ml service usage realtime -i <web service ID>
@@ -258,8 +269,9 @@ Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez
 
 2. Pour tester le service, exécutez la commande service run retournée :
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    La sortie est **"2"**, qui est la classe prévue. (Votre résultat peut être différent.) 
 

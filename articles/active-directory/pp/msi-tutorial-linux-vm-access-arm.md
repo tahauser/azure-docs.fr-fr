@@ -3,9 +3,9 @@ title: "Utiliser une identité MSI affectée à l’utilisateur sur une machine 
 description: "Ce didacticiel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux, pour accéder à Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Utiliser une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux, pour accéder à Azure Resource Manager
 
@@ -36,7 +36,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Accorder à l’identité MSI l’accès à un groupe de ressources dans Azure Resource Manager 
 > * Obtenir un jeton d’accès par l’intermédiaire de l’identité MSI et utiliser celui-ci pour appeler Azure Resource Manager 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -45,7 +45,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 Pour exécuter les exemples de script CLI dans ce didacticiel, vous avez deux possibilités :
 
 - Utiliser [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dans le portail Azure ou via le bouton « Essayer » situé en haut à droite de chaque bloc de code.
-- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou version ultérieure) si vous préférez utiliser une console CLI locale.
+- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 L’identité MSI fournit votre code au moyen d’un jeton d’accès permettant de vous authentifier auprès d’API de ressources qui prennent en charge l’authentification Azure AD. Dans ce didacticiel, votre code accède à l’API Azure Resource Manager. 
 
-Toutefois, avant que ce code puisse accéder à l’API, vous devez accorder à l’identité MSI l’accès à une ressource dans Azure Resource Manager. Dans le cas présent, le groupe de ressources dans lequel la machine virtuelle est contenue. N’oubliez pas de remplacer les paramètres `<CLIENT ID>`, `<SUBSCRIPTION ID>` et `<RESOURCE GROUP>` par vos propres valeurs. Remplacez `<CLIENT ID>` par la propriété `clientId` retournée avec la commande `az identity create` dans [Créer une identité MSI affectée à l’utilisateur](#create-a-user-assigned-msi) : 
+Toutefois, avant que ce code puisse accéder à l’API, vous devez accorder à l’identité MSI l’accès à une ressource dans Azure Resource Manager. Dans le cas présent, le groupe de ressources dans lequel la machine virtuelle est contenue. Mettez à jour les valeurs de `<SUBSCRIPTION ID>` et `<RESOURCE GROUP>` en fonction de votre environnement. En outre, remplacez `<MSI PRINCIPALID>` par la propriété `principalId` retournée par la commande `az identity create` dans [Créer une identité MSI affectée à l’utilisateur](#create-a-user-assigned-msi) :
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 La réponse contient les détails de l’affectation de rôle qui a été créée, comme dans l’exemple suivant :
@@ -141,7 +141,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 
 1. Dans le portail Azure, accédez à **Machines virtuelles**, accédez à votre machine virtuelle Linux, puis, en haut de la page **Vue d’ensemble**, cliquez sur **Se connecter**. Copiez la chaîne permettant de se connecter à votre machine virtuelle.
 2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix.  
-3. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison de l’identité MSI locale pour obtenir un jeton d’accès à Azure Resource Manager.  
+3. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison de l’identité du service administré locale pour obtenir un jeton d’accès à Azure Resource Manager.  
 
    La requête CURL permettant d’acquérir un jeton d’accès est illustrée dans l’exemple suivant. Veillez à remplacer `<CLIENT ID>` par la propriété `clientId` retournée avec la commande `az identity create` dans [Créer une identité MSI affectée à l’utilisateur](#create-a-user-assigned-msi) : 
     
@@ -190,6 +190,6 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
     
 ## <a name="next-steps"></a>étapes suivantes
 
-- Pour une vue d’ensemble de l’identité MSI, consultez [Vue d’ensemble de l’identité MSI](msi-overview.md).
+- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.

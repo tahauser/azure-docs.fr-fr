@@ -2,29 +2,27 @@
 title: "Intégration au centre de données Azure Stack - DNS"
 description: "Découvrez comment intégrer les services DNS Azure Stack au DNS de votre centre de données"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
-
-*S’applique à : systèmes intégrés Azure Stack*
-
 Pour pouvoir accéder aux points de terminaison Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement`, etc.) en dehors d’Azure Stack, vous devez intégrer les services DNS Azure Stack aux serveurs DNS qui hébergent les zones DNS que vous souhaitez utiliser dans Azure Stack.
 
 ## <a name="azure-stack-dns-namespace"></a>Espace de noms DNS Azure Stack
 Vous devez fournir certaines informations importantes relatives à DNS quand vous déployez Azure Stack.
 
 
-|Champ  |Description  |Exemple|
+|Champ  |DESCRIPTION  |exemples|
 |---------|---------|---------|
 |Région|Emplacement géographique de votre déploiement d’Azure Stack.|`east`|
 |Nom du domaine externe|Nom de la zone à utiliser pour votre déploiement d’Azure Stack.|`cloud.fabrikam.com`|
@@ -138,6 +136,6 @@ Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifi
 
 La plupart des bureaux d’enregistrement DNS requièrent que vous fournissiez au minimum deux serveurs DNS pour effectuer la délégation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-[Intégration au centre de données Azure Stack - Identité](azure-stack-integrate-identity.md)
+[Intégration du pare-feu](azure-stack-firewall.md)

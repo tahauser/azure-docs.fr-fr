@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : configurer Workplace by Facebook pour l’approvisionnement des utilisateurs | Documents Microsoft"
+title: "Didacticiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Workplace by Facebook."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 77f5f33044b1915fbda7b86c6b07882c0e1e7554
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>Didactiel : configurer Workplace by Facebook pour l’approvisionnement des utilisateurs
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Didactiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
 Ce didacticiel vous indique les étapes nécessaires pour approvisionner et annuler automatiquement l’approvisionnement des comptes utilisateur depuis Azure Active Directory (Azure AD) vers Workplace by Facebook.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD avec Workplace by Facebook, vous avez besoin des éléments suivants :
 

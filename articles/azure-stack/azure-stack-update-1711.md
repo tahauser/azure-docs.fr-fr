@@ -3,7 +3,7 @@ title: "Mise à jour 1711 d’Azure Stack | Microsoft Docs"
 description: "Découvrez le contenu de la mise à jour 1711 pour les systèmes intégrés Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Mise à jour 1711 d’Azure Stack
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/02/2018
 Cet article décrit les améliorations et correctifs contenus dans cette mise à jour, les problèmes connus dans cette publication, et l’emplacement de téléchargement de la mise à jour. Les problèmes connus sont divisés en problèmes directement liés au processus de mise à jour, et problèmes propres à la build (après l’installation).
 
 > [!IMPORTANT]
-> Cette mise à jour est destinée uniquement aux systèmes intégrés Azure Stack. N’appliquez pas cette mise à jour au Kit de développement d’Azure Stack.
+> Cette mise à jour est destinée uniquement aux systèmes intégrés Azure Stack. N’appliquez pas cette mise à jour au Kit de développement Azure Stack.
 
 ## <a name="build-reference"></a>Référence de build
 
@@ -62,7 +62,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Correctifs et nouvelles fonctionnalités liés à Windows Server 2016
 
 - [14 novembre 2017 : KB4048953 (version du système d’exploitation 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
 
 Cette section énumère des problèmes connus que vous pouvez rencontrer lors de l’installation de la mise à jour 1711.
@@ -97,7 +97,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 
    - Vous pouvez voir une ligne vide en haut de la liste. Vous devriez toujours être en mesure de sélectionner un élément comme prévu.
    - Si la liste déroulante des éléments est courte, il se peut que vous ne puissiez afficher aucun nom d’élément.
-   - Si vous avez plusieurs abonnements utilisateur, la liste déroulante des groupes de ressources peut être vide. 
+   - Si vous avez plusieurs abonnements utilisateur, la liste déroulante des groupes de ressources peut être vide.
 
         > [!NOTE]
         > Pour contourner les deux derniers problèmes, vous pouvez taper le nom de l’abonnement ou du groupe de ressources (si vous les connaissez), ou utiliser PowerShell à la place.
@@ -118,18 +118,18 @@ Cette section énumère des problèmes connus après l’installation de la buil
 - Vous pouvez configurer un groupe à haute disponibilité de machines virtuelles uniquement avec un domaine d’erreur et un domaine de mise à jour, tous deux de valeur égale à un.
 - Il n’existe aucune expérience de Place de marché pour créer des groupes de machines virtuelles identiques. Vous pouvez créer un groupe identique à l’aide d’un modèle.
 - Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Mise en réseau
 - Vous ne pouvez pas créer un équilibreur de charge avec une adresse IP publique à l’aide du portail. Pour résoudre ce problème, vous pouvez utiliser PowerShell pour créer l’équilibreur de charge.
 - Lorsque vous créez un équilibreur de charge réseau, vous devez créer une règle de traduction d’adresses réseau (NAT). À défaut, une erreur s’affiche lorsque vous tentez d’ajouter une règle NAT après avoir créé l’équilibreur de charge.
 - Vous ne peut pas dissocier une adresse IP publique d’une machine virtuelle (VM) une fois que la VM a été créée et associée à cette adresse IP. La dissociation semble fonctionner, mais l’adresse IP publique qui a été affectée reste associée à la machine virtuelle d’origine. Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle associée à l’origine et non à la nouvelle. Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour la création de nouvelles machines virtuelles.
 - Les opérateurs Azure Stack peuvent être dans l’impossibilité de déployer, supprimer ou modifier des réseaux virtuels ou des groupes de sécurité réseau. Ce problème se produit principalement lors des tentatives de mise à jour ultérieures du même package. Il est dû à un problème d’empaquetage avec une mise à jour, que nous étudions actuellement.
 - L’équilibrage de charge interne gère incorrectement les adresses MAC des machines virtuelles principales, ce qui bloque les instances Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL. 
+- Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL.
 - La création d’éléments directement sur des serveurs d’hébergement SQL et MySQL qui n’est pas effectuée par le fournisseur de ressources n’est pas prise en charge, et peut aboutir à un état non compatible.
- 
+
 #### <a name="app-service"></a>App Service
 - Un utilisateur doit inscrire le fournisseur de ressources de stockage avant de créer sa première fonction Azure dans l’abonnement.
 
@@ -149,7 +149,7 @@ Dans les environnements déployés des services de fédération Azure Active Dir
 - **L’activation de la sauvegarde d’infrastructure sur ASDK est destinée seulement à des tests.**  
   Les sauvegardes d’infrastructure peuvent être utilisées pour restaurer des solutions à plusieurs nœuds. Vous pouvez activer la sauvegarde d’infrastructure sur ASDK, mais il n’existe aucun moyen de tester la récupération.
 
-Pour plus d’informations, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Pour plus d’informations, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrer votre base de données SQL Server vers Azure SQL Database
 
@@ -34,9 +34,9 @@ Le déplacement de votre base de données SQL Server vers une base de données S
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 - La dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
 - La dernière version de l’outil [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Data Migration Assistant) est installée.
@@ -60,7 +60,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :   
 
-   | Paramètre       | Valeur suggérée | Description | 
+   | Paramètre       | Valeur suggérée | DESCRIPTION | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -69,12 +69,12 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-   | Paramètre       | Valeur suggérée | Description | 
+   | Paramètre       | Valeur suggérée | DESCRIPTION | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
-   | **Emplacement** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
+   | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -91,7 +91,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -104,7 +104,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
     
      ![notification](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
+## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
 Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur de base de données SQL](sql-database-firewall-configure.md) pour l’adresse IP de votre client afin de permettre la connectivité externe via le pare-feu de base de données SQL pour votre adresse IP uniquement. 
 
@@ -124,7 +124,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
 
 4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Save**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
+5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
 
 6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
@@ -153,7 +153,7 @@ Effectuez les étapes suivantes pour utiliser **[Data Migration Assistant](https
 
 2. Dans le menu de gauche, cliquez sur **+ Nouveau** pour créer un projet **Évaluation**. Renseignez les valeurs demandées, puis cliquez sur **Créer** :
 
-   | Paramètre      | Valeur suggérée | Description | 
+   | Paramètre      | Valeur suggérée | DESCRIPTION | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de projet | Migration | Vous devez choisir entre évaluer votre base de données pour la migration, ou évaluer la base de données et effectuer la migration dans le cadre d’un même flux de travail |
    |Nom du projet|Didacticiel sur la migration| Nom descriptif |
@@ -165,7 +165,7 @@ Effectuez les étapes suivantes pour utiliser **[Data Migration Assistant](https
 
 3.  Dans la page **Sélectionner une source**, renseignez les valeurs demandées, puis cliquez sur **Connexion** :
 
-    | Paramètre      | Valeur suggérée | Description | 
+    | Paramètre      | Valeur suggérée | DESCRIPTION | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nom du serveur | Le nom ou l’adresse IP de votre serveur | Le nom ou l’adresse IP de votre serveur |
     | Type d'authentification | Type d’authentification par défaut| Options : Authentification Windows, Authentification SQL Server, Authentification intégrée Active Directory, Authentification par mot de passe Active Directory |
@@ -179,7 +179,7 @@ Effectuez les étapes suivantes pour utiliser **[Data Migration Assistant](https
 
 6. Dans la page **Sélectionner une cible**, renseignez les valeurs demandées, puis cliquez sur **Connexion** :
 
-    | Paramètre      | Valeur suggérée | Description | 
+    | Paramètre      | Valeur suggérée | DESCRIPTION | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nom du serveur | Nom complet de votre serveur Azure Database | Nom complet du serveur Azure Database de la procédure précédente |
     | Type d'authentification | l’authentification SQL Server | L’authentification SQL Server est la seule option disponible au moment de l’écriture de ce didacticiel. Toutefois, l’authentification intégrée Active Directory et l’authentification par mot de passe Active Directory sont également prises en charge par Azure SQL Database |
@@ -228,7 +228,7 @@ Utilisez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | Description | 
+   | Paramètre       | Valeur suggérée | DESCRIPTION | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mon_nouveau_serveur20170824.database.windows.net**. |
@@ -266,7 +266,7 @@ Vous pouvez modifier le niveau de service, le niveau de performances et le nivea
     );
     ```
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > * Créer une base de données SQL Azure vide dans le portail Azure 

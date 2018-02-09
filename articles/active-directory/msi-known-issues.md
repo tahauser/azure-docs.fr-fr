@@ -3,7 +3,7 @@ title: "FAQ et problèmes connus liés à l’identité du service administré (
 description: "Problèmes connus liés à l’identité du service administré pour Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: bryanla
-ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: daveba
+ms.openlocfilehash: 0541e63a1d3467b9691032e66892efe8f0f0cad8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
@@ -36,7 +36,7 @@ Non, et nous ne prévoyons pas de rendre possible l’utilisation de MSI dans Az
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L’identité du service administré fonctionne-t-elle avec la bibliothèque d’authentification Active Directory (ADAL) et la bibliothèque d’authentification Microsoft (MSAL) ?
 
-Non, la fonction d’identité du service administré n’est pas encore intégrée aux bibliothèques ADAL et MSAL. Pour plus d’informations sur l’acquisition d’un jeton MSI à l’aide du point de terminaison REST de MSI, consultez [Guide pratique pour utiliser une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons](msi-how-to-use-vm-msi-token.md).
+Non, la fonction d’identité du service administré n’est pas encore intégrée aux bibliothèques ADAL et MSAL. Pour plus d’informations sur l’acquisition d’un jeton MSI à l’aide du point de terminaison REST de MSI, voir [Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quelles sont les distributions de Linux prises en charge ?
 

@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Workplace par Facebook | Microsoft Docs"
+title: "Didacticiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Didacticiel : Configuration de Workplace by Facebook pour l’approvisionnement des utilisateurs
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Didactiel : configurer Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Workplace by Facebook et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Workplace by Facebook.
 

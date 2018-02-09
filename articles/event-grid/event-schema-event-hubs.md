@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schéma des événements Azure Event Grid des hubs d’événements
 
@@ -44,7 +44,9 @@ Cet exemple d’événement montre le schéma d’un événement de hubs d’év
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -53,30 +55,32 @@ Cet exemple d’événement montre le schéma d’un événement de hubs d’év
 
 Un événement contient les données générales suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | DESCRIPTION |
 | -------- | ---- | ----------- |
-| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | string | Identificateur unique de l’événement. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | chaîne | Identificateur unique de l’événement. |
 | données | objet | Données d’événement de hub d’événement. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | DESCRIPTION |
 | -------- | ---- | ----------- |
-| fileUrl | string | Chemin du fichier de capture. |
-| fileType | string | Type du fichier de capture. |
-| partitionId | string | ID de partition. |
+| fileUrl | chaîne | Chemin du fichier de capture. |
+| fileType | chaîne | Type du fichier de capture. |
+| partitionId | chaîne | ID de partition. |
 | sizeInBytes | integer | Taille du fichier. |
 | eventCount | integer | Nombre d’événements dans le fichier. |
 | firstSequenceNumber | integer | Plus petit numéro de séquence de la file d’attente. |
 | lastSequenceNumber | integer | Dernier numéro de séquence de la file d’attente. |
-| firstEnqueueTime | string | Première heure de la file d’attente. |
-| lastEnqueueTime | string | Dernière heure de la file d’attente. |
+| firstEnqueueTime | chaîne | Première heure de la file d’attente. |
+| lastEnqueueTime | chaîne | Dernière heure de la file d’attente. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).

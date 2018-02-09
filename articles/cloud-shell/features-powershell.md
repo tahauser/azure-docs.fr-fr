@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: 1113589507934d814bc8924267c07c99f8864657
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5a2a5095f6418cf188c5d5d5f3b14049f889a272
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Fonctionnalités et outils pour PowerShell dans Azure Cloud Shell (préversion)
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Fonctionnalités et outils pour [Bash](features.md) est également disponible.
@@ -91,7 +91,7 @@ Ces commandes s’appuient sur la communication à distance PowerShell et néces
 
 |**Catégorie**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Outils Azure     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Azure CLI (2.0.25)](https://docs.microsoft.com/cli/azure/overview)|
+|Outils Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
 |Éditeurs de texte    |vim<br> nano                             |
 |Gestionnaire de package |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Contrôle de code source  |git                                      |

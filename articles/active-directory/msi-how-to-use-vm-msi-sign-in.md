@@ -3,7 +3,7 @@ title: "Utilisation d’une identité du service administré de machine virtuell
 description: "Procédure détaillée et exemples concernant l’utilisation d’un principal du service MSI d’une machine virtuelle Azure pour la connexion client par script et l’accès aux ressources."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: bryanla
-ms.openlocfilehash: 2e4da8cd02a1d07a3225a0c1fda4c60928dba8a4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: daveba
+ms.openlocfilehash: 735b673227ac128bbc01d3b2072f4b14d84b0e66
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Utilisation d’une identité du service administré de machine virtuelle (MSI) Azure pour se connecter 
 
@@ -34,7 +34,7 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dan
 > - Tous les scripts d’exemple de cet article supposent que le client de ligne de commande exécute une machine virtuelle avec le paramètre MSI activé. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation de MSI sur une machine virtuelle, consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](msi-qs-configure-portal-windows-vm.md), ou l’un des autres articles (à l’aide de PowerShell, CLI, d’un modèle ou d’un kit de développement logiciel Azure). 
 > - Pour éviter les erreurs lors de l’accès aux ressources, la MSI de la machine virtuelle doit comporter au moins l’accès « Lecture » à l’étendue appropriée (la machine virtuelle ou plus) pour autoriser les opérations de Azure Resource Manager sur la machine virtuelle. Voir [Attribuer à une identité du service administré (MSI) un accès à une ressource à l’aide du portail Azure](msi-howto-assign-access-portal.md) pour plus de détails.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Une MSI fournit un [principal du service](develop/active-directory-dev-glossary.md#service-principal-object), qui est [créé lors de l’activation de la MSI](msi-overview.md#how-does-it-work) sur la machine virtuelle. Le principal du service peut accorder l’accès aux ressources Azure et être utilisé comme identité par des clients de script/ligne de commande pour la connexion et l’accès aux ressources. En règle générale, pour accéder à des ressources sécurisées sous sa propre identité, un client de script doit :  
 

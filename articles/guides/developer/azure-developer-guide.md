@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -44,7 +44,7 @@ Votre application a besoin d’un stockage sur le cloud et Azure propose plusieu
 
 Azure propose plusieurs offres de calcul basées sur le cloud pour exécuter votre application sans avoir à vous soucier des détails d’infrastructure. Vous pouvez facilement monter en puissance ou augmenter la taille des instances de vos ressources à mesure que l’utilisation de vos applications augmente.
 
-Azure propose des services qui prennent en charge vos besoins d’hébergement et de développement d’applications. Azure fournit une infrastructure as a service (IaaS) pour vous donner un contrôle total sur l’hébergement de vos applications. Les offres PaaS (platform as a service) d’Azure fournissent des services entièrement managés qui vous seront nécessaires pour dynamiser vos applications. Azure inclut même un hébergement sans serveur dans lequel il vous suffit d’écrire votre code.
+Azure propose des services qui prennent en charge vos besoins d’hébergement et de développement d’applications. Azure fournit une infrastructure IaaS (Infrastructure as a Service) pour vous donner un contrôle total sur l’hébergement de vos applications. Les offres PaaS (Platform as a Service) d’Azure fournissent des services entièrement managés qui vous seront nécessaires pour dynamiser vos applications. Azure inclut même un hébergement sans serveur dans lequel il vous suffit d’écrire votre code.
 
 ![Options d’hébergement d’applications Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ Vous pouvez migrer vos applications existantes vers App Service en utilisant l�
 
 #### <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
-En tant que fournisseur d’infrastructure as a service (IaaS), Azure vous permet de déployer ou de migrer votre application vers des machines virtuelles Windows ou Linux. Avec Réseau virtuel Azure, le service Machines virtuelles Azure prend en charge le déploiement des machines virtuelles Windows ou Linux sur Azure. Avec les machines virtuelles, vous avez un contrôle total sur la configuration des machines. Lorsque vous utilisez des machines virtuelles, vous êtes responsable de toutes les tâches d’installation, de configuration et de maintenance du logiciel serveur, ainsi que des correctifs du système d’exploitation.
+En tant que fournisseur d’infrastructure IaaS (Infrastructure as a Service), Azure vous permet de déployer ou de migrer votre application vers des machines virtuelles Windows ou Linux. Avec Réseau virtuel Azure, le service Machines virtuelles Azure prend en charge le déploiement des machines virtuelles Windows ou Linux sur Azure. Avec les machines virtuelles, vous avez un contrôle total sur la configuration des machines. Lorsque vous utilisez des machines virtuelles, vous êtes responsable de toutes les tâches d’installation, de configuration et de maintenance du logiciel serveur, ainsi que des correctifs du système d’exploitation.
 
 En raison du niveau de contrôle que vous avez avec les machines virtuelles, vous pouvez exécuter un large éventail de charges de travail serveur sur Azure, qui ne sont pas adaptées à un modèle PaaS. Ces charges de travail incluent les serveurs de base de données, Windows Server Active Directory et Microsoft SharePoint. Pour plus d’informations, consultez la documentation relative aux machines virtuelles pour [Linux](/azure/virtual-machines/linux/) ou [Windows](/azure/virtual-machines/windows/).
 

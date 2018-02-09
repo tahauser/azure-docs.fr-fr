@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Backup\_?"
       href: backup-introduction-to-azure-backup.md
@@ -183,6 +183,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: "Résoudre les problèmes d’un serveur de sauvegarde\_Azure"
           href: backup-azure-mabs-troubleshoot.md
+        - name: Résoudre les problèmes liés à System Center Data Protection Manager
+          href: backup-azure-scdpm-troubleshooting.md
         - name: "Résoudre les problèmes de l’agent de sauvegarde\_Azure"
           href: backup-azure-mars-troubleshoot.md
 - name: Informations de référence

@@ -1,6 +1,6 @@
 ---
-title: "Démonstration de la solution Carte de service à votre rythme | Microsoft Docs"
-description: "Carte de service est une solution comprise dans OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services.  Il s’agit d’une démonstration qui vous permet de découvrir à votre rythme l’utilisation de Carte de service pour identifier et diagnostiquer un problème simulé dans une application web."
+title: "Démonstration de la solution Service Map à votre rythme | Microsoft Docs"
+description: "Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services.  Il s’agit d’une démonstration qui vous permet de découvrir à votre rythme l’utilisation de Service Map pour identifier et diagnostiquer un problème simulé dans une application web."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Démonstration à votre rythme d’Operations Management Suite (OMS) - Carte de service
-Il s’agit d’une démonstration qui vous permet de découvrir à votre rythme l’utilisation de la [solution Carte de service](operations-management-suite-service-map.md) dans Operations Management Suite (OMS) pour identifier et diagnostiquer un problème simulé dans une application web.  Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services.  Il regroupe également les données collectées par les autres services OMS pour vous aider à analyser les performances et identifier les problèmes.  Vous utiliserez également [Recherches de journal dans Log Analytics](../log-analytics/log-analytics-log-searches.md) pour détailler les données collectées afin d’identifier l’origine du problème.
+# <a name="self-paced-demo---service-map"></a>Démonstration de la solution Service Map à votre rythme
+Il s’agit d’une démonstration qui vous permet de découvrir à votre rythme l’utilisation de [Service Map](operations-management-suite-service-map.md) pour identifier et diagnostiquer un problème simulé dans une application web.  La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services.  Il regroupe également les données collectées par les autres services et solutions pour vous aider à analyser les performances et identifier les problèmes.  Vous utiliserez également [Recherches de journal dans Log Analytics](../log-analytics/log-analytics-log-searches.md) pour détailler les données collectées afin d’identifier l’origine du problème.
 
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -35,7 +35,7 @@ Vous venez de recevoir une notification vous indiquant que l’application ACME 
 ## <a name="walk-through"></a>Procédure
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Connexion à l’OMS Experience Center (centre d’expérience OMS)
-Ce guide utilise [l’Operations Management Suite Experience Center (centre d’expérience Operations Management Suite)](https://experience.mms.microsoft.com/) qui fournit un environnement OMS complet avec des exemples de données. Commencez par cliquer sur ce lien, fournissez vos informations, puis sélectionnez le scénario **Insight and Analytics**.
+Ce guide utilise [l’Operations Management Suite Experience Center (centre d’expérience Operations Management Suite)](https://experience.mms.microsoft.com/) qui fournit un environnement Log Analytics complet avec des exemples de données. Commencez par cliquer sur ce lien, fournissez vos informations, puis sélectionnez le scénario **Insight and Analytics**.
 
 
 ### <a name="2-start-service-map"></a>2. Lancement de Carte de service
@@ -80,7 +80,7 @@ Regardons **acmetomcat** de plus près.  Cliquez en haut à droite de **acmetomc
 
 
 ### <a name="7-view-change-tracking"></a>7. Affichage du suivi des modifications
-Voyons si nous pouvons trouver les causes possibles de cette utilisation intensive.  Cliquez sur l’onglet **Résumé**.  Cela fournit des informations qu’OMS a collectées à partir de l’ordinateur, telles que les échecs de connexion, les alertes critiques et les modifications logicielles.  Les sections contenant des informations récentes intéressantes devraient déjà être développées, et vous pouvez développer les sections suivantes pour examiner les informations qu’elles contiennent.
+Voyons si nous pouvons trouver les causes possibles de cette utilisation intensive.  Cliquez sur l’onglet **Résumé**.  Cela fournit des informations que Log Analytics a collectées à partir de l’ordinateur, telles que les échecs de connexion, les alertes critiques et les modifications logicielles.  Les sections contenant des informations récentes intéressantes devraient déjà être développées, et vous pouvez développer les sections suivantes pour examiner les informations qu’elles contiennent.
 
 
 Si **Suivi des modifications** n’est pas déjà ouvert, développez-le.  Cela permet d’afficher les informations collectées par la [solution Suivi des modifications](../log-analytics/log-analytics-change-tracking.md).  Il semblerait qu’une modification logicielle ait été effectuée dans cette fenêtre de temps.  Cliquez sur **Logiciel** pour obtenir des détails.  Un processus de sauvegarde a été ajouté à l’ordinateur juste après 4 h 00 du matin, ce qui semblerait être la cause de l’utilisation des ressources excessives.
@@ -90,28 +90,28 @@ Si **Suivi des modifications** n’est pas déjà ouvert, développez-le.  Cela 
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Affichage des détails dans Recherche dans les journaux
-Nous pouvons poursuivre la vérification en examinant les informations détaillées sur les performances collectées dans le référentiel Log Analytics.  Cliquez à nouveau sur l’onglet **Alertes**, puis sur l’une des alertes **High CPU** (utilisation élevée du processeur).  Cliquez sur **Show in Log Search (Afficher dans Recherche dans les journaux)**.  Cela ouvre la fenêtre Recherche dans les journaux dans laquelle vous pouvez effectuer des [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) sur toutes les données stockées dans le référentiel.  Carte de service a déjà rempli une requête pour nous permettre de récupérer l’alerte qui nous intéresse.  
+Nous pouvons poursuivre la vérification en examinant les informations détaillées sur les performances collectées dans l’espace de travail Log Analytics.  Cliquez à nouveau sur l’onglet **Alertes**, puis sur l’une des alertes **High CPU** (utilisation élevée du processeur).  Cliquez sur **Show in Log Search (Afficher dans Recherche dans les journaux)**.  Cela ouvre la fenêtre Recherche dans les journaux dans laquelle vous pouvez effectuer des [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) sur toutes les données stockées dans l’espace de travail.  Service Map a déjà rempli une requête pour nous permettre de récupérer l’alerte qui nous intéresse.  
 
-![Recherche de journaux](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
+![Recherche dans les journaux](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Ouverture d’une recherche enregistrée
-Voyons si nous pouvons obtenir d’autres détails sur la collecte des performances qui a généré cette alerte et vérifier notre suspicion selon laquelle les problèmes ont été provoqués par ce processus de sauvegarde.  Modifiez la période à **6 heures**.  Cliquez ensuite sur **Favoris** et faites défiler jusqu’aux recherches enregistrées pour **Carte de service**.  Il s’agit des requêtes que vous avez créées spécifiquement pour cette analyse.  Cliquez sur **Top 5 Processes by CPU for acmetomcat (5 premiers processus par processeur pour acmetomcat)**.
+Voyons si nous pouvons obtenir d’autres détails sur la collecte des performances qui a généré cette alerte et vérifier notre suspicion selon laquelle les problèmes ont été provoqués par ce processus de sauvegarde.  Modifiez la période à **6 heures**.  Cliquez ensuite sur **Favoris** et faites défiler jusqu’aux recherches enregistrées pour **Carte de service**.  Nous avons créé ces requêtes spécifiquement pour cette analyse.  Cliquez sur **Top 5 Processes by CPU for acmetomcat (5 premiers processus par processeur pour acmetomcat)**.
 
 ![Recherche enregistrée](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 Cette requête retourne la liste des 5 premiers processus utilisant le processeur sur **acmetomcat**.  Vous pouvez inspecter la requête pour obtenir une présentation du langage de requête utilisé pour les recherches dans les journaux.  Si vous êtes intéressé par les processus sur d’autres ordinateurs, vous pouvez modifier la requête pour récupérer ces informations.
 
-Dans ce cas, nous pouvons voir que le processus de sauvegarde consomme de façon cohérente environ 60 % de l’UC du serveur de l’application.  Il apparaît clairement que ce nouveau processus est responsable de notre problème de performances.  Notre solution serait évidemment de supprimer ce nouveau logiciel de sauvegarde du serveur d’applications.  Nous pouvons en fait tirer parti de la configuration d’état souhaité (DSC) gérée par Azure Automation pour définir des stratégies qui garantissent que ce processus ne s’exécute jamais sur ces systèmes critiques.
+Dans ce cas, nous pouvons voir que le processus de sauvegarde consomme de façon cohérente environ 60 % de l’UC du serveur de l’application.  Il apparaît clairement que ce nouveau processus est responsable de notre problème de performances.  Notre solution serait évidemment de supprimer ce nouveau logiciel de sauvegarde du serveur d’applications.  Nous pouvons en fait utiliser la configuration d’état souhaité (DSC) gérée par Azure Automation pour définir des stratégies qui garantissent que ce processus ne s’exécute jamais sur ces systèmes critiques.
 
 
 ## <a name="summary-points"></a>Résumé
 - [Carte de service](operations-management-suite-service-map.md) vous fournit une vue de l’intégralité de votre application même si vous ne connaissez pas tous ses serveurs et dépendances.
-- Carte de service expose les données collectées par les autres solutions OMS pour vous aider à identifier les problèmes avec votre application et son infrastructure sous-jacente.
-- [Recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) vous permet de consulter des données spécifiques recueillies dans le référentiel Log Analytics.    
+- Service Map expose les données collectées par les autres solutions de gestion pour vous aider à identifier les problèmes avec votre application et son infrastructure sous-jacente.
+- [Recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) vous permet de consulter des données spécifiques recueillies dans l’espace de travail Log Analytics.    
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - En savoir plus sur [Carte de service](operations-management-suite-service-map.md).
 - [Déployer et configurer](operations-management-suite-service-map-configure.md) Carte de service.
-- En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md) qui est requis pour Carte de service et conserve les données opérationnelles stockées par les agents.
+- En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md) qui est requis pour Service Map et conserve les données opérationnelles stockées par les agents.

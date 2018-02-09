@@ -92,7 +92,7 @@
           href: deployment-setup-configuration.md
         - name: Mise à l’échelle des clusters et des services
           href: how-to-scale-clusters.md
-        - name: Configurer SSL sur un cluster MLC
+        - name: Activer SSL sur un cluster MLC
           href: how-to-setup-ssl-on-mlc.md
         - name: Déployer un service web
           href: model-management-service-deploy.md

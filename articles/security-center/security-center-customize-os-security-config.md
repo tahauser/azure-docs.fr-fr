@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -26,7 +26,7 @@ Cette procédure pas à pas vous explique comment personnaliser les évaluations
 
 ## <a name="what-are-os-security-configurations"></a>Quelles sont les configurations de sécurité du système d’exploitation ?
 
-Azure Security Center analyse les configurations de la sécurité selon un jeu de plus de 150 règles recommandées pour renforcer le système d’exploitation et relatives aux pare-feux, aux audits, aux stratégies de mot de passe et bien plus encore. Si une configuration vulnérable est identifiée sur un ordinateur, Security Center génère une recommandation de sécurité.
+Azure Security Center analyse les configurations de la sécurité en appliquant un ensemble de [plus de 150 règles recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour renforcer le système d’exploitation, y compris des règles relatives aux pare-feux, aux audits, aux stratégies de mot de passe et bien plus encore. Si une configuration vulnérable est identifiée sur un ordinateur, Security Center génère une recommandation de sécurité.
 
 En personnalisant les règles, les organisations ont la possibilité de décider des options de configuration les mieux adaptées à leur environnement. Cette fonctionnalité permet aux utilisateurs de définir une stratégie d’évaluation personnalisée et de l’appliquer à tous les ordinateurs candidats de l’abonnement.
 
@@ -60,8 +60,8 @@ Pour personnaliser la configuration par défaut de la sécurité du système d�
 3.  Sélectionnez l’abonnement sur lequel portera la personnalisation.
 
 4. Dans **Composants de la stratégie**, sélectionnez **Modifier les configurations de la sécurité**.  
-    La fenêtre **Modifier les configurations de la sécurité** s’ouvre. 
-    
+    La fenêtre **Modifier les configurations de la sécurité** s’ouvre.
+
     ![La fenêtre Modifier les configurations de la sécurité](media/security-center-customize-os-security-config/blade.png)
 
 5. Dans le volet droit, suivez les étapes de téléchargement, de modification et de chargement du fichier modifié.
@@ -70,7 +70,7 @@ Pour personnaliser la configuration par défaut de la sécurité du système d�
    > Par défaut, le fichier de configuration téléchargé est au format *json*. Vous trouverez les instructions à suivre pour modifier ce fichier dans la rubrique [Personnaliser le fichier de configuration](#customize-the-configuration-file).
    >
 
-   Une fois le fichier enregistré, la configuration s’applique à l’ensemble des machines virtuelles et des ordinateurs connectés à tous les espaces de travail de l’abonnement sélectionné. Généralement, le processus prend quelques minutes mais peut nécessiter plus de temps, en fonction de la taille de l’infrastructure. 
+   Une fois le fichier enregistré, la configuration s’applique à l’ensemble des machines virtuelles et des ordinateurs connectés à tous les espaces de travail de l’abonnement sélectionné. Généralement, le processus prend quelques minutes mais peut nécessiter plus de temps, en fonction de la taille de l’infrastructure.
 
 6. Pour valider la modification, sélectionnez **Enregistrer**. Sinon, la stratégie n’est pas stockée.
 

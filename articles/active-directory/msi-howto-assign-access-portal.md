@@ -3,7 +3,7 @@ title: "Attribuer à une identité du service administré un accès à une resso
 description: "Instructions détaillées pour attribuer une identité du service administré à une ressource et un accès à une autre ressource, à l’aide du portail Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 88abc2a9836633e5d88a91e59f7078a388b26068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 9e88fab3f4250c99c73c8e3e573b6f5c926eeb69
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Attribuer à une identité du service administré un accès à une ressource à l’aide du portail Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 Après avoir configuré une ressource Azure avec une identité du service administré (MSI), vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet article montre comment accorder à l’identité du service administré d’une machine virtuelle Azure un accès à un compte de stockage Azure, à l’aide du portail Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -45,7 +45,7 @@ Après avoir activé l’identité du service administré sur une ressource Azur
 
    ![Capture d’écran du contrôle d’accès (IAM)](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si l’identité du service administré pour la ressource n’apparaît pas dans la liste des identités disponibles, vérifiez si elle a été activée correctement. Dans notre cas, nous pouvons retourner sur la machine virtuelle Azure et vérifiez les points suivants :
 

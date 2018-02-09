@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configuration de LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Didacticiel : configurer LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur LinkedIn Elevate."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 6c2f26e6df435b522346f22ce697468d094de23e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Didacticiel : Configuration de LinkedIn Elevate pour approvisionner automatiquement des utilisateurs
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Didacticiel : configurer LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans LinkedIn Elevate et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers LinkedIn Elevate. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

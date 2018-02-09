@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -81,7 +81,12 @@ Pour connaître les limites du nombre de points de terminaison que vous pouvez a
 
 ### <a name="when-using-azure-storage-containers"></a>Lors de l’utilisation de conteneurs de stockage Azure
 
-IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob au format [Apache Avro](http://avro.apache.org/). IoT Hub regroupe les messages dans des lots et écrit les données dans un objet blob quand il atteint une certaine taille ou après un certain laps de temps, selon ce qui se produit en premier. IoT Hub n’écrit pas un objet blob vide s’il n’y a aucune donnée à écrire.
+IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob au format [Apache Avro](http://avro.apache.org/). IoT Hub met en lots les messages et écrit les données dans un objet blob chaque fois que :
+
+* Le lot atteint une certaine taille, ou
+* Un certain laps de temps s’est écoulé.
+
+IoT Hub n’écrit pas un objet blob vide s’il n’y a aucune donnée à écrire.
 
 IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante :
 

@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configuration de LucidChart pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Didacticiel : configurer LucidChart pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur LucidChart."
 services: active-directory
 documentationcenter: 
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: be93059111202deca2e0582112ab8f09508d6c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bbf62986a9e6e68149a1908d079d82e2faf4bd54
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : configuration de LucidChart pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : configurer LucidChart pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans LucidChart et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD sur LucidChart. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un locataire Azure Active Directory
+*   Un client Azure Active Directory
 *   Un locataire LucidChart avec le [plan d’entreprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) ou supérieur activé 
 *   Un compte utilisateur dans LucidChart avec des autorisations d’administrateur 
 
@@ -97,6 +97,6 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-enterprise-apps-manage-provisioning.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](active-directory-saas-provisioning-reporting.md)

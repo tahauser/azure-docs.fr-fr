@@ -15,23 +15,24 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Mises à jour de schéma pour Azure Logic Apps - 1er juin 2016
 
-Cette nouvelle version de schéma et d’API intègre différentes améliorations clés destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques :
+La [version mise à jour](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) du schéma et de la version de l’API pour Azure Logic Apps intègrent différentes améliorations clés destinées à accroître la fiabilité et la simplicité d’utilisation des applications logiques :
 
 * Les [étendues](#scopes) vous permettent de regrouper ou d’imbriquer des actions sous la forme d’un ensemble d’actions.
 * Les [conditions et les boucles](#conditions-loops) sont désormais des actions de première classe.
 * La précision de l’ordre d’exécution des actions a été améliorée grâce au remplacement de la propriété `dependsOn` par la propriété `runAfter`.
 
-Pour mettre à niveau vos applications logiques à partir du schéma en version préliminaire du 1er août 2015 vers le schéma du 1er juin 2016, [consultez la section relative à la mise à niveau](##upgrade-your-schema).
+Pour mettre à niveau vos applications logiques à partir du schéma en version préliminaire du 1er août 2015 vers le schéma du 1er juin 2016, [consultez la section relative à la mise à niveau](#upgrade-your-schema).
 
 <a name="scopes"></a>
+
 ## <a name="scopes"></a>Étendues
 
 Ce schéma comporte des étendues, qui vous permettent de regrouper ou d’imbriquer des actions. Par exemple, une condition peut en contenir une autre. Apprenez-en davantage sur la [syntaxe des étendues](../logic-apps/logic-apps-loops-and-scopes.md), ou examinez l’exemple d’étendue de base ci-dessous :
@@ -57,6 +58,7 @@ Ce schéma comporte des étendues, qui vous permettent de regrouper ou d’imbri
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Modifications des conditions et boucles
 
 Dans les versions de schéma précédentes, les conditions et les boucles étaient des paramètres associés avec une seule action. Cette limitation a été levée dans ce schéma, de sorte que les conditions et les boucles apparaissent à présent sous forme de types d’actions. Apprenez-en davantage sur les [boucles et étendues](../logic-apps/logic-apps-loops-and-scopes.md), ou examinez l’exemple d’action de condition de base ci-dessous :
@@ -86,6 +88,7 @@ Dans les versions de schéma précédentes, les conditions et les boucles étaie
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>Propriété « runAfter »
 
 La propriété `runAfter` remplace `dependsOn`, ce qui vous permet de spécifier plus précisément l’ordre d’exécution des actions en fonction de l’état des actions précédentes.
@@ -104,7 +107,7 @@ La propriété `dependsOn` signifiait « l’action a été exécutée et a réu
 
 ## <a name="upgrade-your-schema"></a>Mettre à niveau votre schéma
 
-La mise à niveau vers le nouveau schéma se déroule en quelques étapes seulement. Le processus de mise à niveau implique l’exécution du script de mise à niveau, l’enregistrement en tant que nouvelle application logique et, si vous le souhaitez, le remplacement éventuel de l’application logique précédente.
+Quelques étapes suffisent pour mettre à niveau vers le [schéma le plus récent](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json). Le processus de mise à niveau implique l’exécution du script de mise à niveau, l’enregistrement en tant que nouvelle application logique et, si vous le souhaitez, le remplacement éventuel de l’application logique précédente.
 
 1. Dans le Portail Azure, ouvrez votre application logique.
 
@@ -156,7 +159,7 @@ La boucle `foreach` et `until` est limitée à une seule action.
 
 ### <a name="new-trackedproperties-for-actions"></a>Nouvelle propriété « trackedProperties » relative aux actions
 
-Les actions peuvent désormais comporter une propriété supplémentaire appelée `trackedProperties`, sœur des propriétés `runAfter` et `type`. Cet objet spécifie certaines entrées ou sorties d’action que vous souhaitez inclure dans la télémétrie de diagnostic Azure, dont l’émission intervient dans le cadre d’un workflow. Par exemple :
+Les actions peuvent désormais comporter une propriété supplémentaire appelée `trackedProperties`, sœur des propriétés `runAfter` et `type`. Cet objet spécifie certaines entrées ou sorties d’action que vous souhaitez inclure dans la télémétrie de diagnostic Azure, dont l’émission intervient dans le cadre d’un workflow. Par exemple : 
 
 ```
 {                

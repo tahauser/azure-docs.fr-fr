@@ -1,91 +1,181 @@
 ---
-title: "Configurer le déchargement SSL - Passerelle Azure Application Gateway - Portail Azure | Microsoft Docs"
-description: "Cet article fournit des instructions pour la création d’une passerelle d’application pour le déchargement SSL à l’aide du portail Azure"
-documentationcenter: na
+title: "Créer une passerelle d’application avec un arrêt SSL - Portail Azure | Microsoft Docs"
+description: "Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide du portail Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le portail Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
-> [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-ssl-portal.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [Azure Classic PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+Vous pouvez utiliser le portail Azure pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour un arrêt SSL qui utilise des machines virtuelles pour des serveurs principaux.
 
-Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
+Dans cet article, vous apprendrez comment :
 
-## <a name="scenario"></a>Scénario
+> [!div class="checklist"]
+> * Créer un certificat auto-signé
+> * Créer une passerelle d’application avec le certificat
+> * Créer les machines virtuelles utilisées comme serveurs principaux
 
-Le scénario suivant passe par la configuration du déchargement SSL sur une passerelle d’application existante. Le scénario suppose que vous avez déjà suivi la procédure pour [créer une passerelle d’application](application-gateway-create-gateway-portal.md).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Pour configurer le déchargement SSL avec une passerelle Application Gateway, un certificat est requis. Ce certificat est chargé sur la passerelle d’application et utilisé pour chiffrer et déchiffrer le trafic envoyé via SSL. Le certificat doit être partagé au format Personal Information Exchange (.pfx). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
+Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="add-an-https-listener"></a>Ajouter un écouteur HTTPS
+## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
-L’écouteur HTTPS recherche le trafic en fonction de sa configuration et aide à acheminer le trafic vers les pools principaux. Pour ajouter un écouteur HTTPS, procédez comme suit :
+Dans cette section, vous utilisez [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) pour créer un certificat auto-signé que vous chargez sur le portail Azure lorsque vous créez l’écouteur pour la passerelle d’application.
 
-   1. Accédez au portail Azure et sélectionnez une passerelle d’application existante.
+Sur votre ordinateur local, ouvrez une fenêtre Windows PowerShell en tant qu’administrateur. Exécutez la commande suivante pour créer le certificat :
 
-   2. Sélectionnez **Écouteurs** et cliquez sur le bouton **Ajouter** pour ajouter un écouteur.
+```powershell
+New-SelfSignedCertificate \
+  -certstorelocation cert:\localmachine\my \
+  -dnsname www.contoso.com
+```
 
-   ![Panneau de la vue d’ensemble d’Application Gateway][1]
+Une réponse comme l’exemple suivant devrait s’afficher :
 
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
-   3. Remplissez les informations requises suivantes pour l’écouteur et téléchargez le certificat .pfx :
-      - **Nom** : nom convivial de l’écouteur.
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
-      - **Configuration IP frontale** : il s’agit de la configuration d’IP frontale utilisée pour l’écouteur.
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+```
 
-      - **Port frontal (nom/port)** : un nom convivial pour le port utilisé sur le serveur frontal de la passerelle d’application et le port actuellement utilisé.
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate \
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
+  -FilePath c:\appgwcert.pfx \
+  -Password $pwd
+```
 
-      - **Protocole** : un commutateur qui détermine si HTTPS ou HTTP est utilisé pour le serveur frontal.
+## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-      - **Certificat (nom/mot de passe)** : si le déchargement SSL est utilisé, un certificat .pfx est requis pour ce paramètre. Un nom convivial et un mot de passe sont également requis.
+Un réseau virtuel est nécessaire pour la communication entre les ressources que vous créez. Deux sous-réseaux sont créés dans cet exemple : une pour la passerelle d’application et l’autre pour les serveurs principaux. Vous pouvez créer un réseau virtuel en même temps que la passerelle d’application.
 
-   4. Sélectionnez **OK**.
+1. Cliquez sur **Nouveau** dans le coin supérieur gauche du portail Azure.
+2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste de suggestions.
+3. Entrez *myAppGateway* pour le nom de la passerelle d’application et *myResourceGroupAG* pour le nouveau groupe de ressources.
+4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
 
-![Ajouter un panneau pour l’écouteur][2]
+    - *myVNet* : pour le nom du réseau virtuel.
+    - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
+    - *myAGSubnet* : pour le nom du sous-réseau.
+    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Créer une règle et l’associer à l’écouteur
+    ![Création d’un réseau virtuel](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
-L’écouteur a été créé. Créez ensuite une règle pour gérer le trafic depuis l’écouteur. Les règles définissent la façon dont le trafic est acheminé vers les pools principaux en fonction de plusieurs paramètres de configuration. Ces paramètres incluent le protocole, le port et les sondes d’intégrité et si l’affinité de session basée sur cookies est utilisé. Pour créer et associer une règle à l’écouteur, procédez comme suit :
+6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
+7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+8. Cliquez sur **HTTPS** pour le protocole de l’écouteur et assurez-vous que le port est défini sur **443**.
+9. Cliquez sur l’icône de dossier et recherchez le certificat *appgwcert.pfx* que vous avez créé précédemment pour le charger.
+10. Entrez *mycert1* pour le nom du certificat et *Azure123456!* pour le mot de passe, puis cliquez sur **OK**.
 
+    ![Créer une nouvelle passerelle d’application](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-   1. Cliquez sur **Règles** dans la passerelle d’application, puis sélectionnez **Ajouter**.
+11. Passez en revue les paramètres sur la page de résumé, puis cliquez sur **OK** pour créer les ressources réseau et la passerelle d’application. La création de la passerelle d’application peut prendre plusieurs minutes. Patientez jusqu’à ce que le déploiement soit terminé avant de passer à la section suivante.
 
-   ![Panneau Règles d’Application Gateway][3]
+### <a name="add-a-subnet"></a>Ajouter un sous-réseau
 
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myVNet** dans la liste des ressources.
+2. Cliquez sur **Sous-réseaux**, puis cliquez sur **Sous-réseau**.
 
-   2. Sous **Ajouter une règle de base**, saisissez un nom convivial pour la règle dans le champ **Nom** et sélectionnez **l’écouteur** créé à l’étape précédente. Sélectionnez le **Pool principal** et le **Paramètre HTTP** appropriés, puis sélectionnez **OK**.
+    ![Créer un sous-réseau](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
 
-   ![Fenêtre Paramètres HTTPS][4]
+3. Entrez *myBackendSubnet* pour le nom du sous-réseau, puis cliquez sur **OK**.
 
-Les paramètres sont maintenant enregistrés pour la passerelle Application Gateway. Le processus d’enregistrement pour ces paramètres peut prendre un certain temps avant leur disponibilité sur le portail ou via PowerShell. Une fois enregistrée, la passerelle d’application gère le chiffrement et le déchiffrement du trafic. Tout le trafic entre la passerelle d’application et les serveurs Web principaux est géré via HTTP. Toute communication avec le client via le protocole HTTPS sera renvoyée chiffrée au client.
+## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-## <a name="next-steps"></a>Étapes suivantes
+Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que serveurs principaux pour la passerelle d’application. Vous installez également IIS sur les machines virtuelles pour vérifier que la passerelle d’application a bien été créée.
 
-Pour savoir comment configurer une sonde d’intégrité personnalisée avec Azure Application Gateway, consultez [Créer une sonde d’intégrité personnalisée](application-gateway-create-gateway-portal.md).
+### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-[1]: ./media/application-gateway-ssl-portal/figure1.png
-[2]: ./media/application-gateway-ssl-portal/figure2.png
-[3]: ./media/application-gateway-ssl-portal/figure3.png
-[4]: ./media/application-gateway-ssl-portal/figure4.png
+1. Cliquez sur **Nouveau**.
+2. Cliquez sur **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste de suggestions.
+3. Entrez ces valeurs pour la machine virtuelle :
 
+    - *myVM* : pour le nom de la machine virtuelle.
+    - *azureuser* : pour le nom d’utilisateur administrateur.
+    - *Azure123456!* pour le mot de passe.
+    - Sélectionnez **Utiliser l’existant**, puis *myResourceGroupAG*.
+
+4. Cliquez sur **OK**.
+5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle, puis cliquez sur **Sélectionner**.
+6. Assurez-vous que **myVNet** est sélectionné pour le réseau virtuel et que le sous-réseau est **myBackendSubnet**. 
+7. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
+8. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
+
+### <a name="install-iis"></a>Installer IIS
+
+1. Ouvrez l’interpréteur de commandes interactif et assurez-vous qu’il est défini sur **PowerShell**.
+
+    ![Installer l’extension personnalisée](./media/application-gateway-ssl-portal/application-gateway-extension.png)
+
+2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle : 
+
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
+
+3. Créez une deuxième machine virtuelle et installez IIS à l’aide de la procédure que vous venez de terminer. Entrez *myVM2* pour son nom et VMName dans Set-AzureRmVMExtension.
+
+### <a name="add-backend-servers"></a>Ajouter des serveurs principaux
+
+3. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
+4. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGateayBackendPool**.
+5. Cliquez sur **Ajouter une cible** pour ajouter chaque machine virtuelle que vous avez créée au pool principal.
+
+    ![Ajouter des serveurs principaux](./media/application-gateway-ssl-portal/application-gateway-backend.png)
+
+6. Cliquez sur **Enregistrer**.
+
+## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
+
+1. Cliquez sur **Toutes les ressources**, puis sur **myAGPublicIPAddress**.
+
+    ![Enregistrer l’adresse IP publique de la passerelle d’application](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
+
+2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Pour accepter l’avertissement de sécurité si vous avez utilisé un certificat auto-signé, sélectionnez Détails, puis Atteindre la page web :
+
+    ![Avertissement de sécurité](./media/application-gateway-ssl-portal/application-gateway-secure.png)
+
+    Votre site IIS sécurisé apparaît maintenant comme dans l’exemple suivant :
+
+    ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
+
+## <a name="next-steps"></a>étapes suivantes
+
+Dans ce didacticiel, vous avez appris à :
+
+> [!div class="checklist"]
+> * Créer un certificat auto-signé
+> * Créer une passerelle d’application avec le certificat
+> * Créer les machines virtuelles utilisées comme serveurs principaux
+
+Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.

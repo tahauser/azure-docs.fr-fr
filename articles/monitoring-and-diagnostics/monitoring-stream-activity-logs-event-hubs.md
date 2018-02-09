@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 Le [**journal d’activité Azure**](monitoring-overview-activity-logs.md) peut être diffusé en quasi-temps réel sur n’importe quelle application à l’aide de l’option « Export » intégrée au portail, ou en activant l’identifiant de règle Service Bus dans un profil de journal via les applets de commande PowerShell Azure ou l’interface de ligne de commande Azure.
@@ -35,16 +35,17 @@ Vous pouvez activer la diffusion en continu du journal d’activité soit par pr
 Il n’est pas nécessaire que l’espace de noms de Service Bus ou du hub d’événements se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ### <a name="via-azure-portal"></a>Via le portail Azure
-1. Accédez au panneau **Journal d’activité** à l’aide du menu sur le côté gauche du portail.
+1. Accédez au panneau **Journal d’activité** à l’aide de la recherche Tous les services sur le côté gauche du portail.
    
-    ![Accéder au journal d’activité dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Cliquez sur le bouton **Exporter** en haut du panneau.
+    ![Accéder au journal d’activité dans le portail](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Cliquez sur le bouton **Exporter** en haut du panneau de journal d’activité.
    
-    ![Bouton Exporter dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Dans le panneau qui s’affiche, vous pouvez sélectionner les régions pour lesquelles vous voulez diffuser des événements, et l’espace de nom Service Bus dans lequel vous voulez créer un Event Hub pour la diffusion en continu de ces événements.
+    ![Bouton Exporter dans le portail](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. Dans le panneau qui s’affiche, vous pouvez sélectionner les régions pour lesquelles vous voulez diffuser des événements, et l’espace de nom Service Bus dans lequel vous voulez créer un Event Hub pour la diffusion en continu de ces événements. Sélectionnez **Toutes les régions**.
    
-    ![Panneau Exporter le journal d’activité](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Cliquez sur **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont immédiatement appliqués à votre abonnement.
+    ![Panneau Exporter le journal d’activité](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Cliquez sur **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont appliqués immédiatement à votre abonnement.
+5. Si vous avez plusieurs abonnements, vous devez répéter cette action et envoyer toutes les données au même hub d’événements.
 
 ### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
 Si un profil de journal existe déjà, vous devez d’abord le supprimer.
@@ -53,8 +54,10 @@ Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 2. S’il y en a un, utilisez `Remove-AzureRmLogProfile` pour le supprimer.
 3. Utilisez `Set-AzureRmLogProfile` pour créer un profil :
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 L’identifiant de règle Service Bus est une chaîne au format : {identifiant de ressource Service Bus}/authorizationrules/{nom de clé}, par exemple 
@@ -66,7 +69,7 @@ Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 2. S’il y en a un, utilisez `azure insights logprofile delete` pour le supprimer.
 3. Utilisez `azure insights logprofile add` pour créer un profil :
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

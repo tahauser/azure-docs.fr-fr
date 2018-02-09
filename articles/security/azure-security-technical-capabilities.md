@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
-Afin d’aider les clients Azure, actuels et futurs, à comprendre et à utiliser les différentes fonctionnalités de sécurité qui sont disponibles dans la plateforme Azure et autour, Microsoft a développé une série de livres blancs, de présentations, de bonnes pratiques et de listes de vérifications sur la sécurité. Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme mentionné dans la section Résumé ci-dessous. Des informations complémentaires sur cette série consacrée à la sécurité Azure sont mises à votre disposition à cette adresse (URL).
+Afin d’aider les clients Azure, actuels et futurs, à comprendre et à utiliser les différentes fonctionnalités de sécurité qui sont disponibles dans et autour de la plateforme Azure, Microsoft a développé une série de livres blancs, de présentations, de bonnes pratiques et de listes de vérifications sur la sécurité. Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Ce document fait partie de cette série, comme mentionné dans la section Résumé ci-dessous. Des informations complémentaires sur cette série consacrée à la sécurité Azure sont mises à votre disposition à cette adresse (URL).
 
 ## <a name="azure-platform"></a>Plateforme Azure
 
@@ -42,14 +42,13 @@ Avec Microsoft Azure, vous pouvez :
 
 ## <a name="scope"></a>Thème abordé
 
-L’idée-force de ce livre blanc s’intéresse aux fonctions et fonctionnalités de sécurité prenant en charge les composants essentiels de Microsoft Azure, c’est-à-dire [Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/), le [modèle de machine virtuelle de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/    ) ainsi que les outils et l’infrastructure qui les gèrent tous. Ce livre blanc cible principalement les fonctionnalités techniques de Microsoft Azure qui sont mises à votre disposition et à celle de vos clients pour protéger la sécurité et la confidentialité de leurs données.
+L’idée-force de ce livre blanc s’intéresse aux fonctions et fonctionnalités de sécurité prenant en charge les composants essentiels de Microsoft Azure, c’est-à-dire [Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/), le [modèle de machine virtuelle de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) ainsi que les outils et l’infrastructure qui les gèrent tous. Ce livre blanc cible principalement les fonctionnalités techniques de Microsoft Azure qui sont mises à votre disposition et à celle de vos clients pour protéger la sécurité et la confidentialité de leurs données.
 
 L’importance de comprendre ce modèle de responsabilité partagée est vitale pour les clients qui migrent vers le cloud. Les fournisseurs de cloud offrent des avantages considérables en termes d’efforts sur la conformité et la sécurité, mais ces avantages ne soustraient pas le client à sa responsabilité de protection de ses utilisateurs, de ses applications et de ses offres de service.
 
 En ce qui concerne les solutions IaaS, le client est responsable ou partage la responsabilité pour ce qui est de la sécurisation et de la gestion du système d’exploitation, de la configuration réseau, des applications, de l’identité, des clients et des données.  Les solutions PaaS s’élaborent sur des déploiements IaaS, le client est toujours responsable ou a une part de responsabilité au niveau de la sécurisation et de la gestion des applications, de l’identité, des clients et des données. Pour les solutions SaaS, cela étant, la responsabilité du client continue d’être engagée. Il doit s’assurer que les données sont classées correctement, et partage une responsabilité de gestion de ses utilisateurs et de ses appareils de point de terminaison.
 
 Ce document ne traite pas en détail les composants de la plateforme Microsoft Azure connexes, tels que Sites Web Microsoft Azure, Azure Active Directory, HDInsight, Media Services et d’autres services qui viennent s’ajouter aux composants de base. Même si un minimum d’informations générales sont données ici, les lecteurs sont censés connaître les concepts fondamentaux d’Azure, tels que décrits dans les autres documentations de référence fournies par Microsoft et incluses dans les liens indiqués dans ce livre blanc.
-
 
 ## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Fonctionnalités techniques de sécurité disponibles pour s’acquitter de la responsabilité de l’utilisateur (client) - Vue d’ensemble
 
@@ -65,7 +64,7 @@ Azure vous aide à protéger les informations professionnelles et personnelles e
 
 Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fournit une authentification unique à des milliers d’applications cloud (SaaS) et assure un accès aux applications web que vous exécutez en local.
 
-Azure Active Directory (AD) présente de nombreux avantages en termes de sécurité :
+Azure Active Directory (Azure AD) présente de nombreux avantages en termes de sécurité :
 
 - Création et gestion d’une identité unique pour chaque utilisateur de l’entreprise hybride, tout en maintenant la synchronisation des utilisateurs, des groupes et des appareils
 
@@ -89,7 +88,7 @@ Voici les principales fonctionnalités de gestion des identités Azure :
 
 - Gestion des identités et des accès des consommateurs
 
-- Inscription des appareils
+- Enregistrement de l’appareil
 
 - Privileged Identity Management
 
@@ -107,7 +106,7 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 
 #### <a name="multi-factor-authentication"></a>Authentification multifacteur
 
-[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) est une méthode d’authentification qui nécessite l’utilisation de plusieurs méthodes de vérification, et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. [MFA contribue à sécuriser](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.
+[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) est une méthode d’authentification qui nécessite l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. [MFA contribue à sécuriser](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Surveillance de la sécurité, alertes et rapports Machine Learning
 
@@ -133,9 +132,9 @@ Auparavant, les développeurs d’applications qui souhaitaient [inscrire et con
 
 Lorsque vous utilisez Azure Active Directory B2C, vos consommateurs peuvent s’inscrire auprès de vos applications à l’aide de leurs comptes sociaux existants (Facebook, Google, Amazon, LinkedIn) ou en créant des informations d’identification (adresse de messagerie et mot de passe, ou nom d’utilisateur et mot de passe).
 
-Inscription des appareils
+#### <a name="device-registration"></a>Inscription d’appareil
 
-[Azure AD Device Registration](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) constitue la base des scénarios d’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) sur les appareils. Lors de l’inscription d’un appareil, Azure Active Directory Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
+[L’inscription d’appareil Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) constitue la base des scénarios [d’accès conditionnel](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) basé sur les appareils. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour l’authentifier lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
 
 Quand ils sont associés à une solution de [gestion des appareils mobiles (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) comme Intune, les attributs de l’appareil dans Azure Active Directory sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité.
 
@@ -161,7 +160,7 @@ Grâce à Azure AD Privileged Identity Management, vous pouvez :
 
 ## <a name="secured-resource-access-in-azure"></a>Accès des ressources sécurisées dans Azure
 
-Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d'un compte Azure, accessible via le [Centre des comptes Azure](https://account.windowsazure.com/subscriptions), est l'administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du portail Azure. L'administrateur de sécurité par défaut d'un nouvel abonnement est l'administrateur de compte, mais ce dernier peut modifier l'administrateur de sécurité dans le centre des comptes Azure.
+Le contrôle des accès dans Azure s’envisage d’abord dans une perspective de facturation. Le propriétaire d’un compte Azure accessible par le biais du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) est l’administrateur de compte. Les abonnements sont un conteneur de facturation, mais ils constituent également une limite de sécurité : chaque abonnement a un administrateur de service qui peut ajouter, supprimer et modifier des ressources Azure dans cet abonnement à l’aide du portail Azure. L’administrateur de sécurité par défaut d’un nouvel abonnement est l’administrateur de compte, mais ce dernier peut changer l’administrateur de sécurité dans le Centre des comptes Azure.
 
 ![Accès des ressources sécurisées dans Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
@@ -173,7 +172,7 @@ Les entreprises orientées sécurité doivent s’efforcer de donner aux employ�
 
 Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions. Par exemple, vous pouvez utiliser le RBAC pour permettre à un employé donné de gérer les machines virtuelles dans un abonnement, tandis qu’un autre pourra gérer les bases de données SQL au sein du même abonnement.
 
-![Accès des ressources sécurisées dans Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Accès aux ressources sécurisées dans Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="azure-data-security-and-encryption-protect"></a>Chiffrement et sécurité des données dans Azure (protection)
 
@@ -183,11 +182,11 @@ Pour assurer la protection des données dans le cloud, l’un des facteurs clés
 
 - En transit : lorsque des données sont transférées entre des composants, des emplacements ou des programmes (sur le réseau, par exemple) via un bus de service (depuis un emplacement local vers le cloud, ou vice-versa, y compris via des connexions hybrides comme ExpressRoute), ou lors d’un processus d’entrée/sortie, on parle de données « en transit ».
 
-### <a name="encryption--rest"></a>Chiffrement au repos
+### <a name="encryption-at-rest"></a>Chiffrement au repos
 
-Pour appliquer le chiffrement au repos, chacun des éléments suivants :
+Pour appliquer le chiffrement au repos, vous devez effectuer ce qui suit :
 
-Prend en charge au moins un des modèles de chiffrement recommandés qui sont répertoriés dans le tableau suivant pour chiffrer les données.
+Prendre en charge au moins un des modèles de chiffrement recommandés qui sont répertoriés dans le tableau suivant pour chiffrer les données.
 
 | Modèles de chiffrement |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
@@ -204,7 +203,7 @@ Le chiffrement au repos vise à chiffrer toutes les données. En agissant ainsi,
 > [!Note] 
 > Pas simplement les « données d’application » ou les « informations d’identification personnelle », mais les données relatives à l’application, y compris les métadonnées de compte (mappages d’abonnement, informations de contrat, informations d’identification personnelle).
 
-Réfléchissez aux banques d’informations que vous utilisez pour stocker les données. Par exemple :
+Réfléchissez aux banques d’informations que vous utilisez pour stocker les données. Par exemple : 
 
 - Stockage externe (par exemple, SQL Azure, Document DB, HDInsights, Data Lake, etc.)
 
@@ -224,15 +223,15 @@ Pour chaque banque d’informations que vous utilisez, tirez parti de la prise e
 
 Pour le stockage de disque local et de machine virtuelle, utilisez Azure Disk Encryption où il est pris en charge :
 
-IaaS
+#### <a name="iaas"></a>IaaS
 
 Les services avec des machines virtuelles IaaS (Windows ou Linux) doivent utiliser [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) pour chiffrer les volumes contenant des données client.
 
-PaaS v2
+#### <a name="paas-v2"></a>PaaS v2
 
 Les services qui s’exécutent sur PaaS v2 au moyen de Service Fabric peuvent utiliser Azure Disk Encryption pour le groupe de machines virtuelles identiques, afin de chiffrer leurs machines virtuelles PaaS v2.
 
-PaaS v1
+#### <a name="paas-v1"></a>PaaS v1
 
 Actuellement, Azure Disk Encryption n’est pas pris en charge sur PaaS v1. Par conséquent, vous devez utiliser le chiffrement au niveau de l’application pour chiffrer les données persistantes au repos.  Cela inclut, mais n’est pas limité aux données d’application, fichiers temporaires, journaux et vidages sur incident.
 
@@ -319,13 +318,11 @@ Azure dispose de plusieurs fonctionnalités simples d’utilisation pour aider �
 
 - [Configuration de l'authentification Azure Active Directory pour votre application](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-
 - [Sécurisation du trafic vers votre application avec l'activation du protocole TLS/SSL (Transport Layer Security) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-    - [Affectation de force de tout le trafic entrant sur la connexion HTTPS](http://microsoftazurewebsitescheatsheet.info/)
+  - [Affectation de force de tout le trafic entrant sur la connexion HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
   - [Activation du protocole HSTS (Strict Transport Security)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
-
 
 - [Restriction de l'accès à votre application selon l'adresse IP du client](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
@@ -487,6 +484,7 @@ Il analyse les éléments suivants :
 - **Journaux de suivi des diagnostics** de votre application : pour pouvoir mettre en corrélation les événements de suivi avec les demandes.
 
 - **Mesures et événements personnalisés**, vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
+
 L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) vous permet de travailler avec les ressources de votre solution en tant que groupe.
 
 Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
@@ -512,7 +510,7 @@ Resource Manager offre plusieurs avantages :
 > [!Note]
 > Resource Manager propose une nouvelle façon de déployer et de gérer vos solutions. Si vous avez utilisé un modèle de déploiement antérieur et souhaitez obtenir des informations sur les modifications, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la sécurité :
 

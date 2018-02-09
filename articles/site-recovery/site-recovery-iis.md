@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 00d5c1fa8c0c16daef5d928147e169553672e1f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Répliquer une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery
 
@@ -31,15 +31,15 @@ Les applications web critiques sont généralement configurées en tant qu’app
 
 Les méthodes de récupération traditionnelles sans réplication impliquent la sauvegarde de plusieurs fichiers de configuration, paramètres du Registre, liaisons, composants personnalisés (COM ou .NET), contenus et certificats, ainsi que la récupération des fichiers via un ensemble d’étapes manuelles. Ces techniques sont clairement fastidieuses, sujettes aux erreurs et non évolutives. Par exemple, vous pouvez facilement oublier de sauvegarder des certificats, et vous retrouver ainsi contraint d’en acheter de nouveaux pour le serveur après le basculement.
 
-Une solution de récupération d’urgence satisfaisante doit autoriser la modélisation des plans de récupération autour des architectures d’application complexes décrites ci-dessus. Elle doit également permettre d’ajouter des étapes personnalisées pour gérer les mappages d’applications entre les différents niveaux, assurant ainsi une solution à clic unique en cas de sinistre entraînant un délai de récupération inférieur.
+Une bonne solution de récupération d’urgence doit permettre de modéliser des plans de récupération sur les architectures d’application complexes. Elle doit également autoriser l’ajout d’étapes personnalisés pour la prise en charge de mappages d’applications entre les différents niveaux. En cas de sinistre, elle constitue une solution à clic unique procurant un délai de récupération inférieur.
 
 
-Cet article indique comment protéger une application web IIS à l’aide d’une récupération [Azure Site Recovery](site-recovery-overview.md). Cet article décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux dans Azure, et indique comment vous pouvez effectuer un exercice de récupération d’urgence et comment vous pouvez basculer l’application vers Azure.
+Cet article indique comment protéger une application web IIS à l’aide d’une récupération [Azure Site Recovery](site-recovery-overview.md). Cet article décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux dans Azure, et indique comment vous pouvez effectuer un exercice de récupération d’urgence et comment vous pouvez basculer l’application vers Azure.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
-Avant de commencer, veillez à bien comprendre ce qui suit :
+Avant de commencer, veillez à bien comprendre les exigences suivantes :
 
 1. [Réplication d’une machine virtuelle dans Azure](site-recovery-vmware-to-azure.md)
 1. [Conception d’un réseau de récupération](site-recovery-network-design.md)
@@ -51,7 +51,7 @@ Avant de commencer, veillez à bien comprendre ce qui suit :
 ## <a name="deployment-patterns"></a>Modèles de déploiement
 Une application web IIS suit généralement l’un des modèles de déploiement suivants :
 
-**Modèle de déploiement 1** Une batterie de serveurs web IIS avec ARR (Application Request Routing), un serveur IIS et Microsoft SQL Server.
+**Modèle de déploiement 1** Une batterie de serveurs web IIS avec ARR (Application Request Routing), un serveur IIS et Microsoft SQL Server.
 
 ![Modèle de déploiement](./media/site-recovery-iis/deployment-pattern1.png)
 
@@ -62,16 +62,16 @@ Une application web IIS suit généralement l’un des modèles de déploiement 
 
 ## <a name="site-recovery-support"></a>Prise en charge de Site Recovery
 
-Pour les besoins de création de cet article, des machines virtuelles VMware avec un serveur IIS version 7.5 sur Windows Server 2012 R2 Enterprise ont été utilisés. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées s’appliquer aux scénarios suivants et à d’autres versions d’IIS.
+Pour les besoins de création de cet article, des machines virtuelles VMware avec un serveur IIS version 7.5 sur Windows Server 2012 R2 Enterprise ont été utilisés. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées s’appliquer aux scénarios suivants et à d’autres versions d’IIS.
 
 ### <a name="source-and-target"></a>Source et cible
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Oui | Oui
-**VMware** | Oui | Oui
-**Serveur physique** | Non | Oui
-**Microsoft Azure**|N/D|Oui
+**Hyper-V** | OUI | OUI
+**VMware** | OUI | OUI
+**Serveur physique** | Non  | OUI
+**Microsoft Azure**|N/D|OUI
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 
@@ -99,15 +99,15 @@ Une application web IIS multiniveau standard se compose d’une couche Base de d
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Ajout de scripts au plan de récupération
-Vous devrez peut-être effectuer certaines opérations lors du post-basculement/test de basculement des machines virtuelles Azure pour vous assurer du bon fonctionnement de la batterie de serveurs web IIS. Vous pouvez automatiser les opérations de post-basculement comme la mise à jour des entrées DNS, la modification de la liaison de site ou de la chaîne de connexion en ajoutant les scripts correspondants dans le plan de récupération, comme indiqué ci-dessous. [En savoir plus sur l’ajout de scripts dans un plan de récupération](./site-recovery-create-recovery-plans.md#add-scripts).
+Vous devrez peut-être effectuer certaines opérations lors du post-basculement/test de basculement des machines virtuelles Azure pour vous assurer du bon fonctionnement de la batterie de serveurs web IIS. Vous pouvez automatiser les opérations de post-basculement comme la mise à jour des entrées DNS, la modification de la liaison de site ou de la chaîne de connexion en ajoutant les scripts correspondants dans le plan de récupération, comme indiqué ci-dessous. [En savoir plus sur l’ajout de scripts dans un plan de récupération](./site-recovery-how-to-add-vmmscript.md).
 
 #### <a name="dns-update"></a>Mise à jour DNS
-Si DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles mettent généralement à jour DNS avec la nouvelle adresse IP dès leur démarrage. Pour ajouter une étape explicite pour mettre à jour DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez ce [script pour mettre à jour les adresses IP dans DNS](https://aka.ms/asr-dns-update) en tant qu’action postérieure dans les groupes du plan de récupération.  
+Si le service DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles le mettent généralement à jour avec la nouvelle adresse IP dès leur démarrage. Pour ajouter une étape explicite pour mettre à jour DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez ce [script pour mettre à jour les adresses IP dans DNS](https://aka.ms/asr-dns-update) en tant qu’action postérieure dans les groupes du plan de récupération.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Chaîne de connexion dans le fichier web.config d’une application
 La chaîne de connexion spécifie la base de données avec laquelle le site web communique.
 
-Si la chaîne de connexion porte le nom de la machine virtuelle base de données, aucune étape supplémentaire n’est nécessaire après le basculement, et l’application peut communiquer automatiquement avec la base de données. En outre, si l’adresse IP de la machine virtuelle base de données est conservée, il n’est pas nécessaire de mettre à jour la chaîne de connexion. Si la chaîne de connexion désigne la machine virtuelle base de données à l’aide d’une adresse IP, elle doit être mise à jour après le basculement. Par exemple, la chaîne de connexion indiquée ci-dessous pointe vers la base de données dotée de l’adresse IP 127.0.1.2.
+Si la chaîne de connexion porte le nom d’une machine virtuelle de base de données, aucune étape postérieure au basculement n’est requise. L’application peut communiquer automatiquement avec la base de données. En outre, si l’adresse IP de la machine virtuelle base de données est conservée, il n’est pas nécessaire de mettre à jour la chaîne de connexion. Si la chaîne de connexion désigne la machine virtuelle base de données à l’aide d’une adresse IP, elle doit être mise à jour après le basculement. Par exemple, la chaîne de connexion indiquée ci-dessous pointe vers la base de données dotée de l’adresse IP 127.0.1.2.
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -123,7 +123,7 @@ Chaque site se compose d’informations de liaison qui incluent le type de liais
 
 > [!NOTE]
 >
-> Si vous avez défini la liaison de site sur « Toutes non attribuées » comme dans l’exemple ci-dessous, vous n’avez pas besoin de mettre à jour cette liaison après le basculement. En outre, si l’adresse IP associée à un site n’est pas modifiée après le basculement, la liaison de site n’a pas besoin d’être mise à jour (la rétention de l’adresse IP dépend de l’architecture réseau et des sous-réseaux affectés aux sites principaux et de récupération et peut donc ou non être possible pour votre organisation.)
+> Si vous avez défini la liaison de site sur « Toutes non attribuées » comme dans l’exemple ci-dessous, vous n’avez pas besoin de mettre à jour cette liaison après le basculement. En outre, si l’adresse IP associée à un site n’est pas modifiée après le basculement, la liaison de site n’a pas besoin d’être mise à jour (la rétention de l’adresse IP dépend de l’architecture réseau et des sous-réseaux affectés aux sites principaux et de récupération et peut donc ou non être possible pour votre organisation.)
 
 ![Liaison SSL](./media/site-recovery-iis/sslbinding.png)
 
@@ -141,7 +141,7 @@ Le certificat SSL peut être émis sur :
 a) Le nom de domaine complet du site web<br>
 b) Le nom du serveur<br>
 c) Un certificat générique pour le nom de domaine<br>
-d) Une adresse IP : si le certificat SSL est émis sur l’adresse IP du serveur IIS, un autre certificat SSL doit être émis sur l’adresse IP du serveur IIS sur le site Azure, et une autre liaison SSL pour ce certificat doit être créée. Il est donc conseillé de ne pas utiliser un certificat SSL émis sur l’adresse IP. C’est une option moins couramment utilisée, qui sera bientôt dépréciée conformément aux nouvelles modifications du forum sur l’autorité de certification/navigateur.
+d) Une adresse IP : si le certificat SSL est émis sur l’adresse IP du serveur IIS, un autre certificat SSL doit être émis sur l’adresse IP du serveur IIS sur le site Azure, et une autre liaison SSL pour ce certificat doit être créée. Il est donc conseillé de ne pas utiliser un certificat SSL émis sur l’adresse IP. C’est une option moins couramment utilisée, qui sera bientôt dépréciée conformément aux nouvelles modifications du forum sur l’autorité de certification/navigateur.
 
 #### <a name="update-the-dependency-between-the-web-and-the-application-tier"></a>Mettre à jour la dépendance entre la couche web et la couche Application
 Si une dépendance propre à une application est basée sur l’adresse IP des machines virtuelles, vous devez la mettre à jour après le basculement.
@@ -154,7 +154,7 @@ Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un tes
 1.  Cliquez sur Test de basculement.
 1.  Sélectionnez un point de récupération et un réseau virtuel Azure pour démarrer le test de basculement.
 1.  Lorsque l’environnement secondaire est opérationnel, vous pouvez effectuer vos validations.
-1.  Une fois les validations terminées, vous pouvez sélectionner « Validations terminées ». L’environnement de test de basculement est alors nettoyé.
+1.  Une fois les validations terminées, vous pouvez sélectionner « Validations terminées ». L’environnement de test de basculement est alors nettoyé.
 
 ## <a name="doing-a-failover"></a>Exécution d’un basculement
 Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculement.
@@ -164,5 +164,5 @@ Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculeme
 1.  Cliquez sur « Basculement ».
 1.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

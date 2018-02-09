@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Déployer une application de conteneur Windows Service Fabric sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > * Créer et placer l’application Service Fabric dans un package
 > * Déployer l’application de conteneur dans Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
@@ -79,24 +79,44 @@ Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `Por
 Un exemple de fichier ApplicationManifest.xml complet est fourni à la fin de cet article.
 
 ## <a name="create-a-cluster"></a>Créer un cluster
-Pour déployer l’application sur un cluster dans Azure, vous pouvez choisir de créer votre propre cluster ou d’utiliser un cluster tiers.
+Pour déployer l’application sur un cluster dans Azure, vous pouvez choisir d’utiliser un cluster tiers ou de [créer votre propre cluster sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric).  
+Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. 
 
-Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Le certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
 
-Notez le point de terminaison de connexion que vous utilisez à l’étape suivante.  
+![Certificat PFX et point de terminaison de connexion](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Sur un ordinateur Windows, installez le certificat PFX dans le magasin de certificats *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+N’oubliez pas l’empreinte numérique pour l’étape suivante.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Déployer l’application dans Azure avec Visual Studio
 À présent que l’application est prête, vous pouvez la déployer sur un cluster directement à partir de Visual Studio.
 
 Faites un clic droit sur **MyFirstContainer** dans l’Explorateur de solutions et choisissez **Publier**. La boîte de dialogue Publier s’affiche.
 
-![Boîte de dialogue Publier](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers dans le champ **Point de terminaison de connexion**. Par exemple : `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Cliquez sur **Paramètres de connexion avancés** et renseignez les informations suivantes.  Les valeurs *FindValue* et *ServerCertThumbprint* doivent correspondre à l’empreinte numérique du certificat installé lors de l’étape précédente. 
 
-Saisissez le point de terminaison de connexion du cluster dans le champ **Point de terminaison de connexion**. Lors de l’inscription pour le cluster tiers, le point de terminaison de connexion est fourni dans le navigateur (par exemple, `winh1x87d1d.westus.cloudapp.azure.com:19000`).  Cliquez sur **Publier** pour déployer l’application.
+![Boîte de dialogue Publier](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Ouvrez un navigateur et accédez à http://winh1x87d1d.westus.cloudapp.azure.com:80. La page web IIS par défaut s’affiche : ![Page web IIS par défaut][iis-default]
+Cliquez sur **Publier**.
+
+Chaque application du cluster doit avoir un nom unique.  Toutefois, les clusters Party constituent un environnement public partagé et un conflit avec une application existante peut se présenter.  S’il existe un conflit de noms, renommez le projet Visual Studio et recommencez le déploiement.
+
+Ouvrez un navigateur et accédez à http://zwin7fh14scd.westus.cloudapp.azure.com:80. La page web IIS par défaut s’affiche : ![Page web IIS par défaut][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemples complets de manifestes d’application et de service Service Fabric
 Voici les manifestes d’application et de service complets utilisés dans ce guide de démarrage rapide.
@@ -167,6 +187,7 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -183,7 +204,7 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
 </ApplicationManifest>
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 > [!div class="checklist"]
 > * Placer un conteneur d’images Docker dans un package

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferts, verrouillages et règlement des messages
 
-La principale fonctionnalité d’un répartiteur de messages tel que Service Bus est d’accepter les messages envoyés dans une file d’attente ou une rubrique et de garantir leur disponibilité jusqu’à leur récupération ultérieure. *Envoi* est le terme couramment utilisé pour désigner le transfert d’un message vers le répartiteur de messages. *Réception* est le terme couramment utilisé pour désigner le transfert d’un message vers un client destinataire.
+La fonctionnalité centrale d’un répartiteur de messages tel que Service Bus est d’accepter les messages envoyés dans une file d’attente ou une rubrique et de garantir leur disponibilité jusqu’à leur récupération ultérieure. *Envoi* est le terme couramment utilisé pour désigner le transfert d’un message vers le répartiteur de messages. *Réception* est le terme couramment utilisé pour désigner le transfert d’un message vers un client destinataire.
 
 Quand un client envoie un message, il souhaite généralement savoir si le message a correctement été transféré au répartiteur et accepté par celui-ci ou, au contraire, si une erreur s’est produite pendant l’opération. Cet accusé de réception positif ou négatif permet au client et au répartiteur de connaître de manière fiable l’état du transfert du message. Ce processus est appelé *règlement*.
 
@@ -121,7 +121,7 @@ Si une opération **Complete** échoue, ce qui arrive généralement à la fin d
 
 Le mécanisme standard permettant d’identifier les remises de messages dupliqués consiste à vérifier l’ID du message (message-id). Cet identificateur doit être défini par l’expéditeur à une valeur unique, éventuellement en lien avec un identificateur du processus initial. Un planificateur de travaux préfère généralement définir l’ID du message sur l’identificateur du travail qu’il essaie d’assigner à un processus Worker avec le processus Worker donné. De cette façon, le processus Worker ignore la deuxième occurrence de l’assignation du travail si ce travail est déjà fait.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

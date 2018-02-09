@@ -2,17 +2,18 @@
 title: "Intégration au centre de données Azure Stack : publier des points de terminaison"
 description: "Découvrez comment publier des points de terminaison Azure Stack dans votre centre de données"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 
@@ -45,11 +46,13 @@ Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requ
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Liste de révocation de certificat|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP et UDP|53|
-|Key Vault (utilisateur)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
-|Key Vault (administrateur)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Key Vault (utilisateur)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (administrateur)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |File d’attente de stockage|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Table de stockage|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Fournisseur de ressources SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Fournisseur de ressources MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
 
 ## <a name="ports-and-urls-outbound"></a>Ports et URL (en sortie)
 
@@ -64,49 +67,6 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Inscription|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Publication de pare-feu
-
-Les ports répertoriés dans la section précédente s’appliquent aux communications entrantes lors de la publication de services Azure Stack via un pare-feu existant.
-
-Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Mais il ne s’agit pas d’une condition stricte. Bien que les pare-feu peuvent être utiles en cas d’attaques par déni de service distribué (DDOS) et d’inspection du contenu, ils peuvent également constituer un goulot d’étranglement au niveau du débit des services de stockage Azure comme les objets blob, les tables et les files d’attente.
-
-Selon le modèle d’identité (Azure AD ou AD FS), la publication du point de terminaison AD FS peut être requise ou pas. Si un mode de déploiement déconnecté est utilisé, vous devez publier le point de terminaison AD FS. (Pour plus d’informations, consultez la rubrique sur l’identité de l’intégration du centre de données).
-
-Les points de terminaison Azure Resource Manager (administrateur), portail administrateur et Key Vault (administrateur) ne nécessitent aucune publication externe. Cela dépend du scénario. Par exemple, en tant que fournisseur de services, vous voudrez limiter la surface de l’attaque et administrer uniquement Azure Stack depuis votre réseau et non à partir d’Internet.
-
-Pour une entreprise, le réseau externe peut être le réseau d’entreprise existant. Dans un tel scénario, vous devez publier ces points de terminaison pour exécuter Azure Stack à partir du réseau d’entreprise.
-
-## <a name="edge-firewall-scenario"></a>Scénario de pare-feu de périmètre
-
-Dans un déploiement de périmètre, Azure Stack est déployé directement derrière le routeur de périmètre (fourni par le fournisseur de services Internet), avec ou sans un pare-feu placé devant lui.
-
-![Diagramme architectural d’un déploiement de périmètre Azure Stack](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-En règle générale, les adresses IP routables publiques sont spécifiées pour le pool d’adresses IP virtuelles publiques au moment d’un déploiement de périmètre. Ce scénario permet à un utilisateur de bénéficier d’une expérience de cloud automatique complet et autocontrôlé, comme dans un cloud public de type comme Azure.
-
-### <a name="using-nat"></a>Utilisation de NAT
-
-Bien que cette méthode soit déconseillée en raison de la charge, vous pouvez utiliser la traduction d’adresses réseau (NAT) pour publier des points de terminaison. Pour une publication de point de terminaison entièrement contrôlée par les utilisateurs, cette approche nécessite une règle NAT par adresse IP virtuelle d’utilisateur, qui contient tous les ports qu'un utilisateur peut exploiter.
-
-Autre élément à considérer : Azure ne prend pas en charge la configuration d’un tunnel VPN vers un point de terminaison à l’aide de NAT dans un scénario de cloud hybride avec Azure.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Scénario de pare-feu de réseau d’entreprise/intranet/de périmètre
-
-Dans un déploiement intranet/d’entreprise/de périmètre, Azure Stack est déployé derrière un second pare-feu, qui fait généralement partie d’un réseau de périmètre (également appelé DMZ).
-
-![Scénario de pare-feu Azure Stack](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Si des adresses IP routables publiques ont été spécifiées pour le pool d’adresses IP virtuelles publiques d’Azure Stack, ces adresses appartiennent logiquement au réseau de périmètre et requièrent des règles de publication sur le pare-feu principal.
-
-### <a name="using-nat"></a>Utilisation de NAT
-
-Si des adresses IP routables non publiques sont utilisées pour le pool d’adresses IP virtuelles publiques d’Azure Stack, NAT est utilisé au niveau du pare-feu secondaire pour publier des points de terminaison Azure Stack. Dans ce scénario, vous devez configurer les règles de publication sur le pare-feu principal au-delà du périmètre ainsi que sur le pare-feu secondaire. Si vous souhaitez utiliser NAT, tenez compte des points suivants :
-
-- NAT ajoute une surcharge lors de la gestion des règles de pare-feu car les utilisateurs contrôlent leurs propres points de terminaison et leurs propres règles de publication dans la pile de mise en réseau logicielle (SDN). Les utilisateurs doivent contacter l’opérateur Azure Stack pour que leurs adresses IP virtuelles soient publiées et pour mettre à jour la liste des ports.
-- Bien que l’utilisation de NAT limite l’expérience de l’utilisateur, elle donne à l’opérateur un contrôle total sur les demandes de publication.
-- Pour les scénarios de cloud hybride avec Azure, tenez compte du fait qu’Azure ne prend pas en charge la configuration d’un tunnel VPN vers un point de terminaison à l’aide de NAT.
-
 
 ## <a name="next-steps"></a>étapes suivantes
-
-[Intégration au centre de données Azure Stack - Sécurité](azure-stack-integrate-security.md)
+[Exigences relatives à l’infrastructure à clé publique d’Azure Stack](azure-stack-pki-certs.md)

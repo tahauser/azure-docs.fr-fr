@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Envoyer des messages appareil-à-cloud sur IoT Hub
 
 Pour envoyer des alertes et des données de télémétrie de série chronologique à partir de vos appareils vers le back-end de votre solution, envoyez des messages appareil-à-cloud depuis votre appareil vers votre hub IoT. Pour une description des autres options appareil-à-cloud prises en charge par IoT Hub, consultez [Recommandations sur les communications appareil-à-cloud][lnk-d2c-guidance].
 
-Vous envoyez des messages appareil-à-cloud via un point de terminaison côté appareil (**/devices/{deviceId}/messages/events**). Les règles d’acheminement acheminent ensuite vos messages vers l’un des points de terminaison côté service sur votre IoT Hub. Les règles de routage utilisent les en-têtes et corps des messages appareil-à-cloud qui transitent par votre hub pour déterminer où les acheminer. Par défaut, les messages sont acheminés vers le point de terminaison côté service prédéfini (**messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Ainsi, vous pouvez utiliser [l’intégration et les SDK standard Event Hubs][lnk-compatible-endpoint] pour recevoir des messages appareil-à-cloud dans le back-end de votre solution.
+Vous envoyez des messages appareil-à-cloud via un point de terminaison côté appareil (**/devices/{deviceId}/messages/events**). Les règles d’acheminement acheminent ensuite vos messages vers l’un des points de terminaison côté service sur votre IoT Hub. Les règles de routage utilisent les en-têtes et corps des messages appareil-à-cloud pour déterminer où les acheminer. Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Ainsi, vous pouvez utiliser [l’intégration et les SDK standard Event Hubs][lnk-compatible-endpoint] pour recevoir des messages appareil-à-cloud dans le back-end de votre solution.
 
 IoT Hub implémente les messages appareil-à-cloud à l’aide d’un modèle de messagerie en streaming. Les messages appareil-à-cloud d’IoT Hub s’apparentent plus à des *événements* [Event Hubs][lnk-event-hubs] qu’à des *messages* [Service Bus][lnk-servicebus] dans la mesure où de nombreux événements transmis par le service peuvent être lus par plusieurs lecteurs.
 
@@ -36,11 +36,11 @@ La messagerie appareil-à-cloud avec IoT Hub présente les caractéristiques sui
 * IoT Hub autorise des millions d’appareils connectés simultanément (voir [Quotas et la limitation][lnk-quotas]).
 * IoT Hub n’autorise pas le partitionnement arbitraire. Les messages appareil-à-cloud sont partitionnés selon leur **deviceId**d’origine.
 
-Pour plus d’informations sur les différences entre les services IoT Hub et Event Hubs, consultez [Comparaison entre Azure IoT Hub et Azure Event Hub][lnk-comparison].
+Pour plus d’informations sur les différences entre IoT Hub et Event Hubs, consultez [Comparaison entre Azure IoT Hub et Azure Event Hubs][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Envoyer du trafic autre que la télémétrie
 
-Souvent, outre les points de données de télémétrie, les appareils envoient des messages et demandes qui nécessitent une exécution et une gestion séparées dans le back-end de la solution. Par exemple, les alertes critiques qui doivent déclencher une action spécifique dans le service principal. Vous pouvez facilement écrire une [règle de routage][lnk-devguide-custom] qui envoie ces types de messages à un point de terminaison dédié à leur traitement en fonction d’un en-tête sur le message ou d’une valeur dans le corps de ce dernier.
+Souvent, en plus des données de télémétrie, les appareils envoient des messages et des requêtes qui nécessitent une exécution et une gestion séparées dans le backend de la solution. Par exemple, les alertes critiques qui doivent déclencher une action spécifique dans le backend. Vous pouvez écrire une [règle de routage][lnk-devguide-custom] qui envoie ces types de messages à un point de terminaison dédié à leur traitement en fonction d’un en-tête sur le message ou d’une valeur dans le corps de message.
 
 Pour plus d’informations sur la meilleure façon de traiter ce genre de messages, consultez [Didacticiel : traiter les messages appareil-à-cloud IoT Hub][lnk-d2c-tutorial].
 
@@ -71,7 +71,7 @@ La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec 
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les SDK que vous pouvez utiliser pour envoyer des messages appareil-à-cloud, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
 

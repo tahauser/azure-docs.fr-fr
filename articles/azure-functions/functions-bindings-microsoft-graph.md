@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -43,7 +43,7 @@ Les liaisons Microsoft Graph sont disponibles via des _extensions de liaison_. L
 
 Les extensions de liaison sont uniquement disponibles pour la préversion d’Azure Functions 2.0. 
 
-Pour plus d’informations sur la façon de configurer une application de fonction pour utiliser la préversion 2.0 du runtime de Functions, consultez [Cibler le runtime version 2.0](functions-versions.md#target-the-version-20-runtime).
+Pour plus d’informations sur la façon de configurer une application de fonction pour utiliser la préversion 2.0 du runtime de Functions, consultez [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).
 
 ### <a name="installing-the-extension"></a>Installation de l’extension
 

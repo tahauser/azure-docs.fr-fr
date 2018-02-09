@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -26,7 +26,7 @@ La préversion introduit une nouvelle expérience de diagnostics unifiés qui me
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Qu’est-ce que composant signifie dans le contexte d’Application Insights ?
 
-Les composants sont des parties pouvant être déployées de manière indépendante de votre application distribuée/de microservices. Les développeurs et équipes d’opérations disposent d’une visibilité au niveau du code ou d’un accès à la télémétrie générée par ces composants d’application. 
+Les composants sont des parties pouvant être déployées de manière indépendante de votre application distribuée/de microservices. Les développeurs et équipes d’opérations disposent d’une visibilité au niveau du code ou d’un accès à la télémétrie générée par ces composants d’application.
 
 * Les composants sont différents des dépendances externes « observées » telles que SQL, EventHub, etc., auxquelles votre équipe/organisation peut ne pas avoir accès (code ou télémétrie).
 * Les composants s’exécutent sur un nombre quelconque d’instances de serveur/rôle/conteneur.
@@ -40,11 +40,11 @@ Activez « Unified details: E2E Transaction Diagnostics » dans la [liste de pr�
 
 ![Activer la version préliminaire](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Cette préversion est actuellement disponible pour les requêtes côté serveur, les dépendances et les exceptions. Vous pouvez accéder à la nouvelle expérience à partir des expériences de triage **Résultats de la recherche**, **Performances** ou **Échec**. La préversion remplace les panneaux d’informations classiques correspondants. 
+Cette préversion est actuellement disponible pour les requêtes côté serveur, les dépendances et les exceptions. Vous pouvez accéder à la nouvelle expérience à partir des expériences de triage **Résultats de la recherche**, **Performances** ou **Échec**. La préversion remplace les panneaux d’informations classiques correspondants.
 
 ![Exemples de performances](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Expériences de diagnostics de transaction 
+## <a name="transaction-diagnostics-experience"></a>Expériences de diagnostics de transaction
 Cette vue compte trois parties principales : un graphique de transaction entre composants, une liste de séquence horaire de l’ensemble de la télémétrie d’une opération de composant spécifique, et le volet d’informations d’un élément de télémétrie sélectionné sur la gauche.
 
 ![Parties principales](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ Ce volet affiche les détails des éléments sélectionnés dans l’une des deu
 ## <a name="profiler-and-snapshot-debugger"></a>Profileur et débogueur de capture instantanée
 
 Le [profileur Application Insights](app-insights-profiler.md) ou le [débogueur de la capture instantanée](app-insights-snapshot-debugger.md) apporte une aide avec des diagnostics au niveau du code des problèmes de performances et d’échec. Grâce à cette expérience, vous pouvez afficher les traces du profileur ou les instantanés d’un composant d’un simple clic.
+
+Si Profiler ne fonctionne pas, contactez **serviceprofilerhelp@microsoft.com**.
+
+Si le Débogueur de capture instantanée ne fonctionne pas, contactez **snapshothelp@microsoft.com**.
 
 ![Intégration du débogueur](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

@@ -3,7 +3,7 @@ title: "FAQ et problèmes connus liés à Managed Service Identity (MSI) pour Az
 description: "Problèmes connus liés à l’identité du service administré pour Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à Managed Service Identity (MSI) pour Azure Active Directory
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Où : 
 - Le type et le nom de l’extension pour Windows est : ManagedIdentityExtensionForWindows
 - Le type et le nom de l’extension pour Linux est : ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Existe-t-il des rôles RBAC pour les identités affectées par l’utilisateur ?
+Oui :
+1. Contributeur MSI : 
+
+- Peut : créer, lire, mettre à jour et supprimer des identités affectées par l’utilisateur. 
+- Ne peut pas : assigner une identité affectée par l’utilisateur à une ressource. (par exemple, assigner l’identité à une machine virtuelle)
+
+2. Opérateur MSI : 
+
+- Peut : assigner une identité affectée par l’utilisateur à une ressource. (par exemple, assigner l’identité à une machine virtuelle)
+- Ne peut pas : créer, lire, mettre à jour et supprimer des identités affectées par l’utilisateur.
+
+Remarque : Le rôle de contributeur intégré peut effectuer toutes les actions décrites ci-dessus : 
+- Créer, lire, mettre à jour et supprimer des identités affectées par l’utilisateur
+- Assigner une identité affectée par l’utilisateur à une ressource (par exemple, assigner l’identité à une machine virtuelle)
+
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -104,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - La seule façon de supprimer toutes les identités de service administré affectées par l’utilisateur est d’activer celles affectées par le système. 
 - L’approvisionnement de l’extension de machine virtuelle sur une machine virtuelle peut échouer en raison d’échecs de recherche DNS. Redémarrez la machine virtuelle, puis réessayez. 
-- Interface de ligne de commande Azure : `Az resource show` et `Az resource list` échouent sur une machine virtuelle avec une identité de service administré affectée par l’utilisateur. Pour contourner ce problème, utilisez `az vm/vmss show`.
+- Ajouter une identité de service administré « inexistante » entraîne la défaillance de la machine virtuelle. *Remarque : Le correctif pour l’échec de l’assignation d’une identité en l’absence d’une identité de service administré est en cours de développement.*
 - Le didacticiel sur le stockage Azure est uniquement disponible dans la zone EUAP Centre des États-Unis pour le moment. 
-- Quand une identité de service administré affectée par l’utilisateur bénéficie de l’accès à une ressource, le panneau de gestion des identités et des accès pour cette ressource indique « Impossible d’accéder aux données ». Pour contourner ce problème, utilisez l’interface de ligne de commande pour afficher/modifier les attributions de rôle de cette ressource.
-- La création d’une identité de service administré affectée par l’utilisateur avec un trait de soulignement dans le nom n’est pas prise en charge.
+- La création d’une identité de service administré affectée par l’utilisateur avec des caractères spéciaux (tels qu’un trait de soulignement) dans le nom n’est pas prise en charge.
 - Lors de l’ajout d’une deuxième identité affectée par l’utilisateur, l’ID de client n’est peut-être pas disponible pour la demande de jetons. Pour résoudre le problème, redémarrez l’extension de machine virtuelle MSI avec les commandes deux bash suivantes :
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

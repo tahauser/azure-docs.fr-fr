@@ -3,7 +3,7 @@ title: "Comment configurer une machine virtuelle Azure activée par MSI à l’a
 description: "Instructions détaillées sur la configuration et l’utilisation de l’identité du service administré (MSI, Managed Service Identity) sur une machine virtuelle Azure, à l’aide d’un Kit de développement logiciel (SDK) Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: bryanla
-ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: dee89e4cd6501bb56015a2e4cfc045cc6308400e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configurer l’identité du service administré (MSI) d’une machine virtuelle à l’aide d’un Kit de développement logiciel (SDK) Azure
 
@@ -27,7 +27,7 @@ La MSI fournit des services Azure avec une identité gérée automatiquement dan
 
 Dans cet article, vous allez découvrir comment activer et supprimer la MSI d’une machine virtuelle Azure à l’aide d’un Kit de développement logiciel (SDK) Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Azure prend en charge plusieurs plates-formes de programmation via une série de
 | Python | [Créer une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Créer une machine virtuelle Azure avec une MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Consultez les articles connexes répertoriés sous la section relative à la configuration de MSI pour une machine virtuelle Azure pour savoir comment utiliser les modèles de portail Azure, PowerShell, CLI et des ressources.
 

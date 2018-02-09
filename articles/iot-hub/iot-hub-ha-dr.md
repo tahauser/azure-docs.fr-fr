@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 En tant que service Azure, IoT Hub offre la haute disponibilité à l’aide de redondances au niveau de la région Azure, sans aucun travail supplémentaire requis par la solution. La plateforme Microsoft Azure inclut également des fonctionnalités pour vous aider à générer des solutions offrant des fonctionnalités de récupération d’urgence ou une disponibilité inter-régions. Si vous voulez fournir une haute disponibilité globale inter-régions aux appareils et aux utilisateurs, tirez parti de ces fonctionnalités de récupération d’urgence Azure. L’article [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md) décrit les fonctionnalités intégrées Azure permettant la continuité d’activité et la récupération d’urgence. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure][Disaster recovery and high availability for Azure applications] contient des recommandations d’architecture concernant les stratégies pour les applications Azure, permettant de bénéficier de la haute disponibilité et de la récupération d’urgence.
@@ -32,8 +32,10 @@ En plus de la haute disponibilité intra-région, IoT Hub implémente des mécan
 | Données d’identité dans le registre des identités |Perte de données entre 0 et 5 minutes |
 | Messages appareil-à-cloud |Perte de tous les messages non lus |
 | Messages de surveillance des opérations |Perte de tous les messages non lus |
-| Messages cloud-à-appareil |Perte de données entre 0 et 5 minutes |
+| Messages Cloud vers appareil |Perte de données entre 0 et 5 minutes |
 | File d’attente de rétroaction cloud-à-appareil |Perte de tous les messages non lus |
+| Données de jumeau d’appareil |Perte de données entre 0 et 5 minutes |
+| Travaux d’appareils et parents |Perte de données entre 0 et 5 minutes |
 
 ## <a name="regional-failover-with-iot-hub"></a>Basculement régional avec IoT Hub
 Un traitement complet des topologies de déploiement dans des solutions IoT dépasserait la portée de cet article. L’article traite du modèle de déploiement avec *basculement régional* pour les besoins de haute disponibilité et de récupération d’urgence.
@@ -46,7 +48,7 @@ Dans un modèle de basculement régional, le backend de solution s’exécute pr
 * **Réplication du registre des identités** : pour être utilisable, l’IoT Hub secondaire doit contenir toutes les identités des appareils pouvant se connecter à la solution. La solution doit conserver des sauvegardes géo-répliquées d’identités d’appareils et les télécharger dans le hub IoT secondaire avant de basculer le point de terminaison actif des appareils. La fonctionnalité d’exportation des identités d’appareil d’IoT Hub est utile dans ce contexte. Pour plus d’informations, consultez[Guide du développeur IoT Hub - Registre des identités][IoT Hub developer guide - identity registry].
 * **Fusion logique** : quand la région principale redevient disponible, l’ensemble des états et des données qui ont été créés dans le site secondaire doit revenir à la région principale. Ces états et ces données ont essentiellement trait aux identités des appareils et aux métadonnées d’application qui doivent être fusionnées avec l’IoT Hub principal et d’autres magasins propres à l’application dans la région principale. Pour simplifier cette étape, vous devez utiliser des opérations idempotentes. Des opérations idempotentes minimisent les effets indésirables de la distribution cohérente éventuelle d’événements, et des doublons ou des livraisons d’événements hors d’usage. Par ailleurs, la logique d’application doit être conçue pour tolérer les éventuelles incohérences ou de légers retards. Cette situation peut se produire en raison du temps additionnel que le système prend pour se réparer en fonction des objectifs de points de récupération (RPO).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
 * [Prise en main des IoT Hubs (didacticiel)][lnk-get-started]

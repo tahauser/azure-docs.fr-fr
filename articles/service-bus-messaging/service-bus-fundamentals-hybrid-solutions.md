@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -26,9 +26,9 @@ Que l’application ou le service s’exécute dans le cloud ou localement, il e
 
 ## <a name="service-bus-fundamentals"></a>Concepts de base de Service Bus
 
-À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Dans certains cas, vous avez simplement besoin d’une connexion entre les applications, sans file d’attente. Service Bus offre ces trois options, ce qui permet à vos applications d’interagir de différentes manières.
+À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Dans certains cas, vous avez simplement besoin d’une connexion entre les applications, sans file d’attente. Azure Service Bus offre ces trois options, ce qui permet à vos applications d’interagir de différentes manières.
 
-Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. La figure 1 montre à quoi ressemble cette architecture.
+Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. La Figure 1 montre à quoi ressemble cette architecture :
 
 ![][1]
 
@@ -40,7 +40,7 @@ Dans un espace de noms, vous pouvez utiliser une ou plusieurs instances de trois
 * Les *rubriques* fournissent une communication unidirectionnelle à l’aide *d’abonnements* : une seule rubrique peut avoir plusieurs abonnements. À l’instar d’une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
 * Les *relais* permettent la communication bidirectionnelle. À l’inverse des files d’attente et des rubriques, le relais ne stocke pas les messages en transit ; il ne s’agit pas d’un intermédiaire. Il ne fait que les transférer vers l’application de destination.
 
-Lorsque vous créez une file d'attente, une rubrique ou un relais, vous lui donnez un nom. Ce nom, combiné à celui de votre espace de noms, donne un identificateur unique à l’objet. Les applications peuvent fournir ce nom à Service Bus, puis utiliser cette file d’attente, cette rubrique ou ce relais pour communiquer entre elles. 
+Lorsque vous créez une file d'attente, une rubrique ou un relais, vous lui donnez un nom. Ce nom, combiné à celui de votre espace de noms, donne un identificateur unique à l’objet. Les applications peuvent fournir ce nom à Service Bus, puis utiliser cette file d’attente, cette rubrique ou ce relais pour communiquer entre elles. 
 
 Pour utiliser ces objets dans le scénario de relais, les applications Windows peuvent utiliser Windows Communication Foundation (WCF). Ce service est appelé [Relais WCF](../service-bus-relay/relay-what-is-it.md). Pour les files d’attente et les rubriques, les applications Windows peuvent utiliser des API de messagerie définie par Service Bus. Pour faciliter l’utilisation de ces objets à partir d’applications non-Windows, Microsoft fournit des Kits de développement logiciel (SDK) pour Java, Node.js et d’autres langages. Vous pouvez également accéder aux files d’attente et aux rubriques à l’aide des [API REST](/rest/api/servicebus/) sur HTTP(s). 
 
@@ -48,13 +48,13 @@ Il est important de comprendre que même si Service Bus fonctionne dans le clou
 
 ## <a name="queues"></a>Files d’attente
 
-Supposons que vous décidiez de connecter deux applications à l'aide d'une file d'attente Service Bus. La figure 2 illustre cette situation.
+Supposons que vous décidiez de connecter deux applications à l'aide d'une file d'attente Service Bus. La Figure 2 illustre cette situation :
 
 ![][2]
 
 **Figure 2 : les files d’attente Service Bus offrent un système de files d’attente unidirectionnelles asynchrones.**
 
-La procédure est simple : l’expéditeur envoie un message à une file d’attente Service Bus et le destinataire le récupère plus tard. Une file d’attente peut avoir un seul destinataire, comme l’indique la Figure 2, ou plusieurs applications peuvent lire à partir de la même file d’attente. Dans ce dernier cas, chaque message est lu par un seul destinataire. Dans le cas d’un service de multidiffusion, utilisez plutôt une rubrique.
+L’expéditeur envoie un message à une file d’attente Service Bus et le destinataire le récupère plus tard. Une file d’attente peut avoir un seul destinataire, comme l’indique la Figure 2, ou plusieurs applications peuvent lire à partir de la même file d’attente. Dans ce dernier cas, chaque message est lu par un seul destinataire. Dans le cas d’un service de multidiffusion, utilisez plutôt une rubrique.
 
 Chaque message se compose de deux parties : un jeu de propriétés (chacun de type paire clé/valeur) et une charge utile de message. La charge utile peut être de type binaire, texte, voire XML. La façon dont les messages sont utilisés dépend de ce que tente de faire l’application. Par exemple, une application qui envoie un message à propos d’une vente récente peut mentionner les propriétés **Seller="Ava"** et **Amount=10000**. Le corps du message peut contenir une image numérisée du contrat signé ou rester vide s’il n’y en a pas.
 
@@ -72,13 +72,13 @@ Les files d’attente sont utiles dans de nombreuses situations. Elles permetten
 
 ## <a name="topics"></a>Rubriques
 
-Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne solution. Parfois, les rubriques Service Bus sont plus utiles. La figure 3 illustre cette idée.
+Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne solution. Parfois, les rubriques sont préférables. La Figure 3 illustre cette idée :
 
 ![][3]
 
 **Figure 3 : en fonction du filtre spécifié par l’application, celle-ci peut recevoir certains messages ou tous les messages envoyés à une rubrique Service Bus.**
 
-Les *rubriques* sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La différence est que les rubriques permettent à chaque application réceptrice de créer son propre *abonnement* en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
+Les *rubriques* sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La différence est que les rubriques permettent à chaque application réceptrice de créer son propre *abonnement* et éventuellement de définir un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
 
 * L’abonné 1 ne reçoit que les messages contenant la propriété *Seller="Ava"*.
 * L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle souhaite peut-être pouvoir afficher ses propres ventes, ainsi que toutes les ventes importantes, quel que soit le vendeur.
@@ -88,7 +88,7 @@ Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les
 
 ## <a name="relays"></a>relais
 
-Les files d’attente et les rubriques permettent la communication asynchrone unidirectionnelle via un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette connexion ? Supposons que vos applications doivent aussi bien envoyer que recevoir des messages, ou bien que vous souhaitiez disposer d’une liaison directe entre elles et que vous n’avez pas besoin d’un intermédiaire pour stocker les messages. Pour ce genre de scénarios, Service Bus fournit des *relais*, comme illustré dans la figure 4.
+Les files d’attente et les rubriques permettent la communication asynchrone unidirectionnelle via un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette connexion ? Supposons que vos applications doivent aussi bien envoyer que recevoir des messages, ou bien que vous souhaitiez disposer d’une liaison directe entre elles et que vous n’avez pas besoin d’un intermédiaire pour stocker les messages. Pour ce genre de scénarios, Service Bus fournit des *relais*, comme illustré dans la Figure 4 :
 
 ![][4]
 
@@ -96,7 +96,7 @@ Les files d’attente et les rubriques permettent la communication asynchrone un
 
 La question évidente à poser à propos des relais est la suivante : pourquoi y recourir ? Même si je n’ai pas besoin de files d’attente, pourquoi faire communiquer les applications via un service cloud au lieu de les faire interagir directement ? La réponse est que de les faire communiquer directement peut s’avérer plus compliqué qu’il n’y paraît.
 
-Supposons que vous souhaitiez connecter deux applications locales s’exécutant dans les centres de données de l’entreprise. Chaque application se trouve derrière un pare-feu et chaque centre de données utilise probablement la traduction d’adresses réseau. Le pare-feu bloque les données entrantes sur presque tous les ports, et la traduction d’adresses réseau indique que les ordinateurs sur lesquels s’exécutent les applications ne disposent pas d’une adresse IP fixe que vous pouvez joindre directement depuis l’extérieur du centre de données. Sans aide supplémentaire, la connexion de ces applications via Internet public pose problème.
+Supposons que vous souhaitiez connecter deux applications locales s’exécutant dans les centres de données de l’entreprise. Chaque application se trouve derrière un pare-feu et chaque centre de données utilise probablement la traduction d’adresses réseau. Le pare-feu bloque les données entrantes sur presque tous les ports, et la traduction d’adresses réseau indique que l’ordinateur sur lequel s’exécutent les applications ne dispose pas d’une adresse IP fixe que vous pouvez joindre directement depuis l’extérieur du centre de données. Sans aide supplémentaire, la connexion de ces applications via Internet public pose problème.
 
 Un Service Bus Relay peut être utile. Afin d’établir une communication bidirectionnelle via un relais, chaque application établit une connexion TCP sortante avec Service Bus, et la maintient ouverte. Toutes les communications entre les deux applications transitent par ces connexions. Comme chaque connexion a été établie depuis le centre de données, le pare-feu autorise le trafic entrant vers chaque application sans ouvrir de nouveaux ports. Cette approche contourne également le problème de la traduction d’adresses réseau, car chaque application dispose d’un point de terminaison constant dans le cloud pendant toute la durée de la communication. En échangeant des données via le relais, les applications peuvent éviter les problèmes qui pourraient rendre la communication difficile. 
 

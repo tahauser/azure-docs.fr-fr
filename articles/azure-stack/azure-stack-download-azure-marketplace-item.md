@@ -3,8 +3,8 @@ title: "Télécharger des éléments de la Place de marché à partir d’Azure 
 description: "Je peux télécharger des éléments de la Place de marché à partir d’Azure dans mon déploiement Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
+
 Quand vous décidez du contenu à inclure dans votre Place de marché Azure Stack, il est recommandé de prendre en compte le contenu disponible auprès de la Place de marché Azure. Vous pouvez télécharger à partir d’une liste organisée d’éléments de la Place de marché Azure, qui ont été préalablement testés pour s’exécuter sur Azure Stack. De nouveaux éléments sont fréquemment ajoutés à cette liste : consultez-la donc régulièrement pour voir ce qu’elle contient de nouveau.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Télécharger des éléments de la Place de marché dans un scénario connecté (avec connectivité Internet)
 
-1. Pour télécharger des éléments de la Place de marché, vous devez d’abord [inscrire Azure Stack auprès d’Azure](azure-stack-register.md). 
+1. Pour télécharger des éléments de la Place de marché, vous devez d’abord [inscrire Azure Stack auprès d’Azure](azure-stack-register.md).
 2. Connectez-vous au portail d’administration d’Azure Stack (https://portal.local.azurestack.external).
 3. Certains éléments de la Place de marché peuvent être volumineux. Vérifiez que vous avez suffisamment d’espace sur votre système en cliquant sur **Fournisseurs de ressources** > **Stockage**.
 
@@ -51,9 +52,9 @@ Quand vous décidez du contenu à inclure dans votre Place de marché Azure Stac
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Télécharger des éléments de la Place de marché dans un scénario déconnecté ou partiellement connecté (avec connectivité Internet limitée)
 
-Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne peut pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Vous pouvez cependant pouvez utiliser l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack. 
+Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne peut pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Vous pouvez cependant pouvez utiliser l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 Avant de pouvoir utiliser l’outil de syndication de la Place de marché, vérifiez que vous avez bien [inscrit Azure Stack auprès de votre abonnement Azure](azure-stack-register.md).  
 
 À partir de l’ordinateur connecté à Internet, procédez de la manière suivante pour télécharger les éléments de la Place de marché dont vous avez besoin :
@@ -132,12 +133,12 @@ Avant de pouvoir utiliser l’outil de syndication de la Place de marché, véri
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Utilisez le portail pour télécharger votre élément de la Place de marché (. Azpkg) dans Azure Stack Blob Storage. Vous pouvez effectuer le chargement sur le stockage Azure Stack local ou sur le Stockage Azure. (Il s’agit d’un emplacement temporaire du package.) Assurez-vous que l’objet blob est accessible publiquement et notez l’URI.  
 
-5. Utilisez l’applet de commande **Add-AzureRMGalleryItem** pour publier l’élément de la Place de marché sur Azure Stack. Par exemple :
+5. Utilisez l’applet de commande **Add-AzsGalleryItem** pour publier l’élément de la Place de marché sur Azure Stack. Par exemple : 
 
    ```powershell
    Add-AzsGalleryItem `
@@ -149,6 +150,6 @@ Avant de pouvoir utiliser l’outil de syndication de la Place de marché, véri
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)

@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
@@ -146,7 +146,7 @@ Procédez comme suit pour créer un notebook dans Databricks, configurer le note
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lors de la création du cluster Spark, si vous avez coché la case **Arrêter après ___ minutes activité**, le cluster s’arrête automatiquement s’il a été inactif pendant la durée spécifiée.
+Lors de la création du cluster Spark, si vous avez coché la case **Arrêter après __ minutes inactivité**, le cluster s’arrête automatiquement s’il a été inactif pendant la durée spécifiée.
 
 Si vous n’avez pas coché la case, vous devez arrêter manuellement le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, cliquez sur **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis cliquez sur l’icône **Arrêter**.
 

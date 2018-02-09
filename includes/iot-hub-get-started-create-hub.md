@@ -25,11 +25,11 @@ Créez un IoT Hub pour que votre application de périphérique simulé puisse se
 
 1. Cliquez sur **Créer**. La création de votre IoT Hub peut prendre plusieurs minutes. Vous pouvez suivre la progression dans le volet **Notifications**.
 
-1. Lorsque la création du IoT Hub a réussi, cliquez sur la nouvelle vignette représentant votre concentrateur dans le portail Azure pour ouvrir la fenêtre des propriétés de votre nouveau concentrateur. Maintenant que vous avez créé un IoT Hub, recherchez les informations importantes que vous utilisez pour connecter des appareils et des applications à votre IoT Hub. Notez la valeur **Hostname**, puis cliquez sur **Stratégies d’accès partagé**.
+1. Lorsque votre IoT Hub est prêt, cliquez sur sa vignette dans le portail Azure pour ouvrir la fenêtre de ses propriétés. Maintenant que vous avez créé un IoT Hub, recherchez les informations importantes que vous utilisez pour connecter des appareils et des applications à votre IoT Hub. Notez la valeur **Hostname**, puis cliquez sur **Stratégies d’accès partagé**.
    
     ![Nouvelle fenêtre IoT Hub][4]
 
-1. Dans le panneau **Stratégies d’accès partagé**, cliquez sur la stratégie **iothubowner**, puis copiez et notez la chaîne de connexion IoT Hub dans la fenêtre **iothubowner**. Consultez la rubrique [Access Control][lnk-access-control] du « Guide du développeur IoT Hub » pour plus d’informations.
+1. Dans le panneau **Stratégies d’accès partagé**, cliquez sur la stratégie **iothubowner**, puis notez la chaîne de connexion IoT Hub dans la fenêtre **iothubowner**. Consultez la rubrique [Access Control][lnk-access-control] du « Guide du développeur IoT Hub » pour plus d’informations.
    
     ![Stratégies d’accès partagé][5]
 

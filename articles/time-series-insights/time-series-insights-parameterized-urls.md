@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -63,14 +63,16 @@ Les valeurs acceptées correspondent au menu **Quick Time** de l’Explorateur T
 
 Le paramètre `timeSeriesDefinitions=<collection of term objects>` indique les conditions d’une vue Time Series Insights :
 
-- `name=<string>`
+- "name":"<string>"
   - nom du *terme* ;
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - nom de colonne pour le *fractionnement* ;
-- `measureName=<string>`
+- "measureName":"<string>"
   - nom de colonne de *mesure* ;
-- `predicate=<string>`
+- "predicate":"<string>"
   - clause *where* pour le filtrage côté serveur.
+-  "useSum":"true"
+  - Il s’agit d’un paramètre facultatif qui spécifie l’utilisation de la somme pour la mesure.  Notez que si "Events" est la mesure sélectionnée, le nombre est sélectionné par défaut.  Si "Events" n’est pas sélectionné, la moyenne est sélectionnée par défaut.  
 
 Le paramètre « multiChartStack=<true/false> » permet l’empilement dans le graphique et le paramètre « multiChartSameScale=<true/false> » permet d’appliquer la même échelle d’axe des ordonnées entre les termes au sein d’un paramètre facultatif.  
 
@@ -118,5 +120,5 @@ La vue complète (y compris le graphique) s’afficherait comme suit :
 
 ![Vue de graphique](media/parameterized-url/url2.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md)

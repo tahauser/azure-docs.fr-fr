@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
@@ -28,7 +28,7 @@ Quand vous concevez une application SaaS multi-locataire, vous devez choisir ave
 
 La discussion qui suit traite des autres modèles de location.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>R : Comment choisir le modèle de location approprié
+## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>R. Comment choisir le modèle de location approprié
 
 En général, le modèle de location n’affecte pas le fonctionnement d’une application, mais il peut avoir un impact sur d’autres aspects de la solution dans son ensemble.  Les critères suivants sont utilisés pour évaluer chacun des modèles :
 
@@ -96,7 +96,7 @@ Azure SQL Database fournit les outils nécessaires pour configurer, surveiller e
 
 La plateforme Azure SQL Database propose de nombreuses fonctionnalités conçues pour gérer plus de 100 000 bases de données à l’échelle.  Ces fonctionnalités font du modèle de base de données par locataire un modèle plausible.
 
-Prenons l’exemple d’un système constitué d’une seule base de données à 1 000 locataires.  La base de données peut avoir 20 index.  Si le système passe à 1 000 bases de données à locataire unique, le nombre d’index s’élève à 20 000.  Dans le cadre du [paramétrage automatique][docu-sql-db-automatic-tuning-771a] de SQL Database, les fonctionnalités d’indexation automatiques sont activées par défaut.  L’indexation automatique gère pour vous les 20 000 index et l’optimisation des opérations continues de création et de suppression.  Effectuées dans une base de données individuelle, ces actions automatisées ne sont ni coordonnées ni restreintes par des actions similaires dans d’autres bases de données.  L’indexation automatique traite différemment les index selon qu’ils se trouvent dans une base de données occupée ou non.  Cette tâche colossale de personnalisation de la gestion des index serait difficile à réaliser manuellement à l’échelle du modèle de base de données par locataire.
+Prenons l’exemple d’un système constitué d’une seule base de données à 1 000 locataires.  La base de données peut avoir 20 index.  Si le système passe à 1000 bases de données à locataire unique, le nombre d’index s’élève à 20 000.  Dans le cadre du [paramétrage automatique][docu-sql-db-automatic-tuning-771a] de SQL Database, les fonctionnalités d’indexation automatiques sont activées par défaut.  L’indexation automatique gère pour vous les 20 000 index et l’optimisation des opérations continues de création et de suppression.  Effectuées dans une base de données individuelle, ces actions automatisées ne sont ni coordonnées ni restreintes par des actions similaires dans d’autres bases de données.  L’indexation automatique traite différemment les index selon qu’ils se trouvent dans une base de données occupée ou non.  Cette tâche colossale de personnalisation de la gestion des index serait difficile à réaliser manuellement à l’échelle du modèle de base de données par locataire.
 
 Parmi les autres fonctionnalités de gestion pouvant facilement être mises à l’échelle, citons les suivantes :
 
@@ -177,7 +177,7 @@ Le tableau suivant récapitule les différences entre les principaux modèles de
 
 | Mesure | Application autonome | Base de données par locataire | Multi-locataire partitionné |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Mettre à l'échelle | Moyenne<br />1-Plusieurs centaines | Très élevée<br />1-Plusieurs centaines de milliers | Illimité<br />1-Plusieurs millions |
+| Scale | Moyenne<br />1-Plusieurs centaines | Très élevée<br />1-Plusieurs centaines de milliers | Illimité<br />1-Plusieurs millions |
 | Isolation des locataires | Très élevée | Élevé | Faible ; à l’exception d’un locataire singleton (seul dans une base de données multi-locataire). |
 | Coût de base de données par locataire | Élevé ; dimensionné pour les pics. | Bas ; pools utilisés. | Le plus bas ; pour les petits locataires dans les bases de données multi-locataires. |
 | Surveillance et gestion des performances | Par locataire uniquement | Agrégat + par locataire | Agrégat ; mais par locataire uniquement pour les singletons. |
@@ -185,7 +185,7 @@ Le tableau suivant récapitule les différences entre les principaux modèles de
 | Complexité opérationnelle | Faible-Élevée. Simple au niveau individuel, complexe à grande échelle. | Faible-Moyenne. Les modèles permettent de réduire la complexité à grande échelle. | Faible-Élevée. La gestion des locataires individuels est complexe. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Déployer et explorer une application Wingtip multi-locataire qui utilise le modèle SaaS de base de données par locataire - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

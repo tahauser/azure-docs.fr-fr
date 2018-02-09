@@ -3,7 +3,7 @@ title: "Utiliser une identité MSI affectée à l’utilisateur sur une machine 
 description: "Ce didacticiel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux pour accéder au stockage Azure."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Utiliser une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux pour accéder au stockage Azure
 
@@ -32,7 +32,7 @@ Ce didacticiel vous montre comment créer et utiliser une identité MSI (Managed
 > * Accorder à l’identité MSI l’accès à une instance de stockage Azure
 > * Obtenir un jeton d’accès par l’intermédiaire de l’identité MSI affectée à l’utilisateur, et l’utiliser pour accéder au stockage Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -41,7 +41,7 @@ Ce didacticiel vous montre comment créer et utiliser une identité MSI (Managed
 Pour exécuter les exemples de script CLI dans ce didacticiel, vous avez deux possibilités :
 
 - Utiliser [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dans le portail Azure ou via le bouton « Essayer » situé en haut à droite de chaque bloc de code.
-- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou version ultérieure) si vous préférez utiliser une console CLI locale.
+- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -134,10 +134,10 @@ Si vous n’en avez pas déjà un, créez maintenant un compte de stockage. Vous
 
 Par l’intermédiaire d’une identité MSI, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources qui prennent en charge l’authentification Azure AD. Dans ce didacticiel, vous utilisez le stockage Azure.
 
-Vous accordez tout d’abord à l’identité MSI l’accès à un conteneur de stockage Azure. Ici, en l’occurrence, vous utilisez le conteneur créé précédemment. Mettez à jour les valeurs de `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` et `<CONTAINER NAME>` en fonction de votre environnement. Remplacez `<CLIENT ID>` par la propriété `clientId` retournée avec la commande `az identity create` dans [Créer une identité MSI affectée à l’utilisateur](#create-a-user-assigned-msi) :
+Vous accordez tout d’abord à l’identité MSI l’accès à un conteneur de stockage Azure. Ici, en l’occurrence, vous utilisez le conteneur créé précédemment. Mettez à jour les valeurs de `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` et `<CONTAINER NAME>` en fonction de votre environnement. En outre, remplacez `<MSI PRINCIPALID>` par la propriété `principalId` retournée par la commande `az identity create` dans [Créer une identité MSI affectée à l’utilisateur](#create-a-user-assigned-msi) :
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 La réponse comprend les détails de l’attribution de rôle créée :
@@ -198,9 +198,9 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
    Hello world! :)
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-- Pour une vue d’ensemble de l’identité MSI, consultez [Vue d’ensemble de l’identité MSI](msi-overview.md).
+- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 - Pour savoir comment suivre ce didacticiel en utilisant des informations d’identification de stockage SAP, consultez [Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux pour accéder au stockage Azure à l’aide d’informations d’identification SAP](msi-tutorial-linux-vm-access-storage-sas.md).
 - Pour plus d’informations sur la fonctionnalité de SAP de compte de Stockage Azure, voir :
   - [Utilisation des signatures d’accès partagé (SAP)](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)

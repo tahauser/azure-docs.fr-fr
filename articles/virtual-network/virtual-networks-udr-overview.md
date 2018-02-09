@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -151,7 +151,7 @@ Un itinéraire avec le préfixe d’adresse 0.0.0.0/0 indique à Azure la façon
 
 Lorsque vous substituez le préfixe d’adresse 0.0.0.0/0, en plus du flux du trafic sortant du sous-réseau via la passerelle de réseau virtuel ou l’appliance virtuelle, les modifications suivantes se produisent avec le routage par défaut d’Azure : 
 
-- Azure envoie tout le trafic vers le type de tronçon suivant spécifié dans l’itinéraire pour inclure le trafic destiné à des adresses IP publiques de services Azure. Lorsque le type de tronçon suivant de l’itinéraire avec le préfixe d’adresse 0.0.0.0/0 est **Internet**, le trafic sortant du sous-réseau et destiné aux adresses IP publiques de services Azure ne quitte jamais le réseau principal d’Azure, quelle que soit la région Azure dans laquelle le réseau virtuel ou la ressource de service Azure existe. Lorsque vous créez un itinéraire défini par l’utilisateur ou BGP avec le type de tronçon suivant **Passerelle de réseau virtuel** ou **Équipement virtuel**, tout le trafic, y compris le trafic envoyé aux adresses IP publiques des services Azure pour lesquels vous n’avez pas activé des [points de terminaison de service](virtual-network-service-endpoints-overview.md), est envoyé au type de tronçon suivant spécifié dans l’itinéraire. Si vous avez activé un point de terminaison de service pour un service, le trafic vers ce service n’est pas routé vers le type de tronçon suivant dans un itinéraire avec le préfixe d’adresse 0.0.0.0/0, car les préfixes d’adresse du service sont spécifiés dans l’itinéraire qu’Azure crée lorsque vous activez le point de terminaison de service point, et les préfixes d’adresse du service sont plus longs que 0.0.0.0/0.
+- Azure envoie tout le trafic vers le type de tronçon suivant spécifié dans l’itinéraire y compris le trafic destiné à des adresses IP publiques de services Azure. Lorsque le type de tronçon suivant de l’itinéraire avec le préfixe d’adresse 0.0.0.0/0 est **Internet**, le trafic sortant du sous-réseau et destiné aux adresses IP publiques de services Azure ne quitte jamais le réseau principal d’Azure, quelle que soit la région Azure dans laquelle le réseau virtuel ou la ressource de service Azure existe. Lorsque vous créez un itinéraire défini par l’utilisateur ou BGP avec le type de tronçon suivant **Passerelle de réseau virtuel** ou **Équipement virtuel**, tout le trafic, y compris le trafic envoyé aux adresses IP publiques des services Azure pour lesquels vous n’avez pas activé des [points de terminaison de service](virtual-network-service-endpoints-overview.md), est envoyé au type de tronçon suivant spécifié dans l’itinéraire. Si vous avez activé un point de terminaison de service pour un service, le trafic vers ce service n’est pas routé vers le type de tronçon suivant dans un itinéraire avec le préfixe d’adresse 0.0.0.0/0, car les préfixes d’adresse du service sont spécifiés dans l’itinéraire qu’Azure crée lorsque vous activez le point de terminaison de service point, et les préfixes d’adresse du service sont plus longs que 0.0.0.0/0.
 - Vous ne pouvez plus accéder directement aux ressources dans le sous-réseau à partir d’Internet. Vous pouvez indirectement accéder aux ressources dans le sous-réseau à partir d’Internet, si le trafic entrant passe par l’appareil spécifié par le type de tronçon suivant d’un itinéraire avec le préfixe d’adresse 0.0.0.0/0 avant d’atteindre les ressources dans le réseau virtuel. Si l’itinéraire contient les valeurs suivantes comme type de tronçon suivant :
     - **Équipement virtuel** : l’appliance doit :
         - Être accessible à partir d’Internet
@@ -161,7 +161,7 @@ Lorsque vous substituez le préfixe d’adresse 0.0.0.0/0, en plus du flux du tr
         - Être en mesure de translater et de transférer une adresse réseau, ou d’acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, et de retourner le trafic à Internet. 
     - **Passerelle de réseau virtuel** : si la passerelle est une passerelle de réseau virtuel, un appareil local connecté à Internet peut translater et transférer les adresses du réseau ou acheminer le trafic à travers un serveur proxy vers la ressource de destination dans le sous-réseau, via l’[homologation privée](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) d’ExpressRoute. 
 
-  Consultez [Zone DMZ entre Azure et votre centre de données local](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Zone DMZ entre Azure et Internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) pour les détails de mise en œuvre lors de l’utilisation de passerelles et d’appliances virtuelles entre les Internet et Azure.
+  Consultez [Zone DMZ entre Azure et votre centre de données local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Zone DMZ entre Azure et Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) pour les détails de mise en œuvre lors de l’utilisation de passerelles et d’appliances virtuelles entre les Internet et Azure.
 
 ## <a name="routing-example"></a>Exemple de routage
 

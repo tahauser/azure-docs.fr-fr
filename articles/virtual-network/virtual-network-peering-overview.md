@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -26,7 +26,7 @@ L’homologation de réseaux virtuels vous permet de connecter deux [réseaux vi
 
 Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
 
-* Le trafic réseau entre les réseaux virtuels homologués est privé. Le trafic entre les réseaux virtuels reste sur le réseau principal de Microsoft. Aucun chiffrement et aucune connexion Internet publique, ni passerelle ne sont nécessaires pour que les réseau virtuels communiquent.
+* Le trafic réseau entre les réseaux virtuels homologués est privé. Le trafic entre les réseaux virtuels reste sur le réseau principal de Microsoft. Aucun chiffrement et aucune connexion Internet publique, ni passerelle ne sont nécessaires pour que les réseaux virtuels communiquent.
 * Connexion à latence faible et haut débit entre les ressources de différents réseaux virtuels.
 * La possibilité pour les ressources d’un réseau virtuel de communiquer avec les ressources d’un autre réseau virtuel, une fois que les réseaux virtuels sont homologués.
 * La possibilité de transférer des données dans des abonnements Azure, des modèles de déploiement et dans les régions Azure (préversion).

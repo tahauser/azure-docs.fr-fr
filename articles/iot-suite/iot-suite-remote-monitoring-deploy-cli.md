@@ -1,28 +1,28 @@
 ---
 title: "Déployer la solution de surveillance à distance Java - Azure | Microsoft Docs"
-description: "Ce didacticiel montre comment provisionner les microservices Java de solution préconfigurée de surveillance à distance."
+description: "Ce didacticiel montre comment provisionner la solution préconfigurée de surveillance à distance à l’aide de l’interface CLI."
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Déployer la solution préconfigurée de surveillance à distance à l’aide de l’interface CLI
 
 Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web depuis azureiotsuite.com ; pour en savoir plus sur cette option, consultez [Déployer la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour déployer la solution préconfigurée de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -52,12 +52,14 @@ Suivez les instructions à l’écran pour effectuer le processus de connexion.
 
 Quand vous déployez la solution préconfigurée, vous disposez de plusieurs options pour configurer le processus de déploiement :
 
-| Option | Valeurs | Description |
+| Option | Valeurs | DESCRIPTION |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | Utilisez un déploiement _basic_ à des fins de test et de démonstration ; il déploie tous les microservices sur une seule machine virtuelle. Utilisez un déploiement _standard_ à des fins de production ; il déploie les microservices sur plusieurs machines virtuelles. |
+| SKU    | `basic`, `standard`, `local` | Utilisez un déploiement _basic_ à des fins de test et de démonstration ; il déploie tous les microservices sur une seule machine virtuelle. Utilisez un déploiement _standard_ à des fins de production ; il déploie les microservices sur plusieurs machines virtuelles. Un déploiement _local_ configure un conteneur Docker pour exécuter les microservices sur votre ordinateur local, et il utilise des services Azure tels que Stockage et Cosmos DB dans le cloud. |
 | Runtime | `dotnet`, `java` | Sélectionne l’implémentation de langage des microservices. |
 
-## <a name="deploy-the-preconfigured-solution"></a>Déployer la solution préconfigurée
+Pour découvrir comment utiliser le déploiement local, consultez [Running the remote monitoring solution locally (Exécution locale de la solution de surveillance à distance)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+
+## <a name="deploy-the-preconfigured-solution"></a>Déploiement de la solution préconfigurée
 
 ### <a name="example-deploy-net-version"></a>Exemple : déployer la version .NET
 
@@ -94,9 +96,9 @@ pcs -h
 
 Pour plus d’informations sur l’interface CLI, consultez [How to use the CLI](https://github.com/Azure/pcs-cli/blob/master/README.md) (Comment utiliser l’interface CLI).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configuration de la solution préconfigurée

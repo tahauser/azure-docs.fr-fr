@@ -3,22 +3,22 @@ title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Stockage 
 description: "Didacticiel montrant comment utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0c6150c01c8ca31bba748741b2285cb4f29beaa6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 9102ea255e533e4233b2cba77a6f7f38b992e2a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -234,7 +234,7 @@ Name              : testblob
 
 ## <a name="related-content"></a>Contenu connexe
 
-- Pour une vue d’ensemble de l’identité MSI, consultez [Vue d’ensemble de l’identité MSI](msi-overview.md).
+- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 - Pour savoir comment suivre ce didacticiel en utilisant une clé de compte de stockage, voir [Utiliser une MSI de machine virtuelle Windows pour accéder à Stockage Azure](msi-tutorial-windows-vm-access-storage.md).
 - Pour plus d’informations sur la fonctionnalité de SAP de compte de Stockage Azure, voir :
   - [Utilisation des signatures d’accès partagé (SAP)](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)

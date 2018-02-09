@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Création de votre première application de services fiables avec état c# Service Fabric
 
@@ -81,6 +81,17 @@ Une fois le cluster prêt, vous obtenez une notification de la part de l’appli
 Une fois que l’application a démarré, Visual Studio affiche automatiquement **l’Observateur d’événements de diagnostic**, où vous pouvez voir la sortie de suivi depuis vos services.
    
 ![Observateur d’événements de diagnostic][5]
+
+>[!NOTE]
+>Les événements doivent automatiquement démarrer le suivi dans l’Observateur d’événements de diagnostic, mais si vous devez le configurer manuellement, commencez par ouvrir le fichier `ServiceEventSource.cs`, situé dans le projet **MyStatefulService**. Copiez la valeur de l’attribut `EventSource` en haut de la classe `ServiceEventSource`. Dans l’exemple ci-dessous, l’événement source est appelé `"MyCompany-MyApplication-MyStatefulService"`, qui peut être différent dans votre cas.
+>
+>![Rechercher le nom de la source de l’événement de service][service-event-source-name]
+>
+>Ensuite, cliquez sur l’icône représentant un engrenage situé dans l’onglet de Observateur d’événements de diagnostic pour ouvrir la boîte de dialogue **Fournisseurs ETW**. Collez le nom de la source de l’événement que vous venez de copier dans la zone de saisie **Fournisseurs ETW**. Puis, cliquez sur le bouton **Appliquer**. Le suivi des événements démarre alors automatiquement.
+>
+>![Définir le nom la source des événements de diagnostic][setting-event-source-name]
+>
+>Vous devriez maintenant voir les événements s’afficher dans la fenêtre Événements de diagnostic.
 
 Le modèle de service avec état utilisé indique une valeur du compteur incrémentée dans la méthode `RunAsync` de **MyStatefulService.cs**.
 
@@ -146,3 +157,5 @@ En savoir plus sur les [services fiables](service-fabric-reliable-services-intro
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

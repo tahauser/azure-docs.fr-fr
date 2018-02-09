@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Transformation Fractionner des colonnes par exemple
 Cette transformation fractionne de manière prédictive le contenu d’une colonne sur des limites significatives sans nécessiter d’intervention de l’utilisateur. L’algorithme de fractionnement sélectionne les limites après avoir analysé le contenu de la colonne. Ces limites peuvent être définies par
@@ -52,6 +52,11 @@ L’utilisateur peut **supprimer la colonne** ou **insérer de nouvelles colonne
 L’utilisateur peut copier et coller des valeurs d’une cellule à une autre afin de fournir un exemple de fractionnement.
 
 L’utilisateur peut basculer entre le **Mode de base** et le **Mode avancé** en cliquant sur les liens dans l’Éditeur de transformation.
+
+### <a name="transform-editor-send-feedback"></a>Éditeur de transformation : envoyer des commentaires
+
+Cliquez sur le lien **Envoyer des commentaires** pour ouvrir la boîte de dialogue **Commentaires** dans laquelle la zone de commentaires est préremplie avec les sélections de paramètres et les exemples fournis par l’utilisateur. L’utilisateur doit vérifier le contenu de la zone de commentaires et fournir plus de détails pour nous aider à comprendre le problème. Si l’utilisateur ne souhaite pas partager de données avec Microsoft, il doit supprimer les données d’exemple préremplies avant de cliquer sur le bouton **Envoyer des commentaires**. 
+
 
 ### <a name="editing-an-existing-transformation"></a>Modification d’une transformation existante
 

@@ -1,92 +1,180 @@
 ---
-title: "Créer une règle basée sur un chemin pour une passerelle Application Gateway - Portail Azure | Microsoft Docs"
-description: "Découvrez comment créer une règle basée sur le chemin pour une passerelle Application Gateway à l’aide du portail Azure."
+title: "Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL - Portail Azure | Microsoft Docs"
+description: "Découvrez comment créer des règles d’acheminement par chemin d’accès URL pour une passerelle d’application et un groupe de machines virtuelles identiques avec le portail Azure."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Créer une règle basée sur le chemin pour une passerelle Application Gateway à l’aide du portail Azure
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
-> [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-create-url-route-portal.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Vous pouvez utiliser le portail Azure pour configurer des [règles d’acheminement par chemin d’accès URL](application-gateway-url-route-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de machines virtuelles. Il permet ensuite de définir des règles d’acheminement qui font en sorte que le trafic web arrive sur les serveurs voulus dans les pools.
 
-Grâce au routage basé sur le chemin d’URL, vous pouvez associer des itinéraires basés sur le chemin d’URL de requêtes HTTP. Il vérifie s’il existe une route vers un pool de serveur back-end configuré pour les URL listées dans la passerelle d’application, puis envoie le trafic réseau vers le pool défini. Une utilisation courante du routage basé sur le chemin d’URL consiste à équilibrer la charge des demandes pour différents types de contenu entre différents pools de serveurs principaux.
+Dans cet article, vous apprendrez comment :
 
-Les passerelles Application Gateway ont deux types de règles : des règles de base et des règles basées sur un chemin. Le type de règle de base fournit un service de tourniquet pour les pools back-end. En plus de distribuer les tourniquets, les règles basées sur le chemin utilisent également le modèle de chemin d’accès de la requête URL au moment de choisir le pool principal.
+> [!div class="checklist"]
+> * Créer une passerelle Application Gateway
+> * Créer des machines virtuelles pour les serveurs principaux
+> * Créer des pools principaux avec les serveurs principaux
+> * Créer un écouteur principal
+> * Créer une règle d’acheminement par chemin d’accès
 
-## <a name="scenario"></a>Scénario
+![Exemple d’acheminement d’URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Le scénario suivant crée une règle basée sur le chemin sur une passerelle Application Gateway existante.
-Le scénario suppose que vous avez déjà suivi la procédure dans [Créer une passerelle Application Gateway avec le portail](application-gateway-create-gateway-portal.md).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-![Itinéraire d’URL][scenario]
+## <a name="log-in-to-azure"></a>Connexion à Azure
 
-## <a name="createrule"></a>Créer la règle basée sur le chemin
+Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com)
 
-Une règle basée sur le chemin nécessite un écouteur qui lui est propre. Avant de créer la règle, veillez à vérifier que vous disposez d’un écouteur à utiliser.
+## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-### <a name="step-1"></a>Étape 1
+Un réseau virtuel est nécessaire pour la communication entre les ressources que vous créez. Deux sous-réseaux sont créés dans cet exemple : une pour la passerelle d’application et l’autre pour les serveurs principaux. Vous pouvez créer un réseau virtuel en même temps que la passerelle d’application.
 
-Accédez au [portail Azure](http://portal.azure.com) et sélectionnez une passerelle Application Gateway existante. Cliquer sur **Règles**.
+1. Cliquez sur **Nouveau** dans le coin supérieur gauche du portail Azure.
+2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste de suggestions.
+3. Entrez ces valeurs pour la passerelle d’application :
 
-![Vue d’ensemble d’Application Gateway][1]
+    - *myAppGateway* : pour le nom de la passerelle d’application.
+    - *myResourceGroupAG* : pour le nouveau groupe de ressources.
 
-### <a name="step-2"></a>Étape 2
+    ![Créer une nouvelle passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Cliquez sur le bouton **Basé sur le chemin** pour ajouter une nouvelle règle basée sur le chemin.
+4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
 
-### <a name="step-3"></a>Étape 3 :
+    - *myVNet* : pour le nom du réseau virtuel.
+    - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
+    - *myAGSubnet* : pour le nom du sous-réseau.
+    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-Le panneau **Add path-based rule (Ajouter une règle basée sur le chemin)** comporte deux sections. La première section est celle où vous avez défini l’écouteur, le nom de la règle et les paramètres de chemin par défaut. Les paramètres de chemin par défaut sont des itinéraires qui ne relèvent pas de l’itinéraire personnalisé basé sur le chemin. La deuxième section du panneau **Add path-based rule (Ajouter une règle basée sur le chemin)** est celle où vous définissez les règles basées sur le chemin elles-mêmes.
+    ![Création d’un réseau virtuel](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Paramètres de base**
+6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
+7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+8. Acceptez les valeurs par défaut pour la configuration de l’écouteur, laissez le pare-feu d’applications web désactivé, puis cliquez sur **OK**.
+9. Passez en revue les paramètres sur la page de résumé, puis cliquez sur **OK** pour créer les ressources réseau et la passerelle d’application. La création de la passerelle d’application peut prendre plusieurs minutes. Patientez jusqu’à ce que le déploiement soit terminé avant de passer à la section suivante.
 
-* **Nom** : nom convivial de la règle accessible dans le portail.
-* **Écouteur** : écouteur utilisé pour la règle.
-* **Pool principal par défaut** : pool principal à utiliser pour la règle par défaut.
-* **Paramètres HTTP par défaut** : paramètres HTTP à utiliser pour la règle par défaut.
+### <a name="add-a-subnet"></a>Ajouter un sous-réseau
 
-**Paramètres de la règle basée sur le chemin**
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myVNet** dans la liste des ressources.
+2. Cliquez sur **Sous-réseaux**, puis cliquez sur **Sous-réseau**.
 
-* **Nom** : nom convivial de la règle basée sur le chemin.
-* **Chemins d’accès** - chemin d’accès que la règle recherche pour transférer le trafic.
-* **Pool principal** : pool principal à utiliser pour la règle.
-* **Paramètre HTTP** : paramètres HTTP à utiliser avec la règle.
+    ![Créer un sous-réseau](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> Le paramètre **Chemins d’accès** constitue la liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par une barre oblique. L’astérisque n’est autorisé qu’à la fin. Exemples valides : /xyz, /xyz*, et /xyz/*.  
+3. Entrez *myBackendSubnet* pour le nom du sous-réseau, puis cliquez sur **OK**.
 
-![Ajouter un panneau Règle basée sur le chemin contenant toutes les informations][2]
+## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-L’ajout d’une règle basée sur le chemin à une passerelle Application Gateway existante est un processus simple via le portail Azure. Après avoir créé une règle basée sur le chemin, vous pouvez la modifier pour inclure des règles supplémentaires. 
+Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que serveurs principaux pour la passerelle d’application. Vous installez également IIS sur les machines virtuelles pour vérifier que la passerelle d’application a bien été créée.
 
-![Ajouter des règles supplémentaires basées sur le chemin][3]
+1. Cliquez sur **Nouveau**.
+2. Cliquez sur **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste de suggestions.
+3. Entrez ces valeurs pour la machine virtuelle :
 
-Cette étape configure une route basée sur un chemin. Il est important de comprendre que les requêtes ne sont pas réécrites. Au fil de l’arrivée des requêtes, la passerelle Application Gateway examine la requête et, en fonction du modèle d’URL, envoie la requête au pool principal approprié.
+    - *myVM1* : pour le nom de la machine virtuelle.
+    - *azureuser* : pour le nom d’utilisateur administrateur.
+    - *Azure123456!* pour le mot de passe.
+    - Sélectionnez **Utiliser l’existant**, puis *myResourceGroupAG*.
 
-## <a name="next-steps"></a>Étapes suivantes
+4. Cliquez sur **OK**.
+5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle, puis cliquez sur **Sélectionner**.
+6. Assurez-vous que **myVNet** est sélectionné pour le réseau virtuel et que le sous-réseau est **myBackendSubnet**. 
+7. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
+8. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
 
-Pour découvrir comment configurer le déchargement SSL avec la passerelle Azure Application Gateway, consultez [Configurer une passerelle Application Gateway pour le déchargement SSL à l’aide du portail Azure](application-gateway-ssl-portal.md).
+### <a name="install-iis"></a>Installer IIS
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+1. Ouvrez l’interpréteur de commandes interactif et assurez-vous qu’il est défini sur **PowerShell**.
+
+    ![Installer l’extension personnalisée](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle : 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Créez deux autres machines virtuelles et installez IIS à l’aide de la procédure que vous venez de terminer. Entrez les noms *myVM2* et *myVM3* pour les noms et les valeurs de VMName dans Set-AzureRmVMExtension.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
+
+1. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
+2. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGateayBackendPool**.
+3. Cliquez sur **Ajouter une cible** pour ajouter *myVM1* à appGatewayBackendPool.
+
+    ![Ajouter des serveurs principaux](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Cliquez sur **Enregistrer**.
+5. Cliquez sur **Pools principaux**, puis sur **Ajouter**.
+6. Entrez le nom *imagesBackendPool* et ajoutez *myVM2* à l’aide de **Ajouter une cible**.
+7. Cliquez sur **OK**.
+8. Cliquez à nouveau sur **Ajouter** pour ajouter un autre pool principal avec le nom *videoBackendPool* et ajoutez-y *myVM3*.
+
+## <a name="create-a-backend-listener"></a>Créer un écouteur principal
+
+1. Cliquez sur **Écouteurs**, puis sur **De base**.
+2. Entrez *myBackendListener* pour le nom, *myFrontendPort* pour le nom du port frontal, puis *8080* pour le port de l’écouteur.
+3. Cliquez sur **OK**.
+
+## <a name="create-a-path-based-routing-rule"></a>Créer une règle d’acheminement par chemin d’accès
+
+1. Cliquez sur **Règles**, puis sur **Path-based** (Basé sur le chemin).
+2. Entrez *rule2* pour le nom.
+3. Entrez *Images* pour le nom du premier chemin. Entrez */images/** pour le chemin d’accès. Sélectionnez **imagesBackendPool** pour le pool principal.
+4. Entrez *Video* pour le nom du second chemin. Entrez */video/** pour le chemin d’accès. Sélectionnez **videoBackendPool** pour le pool principal.
+
+    ![Créer une règle basée sur le chemin](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Cliquez sur **OK**.
+
+## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
+
+1. Cliquez sur **Toutes les ressources**, puis sur **myAGPublicIPAddress**.
+
+    ![Enregistrer l’adresse IP publique de la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http://http://40.121.222.19.
+
+    ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Modifiez l’URL : http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP. Voici ce qui apparaît :
+
+    ![Tester l’URL images dans la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Modifiez l’URL : http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP. Voici ce qui apparaît :
+
+    ![Tester l’URL vidéo dans la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
+
+## <a name="next-steps"></a>étapes suivantes
+
+Dans cet article, vous avez appris à effectuer les opérations suivantes
+
+> [!div class="checklist"]
+> * Créer une passerelle Application Gateway
+> * Créer des machines virtuelles pour les serveurs principaux
+> * Créer des pools principaux avec les serveurs principaux
+> * Créer un écouteur principal
+> * Créer une règle d’acheminement par chemin d’accès
+
+Pour en savoir plus sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.

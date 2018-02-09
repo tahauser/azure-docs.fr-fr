@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Utilisation de Bash dans le stockage Cloud Shell 
 Bash dans Cloud Shell conserve les fichiers par le biais des deux méthodes suivantes : 
@@ -69,12 +69,12 @@ Votre partage de fichiers continue d’exister, tant que vous ne le supprimez pa
 ![Exécution de la commande clouddrive unmount](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> L’exécution de cette commande ne va pas supprimer de ressources. Toutefois, la suppression manuelle d’un groupe de ressources, d’un compte de stockage ou d’un partage de fichiers mappé à Cloud Shell va effacer votre image disque du répertoire `$Home`, ainsi que tous les autres fichiers présents dans votre partage de fichiers. Il est impossible d’annuler cette opération.
+> L’exécution de cette commande ne va pas supprimer de ressources. Toutefois, la suppression manuelle d’un groupe de ressources, d’un compte de stockage ou d’un partage de fichiers mappé à Cloud Shell efface votre image disque du répertoire `$Home`, ainsi que tous les autres fichiers présents dans votre partage de fichiers. Il est impossible d’annuler cette opération.
 
 ## <a name="list-clouddrive"></a>Liste `clouddrive`
 Pour détecter le partage de fichiers monté comme `clouddrive`, exécutez la commande `df`. 
 
-Le chemin vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
+Le chemin de fichier vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,9 +88,9 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
-[En savoir plus sur le stockage Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[En savoir plus sur le stockage de fichiers Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [En savoir plus sur les balises de stockage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

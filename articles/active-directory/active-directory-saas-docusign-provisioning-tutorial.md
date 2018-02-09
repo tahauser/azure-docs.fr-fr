@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory avec DocuSign | Microsoft Docs"
+title: "Didacticiel : configurer DocuSign pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et DocuSign."
 services: active-directory
 documentationCenter: na
@@ -11,23 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1de1b8e68648e4bac05eca4b306e741bcdb6868b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Didacticiel : Configuration de DocuSign pour l’approvisionnement des utilisateurs
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Didacticiel : configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans DocuSign et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers DocuSign.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un abonné Azure Active Directory.
+*   Un locataire Azure Active Directory.
 *   Un abonnement DocuSign pour lequel l’authentification unique est activée.
 *   Un compte d’utilisateur dans DocuSign avec les autorisations d’administrateur d’équipe.
 
@@ -77,7 +77,7 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
 6. Sur le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application DocuSign.
 
-7. Dans le champ **E-mail de notification**, saisissez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+7. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
 
 8. Cliquez sur **Enregistrer.**
 
@@ -89,9 +89,9 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
 12. Cliquez sur **Enregistrer.**
 
-Cette commande démarre la synchronisation initiale des utilisateurs affectés à DocuSign dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application DocuSign.
+Cette commande démarre la synchronisation initiale des utilisateurs affectés à DocuSign dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application DocuSign.
 
-Vous pouvez désormais créer un compte de test. Patientez jusqu’à 20 minutes et vérifiez que le compte a bien été synchronisé avec DocuSign.
+Vous pouvez à présent créer un compte de test. Patientez jusqu’à 20 minutes et vérifiez que le compte a bien été synchronisé avec DocuSign.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

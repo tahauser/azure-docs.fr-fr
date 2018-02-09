@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
 
@@ -352,9 +352,6 @@ La section [configuration](#trigger---configuration) décrit ces propriétés.
 Voici le code JavaScript :
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
@@ -497,11 +494,11 @@ Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous p
 
 Les déclencheurs HTTP vous permettent d’utiliser des clés pour une sécurité accrue. Un déclencheur HTTP standard peut les utiliser comme une clé API, en exigeant que la clé soit présente dans la requête. Les webhooks peuvent utiliser des clés pour autoriser des demandes de plusieurs façons, selon ce que le fournisseur prend en charge.
 
-Les clés sont stockées dans votre application de fonctions dans Azure, et chiffrées au repos. Pour afficher vos clés, créez-en de nouvelles, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
+Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour afficher vos clés, créez-en de nouvelles, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
 
 Il existe deux types de clés :
 
-- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de l’application de fonctions. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de l’application de fonctions.
+- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
 - **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Les clés de fonction prennent le pas sur les clés d’hôte. Quand deux clés portent le même nom, la clé de fonction est toujours utilisée.
@@ -531,6 +528,8 @@ Une autorisation de webhook est gérée par le composant récepteur de webhook, 
 ## <a name="trigger---limits"></a>Déclencheur : limites
 
 La longueur de la requête HTTP est limitée à 100 Ko (102 400), tandis que la longueur de l’URL est limitée à 4 Ko (4 096). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
+
+Si une fonction utilisant le déclencheur HTTP ne se termine pas en 2,5 minutes environ, la passerelle arrivera à expiration et retournera une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan) (Mise à l’échelle et hébergement – Plan de consommation). 
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 

@@ -1,5 +1,5 @@
 ---
-title: Meilleures pratiques de solution OMSManagement | Microsoft Docs
+title: "Bonnes pratiques en matière de solution de gestion dans Azure | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Meilleures pratiques pour la création de solutions de gestion dans Operations Management Suite (OMS) (version préliminaire)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Bonnes pratiques pour la création de solutions de gestion dans Azure (préversion)
 > [!NOTE]
-> Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans OMS qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
+> Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans Azure qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
 
-Cet article décrit les méthodes conseillées pour la [création d’un fichier de solution de gestion](operations-management-suite-solutions-solution-file.md) dans Operations Management Suite (OMS).  Ces informations seront mises à jour lorsque de meilleures pratiques supplémentaires seront identifiées.
+Cet article décrit les bonnes pratiques pour la [création d’un fichier de solution de gestion](operations-management-suite-solutions-solution-file.md) dans Azure.  Ces informations seront mises à jour lorsque de meilleures pratiques supplémentaires seront identifiées.
 
 ## <a name="data-sources"></a>Sources de données
 - Des sources de données peuvent être [configurées avec un modèle Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), mais elles ne doivent pas être incluses dans un fichier solution.  La raison en est que la configuration des sources de données n’est actuellement pas idempotente, ce qui signifie que votre solution pourrait remplacer la configuration existante dans l’espace de travail de l’utilisateur.<br><br>Par exemple, votre solution peut nécessiter des événements d’avertissement et d’erreur du journal des événements de l’application.  Si vous spécifiez cela en tant source de données dans votre solution, vous risquez de supprimer des événements d’informations si l’utilisateur avait configuré cela dans son espace de travail.  Si vous avez inclus tous les événements, vous collecterez peut-être trop d’événements d’informations dans l’espace de travail de l’utilisateur.
@@ -48,7 +48,7 @@ Cet article décrit les méthodes conseillées pour la [création d’un fichier
 - Configurez la solution pour qu’elle fasse [référence](operations-management-suite-solutions-solution-file.md#solution-resource) aux règles d’alerte de façon à ce que les utilisateurs puissent modifier leur configuration.  Ils souhaiteront peut-être apporter des modifications telles que la modification de la liste des destinataires, la modification du seuil de l’alerte ou la désactivation de la règle d’alerte. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Passez en revue le processus de base de [conception et de création d’une solution de gestion](operations-management-suite-solutions-creating.md).
 * Découvrez comment [créer un fichier solution](operations-management-suite-solutions-solution-file.md).
 * [Ajoutez des alertes et des recherches enregistrées](operations-management-suite-solutions-resources-searches-alerts.md) à votre solution de gestion.

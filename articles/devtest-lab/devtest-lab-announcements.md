@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publier une annonce dans un lab avec Azure DevTest Labs
 
@@ -47,6 +47,13 @@ La fonctionnalité d’annonce est destinée à être utilisée pour les notific
 
 1. Pour créer un message à l’intention des utilisateurs de ce lab, définissez **Activé** sur **Oui**.
 
+1. Vous pouvez entrer une **Date d’expiration** pour spécifier la date et l’heure après lesquelles l’annonce ne sera plus présentée aux utilisateurs. À défaut, l’annonce restera jusqu'à ce que vous la désactiviez.
+
+   > [!NOTE]
+   > Après expiration, l’annonce ne sera plus présentée aux utilisateurs, mais elle subsistera toujours dans le volet **Annonce du labo**. Vous pourrez lui apporter des modifications et la réactiver.
+   >
+   >
+
 1. Entrez un **Titre de l’annonce** et le **Texte de l’annonce**.
 
    Le titre peut comporter jusqu’à 100 caractères, et il est visible par l’utilisateur dans la page Vue d’ensemble du lab. Si l’utilisateur sélectionne le titre, le texte de l’annonce s’affiche.
@@ -58,7 +65,7 @@ La fonctionnalité d’annonce est destinée à être utilisée pour les notific
 
 1. Sélectionnez **Enregistrer** lorsque l’annonce est prête pour la publication.
 
-Quand vous ne souhaitez plus afficher cette annonce pour les utilisateurs du lab, revenez à la page **Annonce du lab** et définissez **Activé** sur **Non**.
+Quand vous ne souhaitez plus afficher cette annonce pour les utilisateurs du lab, revenez à la page **Annonce du lab** et définissez **Activé** sur **Non**. Si vous avez spécifié une date d’expiration, l’annonce sera automatiquement désactivée à la date et à l’heure correspondantes.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Étapes de l’affichage d’une annonce pour la consultation par les utilisateurs
 

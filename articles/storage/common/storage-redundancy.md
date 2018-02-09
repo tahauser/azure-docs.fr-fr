@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -50,16 +50,7 @@ Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/detai
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Stockage redondant dans une zone
-
-Le stockage redondant dans une zone (ZRS) (préversion) est conçu pour simplifier le développement d’applications hautement disponibles. Le stockage ZRS offre la durabilité des objets de stockage d’au moins 99,9999999999 % (12 chiffres 9) sur une année donnée. Le stockage ZRS réplique vos données de façon synchrone sur plusieurs zones de disponibilité. Envisagez le stockage ZRS pour des scénarios tels que des applications transactionnelles dans lesquelles un temps d’arrêt n’est pas acceptable.
-
-Le stockage ZRS permet aux clients de lire et d’écrire les données même si une zone est indisponible ou irrécupérable. Les insertions et mises à jour de données sont effectuées de façon synchrone et sont hautement cohérentes.   
-
-Le stockage ZRS est actuellement disponible en préversion dans les régions suivantes, d’autres régions seront bientôt disponibles :
-
-- Est des États-Unis 2 
-- Centre des États-Unis 
-- France-Centre (cette zone est actuellement en préversion. Consultez [Préversion de Microsoft Azure avec des zones de disponibilité Azure désormais ouvertes en France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) pour demander l’accès.)
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>Comptes ZRS classiques
 
@@ -72,7 +63,7 @@ Les comptes ZRS classiques ne peuvent pas être convertis en ou à partir d’un
 Lorsque le stockage ZRS est généralement disponible dans une région, vous ne pourrez plus créer un compte ZRS classique à partir du portail dans cette région, mais vous pouvez en créer un par d’autres moyens.  
 Un processus de migration automatisée de ZRS classique vers ZRS sera fourni ultérieurement.
 
-Les comptes ZRS prennent en charge la migration manuelle d’un compte ZRS dans vers ou à partir d’un compte LRS, GRS et RAGRS. Vous pouvez effectuer cette migration manuelle à l’aide d’AzCopy, de l’Explorateur Stockage Azure, d’Azure PowerShell, d’Azure CLI ou de l’une des bibliothèques clientes Stockage Azure.
+Vous pouvez migrer manuellement les données du compte ZRS vers ou à partir d’un compte RAGRS, GRS, ZRS classique ou LRS. Vous pouvez effectuer cette migration manuelle à l’aide d’AzCopy, de l’Explorateur Stockage Azure, d’Azure PowerShell, d’Azure CLI ou de l’une des bibliothèques clientes Stockage Azure.
 
 > [!NOTE]
 > Les comptes ZRS classiques sont prévus pour être un abandon et une migration requise sur le 31 mars 2021. Microsoft enverra plus de détails aux clients ZRS classique avant la désapprobation.

@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configuration de LinkedIn Sales Navigator pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Didacticiel : configurer LinkedIn Sales Navigator pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur LinkedIn Sales Navigator."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 8fafda2687e81a226bdc91a642cebc9ec97d8cbe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Didacticiel : Configuration de LinkedIn Sales Navigator pour approvisionner automatiquement des utilisateurs
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Didacticiel : configurer LinkedIn Sales Navigator pour l’approvisionnement automatique d’utilisateurs
 
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans LinkedIn Sales Navigator et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers LinkedIn Sales Navigator. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -107,7 +107,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 12) Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case se trouvant en dessous.
 
-13) Cliquez sur **Save**. 
+13) Cliquez sur **Enregistrer**. 
 
 14) Dans la section **Mappages d’attributs**, passez en revue les attributs d’utilisateur et de groupe qui seront synchronisés d’Azure AD vers LinkedIn Sales Navigator. Notez que les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur et les groupes dans LinkedIn Sales Navigator pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
@@ -115,7 +115,7 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 15) Pour activer le service d’approvisionnement Azure AD pour LinkedIn Sales Navigator, définissez l’**État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
-16) Cliquez sur **Save**. 
+16) Cliquez sur **Enregistrer**. 
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou groupes affectés à LinkedIn Sales Navigator dans la section Utilisateurs et groupes. Notez que la synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 20 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service d’approvisionnement dans votre application LinkedIn Sales Navigator.
 

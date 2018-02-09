@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Guide de conception des tables distribuées dans Azure SQL Data Warehouse
 
@@ -121,7 +121,7 @@ Pour réduire le déplacement des données, sélectionnez une colonne de distrib
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Que faire quand aucune des colonnes ne constitue une colonne de distribution appropriée
 
-Quand il n’existe aucune colonne appropriée, envisagez d’utiliser la méthode de distribution du tourniquet.
+Si aucune de vos colonnes n’a suffisamment de valeurs distinctes pour une colonne de distribution, vous pouvez créer une colonne en tant que composite d’une ou plusieurs valeurs. Pour éviter le déplacement des données pendant l’exécution de requête, utilisez la colonne de distribution composite en tant que colonne de jointure dans les requêtes.
 
 Une fois que vous avez conçu une table distribuée par hachage, l’étape suivante consiste à charger des données dans la table.  Pour obtenir des conseils de chargement, consultez [Vue d’ensemble du chargement](sql-data-warehouse-overview-load.md). 
 

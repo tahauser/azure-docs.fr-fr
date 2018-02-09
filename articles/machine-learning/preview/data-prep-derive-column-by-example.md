@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformation Dériver des colonnes par exemple
 
@@ -67,6 +67,10 @@ Le Mode avancé fournit une expérience de dérivation de colonnes par exemple e
 En mode avancé, vous pouvez ajouter n’importe quelle ligne comme exemple de ligne en double-cliquant dessus dans la grille. Une fois qu’une ligne a été copiée en tant qu’exemple de ligne, vous pouvez aussi modifier les données dans les colonnes sources afin de créer un exemple synthétique. En procédant ainsi, vous pouvez ajouter des cas qui ne sont pas présents actuellement dans les exemples de données.
 
 L’utilisateur peut basculer entre le **Mode de base** et le **Mode avancé** en cliquant sur les liens dans l’Éditeur de transformation.
+
+### <a name="transform-editor-send-feedback"></a>Éditeur de transformation : envoyer des commentaires
+
+Cliquez sur le lien **Envoyer des commentaires** pour ouvrir la boîte de dialogue **Commentaires** dans laquelle la zone de commentaires est préremplie avec les exemples fournis par l’utilisateur. L’utilisateur doit vérifier le contenu de la zone de commentaires et fournir plus de détails pour nous aider à comprendre le problème. Si l’utilisateur ne souhaite pas partager de données avec Microsoft, il doit supprimer les données d’exemple préremplies avant de cliquer sur le bouton **Envoyer des commentaires**. 
 
 ### <a name="editing-existing-transformation"></a>Modification d’une transformation existante
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0bf1cff4058bfe46b54f3f0b6836ede3e04ed5dd
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Tester votre solution avec des appareils simulés
 
@@ -78,6 +78,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajouter un nouveau type d’appareil au tableau de bord
 > * Envoyer des données de télémétrie personnalisées à partir d’un type d’appareil existant
 
+La vidéo suivante explique pas à pas comment connecter des appareils simulés et réels à la solution de surveillance à distance :
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
+
 ## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
@@ -127,24 +131,24 @@ Ces commandes utilisent la commande `az` [d’Azure CLI 2.0](https://docs.micros
 1. Pour activer l’accès SSH à votre machine virtuelle, exécutez la commande suivante en utilisant le nom du groupe de sécurité réseau noté à l’étape précédente :
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Pour afficher la liste des règles de trafic entrant pour votre réseau, exécutez la commande suivante :
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Pour remplacer le mot de passe de machine virtuelle par un mot de passe que vous connaissez, exécutez la commande suivante. Utilisez le nom de la machine virtuelle noté précédemment et un mot de passe de votre choix :
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Pour rechercher l’adresse IP de votre machine virtuelle, utilisez la commande suivante et notez l’adresse IP publique :
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Vous pouvez maintenant utiliser SSH pour vous connecter à votre machine virtuelle. La commande `ssh` est préinstallée dans Cloud Shell. Utilisez l’adresse IP publique notée à l’étape précédente et, à l’invite, entrez le mot de passe que vous avez configuré pour la machine virtuelle :

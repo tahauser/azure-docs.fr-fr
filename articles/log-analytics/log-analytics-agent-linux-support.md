@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Guide pratique pour résoudre les problèmes liés à l’agent Linux pour Log Analytics
 
@@ -34,7 +34,7 @@ Cet article aide à dépanner les erreurs que vous pourriez rencontrer avec Linu
 1. Réintégrez le service Log Analytics à l’agent OMS pour Linux à l’aide de la commande suivante avec l’option `-v` activée. Cela autorise une sortie détaillée de l’agent qui se connecte via le proxy au Service OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Consultez la section [Configuration de l’agent pour une utilisation avec un serveur proxy ou la passerelle OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) pour vérifier que vous avez correctement configuré l’agent pour communiquer via un serveur proxy.    
+2. Pour vérifier que vous avez correctement configuré l’agent de manière à communiquer via un serveur proxy, consultez la section [Mettre à jour les paramètres du proxy](log-analytics-agent-manage.md#update-proxy-settings).    
 * Vérifiez que les points de terminaison suivants du service Log Analytics figurent dans la liste verte :
 
     |Ressource de l'agent| Ports |  

@@ -7,14 +7,12 @@
 ## [Créer un concentrateur d’événements](event-hubs-create.md)
 ## Envoyer des événements
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Recevoir des événements
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
-### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Capturer des événements
 ### [Utiliser le portail Azure pour activer la capture Event Hubs](event-hubs-capture-enable-through-portal.md)
 ### [Utiliser un modèle Resource Manager pour activer la capture Event Hubs](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
@@ -30,12 +28,14 @@
 ### [Disponibilité et cohérence](event-hubs-availability-and-consistency.md)
 ### [Mettre à l'échelle automatiquement les unités de débit](event-hubs-auto-inflate.md)
 ## Développement
+### [Envoyer des événements à l’aide de .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Recevoir des événements à l’aide de .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [API disponibles](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Journaux de diagnostic](event-hubs-diagnostic-logs.md)
 ### [Guide du protocole AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## Gérer
+## gérer
 ### [Analyser Event Hubs avec la surveillance Azure](event-hubs-metrics-azure-monitor.md)
 ### [Bibliothèques de gestion d’Event Hubs](event-hubs-management-libraries.md)
 ### Capture
@@ -45,7 +45,7 @@
 ### [Diffuser des données de diagnostics Azure en continu à l’aide d’Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Créer et déployer un concentrateur d’événements à l’aide d’un modèle Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
@@ -63,9 +63,9 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Exemples de code](event-hubs-samples.md)
-## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Parcours de formation](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=event-hubs)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

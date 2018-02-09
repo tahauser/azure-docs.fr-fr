@@ -13,32 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
+ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: a9f71b566ffdb163f95634835f64589a700d712f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 
 Cet article vous guide dans les étapes de création de connexions intersites en mode actif/actif, et de connexions de réseau virtuel à réseau virtuel à l’aide du modèle de déploiement Resource Manager et de PowerShell.
 
 ## <a name="about-highly-available-cross-premises-connections"></a>À propos des connexions intersites hautement disponibles
-Pour obtenir une haute disponibilité des connexions intersites et de réseau virtuel à réseau virtuel, vous devez déployer plusieurs passerelles VPN, et établir plusieurs connexions parallèles entre vos réseaux et Azure. Pour une vue d’ensemble des options de connectivité et de la topologie, voir [Configuration haute disponibilité pour la connectivité entre réseaux locaux et entre réseaux virtuels](vpn-gateway-highlyavailable.md) .
+Pour obtenir une haute disponibilité des connexions intersites et de réseau virtuel à réseau virtuel, vous devez déployer plusieurs passerelles VPN, et établir plusieurs connexions parallèles entre vos réseaux et Azure. Pour une vue d’ensemble des options de connectivité et de topologie, voir [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](vpn-gateway-highlyavailable.md).
 
-Cet article fournit des instructions concernant la configuration d’une connexion VPN intersite en mode actif/actif, et d’une connexion en mode actif/actif entre deux réseaux virtuels :
+Cet article fournit des instructions de configuration d’une connexion VPN intersite en mode actif/actif, et d’une connexion en mode actif/actif entre deux réseaux virtuels.
 
 * [Partie 1 : créer et configurer votre passerelle VPN Azure en mode actif/actif](#aagateway)
 * [Partie 2 : établir des connexions intersites en mode actif/actif](#aacrossprem)
 * [Partie 3 : établir des connexions de réseau virtuel à réseau virtuel en mode actif/actif](#aav2v)
-* [Partie 4 : mettre à jour une passerelle existante entre les modes actif/actif et actif/passif](#aaupdate)
+
+Si vous avez déjà une passerelle VPN, vous pouvez :
+* [mettre à jour une passerelle VPN existante du mode actif/passif au mode actif-actif, ou vice versa](#aaupdate).
 
 Vous pouvez combiner ces instructions afin de créer une topologie de réseau plus complexe et hautement disponible correspondant à vos besoins.
 
 > [!IMPORTANT]
-> Notez que le mode actif/actif utilise uniquement les références suivantes : 
+> Notez que le mode actif/actif utilise uniquement les références SKU suivantes : 
   * VpnGw1, VpnGw2, VpnGw3
   * HigPerformance (pour les anciennes références héritées)
 > 
@@ -141,19 +143,18 @@ $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $R
 Utilisez les applets de commande suivantes pour afficher les deux adresses IP publiques allouées à votre passerelle VPN, ainsi que leurs adresses IP d’homologue BGP correspondantes pour chaque instance de passerelle :
 
 ```powershell
+PS D:\> $gw1pip1.IpAddress
+40.112.190.5
 
-    PS D:\> $gw1pip1.IpAddress
-    40.112.190.5
+PS D:\> $gw1pip2.IpAddress
+138.91.156.129
 
-    PS D:\> $gw1pip2.IpAddress
-    138.91.156.129
-
-    PS D:\> $vnet1gw.BgpSettingsText
-    {
-      "Asn": 65010,
-      "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
-      "PeerWeight": 0
-    }
+PS D:\> $vnet1gw.BgpSettingsText
+{
+  "Asn": 65010,
+  "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
+  "PeerWeight": 0
+}
 ```
 
 L’ordre des adresses IP publiques pour les instances de passerelle et celui des adresses d’homologation BGP correspondantes sont identiques. Dans cet exemple, la machine virtuelle de passerelle dont l’adresse IP publique est 40.112.190.5 utilise 10.12.255.4 en tant qu’adresse d’homologation BGP, et la passerelle dont l’adresse est 138.91.156.129 utilise 10.12.255.5. Ces informations sont nécessaires lorsque vous configurez vos périphériques VPN locaux se connectant à la passerelle en mode actif/actif. La passerelle est présentée dans le diagramme ci-dessous avec toutes les adresses :
@@ -205,7 +206,7 @@ $lng5gw1 = Get-AzureRmLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $
 ```
 
 #### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Créer la connexion entre TestVNet1 et Site5
-Dans cette étape, vous allez créer la connexion de TestVNet1 à Site5_1, avec « EnableBGP » défini sur $True.
+À cette étape, vous créez la connexion de TestVNet1 à Site5_1, avec « EnableBGP » défini sur $True.
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
@@ -214,14 +215,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. Paramètres VPN et BGP pour votre périphérique VPN local
 L’exemple ci-dessous répertorie les paramètres que vous devez saisir dans la section de configuration de BGP sur votre périphérique VPN local pour cet exercice :
 
-    - Site5 ASN            : 65050
-    - Site5 BGP IP         : 10.52.255.253
-    - Préfixes à annoncer : (par exemple) 10.51.0.0/16 et 10.52.0.0/16
-    - Azure VNet ASN       : 65010
-    - Azure VNet BGP IP 1  : 10.12.255.4 pour le tunnel vers 40.112.190.5
-    - Azure VNet BGP IP 2  : 10.12.255.5 pour le tunnel vers 138.91.156.129
-    - Itinéraires statiques : Destination 10.12.255.4/32, sauter l’interface du tunnel VPN pour 40.112.190.5 Destination 10.12.255.5/32, sauter l’interface du tunnel VPN pour 138.91.156.129
-    - Sauts multiples eBGP : vérifiez que l’option « sauts multiples » pour eBGP est activée sur votre appareil, si nécessaire
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.253
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 La connexion doit s’établir après quelques minutes, et la session d’homologation BGP débute une fois la connexion IPsec établie. Cet exemple a jusqu’à présent configuré un seul périphérique VPN local, produisant le diagramme ci-dessous :
 
@@ -231,14 +235,16 @@ La connexion doit s’établir après quelques minutes, et la session d’homolo
 Si vous avez deux appareils VPN sur le même réseau local, vous pouvez obtenir une redondance double en connectant la passerelle VPN Azure au deuxième périphérique VPN.
 
 #### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Créer la deuxième passerelle de réseau local pour Site5
-Notez que l’adresse IP de passerelle, le préfixe d’adresse et l’adresse d’homologation BGP pour la seconde passerelle de réseau local ne doivent pas chevaucher la passerelle de réseau local précédente pour le même réseau local.
+L’adresse IP de la passerelle, le préfixe d’adresse et l’adresse d’homologation BGP pour la seconde passerelle de réseau local ne doivent pas chevaucher la passerelle de réseau local précédente pour le même réseau local.
 
 ```powershell
 $LNGName52 = "Site5_2"
 $LNGPrefix52 = "10.52.255.254/32"
 $LNGIP52 = "131.107.72.23"
 $BGPPeerIP52 = "10.52.255.254"
+```
 
+```powershell
 New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 ```
 
@@ -247,7 +253,9 @@ Créer la connexion de TestVNet1 à Site5_2 avec « EnableBGP » défini sur $
 
 ```powershell
 $lng5gw2 = Get-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
+```
 
+```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
 ```
 
@@ -366,17 +374,17 @@ Une fois ces étapes terminées, la connexion s’établit en quelques minutes, 
 
 ![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name ="aaupdate"></a>Partie 4 : mettre à jour une passerelle existante entre les modes actif/actif et actif/passif
-La dernière section décrit comment configurer une passerelle VPN Azure existante pour passer du mode actif/passif au mode actif/actif, ou inversement.
+## <a name ="aaupdate"></a>Mise à jour d’une passerelle VPN existante
 
-> [!NOTE]
-> Cette section comprend les étapes de redimensionnement d’une référence (SKU) héritée (ancienne référence) d’une passerelle VPN déjà créée, en passant de Standard à HighPerformance. Ces étapes ne mettent pas à niveau une ancienne référence (SKU) héritée vers une des nouvelles références.
-> 
-> 
+La section vous aide à configurer une passerelle VPN Azure existante pour passer du mode actif/passif au mode actif/actif, ou inversement.
 
-### <a name="configure-an-active-standby-gateway-to-active-active-gateway"></a>Configurer une passerelle en mode actif/passif en passerelle en mode actif/actif
-#### <a name="1-gateway-parameters"></a>1. Paramètres de passerelle
-L’exemple suivant convertit une passerelle en mode actif/passif en passerelle en mode actif/actif. Vous devez créer une autre adresse IP publique, puis ajouter une deuxième configuration IP de passerelle. Ci-dessous figurent les paramètres utilisés :
+### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Transformer une passerelle en mode actif/passif en passerelle en mode actif/actif
+
+L’exemple suivant convertit une passerelle en mode actif/passif en passerelle en mode actif/actif. Lorsque vous transformez une passerelle de type actif/passif en passerelle de type actif/actif, vous créez une autre adresse IP publique, puis ajoutez une deuxième configuration IP de la passerelle.
+
+#### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
+
+Remplacer les paramètres suivants utilisés pour les exemples par les paramètres dont vous avez besoin pour votre propre configuration, puis déclarer ces variables.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
@@ -384,7 +392,11 @@ $VNetName = "TestVNetAA1"
 $RG = "TestVPNActiveActive01"
 $GWIPName2 = "gwpip2"
 $GWIPconf2 = "gw1ipconf2"
+```
 
+Après la déclaration des variables, vous pouvez copier et coller cet exemple sur votre console PowerShell.
+
+```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
@@ -399,28 +411,39 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Activer le mode actif/actif et mettre à jour la passerelle
-Vous devez définir l’objet passerelle dans PowerShell pour déclencher la mise à jour réelle. En outre, la référence de la passerelle de réseau virtuel doit être définie (redimensionnée) sur HighPerformance, car elle a été créée précédemment avec la valeur Standard.
+
+À cette étape, vous activez le mode actif/actif et mettez à jour la passerelle. Dans l’exemple, la passerelle VPN utilise actuellement une référence SKU standard héritée. Toutefois, le mode actif/actif ne prend pas en charge la référence SKU s+tandard. Pour redimensionner la référence SKU héritée de manière à ce qu’elle soit prise en charge (dans ce cas, HighPerformance), il suffit de spécifier la référence SKU héritée prise en charge que vous souhaitez utiliser.
+
+* Vous ne pouvez pas transformer une référence SKU héritée en nouvelle référence SKU à cette étape. Vous pouvez uniquement redimensionner une référence SKU héritée pour obtenir une autre référence héritée prise en charge. Par exemple, vous ne pouvez pas transformer la référence SKU de standard à VpnGw1 (même si VpnGw1 est pris en charge pour le mode actif/actif), car standard est une référence SKU héritée, alors que VpnGw1 est une référence SKU actuelle. Pour plus d’informations sur le redimensionnement et la migration de références SKU, voir [Références SKU de passerelle](vpn-gateway-about-vpngateways.md#gwsku).
+
+* Si vous souhaitez redimensionner une référence SKU actuelle, par exemple de VpnGw1 à VpnGw3, vous pouvez le faire à cette étape, car les références SKU se trouvent dans la même famille de références SKU. Pour ce faire, vous utilisez la valeur : ```-GatewaySku VpnGw3```
+
+Lorsque vous utilisez cela dans votre environnement, si vous n’avez pas besoin de redimensionner la passerelle, vous n’aurez pas à spécifier le -GatewaySku. Notez qu’à cette étape, vous devez définir l’objet passerelle dans PowerShell pour déclencher la mise à jour réelle. Cette mise à jour peut prendre 30 à 45 minutes, même si vous ne redimensionnez pas votre passerelle.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 ```
 
-Cette mise à jour peut prendre de 30 à 45 minutes.
+### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>Transformer une passerelle en mode actif/actif en passerelle en mode actif/passif
+#### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
 
-### <a name="configure-an-active-active-gateway-to-active-standby-gateway"></a>Configurer une passerelle en mode actif/actif en passerelle en mode actif/passif
-#### <a name="1-gateway-parameters"></a>1. Paramètres de passerelle
-Utilisez les mêmes paramètres que ci-dessus, et obtenez le nom de la configuration IP que vous voulez supprimer.
+Remplacer les paramètres suivants utilisés pour les exemples par les paramètres dont vous avez besoin pour votre propre configuration, puis déclarer ces variables.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
 $RG = "TestVPNActiveActive01"
+```
 
+Après la déclaration des variables, accédez au nom de la configuration IP que vous souhaitez supprimer.
+
+```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
 #### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Supprimer la configuration IP de passerelle et désactiver le mode actif/actif
-De même, vous devez définir l’objet passerelle dans PowerShell pour déclencher la mise à jour réelle.
+
+Utilisez cet exemple pour supprimer la configuration IP de la passerelle et désactiver le mode actif/actif. Notez que vous devez définir l’objet passerelle dans PowerShell pour déclencher la mise à jour réelle.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGatewayIpConfig -Name $ipconfname -VirtualNetworkGateway $gw
@@ -429,5 +452,5 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 
 Cette mise à jour peut prendre de 30 à 45 minutes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.

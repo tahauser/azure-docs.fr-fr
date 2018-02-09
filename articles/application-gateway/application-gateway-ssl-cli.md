@@ -1,194 +1,179 @@
 ---
-title: "Configurer le déchargement SSL - Passerelle Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs"
-description: "Cet article fournit des instructions pour la création d’une passerelle Application Gateway pour le déchargement SSL à l’aide d’Azure CLI 2.0"
-documentationcenter: na
+title: "Créer une passerelle d’application avec un arrêt SSL - Interface CLI Azure | Microsoft Docs"
+description: "Découvrez comment créer une passerelle d’application et ajouter un certificat pour un arrêt SSL à l’aide de l’interface CLI Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: 4bdca33dae2ce52fdeccdae9a67abb6667593f9d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant Azure CLI 2.0
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide de l’interface CLI Azure
 
-> [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-ssl-portal.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [Azure Classic PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+Vous pouvez utiliser l’interface CLI Azure pour créer une [passerelle d’application](application-gateway-introduction.md) avec un certificat pour un [arrêt SSL](application-gateway-backend-ssl.md) qui utilise un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour des serveurs principaux. Dans cet exemple, le groupe identique contient deux instances de machine virtuelle qui sont ajoutées au pool principal par défaut de la passerelle d’application.
 
-Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie également la gestion des certificats sur le serveur frontal.
+Dans cet article, vous apprendrez comment :
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Condition préalable : installer Azure CLI 2.0
+> [!div class="checklist"]
+> * Créer un certificat auto-signé
+> * Configurer un réseau
+> * Créer une passerelle d’application avec le certificat
+> * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="required-components"></a>Composants requis
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-* **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP ou une adresse IP virtuelle publique (VIP).
-* **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-* **Port frontal** : il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-* **Écouteur** : l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-**Notes de configuration supplémentaires :**
+## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
-Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à *Https* (sensible à la casse). Ajoutez l’élément **SslCertificate** à **HttpListener** avec la valeur de variable configurée pour le certificat SSL. Le port du serveur frontal doit être mis à jour sur **443**.
-
-**Pour activer l’affinité basée sur les cookies** : vous pouvez configurer une passerelle Application Gateway pour garantir qu’une requête d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur *Activé* dans l’élément **BackendHttpSettings**.
-
-## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Configurer le déchargement SSL sur une passerelle d’application existante
-
-Entrez les commandes suivantes pour configurer le déchargement SSL sur une passerelle d’application existante :
+Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé et un fichier pfx à l’aide de la commande openssl.
 
 ```azurecli-interactive
-#!/bin/bash
-
-# Create a new front end port to be used for SSL
-az network application-gateway frontend-port create \
-  --name sslport \
-  --port 443 \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Upload the .pfx certificate for SSL offload
-az network application-gateway ssl-cert create \
-  --name "newcert" \
-  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
-  --cert-password P@ssw0rd \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new listener referencing the port and certificate created earlier
-az network application-gateway http-listener create \
-  --frontend-ip "appGatewayFrontendIP" \
-  --frontend-port sslport  \
-  --name sslListener \
-  --ssl-cert newcert \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new back-end pool to be used
-az network application-gateway address-pool create \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG" \
-  --name "appGatewayBackendPool2" \
-  --servers 10.0.0.7 10.0.0.8
-
-# Create a new back-end HTTP settings using the new probe
-az network application-gateway http-settings create \
-  --name "settings2" \
-  --port 80 \
-  --cookie-based-affinity Enabled \
-  --protocol "Http" \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new rule linking the listener to the back-end pool
-az network application-gateway rule create \
-  --name "rule2" \
-  --rule-type Basic \
-  --http-settings settings2 \
-  --http-listener ssllistener \
-  --address-pool temp1 \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-## <a name="create-an-application-gateway-with-ssl-offload"></a>Créer une passerelle d’application avec déchargement SSL
-
-L’exemple suivant permet de créer une passerelle d’application avec déchargement SSL. Le certificat et le mot de passe de certificat doivent être mis à jour avec une clé privée valide.
+Entrez les valeurs pertinentes pour votre certificat. Vous pouvez accepter les valeurs par défaut.
 
 ```azurecli-interactive
-#!/bin/bash
+openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
+```
 
-# Creates an application gateway with SSL offload
+Entrez le mot de passe du certificat. Dans cet exemple, *Azure123456 !* est utilisé.
+
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#create).
+
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroupAG* à l’emplacement *eastus*.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
+```
+
+## <a name="create-network-resources"></a>Créer des ressources réseau
+
+Créez le réseau virtuel nommé *myVNet* et le sous-réseau nommé *myAGSubnet* à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az_net). Vous pouvez ensuite ajouter le sous-réseau nommé *myBackendSubnet* nécessaire aux serveurs principaux à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Créez l’adresse IP publique nommée *myAGPublicIPAddress* à l’aide de la commande [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
+
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/application-gateway#create) pour créer la passerelle d’application. Lorsque vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. 
+
+La passerelle d’application est assignée aux *myAGSubnet* et *myAGPublicIPAddress* que vous avez créés. Dans cet exemple, vous associez le certificat que vous avez créé et son mot de passe lorsque vous créez la passerelle d’application. 
+
+```azurecli-interactive
 az network application-gateway create \
-  --name "AdatumAppGateway3" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG2" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
-  --cert-password P@ssw0rd \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet" \
-  --subnet-address-prefix "10.0.0.0/28" \
-  --frontend-port 443 \
-  --servers "10.0.0.5 10.0.0.4" \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
   --capacity 2 \
-  --sku "Standard_Small" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip" \
-  --public-ip-address-allocation "dynamic"
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 443 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress \
+  --cert-file appgwcert.pfx \
+  --cert-password "Azure123456!"
+
 ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle d’application
+ La création de la passerelle d’application peut prendre plusieurs minutes. Une fois la passerelle d’application créée, vous pouvez voir ses nouvelles fonctionnalités suivantes :
 
-Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication.  La passerelle Application Gateway requiert un nom DNS attribué dynamiquement lorsque vous utilisez une adresse IP publique, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle Application Gateway, vous pouvez utiliser un enregistrement CNAME pour pointer vers le point de terminaison public de la passerelle d’application. Pour plus d’informations, consultez la page [Configuration d’un nom de domaine personnalisé dans Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+- *appGatewayBackendPool* : une passerelle d’application doit avoir au moins un pool d’adresses principal.
+- *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
+- *appGatewayHttpListener* : écouteur par défaut associé à *appGatewayBackendPool*.
+- *appGatewayFrontendIP* - assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
+- *rule1* : règle d’acheminement par défaut associée à *appGatewayHttpListener*.
 
-Pour configurer un alias, récupérez les détails de la passerelle d’application et de son nom IP/DNS associé à l’aide de l’élément **PublicIPAddress** attaché à la passerelle d’application. Utilisez le nom DNS de la passerelle d’application pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle d’application.
+## <a name="create-a-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
 
+Dans cet exemple, vous créez un groupe de machines virtuelles identiques qui fournit des serveurs pour le pool principal par défaut dans la passerelle d’application. Les machines virtuelles dans le groupe identique sont associées à *myBackendSubnet* et *appGatewayBackendPool*. Pour créer le groupe identique, vous pouvez utiliser la commande [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
+### <a name="install-nginx"></a>Installer NGINX
+
+```azurecli-interactive
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Si vous voulez configurer une passerelle d’application à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle d’application avec un équilibrage de charge interne](application-gateway-ilb.md).
+Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
 
-Pour plus d'informations sur les options d'équilibrage de charge en général, consultez :
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
 
-* [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+![Avertissement de sécurité](./media/application-gateway-ssl-cli/application-gateway-secure.png)
+
+Pour accepter l’avertissement de sécurité si vous avez utilisé un certificat auto-signé, sélectionnez **Détails**, puis **Atteindre la page web**. Votre site NGINX sécurisé apparaît maintenant comme dans l’exemple suivant :
+
+![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
+
+## <a name="next-steps"></a>étapes suivantes
+
+Dans ce didacticiel, vous avez appris à :
+
+> [!div class="checklist"]
+> * Créer un certificat auto-signé
+> * Configurer un réseau
+> * Créer une passerelle d’application avec le certificat
+> * Créer un groupe de machines virtuelles identiques avec le pool principal par défaut
+
+Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.

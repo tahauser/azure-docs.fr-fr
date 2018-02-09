@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 
@@ -25,11 +25,11 @@ La charge utile dans un message, ou une commande ou demande transmise par un mes
 
 Dans les environnements de développement et de test où les files d’attente et les rubriques sont souvent utilisées dans le contexte d’exécutions partielles d’applications ou de parties d’application, il est également préférable que les messages de test abandonnés soient automatiquement nettoyés de la mémoire pour permettre à la prochaine série de tests de démarrer le nettoyage.
 
-Le délai d’expiration de chaque message peut être contrôlé à l’aide de la propriété système [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), qui définit une durée relative. Ce délai devient un instant absolu quand le message est mis en file d’attente dans l’entité. La propriété [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) prend alors la valeur [**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Le délai d’expiration de chaque message peut être contrôlé à l’aide de la propriété système [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), qui définit une durée relative. Ce délai devient un instant absolu quand le message est mis en file d’attente dans l’entité. La propriété [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) prend alors la valeur [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Quand l’instant **ExpiresAtUtc** est passé, les messages ne sont plus éligibles pour la récupération. Le délai d’expiration ne s’applique pas aux messages qui sont actuellement verrouillés pour la remise, lesquels continuent d’être traités normalement. Si le verrou expire ou si le message est abandonné, le délai d’expiration prend effet immédiatement.
 
-Quand le message est verrouillé, l’application peut être en possession d’un message qui a expiré nominalement. L’application peut alors poursuivre le traitement ou choisir d’abandonner le message. C’est au responsable de l’implémentation d’en décider.
+Lorsque le message est verrouillé, l’application peut être en possession d’un message qui a expiré. L’application peut alors poursuivre le traitement ou choisir d’abandonner le message. C’est au responsable de l’implémentation d’en décider.
 
 ## <a name="entity-level-expiration"></a>Expiration au niveau de l’entité
 
@@ -47,16 +47,16 @@ Prenons l’exemple d’un site web qui doit exécuter des travaux de manière f
 
 Les files d’attente, rubriques et abonnements Service Bus peuvent être créés en tant qu’entités temporaires, qui sont automatiquement supprimées quand elles n’ont pas été utilisées pendant une période spécifiée.
  
-Le nettoyage automatique est utile dans les scénarios de développement et de test où les entités sont créées de façon dynamique et ne sont pas nettoyées après leur utilisation, en raison de l’interruption de la série de tests ou de débogages. Il est également utile quand une application crée des entités dynamiques, telles qu’une file d’attente de réponse, pour recevoir des réponses dans un processus de serveur web ou dans un autre objet relativement éphémère. En effet, dans ce cas, il est difficile de nettoyer correctement ces entités quand l’instance de l’objet disparaît.
+Le nettoyage automatique est utile dans les scénarios de développement et de test où les entités sont créées de façon dynamique et ne sont pas nettoyées après leur utilisation, en raison d’une interruption de la série de tests ou d’un débogage. Il est également utile quand une application crée des entités dynamiques, telles qu’une file d’attente de réponse, pour recevoir des réponses dans un processus de serveur web ou dans un autre objet relativement éphémère. En effet, dans ce cas, il est difficile de nettoyer correctement ces entités quand l’instance de l’objet disparaît.
 
 Vous activez la fonctionnalité à l’aide de la propriété [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues), qui est définie à la durée pendant laquelle une entité peut rester inactive (non utilisée) avant d’être automatiquement supprimée. La durée minimale est de 5 minutes.
  
-La propriété doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Elle ne peut pas être définie dans le portail.
+La propriété **autoDeleteOnIdle** doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Elle ne peut pas être définie dans le portail.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes :
+Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)

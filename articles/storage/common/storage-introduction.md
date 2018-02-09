@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 
@@ -131,21 +131,21 @@ Le service BLOB vous permet d’offrir un accès public à un conteneur et ses o
 
 ## <a name="encryption"></a>Chiffrement
 
-Il existe deux types de chiffrement de base pour les services de stockage.
+Il existe deux types de chiffrement de base pour les services de stockage. Pour en savoir plus sur la sécurité et le chiffrement, consultez le [guide de sécurité pour le stockage Azure](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
-Vous pouvez activer le chiffrement du service de stockage (SSE) pour le service Fichiers (version préliminaire) ou pour le service Blob d’un compte de stockage Azure. En cas d’activation, toutes les données écrites dans ce service sont chiffrées avant l’écriture. Lorsque vous lisez les données, elles sont déchiffrées avant d’être retournées.
+Le Chiffrement du service de stockage Azure au repos permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, Azure Storage chiffre automatiquement vos données avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. La gestion du chiffrement, du déchiffrement et des clés est totalement transparente pour les utilisateurs.
+
+Vous pouvez activer le Chiffrement du service de stockage pour le stockage d’objets Blob ou pour les fichiers Azure (version préliminaire). En cas d’activation, toutes les données écrites dans ce service sont chiffrées avant l’écriture. Lorsque vous lisez les données, elles sont déchiffrées avant d’être retournées.
+
+Pour plus d’informations sur le chiffrement du service de stockage, consultez [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>chiffrement côté client
 
 Les bibliothèques clientes de stockage ont des méthodes que vous pouvez appeler pour chiffrer des données par programme avant de les envoyer du client vers Azure. Les données sont chiffrées et stockées, ce qui signifie qu’elles sont également chiffrées au repos. À la lecture des données au retour, vous déchiffrez les informations après réception.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Chiffrement en transit avec des partages de fichiers Azure
-
-Pour plus d’informations sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md) . Pour plus d’informations sur l’accès sécurisé à votre compte de stockage, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md) et [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
-
-Pour en savoir plus sur la sécurisation de votre compte de stockage et sur le chiffrement, consultez le [guide de sécurité pour le stockage Azure](storage-security-guide.md).
+Pour plus d’informations sur le chiffrement côté client, consultez [Chiffrement côté client avec .NET pour Stockage Microsoft Azure](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Réplication
 

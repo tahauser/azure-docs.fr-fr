@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>Mon premier runbook Python
 
@@ -68,12 +68,11 @@ Cliquez sur **Enregistrer** pour enregistrer le runbook.
 Avant de publier le runbook pour le rendre disponible en production, vous voulez le tester pour vous assurer qu’il fonctionne correctement. Lorsque vous testez un Runbook, vous exécutez sa version **Brouillon** et affichez sa sortie de manière interactive.
 
 1. Cliquez sur **Volet de test** pour ouvrir le volet de test.
-   ![Test Pane](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Cliquez sur **Démarrer** pour démarrer le test. Ce doit être la seule option activée.
-1. Une [tâche de Runbook](automation-runbook-execution.md) est créée et son état apparaît.
+2. Cliquez sur **Démarrer** pour démarrer le test. Ce doit être la seule option activée.
+3. Une [tâche de Runbook](automation-runbook-execution.md) est créée et son état apparaît.
    L’état initial du travail est *Mis en file d’attente* pour indiquer que la tâche attend qu’un Runbook Worker du cloud devienne disponible. Il passe à *En cours de démarrage* lorsqu’un Worker sélectionne la tâche, puis à *En cours d’exécution* lorsque le runbook se lance.
-1. Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans ce cas, *Hello World* devrait apparaître.
-1. Fermez le volet de test pour revenir au canevas.
+4. Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans ce cas, *Hello World* devrait apparaître.
+5. Fermez le volet de test pour revenir au canevas.
 
 ## <a name="publish-and-start-the-runbook"></a>Publier et démarrer le Runbook
 
@@ -82,19 +81,18 @@ Lorsque vous publiez un Runbook, vous écrasez la version publiée existante par
 Dans ce cas, vous n’avez pas encore de version publiée car vous venez de créer le runbook.
 
 1. Cliquez sur **Publier** pour publier le Runbook, puis sur **Oui** quand vous y êtes invité.
-   ![Bouton Publier](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Si vous faites maintenant défiler la page vers la gauche pour visualiser le runbook sur la page **Runbooks**, celle-ci affiche **l’État de création** **Publié**.
+2. Si vous faites maintenant défiler la page vers la gauche pour visualiser le runbook sur la page **Runbooks**, celle-ci affiche **l’État de création** **Publié**.
 1. Faites défiler la page vers la droite pour visualiser le volet **MyFirstRunbook-Python**.
    Les options de la partie supérieure nous permettent de démarrer le runbook, de l’afficher, de planifier son démarrage à un moment ultérieur ou de créer un [webhook](automation-webhooks.md) afin de le démarrer par le biais d’un appel HTTP.
-1. L’objectif étant de démarrer le runbook, cliquez sur **Démarrer**, puis sur **Ok** à l’ouverture du panneau Démarrer le runbook.
-1. Un volet s’ouvre pour la tâche du runbook qui vient d’être créée. Vous pouvez le fermer, mais, dans ce cas précis, laissez-le ouvert pour pouvoir suivre la progression de la tâche.
-1. L’état de la tâche, indiqué dans le champ **Résumé de la tâche**, correspond aux états constatés lors du test du runbook.
-1. Lorsque le Runbook prend l’état *Terminé*, cliquez sur **Sortie**. Le volet Sortie s’ouvre, affichant *Hello World*.
-1. Fermez le volet Sortie.
-1. Cliquez sur **Tous les journaux** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie, mais d’autres flux peuvent s’afficher pour un travail de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.
-1. Fermez les volets du flux et de la tâche pour revenir au volet MyFirstRunbook-Python.
-1. Cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.
-1. Vous pouvez cliquer sur ce travail pour ouvrir le même volet du travail que vous avez consulté au démarrage du runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
+2. L’objectif étant de démarrer le runbook, cliquez sur **Démarrer**, puis sur **Ok** à l’ouverture du panneau Démarrer le runbook.
+3. Un volet s’ouvre pour la tâche du runbook qui vient d’être créée. Vous pouvez le fermer, mais, dans ce cas précis, laissez-le ouvert pour pouvoir suivre la progression de la tâche.
+4. L’état de la tâche, indiqué dans le champ **Résumé de la tâche**, correspond aux états constatés lors du test du runbook.
+5. Lorsque le Runbook prend l’état *Terminé*, cliquez sur **Sortie**. Le volet Sortie s’ouvre, affichant *Hello World*.
+6. Fermez le volet Sortie.
+7. Cliquez sur **Tous les journaux** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie, mais d’autres flux peuvent s’afficher pour un travail de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.
+8. Fermez les volets du flux et de la tâche pour revenir au volet MyFirstRunbook-Python.
+9. Cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.
+10. Vous pouvez cliquer sur ce travail pour ouvrir le même volet du travail que vous avez consulté au démarrage du runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Ajouter une authentification pour gérer les ressources Azure
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-Lorsque vous redémarrez le Runbook Python (dans le panneau **Test** ou en tant que Runbook publié), vous pouvez entrer les valeurs des paramètres dans le panneau **Démarrer Runbook** dans **Paramètres**.
-
-![Boîte Valeur du paramètre](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+Lorsque vous démarrez un runbook Python (dans la page **Test** ou en tant que runbook publié), vous pouvez entrer les valeurs des paramètres dans la page **Démarrer le Runbook** sous **Paramètres**.
 
 Après avoir entré une valeur dans la première boîte, une deuxième apparaît, et ainsi de suite. Vous pouvez entrer autant de valeurs de paramètres que nécessaire.
 

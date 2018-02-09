@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f57b5304b8dc575d157f970312e71463496bf10d
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8b871c28c2d666bebcc192403cf0c8ef238fef4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du Java Service SDK
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-tpm-java.md)
+> * [C#](quick-enroll-device-tpm-csharp.md)
 > * [Node.JS](quick-enroll-device-tpm-node.md)
 
 Ces étapes indiquent comment inscrire un appareil TPM simulé auprès du service Azure IoT Hub Device Provisioning au moyen d’un programme, mais aussi à l’aide du [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) et d’un exemple d’application Java. Bien que le Java Service SDK fonctionne à la fois sous Linux et Windows, cet article utilise un ordinateur de développement sous Windows afin de présenter le processus d’inscription.
@@ -33,7 +34,7 @@ Avant de commencer, n’oubliez pas de [configurer le service IoT Hub Device Pro
 
 1. Assurez-vous que le [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) est bien installé sur votre ordinateur. 
 
-2. Configurez les variables d’environnement pour votre installation Java. La variable `PATH` doit inclure le chemin d’accès complet au répertoire *jdk1.8.x\bin*. S’il s’agit de la première installation de Java sur cet ordinateur, vous devez alors créer une variable d’environnement nommée `JAVA_HOME` et la faire pointer vers le chemin complet du répertoire *jdk1.8.x*. Sur l’ordinateur Windows, ce répertoire se trouve généralement dans le dossier *C:\\Program Files\\Java\\*. De plus, vous pouvez créer ou modifier les variables d’environnement en faisant une recherche sur **Modifier les variables d’environnement du système** dans le **Panneau de configuration** de votre ordinateur Windows. 
+2. Configurez les variables d’environnement pour votre installation Java. La variable `PATH` doit inclure le chemin d’accès complet au répertoire *jdk1.8.x\bin*. S’il s’agit de la première installation de Java sur cet ordinateur, vous devez alors créer une variable d’environnement nommée `JAVA_HOME` et la faire pointer vers le chemin complet du répertoire *jdk1.8.x*. Sur une machine Windows, ce répertoire se trouve généralement dans le dossier *C:\\Program Files\\Java\\*. De plus, vous pouvez créer ou modifier les variables d’environnement en recherchant **Modifier les variables d’environnement du système** dans le **Panneau de configuration** de votre machine Windows. 
 
   Pour vérifier que Java est correctement configuré sur votre ordinateur, exécutez la commande suivante dans la fenêtre de commande :
 
@@ -41,9 +42,9 @@ Avant de commencer, n’oubliez pas de [configurer le service IoT Hub Device Pro
     java -version
     ```
 
-3. Téléchargez et extrayez [Maven 3](https://maven.apache.org/download.cgi) sur votre ordinateur. 
+3. Téléchargez et extrayez [Maven 3](https://maven.apache.org/download.cgi) sur votre machine. 
 
-4. Modifiez la variable d’environnement `PATH` et faites en sorte qu’elle pointe vers le sous-dossier *maven-apache-3.x.x\\bin* du dossier dans lequel Maven est extrait. Pour vérifier que Maven est correctement installé, exécutez la commande suivante dans la fenêtre de commande :
+4. Modifiez la variable d’environnement `PATH` et faites en sorte qu’elle pointe vers le sous-dossier *apache-maven-3.x.x\\bin* du dossier dans lequel Maven est extrait. Pour vérifier que Maven est correctement installé, exécutez la commande suivante dans la fenêtre de commande :
 
     ```cmd\sh
     mvn --version

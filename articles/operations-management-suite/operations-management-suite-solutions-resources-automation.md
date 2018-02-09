@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Ajout de ressources Azure Automation pour une solution de gestion OMS (version préliminaire)
 > [!NOTE]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > Les exemples dans cet article utilisent des paramètres et des variables qui sont nécessaires ou courants pour les solutions de gestion. Ils sont décrits dans la rubrique [Création de solutions de gestion dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion](operations-management-suite-solutions-creating.md).
@@ -40,7 +40,7 @@ Cet article suppose que vous êtes déjà familiarisé avec les informations sui
 - Guide de [Création de modèles Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Compte Automation
-Toutes les ressources dans Azure Automation sont contenues dans un [compte Automation](../automation/automation-security-overview.md#automation-account-overview).  Comme décrit dans [Espace de travail OMS et compte Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account), le compte Automation n’est pas inclus dans la solution de gestion mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
+Toutes les ressources dans Azure Automation sont contenues dans un [compte Automation](../automation/automation-security-overview.md#automation-account-overview).  Comme décrit dans [Espace de travail OMS et compte Automation](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), le compte Automation n’est pas inclus dans la solution de gestion mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
 
 Le nom de chaque ressource Automation inclut le nom de son compte Automation.  Pour cela, utilisez le paramètre **accountName** comme dans l’exemple suivant d’une ressource de runbook.
 
@@ -75,12 +75,12 @@ Les ressources [Azure Automation runbook](../automation/automation-runbook-types
 
 Les propriétés des runbooks sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | runbookType |Spécifie les types de runbook. <br><br> Script : script PowerShell <br>PowerShell : workflow PowerShell <br> GraphPowerShell : runbook de script PowerShell graphique <br> GraphPowerShellWorkflow : runbook de workflow PowerShell graphique |
 | logProgress |Spécifie si les [enregistrements de progression](../automation/automation-runbook-output-and-messages.md) doivent être générés pour le runbook. |
 | logVerbose |Spécifie si les [enregistrements détaillés](../automation/automation-runbook-output-and-messages.md) doivent être générés pour le runbook. |
-| Description |Description facultative du runbook. |
+| description |Description facultative du runbook. |
 | publishContentLink |Spécifie le contenu du runbook. <br><br>uri : Uri du contenu du runbook.  Il s’agit d’un fichier .ps1 pour des runbooks PowerShell et Script et d’un fichier de runbook graphique exporté pour un runbook Graph.  <br> version : version du runbook pour votre propre suivi. |
 
 
@@ -111,7 +111,7 @@ Les ressources de tâche sont de type **Microsoft.Automation/automationAccounts/
 
 Les propriétés des travaux d’automatisation sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | runbook |Entité name unique portant le nom du runbook à démarrer. |
 | parameters |Entité pour chaque valeur de paramètre exigée par le runbook. |
@@ -142,7 +142,7 @@ Les [certificats Azure Automation](../automation/automation-certificates.md) son
 
 Les propriétés des ressources de certificat sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | base64Value |Valeur de base 64 pour le certificat. |
 | thumbprint |Thumbprint pour le certificat. |
@@ -169,7 +169,7 @@ Les [informations d'identification Azure Automation](../automation/automation-cr
 
 Les propriétés des ressources d’informations d’identification sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | userName |Nom d’utilisateur des informations d’identification. |
 | password |Mot de passe des informations d’identification. |
@@ -197,9 +197,9 @@ Les [planifications Azure Automation](../automation/automation-schedules.md) son
 
 Les propriétés des ressources de planification sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
-| Description |Description facultative de la planification. |
+| description |Description facultative de la planification. |
 | startTime |Spécifie l’heure de début d’une planification en tant qu’objet DateTime. Une chaîne peut être fournie si elle peut être convertie en un élément DateTime valide. |
 | isEnabled |Spécifie si la planification est activée. |
 | interval |Le type d’intervalle pour la planification.<br><br>day<br>hour |
@@ -240,14 +240,14 @@ Les ressources de planification de tâche lient un runbook à une planification.
 
 Les propriétés des planifications de travail sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | nom de la planification |Entité **name** unique portant le nom de la planification. |
 | nom du runbook  |Entité **name** unique portant le nom du runbook.  |
 
 
 
-## <a name="variables"></a>Variables
+## <a name="variables"></a>variables
 Les [variables Azure Automation](../automation/automation-variables.md) sont de type **Microsoft.Automation/automationAccounts/variables** et ont la structure suivante.  Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres.
 
     {
@@ -267,11 +267,11 @@ Les [variables Azure Automation](../automation/automation-variables.md) sont de 
 
 Les propriétés des ressources de variable sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
-| Description | Description facultative de la variable. |
+| description | Description facultative de la variable. |
 | isEncrypted | Spécifie si la variable doit être chiffrée. |
-| type | Cette propriété n’a actuellement aucun effet.  Le type de données de la variable sera déterminé par la valeur initiale. |
+| Type | Cette propriété n’a actuellement aucun effet.  Le type de données de la variable sera déterminé par la valeur initiale. |
 | value | Valeur de la variable. |
 
 > [!NOTE]
@@ -279,12 +279,12 @@ Les propriétés des ressources de variable sont décrites dans le tableau suiva
 
 Si vous définissez la valeur initiale pour la variable, elle doit être configurée en tant que type de données correct.  Le tableau suivant fournit les différents types de données autorisés et leur syntaxe.  Notez que les valeurs dans JSON doivent toujours être placées entre guillemets avec les caractères spéciaux à l’intérieur des guillemets.  Par exemple, une valeur de chaîne serait spécifiée en plaçant la chaîne entre guillemets (en utilisant le caractère d’échappement (\\)), tandis qu’une valeur numérique serait spécifiée avec une seule paire de guillemets.
 
-| Type de données | Description | Exemple | Est résolu en |
+| Type de données | DESCRIPTION | exemples | Est résolu en |
 |:--|:--|:--|:--|
-| string   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
+| chaîne   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
 | numérique  | Valeur numérique avec des guillemets simples.| "64" | 64 |
 | booléenne  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
-| Datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
 Votre solution de gestion ne doit pas nécessairement définir de [modules globaux](../automation/automation-integration-modules.md) utilisés par vos runbooks, car ils sont toujours disponibles dans votre compte Automation.  Vous devez inclure une ressource pour tout module utilisé par vos runbooks.
@@ -307,7 +307,7 @@ Les [modules d’intégration](../automation/automation-integration-modules.md) 
 
 Les propriétés des ressources de module sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | contentLink |Spécifie le contenu du module. <br><br>uri : Uri du contenu du module.  Il s’agit d’un fichier .ps1 pour des runbooks PowerShell et Script et d’un fichier de runbook graphique exporté pour un runbook Graph.  <br> version : version du module pour votre propre suivi. |
 
@@ -649,5 +649,5 @@ L’exemple utilise des variables de [paramètres de solution standard](operatio
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajout d’une vue à votre solution](operations-management-suite-solutions-resources-views.md) pour visualiser les données collectées.

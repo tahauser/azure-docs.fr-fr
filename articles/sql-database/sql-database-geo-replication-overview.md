@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database : groupes de basculement et géo-réplication active | Documents Microsoft"
-description: "Utilisez des groupes de basculement automatique avec géoréplication active et activez le basculement automatique en cas de panne."
+description: "Utilisez des groupes de basculement automatique avec géoréplication active et activez les basculement automatique en cas de panne."
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Vue d’ensemble : groupes de basculement et géo-réplication active
 La géo-réplication active vous permet de configurer jusqu'à quatre bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles pour l’interrogation et le basculement en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire. Le basculement doit être lancé manuellement par l’application de l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 
@@ -44,7 +44,7 @@ Vous pouvez gérer la réplication et le basculement d’une base de données in
  
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md). Cela s’applique à la fois à la géo-réplication active et aux groupes de basculement automatique (en préversion).
 
-La géo-réplication active optimise la technologie [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server pour répliquer de manière asynchrone les transactions validées sur la base de données primaire vers une base de données secondaire, à l’aide de l’isolement de capture instantanée à lecture validée (RCSI). Les groupes de basculement automatique fournissent la sémantique de groupe en plus de la géo-réplication active. Cependant, le même mécanisme de réplication asynchrone est utilisé. À un moment donné, la base de données secondaire peut être légèrement en retard sur la base de données primaire, mais les données secondaires ne peuvent jamais contenir de transactions partielles. Grâce à la redondance entre régions, les applications peuvent récupérer rapidement d’une perte permanente de tout ou partie d’un centre de données résultant de catastrophes naturelles, de graves erreurs humaines ou d’actes de malveillance. Vous trouverez les données d’objectif de point de récupération dans [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+La géo-réplication active optimise la technologie [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server pour répliquer de manière asynchrone les transactions validées sur la base de données primaire vers une base de données secondaire, à l’aide de l’isolement de capture instantanée à lecture validée (RCSI). Les groupes de basculement automatique fournissent la sémantique de groupe en plus de la géo-réplication active. Cependant, le même mécanisme de réplication asynchrone est utilisé. À un moment donné, la base de données secondaire peut être légèrement en retard sur la base de données primaire, mais les données secondaire ne peuvent jamais contenir de transactions partielles. Grâce à la redondance entre régions, les applications peuvent récupérer rapidement d’une perte permanente de tout ou partie d’un centre de données résultant de catastrophes naturelles, de graves erreurs humaines ou d’actes de malveillance. Vous trouverez les données d’objectif de point de récupération dans [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 La figure suivante présente un exemple de géo-réplication active configurée avec une base de données primaire située dans la région nord du centre des États-Unis, ainsi qu’une base de données secondaire située dans la région sud du centre des États-Unis.
 
@@ -71,7 +71,7 @@ La fonction de géo-réplication active fournit les capacités essentielles suiv
 * **Plusieurs bases de données secondaires accessibles en lecture** : l’utilisation d’au moins deux bases de données secondaires permet d’améliorer la redondance et le niveau de protection de la base de données primaire et de l’application. S’il existe plusieurs bases de données secondaires, l’application reste protégée même en cas d’échec de l’une des bases de données secondaires. S’il n’existe qu’une seule base de données secondaire, en cas d’échec de celle-ci, l’application est exposée à un risque plus élevé jusqu’à la création d’une nouvelle base de données secondaire.
 
    > [!NOTE]
-   > Si vous utilisez la géo-réplication active pour créer une application mondialement distribuée et avez besoin de fournir un accès en lecture seule aux données dans plus de quatre régions, vous pouvez créer la base de données secondaire d’une base de données secondaire (processus connu sous le nom de chaînage). De cette manière, vous pouvez assurer une mise à l’échelle quasiment illimitée pour la réplication de base de données. En outre, le chaînage réduit la charge de réplication qui pèse sur la base de données primaire. Le compromis est l’augmentation du décalage de réplication sur les bases de données secondaires situées aux extrémités. 
+   > Si vous utilisez la géoréplication active pour créer une application mondialement distribuée et que vous avez besoin de fournir un accès en lecture seule aux données dans plus de quatre régions, vous pouvez créer la base de données secondaire d’une base de données secondaire (processus connu sous le nom de chaînage). De cette manière, vous pouvez assurer une mise à l’échelle quasiment illimitée pour la réplication de base de données. En outre, le chaînage réduit la charge de réplication qui pèse sur la base de données primaire. Le compromis est l’augmentation du décalage de réplication sur les bases de données secondaires situées aux extrémités. 
    >
 
 * **Prise en charge des bases de données de pool élastique** : la géo-réplication active peut être configurée pour toute base de données faisant partie d’un pool élastique. La base de données secondaire peut se trouver dans un autre pool élastique. Pour des bases de données ordinaires, la base de données secondaire peut être un pool élastiques, et inversement, pour autant que les niveaux de service soient identiques. 
@@ -93,7 +93,7 @@ La fonction de groupes de basculement automatique fournit une abstraction puissa
    >
 
 * **Écouteur de lecture-écriture de groupe de basculement** : un enregistrement DNS CNAME formé comme suit : **&lt;nom du groupe de basculement&gt;.database.windows.net** et qui pointe vers l’URL actuelle du serveur primaire. Il permet aux applications SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. 
-* **Écouteur en lecture seule de groupe de basculement** : un enregistrement DNS CNAME formé comme suit : **&lt;nom du groupe de basculement&gt;.secondary.database.windows.net** et qui pointe vers l’URL actuelle du serveur primaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Si vous le souhaitez, vous pouvez choisir de rediriger automatiquement le trafic en lecture seule vers le serveur primaire lorsque le serveur secondaire n’est pas disponible.
+* **Écouteur de lecture-écriture de groupe de basculement** : un enregistrement DNS CNAME formé comme suit : **&lt;nom du groupe de basculement&gt;.database.windows.net** et qui pointe vers l’URL actuelle du serveur primaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Si vous le souhaitez, vous pouvez choisir de rediriger automatiquement le trafic en lecture seule vers le serveur primaire lorsque le serveur secondaire n’est pas disponible.
 * **Stratégie de basculement automatique** : par défaut, le groupe de basculement est configuré avec une stratégie de basculement automatique. Le système déclenche le basculement dès qu’une défaillance est détectée. Si vous souhaitez contrôler le flux de travail de basculement à partir de l’application, vous pouvez désactiver le basculement automatique. 
 * **Basculement manuel** : vous pouvez initialiser manuellement le basculement à tout moment, peu importe la configuration de basculement automatique. Si la stratégie de basculement automatique n’est pas configurée, un basculement manuel est nécessaire pour récupérer les bases de données dans le groupe de basculement. Vous pouvez lancer un basculement forcé ou convivial (avec synchronisation complète des données). Ce dernier peut être utilisé pour relocaliser le serveur actif dans la région primaire. Une fois le basculement terminé, les enregistrements DNS sont automatiquement mis à jour pour garantir la connexion au serveur approprié.
 * **Période de grâce en cas de risque de perte de données** : étant donné que les bases de données primaires et secondaires sont synchronisées à l’aide de la réplication asynchrone, le basculement peut entraîner une perte de données. Vous pouvez personnaliser la stratégie de basculement automatique en fonction de la tolérance de votre application aux pertes de données. En configurant la commande **GracePeriodWithDataLossHours**, vous pouvez contrôler le délai observé par le système avant d’initialiser le basculement qui est susceptible d’entraîner une perte de données. 
@@ -140,7 +140,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gérer le basculement de base de données à l’aide de Transact-SQL
 
-| Commande | Description |
+| Commande | DESCRIPTION |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilise l’argument ADD SECONDARY ON SERVER afin de créer une base de données secondaire pour une base de données existante puis lance la réplication des données |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilise l’argument FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS pour basculer d’une base de données secondaire à une base de données principale afin de lancer le basculement |
@@ -153,7 +153,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gérer le basculement de base de données à l’aide de PowerShell
 
-| Applet de commande | Description |
+| Applet de commande | DESCRIPTION |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtient une ou plusieurs bases de données. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crée une base de données secondaire pour une base de données existante puis lance la réplication des données. |
@@ -172,13 +172,13 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gérer le basculement de base de données à l’aide de l’API REST
-| API | Description |
+| API | DESCRIPTION |
 | --- | --- |
 | [.Créer ou mettre à jour la base de données (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
 | [Créer ou mettre à jour l’état de la base de données](/rest/api/sql/Databases/CreateOrUpdate) |Retourne l’état durant une opération de création. |
 | [Définir la base de données secondaire comme principale (basculement planifié)](/rest/api/sql/replicationlinks/failover) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. |
 | [Définir la base de données secondaire comme principale (basculement non planifié)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
-| [Obtenir un lien de réplication](/rest/api/sql/replicationlinks/get) |Obtient un lien de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
+| [Obtenir un lien de réplication](/rest/api/sql/replicationlinks/get) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
 | [Liens de réplication - Liste par base de données](/rest/api/sql/replicationlinks/listbydatabase) | Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
 | [Supprimer un lien de réplication](/rest/api/sql/databases/delete) | Supprime un lien de réplication de base de données. Opération impossible pendant le basculement. |
 | [Créer ou mettre à jour un groupe de basculement](/rest/api/sql/failovergroups/createorupdate) | Crée ou met à jour un groupe de basculement |
@@ -190,7 +190,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 | [Mettre à jour un groupe de basculement](/rest/api/sql/failovergroups/update) | Met à jour un groupe de basculement. |
 |  | |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour obtenir des exemples de scripts, consultez :
    - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5fdd3e621ac97da86897b8cc8b20466fab0b0a42
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 76db735ca7bbad550e792d61658fa65fe8a53caf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Mettre à jour une application dans Azure Container Service (AKS)
 
@@ -83,16 +83,16 @@ Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Utilisez [docker tag][docker-tag] pour ajouter une balise à l’image. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion Azure Container Registry ou par votre nom d’hôte de registre public. Notez également que la version de l’image est mise à jour à `redis-v2`.
+Utilisez [docker tag][docker-tag] pour ajouter une balise à l’image. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion Azure Container Registry ou par votre nom d’hôte de registre public. Notez également que la version de l’image est mise à jour à `v2`.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
 Utilisez [docker push][docker-push] pour charger l’image dans le Registre. Remplacez `<acrLoginServer>` par votre nom de serveur de connexion Azure Container Registry.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## <a name="deploy-update-application"></a>Déployer l’application mise à jour
@@ -123,7 +123,7 @@ kubectl scale --replicas=3 deployment/azure-vote-front
 Pour mettre à jour l’application, utilisez la commande [kubectl set][kubectl-set]. Mettez à jour `<acrLoginServer>` avec le nom du serveur de connexion ou le nom d’hôte de votre registre de conteneurs.
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
 Pour surveiller le déploiement, utilisez la commande [kubectl get pod][kubectl-get]. À mesure que l’application mise à jour est déployée, vos pods sont terminés et recréés avec la nouvelle image conteneur.

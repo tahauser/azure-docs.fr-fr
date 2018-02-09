@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Mettre à l’échelle un cluster Service Fabric par programmation 
 
@@ -93,7 +93,7 @@ Lorsque vous ajoutez manuellement un nœud, l’ajout d’une instance de groupe
 
 La mise à l’échelle est similaire à la montée en charge. Les modifications d’un groupe de machines virtuelles identiques sont pratiquement identiques. Mais, comme nous l’avons déjà vu, Service Fabric ne nettoie automatiquement que les nœuds supprimés ayant une durabilité de niveau or ou argent. Par conséquent, dans le cas d’une mise à l’échelle avec une durabilité de niveau bronze, il est nécessaire d’interagir avec le cluster Service Fabric pour arrêter le nœud à supprimer, puis de supprimer son état.
 
-La préparation du nœud à l’arrêt consiste à trouver le nœud à supprimer (le dernier nœud ajouté) et à le désactiver. Pour les nœuds non racines, les nœuds plus récents sont accessibles en comparant le `NodeInstanceId`. 
+La préparation du nœud à l’arrêt consiste à trouver le nœud à supprimer (la dernière instance de groupe de machines virtuelles identiques ajoutée) et à le désactiver. Les instances de groupe de machines virtuelles identiques sont numérotées dans l’ordre dans lequel elles sont ajoutées. Ainsi, vous pouvez trouver les nœuds les plus récents en comparant le suffixe du numéro dans les noms des nœuds (qui correspondent aux noms des instances de groupe de machines virtuelles identiques sous-jacents). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Les nœuds racines sont différents et ne respectent pas forcément la convention selon laquelle les ID d’instance supérieurs sont supprimés en premier.
 
 Une fois le nœud à supprimer trouvé, il peut être désactivé et supprimé à l’aide de la même instance `FabricClient` et de l’instance `IAzure` précédente.
 

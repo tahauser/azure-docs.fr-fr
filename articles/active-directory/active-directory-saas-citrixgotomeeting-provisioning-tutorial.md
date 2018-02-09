@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à GoToMeeting | Microsoft Docs"
+title: "Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoToMeeting."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : Configuration de GoToMeeting pour l’attribution automatique des utilisateurs
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans GoToMeeting et Azure AD pour provisionner automatiquement des comptes d’utilisateur Azure AD dans GoToMeeting, ainsi que pour annuler automatiquement ce provisionnement.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -33,7 +33,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 ## <a name="assigning-users-to-gotomeeting"></a>Attribution d’utilisateurs à GoToMeeting
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique des comptes d’utilisateur, seuls les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service de provisionnement, vous devez déterminer quels utilisateurs et/ou groupes Azure AD ont besoin d’accéder à votre application GoToMeeting. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs à votre application GoToMeeting en suivant les instructions fournies ici :
 
@@ -72,7 +72,7 @@ Cette section explique comment connecter Azure AD à l’API de provisionnement 
 
 6. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application GoToMeeting. Si la connexion échoue, vérifiez que votre compte GoToMeeting dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur**.
 
-7. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, et cochez la case.
+7. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
 
 8. Cliquez sur **Enregistrer.**
 
@@ -84,7 +84,7 @@ Cette section explique comment connecter Azure AD à l’API de provisionnement 
 
 12. Cliquez sur **Enregistrer.**
 
-Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes attribués à GoToMeeting dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et cliquer sur les liens dirigeant vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application GoToMeeting.
+Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes attribués à GoToMeeting dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et cliquer sur les liens dirigeant vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application GoToMeeting.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

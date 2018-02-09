@@ -5,8 +5,7 @@ keywords: "chiffrement des données, clé de chiffrement, chiffrement cloud"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Chiffrement intégral : Protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans Azure Key Vault
 
@@ -38,7 +37,7 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une table de base de données et chiffrer des colonnes.
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte et un abonnement Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
@@ -48,30 +47,18 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 * [Azure PowerShell](/powershell/azure/overview), version 1.0 ou ultérieure. Tapez **(Get-Module azure -ListAvailable).Version** pour voir la version de PowerShell que vous exécutez.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Autoriser votre application cliente à accéder au service SQL Database
-Vous devez autoriser votre application cliente à accéder au service SQL Database en configurant l’authentification requise et en obtenant le *ClientId* et le *Secret* dont vous aurez besoin pour authentifier votre application dans le code suivant.
+Vous devez autoriser votre application cliente à accéder au service SQL Database en configurant une application Azure Active Directory (AAD) et en copiant l’*ID d’application* et la *clé* dont vous aurez besoin pour authentifier votre application.
 
-1. Ouvrez le [portail Azure Classic](http://manage.windowsazure.com).
-2. Sélectionnez **Active Directory** , puis cliquez sur l’instance Active Directory que votre application utilisera.
-3. Cliquez sur **Applications**, puis sur **AJOUTER**.
-4. Tapez un nom pour votre application (par exemple : *myClientApp*), sélectionnez **APPLICATION WEB**, puis cliquez sur la flèche pour continuer.
-5. Pour **URL DE CONNEXION** et **URI ID D’APPLICATION**, vous pouvez simplement taper une URL valide (par exemple, *http://myClientApp*), puis continuer.
-6. Cliquez sur **CONFIGURER**.
-7. Copiez votre **ID CLIENT**. (vous aurez besoin cette valeur dans votre code ultérieurement).
-8. Dans la section **Clés**, dans la liste déroulante **Sélectionner une durée**, sélectionnez **1 an** (vous copierez la clé après l’enregistrement à l’étape 13).
-9. Faites défiler et cliquez sur **Ajouter une application**.
-10. Laissez la valeur **AFFICHER** définie sur **Applications Microsoft**, puis sélectionnez **API Gestion des services Microsoft Azure**. Cliquez sur la coche pour continuer.
-11. Dans la liste déroulante **Autorisations déléguées**, sélectionnez **Accéder à la gestion des services Azure...**.
-12. Cliquez sur **ENREGISTRER**.
-13. Une fois l’enregistrement terminé, copiez la valeur de clé dans la section **Clés** (vous aurez besoin cette valeur dans votre code ultérieurement).
+Pour obtenir l’*ID d’application* et la *clé*, suivez la procédure dans [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Créer un coffre de clés pour stocker vos clés
-À présent que votre application cliente est configurée et que vous avez votre ID client, vous devez créer un coffre de clés et configurer sa stratégie d’accès pour que votre application et vous-même puissiez accéder aux clés secrètes contenues dans le coffre (clés intégralement chiffrées). Les autorisations *create*, *get*, *list*, *sign*, *verify*, *wrapKey* et *unwrapKey* sont nécessaires pour créer une clé principale de colonne et configurer le chiffrement avec SQL Server Management Studio.
+À présent que votre application cliente est configurée et que vous avez votre ID d’application, vous devez créer un coffre de clés et configurer sa stratégie d’accès pour que votre application et vous-même puissiez accéder aux clés secrètes contenues dans le coffre (clés Always Encrypted). Les autorisations *create*, *get*, *list*, *sign*, *verify*, *wrapKey* et *unwrapKey* sont nécessaires pour créer une clé principale de colonne et configurer le chiffrement avec SQL Server Management Studio.
 
 Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant. Pour obtenir une explication détaillée de ces applets de commande et plus d’informations sur la création et la configuration d’un coffre de clés, voir [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,13 +72,13 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
 
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à **Nouveau** > **Données + stockage** > **SQL Database**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-get-started-portal.md).
    
@@ -233,7 +220,7 @@ Le code suivant montre comment inscrire le fournisseur d’Azure Key Vault aupr�
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Exécutez l’application pour voir le chiffrement intégral en action.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Exécutez l’application pour voir le chiffrement intégral en action.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -628,7 +615,7 @@ Pour utiliser SSMS afin d’accéder aux données texte en clair, vous pouvez aj
     ![Nouvelle application de console](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Après avoir créé une base de données utilisant le chiffrement intégral, vous pouvez effectuer les opérations suivantes :
 
 * [Faire pivoter et nettoyer vos clés](https://msdn.microsoft.com/library/mt607048.aspx).

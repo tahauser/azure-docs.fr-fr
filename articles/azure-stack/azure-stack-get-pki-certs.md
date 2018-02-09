@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Générer des certificats pour infrastructure à clé publique pour le déploiement Azure Stack
 Maintenant que vous connaissez [les exigences de certificat pour infrastructure à clé publique](azure-stack-pki-certs.md) pour les déploiements Azure Stack, vous devez obtenir ces certificats auprès de l’autorité de certification (AC) de votre choix. 
@@ -74,3 +74,5 @@ Le workflow suivant décrit comment vous pouvez personnaliser et utiliser l’ex
 4. **Importez le fichier .CER**. L’autorité de certification renvoie un fichier .CER. À l’aide du même ordinateur Windows que celui à partir duquel vous avez généré le fichier de requête, importez le fichier .CER retourné dans le magasin de l’ordinateur/personnel. 
 5. **Exportez et copiez le fichier . PFX dans les dossiers de déploiement**. Exportez le certificat (y compris la clé privée) au format de fichier .PFX, puis copiez le fichier .PFX dans les dossiers de déploiement décrits dans les [exigences d’infrastructure à clé publique de déploiement Azure Stack](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>étapes suivantes
+[Intégration des identités](azure-stack-integrate-identity.md)

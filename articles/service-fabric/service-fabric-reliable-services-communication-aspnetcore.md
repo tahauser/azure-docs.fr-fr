@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Reliable Services de Service Fabric
 
@@ -26,7 +26,7 @@ ASP.NET Core est une nouvelle infrastructure open source et multiplateforme dest
 
 Cet article constitue un guide détaillé pour héberger des services ASP.NET Core dans le modèle Reliable Services de Service Fabric à l’aide de l’ensemble **Microsoft.ServiceFabric.AspNetCore.*** de packages NuGet.
 
-Pour un didacticiel de présentation d’ASP.NET Core dans Service Fabric et pour des instructions de configuration de votre environnement de développement, voir [Création d’un serveur web frontal pour votre application à l’aide d’ASP.NET Core](service-fabric-add-a-web-frontend.md).
+Pour obtenir un didacticiel de présentation d’ASP.NET Core dans Service Fabric et des instructions de configuration de votre environnement de développement, consultez [Créer une application .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 Pour lire la suite de cet article, vous devez déjà maîtriser ASP.NET Core. Si ce n’est pas le cas, nous vous conseillons de lire les [notions de base d’ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -347,7 +347,7 @@ Les services avec état qui sont appelés uniquement à partir du cluster doiven
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Avec l’affectation de port dynamique, ce paramètre empêche le problème d’erreur d’identité décrit précédemment. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Débogage de votre application Service Fabric à l’aide de Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

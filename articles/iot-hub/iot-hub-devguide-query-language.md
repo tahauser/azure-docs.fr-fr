@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Cette requête de regroupement retourne un résultat similaire à l’exemple ci-dessous. Ici, trois appareils signalent une configuration réussie, deux appliquent toujours la configuration et un signale une erreur. 
+Cette requête de regroupement retourne un résultat similaire à l’exemple ci-dessous :
 
 ```json
 [
@@ -149,6 +149,8 @@ Cette requête de regroupement retourne un résultat similaire à l’exemple ci
     }
 ]
 ```
+
+Dans cet exemple, trois appareils ont signalé une configuration réussie, deux appliquent toujours la configuration et un signale une erreur.
 
 Les requêtes de projection permettent aux développeurs de retourner uniquement les propriétés qui les intéressent. Par exemple, pour récupérer l’heure de la dernière activité de tous les appareils déconnectés, utilisez la requête suivante :
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Notez comment l’objet **query** est instancié avec une taille de page (jusqu’à 100), puis comment plusieurs pages peuvent être récupérées en appelant la méthode **GetNextAsTwinAsync** plusieurs fois.
-Notez que l’objet query expose plusieurs **Next***, selon l’option de désérialisation requise par la requête, par exemple des objets jumeau d’appareil ou travail, ou un code JSON simple à utiliser avec les projections.
+L’objet **query** est instancié avec une taille de page (jusqu’à 100). Ensuite, plusieurs pages sont récupérées en appelant plusieurs fois les méthodes **GetNextAsTwinAsync**.
+
+L’objet de requête expose plusieurs valeurs **Next**, en fonction de l’option de désérialisation requise par la requête. Par exemple, les objets de travail ou de jumeau d’appareil, ou le code JSON brut lors de l’utilisation de projections.
 
 ### <a name="nodejs-example"></a>Exemple de Node.js
 La fonctionnalité de requête est exposée par le [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js][lnk-hub-sdks] dans l’objet **Registry**.
@@ -198,17 +201,20 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Notez comment l’objet **query** est instancié avec une taille de page (jusqu’à 100), puis comment plusieurs pages peuvent être récupérées en appelant la méthode **nextAsTwin** plusieurs fois.
-Notez que l’objet query expose plusieurs **next***, selon l’option de désérialisation requise par la requête, par exemple des objets jumeau d’appareil ou travail, ou un code JSON simple à utiliser avec les projections.
+L’objet **query** est instancié avec une taille de page (jusqu’à 100). Ensuite, plusieurs pages sont récupérées en appelant plusieurs fois la méthode **nextAsTwin**.
+
+L’objet de requête expose plusieurs valeurs **Next**, en fonction de l’option de désérialisation requise par la requête. Par exemple, les objets de travail ou de jumeau d’appareil, ou le code JSON brut lors de l’utilisation de projections.
 
 ### <a name="limitations"></a>Limites
+
 > [!IMPORTANT]
-> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Lors d’une recherche de jumeaux d’appareil par ID, il est toujours préférable d’utiliser l’API de récupération des jumeaux d’appareil, qui contient toujours les valeurs les plus récentes et qui a un seuil de limitation plus élevé.
+> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Si vous interrogez des jumeaux d’appareil par ID, utilisez l’API de récupération de jumeau d’appareil. Cette API contient toujours les valeurs les plus récentes et ses seuils de limitation sont plus élevés.
 
 Actuellement, les comparaisons ne sont prises en charge qu’entre types primitifs (aucun objet), par exemple `... WHERE properties.desired.config = properties.reported.config` est pris en charge uniquement si ces propriétés ont des valeurs primitives.
 
 ## <a name="get-started-with-jobs-queries"></a>Bien démarrer avec les requêtes de travaux
-Les [travaux][lnk-jobs] constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque jumeau d’appareil contient les informations des travaux auxquels il participe dans un regroupement nommé **travaux**.
+
+Les [travaux][lnk-jobs] constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque jumeau d’appareil contient les informations des travaux auxquels il participe dans un regroupement nommé **jobs**.
 Sous forme logique,
 
 ```json
@@ -243,7 +249,7 @@ Sous forme logique,
 Actuellement, ce regroupement peut être interrogé en tant que **devices.jobs** dans le langage de requête d’IoT Hub.
 
 > [!IMPORTANT]
-> Actuellement, la propriété de travaux n’est jamais retournée lorsque des jumeaux d’appareil sont interrogés (c’est-à-dire pour les requêtes qui contiennent « FROM appareils »). Elle est uniquement accessible directement avec des requêtes utilisant `FROM devices.jobs`.
+> Actuellement, la propriété jobs n’est jamais retournée lors de l’interrogation de jumeaux d’appareil (autrement dit, les requêtes qui contiennent « FROM devices »). Elle est accessible directement uniquement avec des requêtes utilisant `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>Expressions de requête d’itinéraires de messages appareil-à-cloud
 
-À l’aide des [itinéraires appareil-à-cloud][lnk-devguide-messaging-routes], vous pouvez configurer IoT Hub pour distribuer les messages appareil-à-cloud sur différents points de terminaison sur la base d’expressions évaluées par rapport à des messages individuels.
+À l’aide des [itinéraires appareil-à-cloud][lnk-devguide-messaging-routes], vous pouvez configurer IoT Hub pour distribuer des messages appareil-à-cloud sur différents points de terminaison. La distribution est basée sur des expressions évaluées par rapport à des messages individuels.
 
-La [condition][lnk-query-expressions] d’itinéraire utilise le même langage de requête IoT Hub que les conditions des requêtes de jumeau et de travail. Les conditions de routage sont évaluées sur les en-têtes et le corps des messages. Votre expression de requête de routage peut impliquer uniquement des en-têtes de message, uniquement le corps du message ou à la fois des en-têtes de message et le corps du message. IoT Hub suppose un schéma spécifique pour les en-têtes et le corps du message afin d’acheminer les messages. Les sections suivantes décrivent ce dont IoT Hub a besoin pour effectuer correctement le routage.
+La [condition][lnk-query-expressions] d’itinéraire utilise le même langage de requête IoT Hub que les conditions des requêtes de jumeau et de travail. Les conditions de routage sont évaluées sur les en-têtes et le corps des messages. Votre expression de requête de routage peut impliquer uniquement des en-têtes de message, uniquement le corps du message ou les deux. IoT Hub suppose un schéma spécifique pour les en-têtes et le corps du message afin d’acheminer les messages. Les sections suivantes décrivent ce dont IoT Hub a besoin pour effectuer correctement le routage.
 
 ### <a name="routing-on-message-headers"></a>Routage sur les en-têtes de message
 
@@ -342,7 +348,7 @@ Reportez-vous à la section [Expression et conditions][lnk-query-expressions] po
 
 ### <a name="routing-on-message-bodies"></a>Routage sur les corps de message
 
-IoT Hub peut effectuer le routage en fonction du contenu du corps du message seulement si le corps du message se présente sous un format JSON adéquat encodé en UTF-8, UTF-16 ou UTF-32. Définissez le type de contenu du message sur `application/json` et l’encodage du contenu sur l’un des encodages UTF pris en charge dans les en-têtes de message. Si un des en-têtes n’est pas spécifié, IoT Hub n’évalue aucune expression de requête impliquant le corps de message. Si votre message n’est pas un message JSON ou que le message ne spécifie pas le type de contenu et l’encodage du contenu, vous pouvez toujours utiliser le routage des messages pour acheminer le message en fonction des en-têtes de message.
+IoT Hub peut effectuer le routage en fonction du contenu du corps du message seulement si le corps du message se présente sous un format JSON adéquat encodé en UTF-8, UTF-16 ou UTF-32. Affectez `application/json` comme type de contenu du message. Définissez l’un des encodages UTF pris en charge dans les en-têtes de message comme encodage du contenu. Si l’un des en-têtes n’est pas spécifié, IoT Hub n’essaie d’évaluer aucune expression de requête impliquant le corps de message. Si votre message n’est pas un message JSON ou s’il ne spécifie pas le type de contenu et l’encodage du contenu, vous pouvez toujours utiliser le routage des messages pour acheminer le message en fonction des en-têtes de message.
 
 Vous pouvez utiliser `$body` dans l’expression de requête pour acheminer le message. Vous pouvez utiliser une référence de corps simple, une référence de tableau de corps ou plusieurs références de corps dans l’expression de requête. Votre expression de requête peut également combiner une référence de corps avec une référence d’en-tête de message. Par exemple, toutes les expressions de requête suivantes sont valides :
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Principes de base d’une requête IoT Hub
-Chaque requête IoT Hub se compose de clauses SELECT et FROM, avec des clauses WHERE et GROUP BY facultatives. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des jumeaux d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec les agrégations, les résultats de cette étape sont regroupés comme spécifié dans la clause GROUP BY, puis, pour chaque groupe, une ligne est générée comme spécifié dans la clause SELECT.
+Chaque requête IoT Hub se compose de clauses SELECT et FROM, avec des clauses WHERE et GROUP BY facultatives. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des jumeaux d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec des agrégations, les résultats de cette étape sont regroupés tel que spécifié dans la clause GROUP BY. Pour chaque groupe, une ligne est générée tel que spécifié dans la clause SELECT.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ Les conditions autorisées sont décrites dans la section [Expressions et condit
 
 ## <a name="select-clause"></a>Clause SELECT
 La clause **SELECT <select_list>**) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
-Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON, construit avec les valeurs spécifiées dans la clause SELECT.
+Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON. Cet objet est construit avec les valeurs spécifiées dans la clause SELECT.
 
 La grammaire de la clause SELECT est la suivante :
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 Actuellement, les clauses de sélection autres que **SELECT*** sont prises en charge uniquement dans les requêtes d’agrégation sur des jumeaux d’appareil.
 
 ## <a name="group-by-clause"></a>Clause GROUP BY
-La clause **GROUP BY <group_specification>** est une étape facultative qui peut être exécutée après le filtre spécifié dans la clause WHERE, et avant la projection spécifiée dans la clause SELECT. Elle groupe des documents en fonction de la valeur d’un attribut. Ces groupes sont utilisés pour générer des valeurs agrégées comme spécifié dans la clause SELECT.
+La clause **GROUP BY <spécification_groupe>** est une étape facultative exécutée après le filtre spécifié dans la clause WHERE et avant la projection spécifiée dans la clause SELECT. Elle groupe des documents en fonction de la valeur d’un attribut. Ces groupes sont utilisés pour générer des valeurs agrégées comme spécifié dans la clause SELECT.
 
 Voici un exemple de requête utilisant la clause GROUP BY :
 
@@ -433,7 +439,7 @@ Actuellement, la clause GROUP BY est prise en charge uniquement lors de l’inte
 * prend la valeur d’une instance d’un type JSON (par exemple, Boolean, number, string, array ou object) ;
 * est définie en manipulant des données provenant du document JSON de l’appareil et des constantes à l’aide de fonctions et d’opérateurs intégrés.
 
-Les *Conditions* sont des expressions qui correspondent à une valeur booléenne. Toute constante autre que le booléen **true** est considérée comme ayant la valeur **false** (y compris **null**, **undefined**, toute instance d’objet ou de tableau, toute chaîne et clairement le booléen **false**).
+Les *Conditions* sont des expressions qui correspondent à une valeur booléenne. Toute constante autre qu’une valeur booléenne **true** est considérée comme **false**. Cette règle inclut **null**, **undefined**, toute instance d’objet ou de tableau, toute chaîne et la valeur booléenne **false**.
 
 La syntaxe des expressions est la suivante :
 

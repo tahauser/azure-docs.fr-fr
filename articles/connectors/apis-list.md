@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Liste des connecteurs
 Pour rechercher les déclencheurs et les actions définis par la description du Swagger de chaque connecteur ainsi que les limites des connecteurs, consultez les [Détails du connecteur](/connectors/).
@@ -82,7 +82,7 @@ Enterprise Integration Pack (EIP) inclut des connecteurs bien connus de la commu
 | --- | --- | --- | --- |
 | [![Icône d’API][as2icon]<br/>**Décodage</br>AS2**][as2decode] | [![Icône d’API][as2icon]<br/>**Codage</br>AS2**][as2encode] | [![Icône d’API][x12icon]<br/>**Décodage</br>EDIFACT**][EDIFACTdecode] | [![Icône d’API][x12icon]<br/>**Codage</br>EDIFACT**][EDIFACTencode] |
 [![Icône d’API][flatfileicon]<br/>**Codage</br>du fichier plat**][flatfiledoc] | [![Icône d’API][flatfiledecodeicon]<br/>**Décodage</br>du fichier plat**][flatfiledecodedoc] | [![Icône d’API][integrationaccounticon]<br/>**Compte<br/>d’intégration**][integrationaccountdoc] | [![Icône d’API][xmltransformicon]<br/>**Transformation<br/>du code XML**][xmltransformdoc] |
-| [![Icône d’API][x12icon]<br/>**Décodage</br> X12**][x12decode] | [![Icône d’API][x12icon]<br/>**Codage</br> X12**][x12encode] | [![Icône d’API][xmlvalidateicon]<br/>**Validation <br/>XML**][xmlvalidatedoc] | |
+| [![Icône d’API][x12icon]<br/>**Décodage</br> X12**][x12decode] | [![Icône d’API][x12icon]<br/>**Codage</br> X12**][x12encode] | [![Icône d’API][xmlvalidateicon]<br/>**Validation <br/>XML**][xmlvalidatedoc] | [![Icône d’API][liquidicon]<br/>**Transformer <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Connecteurs d’entreprise
 
@@ -189,6 +189,7 @@ Manque-t-il une rubrique de connecteur ou des informations que vous jugez import
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Découvrez le décodage EDIFACT pour intégration d’entreprise"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Découvrez le codage EDIFACT pour intégration d’entreprise"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Recherchez des schémas, des cartes, des partenaires et autres dans votre compte d’intégration"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "En savoir plus sur les transformations de JSON avec Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Se connecter à Box. Télécharger, obtenir, supprimer, répertorier vos fichiers et bien plus encore"
@@ -328,3 +329,4 @@ Manque-t-il une rubrique de connecteur ou des informations que vous jugez import
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

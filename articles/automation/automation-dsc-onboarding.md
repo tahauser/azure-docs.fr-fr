@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ffe08f0f85f07accdce9e3b8fa9524ef3c99c878
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Gestion de machines avec Azure Automation DSC
 
@@ -43,7 +43,7 @@ Les sections suivantes décrivent la manière dont vous pouvez intégrer chaque 
 
 ## <a name="azure-virtual-machines-classic"></a>Machines virtuelles Azure (classiques)
 
-Avec Azure Automation DSC, vous pouvez facilement intégrer des machines virtuelles Azure (classiques) pour une gestion de configuration via le portail Azure ou via PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration enregistre la machine virtuelle avec Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+Avec Azure Automation DSC, vous pouvez facilement intégrer des machines virtuelles Azure (classiques) pour une gestion de configuration via le portail Azure ou via PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration enregistre la machine virtuelle avec Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) suivante décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -51,7 +51,7 @@ Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Parcourir** -> 
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
-Pour trouver l’URL et la clé d’enregistrement pour le compte Automation, consultez la section [**Enregistrement sécurisé**](#secure-registration) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+Pour trouver l’URL d’inscription et la clé du compte Automation à intégrer à la machine, consultez la section [**Inscription sécurisée**](#secure-registration) suivante :
 
 ### <a name="powershell"></a>PowerShell
 
@@ -119,11 +119,11 @@ $VM | Update-AzureVM
 
 ## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
-Azure Automation DSC vous permet d’intégrer facilement des machines virtuelles Azure pour une gestion de configuration via le portail Azure, les modèles Azure Resource Manager ou PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration enregistre la machine virtuelle avec Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+Azure Automation DSC vous permet d’intégrer facilement des machines virtuelles Azure pour une gestion de configuration via le portail Azure, les modèles Azure Resource Manager ou PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration enregistre la machine virtuelle avec Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) suivante décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Dans le [portail Azure](https://portal.azure.com/), accédez au compte Azure Automation où vous souhaitez intégrer des machines virtuelles. Dans le tableau de bord du compte Automation, cliquez sur **Nœuds DSC** -> **Ajouter une machine virtuelle Azure**.
+Dans le [portail Azure](https://portal.azure.com/), accédez au compte Azure Automation où vous souhaitez intégrer des machines virtuelles. Dans le tableau de bord du compte Automation, cliquez sur **Nœuds DSC** -> **+ Ajouter une machine virtuelle Azure**.
 
 Sélectionnez une machine virtuelle Azure à intégrer.
 
@@ -135,7 +135,7 @@ Sous **Inscription**, entrez les [valeurs du gestionnaire de configuration local
 
 ### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 
-Les machines virtuelles Azure peuvent être déployées et intégrées sur Azure Automation DSC via des modèles Azure Resource Manager. Pour un exemple de modèle intégrant une machine virtuelle existante à Azure Automation DSC, consultez [Configurer une machine virtuelle par le biais de l’extension DSC et d’Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) . Pour trouver la clé et l’URL d’enregistrement utilisées comme entrées dans ce modèle, consultez la section [**Enregistrement sécurisé**](#secure-registration) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+Les machines virtuelles Azure peuvent être déployées et intégrées sur Azure Automation DSC via des modèles Azure Resource Manager. Pour un exemple de modèle intégrant une machine virtuelle existante à Azure Automation DSC, consultez [Configurer une machine virtuelle par le biais de l’extension DSC et d’Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) . Pour trouver la clé d’inscription et l’URL d’inscription utilisées comme entrées dans ce modèle, consultez la section [**Inscription sécurisée**](#secure-registration) suivante.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ Vous pouvez facilement intégrer Amazon Web Services pour la gestion de configur
 Les ordinateurs Windows en local et les ordinateurs Windows dans des clouds autres qu’Azure (comme Amazon Web Services) peuvent également être intégrés sur Azure Automation DSC à condition qu’ils disposent d’accès sortant à Internet. Leur intégration s’effectue très simplement, en quelques étapes :
 
 1. Assurez-vous que la dernière version de [WMF 5](http://aka.ms/wmf5latest) est installée sur les ordinateurs que vous souhaitez intégrer à Azure Automation DSC.
-2. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) ci-après pour générer un dossier contenant les métaconfigurations DSC nécessaires.
+2. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) suivante pour générer un dossier contenant les métaconfigurations DSC nécessaires.
 3. Appliquez à distance la métaconfiguration DSC PowerShell aux machines que vous voulez intégrer. **La machine à partir de laquelle cette commande est exécutée doit disposer de la dernière version de [WMF 5](http://aka.ms/wmf5latest)**:
 
     ```powershell
@@ -171,11 +171,11 @@ Les ordinateurs Linux en local, les ordinateurs dans Azure et les ordinateurs Li
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   + Pour trouver la clé et l’URL d’enregistrement pour votre compte Automation, consultez la section [**Enregistrement sécurisé**](#secure-registration) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+   + Pour trouver la clé d’inscription et l’URL d’inscription de votre compte Automation, consultez la section [**Inscription sécurisée**](#secure-registration) suivante.
 
      Si les valeurs par défaut du gestionnaire de configuration locale DSC PowerShell **ne** correspondent **pas** à votre cas d’utilisation ou si vous voulez intégrer des machines de sorte qu’elles adressent seulement des rapports à Azure Automation DSC, sans en extraire la configuration ou des modules PowerShell, suivez les étapes 3 à 6. Sinon, passez directement à l’étape 6.
 
-3. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) ci-dessous pour générer un dossier contenant les métaconfigurations DSC nécessaires.
+3. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) suivante pour générer un dossier contenant les métaconfigurations DSC nécessaires.
 4. Appliquez à distance la métaconfiguration PowerShell DSC pour les machines que vous souhaitez intégrer :
 
     ```powershell
@@ -321,7 +321,7 @@ Pour intégrer de manière générique n’importe quelle machine à Azure Autom
     DscMetaConfigs @Params
     ```
 
-3. Renseignez la clé d’inscription et l’URL de votre compte Automation, ainsi que les noms des machines à intégrer. Tous les autres paramètres sont facultatifs. Pour trouver la clé et l’URL d’enregistrement pour votre compte Automation, consultez la section [**Enregistrement sécurisé**](#secure-registration) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
+3. Renseignez la clé d’inscription et l’URL de votre compte Automation, ainsi que les noms des machines à intégrer. Tous les autres paramètres sont facultatifs. Pour trouver la clé d’inscription et l’URL d’inscription de votre compte Automation, consultez la section [**Inscription sécurisée**](#secure-registration) suivante.
 4. Si vous voulez que les machines adressent les informations d’état DSC à Azure Automation DSC sans toutefois extraire la configuration ou des modules PowerShell, affectez au paramètre **ReportOnly** la valeur true.
 5. Exécutez le script. Vous devez à présent avoir un dossier appelé **DscMetaConfigs** dans votre répertoire de travail contenant les métaconfigurations DSC PowerShell pour les machines à intégrer (en tant qu’administrateur) :
 
@@ -359,9 +359,9 @@ Si les valeurs par défaut du gestionnaire de configuration locale DSC PowerShel
 
 ## <a name="secure-registration"></a>Enregistrement sécurisé
 
-Les ordinateurs peuvent en toute sécurité s’intégrer à un compte Azure Automation via le protocole d’enregistrement WMF 5 DSC, qui permet à un nœud DSC de s’authentifier sur un serveur Pull ou Reporting PowerShell DSC V2 (y compris Azure Automation DSC). Le nœud s’enregistre sur le serveur au niveau d’une **URL d’inscription** et s’authentifie à l’aide d’une **clé d’inscription**. Pendant l’enregistrement, le nœud DSC et le serveur Pull / Reporting DSC négocient un certificat unique pour ce nœud qui devra être utilisé pour l’authentification au serveur après l’enregistrement. Ce processus empêche les nœuds intégrés d’emprunter l’identité d’un autre nœud, par exemple si un nœud est compromis et agit à des fins malveillantes. Après l’enregistrement, la clé d’enregistrement n’est plus utilisée pour l’authentification et est supprimée du nœud.
+Les machines peuvent être intégrées en toute sécurité à un compte Azure Automation via le protocole d’inscription WMF 5 DSC, qui permet à un nœud DSC de s’authentifier sur un serveur Pull ou Reporting PowerShell DSC (y compris Azure Automation DSC). Le nœud s’enregistre sur le serveur au niveau d’une **URL d’inscription** et s’authentifie à l’aide d’une **clé d’inscription**. Pendant l’enregistrement, le nœud DSC et le serveur Pull / Reporting DSC négocient un certificat unique pour ce nœud qui devra être utilisé pour l’authentification au serveur après l’enregistrement. Ce processus empêche les nœuds intégrés d’emprunter l’identité d’un autre nœud, par exemple si un nœud est compromis et agit à des fins malveillantes. Après l’enregistrement, la clé d’enregistrement n’est plus utilisée pour l’authentification et est supprimée du nœud.
 
-Pour obtenir les informations requises pour le protocole d’enregistrement DSC, accédez au panneau **Gérer les clés** du portail Azure en version préliminaire. Ouvrez ce panneau en cliquant sur l’icône de clé dans le panneau **Bases** du compte Automation.
+Pour obtenir les informations requises pour le protocole d’inscription DSC, accédez à **Clés** sous **Paramètres du compte** dans le portail Azure. Ouvrez ce panneau en cliquant sur l’icône de clé dans le panneau **Bases** du compte Automation.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -377,15 +377,13 @@ Azure Automation DSC vous permet d’intégrer facilement des machines virtuelle
 > [!NOTE]
 > Quelle que soit la méthode choisie pour intégrer une machine virtuelle Microsoft Azure sur Azure Automation DSC, l’enregistrement du nœud dans Azure Automation peut prendre jusqu’à une heure si l’extension Azure VM Desired State Configuration est utilisée. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
 
-Pour résoudre les problèmes ou afficher l’état de l’extension Azure VM Desired State Configuration, rendez-vous dans le portail Azure, accédez à la machine virtuelle en cours d’intégration, puis cliquez sur **Tous les paramètres** -> **Extensions** -> **DSC**. Pour plus de détails, vous pouvez cliquer sur **Afficher l’état détaillé**.
-
-[![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
+Pour résoudre les problèmes ou afficher l’état de l’extension Azure VM Desired State Configuration, rendez-vous dans le portail Azure, accédez à la machine virtuelle en cours d’intégration, puis cliquez sur **Extensions** sous **Paramètres**. Cliquez ensuite sur **DSC** ou **DSCForLinux** selon votre système d’exploitation. Pour plus de détails, vous pouvez cliquer sur **Afficher l’état détaillé**.
 
 ## <a name="certificate-expiration-and-reregistration"></a>Expiration du certificat et nouvel enregistrement
 
 Après avoir inscrit un ordinateur en tant que nœud DSC dans Azure Automation DSC, il se peut que vous ayez besoin de revenir en arrière pour de multiples raisons :
 
-* Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pour l'authentification qui expire après un an. À ce stade, le protocole d’inscription PowerShell DSC ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc renouveler l’inscription des nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et si le nœud n’est pas réinscrit, le nœud ne pourra pas communiquer avec Azure Automation et sera marqué « Ne répond pas ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.
+* Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pour l'authentification qui expire après un an. À ce stade, le protocole d’inscription PowerShell DSC ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc renouveler l’inscription des nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et que ce dernier n’est pas réinscrit, le nœud ne peut pas communiquer avec Azure Automation et indique « Aucune réponse ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.
 * Pour modifier des [valeurs du gestionnaire de configuration local PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) qui ont été définies lors de l’inscription initiale du nœud, telles que ConfigurationMode. Actuellement, ces valeurs de l’agent DSC peuvent être modifiées uniquement via une désinscription. La seule exception concerne la configuration du nœud assignée au nœud, qui peut être modifiée directement dans Azure Automation DSC.
 
 L’inscription peut être renouvelée selon la procédure initiale, en utilisant l’une des méthodes d’intégration décrites dans ce document. Il est inutile d’annuler l’inscription d’un nœud dans Azure Automation DSC avant de le réinscrire.

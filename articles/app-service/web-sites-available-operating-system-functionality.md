@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications exécutées sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
@@ -49,7 +49,7 @@ Différents lecteurs sont disponibles dans App Service, notamment les lecteurs l
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Lecteurs locaux
-App Service est un service qui s’exécute essentiellement au sommet de l’infrastructure PaaS (Platform as a Service) d’Azure. Par conséquent, les disques locaux « associés » à une machine virtuelle correspondent aux types de lecteurs accessibles à tous les rôles de travail exécutés sous Azure. Il peut s’agir d’un lecteur de système d’exploitation (lecteur D:\), d’un lecteur d’application contenant les fichiers .cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients) ou d’un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle.
+App Service est un service qui s’exécute essentiellement au sommet de l’infrastructure PaaS (Platform as a Service) d’Azure. Par conséquent, les disques locaux « associés » à une machine virtuelle correspondent aux types de lecteurs accessibles à tous les rôles de travail exécutés sous Azure. Il peut s’agir d’un lecteur de système d’exploitation (lecteur D:\), d’un lecteur d’application contenant les fichiers .cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients) ou d’un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle. Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié.
 
 <a id="NetworkDrives"></a>
 

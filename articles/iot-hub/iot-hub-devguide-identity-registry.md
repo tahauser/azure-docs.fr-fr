@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -74,17 +74,17 @@ Vous pouvez désactiver les appareils en mettant à jour la propriété **status
 
 ## <a name="import-and-export-device-identities"></a>Importer et exporter les identités des appareils
 
-Vous pouvez exporter des identités d’appareils en bloc à partir du registre des identités d’un IoT Hub par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub][lnk-endpoints]. Les exportations sont des tâches à long terme qui utilisent un conteneur d’objets blob fourni par le client pour enregistrer les données relatives à l’identité des appareils lues dans le registre des identités.
+Utilisez des opérations asynchrones sur le [point de terminaison de fournisseur de ressources IoT Hub][lnk-endpoints] pour exporter des identités d’appareils en bloc à partir du registre des identités d’un IoT Hub. Les exportations sont des tâches à long terme qui utilisent un conteneur d’objets blob fourni par le client pour enregistrer les données relatives à l’identité des appareils lues dans le registre des identités.
 
-Vous pouvez importer des identités d’appareils en bloc dans le registre des identités d’un IoT Hub par le biais d’opérations asynchrones sur le [point de terminaison d’un fournisseur de ressources IoT Hub][lnk-endpoints]. Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
+Utilisez des opérations asynchrones sur le [point de terminaison de fournisseur de ressources IoT Hub][lnk-endpoints] pour importer des identités d’appareils en bloc vers le registre des identités d’un IoT Hub. Les importations sont des tâches à long terme qui utilisent des données dans un conteneur d’objets blob, fourni par le client, pour écrire les données relatives à l’identité des appareils dans le registre des identités.
 
-Pour plus d’informations sur l’importation et l’exportation d’API, voir [IoT Hub - API REST de fournisseur de ressources][lnk-resource-provider-apis]. Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity].
+Pour plus d’informations sur l’importation et l’exportation d’API, consultez [IoT Hub - API REST de fournisseur de ressources][lnk-resource-provider-apis]. Pour en savoir plus sur l’exécution de tâches d’importation et d’exportation, voir [Gestion en bloc des identités d’appareils IoT Hub][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Approvisionnement des appareils
 
 Les données d’appareil qu’une solution IoT donnée stocke dépendent des exigences spécifiques de cette solution. Mais une solution doit au minimum stocker les clés d’authentification et les identités des appareils. Azure IoT Hub inclut un registre d’identité qui peut stocker des valeurs pour chaque appareil, comme les ID, les clés d’authentification et les codes d’état. Une solution peut utiliser d’autres services Azure, tels que le stockage de tables, le stockage Blob ou Cosmos DB pour stocker des données d’appareil supplémentaires.
 
-*Approvisionnement des appareils* est le processus d'ajout des données d'appareil initial aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au registre des identités d’IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution. Vous pouvez également utiliser le service de provisionnement des appareils IoT Hub pour activer le provisionnement sans contact et juste-à-temps vers un ou plusieurs hubs IoT sans qu’une intervention humaine soit nécessaire. Pour plus d’informations, consultez la [documentation relative au service de provisionnement][lnk-dps].
+*Approvisionnement des appareils* est le processus d'ajout des données d'appareil initial aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au registre des identités d’IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution. Vous pouvez également utiliser le service de d’approvisionnement des appareils IoT Hub pour activer l’approvisionnement sans contact et juste-à-temps vers un ou plusieurs hubs IoT sans qu’une intervention humaine soit nécessaire. Pour plus d’informations, consultez la [documentation relative au service d’approvisionnement][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Pulsation des appareils
 
@@ -180,13 +180,13 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * [Appeler une méthode directe sur un appareil][lnk-devguide-directmethods]
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]
 
-Si vous souhaitez tenter de mettre en pratique certains des concepts décrits dans cet article, vous serez peut-être intéressé par le didacticiel IoT Hub suivant :
+Pour tenter de mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
 
 * [Mise en route d’Azure IoT Hub][lnk-getstarted-tutorial]
 
-Pour savoir comment utiliser le service de provisionnement des appareils IoT Hub afin d’activer le provisionnement sans contact et juste-à-temps, consultez : 
+Pour savoir comment utiliser le service d’approvisionnement des appareils IoT Hub afin d’activer l’approvisionnement sans contact et juste-à-temps, consultez : 
 
-* [Service de provisionnement des appareils IoT Hub][lnk-dps]
+* [Service Azure IoT Hub Device Provisioning][lnk-dps]
 
 
 <!-- Links and images -->

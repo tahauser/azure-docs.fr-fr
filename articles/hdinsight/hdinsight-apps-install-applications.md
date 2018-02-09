@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Hadoop tierces sur Azure HDInsight
 
@@ -44,15 +44,15 @@ La liste suivante affiche les applications publiées :
 
 Les instructions fournies dans cet article utilisent le portail Azure. Vous pouvez également exporter le modèle Azure Resource Manager à partir du portail ou obtenir une copie de ce modèle auprès des fournisseurs et utiliser Azure PowerShell et l’interface de ligne de commande Azure pour déployer le modèle.  Consultez [Créer des clusters Hadoop dans HDInsight avec des modèles Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installer des applications dans des clusters existants
 La procédure suivante montre comment installer des applications HDInsight dans un cluster HDInsight existant.
 
-**Pour installer une application HDInsight**
+**Installer une application HDInsight**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Clusters HDInsight** dans le menu de gauche.
 3. Cliquez sur un cluster HDInsight.  Si vous ne disposez pas d’un tel cluster, vous devez d’abord en créer un.  Consultez la page [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Cliquez sur **Applications**, sous la catégorie **Configurations**. Une liste des applications installées s’affiche. Si vous ne trouvez aucune application, cela signifie qu'il n’existe aucune application pour cette version du cluster HDInsight.
@@ -75,9 +75,9 @@ Vous pouvez également installer des applications HDInsight lorsque vous créez 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Répertorier les applications HDInsight installées et les propriétés
 Le portail affiche une liste des applications HDInsight installées pour un cluster et les propriétés de chaque application installée.
 
-**Pour répertorier une application HDInsight et afficher des propriétés**
+**Répertorier une application HDInsight et afficher des propriétés**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Clusters HDInsight** dans le menu de gauche. 
 3. Cliquez sur un cluster HDInsight.
 4. Dans **Paramètres**, cliquez sur **Applications** dans la catégorie **Général**. Les applications installées sont répertoriées à droite. 
@@ -100,7 +100,7 @@ Les informations d’identification du point de terminaison HTTP sont les inform
 ## <a name="troubleshoot"></a>Résolution des problèmes
 Consultez [Dépanner l’installation](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md): découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 * [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.

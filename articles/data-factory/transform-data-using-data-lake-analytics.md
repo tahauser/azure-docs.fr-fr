@@ -3,7 +3,7 @@ title: "Transformer des données à l’aide d’un script U-SQL - Azure | Micro
 description: "Découvrez comment traiter ou transformer les données en exécutant des scripts U-SQL sur le service de calcul Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
-author: shengcmsft
+author: nabhishek
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 01/29/2018
+ms.author: abnarain
+ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,17 +66,17 @@ Utilisez l’authentification par principal de service en spécifiant les propri
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
+            "accountName": "<account name>",
+            "dataLakeAnalyticsUri": "<azure data lake analytics URI>",
+            "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
-                "value": "service principal key",
+                "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "tenant ID",
+            "tenant": "<tenant ID>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -96,12 +96,12 @@ L'extrait de code JSON suivant définit un pipeline avec une activité U-SQL Dat
     "description": "description",
     "type": "DataLakeAnalyticsU-SQL",
     "linkedServiceName": {
-        "referenceName": "AzureDataLakeAnalyticsLinkedService",
+        "referenceName": "<linked service name of Azure Data Lake Analytics>",
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
         "scriptLinkedService": {
-            "referenceName": "LinkedServiceofAzureBlobStorageforscriptPath",
+            "referenceName": "<linked service name of Azure Data Lake Store or Azure Storage which contains the U-SQL script>",
             "type": "LinkedServiceReference"
         },
         "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
@@ -124,11 +124,11 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 | Type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | OUI      |
 | linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |OUI       |
 | scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | OUI      |
-| scriptLinkedService | Service lié qui lie le stockage qui contient le script à la fabrique de données | OUI      |
+| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou le **stockage Azure** qui contient le script à la fabrique de données | OUI      |
 | degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non        |
 | priority            | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non        |
-| parameters          | Paramètres du script U-SQL          | Non        |
-| runtimeVersion      | Version du runtime du moteur U-SQL à utiliser | Non        |
+| parameters          | Paramètres à transmettre au script U-SQL.    | Non        |
+| runtimeVersion      | Version du runtime du moteur U-SQL à utiliser. | Non        |
 | compilationMode     | <p>Mode de compilation d’U-SQL. Doit être une de ces valeurs : **Semantic :** exécution uniquement des vérifications sémantiques et des contrôles d’intégrité nécessaires, **Full :** exécution de la compilation entière, y compris la vérification de la syntaxe, l’optimisation, la génération de code, etc., **SingleBox :** exécution de la compilation entière, avec le paramètre TargetType défini sur SingleBox. Si vous ne spécifiez pas de valeur pour cette propriété, le serveur détermine le mode de compilation optimal. | Non  |
 
 Data Factory soumet le fichier de [définition de script SearchLogProcessing.txt](#sample-u-sql-script) que vous pouvez consulter pour la définition du script. 
@@ -180,12 +180,12 @@ Il est possible d’utiliser des paramètres dynamiques à la place. Par exemple
 
 ```json
 "parameters": {
-    "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
-    "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    "in": "/datalake/input/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/data.tsv",
+    "out": "/datalake/output/@{formatDateTime(pipeline().parameters.WindowStart,'yyyy/MM/dd')}/result.tsv"
 }
 ```
 
-Dans ce cas, les fichiers d’entrée sont toujours récupérés à partir du dossier /datalake/input et les fichiers de sortie sont générés dans le dossier /datalake/output. Les noms de fichiers sont dynamiques et basés sur l’heure de début de la tranche horaire.  
+Dans ce cas, les fichiers d’entrée sont toujours récupérés à partir du dossier /datalake/input et les fichiers de sortie sont générés dans le dossier /datalake/output. Les noms de fichiers sont dynamiques en fonction de l’heure de début de la fenêtre lorsque le pipeline est déclenché.  
 
 ## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 

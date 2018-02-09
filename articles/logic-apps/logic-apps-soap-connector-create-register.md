@@ -1,7 +1,7 @@
 ---
 title: "Créer et inscrire des connecteurs SOAP - Azure Logic Apps | Microsoft Docs"
 description: Configurer des connecteurs SOAP pour pouvoir les utiliser dans Azure Logic Apps
-author: divyaswarnkar
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Créer et inscrire des connecteurs SOAP dans Azure Logic Apps
 
 Pour intégrer les services SOAP à vos flux de travail d’application logique, vous pouvez créer et inscrire un connecteur SOAP (Simple Object Access Protocol) personnalisé à l’aide du langage de description de services (WSDL) qui décrit votre service SOAP. Les connecteurs SOAP fonctionnant comme des connecteurs prédéfinis, vous pouvez les utiliser de la même façon que les autres connecteurs dans vos applications logiques.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour inscrire votre connecteur SOAP, vous avez besoin de ces éléments :
 
@@ -59,7 +59,7 @@ Pour inscrire votre connecteur SOAP, vous avez besoin de ces éléments :
    | **Name** | *nom-connecteur-soap* | Donnez un nom à votre connecteur. | 
    | **Abonnement** | *nom-abonnement-Azure* | Sélectionnez votre abonnement Azure. | 
    | **Groupe de ressources** | *nom-groupe-de-ressources-Azure* | Créez ou sélectionnez un groupe Azure pour organiser vos ressources Azure. | 
-   | **Emplacement** | *région-déploiement* | Sélectionnez une région de déploiement de votre connecteur. | 
+   | **Lieu** | *région-déploiement* | Sélectionnez une région de déploiement de votre connecteur. | 
    |||| 
 
    Une fois qu’Azure aura déployé votre connecteur, le menu correspondant de l’application logique s’ouvrira automatiquement. 
@@ -82,7 +82,7 @@ Spécifiez maintenant le fichier WSDL ou l’URL pour la création de votre conn
 
       ![Fournissez le fichier WSDL de votre API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
-      | Option | Format |Description | 
+      | Option | Format |DESCRIPTION | 
       | ------ | ------ | ----------- | 
       | **Charger WSDL à partir du fichier** | *Fichier WSDL* | Accédez à l’emplacement de votre fichier WSDL et sélectionnez-le. | 
       | **Charger WSDL à partir de l’URL** | http://*chemin du fichier wsdl* | Indiquez l’URL du fichier WSDL de votre service. | 
@@ -95,7 +95,7 @@ Spécifiez maintenant le fichier WSDL ou l’URL pour la création de votre conn
 
       ![Détails du connecteur](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
-      | Paramètre ou option | Format | Description | 
+      | Paramètre ou option | Format | DESCRIPTION | 
       | ----------------- | ------ | ----------- | 
       | **Icône Charger** | *fichier-PNG-ou-JPG-inférieur-à-1-Mo* | Icône qui représente votre connecteur. <p>Couleur : de préférence un logo blanc sur un arrière-plan de couleur. <p>Dimensions : un logo d’environ 160 pixels à l’intérieur d’un carré de 230 pixels. | 
       | **Couleur d’arrière-plan de l’icône** | *code-hexadécimal-couleur-marque-icône* | <p>Couleur derrière l’icône, qui correspond à la couleur d’arrière-plan du fichier d’icône. <p>Format : hexadécimal. Par exemple, #007ee5 représente la couleur bleue. | 
@@ -154,12 +154,12 @@ Pour partager votre connecteur avec des utilisateurs externes à l’extérieur 
 **R :** Le connecteur SOAP étant en **préversion**, ce n’est pas encore un service généralement disponible.
 
 **Q :** Y a-t-il des restrictions et des problèmes connus concernant le connecteur SOAP ? </br>
-**R :** Oui, consultez [Restrictions et problèmes connus concernant le connecteur SOAP](../api-management/api-management-api-import-restrictions.md#wsdl).
+**R :** Oui, consultez [Restrictions et problèmes connus relatifs à l’importation d’API](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **Q :** Y a-t-il des limites qui s’imposent aux connecteurs personnalisés ? </br>
-**R :** Oui. Vous trouverez les [limites des connecteurs personnalisés ici](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
+**R :** Oui. Vous trouverez les [limites des connecteurs personnalisés ici](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
-## <a name="get-support"></a>Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l’aide
 
 * Pour obtenir de l’aide au développement et à l’intégration, ou pour demander des fonctionnalités qui ne sont pas disponibles dans l’Assistant Inscription, contactez [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com). Microsoft surveille les problèmes et les questions des développeurs sur ce compte, et les transfère à l’équipe concernée.
 
@@ -167,7 +167,7 @@ Pour partager votre connecteur avec des utilisateurs externes à l’extérieur 
 
 * Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Facultatif : Certifier un connecteur](../logic-apps/custom-connector-submit-certification.md)
 * [FAQ sur les connecteurs personnalisés](../logic-apps/custom-connector-faq.md)
