@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
@@ -146,7 +146,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 
 | Propriété | Options | DESCRIPTION |
 | --- | --- | --- |
-| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité d’appareil, conformément à [RFC7232][lnk-rfc7232]. |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
@@ -180,7 +180,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * [Appeler une méthode directe sur un appareil][lnk-devguide-directmethods]
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]
 
-Pour tenter de mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
+Pour mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
 
 * [Mise en route d’Azure IoT Hub][lnk-getstarted-tutorial]
 
