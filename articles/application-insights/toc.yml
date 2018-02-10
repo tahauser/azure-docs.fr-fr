@@ -1,6 +1,6 @@
 - name: "Documentation Application\_Insights"
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Présentation d’Application\_Insights"
       href: app-insights-overview.md
@@ -184,7 +184,7 @@
               href: app-insights-visual-studio-codelens.md
         - name: Usage
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: app-insights-usage-overview.md
             - name: Envoyer du contexte utilisateur
               href: app-insights-usage-send-user-context.md
@@ -192,6 +192,8 @@
               href: app-insights-usage-segmentation.md
             - name: Entonnoirs
               href: usage-funnels.md
+            - name: Impact
+              href: app-insights-usage-impact.md
             - name: Rétention
               href: app-insights-usage-retention.md
             - name: Flux d’utilisateurs
@@ -200,7 +202,7 @@
               href: app-insights-usage-workbooks.md
         - name: Analyse
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: app-insights-analytics.md
             - name: Importer des journaux personnalisés
               href: app-insights-analytics-import.md

@@ -142,10 +142,14 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: un stockage Azure Blob
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Hubs d'événements Azure
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Azure Functions
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
+        - name: Azure Service Bus
+          href: ../connectors/connectors-create-api-servicebus.md
         - name: Base de données SQL Azure
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: API personnalisées et applications web
@@ -156,8 +160,6 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: Event Hubs
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Système de fichiers
           href: logic-apps-using-file-connector.md
         - name: Fichier plat
@@ -188,8 +190,6 @@
           href: logic-apps-using-sap-connector.md
         - name: Planification
           href: ../connectors/connectors-native-recurrence.md
-        - name: Azure Service Bus
-          href: ../connectors/connectors-create-api-servicebus.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server

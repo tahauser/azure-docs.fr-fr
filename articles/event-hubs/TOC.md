@@ -3,7 +3,7 @@
 ## [Fonctionnalités Event Hubs](event-hubs-features.md)
 ## [FORUM AUX QUESTIONS](event-hubs-faq.md)
 
-# Prise en main
+# Démarrages rapides
 ## [Créer un concentrateur d’événements](event-hubs-create.md)
 ## Envoyer des événements
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)

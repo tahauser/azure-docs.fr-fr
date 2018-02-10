@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: Diffusion en continu avec Kafka et Spark sur HDInsight
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Déployer un site web dans Azure App Service
           href: create-website.md
         - name: Journalisation des applications avec Logic Apps
