@@ -1,10 +1,10 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Qu’est-ce que la messagerie Service Bus ?](service-bus-messaging-overview.md)
 ## [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Architecture de Service Bus](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
-# Prise en main
+# Démarrages rapides
 ## [Créer un espace de noms](service-bus-create-namespace-portal.md)
 ## Files d’attente
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

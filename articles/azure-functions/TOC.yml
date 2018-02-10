@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Développement Visual Studio
           href: functions-develop-vs.md
+        - name: Gestion des erreurs
+          href: functions-bindings-error-pages.md
     - name: Déployer
       items:
         - name: Déploiement continu

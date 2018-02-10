@@ -359,6 +359,8 @@
           items:
             - name: Déployer l’application fournie en exemple
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Clients d’approvisionnement
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Base de données par client
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

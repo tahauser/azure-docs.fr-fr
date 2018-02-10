@@ -1,13 +1,13 @@
 # Vue d'ensemble
 ## [Qu’est-ce que Relay ?](relay-what-is-it.md)
-## [FAQ](relay-faq.md)
+## [FORUM AUX QUESTIONS](relay-faq.md)
 
-# Prise en main
+# Démarrages rapides
 ## [Créer un espace de noms](relay-create-namespace-portal.md)
 ## [Créer une application hybride locale/dans le cloud](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## les connexions hybrides
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Nœud](relay-hybrid-connections-node-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
 ## [Relais WCF](relay-wcf-dotnet-get-started.md)
 ## [Didacticiel WCF Relay](service-bus-relay-tutorial.md)
 ## [Didacticiel REST pour les relais WCF](service-bus-relay-rest-tutorial.md)
@@ -21,10 +21,10 @@
 ### [API disponibles](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
-## Gérer
+## gérer
 ### [Analyser Azure Relay avec la surveillance Azure](relay-metrics-azure-monitor.md)
 
-# Référence
+# Informations de référence
 ## .NET
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
@@ -37,4 +37,4 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Exemples](https://github.com/azure/azure-relay/tree/master/samples)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)
