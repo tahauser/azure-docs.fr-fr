@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Points de terminaison de service de réseau virtuel (préversion)
+# <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
 Les points de terminaison de service de réseau virtuel étendent votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, via une connexion directe. Les points de terminaison permettent de sécuriser vos ressources critiques du service Azure pour vos réseaux virtuels uniquement. Le trafic à partir de votre réseau virtuel vers le service Azure reste toujours sur le réseau principal de Microsoft Azure.
 
-Cette fonctionnalité est disponible en préversion pour les services et régions Azure suivants :
+Cette fonctionnalité est disponible pour les services et régions Azure suivants :
 
-- **Stockage Azure** : toutes les régions dans le cloud public Azure.
-- **Azure SQL** : toutes les régions dans le cloud public Azure.
+- **Stockage Azure** : disponibilité générale. Toutes les régions dans le cloud public Azure et Azure Government.
+- **SQL Azure**: aperçu. Toutes les régions dans le cloud public Azure.
 
 Pour obtenir des notifications actualisées pour la préversion, vérifiez la page [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -66,7 +66,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 ### <a name="configuration"></a>Configuration
 
 - Les points de terminaison de service sont configurés sur un sous-réseau dans un réseau virtuel. Les points de terminaison fonctionnent avec n’importe quel type d’instances de calcul en cours d’exécution dans ce sous-réseau.
-- Seul un point de terminaison de service peut être activé pour un service spécifique à partir d’un sous-réseau. Vous pouvez configurer plusieurs points de terminaison de service pour tous les services Azure pris en charge (par exemple, stockage Azure ou Azure SQL Database) sur un sous-réseau.
+- Vous pouvez configurer plusieurs points de terminaison de service pour tous les services Azure pris en charge (par exemple, stockage Azure ou Azure SQL Database) sur un sous-réseau.
 - Les réseaux virtuels doivent être dans la même région que la ressource de service Azure. Si vous utilisez les comptes de stockage Azure GRS et RA-GRS, le compte principal doit être dans la même région que le réseau virtuel.
 - Le réseau virtuel dans lequel est configuré le point de terminaison peut être dans le même abonnement ou dans un abonnement différent de celui de la ressource du service Azure. Pour plus d’informations sur les autorisations requises pour la configuration de points de terminaison et la sécurisation des services Azure, consultez [Approvisionnement](#Provisioning).
 - Pour les services pris en charge, vous pouvez sécuriser des ressources nouvelles ou existantes pour des réseaux virtuels à l’aide de points de terminaison de service.
@@ -106,7 +106,7 @@ Les points de terminaison de service peuvent être configurés indépendamment s
 
 Apprenez-en davantage sur les [rôles intégrés](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. Si le réseau virtuel et les ressources de service Azure se trouvent dans différents abonnements, les ressources doivent être sous le même client Active Directory (AD) au cours de l’évaluation. 
+Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. Si le réseau virtuel et les ressources de service Azure se trouvent dans différents abonnements, les ressources doivent être sous le même client Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Tarification et limites
 
@@ -116,7 +116,7 @@ Il n’existe aucune limite sur le nombre total de points de terminaison de serv
 
 Pour une ressource de service Azure (par exemple, un compte de stockage Azure), les services peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour la sécurisation de la ressource. Pour en savoir plus, reportez-vous à la documentation pour les différents services dans [Étapes suivantes](#next-steps).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez comment [configurer des points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-configure.md).
 - Découvrez comment [sécuriser un compte de stockage Azure pour un réseau virtuel](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

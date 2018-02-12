@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Présentation d’Azure AD Domain Services](active-directory-ds-overview.md)
 ## Est-il adapté pour vous ?
 ### [Comparer avec Windows Server AD](active-directory-ds-comparison.md)
@@ -28,6 +28,7 @@
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrer DNS sur un domaine géré](active-directory-ds-admin-guide-administer-dns.md)
+### [Vérifier l’intégrité de votre domaine](active-directory-ds-check-health.md)
 ### Configurer le protocole LDAP sécurisé pour un domaine géré
 #### [Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tâche 2 : Exporter le certificat LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

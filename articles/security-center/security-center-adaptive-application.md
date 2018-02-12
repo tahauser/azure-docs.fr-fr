@@ -1,5 +1,5 @@
 ---
-title: "Adaptive Application Controls in Azure Security Center (Contrôles d’application adaptative dans Azure Security Center) | Microsoft Docs"
+title: "Contrôles d’application adaptative dans Azure Security Center | Microsoft Docs"
 description: "Ce document vous aide à utiliser les contrôles d’application adaptative dans Azure Security Center afin de mettre dans une liste verte des applications s’exécutant sur les machines virtuelles Azure."
 services: security-center
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: yurid
-ms.openlocfilehash: b1c30b6a0d768f04608c4e46a2e29d20f566964a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee15b602dc90b0e777b7ccd29572b9d560ee719b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Contrôles d’application adaptative dans Azure Security Center (version préliminaire)
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.

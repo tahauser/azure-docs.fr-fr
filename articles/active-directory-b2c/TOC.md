@@ -1,4 +1,4 @@
-# [Vue d'ensemble](active-directory-b2c-overview.md)
+# [Vue d’ensemble](active-directory-b2c-overview.md)
 
 # Prise en main
 ## [Évaluer une application web Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
@@ -8,7 +8,7 @@
 ## [Inscrivez votre application](active-directory-b2c-app-registration.md)
 ## [Stratégies intégrées](active-directory-b2c-reference-policies.md)
 ## Applications mobiles et de bureau
-### [Vue d'ensemble](active-directory-b2c-reference-oauth-code.md)
+### [Vue d’ensemble](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift utilisant MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
 #### [iOS ObjC utilisant AppAuth](active-directory-b2c-devquickstarts-ios.md)
@@ -18,15 +18,17 @@
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## les applications web
-### [Vue d'ensemble](active-directory-b2c-reference-oidc.md)
+### [Vue d’ensemble](active-directory-b2c-reference-oidc.md)
+### [Authentifier des utilisateurs dans ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.JS](active-directory-b2c-devquickstarts-web-node.md)
 ## Applications à page unique
-### [Vue d'ensemble](active-directory-b2c-reference-spa.md)
+### [Vue d’ensemble](active-directory-b2c-reference-spa.md)
 ### [JavaScript utilisant MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript utilisant Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## API Web
+### [Protéger une API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
@@ -40,6 +42,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
@@ -60,7 +63,7 @@
 # Identity Experience Framework (Infrastructure d’expérience d’identité)
 ## [Stratégies personnalisées](active-directory-b2c-overview-custom.md)
 ## Guides
-### [Prise en main](active-directory-b2c-get-started-custom.md)
+### [Bien démarrer](active-directory-b2c-get-started-custom.md)
 ### Configurer les fournisseurs OIDC et OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Compte Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
@@ -85,15 +88,15 @@
 #### [Complexité du mot de passe](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Modification de mot de passe](active-directory-b2c-reference-password-change-custom.md)
 #### [Activer le maintien de la connexion](active-directory-b2c-reference-kmsi-custom.md)
-### Résolution des problèmes
+### Résolution de problèmes
 #### [Collecter les journaux à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md)
-## Référence
+## Informations de référence
 ### [Notes de publication](active-directory-b2c-developer-notes-custom.md)
 ### [Fournisseurs de session par authentification unique](active-directory-b2c-reference-sso-custom.md)
 ### [Personnalisation de la langue](active-directory-b2c-language-customization-custom.md)
 ### [Définition de l’infrastructure de confiance](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossaire
 ### [Types d’applications](active-directory-b2c-apps.md)
@@ -116,6 +119,6 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=active-directory-b2c)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Support](active-directory-b2c-support.md)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)

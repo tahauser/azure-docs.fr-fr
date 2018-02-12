@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
 Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données du Stockage Blob Azure vers Azure SQL Database. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline, puis vous créez des
 9. Dans l’onglet **Général** de la fenêtre **Propriétés** en bas, spécifiez **SourceBlobDataset** pour le **nom**.
 
     ![Nom du jeu de données](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Basculez vers l’onglet **Connexions** dans la fenêtre Propriétés.   
-
-    ![Onglet Connexions](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Cliquez sur **+ Nouveau** en regard de la zone de texte **Service lié**. Un service lié rattache un magasin de données ou une ressource de calcul à une fabrique de données. Dans ce cas, vous créez un service lié de stockage Azure pour lier votre compte de Stockage Azure à la fabrique de données. Le service lié comporte les informations de connexion utilisées par le service Data Factory pour établir la connexion au stockage Blob lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) qui contient les données sources. 
+10. Basculez vers l’onglet **Connexions** dans la fenêtre Propriétés. Cliquez sur **+ Nouveau** en regard de la zone de texte **Service lié**. Un service lié rattache un magasin de données ou une ressource de calcul à une fabrique de données. Dans ce cas, vous créez un service lié de stockage Azure pour lier votre compte de Stockage Azure à la fabrique de données. Le service lié comporte les informations de connexion utilisées par le service Data Factory pour établir la connexion au stockage Blob lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) qui contient les données sources. 
 
     ![Bouton de nouveau service lié](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
@@ -283,7 +280,7 @@ Vous pouvez tester l’exécution d’un pipeline avant de publier des artefacts
 2. Vérifiez que les données du fichier source sont insérées dans la base de données SQL de destination. 
 
     ![Vérifier la sortie SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Cliquez sur **Publier** dans le volet gauche. Cette action publie les entités (services liés, jeux de données et pipelines) que vous avez créées dans Azure Data Factory.
+3. Cliquez sur **Publier tout** dans le volet gauche. Cette action publie les entités (services liés, jeux de données et pipelines) que vous avez créées dans Azure Data Factory.
 
     ![Bouton Publier](./media/tutorial-copy-data-portal/publish-button.png)
 4. Patientez jusqu’à voir le message **Publication réussie**. Pour afficher les messages de notification, cliquez sur l’onglet **Afficher les notifications** dans la barre de gauche. Fermez la fenêtre de notifications en cliquant sur le **X**.
@@ -343,7 +340,7 @@ Si vous ne voulez pas utiliser le référentiel de code VSTS, vous pouvez ignore
 ## <a name="trigger-the-pipeline-manually"></a>Déclencher le pipeline manuellement
 Dans cette étape, vous déclenchez manuellement le pipeline que vous avez publié dans l’étape précédente. 
 
-1. Cliquez sur **Déclencher** dans la barre d’outils, puis cliquez sur **Déclencher maintenant**. 
+1. Cliquez sur **Déclencher** dans la barre d’outils, puis cliquez sur **Déclencher maintenant**. Sur la page **Exécution du pipeline**, cliquez sur **Terminer**.  
 
     ![Menu Déclencher maintenant](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Basculez vers l’onglet **Surveiller** sur la gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens dans la colonne Actions pour afficher les détails de l’activité et réexécuter le pipeline.
@@ -386,10 +383,10 @@ Dans cette planification, vous créez un déclencheur de planificateur pour le p
 6. Dans la page **Trigger Run Parameters** (Paramètres d’exécution du déclencheur), lisez l’avertissement, puis cliquez sur **Terminer**. Le pipeline de cet exemple n’accepte pas de paramètres. 
 
     ![Paramètres du pipeline](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Cliquez sur **publier** pour publier les modifications apportées au référentiel. Le déclencheur n’est activé réellement que lorsque la publication réussit. 
+7. Cliquez sur **Synchroniser** pour synchroniser les modifications dans votre branche avec la branche principale. Vérifiez que **Publier les modifications après la synchronisation** est sélectionné par défaut. Par conséquent, lorsque vous sélectionnez **Synchroniser**, il publie également les entités mises à jour pour le service Azure Data Factory à partir de la branche principale. Le déclencheur n’est activé réellement que lorsque la publication réussit.
 
-    ![Déclencheur de publication](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Basculez vers l’onglet **Surveiller** sur la gauche pour voir les exécutions du pipeline déclenchées. 
+    ![Déclencheur de publication](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Basculez vers l’onglet **Surveiller** sur la gauche pour voir les exécutions du pipeline déclenchées. 
 
     ![Exécutions du pipeline déclenchées](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Pour basculer de la vue des exécutions du pipeline vers la vue des exécutions du déclencheur, cliquez sur Exécutions du pipeline, puis sélectionnez Exécutions du déclencheur.

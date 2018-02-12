@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Utiliser la virtualisation imbriquée
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Installer l’agent de machine virtuelle en mode hors connexion
+          href: install-vm-agent-offline.md
 - name: Informations de référence
   items:
     - name: Azure CLI

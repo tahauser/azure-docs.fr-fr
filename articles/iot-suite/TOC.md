@@ -10,7 +10,7 @@
 
 ## Surveillance à distance (version antérieure)
 ### [Que sont les solutions préconfigurées ?](iot-suite-v1-what-are-preconfigured-solutions.md)
-### [FAQ](iot-suite-v1-faq.md)
+### [FORUM AUX QUESTIONS](iot-suite-v1-faq.md)
 
 ### Prise en main
 #### [Prise en main des solutions préconfigurées](iot-suite-v1-getstarted-preconfigured-solutions.md)
@@ -58,7 +58,9 @@
 ### [Utiliser les règles pour détecter les problèmes](iot-suite-remote-monitoring-automate.md)
 ### [Gestion de vos appareils](iot-suite-remote-monitoring-manage.md)
 ### [Résoudre les problèmes de l’appareil](iot-suite-remote-monitoring-maintain.md)
-### [Utiliser des simulations d’appareils](iot-suite-remote-monitoring-test.md)
+### [Comprendre le schéma de modèle d’appareil](iot-suite-remote-monitoring-device-schema.md)
+### [Comprendre le comportement de modèle d’appareil](iot-suite-remote-monitoring-device-behavior.md)
+### [Créer un appareil simulé](iot-suite-remote-monitoring-test.md)
 ### [Personnaliser la solution](iot-suite-remote-monitoring-customize.md)
 ### [Déployer à l’aide de l’interface CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Connecter un appareil physique
@@ -78,7 +80,7 @@
 ### [Configurer la fabrique connectée](iot-suite-connected-factory-configure.md)
 ## [Autorisations sur azureiotsuite.com](iot-suite-permissions.md)
 
-# Référence
+# Informations de référence
 ## [Guide d’informations de référence pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guide de résolution des problèmes pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Architecture de la sécurité](iot-security-architecture.md)

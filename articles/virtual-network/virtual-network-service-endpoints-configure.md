@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurer des points de terminaison de service de réseau virtuel
 
@@ -67,15 +67,15 @@ Connectez-vous à votre compte Azure. Si vous n’en avez pas, vous pouvez deman
 
 Paramètre | Valeur
 ------- | -----
-Nom    | myVnet
+NOM    | myVnet
 Espace d’adressage | 10.0.0.0/16
 Nom du sous-réseau|mySubnet
 Plage d’adresses de sous-réseau|10.0.0.0/24
 Groupe de ressources|Laissez l’option Créer activée, puis entrez un nom.
 Lieu|Toute région prise en charge. Est de l’Australie, par exemple
 Abonnement|Sélectionnez votre abonnement.
-__Points de terminaison de service__|Activé
-__Services__ | Sélectionnez un ou tous les services disponibles. Lors de la version préliminaire, les services suivants sont pris en charge : __« Microsoft.Storage », « Microsoft.Sql »__.
+__Points de terminaison de service__|activé
+__Services__ | Sélectionnez un ou tous les services disponibles. Services pris en charge : __« Microsoft.Storage », « Microsoft.Sql »__.
 
 Sélectionnez les services pour les points de terminaison : ![Sélectionnez les services pour les points de terminaison de service](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -135,8 +135,8 @@ Utilisez la commande ci-dessous pour obtenir la liste des services pris en charg
 Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
-Output: 
-Nom | ID | Type
+Sortie : 
+NOM | ID | type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -214,7 +214,7 @@ Subnets : [
 $subnet=Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet"
 $subnet.ServiceEndpoints
 ```
-Output:
+Sortie :
 ```
 ProvisioningState Service           Locations
 ----------------- -------           ---------
@@ -227,7 +227,7 @@ Succeeded         Microsoft.Sql     {eastus}
 Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet"  -AddressPrefix "10.0.1.0/24" -ServiceEndpoint $null | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Conditions préalables pour la configuration :
 - Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran. Pour plus d’informations sur la connexion, consultez [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -241,7 +241,7 @@ Utilisez la commande ci-dessous pour obtenir la liste des services pris en charg
 ```azure-cli
 az network vnet list-endpoint-services -l eastus
 ```
-Output:
+Sortie :
 ```
     {
     "id": "/subscriptions/xxxx-xxxx-xxxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage",
@@ -265,7 +265,7 @@ az network vnet subnet create -g myRG -n mySubnet --vnet-name myVNet --address-p
 
 Pour ajouter plusieurs points de terminaison : --service-endpoints Microsoft.Storage Microsoft.Sql
 
-Output:
+Sortie :
 ```
 {
   "addressPrefix": "10.0.1.0/24",
@@ -335,7 +335,7 @@ az network vnet subnet show -g myRG -n mySubnet --vnet-name myVNet
 az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-endpoints ""
 ```
 
-Output: 
+Sortie : 
 ```
 {
   "addressPrefix": "10.0.1.0/24",
@@ -387,7 +387,7 @@ Afin de sécuriser les ressources du service Azure pour un réseau virtuel, l’
 
 Apprenez-en davantage sur les [rôles intégrés](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. S’ils sont dans des abonnements différents, les ressources doivent être sous le même abonné Active Directory, au moment de cette version préliminaire.
+Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. S’ils sont dans des abonnements différents, les ressources doivent être sous le même abonné Active Directory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

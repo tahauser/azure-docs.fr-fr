@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c29ff60a50e68c75b4e8f62713d6d1fffd2123d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Prise en charge des serveurs principaux multilocataires par Application Gateway
 
-Azure Application Gateway prend en charge les groupes de machines virtuelles identiques, les interfaces réseau, les adresses IP publiques/privées ou les noms de domaines complets pour ses pools de serveurs principaux. Par défaut, la passerelle d’application ne modifie pas l’en-tête d’hôte HTTP entrant à partir du client et envoie l’en-tête non modifié au serveur principal. Il existe de nombreux services comme [Azure Web Apps](../app-service/app-service-web-overview.md) et [Gestion des API](../api-management/api-management-key-concepts.md) qui sont multilocataires par nature et s’appuient sur un en-tête d’hôte spécifique ou une extension SNI pour effectuer la résolution vers le point de terminaison approprié. Application Gateway prend désormais en charge la fonctionnalité permettant aux utilisateurs de remplacer l’en-tête d’hôte HTTP entrant en fonction des paramètres HTTP de serveur principal. Cette fonctionnalité permet la prise en charge des applications web Azure de serveurs principaux multilocataires et de la gestion des API. Elle est disponible pour les références SKU standard et WAF. La prise en charge des serveurs principaux multilocataires fonctionne également avec les scénarios SSL de bout en bout et de fin SSL.
+Azure Application Gateway prend en charge les groupes de machines virtuelles identiques, les interfaces réseau, les adresses IP publiques/privées ou les noms de domaines complets pour ses pools de serveurs principaux. Par défaut, la passerelle d’application ne modifie pas l’en-tête d’hôte HTTP entrant à partir du client et envoie l’en-tête non modifié au serveur principal. Il existe de nombreux services comme [Azure Web Apps](../app-service/app-service-web-overview.md) qui sont multilocataires par nature et s’appuient sur un en-tête d’hôte spécifique ou une extension SNI pour effectuer la résolution vers le point de terminaison approprié. Application Gateway prend désormais en charge la fonctionnalité permettant aux utilisateurs de remplacer l’en-tête d’hôte HTTP entrant en fonction des paramètres HTTP de serveur principal. Cette fonctionnalité permet la prise en charge des applications web Azure de serveurs principaux multilocataires et de la gestion des API. Elle est disponible pour les références SKU standard et WAF. La prise en charge des serveurs principaux multilocataires fonctionne également avec les scénarios SSL de bout en bout et de fin SSL.
 
 ![scénario d’application web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -36,6 +36,6 @@ La possibilité de spécifier un remplacement d’hôte est définie au niveau d
 
 Avec cette fonctionnalité, les clients spécifient les options dans les paramètres HTTP et les sondes personnalisées pour la configuration appropriée. Ce paramètre est ensuite lié à un écouteur et à un pool de serveurs principaux à l’aide d’une règle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment configurer une passerelle d’application avec une application web en tant que membre du pool de serveurs principaux en consultant l’article suivant : [Configurer les applications web App Service avec Application Gateway](application-gateway-web-app-powershell.md)

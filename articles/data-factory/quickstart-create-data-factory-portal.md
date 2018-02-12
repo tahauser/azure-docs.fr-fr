@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -133,7 +133,7 @@ Dans les paramètres du service lié, vous avez spécifié le compte de stockage
 
    c. Spécifiez **OutputDataset** pour le nom.
 
-   d. Entrez **adftutorial/output** pour le dossier. L’activité de copie crée le dossier de sortie s’il n’existe pas.
+   d. Entrez **adftutorial/output** pour le dossier. Si le dossier **Sortie** n’existe pas, il est créé lors de l’exécution de l’activité de copie.
 
    e. Entrez `@CONCAT(pipeline().RunId, '.txt')` pour le nom de fichier. 
    
@@ -142,7 +142,7 @@ Dans les paramètres du service lié, vous avez spécifié le compte de stockage
    ![Paramètres du jeu de données de sortie](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline 
-Dans cette procédure, vous créez et validez un pipeline avec une activité de copie qui utilise les jeux de données d’entrée et de sortie. L’activité de copie copie les données du fichier spécifié dans les paramètres du jeu de données d’entrée dans le fichier spécifié dans les paramètres du jeu de données de sortie. Si le jeu de données d’entrée ne spécifie qu’un dossier (et pas le nom de fichier), l’activité de copie copie tous les fichiers dans le dossier source vers la destination. 
+Dans cette procédure, vous créez et validez un pipeline avec une activité de copie qui utilise les jeux de données d’entrée et de sortie. L’activité de copie copie les données du fichier que vous avez spécifié dans les paramètres du jeu de données d’entrée dans le fichier que vous avez spécifié dans les paramètres du jeu de données de sortie. Si le jeu de données d’entrée ne spécifie qu’un dossier (et pas le nom de fichier), l’activité de copie copie tous les fichiers dans le dossier source vers la destination. 
 
 1. Cliquez sur le bouton **+** (plus), puis sélectionnez **Pipeline**. 
 
@@ -180,7 +180,7 @@ Dans cette étape, vous réalisez une série de tests sur le pipeline avant de l
 ## <a name="trigger-the-pipeline-manually"></a>Déclencher le pipeline manuellement
 Dans cette procédure, vous déployez des entités (services liés, jeux de données, pipelines) vers Azure Data Factory. Vous déclenchez ensuite manuellement une exécution du pipeline. Vous pouvez également publier des entités dans votre propre référentiel Git Visual Studio Team Services, qui est abordé dans un [autre didacticiel](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Avant de déclencher un pipeline, vous devez publier des entités dans Data Factory. Pour publier, cliquez sur **Publier** dans le volet gauche. 
+1. Avant de déclencher un pipeline, vous devez publier des entités dans Data Factory. Pour publier, cliquez sur **Publier tout** dans le volet gauche. 
 
    ![Bouton Publier](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Pour déclencher le pipeline manuellement, sélectionnez **Déclencher** dans la barre d’outils, puis sélectionnez **Déclencher maintenant**. 
@@ -224,9 +224,9 @@ Cette procédure est facultative dans ce didacticiel. Vous pouvez créer un *dé
 5. Examinez le message d’avertissement, puis cliquez sur **Terminer**.
 
    ![Bouton d’avertissement et « Terminer »](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Cliquez sur **Publier** pour publier les modifications dans Data Factory. 
+6. Cliquez sur **Publier tout** pour publier les modifications dans Data Factory. 
 
-   ![Bouton Publier](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Bouton Publier](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Basculez vers l’onglet **Surveiller** sur la gauche. Sélectionnez **Actualiser** pour actualiser la liste. Vous voyez que le pipeline s’exécute toutes les minutes entre l’heure de publication et l’heure de fin. 
 
    Notez les valeurs dans la colonne **Déclenché par**. L’exécution manuelle du déclencheur était celle de l’étape précédente (**Déclencher maintenant**). 

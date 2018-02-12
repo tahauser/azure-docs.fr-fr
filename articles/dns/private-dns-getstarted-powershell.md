@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Prise en main des zones Azure DNS privées à l’aide de PowerShell
 
 Cet article vous indique la procédure à suivre pour créer votre premier enregistrement et votre première zone DNS privée à l’aide d’Azure PowerShell.
 
+[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Pour publier une zone DNS privée sur votre réseau virtuel, vous spécifiez la liste des réseaux virtuels qui sont autorisés à résoudre les enregistrements dans la zone.  On parle de « réseaux de résolution ».  Vous pouvez également spécifier un ensemble de réseaux virtuels pour lesquels Azure DNS conserve les enregistrements de nom d’hôte chaque fois qu’une machine virtuelle est créée, change d’adresse IP ou est détruite.  On parle de « réseaux d’inscription ».
 
-Comme cette fonctionnalité est actuellement une préversion managée, un module PowerShell de préversion sera fourni.
+Comme cette fonctionnalité est actuellement une préversion managée, un module PowerShell de préversion est fourni lorsque vous envoyez par e-mail [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+## <a name="get-the-preview-powershell-module"></a>Obtenir le module PowerShell de préversion
+
+Pour créer une zone DNS privée à l’aide de PowerShell, envoyez un e-mail à [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) pour obtenir le module PowerShell de préversion.
 
 ## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
@@ -83,7 +87,7 @@ Pour supprimer toutes les ressources créées dans cet article, procédez comme 
 Remove-AzureRMResourceGroup -Name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md).
 
