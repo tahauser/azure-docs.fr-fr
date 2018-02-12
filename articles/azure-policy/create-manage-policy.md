@@ -9,11 +9,11 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -370,7 +370,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 5. Sélectionnez **Attribuer**.
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>Résoudre une ressource non conforme ou refusée
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exempter une ressource non conforme ou refusée en utilisant l’exclusion
 
 En suivant l’exemple ci-dessus, après avoir attribué la définition de stratégie pour nécessiter SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la création d’un serveur SQL a été refusée en raison d’une version différente en demandant une exclusion. L’exclusion empêche principalement l’application des stratégies. Une exclusion peut s’appliquer à un groupe de ressources. Vous pouvez également la restreindre à des ressources particulières.
 

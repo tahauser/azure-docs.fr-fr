@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Prise en main d’Azure CDN
-Cet article décrit l’activation de Azure CDN en créant un nouveau profil CDN et un point de terminaison.
-
-> [!IMPORTANT]
-> Pour obtenir une présentation du CDN et une liste des fonctionnalités, consultez la [Présentation du CDN](cdn-overview.md).
-> 
-> 
+Cet article décrit l’activation de Azure [CDN](cdn-overview.md) en créant un nouveau profil CDN et un point de terminaison.
 
 ## <a name="create-a-new-cdn-profile"></a>Créer un profil CDN
 Un profil CDN est une collection de points de terminaison CDN. Chaque profil peut contenir un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères.

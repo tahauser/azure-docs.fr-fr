@@ -1,6 +1,6 @@
 - name: Documentation Azure IoT Edge
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure IoT Edge
       href: how-iot-edge-works.md
@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Déboguer Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Stocker des données en périphérie
+      href: sql-storage.md
     - name: Résolution des problèmes
       href: troubleshoot.md
 - name: Concepts

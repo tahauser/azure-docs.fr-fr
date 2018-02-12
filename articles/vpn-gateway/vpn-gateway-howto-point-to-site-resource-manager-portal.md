@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8cc387fafb2771577b55f57f79cc8b3a6ee8cfa9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurer une connexion point à site sur un réseau virtuel à l’aide d’une authentification par certificat Azure native : Portail Azure
 
@@ -41,7 +41,7 @@ Les clients de connexion peuvent utiliser les méthodes d’authentification sui
 
 Cet article vous aide à configurer une configuration P2S avec authentification à l’aide de l’authentification par certificat Azure native. Si vous souhaitez utiliser RADIUS pour authentifier les utilisateurs qui se connectent, consultez [P2S à l’aide de l’authentification RADIUS](point-to-site-how-to-radius-ps.md).
 
-![Diagramme de connexion d’un ordinateur à un réseau virtuel Azure à l’aide d’une passerelle point à site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+![Diagramme de connexion d’un ordinateur à un réseau virtuel Azure à l’aide d’une passerelle point à site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique. La connexion P2S crée la connexion VPN via SSTP (Secure Socket Tunneling Protocol) ou IKEv2.
 
@@ -113,12 +113,12 @@ Les certificats sont utilisés par Azure pour authentifier les clients qui se co
 
 ## <a name="addresspool"></a>6. Ajouter le pool d’adresses des clients
 
-Le pool d’adresses des clients est une plage d’adresses IP privées que vous spécifiez. Les clients qui se connectent via un réseau virtuel de point à site reçoivent une adresse IP de cette plage. Utilisez une plage d’adresses IP privées qui ne chevauche ni l’emplacement local à partir duquel vous vous connectez ni le réseau virtuel auquel vous souhaitez vous connecter.
+Le pool d’adresses des clients est une plage d’adresses IP privées que vous spécifiez. Les clients qui se connectent via un réseau virtuel de point à site reçoivent de façon dynamique une adresse IP de cette plage. Utilisez une plage d’adresses IP privées qui ne chevauche ni l’emplacement local à partir duquel vous vous connectez ni le réseau virtuel auquel vous souhaitez vous connecter.
 
 1. Une fois la passerelle de réseau virtuel créée, accédez à la section **Paramètres** de la page Passerelle de réseau virtuel. Dans la section **Paramètres**, cliquez sur **Configuration de point à site** pour ouvrir la page **Configuration de point à site**.
 
   ![Page Point à site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. Sur la page de la **Configuration de point à site**, vous pouvez supprimer la plage renseignée automatiquement, puis ajouter la plage d’adresses IP privées que vous souhaitez utiliser. Cliquez sur **Enregistrer** pour valider et enregistrer le paramètre.
+2. Sur la page de la **Configuration de point à site**, vous pouvez supprimer la plage renseignée automatiquement, puis ajouter la plage d’adresses IP privées que vous souhaitez utiliser. Les clients VPN reçoivent dynamiquement une adresse IP à partir de la plage que vous spécifiez. Cliquez sur **Enregistrer** pour valider et enregistrer le paramètre.
 
   ![Pool d’adresses des clients](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 

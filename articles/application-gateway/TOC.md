@@ -40,11 +40,19 @@
 ## Configurer l’hébergement de plusieurs sites
 ### [Portail Azure](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Configurer la redirection
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [interface de ligne de commande Azure](tutorial-multisite-cli.md)
 ## Configurer la redirection externe
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [interface de ligne de commande Azure](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [interface de ligne de commande Azure](tutorial-external-site-redirect-cli.md)
+## Configurer la redirection interne
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [interface de ligne de commande Azure](tutorial-internal-site-redirect-cli.md)
+## Configurer la redirection HTTP vers HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [interface de ligne de commande Azure](tutorial-http-redirect-cli.md)
+## Configurer la redirection d’URL
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [interface de ligne de commande Azure](tutorial-url-redirect-cli.md)
 ## Configurer des applications web en tant que membres du pool principal
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configurer les sondes d’intégrité

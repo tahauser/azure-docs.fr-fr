@@ -171,6 +171,7 @@
 #### [Procédure pas à pas de rédaction de face](media-services-redactor-walkthrough.md)
 ### [Traiter avec Video Thumbnails](media-services-video-summarization.md)
 ### [Traiter avec OCR](media-services-video-optical-character-recognition.md)
+### [Traiter avec Content Moderator](media-services-content-moderation.md)
 
 ## [Configurer la télémétrie](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

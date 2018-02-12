@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 736d3977bb1aa092d6bdce70c852b52139ff2e2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9fc7f2e05d0f02081dd438c515a201025ccb8a4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Créer une application web .NET Core dans App Service sur Linux
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/01/2018
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux.
+Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Windows ou Linux.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -98,6 +98,8 @@ Accédez à votre nouvelle application web. Remplacez _&lt;nom de l’applicatio
 ```bash
 http://<app name>.azurewebsites.net
 ```
+
+Voici à quoi doit ressembler votre nouvelle application web :
 
 ![Page d’application web vide](media/quickstart-dotnetcore/dotnet-browse-created.png)
 

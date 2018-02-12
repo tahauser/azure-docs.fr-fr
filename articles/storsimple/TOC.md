@@ -1,6 +1,6 @@
 # Baie virtuelle StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 ### [Quelle est la solution ?](storsimple-ova-overview.md)
 
 ## Prise en main
@@ -55,7 +55,7 @@
 
 # Gamme StorSimple 8000 (portail Azure)
 
-## Vue d’ensemble
+## Vue d'ensemble
 ### [Quelle est la solution ?](storsimple-overview.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Sécurité](storsimple-8000-security.md)
@@ -205,7 +205,7 @@
 
 # StorSimple Data Manager
 
-## Vue d’ensemble
+## Vue d'ensemble
 ### [Quelle est la solution ?](storsimple-data-manager-overview.md)
 
 ## Prise en main
@@ -218,7 +218,7 @@
 
 # StorSimple pour les partenaires
 
-## Vue d’ensemble
+## Vue d'ensemble
 ### [Quelle est la solution ?](storsimple-partner-csp-overview.md)
 
 ## Prise en main
@@ -236,6 +236,7 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog Marketing](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Options de support StorSimple](storsimple-8000-support-options.md)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Tarification](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

@@ -5,11 +5,11 @@ title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ Outils SQL </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Ensemble des architectures recommandées pour les applications cloud. Chaque architecture inclut des pratiques recommandées, des étapes préconisées et un composant exécutable qui représente les recommandations.
+Le centre des architectures Azure fournit des conseils pour créer des solutions de bout en bout sur Microsoft Azure. Vous trouverez ici des architectures de référence, des meilleures pratiques, des modèles de conception,des guides de scénario et des implémentations de références.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Ensemble des architectures recommandées pour les applications cloud. Chaque arc
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Centre des architectures Azure</h3>
+                                                    <p>Conseils pour créer des solutions de bout en bout sur Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Guide de l’architecture des applications Azure</h3>
-                                                    <p>Connaissances fondamentales pour réussir votre expérience dans le cloud. Si vous ne connaissez ni le cloud ni Azure, commencez ici.</p>
+                                                    <p>Ce guide présente une approche structurée pour concevoir des applications sur Azure qui sont évolutives, robustes et hautement disponibles. Il est basé sur des pratiques éprouvées que nous avons apprises au contact des clients.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Ensemble des architectures recommandées pour les applications cloud. Chaque arc
                                                 <div class="cardText">
                                                     <h3>Modèles de conception de cloud</h3>
                                                     <p>Modèles de conception pour le cloud. Chaque modèle décrit un problème, un modèle qui résout le problème et un exemple basé sur Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Meilleures pratiques pour les applications cloud</h3>
-                                                    <p>
-Ensemble des meilleures pratiques pour les applications cloud, qui couvrent des aspects tels que la mise à l’échelle automatique, la mise en cache, le partitionnement des données, la conception de l’API et la surveillance.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

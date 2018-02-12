@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Journal d’activité
           href: monitoring-overview-activity-logs.md
+        - name: Alertes de journal d’activité (Préversion)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Groupes d’actions
           href: monitoring-action-groups.md
         - name: Journaux de diagnostic
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Configurer des alertes avec Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Définir une alerte métrique pour appeler un webhook
-          href: insights-webhooks-alerts.md
+        - name: Actions Webhook pour les alertes de journal
+          href: monitor-alerts-unified-log-webhook.md
         - name: Créer une alerte de mesure avec un modèle Resource Manager
           href: monitoring-enable-alerts-using-template.md
     - name: Utiliser la mise à l’échelle automatique
