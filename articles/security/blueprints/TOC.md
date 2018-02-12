@@ -1,4 +1,4 @@
-# [Vue d'ensemble](../azure-security.md)
+# [Vue d’ensemble](../azure-security.md)
 ## [Sécurité du réseau](../security-network-overview.md)
 ## [Sécurité de la base de données](../azure-database-security-overview.md)
 ## [Sécurité du stockage](../security-storage-overview.md)
@@ -17,8 +17,8 @@
 ### [Fonctions techniques de sécurité](../azure-security-technical-capabilities.md)
 ### [Gouvernance dans Azure](../governance-in-azure.md)
 ### [Chiffrement des données au repos](../azure-security-encryption-atrest.md)
-### Plans d'architecture
-#### Conformité - PCI DSS
+### Schémas de sécurité et de conformité Azure
+#### PCI DSS
 ##### [Traitement des paiements pour les environnements conformes à la norme PCI DSS](payment-processing-blueprint.md)
 ##### [Vue d’ensemble des conditions requises](pci-dss-requirements-overview.md)
 ##### [Condition 1 : pare-feux](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Condition 10 : surveillance](pci-dss-requirement-10-monitoring.md)
 ##### [Condition 11 : test](pci-dss-requirement-11-testing.md)
 ##### [Condition 12 : stratégie](pci-dss-requirement-12-policy.md)
-#### Conformité - FedRAMP
-##### [Applications web pour FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automatisation des applications Web](fedramp.md)
 ##### [Vue d’ensemble des contrôles de sécurité](fedramp-controls-overview.md)
 ##### [Contrôle d’accès](fedramp-access-controls.md)
 ##### [Audit et responsabilité](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Protection du système et des communications](fedramp-system-communications-protection-controls.md)
 ##### [Intégrité du système et des informations](fedramp-system-information-integrity-controls.md)
 ##### [Acquisition du système et des services](fedramp-system-services-acquisition-controls.md)
-#### Conformité - UK-OFFICIAL
-##### [Applications web à trois couches pour la classification UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
-##### [Vue d'ensemble](uk-official-three-tier-applications-overview.md)
+#### ROYAUME-UNI-OFFICIEL
+##### [Automatisation des applications Web à trois niveaux](uk-official-three-tier-applications-overview.md)
+##### [Vue d’ensemble](uk-official-three-tier-applications-overview.md)
 ##### [Vue d’ensemble des principes](uk-official-three-tier-applications-principles-overview.md)
-#### Conformité - Services financiers
+#### Services financiers
 ##### [Services financiers pour les charges de travail réglementées](financial-services-regulated-workloads.md)
 
 # Prise en main
@@ -93,9 +93,8 @@
 ### [Présentation de l’intégration des journaux Azure](../security-azure-log-integration-overview.md)
 #### [Bien démarrer avec l’intégration des journaux Azure](../security-azure-log-integration-get-started.md)
 #### [Intégrer des journaux d’audit Azure Active Directory](../security-azure-log-integration-ad.md)
-#### [Intégrer des alertes Azure Security Center](../security-azure-log-integration-security-center.md)
 #### [Intégrer des journaux à partir de Key Vault à l’aide d’Event Hubs](../security-azure-log-integration-keyvault-eventhub.md)
-#### [FAQ](../security-azure-log-integration-faq.md)
+#### [FORUM AUX QUESTIONS](../security-azure-log-integration-faq.md)
 
 ## Service Fabric
 ### [Bonnes pratiques Service Fabric](../azure-service-fabric-security-best-practices.md)

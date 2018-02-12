@@ -90,7 +90,6 @@
 ### [Présentation de l’intégration des journaux Azure](security-azure-log-integration-overview.md)
 #### [Bien démarrer avec l’intégration des journaux Azure](security-azure-log-integration-get-started.md)
 #### [Intégrer des journaux d’audit Azure Active Directory](security-azure-log-integration-ad.md)
-#### [Intégrer des alertes Azure Security Center](security-azure-log-integration-security-center.md)
 #### [Intégrer des journaux à partir de Key Vault à l’aide d’Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 

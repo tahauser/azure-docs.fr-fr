@@ -1,6 +1,6 @@
 - name: Documentation Azure Log Analytics
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Log Analytics
       href: log-analytics-overview.md
@@ -135,7 +135,7 @@
           href: log-analytics-dashboards.md
         - name: Concepteur de vues
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: log-analytics-view-designer.md
             - name: Référence de vignette
               href: log-analytics-view-designer-tiles.md
