@@ -1,6 +1,6 @@
 - name: Documentation Machine Learning Studio
-  href: index.md
-- name: Vue d’ensemble
+  href: index.yml
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Présentation de Machine Learning
@@ -69,7 +69,7 @@
       items:
         - name: Importer les données de formation
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: import-data.md
             - name: À partir d’un fichier local
               href: import-data-from-local-file.md
@@ -119,7 +119,7 @@
                   href: execute-python-scripts.md
     - name: Rendre les modèles opérationnels
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: deploy-consume-web-service-guide.md
         - name: Déployer des modèles
           items:
@@ -149,7 +149,7 @@
               href: scaling-webservice.md
         - name: Reformer des modèles
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: retrain-machine-learning-model.md
             - name: Reformer par programme
               href: retrain-models-programmatically.md
@@ -163,7 +163,7 @@
               href: troubleshooting-retraining-models.md
         - name: Consommer des modèles
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: consume-web-services.md
             - name: Utiliser Excel
               href: consuming-from-excel.md
@@ -197,7 +197,7 @@
   items:
     - name: Galerie Azure AI
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: gallery-how-to-use-contribute-publish.md
         - name: Secteurs d’activité
           href: gallery-industries.md

@@ -1,4 +1,5 @@
 - name: Documentation sur la machine virtuelle de science des données
+  href: index.yml
   items: null
 - name: Vue d'ensemble
   expanded: true
@@ -25,7 +26,7 @@
       href: linux-dsvm-walkthrough.md
     - name: Utiliser une machine virtuelle d’apprentissage approfondi
       href: use-deep-learning-dsvm.md
-- name: Référence
+- name: Informations de référence
   expanded: true
   items:
     - name: Découvrir la machine virtuelle de science des données

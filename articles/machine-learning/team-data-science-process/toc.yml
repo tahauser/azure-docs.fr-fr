@@ -1,4 +1,5 @@
 - name: Documentation sur le processus TDSP (Team Data Science Process)
+  href: index.yml
 - name: Vue d'ensemble
   href: overview.md
 - name: Cycle de vie
