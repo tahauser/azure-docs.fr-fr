@@ -51,12 +51,12 @@
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
         - name: Procédure
           items:
-            - name: Créer un hôte Docker
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: Utiliser Machine Docker
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: Utiliser Docker Compose
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: "Créer une application de conteneur sur\_Windows"
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: "Créer une application de conteneur sur\_Linux"
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: "Mettre en conteneur une application\_.NET"
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Conteneurs Windows
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:
@@ -64,7 +64,7 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
         - name: À propos des conteneurs Windows
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
-    - name: Référence
+    - name: Informations de référence
       items:
         - name: Azure Container Instances (az container)
           href: 'https://docs.microsoft.com/cli/azure/container'
