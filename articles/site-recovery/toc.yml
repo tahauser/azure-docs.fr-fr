@@ -54,35 +54,37 @@
         - name: Migrer des instances AWS vers Azure
           href: tutorial-migrate-aws-to-azure.md
         - name: Migrer des machines virtuelles Azure vers une autre région
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Concepts
   items:
-    - name: Architecture Azure vers Azure
-      href: concepts-azure-to-azure-architecture.md
-    - name: Architecture VMware vers Azure
-      href: concepts-vmware-to-azure-architecture.md
-    - name: Architecture Hyper-V vers Azure
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: Architecture de serveur physique vers Azure
-      href: concepts-physical-to-azure-architecture.md
-    - name: Architecture Hyper-V vers un site secondaire
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Matrice de prise en charge Azure vers Azure
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Matrice de prise en charge VMware vers Azure
-      href: support-matrix-vmware-to-azure.md
-    - name: Matrice de prise en charge d’Hyper-V sur Azure
-      href: support-matrix-hyper-v-to-azure.md
-    - name: Matrice de prise en charge sur site vers Azure
-      href: site-recovery-support-matrix-to-azure.md
-    - name: Matrice de prise en charge sur site vers un site secondaire
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: Types de restauration automatique
-      href: concepts-types-of-failback.md
-    - name: Récupération d’urgence pour les charges de travail
-      href: site-recovery-workload.md
-    - name: Migration vers Azure
-      href: site-recovery-migrate-to-azure.md
+    - name: Architecture
+      items:
+        - name: Architecture Azure vers Azure
+          href: azure-to-azure-architecture.md
+        - name: Architecture VMware vers Azure
+          href: concepts-vmware-to-azure-architecture.md
+        - name: Architecture Hyper-V vers Azure
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: Architecture de serveur physique vers Azure
+          href: concepts-physical-to-azure-architecture.md
+        - name: Architecture Hyper-V vers un site secondaire
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Matrice de prise en charge des exigences
+      items:
+        - name: Matrice de prise en charge Azure vers Azure
+          href: azure-to-azure-support-matrix.md
+        - name: Matrice de prise en charge VMware vers Azure
+          href: support-matrix-vmware-to-azure.md
+        - name: Matrice de prise en charge d’Hyper-V sur Azure
+          href: support-matrix-hyper-v-to-azure.md
+        - name: Matrice de prise en charge sur site vers Azure
+          href: site-recovery-support-matrix-to-azure.md
+        - name: Matrice de prise en charge sur site vers un site secondaire
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: Récupération d’urgence pour les charges de travail
+          href: site-recovery-workload.md
+        - name: Migration vers Azure
+          href: site-recovery-migrate-to-azure.md
     - name: Autorisations d’accès en fonction du rôle
       href: site-recovery-role-based-linked-access-control.md
     - name: Forum Aux Questions
@@ -92,9 +94,9 @@
     - name: Mise en réseau
       items:
         - name: Configurer la mise en réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Configurer le mappage réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
         - name: Conserver l’IP pour la récupération d’urgence de machines virtuelles Azure (préversion)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Préparer le mappage réseau pour la réplication de machines virtuelles Hyper-V sur Azure
@@ -108,7 +110,7 @@
     - name: Récupération d'urgence
       items:
         - name: Récupération d’urgence des machines virtuelles Azure après la migration vers Azure
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Récupération d’urgence des serveurs physiques vers Azure
           href: tutorial-physical-to-azure.md
         - name: Réplication de machines virtuelles Hyper-V vers un site secondaire
@@ -142,7 +144,7 @@
         - name: Restaurer la protection des machines après un basculement
           items:
             - name: Protéger de nouveau à partir d’une région secondaire Azure vers une région primaire
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: Reprotection d’Azure vers votre site local
               href: site-recovery-how-to-reprotect.md
         - name: Effectuer une restauration automatique à partir d’Azure
@@ -153,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Configurer un serveur cible maître Linux pour la restauration automatique
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Migrer
+      items:
+        - name: À propos de la migration
+          href: site-recovery-migrate-to-azure.md
+        - name: Réplication des machines virtuelles Azure après migration vers une autre région
+          href: azure-to-azure-replicate-after-migration.md
     - name: Capacité et mise à l’échelle
       items:
         - name: Planification de la capacité pour la réplication de VMware vers Azure
@@ -210,7 +218,7 @@
         - name: Activer la réplication
           items:
             - name: Activer la réplication Azure vers Azure
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: Activer la réplication VMware vers Azure
               href: site-recovery-replicate-vmware-to-azure.md
         - name: Déployer le service Mobilité pour VMware
@@ -272,7 +280,7 @@
     - name: Surveiller et résoudre des problèmes
       items:
         - name: Problèmes de réplication Azure vers Azure
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Problèmes de réplication d’un site local vers Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Problèmes du service de mobilité

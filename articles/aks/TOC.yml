@@ -37,6 +37,8 @@
   items:
     - name: Opérations de cluster
       items:
+        - name: "Créer un cluster\_ACS"
+          href: create-cluster.md
         - name: Mettre à l’échelle un cluster ACS
           href: scale-cluster.md
         - name: Mettre à niveau un cluster ACS
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Configurer des volumes de données
       items:
-        - name: Disques Azure - volume persistant
+        - name: "Disques\_Azure"
           href: azure-disks-dynamic-pv.md
-        - name: Azure Files - volume persistant
+        - name: Azure Files
           href: azure-files-dynamic-pv.md
+    - name: Configurer la mise en réseau
+      items:
+        - name: Adresse IP statique
+          href: static-ip.md
     - name: Sécurité et authentification
       items:
         - name: Créer un principal du service

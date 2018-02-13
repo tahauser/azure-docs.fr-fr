@@ -29,8 +29,6 @@
       href: apache-kafka-mirroring.md
     - name: Analyser les journaux Kafka
       href: apache-kafka-log-analytics-operations-management.md
-    - name: Utiliser Kafka avec Azure Container Service
-      href: apache-kafka-azure-container-services.md
     - name: Créer des pipelines de streaming
       items:
         - name: Kafka et Spark (Structure Streaming)
@@ -45,6 +43,10 @@
         - name: Kafka et Storm
           href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
+        - name: Utiliser Kafka avec Azure Container Service
+          href: apache-kafka-azure-container-services.md
+        - name: "Kafka et Azure\_Functions"
+          href: apache-kafka-azure-functions.md
     - name: Développement
       items:
         - name: Utilisation des API Kafka Producer and Consumer
