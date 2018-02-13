@@ -3,7 +3,7 @@
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Bien démarrer](iot-hub-get-started.md)
+# [Prise en main](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)
@@ -107,6 +107,7 @@
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Back end Python/appareil Python](iot-hub-python-python-device-management-get-started.md)
 ### Utilisation des propriétés des représentations
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
