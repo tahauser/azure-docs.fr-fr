@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Surveillance des applications et des ressources Azure
 
@@ -60,7 +60,7 @@ Les services Azure suivants offres de puissantes fonctionnalités de collecte et
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) fournit une surveillance et des diagnostics basés sur un scénario pour différents scénarios réseau dans Azure.  Il stocke des données dans des métriques et des diagnostics Azure en vue d’une analyse approfondie, et collabore avec les [solutions de gestion dans Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) pour vous offrir une surveillance complète de vos ressources réseau.
 
 
-### <a name="management-solutions"></a>Solutions de gestion
+### <a name="management-solutions"></a>Liste des solutions de gestion
 Les [solutions de gestion](../log-analytics/log-analytics-add-solutions.md) sont des jeux de logique empaquetés qui fournissent des informations détaillées pour une application ou un service spécifique.  Elles s’appuient sur Log Analytics pour stocker et analyser les données de surveillance recueillies.  Microsoft et ses partenaires proposent des solutions de gestion qui fournissent une surveillance pour divers services Azure et tiers. Parmi les solutions de surveillance disponibles figurent [Container Monitoring](../log-analytics/log-analytics-containers.md), qui vous permet de visualiser et de gérer vos hôtes de conteneur, et [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md), qui recueille et affiche des métriques de performances pour les bases de données SQL Azure.
 
 
@@ -106,7 +106,7 @@ Pour obtenir des informations encore plus précises sur l’application, vous [a
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur
 
 * [Azure Monitor dans une vidéo de l’Ignite 2016](https://myignite.microsoft.com/videos/4977)

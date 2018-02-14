@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 242be346f975e013004c520a41bf14b95a3f27a4
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Emplacements POP des CDN Azure
 Cet article répertorie les emplacements des points de présence (POP) actuels des **CDN Azure fournis par Verizon** et des **CDN Azure fournis par Akamai**.
@@ -37,8 +37,9 @@ Cet article répertorie les emplacements des points de présence (POP) actuels d
 | Europe du Nord et Europe de l’Est | Copenhague, Danemark<br />Helsinki, Finlande<br />Varsovie, Pologne<br />Stockholm, Suède | Danemark<br />Pologne<br />Suède<br /> |
 | Europe de l’Ouest | Vienne, Autriche<br />Paris, France<br />Frankfort, Allemagne<br />Amsterdam, Pays-Bas<br />Londres, Royaume-Uni | Autriche<br />France<br />Allemagne<br />Irlande<br />Pays-bas<br />Suisse<br />Royaume-Uni |
 | Europe du Sud | Milan, Italie<br />Madrid, Espagne | Italie<br />Espagne |
-| Asie | Hong Kong<br />Bangalore, Inde<br />Chennai, Inde<br />Delhi, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong<br />Inde<br />Indonésie<br />Japon<br />Malaisie<br />Philippines<br />Singapour<br />Taïwan<br />Thaïlande<br />Viêt Nam |
+| Afrique | Johannesbourg, Afrique du Sud | |
 | Moyen-Orient | Muscat, Oman<br />Fujirah, Émirats Arabes Unis | Qatar |
+| Asie | Hong Kong<br />Bangalore, Inde<br />Chennai, Inde<br />Delhi, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong<br />Inde<br />Indonésie<br />Japon<br />Malaisie<br />Philippines<br />Singapour<br />Taïwan<br />Thaïlande<br />Viêt Nam |
 | Australie et Nouvelle Zélande | Melbourne, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Australie<br />Nouvelle-Zélande |
 
 ## <a name="see-also"></a>Voir aussi

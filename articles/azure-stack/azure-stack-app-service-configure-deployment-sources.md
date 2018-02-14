@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -49,8 +49,7 @@ Vous avez besoin d’un compte GitHub pour effectuer cette tâche. Vous voudrez 
 2. Entrez un **nom d’application**, par exemple, App Service sur Azure Stack.
 3. Entrez **l’URL de la page d’accueil**. L’URL de la page d’accueil doit être l’adresse du portail Azure Stack. Par exemple, https://portal.local.azurestack.external.
 4. Entrez une **description de l’application**.
-5. Entrez **l’URL de rappel d’autorisation**.  Dans un déploiement Azure Stack par défaut, l’URL est au format https://portal.local.azurestack.external/TokenAuthorize, si l’exécution a lieu dans un autre domaine, remplacez votre domaine pour azurestack.local.
-    ![GitHub - inscrire une nouvelle application avec des valeurs remplies][4]
+5. Entrez **l’URL de rappel d’autorisation**.  Dans un déploiement Azure Stack par défaut, l’URL est au format https://portal.local.azurestack.external/tokenauthorize, si l’exécution a lieu dans un autre domaine, remplacez votre domaine pour local.azurestack.external. ![GitHub - Inscrire une nouvelle application avec des valeurs préremplies][4]
 6. Cliquez sur **Inscrire l’application**.  Vous avez à présent accès à une page répertoriant **l’ID client** et la **clé secrète client** de l’application.
     ![GitHub - Inscription de l’application terminée][5]
 7.  Dans un nouvel onglet ou une nouvelle fenêtre du navigateur, connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.

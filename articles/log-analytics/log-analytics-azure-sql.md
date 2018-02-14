@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e2176a41a115d77a60a8348d2d1b5928109dd65b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -41,15 +41,15 @@ La solution Azure SQL Analytics n’utilise pas d’agent pour établir la con
 
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Support | Description |
+| Source connectée | Support | DESCRIPTION |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agent.md) | Non | Les agents directs Windows ne sont pas utilisés par la solution. |
-| [Agents Linux](log-analytics-linux-agents.md) | Non | Les agents directs Linux ne sont pas utilisés par la solution. |
-| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
-| [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | Log Analytics ne lit pas les données du compte de stockage. |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | Oui | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
+| [Agents Windows](log-analytics-windows-agent.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
+| [Agents Linux](log-analytics-linux-agents.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
+| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
+| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données du compte de stockage. |
+| [Azure Diagnostics](log-analytics-azure-storage.md) | OUI | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 - Un abonnement Azure. Si vous n’en avez pas, créez-en un [gratuitement](https://azure.microsoft.com/free/).
 - Un espace de travail Log Analytics. Vous pouvez utiliser un élément existant, ou en [créez un nouveau](log-analytics-quick-create-workspace.md) avant de commencer à utiliser cette solution.
@@ -107,7 +107,7 @@ En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’u
 
 Chaque perspective fournit des récapitulatifs sur l’abonnement, le serveur, le pool de bases de données élastique et la base de données. En outre, sur la droite, chaque perspective présente un rapport qui lui est propre. Pour approfondir davantage, sélectionnez l’abonnement, le serveur, le pool ou la base de données dans la liste.
 
-| Perspective | Description |
+| Perspective | DESCRIPTION |
 | --- | --- |
 | Ressource par type | Perspective comptabilisant toutes les ressources surveillées. Ce zoom fournit un récapitulatif des métriques de DTU et Go. |
 | Insights | Permet une exploration hiérarchique dans Intelligent Insights. Apprenez-en davantage sur l’intelligence artificielle intégrée. |
@@ -157,7 +157,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
-Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains seuils sont atteints pour Azure SQL Database comme pour les pools élastiques. Pour configurer une alerte pour votre espace de travail OMS :
+Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains seuils sont atteints pour Azure SQL Database comme pour les pools élastiques. Pour configurer une alerte pour votre espace de travail Log Analytics :
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Pour configurer une alerte pour votre espace de travail
 
@@ -170,7 +170,7 @@ Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains se
 6. Sur la page **Ajouter une règle d’alerte**, configurez les propriétés appropriées et les seuils spécifiques, puis cliquez sur **Enregistrer**.  
 ![ajout d’une règle d’alerte](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Utilisez les [Recherches de journal](log-analytics-log-searches.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
 - [Créer un tableau de bord personnalisé](log-analytics-dashboards.md) comportant les données Azure SQL.

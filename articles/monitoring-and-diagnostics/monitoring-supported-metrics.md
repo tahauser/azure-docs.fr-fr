@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor.
@@ -667,6 +667,14 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ObservedCapacity|Capacité observée|Count|Moyenne|Capacité envoyée à la mise à l’échelle automatique lors de l’exécution.|Aucune dimension|
 |ScaleActionsInitiated|Actions de mise à l’échelle initiées|Count|Total|Direction de l’opération de mise à l’échelle.|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|---|---|---|---|---|---|
+|ServiceApiHit|Correspondances totales de l'API de service|Count|Count,Total|Nombre total de correspondances de l'API de service|ActivityType, ActivityName|
+|ServiceApiLatency|Latence globale de l'API de service|Millisecondes|Count,Average,Minimum,Maximum|Latence globale des demandes de l'API de service|ActivityType, ActivityName, StatusCode|
+|ServiceApiResult|Résultats totaux de l'API de service|Count|Count,Total|Nombre total de résultats de l'API de service|ActivityType, ActivityName, StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
@@ -853,7 +861,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
 |---|---|---|---|---|---|
-|QueryDuration||Count|Moyenne||Aucune dimension|
+|QueryDuration|Durée de la requête|Count|Moyenne|Durée de la requête DAX dans le dernier intervalle|Aucune dimension|
 |QueryPoolJobQueueLength|Threads : longueur de file d’attente de travaux du pool de requêtes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|Aucune dimension|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
@@ -1020,7 +1028,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
 |---|---|---|---|---|---|
-|ResourceUtilization|Utilisation de % d’unités de streaming|Pourcentage|Maximale|Utilisation de % d’unités de streaming|Aucune dimension|
+|ResourceUtilization|Utilisation de % d’unités de diffusion|Pourcentage|Maximale|Utilisation de % d’unités de diffusion|Aucune dimension|
 |InputEvents|Événements d’entrée|Count|Total|Événements d’entrée|Aucune dimension|
 |InputEventBytes|Octets des événements d’entrée|Octets|Total|Octets des événements d’entrée|Aucune dimension|
 |LateInputEvents|Événements d’entrée tardifs|Count|Total|Événements d’entrée tardifs|Aucune dimension|

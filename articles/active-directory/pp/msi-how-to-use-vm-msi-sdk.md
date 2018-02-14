@@ -3,8 +3,8 @@ title: "Comment utiliser une identité MSI affectée par l’utilisateur à part
 description: "Exemples de code pour l’utilisation de kits de développement logiciel Azure avec une MSI affectée par un utilisateur sur une machine virtuelle."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,24 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Utiliser les kits de développement logiciel Azure avec une identité MSI (Managed Service Identity) affectée par un utilisateur
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)] Cet article fournit une liste d’exemples de kits de développement logiciel, qui illustrent l’utilisation de la prise en charge d’une MSI affectée par l’utilisateur par leurs kits de développement logiciel Azure respectifs.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Cet article donne une liste d’exemples de Kits de développement logiciel (SDK), qui illustrent l’utilisation de la prise en charge d’une MSI affectée par l’utilisateur par leurs Kits SDK Azure respectifs.
 
 ## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - Tous les scripts/exemples de code de cet article supposent que le client exécute une machine virtuelle avec le paramètre MSI activé. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation de MSI sur une machine virtuelle, consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md), ou l’un des autres articles (à l’aide de PowerShell, du portail Azure, d’un modèle ou d’un kit de développement logiciel Azure). 
+> - Tous les scripts/exemples de code de cet article supposent que le client exécute une machine virtuelle avec le paramètre MSI activé. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation de MSI sur une machine virtuelle, consultez l’article [Configurer l’identité de service administré (MSI) d’une machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md) ou ses variantes (à l’aide de PowerShell, du Portail Azure, d’un modèle ou d’un Kit SDK Azure). 
 
 ## <a name="sdk-code-samples"></a>Exemples de code de kit de développement logiciel
 

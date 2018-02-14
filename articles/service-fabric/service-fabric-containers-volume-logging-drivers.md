@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter ne prend pas en charge le mappage de montages SMB à des conteneurs ([cette fonctionnalité est uniquement prise en charge sur Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Cela empêche le mappage de volume réseau et les pilotes de volume Azure Files sur les versions antérieures à 1709. 
+> Windows Server 2016 Datacenter ne prend pas en charge le mappage de montages SMB à des conteneurs ([cette fonctionnalité est uniquement prise en charge sur Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Cette contrainte empêche le mappage de volume réseau et les pilotes de volume Azure Files sur les versions antérieures à 1709. 
 >   
 
 
@@ -53,8 +53,9 @@ Les plug-ins sont spécifiés dans le manifeste d’application comme suit :
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ Les plug-ins sont spécifiés dans le manifeste d’application comme suit :
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ Les plug-ins sont spécifiés dans le manifeste d’application comme suit :
 
 La balise **Source** de l’élément **Volume** fait référence au dossier source. Le dossier source peut être un dossier de la machine virtuelle qui héberge les conteneurs ou un magasin distant persistant. La balise **Destination** correspond à l’emplacement auquel est mappé la **Source** dans le conteneur en cours d’exécution. Ainsi, la destination ne peut pas être un emplacement qui existe déjà dans votre conteneur.
 
+Les paramètres d’application sont pris en charge pour les volumes comme indiqué dans l’extrait de code de manifeste précédent (recherchez `MyStoreVar` pour obtenir un exemple d’utilisation).
+
 Quand vous spécifiez un plug-in de volume, Service Fabric crée automatiquement le volume à l’aide des paramètres spécifiés. La balise **Source** est le nom du volume, et la balise **Driver** spécifie le plug-in de pilote de volume. Vous pouvez spécifier les options à l’aide de la balise **DriverOption** comme suit :
 
 ```xml
@@ -93,4 +96,4 @@ Quand vous spécifiez un plug-in de volume, Service Fabric crée automatiquement
 Si un pilote de journalisation Docker est spécifié, vous devez déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster. Vous pouvez utiliser la balise **DriverOption** pour spécifier des options pour le pilote de journal.
 
 ## <a name="next-steps"></a>étapes suivantes
-Pour déployer des conteneurs sur un cluster Service Fabric, consultez [Déployer un conteneur sur Service Fabric](service-fabric-deploy-container.md).
+Pour déployer des conteneurs sur un cluster Service Fabric, consultez l’article [Déployer un conteneur sur Service Fabric](service-fabric-deploy-container.md).

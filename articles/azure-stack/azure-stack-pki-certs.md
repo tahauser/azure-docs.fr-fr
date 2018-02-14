@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses IP publiques accessibles en externe affectées à un petit ensemble de services Azure Stack et, éventuellement, à des machines virtuelles clientes. Des certificats pour infrastructure à clé publique avec des noms DNS appropriés pour ces points de terminaison d’infrastructure publique Azure Stack sont requis pendant le déploiement Azure Stack. Cet article fournit des informations sur :
@@ -27,6 +27,8 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 - Les certificats requis pour déployer Azure Stack
 - Le processus d’obtention de certificats correspondants à ces spécifications
 - Comment préparer, valider et utiliser ces certificats pendant le déploiement
+> [!NOTE]
+> Au cours du déploiement, vous devez copier les certificats dans le dossier de déploiement correspondant au fournisseur d’identité (Azure AD ou AD FS). Si vous utilisez un seul certificat pour tous les points de terminaison, vous devez copier ce fichier de certificat dans chaque dossier de déploiement, comme indiqué dans les tableaux ci-dessous. La structure des dossiers est prédéfinie dans la machine virtuelle de déploiement et se trouve sous : C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 La liste suivante décrit les exigences de certificat nécessaires pour déployer Azure Stack : 

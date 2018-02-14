@@ -3,7 +3,7 @@ title: "Utilisation d’une identité du service administré de machine virtuell
 description: "Procédure détaillée et exemples concernant l’utilisation d’un principal du service MSI d’une machine virtuelle Azure pour la connexion client par script et l’accès aux ressources."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,19 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/05/2018
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c5c1be01947dba8b7f4ef8aa54aa6aedfb191d32
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Connectez-vous à l’aide d’une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)] Cet article fournit des exemples de script CLI pour la connexion à l’aide d’un principal du service de l’identité MSI affectée à l’utilisateur, et des conseils sur des sujets importants tels que la gestion des erreurs.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Cet article donne des exemples de scripts CLI permettant de se connecter à l’aide d’un principal de service MSI affecté à l’utilisateur ; il offre également de l’aide sur des sujets importants, comme la gestion des erreurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -57,7 +58,7 @@ Le script suivant montre comment :
     echo The VM region location is $vmLocation
     ```
 
-    Exemples de réponse :
+    Exemples de réponses :
    
     ```bash
     user@vmLinux:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName
@@ -97,7 +98,7 @@ Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure da
 
 Si ce n’est pas le cas, vous devez réaffecter l’identité MSI à votre ressource ou résoudre le problème de déploiement. Consultez [Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour activer l’identité MSI sur une machine virtuelle Azure, consultez [Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).
 

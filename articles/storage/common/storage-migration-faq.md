@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -278,7 +278,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
       
-    - **AzCopy** : ajoutez **-secondary** au nom du compte de stockage dans l'URL pour accéder au point de terminaison secondaire. Par exemple :  
+    - **AzCopy** : ajoutez **-secondary** au nom du compte de stockage dans l'URL pour accéder au point de terminaison secondaire. Par exemple :   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -294,6 +294,10 @@ Mais vous pouvez utiliser des domaines personnalisés non-HTTPS. Pour plus d’i
 Il n'existe aucun moyen d'accéder directement à un compte de stockage via FTP. Toutefois, vous pouvez configurer une machine virtuelle Azure puis installer un serveur FTP sur cette machine virtuelle. Vous pouvez faire en sorte que le serveur FTP stocke les fichiers dans un partage Azure Files ou sur un disque de données disponible pour la machine virtuelle.
 
 Si vous souhaitez uniquement télécharger des données sans avoir à utiliser l'Explorateur de stockage ou une application similaire, vous pouvez utiliser un jeton SAS. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+
+**Comment migrer des objets blob d’un compte de stockage vers un autre ?**
+
+ Vous pouvez effectuer cette opération à l’aide de notre [script de migration d’objets blob](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

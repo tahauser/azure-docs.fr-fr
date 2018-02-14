@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
 
@@ -152,7 +152,7 @@ Voir [Rétention de données et confidentialité][data].
 
 Cela est possible si votre code envoie ce type de données. Cela peut également se produire si les variables dans les arborescences des appels de procédure incluent des informations d’identification personnelle. Votre équipe de développement doit mener une évaluation des risques afin de s’assurer que les informations d’identification personnelle sont correctement gérées. [En savoir plus sur la rétention et la confidentialité des données](app-insights-data-retention-privacy.md).
 
-Le dernier octet de l’adresse web du client est toujours défini sur 0 après réception par le portail.
+**Tous** les octets de l’adresse web du client ont toujours la valeur 0 lors de la recherche des attributs d’emplacement géographique.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Mon iKey est visible dans la source de ma page web. 
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2017
+ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement Azure Resource Manager
 
@@ -66,7 +66,7 @@ Les étapes de la procédure définissent « DefaultSiteHQ » comme connexion 
 
 ## <a name="before"></a>Avant de commencer
 
-Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
+Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > Vous devez installer la dernière version des applets de commande PowerShell. Sinon, vous risquez de recevoir des erreurs de validation à l’exécution de certaines des applets de commande.
@@ -123,15 +123,22 @@ Installez la dernière version des applets de commande PowerShell Azure Resource
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Créez la passerelle avec un site par défaut. Cette opération prend un certain temps, parfois 45 minutes voire plus, car vous créez et configurez la passerelle.<br> **-GatewayDefaultSite** est le paramètre d’applet de commande qui permet à la configuration de routage forcé de fonctionner. Configurez ce paramètre correctement. Si vous voyez des erreurs ValidateSet relatives à la valeur GatewaySKU, vérifiez que vous avez installé la [dernière version des applets de commande PowerShell](#before). La dernière version des applets de commande PowerShell contient les nouvelles valeurs validées pour les dernières références SKU de passerelle.
+6. Créez la passerelle de réseau virtuel. Cette opération prend un certain temps, parfois 45 minutes voire plus, car vous créez et configurez la passerelle. Si vous voyez des erreurs ValidateSet relatives à la valeur GatewaySKU, vérifiez que vous avez installé la [dernière version des applets de commande PowerShell](#before). La dernière version des applets de commande PowerShell contient les nouvelles valeurs validées pour les dernières références SKU de passerelle.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
   $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
-  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -GatewayDefaultSite $lng1 -EnableBgp $false
+  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Établissez des connexions VPN de site à site.
+7. Affecter un site par défaut à la passerelle de réseau virtuel. **-GatewayDefaultSite** est le paramètre d’applet de commande qui permet à la configuration de routage forcé de fonctionner. Configurez ce paramètre correctement. 
+
+  ```powershell
+  $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
+  $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+  Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
+  ```
+8. Établissez des connexions VPN de site à site.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

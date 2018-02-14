@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -49,7 +49,7 @@ La suite de cet article fournit des conseils généraux pour exécuter votre dis
 * Lors de l’installation du système Linux, il est *recommandé* d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d’éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d’exploitation doit être relié à une autre machine virtuelle identique à des fins de dépannage. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données.
 * La prise en charge du noyau pour le montage de systèmes de fichiers UDF est requise. Au premier démarrage sur Azure, la configuration d’approvisionnement est transmise à la machine virtuelle Linux via des supports au format UDF reliés à l’invité. L’agent Linux Azure doit être en mesure de monter le système de fichiers UDF pour lire sa configuration et approvisionner la machine virtuelle.
 * Les versions du noyau Linux antérieures à la version 2.6.37 ne prennent pas en charge NUMA sur Hyper-V avec des machines virtuelles de taille supérieure. Ce problème concerne principalement les distributions antérieures utilisant le noyau Red Hat 2.6.32 en amont et a été corrigé dans la version RHEL 6.6 (kernel-2.6.32-504). Pour les systèmes exécutant des noyaux personnalisés dont la version est antérieure à la version 2.6.37 ou des noyaux basés sur RHEL antérieurs à la version 2.6.32-504, le paramètre de démarrage `numa=off` doit être défini sur la ligne de commande du noyau dans grub.conf. Pour plus d’informations, consultez l’article [KB 436883](https://access.redhat.com/solutions/436883) sur Red Hat.
-* Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d'informations à ce sujet.
+* Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 * La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installation de modules de noyau sans Hyper-V
@@ -143,6 +143,7 @@ L' [Agent Linux Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-m
 * L'agent Linux Azure nécessite Python v2.6+.
 * L'agent nécessite également le module python-pyasn1. La plupart des distributions le fournissent sous la forme d'un package indépendant que vous pouvez installer.
 * Dans certains cas, l'agent Linux Azure n'est pas compatible avec NetworkManager. Dans la plupart des cas, NetworkManager, configuré dans les packages RPM/Deb fournis avec les distributions, entre en conflit avec le package waagent, ce qui entraîne la désinstallation de NetworkManager lors de l'installation du package de l'agent Linux.
+* La version de l’Agent Linux Azure doit être supérieure ou égale à la version minimale prise en charge ; consultez cet article pour [plus d’informations](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Configuration générale requise Linux
 

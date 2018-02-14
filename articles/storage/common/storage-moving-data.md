@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Transfert de données vers et à partir d’Azure Storage
 Si vous voulez déplacer des données locales vers Azure Storage (ou inversement), il existe plusieurs façons de procéder. L’approche la mieux adaptée à vos besoins dépend de votre scénario. Cet article fournit un aperçu des différents scénarios et des offres appropriées pour chacun d’eux.
@@ -41,16 +41,16 @@ Consultez notre liste d’ [Explorateurs du stockage Azure](../storage-explorers
 Si vous préférez ou devez utiliser un utilitaire de ligne de commande (par exemple, les administrateurs système), voici quelques options intéressantes :
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy est un utilitaire de ligne de commande Windows conçu pour la copie de données hautes performances vers ou à partir d’Azure Storage. Vous pouvez également copier des données au sein d’un compte de stockage ou d’un compte de stockage à l’autre.
+AzCopy est un utilitaire de ligne de commande conçu pour la copie de données hautes performances vers ou à partir d’Azure Storage. Vous pouvez également copier des données au sein d’un compte de stockage ou d’un compte de stockage à l’autre. AzCopy est disponible sur [Windows](storage-use-azcopy.md) et sur [Linux](storage-use-azcopy-linux.md).
 
-Consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) pour en savoir plus.
+Consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) ou [Transfert de données avec AzCopy sur Linux](storage-use-azcopy-linux.md) pour en savoir plus.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Le module Azure PowerShell fournit des applets de commande pour la gestion des services sur Azure. Il s’agit d’un interpréteur en ligne de commande basé sur les tâches et d’un langage de génération de scripts conçu spécialement pour l’administration de systèmes.
 
 Consultez [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md) pour en savoir plus.
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 L’interface CLI Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation des services Azure. L’interface CLI Azure est disponible sur Windows, OS X et Linux.
 
 Consultez [Utilisation de l’interface CLI Azure avec Azure Storage](../storage-azure-cli.md) pour en savoir plus.

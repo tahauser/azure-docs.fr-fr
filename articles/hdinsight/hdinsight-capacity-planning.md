@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -67,9 +67,7 @@ Pour un cluster à 48 nœuds, nous recommandons d’avoir de quatre à huit comp
 
 ## <a name="choose-a-cluster-type"></a>Choisir un type de cluster
 
-Le type de cluster détermine la charge de travail que votre cluster HDInsight est configuré pour exécuter, telle que Hadoop, Storm, Kafka ou Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
+Le type de cluster détermine la charge de travail que votre cluster HDInsight est configuré pour exécuter, telle que Hadoop, Storm, Kafka ou Spark. Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
 
 ## <a name="choose-the-vm-size-and-type"></a>Choisir la taille et le type de machine virtuelle
 
@@ -96,9 +94,7 @@ Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics d
 
 ### <a name="cluster-lifecycle"></a>Cycle de vie du cluster
 
-Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin que votre cluster ne soit opérationnel qu’à des horaires spécifiques, vous pouvez créer des clusters à la demande à l’aide d’Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Vous pouvez également créer des scripts PowerShell qui approvisionnent et suppriment votre cluster, puis planifier ces scripts à l’aide de [Azure Automation](https://azure.microsoft.com/services/automation/).
+Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin que votre cluster ne soit opérationnel qu’à des horaires spécifiques, vous pouvez [créer des clusters à la demande à l’aide d’Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Vous pouvez également créer des scripts PowerShell qui approvisionnent et suppriment votre cluster, puis planifier ces scripts à l’aide de [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Quand un cluster est supprimé, son metastore Hive par défaut est également supprimé. Pour rendre persistant le metastore pour la recréation de cluster suivante, utilisez un magasin de métadonnées externe tel qu’Azure Database ou Oozie.
@@ -118,7 +114,7 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 
 Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](hdinsight-hadoop-provision-linux-clusters.md) : découvrez comment installer et configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka, Hive interactif, HBase, R Server ou Storm.
 * [Surveiller les performances du cluster](hdinsight-key-scenarios-to-monitor.md) : découvrez les principaux scénarios susceptibles d’affecter les capacités de votre cluster HDInsight.

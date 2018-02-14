@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensions Python Data Preparations
 Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions intégrées, Azure Machine Learning Data Preparations offre des possibilités d’extension à plusieurs niveaux. Ce document décrit l’extensibilité via un script Python. 
@@ -125,7 +125,7 @@ or
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Utiliser des modules personnalisés
-Dans la transformation d’un flux de données (script), écrivez le code python sous la forme :
+Dans la transformation d’un flux de données (script), écrivez le code Python suivant
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Dans Ajouter une colonne (script), définissez le type de bloc de code sur Module puis écrivez le code python suivant :
+Dans Ajouter une colonne (script), définissez le type de bloc de code sur Module puis écrivez le code Python suivant
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Selon les différents contextes d’exécution (local, docker spark), pointez le chemin d’accès absolu vers l’emplacement approprié. Vous pouvez utiliser « os.getcwd() + relativePath » pour le localiser.
+Selon les différents contextes d’exécution (local, Docker, Spark), pointez le chemin d’accès absolu vers l’emplacement approprié. Vous pouvez utiliser « os.getcwd() + relativePath » pour le localiser.
 
 
 ## <a name="column-data"></a>Données de la colonne 

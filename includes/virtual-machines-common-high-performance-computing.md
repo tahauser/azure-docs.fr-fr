@@ -64,14 +64,14 @@ Exécuter des applications HPC commerciales ou personnalisées dans Azure. Plusi
 
 ### <a name="graphics-and-rendering"></a>Graphiques et rendu
 
-* [Autodesk Maya, 3ds Max et Arnold](../articles/batch/batch-rendering-service.md) sur Azure Batch (préversion)
+* [Autodesk Maya, 3ds Max et Arnold](../articles/batch/batch-rendering-service.md) sur Azure Batch 
 
-### <a name="ai-and-deep-learning"></a>Intelligence artificielle et apprentissage profond
+### <a name="ai-and-deep-learning"></a>Intelligence artificielle et apprentissage approfondi
 
 * Formation [Batch AI](../articles/batch-ai/overview.md) pour les modèles d’apprentissage profond
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Machine virtuelle d’apprentissage profond](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* [Recettes Batch Shipyard pour l’apprentissage profond](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
+* [Recettes Batch Shipyard pour l’apprentissage approfondi](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
 
@@ -103,11 +103,12 @@ Les fournisseurs et développeurs SaaS peuvent utiliser les outils et kits de d�
 
 Découvrez comment :
 
-* [Commencer à développer avec Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Commencer à développer avec Batch](../articles/batch/quick-run-dotnet.md)
 * [Utiliser les exemples de code Azure Batch](https://github.com/Azure/azure-batch-samples)
 * [Utiliser des machines virtuelles de faible priorité avec Batch](../articles/batch/batch-low-pri-vms.md)
 * [Exécuter des charges de travail HPC en conteneur avec Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Utiliser le langage R avec Batch](https://github.com/Azure/doAzureParallel)
+* [Exécuter le kit de ressources Engineering données distribuées Azure sur Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Gestionnaires de charges de travail
 
@@ -127,23 +128,27 @@ Les charges de travail HPC et Batch à grande échelle nécessitent un stockage 
 En savoir plus :
 
 * [Systèmes de fichiers parallèles pour le stockage HPC sur Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Solutions de stockage cloud hautes performances [d’Avere](http://www.averesystems.com/about-us/about-avere) (désormais [joint à Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Services Azure connexes
 
 La plupart des solutions HPC Azure reposent sur les machines virtuelles Azure, les groupes de machines virtuelles identiques, Batch et les services de calcul associés. Toutefois, votre solution peut bénéficier de nombreux services Azure associés. En voici la liste non-exhaustive.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Stockage
 
 * [Stockage Objet BLOB, Table et File d’attente](../articles/storage/storage-introduction.md)
 * [Stockage Fichier](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Données et analyse
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) pour les clusters Hadoop sur Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [Base de données SQL](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>Intelligence artificielle et services cognitifs
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Mise en réseau
 * [Réseau virtuel](../articles/virtual-network/virtual-networks-overview.md)
@@ -172,7 +177,7 @@ Voici des exemples de clients ayant résolu des problèmes d’entreprise à l�
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur les solutions Big Compute pour la [simulation d’ingénierie](https://simulation.azure.com/), le [rendu](https://simulation.azure.com/), les [banques et marchés financiers](https://finance.azure.com/) et la [génomique](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Pour les dernières annonces, consultez le [blog de l’équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

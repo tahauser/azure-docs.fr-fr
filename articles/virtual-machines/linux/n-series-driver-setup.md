@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Basé sur CentOS 7.3 ou Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS ou Red Hat Enterprise Linux 7.3 ou 7.4
 
-1. Installez les derniers services d’intégration Linux pour Hyper-V.
+1. Mettez à jour le noyau.
 
-  > [!IMPORTANT]
-  > Si vous avez installé une image HPC basée sur CentOS sur une machine virtuelle NC24r, passez à l’étape 3. Étant donné que les pilotes RDMA Azure et les composants Linux Integration Services sont préinstallés dans l’image HPC, LIS ne doit pas être mis à niveau, et les mises à jour du noyau sont désactivées par défaut.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. Reconnectez-vous à la machine virtuelle et continuez l’installation avec les commandes suivantes :
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ Si le pilote est installé, vous obtenez un résultat qui ressemble à celui ind
 ![État de l’appareil NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-
 ## <a name="rdma-network-connectivity"></a>Connectivité réseau RDMA
 
 La connectivité réseau RDMA peut être activée sur des machines virtuelles de série N compatibles RDMA, comme les machines NC24r déployées dans le même groupe à haute disponibilité. Le réseau RDMA prend en charge le trafic MPI (Message Passing Interface) pour les applications exécutées avec Intel MPI 5.x ou une version ultérieure. Des conditions supplémentaires suivent :
 
 ### <a name="distributions"></a>Distributions
 
-Déployez des machines virtuelles de série N compatibles RDMA à partir de l’une des images suivantes dans la Place de marché Microsoft Azure qui prend en charge la connectivité RDMA :
+Déployez des machines virtuelles de série N compatibles RDMA à partir d’une image dans la Place de marché Microsoft Azure qui prend en charge la connectivité RDMA sur les machines virtuelles de série N :
   
-* **Ubuntu** - Ubuntu Server 16.04 LTS. Configurez les pilotes RDMA sur la machine virtuelle et inscrivez-vous auprès d’Intel pour télécharger Intel MPI :
+* **Ubuntu 16.04 LTS** - Configurez les pilotes RDMA sur la machine virtuelle et inscrivez-vous auprès d’Intel pour télécharger Intel MPI :
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **HPC basé sur CentOS** - HPC basé sur CentOS 7.3. Les pilotes RDMA et Intel MPI 5.1 sont installés sur la machine virtuelle. 
+> [!NOTE]
+> Les images HPC CentOS ne sont pas actuellement recommandées pour la connectivité RDMA sur les machines virtuelles de série N. RDMA n’est pas pris en charge sur le dernier noyau CentOS 7.4 qui prend en charge les GPU NVIDIA.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Installer les pilotes GRID pour les machines virtuelles NV
 
@@ -237,7 +240,7 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
 9. Redémarrez la machine virtuelle et vérifiez l’installation.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Basé sur CentOS 7.3 ou Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux 
 
 1. Mettez à jour le noyau et DKMS.
  
@@ -262,9 +265,9 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
 3. Redémarrez la machine virtuelle, reconnectez-vous et installez les derniers services d’intégration Linux pour Hyper-V :
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 Ce fichier peut être appelé en tant que racine au démarrage en créant une entrée pour lui dans `/etc/rc.d/rc3.d`.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
-
-* Il existe un problème connu avec les pilotes CUDA sur les machines virtuelles Azure de série N exécutant le noyau Linux 4.4.0-75 sur Ubuntu 16.04 LTS. Si vous effectuez une mise à niveau à partir d’une version antérieure du noyau, procédez à la mise à niveau vers la version 4.4.0-77 du noyau au minimum.
 
 * Vous pouvez définir le mode de persistance à l’aide de `nvidia-smi`. De cette façon, la sortie de la commande est plus rapide quand vous avez besoin d’effectuer une requête sur les cartes. Pour définir le mode de persistance, exécutez `nvidia-smi -pm 1`. Notez que si la machine virtuelle est redémarrée, le paramètre du mode n’est pas conservé. Vous pouvez toujours définir le paramètre du mode dans un script à exécuter au démarrage.
 

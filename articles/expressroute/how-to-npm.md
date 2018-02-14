@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
@@ -43,7 +43,8 @@ Vous pouvez :
 
 Vous pouvez surveiller des circuits ExpressRoute dans n’importe quelle partie du monde à l’aide d’un espace de travail hébergé dans une des régions suivantes :
 
-* Europe de l'Ouest 
+* Europe de l'Ouest
+* Centre-Ouest des États-Unis
 * Est des États-Unis 
 * Asie du Sud-Est 
 * Australie du Sud-Est
@@ -57,14 +58,13 @@ Des agents de surveillance sont installés sur plusieurs serveurs, en local et s
     * Installez des agents de surveillance sur les serveurs locaux et les machines virtuelles Azure.
     * Configurez les paramètres sur les serveurs de l’agent de surveillance pour autoriser les agents de surveillance à communiquer. (Ouvrez les ports du pare-feu, etc.)
 3. Configurez des règles de groupe de sécurité réseau pour permettre à l’agent de surveillance installé sur des machines virtuelles Azure de communiquer avec des agents de surveillance locaux.
-4. Demandez à mettre sur liste verte votre espace de travail NPM.
-5. Configurez la surveillance : détection automatique et gestion des réseaux visibles dans NPM.
+4. Configurez la surveillance : détection automatique et gestion des réseaux visibles dans NPM.
 
 Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres objets ou services, et si vous avez déjà un espace de travail dans une des régions prises en charge, vous pouvez passer les étapes 1 et 2 et commencer votre configuration à l’étape 3.
 
-## <a name="configure"></a>Étape 1 : Créer un espace de travail
+## <a name="configure"></a>Étape 1 : Créer un espace de travail (dans l’abonnement avec les réseaux virtuels liés au(x) circuit(s) ExpressRoute)
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez « Network Performance Monitor » dans la liste des services de la **Place de marché**. Dans les résultats, cliquez pour ouvrir la page **Network Performance Monitor**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’abonnement avec les réseaux virtuels associés à votre circuit ExpressRoute. Ensuite, recherchez « Network Performance Monitor » dans la liste des services de la **Place de marché**. Dans les résultats, cliquez pour ouvrir la page **Network Performance Monitor**.
 
   ![portail](.\media\how-to-npm\3.png)<br><br>
 2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail OMS - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
@@ -105,7 +105,7 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
 
   ![Script PowerShell](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2 : Installer un agent de surveillance sur chaque serveur de surveillance
+### <a name="installagent"></a>2.2 : Installer un agent de monitoring sur chaque serveur de monitoring (sur chaque réseau virtuel dont vous voulez effectuer le monitoring)
 
 Nous vous recommandons d’installer au moins deux agents de chaque côté de la connexion ExpressRoute (par exemple, localement, réseaux virtuels Azure) à des fins de redondance. Pour installer les agents, procédez comme suit :
 
@@ -127,6 +127,8 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
 6. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
 7. Dans la page **Configuration effectuée**, cliquez sur **Terminer**.
 8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Operational Insights (OMS). Une fois connecté à OMS, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté au service Microsoft Operations Management Suite**.
+
+9. Veuillez répéter cette étape pour chaque réseau virtuel dont vous voulez effectuer le monitoring.
 
 ### <a name="proxy"></a>2.3 : Configurer des paramètres de proxy (facultatif)
 
@@ -165,7 +167,7 @@ Le port 8084 est ouvert par défaut. Vous pouvez utiliser un port personnalisé 
 >
 >
 
-Sur les serveurs d’agent, ouvrez une fenêtre PowerShell avec des privilèges administratifs. Exécutez le script PowerShell [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) (que vous avez téléchargé précédemment). N’utilisez pas de paramètres.
+Sur les serveurs d’agent, ouvrez une fenêtre PowerShell avec des privilèges administratifs. Exécutez le script PowerShell [EnableRules](https://aka.ms/npmpowershellscript) (que vous avez téléchargé précédemment). N’utilisez pas de paramètres.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Pour plus d’informations concernant le groupe de sécurité réseau, consultez
 
 ## <a name="setupmonitor"></a>Étape 4 : Configurer NPM pour la surveillance ExpressRoute
 
->[!WARNING]
->Ne continuez pas tant que votre espace de travail n’a pas été mis sur liste verte et que vous n’avez pas d’e-mail de confirmation.
->
->
-
-Après avoir terminé les sections précédentes et vérifié que vous avez été mis sur liste verte, vous pouvez configurer la surveillance.
+Après avoir terminé les sections précédentes, vous pouvez configurer le monitoring.
 
 1. Accédez à la vignette de la vue d’ensemble Network Performance Monitor en vous rendant sur la page **All Resources** (Toutes les ressources) et en cliquant sur l’espace de travail NPM mis sur liste verte.
 

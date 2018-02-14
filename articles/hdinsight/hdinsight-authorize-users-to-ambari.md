@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autoriser les utilisateurs à accéder à Ambari Views
 
-Les [clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités de qualité professionnelle, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser de nouveaux utilisateurs <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> ajoutés aux groupes Azure AD auxquels a été octroyé l’accès au cluster, permettant ainsi à ces utilisateurs spécifiques d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans Ambari est prise en charge à la fois pour les clusters joints à un domaine HDInsight et pour les clusters HDInsight standard.
+Les [clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités de qualité professionnelle, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans Ambari est prise en charge à la fois pour les clusters joints à un domaine HDInsight et pour les clusters HDInsight standard.
 
 Les utilisateurs Active Directory peuvent se connecter aux nœuds de cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme Hue, Ambari Views, ODBC, JDBC, PowerShell et les API REST.
 
@@ -145,5 +145,4 @@ Nous avons affecté le rôle *Utilisateur du cluster* à notre utilisateur de do
 * [Configurer les stratégies Hive dans HDInsight joint à un domaine](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gérer des clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-manage.md)
 * [Utiliser l’affichage Hive avec Hadoop dans HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Synchroniser les utilisateurs Azure AD sur le cluster](hdinsight-sync-aad-users-to-cluster.md)

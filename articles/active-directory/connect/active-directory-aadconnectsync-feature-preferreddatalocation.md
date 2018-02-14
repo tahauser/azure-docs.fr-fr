@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure AD Connect : configurer un emplacement de données par défaut pour les ressources Office 365
-L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut PreferredDataLocation dans Azure AD Connect Sync. Quand un client utilise les fonctionnalités multigéographiques dans Office 365, cet attribut est utilisé pour désigner l’emplacement géographique des données Office 365 de l’utilisateur.
+L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut PreferredDataLocation dans Azure AD Connect Sync. Quand un client utilise les fonctionnalités multigéographiques dans Office 365, cet attribut est utilisé pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. Les termes **région** et **zone géographique** sont utilisés de manière interchangeable.
 
 > [!IMPORTANT]
 > Les fonctionnalités multigéographiques sont actuellement en préversion. Si vous souhaitez participer au programme d’évaluation, contactez votre représentant Microsoft.
@@ -29,36 +29,41 @@ L’objectif de cette rubrique est de vous expliquer comment configurer l’attr
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Activer la synchronisation de l’attribut PreferredDataLocation
-Par défaut, les ressources Office 365 pour vos utilisateurs se trouvent dans la même région que votre client Azure AD. Par exemple, si votre client est situé en Amérique du Nord, les boîtes aux lettres Exchange des utilisateurs sont également situées en Amérique du Nord. Pour une organisation multinationale, cela n’est peut-être pas optimal. En définissant l’attribut preferredDataLocation, la région de l’utilisateur peut être définie.
+Par défaut, les ressources Office 365 des utilisateurs se trouvent dans la même zone géographique que le locataire Azure AD. Par exemple, si votre client est situé en Amérique du Nord, les boîtes aux lettres Exchange des utilisateurs sont également situées en Amérique du Nord. Pour une organisation multinationale, cela n’est peut-être pas optimal. L’attribut PreferredDataLocation permet de définir la zone géographique de l’utilisateur.
 
-En définissant cet attribut, vous pouvez avoir les ressources Office 365 de l’utilisateur, telles que la boîte aux lettres et OneDrive, dans la même région que l’utilisateur tout en ayant un locataire pour votre organisation.
+En définissant cet attribut, il est possible de mettre les ressources Office 365 de l’utilisateur, par exemple la boîte aux lettres et OneDrive, dans la même zone géographique que l’utilisateur, tout en conservant un seul locataire pour l’organisation.
 
 > [!IMPORTANT]
 > Pour être éligible aux fonctionnalités multigéographiques, vous devez disposer d’au moins 5 000 licences dans votre abonnement Office 365.
 >
 >
 
-Les zones Office 365 disponibles pour les fonctionnalités multigéographiques sont les suivantes :
+Vous trouverez la liste de toutes les zones géographiques pour Office 365 dans la section [Où se trouvent vos données](https://aka.ms/datamaps).
 
-| Région | Description |
+Voici les zones géographiques Office 365 disponibles pour les fonctionnalités multigéographiques :
+
+| Zone géographique | Valeur de PreferredDataLocation |
 | --- | --- |
-| NAM | Amérique du Nord |
-| EUR | Europe |
-| APC | Asie-Pacifique |
-| JPN | Japon |
-| AUS | Australie |
-| CAN | Canada |
-| GBR | Grande-Bretagne |
-| LAM | Amérique latine |
+| Asie-Pacifique | APC |
+| Australie | AUS |
+| Canada | CAN |
+| Union européenne | EUR |
+| Inde | IND |
+| Japon | JPN |
+| Corée du Sud | KOR |
+| Royaume-Uni | GBR |
+| États-Unis | NAM |
 
-Toutes les charges de travail Office 365 ne prennent pas en charge l’utilisation de la définition de la région d’un utilisateur.
+* Si une zone géographique, par exemple l’Amérique du Sud, n’apparaît pas dans ce tableau, c’est qu’elle n’est pas utilisable pour les fonctionnalités multigéographiques.
+* Les zones géographiques Inde et Corée du Sud ne sont accessibles qu’aux clients dont l’adresse de facturation et la licence achetée correspondent à ces zones géographiques.
+* Toutes les charges de travail Office 365 ne prennent pas en charge l’utilisation du paramètre de zone géographique des utilisateurs.
 
 Azure AD Connect prend en charge la synchronisation de l’attribut **PreferredDataLocation** pour les objets **Utilisateur** dans la version 1.1.524.0 et versions ultérieures. Plus spécifiquement, les modifications introduites sont les suivantes :
 
 * Le schéma du type d’objet **Utilisateur** dans le connecteur Azure AD est étendu pour inclure l’attribut PreferredDataLocation qui est de type chaîne à une seule valeur.
 * Le schéma du type d’objet **Personne** dans le Metaverse est étendu pour inclure l’attribut PreferredDataLocation, qui est de type chaîne et n’a qu’une seule valeur.
 
-Par défaut, l’attribut PreferredDataLocation n’est pas activé pour la synchronisation. Cette fonctionnalité étant conçue pour les grandes organisations, tout le monde ne peut pas en tirer parti. Vous devez également identifier un attribut destiné à contenir la région Office 365 pour vos utilisateurs, car il n’existe aucun attribut PreferredDataLocation dans Active Directory localement. Cet attribut varie d’une organisation à l’autre.
+Par défaut, l’attribut PreferredDataLocation n’est pas activé pour la synchronisation. Cette fonctionnalité étant conçue pour les grandes organisations, tout le monde ne peut pas en tirer parti. Vous devez également identifier un attribut destiné à contenir la zone géographique Office 365 pour vos utilisateurs, car il n’existe aucun attribut PreferredDataLocation dans Active Directory en local. Cet attribut varie d’une organisation à l’autre.
 
 > [!IMPORTANT]
 > Actuellement, Azure AD permet que l’attribut PreferredDataLocation sur des objets utilisateur personnalisés et des objets utilisateur cloud soit directement configuré à l’aide d’Azure AD PowerShell. Une fois que vous avez activé la synchronisation de l’attribut PreferredDataLocation, vous devez cesser d’utiliser Azure AD PowerShell pour configurer l’attribut sur des **objets utilisateur synchronisés**, car Azure AD Connect les remplace sur la base des valeurs d’attribut source dans l’Active Directory local.
@@ -245,15 +250,15 @@ Réactivez le planificateur de synchronisation intégré :
 ## <a name="step-8-verify-the-result"></a>Étape 8 : Vérifier le résultat
 Il est maintenant temps de vérifier la configuration et de l’activer pour vos utilisateurs.
 
-1. Ajoutez la région à l’attribut sélectionné sur un utilisateur. Vous trouverez la liste des régions disponibles dans [ce tableau](#enable-synchronization-of-preferreddatalocation).  
+1. Ajoutez la zone géographique à l’attribut sélectionné sur un utilisateur. Vous trouverez la liste des zones géographiques disponibles dans [ce tableau](#enable-synchronization-of-preferreddatalocation).  
 ![Attribut AD ajouté à un utilisateur](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Attendez que l’attribut soit synchronisé avec Azure AD.
 3. À l’aide d’Exchange Online PowerShell, vérifiez que la région de boîte aux lettres a été correctement définie.  
 ![Région de boîte aux lettres définie sur un utilisateur dans Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Si votre locataire a été marqué comme pouvant utiliser cette fonctionnalité, la boîte aux lettres est déplacée vers la région correcte. Vous pouvez le vérifier en examinant le nom du serveur où se trouve la boîte aux lettres.
-4. Pour vérifier l’efficacité de ce paramétrage sur de nombreuses boîtes aux lettres, utilisez le script disponible dans la [galerie Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ce script répertorie également tous les préfixes de serveur de centres de données Office 365 et la région correspondante. Vous pouvez l’utiliser à titre de référence à l’étape précédente pour vérifier l’emplacement de la boîte aux lettres.
+Si votre locataire a été marqué comme étant en mesure d’utiliser cette fonctionnalité, la boîte aux lettres est déplacée dans la bonne zone géographique. Vous pouvez le vérifier en examinant le nom du serveur où se trouve la boîte aux lettres.
+4. Pour vérifier l’efficacité de ce paramétrage sur de nombreuses boîtes aux lettres, utilisez le script disponible dans la [galerie Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ce script liste également les préfixes de serveur de tous les centres de données Office 365, ainsi que la zone géographique correspondante. Vous pouvez l’utiliser à titre de référence à l’étape précédente pour vérifier l’emplacement de la boîte aux lettres.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 **Découvrez en plus sur les fonctionnalités multigéographiques dans Office 365 :**
 

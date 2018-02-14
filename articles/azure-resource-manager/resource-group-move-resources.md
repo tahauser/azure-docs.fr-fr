@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/01/2018
@@ -190,43 +190,29 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre abonnement s’il 
 
 ## <a name="app-service-limitations"></a>limitations d’App Service
 
-Lorsque vous travaillez avec des applications App Service, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications App Service, les options disponibles sont :
+Les limitations imposées diffèrent selon que les ressources App Service sont déplacées au sein d’un abonnement ou vers un nouvel abonnement.
 
-* Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cette exigence signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service.
-* Déplacer les applications vers un autre groupe de ressources, mais conserver tous les plans App Service dans le groupe de ressources d'origine.
+### <a name="moving-within-the-same-subscription"></a>Déplacement au sein d’un même abonnement
 
-Le plan App Service ne doit pas forcément résider dans le même groupe de ressources que l’application pour que cette dernière fonctionne correctement.
+Lorsque vous déplacez une application web _au sein du même abonnement_, vous ne pouvez pas déplacer les certificats SSL téléchargés. Toutefois, vous pouvez déplacer une application web vers le nouveau groupe de ressources sans emporter son certificat SSL téléchargé, et la fonctionnalité SSL de votre application peut continuer de fonctionner. 
 
-Par exemple, si votre groupe de ressources contient :
+Si vous souhaitez déplacer le certificat SSL avec l’application web, suivez ces étapes :
 
-* **web-a**, qui est associé à **plan-a**
-* **web-b**, qui est associé à **plan-b**
+1.  Supprimer le certificat chargé à partir de l’application web
+2.  Déplacer l’application web
+3.  Charger le certificat sur l’application web déplacée
 
-Vos options sont :
+### <a name="moving-across-subscriptions"></a>Déplacement entre différents abonnements
 
-* Déplacer **web-a**, **plan-a**, **web-b** et **plan-b**
-* Déplacer **web-a** et **web-b**
-* Déplacez **web-a**
-* Déplacez **web-b**
+Lors du déplacement d’une application Web _entre des abonnements_, les limites suivantes s’appliquent :
 
-Toutes les autres combinaisons impliquent l’abandon d’un type de ressource qui ne peut pas être abandonné lors du déplacement d’un plan App Service (n’importe quel type de ressource App Service).
-
-Si votre application web réside dans un autre groupe de ressources que son plan App Service mais que vous souhaitez déplacer les deux dans un nouveau groupe de ressources, vous devez effectuer le déplacement en deux étapes. Par exemple : 
-
-* **web-a** se trouve dans **web-group**
-* **plan-a** se trouve dans **plan-group**
-* Vous voulez que **web-a** et **plan-a** se trouvent dans **combined-group**
-
-Pour effectuer ce déplacement, effectuez deux opérations de déplacement distinctes dans l’ordre suivant :
-
-1. Déplacez **web-a** vers **plan-group**
-2. Déplacez **web-a** et **plan-a** vers **combined-group**.
-
-Vous pouvez déplacer un certificat App Service vers un nouveau groupe de ressources ou abonnement sans aucun problème. Toutefois, si votre application web inclut un certificat SSL que vous avez acheté en externe et chargé sur l’application, vous devez supprimer le certificat avant de déplacer l’application web. Par exemple, vous pouvez effectuer les opérations suivantes :
-
-1. Supprimer le certificat chargé de l’application web
-2. Déplacer l’application web
-3. Charger le certificat sur l’application web
+- Le groupe de ressources de destination ne doit avoir aucune ressource App Service existante. Les ressources App Service comprennent :
+    - Web Apps
+    - Plans App Service
+    - Certificats SSL chargés ou importés
+    - Environnements App Service
+- Toutes les ressources App Service du groupe de ressources doivent être déplacées simultanément.
+- Les ressources App Service ne peuvent être déplacées qu’à partir du groupe de ressources dans lequel elles ont été créées à l’origine. Si une ressource App Service n’est plus dans son groupe de ressources d’origine, elle doit d’abord réintégrer ce groupe avant de pouvoir être déplacée entre les abonnements. 
 
 ## <a name="classic-deployment-limitations"></a>Limitations relatives au déploiement Classic
 
