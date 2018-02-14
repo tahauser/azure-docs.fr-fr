@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
@@ -111,20 +111,21 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 3443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Point de terminaison de gestion pour le portail Azure et Powershell |Interne |
 | * / 80, 443 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Dépendance vis-à-vis du Stockage Azure**, d’Azure Service Bus et d’Azure Active Directory (le cas échéant).|Externe et interne | 
 | * / 1433 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès aux points de terminaison de SQL Azure** |Externe et interne |
-| * / 5671, 5672 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
+| * / 5672 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
 | * / 445 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance sur le partage de fichiers Azure pour GIT |Externe et interne |
+| * / 1886 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Nécessaire pour publier l’état d’intégrité sur Resource Health |Externe et interne |
 | * / 25028 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Se connecter au relais SMTP pour envoyer des e-mails |Externe et interne |
 | * / 6381 - 6383 |Trafic entrant et sortant |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Accès aux instances de cache Redis entre instances de rôle |Externe et interne |
 | * / * | Trafic entrant |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Équilibrage de charge de l’infrastructure Azure |Externe et interne |
 
 >[!IMPORTANT]
-> * Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une dégradation de la capacité à utiliser et à surveiller le service en cours d’exécution.
+> Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une dégradation de la capacité à utiliser et à surveiller le service en cours d’exécution.
 
 * **Fonctionnalité SSL** : pour activer la génération et la validation de la chaîne de certification SSL, le service de gestion des API nécessite une connectivité réseau sortante vers ocsp.msocsp.com, mscrl.microsoft.com et crl.microsoft.com. Cette dépendance n’est pas requise si l’un des certificats que vous chargez sur la gestion de API contient la totalité de la chaîne permettant d’accéder à la racine de l’AC.
 
 * **Accès DNS** : l’accès sortant sur le port 53 est nécessaire pour la communication avec des serveurs DNS. S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau hébergeant la gestion de l’API.
 
-* **Métriques et surveillance de l’intégrité** : connectivité réseau sortante aux points de terminaison de la surveillance Azure, qui se résolvent sous les domaines suivants : global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com.
+* **Métriques et analyse du fonctionnement** : connectivité réseau sortante vers les points de terminaison du monitoring Azure, qui se résolvent sous les domaines suivants : global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, prod.warmpath.msftcloudes.com, prod3-black.prod3.metrics.nsatc.net et prod3-red.prod3.metrics.nsatc.net.
 
 * **Configuration d’Express Route** : une configuration client courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à circuler sur site. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution consiste à définir un (ou plusieurs) itinéraires définis par l’utilisateur ([UDR][UDRs]) sur le sous-réseau qui contient la gestion des API Azure. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
   Si possible, il est recommandé d'utiliser la configuration suivante :
@@ -132,7 +133,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
  * L’itinéraire défini par l'utilisateur appliqué au sous-réseau contenant la gestion des API Azure définit 0.0.0.0/0 avec un type de tronçon Internet suivant.
  Le résultat est que l’itinéraire défini par l'utilisateur au niveau du sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de la gestion des API Azure.
 
-**Routage par le biais d’appliances virtuelles réseau** : les configurations utilisant un routage défini par l’utilisateur avec un itinéraire par défaut (0.0.0.0/0) pour acheminer le trafic destiné à Internet à partir du sous-réseau Gestion des API par le biais d’une appliance virtuelle réseau s’exécutant dans Azure empêcheront une communication complète entre la Gestion des API et les services requis. Cette configuration n’est pas prise en charge. 
+* **Routage par le biais d’appliances virtuelles réseau** : les configurations utilisant un routage défini par l’utilisateur avec un itinéraire par défaut (0.0.0.0/0) pour acheminer le trafic destiné à Internet à partir du sous-réseau Gestion des API par le biais d’une appliance virtuelle réseau s’exécutant dans Azure bloqueront le trafic de gestion d’Internet vers l’instance de service Gestion des API déployée au sein du sous-réseau du réseau virtuel. Cette configuration n’est pas prise en charge.
 
 >[!WARNING]  
 >La gestion des API Azure n’est pas prise en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d’adresses sont incorrectement publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’instance de la gestion des API Azure sont incorrectement acheminés de force vers l’infrastructure réseau sur site d’un client. Ce flux réseau interrompt la gestion des API Azure. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
@@ -153,7 +154,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 ## <a name="subnet-size"> </a> Exigence de taille du sous-réseau
 Azure réserve dans chaque sous-réseau des adresses IP qui ne peuvent pas être utilisées. Les première et dernière adresse IP des sous-réseaux sont réservées à la conformité du protocole, et 3 adresses supplémentaires sont utilisées pour les services Azure. Pour plus d’informations, consultez [Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Outre les adresses IP utilisées par l’infrastructure réseau virtuel Azure, chaque instance Gestion des API dans le sous-réseau utilise deux adresses IP par unité de référence SKU Premium ou une (1) adresse IP pour la référence SKU Développeur. Chaque instance réserve 1 adresse IP pour l’équilibreur de charge externe. Lors du déploiement dans un réseau virtuel interne, une adresse IP supplémentaire est requise pour l’équilibreur de charge interne.
+Outre les adresses IP utilisées par l’infrastructure de réseau virtuel Azure, chaque instance Gestion des API du sous-réseau utilise deux adresses IP par unité de référence SKU Premium ou une adresse IP pour la référence SKU Développeur. Chaque instance réserve une adresse IP supplémentaire pour l’équilibreur de charge externe. Lors du déploiement dans un réseau virtuel interne, une adresse IP supplémentaire est requise pour l’équilibreur de charge interne.
 
 D’après le calcul ci-dessus, la taille minimale du sous-réseau, dans lequel Gestion des API peut être déployée, est de /29, donnant ainsi 3 adresses IP.
 

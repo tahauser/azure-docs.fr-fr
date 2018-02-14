@@ -1,6 +1,6 @@
 ---
 title: "Mise en correspondance d’applications dans Azure Application Insights | Microsoft Docs"
-description: "Une présentation visuelle des dépendances entre les composants d’application, intégrant des indicateurs de performance clés et des alertes."
+description: "Surveiller des topologies d’applications complexes avec la mise en correspondance d’applications"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Mise en correspondance d’applications dans Application Insights
-Dans [Azure Application Insights](app-insights-overview.md), la mise en correspondance d’applications est une présentation visuelle des relations de dépendance des composants de votre application. Chaque composant affiche des indicateurs de performance clés, tels que la charge, les performances, les échecs et les alertes, pour vous aider à détecter n’importe quel composant à l’origine de problèmes de performances ou de défaillances. Vous pouvez cliquer sur n’importe quel composant pour obtenir des diagnostics plus détaillés, par exemple des événements Application Insights. Si votre application utilise les services Azure, vous pouvez également accéder aux diagnostics Azure, et notamment aux recommandations de SQL Database Advisor.
+# <a name="application-map-triage-distributed-applications"></a>Mise en correspondance d’applications : trier des applications distribuées
+La mise en correspondance d’applications vous permet d’identifier les baisses de performances ou les défaillances sur l’ensemble des composants de votre application distribuée. Chaque nœud de cette mise en correspondance représente un composant d’application ou ses dépendances, avec des indicateurs de performance clés d’intégrité et l’état des alertes. Vous pouvez cliquer sur n’importe quel composant pour obtenir des diagnostics plus détaillés, par exemple des événements Application Insights. Si votre application utilise les services Azure, vous pouvez également accéder aux diagnostics Azure, et notamment aux recommandations de SQL Database Advisor.
 
-À l’instar des autres graphiques, vous pouvez épingler une mise en correspondance d’applications au tableau de bord Azure, où elle sera entièrement fonctionnelle. 
+## <a name="what-is-a-component"></a>Qu’est un composant ?
 
-## <a name="open-the-application-map"></a>Ouvrir la mise en correspondance d’applications
-Ouvrir la mise en correspondance à partir du Panneau de vue d’ensemble de votre application :
+Les composants sont des parties pouvant être déployées de manière indépendante de votre application distribuée/de microservices. Les développeurs et équipes d’opérations disposent d’une visibilité au niveau du code ou d’un accès à la télémétrie générée par ces composants d’application. 
 
-![ouvrir la mise en correspondance d’applications](./media/app-insights-app-map/01.png)
+* Les composants sont différents des dépendances externes « observées » telles que SQL, EventHub, etc., auxquelles votre équipe/organisation peut ne pas avoir accès (code ou télémétrie).
+* Les composants s’exécutent sur un nombre quelconque d’instances de serveur/rôle/conteneur.
+* Les composants peuvent être des clés d’instrumentation Application Insights distinctes (même si les abonnements sont différents) ou des rôles différents rapportant à une clé d’instrumentation Application Insights unique. L’aperçu de mise en correspondance montre les composants, quelle que soit leur configuration.
 
-![mise en correspondance d’applications](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Composite Application Map (Cartographie d'application composite) (préversion)
+*Il s’agit d’une préversion qui sera enrichie d’autres fonctionnalités. Nous aimerions connaître votre opinion sur cette nouvelle interface. Vous pouvez facilement basculer de la préversion à la version classique.*
+
+Activez « Composite Application Map » (Cartographie d'application composite) dans la [liste des préversions](app-insights-previews.md), ou cliquez sur « Preview map » (Aperçu de la carte) dans le contrôle de basculement dans l’angle supérieur droit. Vous pouvez utiliser ce bouton pour revenir à la version classique.
+![Activer la mise en correspondance de préversion](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Cette préversion remplace la préversion « Mise en correspondance d'applications multirôle » précédente. À ce stade, utilisez-la pour afficher la topologie complète sur plusieurs niveaux de dépendances des composants d’application. Envoyez-nous vos commentaires : nous ajouterons d’autres fonctionnalités similaires à celles prises en charge par la mise en correspondance classique.
+
+Vous pouvez afficher la topologie complète des applications sur plusieurs niveaux des composants d’application associés. Les composants peuvent représenter différentes ressources Application Insights, ou différents rôles d’une seule ressource. La mise en correspondance d’applications trouve les composants en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le kit SDK Application Insights est installé. 
+
+Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez la préversion pour la première fois, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés. 
+![Aperçu de la carte](media/app-insights-app-map/preview.png)
+
+Lorsque vous cliquez sur « Update map components » (Mettre à jour les composants de cartographie), la carte est actualisée avec tous les composants détectés.
+![Aperçu de la carte chargée](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Si tous les composants sont des rôles au sein d’une seule ressource Application Insights, cette étape de découverte n’est pas requise. La charge initiale pour une telle application aura tous ses composants.
+
+Un des principaux objectifs de la nouvelle expérience est de pouvoir visualiser des topologies complexes avec des centaines de composants. La nouvelle expérience prend en charge le zoom et permet d’afficher d’autres détails à mesure que vous effectuez un zoom avant. Vous pouvez effectuer un zoom arrière pour afficher d’un coup d’œil plus de composants, tout en identifiant ceux dont les taux de défaillance sont les plus élevés. 
+
+![Niveaux de zoom](media/app-insights-app-map/zoom-levels.png)
+
+Cliquez sur n’importe quel composant pour afficher des informations connexes ainsi que les performances et l’expérience de triage de défaillance de ce composant.
+
+![Menu volant](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Cartographie d’application classique
 
 La mise en correspondance affiche les éléments suivants :
 
@@ -37,6 +66,8 @@ La mise en correspondance affiche les éléments suivants :
 * Composant côté client (surveillé avec le Kit de développement logiciel (SDK) JavaScript)
 * Composant côté serveur
 * Dépendances des composants client et serveur
+
+![mise en correspondance d’applications](./media/app-insights-app-map/02.png)
 
 Vous pouvez développer et réduire les groupes de liens de dépendance :
 
@@ -99,22 +130,6 @@ Pour certains types de ressources, l’intégrité des ressources est indiquée 
 
 Vous pouvez cliquer sur le nom de la ressource pour afficher les indicateurs de performances de la vue d’ensemble standard de cette ressource.
 
-## <a name="end-to-end-system-app-maps"></a>Cartes d’applications système de bout en bout
-
-*Requiert le Kit de développement logiciel (SDK) version 2.3 ou ultérieure*
-
-Si votre application possède plusieurs composants (par exemple, un service principal en plus de l’application web), vous pouvez tous les afficher sur une même carte d’applications intégrée.
-
-![Définir les filtres](./media/app-insights-app-map/multi-component-app-map.png)
-
-La mise en correspondance d’applications trouve les nœuds de serveur en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le Kit de développement logiciel (SDK) Application Insights est installé. Chaque ressource Application Insights est supposée contenir un serveur.
-
-### <a name="multi-role-app-map-preview"></a>Mise en correspondance d’applications contenant plusieurs rôles (version préliminaire)
-
-La fonctionnalité de mise en correspondance d’applications contenant plusieurs rôles vous permet d’utiliser la mise en correspondance d’applications avec plusieurs serveurs envoyant des données à la même ressource Application Insights/clé d’instrumentation. Les serveurs de la mise en correspondance sont segmentés par la propriété cloud_RoleName sur les éléments de télémétrie. Définissez la *mise en correspondance d’applications contenant plusieurs rôles* sur *Activé* à partir du panneau Aperçus pour activer cette configuration.
-
-Cette approche peut être souhaitable dans une application de micro-services, ou dans d’autres scénarios où vous souhaitez mettre en corrélation des événements sur plusieurs serveurs au sein d’une seule ressource Application Insights.
-
 ## <a name="video"></a>Vidéo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
@@ -125,6 +140,6 @@ Merci d’envoyer des commentaires via l’option de commentaires du portail.
 ![Image MapLink-1](./media/app-insights-app-map/13.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-* [portail Azure](https://portal.azure.com)
+* [Portail Azure](https://portal.azure.com)

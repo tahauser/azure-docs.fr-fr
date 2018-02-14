@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-L’exemple reste en veille pendant 20 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {ID} n’existe pas dans le répertoire. » s’affiche.
+L’exemple reste en veille pendant 20 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « Le principal {ID} n’existe pas dans le répertoire {DIR-ID}. » s’affiche.
 
 Le script suivant vous permet de spécifier une portée différente de l’abonnement par défaut et réessaye l’attribution de rôle si une erreur se produit :
 
@@ -128,7 +128,7 @@ Quelques points à noter concernant le script :
 * Pour accorder l’accès aux identités pour l’abonnement par défaut, il est inutile de fournir les paramètres ResourceGroup et SubscriptionId.
 * Spécifiez le paramètre ResourceGroup uniquement lorsque vous souhaitez limiter l’étendue de l’attribution de rôles à un groupe de ressources.
 *  Dans cet exemple, vous ajoutez le principal du service au rôle Contributeur. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {ID} n’existe pas dans le répertoire. » s’affiche.
+* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « Le principal {ID} n’existe pas dans le répertoire {DIR-ID}. » s’affiche.
 * Si vous devez accorder au service principal l’accès à plus d’abonnements ou groupes de ressources, exécutez à nouveau l’applet de commande `New-AzureRMRoleAssignment` avec des portées différentes.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-L’exemple reste en veille pendant 20 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {ID} n’existe pas dans le répertoire. » s’affiche.
+L’exemple reste en veille pendant 20 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « Le principal {ID} n’existe pas dans le répertoire {DIR-ID}. » s’affiche.
 
 Le script suivant vous permet de spécifier une portée différente de l’abonnement par défaut et réessaye l’attribution de rôle si une erreur se produit. Vous devez disposer d’Azure PowerShell 2.0 sur Windows 10 ou Windows Server 2016.
 
@@ -223,7 +223,7 @@ Quelques points à noter concernant le script :
 * Pour accorder l’accès aux identités pour l’abonnement par défaut, il est inutile de fournir les paramètres ResourceGroup et SubscriptionId.
 * Spécifiez le paramètre ResourceGroup uniquement lorsque vous souhaitez limiter l’étendue de l’attribution de rôles à un groupe de ressources.
 * Dans cet exemple, vous ajoutez le principal du service au rôle Contributeur. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {ID} n’existe pas dans le répertoire. » s’affiche.
+* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « Le principal {ID} n’existe pas dans le répertoire {DIR-ID}. » s’affiche.
 * Si vous devez accorder au service principal l’accès à plus d’abonnements ou groupes de ressources, exécutez à nouveau l’applet de commande `New-AzureRMRoleAssignment` avec des portées différentes.
 
 Si vous **n’avez pas Windows 10 ou Windows Server 2016 Technical Preview**, vous devez télécharger le [générateur de certificat auto-signé](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) depuis le centre de scripts Microsoft. Extrayez son contenu et importez l’applet de commande dont vous avez besoin.
@@ -321,7 +321,7 @@ Quelques points à noter concernant le script :
 
 * L’étendue de l’accès est limitée à l’abonnement.
 * Dans cet exemple, vous ajoutez le principal du service au rôle Contributeur. Pour les autres rôles, voir [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md).
-* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « PrincipalNotFound : le principal {ID} n’existe pas dans le répertoire. » s’affiche.
+* Le script reste en veille pendant 15 secondes pour laisser le temps au nouveau principal du service de se propager dans Azure Active Directory. Si votre script n’attend pas suffisamment, une erreur indiquant « Le principal {ID} n’existe pas dans le répertoire {DIR-ID}. » s’affiche.
 * Si vous devez accorder au service principal l’accès à plus d’abonnements ou groupes de ressources, exécutez à nouveau l’applet de commande `New-AzureRMRoleAssignment` avec des portées différentes.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fournir un certificat via un script PowerShell automatisé

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Déplacer des données depuis Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ Une passerelle est requise même si la base de données Sybase est hébergée su
 > Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## <a name="supported-versions-and-installation"></a>Versions prises en charge et installation
-Pour que la passerelle de gestion des données puisse se connecter à la base de données Sybase, vous devez installer la version 16 du [fournisseur de données pour Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) ou une version ultérieure sur le même système que la passerelle de gestion des données. Sybase (version 16 et ultérieures) est pris en charge.
+Pour que la passerelle de gestion des données puisse se connecter à la base de données Sybase, vous devez installer la version 16 du [fournisseur de données pour Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) ou une version ultérieure sur le même système que la passerelle de gestion des données. 
+
+SAP Sybase SQL Anywhere (ASA) version 16 et versions ultérieures sont prises en charge ; IQ et ASE ne sont pas pris en charge.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 

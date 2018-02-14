@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données Azure locale
 La passerelle de données locale agit comme un pont, en fournissant un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans la même région avec une passerelle unique. 
@@ -28,11 +28,11 @@ La première configuration de la passerelle se déroule en quatre étapes :
 
 - **Télécharger et exécuter le programme d’installation** - Cette étape installe un service de passerelle sur un ordinateur de votre organisation. Vous vous connectez également à Azure à l’aide d’un compte du Azure AD de votre [locataire](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Les comptes Azure B2B (invité) ne sont pas pris en charge.
 
-- **Inscrire votre passerelle** - Lors de cette étape, vous spécifiez un nom et une clé de récupération pour votre passerelle et vous sélectionnez une région, pour l’inscription de votre passerelle auprès du service cloud de passerelle. Votre ressource de passerelle **doit être inscrite dans la même région** que vos serveurs Analysis Services. 
+- **Inscrire votre passerelle** - Lors de cette étape, vous spécifiez un nom et une clé de récupération pour votre passerelle et vous sélectionnez une région, pour l’inscription de votre passerelle auprès du service cloud de passerelle. Votre ressource de passerelle peut être inscrite dans n’importe quelle région, mais nous vous recommandons de l’inscrire dans la même région que vos serveurs Analysis Services. 
 
 - **Créer une ressource de passerelle dans Azure** - Lors de cette étape, vous créez une ressource de passerelle dans votre abonnement Azure.
 
-- **Connecter vos serveurs à vos ressources de passerelle** - Une fois que vous avez une ressource de passerelle dans votre abonnement, vous pouvez commencer à y connecter vos serveurs. Vous pouvez y connecter plusieurs serveurs et d’autres ressources, pourvu qu’ils soient dans la même région.
+- **Connecter vos serveurs à vos ressources de passerelle** - Une fois que vous avez une ressource de passerelle dans votre abonnement, vous pouvez commencer à y connecter vos serveurs. Vous pouvez y connecter plusieurs serveurs et d’autres ressources.
 
 Pour commencer immédiatement, consultez la page [Install and configure on-premises data gateway](analysis-services-gateway-install.md) (Installer et configurer la passerelle de données locale).
 
@@ -67,7 +67,7 @@ Nous vous recommandons d’autoriser les adresses IP pour votre région de donn�
 
 Voici les noms de domaine complets utilisés par la passerelle.
 
-| Noms de domaine | Ports sortants | Description |
+| Noms de domaine | Ports sortants | DESCRIPTION |
 | --- | --- | --- |
 | *. powerbi.com |80 |HTTP utilisé pour télécharger le programme d’installation. |
 | *. powerbi.com |443 |HTTPS |
@@ -95,15 +95,15 @@ Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’ai
 ### <a name="general"></a>Généralités
 
 **Q**: Ai-je besoin d’une passerelle pour les sources de données dans le cloud, par exemple Azure SQL Database ? <br/>
-**R** : Non. Une passerelle est uniquement nécessaire pour une connexion à des sources de données locales.
+**R** : Non. Une passerelle est uniquement nécessaire pour une connexion à des sources de données locales.
 
 **Q** : La passerelle doit-elle être installée sur le même ordinateur que la source de données ? <br/>
-**R** : Non. La passerelle doit juste être en mesure de se connecter au serveur, en général sur le même réseau.
+**R** : Non. La passerelle doit juste être en mesure de se connecter au serveur, en général sur le même réseau.
 
 <a name="why-azure-work-school-account"></a>
 
 **Q** : Pourquoi dois-je utiliser un compte professionnel ou scolaire pour me connecter ? <br/>
-**R** : lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire de l’organisation. Le compte doit également faire partie du même locataire que l’abonnement pour lequel vous configurez la ressource d’une passerelle. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
+**R** : Lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire de l’organisation. Le compte doit également faire partie du même locataire que l’abonnement pour lequel vous configurez la ressource d’une passerelle. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
 
 **Q** : où mes informations d’identification sont-elles stockées ? <br/>
 **R** : Les informations d’identification que vous entrez pour une source de données sont chiffrées et stockées dans le service cloud de passerelle. Les informations d’identification sont déchiffrées au niveau de la passerelle de données locale.
@@ -119,7 +119,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Les résultats sont envoyés via Azure Service Bus.
 
 **Q** : existe-t-il des connexions entrantes vers la passerelle à partir du cloud ? <br/>
-**R** : Non. La passerelle utilise des connexions sortantes vers Azure Service Bus.
+**R** : Non. La passerelle utilise des connexions sortantes vers Azure Service Bus.
 
 **Q** : Que se passe-t-il si je bloque les connexions sortantes ? Que dois-je ouvrir ? <br/>
 **R** : Vérifiez les ports et les hôtes que la passerelle utilise.
@@ -128,7 +128,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Dans Services, la passerelle se nomme « service de passerelle de données sur site ».
 
 **Q** : Le service Windows de passerelle peut-il s’exécuter avec un compte Azure Active Directory ? <br/>
-**R** : Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
+**R** : Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
 
 **Q** : Comment effectuer une prise de contrôle de passerelle ? <br/>
 **R** : Pour effectuer une prise de contrôle de passerelle (en exécutant la commande Configurer/Modifier sous Panneau de configuration > Programmes), vous devez être un propriétaire de la ressource de passerelle dans Azure et posséder la clé de récupération. Les propriétaires de ressources de passerelle peuvent être configurés dans Access Control.
@@ -141,10 +141,10 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **Q** : Quel avantage la clé de récupération offre-t-elle ? <br/>
 **R** : La clé de récupération permet de migrer ou de récupérer les paramètres de votre passerelle en cas de récupération d’urgence.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"> </a>Résolution des problèmes
 
 **Q** : Pourquoi ne puis-je pas voir ma passerelle dans la liste des instances de passerelle quand j’essaie de créer la ressource de passerelle dans Azure ? <br/>
-**R** : Il existe deux raisons possibles. Tout d’abord, une ressource est déjà créée pour la passerelle dans l’abonnement en cours ou dans un autre. Pour éliminer cette hypothèse, énumérez les ressources du type **Passerelles de données locales** à partir du portail. Veillez à sélectionner tous les abonnements quand vous énumérez toutes les ressources. Notez qu’une fois la ressource créée, la passerelle ne s’affiche pas dans la liste des instances de passerelle quand vous utilisez le portail pour créer des ressources de passerelle. La seconde possibilité est que l’identité Azure AD de l’utilisateur qui a installé la passerelle est différente de l’utilisateur connecté au Portail Azure. Pour résoudre cette situation, connectez-vous au portail en utilisant le même compte que l’utilisateur qui a installé la passerelle.
+**R** : Il existe deux raisons possibles. Tout d’abord, une ressource est déjà créée pour la passerelle dans l’abonnement en cours ou dans un autre. Pour éliminer cette hypothèse, énumérez les ressources du type **Passerelles de données locales** à partir du portail. Veillez à sélectionner tous les abonnements quand vous énumérez toutes les ressources. Une fois la ressource créée, la passerelle ne s’affiche pas dans la liste des instances de passerelle quand vous utilisez le portail pour créer des ressources de passerelle. La seconde possibilité est que l’identité Azure AD de l’utilisateur qui a installé la passerelle est différente de l’utilisateur connecté au Portail Azure. Pour résoudre cette situation, connectez-vous au portail en utilisant le même compte que l’utilisateur qui a installé la passerelle.
 
 **Q** : Comment puis-je voir les requêtes qui sont envoyées à la source de données locale ? <br/>
 **R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux.
@@ -201,7 +201,7 @@ La télémétrie peut être utilisée pour la surveillance et la résolution des
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md).   
 * [Gérer Analysis Services](analysis-services-manage.md)
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)

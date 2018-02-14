@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solution Application Insights Connector (préversion) dans Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Solution de gestion Application Insights Connector (préversion) 
 
 ![Symbole Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-La solution Application Insights Connector vous aide à diagnostiquer les problèmes de performances et à comprendre ce que les utilisateurs font avec votre application lorsqu’[Application Insights](../application-insights/app-insights-overview.md) les surveille. Dans OMS, vous pouvez voir les mêmes données de télémétrie que les développeurs voient dans Application Insights. Toutefois, lorsque vous intégrez vos applications Application Insights à OMS, la visibilité de vos applications augmente lorsque les données de fonctionnement et d’application se trouvent au même emplacement. Avoir les mêmes vues vous aide à collaborer avec vos développeurs d’applications. Les vues communes peuvent aider à réduire le temps nécessaire à la détection et à la résolution des problèmes d’application et de plateforme.
+La solution Application Insights Connector vous aide à diagnostiquer les problèmes de performances et à comprendre ce que les utilisateurs font avec votre application lorsqu’[Application Insights](../application-insights/app-insights-overview.md) les surveille. Dans Log Analytics, vous pouvez voir les mêmes données de télémétrie que les développeurs voient dans Application Insights. Toutefois, lorsque vous intégrez vos applications Application Insights à Log Analytics, la visibilité de vos applications augmente lorsque les données de fonctionnement et d’application se trouvent au même emplacement. Avoir les mêmes vues vous aide à collaborer avec vos développeurs d’applications. Les vues communes peuvent aider à réduire le temps nécessaire à la détection et à la résolution des problèmes d’application et de plateforme.
 
 Lorsque vous utilisez la solution, vous pouvez :
 
 - Consulter toutes vos applications Application Insights en un lieu unique, même si elles se trouvent dans différents abonnements Azure
 - Mettre en corrélation les données d’infrastructure et les données d’application
 - Visualiser les données d’application avec des perspectives dans la recherche dans les journaux
-- Passer des données Log Analytics à votre application Application Insights dans les portails OMS et Azure
+- Passer des données Log Analytics à votre application Application Insights dans les portails Azure
 
 ## <a name="connected-sources"></a>Sources connectées
 
@@ -63,8 +63,8 @@ Après environ 30 minutes, les données deviennent disponibles et la vignette A
 
 Autres points à garder à l’esprit :
 
-- Vous pouvez lier les applications Application Insights à un seul espace de travail OMS.
-- Vous pouvez uniquement lier des [ressources Application Insights standard ou Premium](https://azure.microsoft.com/pricing/details/application-insights) à OMS Log Analytics. Cependant, vous pouvez utiliser le niveau Gratuit de Log Analytics.
+- Vous pouvez lier les applications Application Insights à un seul espace de travail Log Analytics.
+- Vous pouvez uniquement lier des [ressources Application Insights Standard ou Premium](https://azure.microsoft.com/pricing/details/application-insights) à Log Analytics. Cependant, vous pouvez utiliser le niveau Gratuit de Log Analytics.
 
 ## <a name="management-packs"></a>Packs d’administration
 
@@ -129,7 +129,7 @@ Les composants de la perspective sont mis à jour en fonction de la requête de 
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Passer à une application dans le portail Azure
 
-Les panneaux Application Insights Connector sont conçus pour vous permettre de passer à l’application Application Insights sélectionnée *lorsque vous utilisez le portail OMS*. Vous pouvez utiliser la solution comme une plateforme de surveillance de haut niveau qui vous permet de dépanner une application. Lorsque vous identifiez un problème potentiel dans l’une de vos applications connectées, vous pouvez soit la rechercher dans OMS, soit accéder directement à l’application Application Insights.
+Les panneaux Application Insights Connector sont conçus pour vous permettre de passer à l’application Application Insights sélectionnée *lorsque vous utilisez le portail OMS*. Vous pouvez utiliser la solution comme une plateforme de surveillance de haut niveau qui vous permet de dépanner une application. Lorsque vous identifiez un problème potentiel dans l’une de vos applications connectées, vous pouvez soit la rechercher dans Log Analytics, soit accéder directement à l’application Application Insights.
 
 Pour ouvrir l’application, cliquez sur l’ellipse (**...**) qui apparaît à la fin de chaque ligne, puis sélectionnez **Ouvrir dans Application Insights**.
 
@@ -140,7 +140,7 @@ Pour ouvrir l’application, cliquez sur l’ellipse (**...**) qui apparaît à 
 
 ### <a name="sample-corrected-data"></a>Données corrigées par l’exemple
 
-Application Insights fournit une *[correction par échantillonnage](../application-insights/app-insights-sampling.md)* pour aider à réduire le trafic de données de télémétrie. Lorsque vous activez l’échantillonnage sur votre application Application Insights, vous obtenez un nombre limité d’entrées stockées à la fois dans Application Insights et dans OMS. La cohérence des données est conservée sur la page **Application Insights Connector** et dans les perspectives, mais vous devez corriger manuellement les données échantillonnées pour vos requêtes personnalisées.
+Application Insights fournit une *[correction par échantillonnage](../application-insights/app-insights-sampling.md)* pour aider à réduire le trafic de données de télémétrie. Lorsque vous activez l’échantillonnage sur votre application Application Insights, vous obtenez un nombre limité d’entrées stockées à la fois dans Application Insights et dans Log Analytics. La cohérence des données est conservée sur la page **Application Insights Connector** et dans les perspectives, mais vous devez corriger manuellement les données échantillonnées pour vos requêtes personnalisées.
 
 Voici un exemple de correction par échantillonnage dans une requête de recherche dans les journaux :
 
@@ -162,7 +162,7 @@ La solution reçoit les types de données de télémétrie suivants à partir de
 - Affichages de pages – Pour que votre espace de travail reçoive des affichages de pages, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Événements personnalisés – Pour que votre espace de travail reçoive des événements personnalisés, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-OMS reçoit les données en provenance d’Application Insights dès qu’elles sont disponibles.
+Log Analytics reçoit les données en provenance d’Application Insights dès qu’elles sont disponibles.
 
 ## <a name="output-data"></a>Données de sortie
 

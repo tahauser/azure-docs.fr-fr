@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -98,7 +98,7 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
     2. Cliquez sur **+ Nouveau** dans la section **Paramètres de procédure stockée**. 
     3. Comme **Nom** du paramètre, entrez **stmt**. 
     4. Comme **Type** de paramètre, entrez **String**. 
-    5. Comme **Valeur** du paramètre, entrez la requête SQL suivante.
+    5. Comme **Valeur** du paramètre, entrez la requête SQL suivante :
 
         Dans la requête SQL, spécifiez les valeurs correctes pour les paramètres **folder_name**, **project_name** et **package_name**. 
 
@@ -133,7 +133,9 @@ Dans cette section, vous déclenchez une exécution du pipeline puis vous la sur
 
     ![Vérifier les exécutions de package](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-Vous pouvez également créer un déclencheur planifié pour votre pipeline afin que le pipeline s’exécute selon une planification (horaire, quotidienne, et ainsi de suite). Pour obtenir un exemple, consultez [Créer une fabrique de données - Interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> Vous pouvez également créer un déclencheur planifié pour votre pipeline afin que le pipeline s’exécute selon une planification (horaire, quotidienne, et ainsi de suite). Pour obtenir un exemple, consultez [Créer une fabrique de données - Interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 Dans cette section, vous utilisez Azure PowerShell pour créer un pipeline Data Factory avec une activité de procédure stockée qui appelle un package SSIS. 

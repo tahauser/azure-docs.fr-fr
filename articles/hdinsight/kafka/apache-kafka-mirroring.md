@@ -1,5 +1,5 @@
 ---
-title: Mettre en miroir les rubriques Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Mettre en miroir les rubriques Apache Kafka - Azure HDInsight | Documents Microsoft
 description: "Découvrez comment utiliser la fonctionnalité de mise en miroir d’Apache Kafka afin de conserver un réplica Kafka sur un cluster HDInsight par la mise en miroir de rubriques sur un cluster secondaire."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight
 
@@ -210,6 +210,41 @@ Même si vous pouvez créer un réseau virtuel Azure et des clusters Kafka manue
 
     Pour plus d’informations sur la configuration du producteur, consultez [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) (Configurations de producteur) sur kafka.apache.org.
 
+5. Utilisez les commandes suivantes pour rechercher les hôtes Zookeeper pour le cluster de destination :
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Remplacez `$CLUSTERNAME` par le nom du cluster de destination. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster.
+
+7. La configuration par défaut pour Kafka sur HDInsight n’autorise pas la création automatique de rubriques. Vous devez utiliser une des options suivantes avant de commencer le processus de mise en miroir :
+
+    * **Create the topics on the destination cluster** (Créer les rubriques sur le cluster de destination) : cette option vous permet également de définir le nombre de partitions et le facteur de réplication.
+
+        Vous pouvez créer à l’avance les rubriques avec la commande suivante :
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Remplacez `testtopic` par le nom de la rubrique à créer.
+
+    * **Configure the cluster for automatic topic creation** (Configurer le cluster pour la création automatique des rubriques) : cette option permet à MirrorMaker de créer automatiquement des rubriques, mais en créant un nombre différent de partitions ou un autre facteur de réplication que la rubrique source.
+
+        Pour configurer le cluster de destination afin de créer automatiquement des rubriques, procédez comme suit :
+
+        1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le cluster Kafka de destination.
+        2. Dans la vue d’ensemble du cluster, sélectionnez __Tableau de bord du cluster__. Puis choisissez __Tableau de bord du cluster HDInsight__. Lorsque vous y êtes invité, authentifiez-vous à l’aide des informations d’identification de connexion (admin) pour le cluster.
+        3. Sélectionnez le service __Kafka__ dans la liste à gauche de la page.
+        4. Sélectionnez __Configs__ au milieu de la page.
+        5. Dans le champ __Filter__ (Filtrer), entrez la valeur `auto.create`. Cette option filtre la liste des propriétés et affiche le paramètre `auto.create.topics.enable`.
+        6. Définissez la valeur `auto.create.topics.enable` sur true, puis sélectionnez __Save__ (Enregistrer). Ajoutez une note, puis sélectionnez à nouveau __Save__ (Enregistrer).
+        7. Sélectionnez le service __Kafka__, choisissez __Restart__ (Redémarrer), puis __Restart all affected__ (Redémarrer tous les éléments affectés). Lorsque vous y êtes invité, sélectionnez __Confirm Restart All__ (Confirmer le redémarrage).
+
 ## <a name="start-mirrormaker"></a>Lancement de MirrorMaker
 
 1. Dans la connexion SSH sur le cluster **de destination**, utilisez la commande suivante pour lancer le processus MirrorMaker :
@@ -247,11 +282,9 @@ Même si vous pouvez créer un réseau virtuel Azure et des clusters Kafka manue
 
      Lorsque vous arrivez sur une ligne vide avec un curseur, tapez quelques messages texte. Les messages sont envoyés à la rubrique sur le cluster **source**. Lorsque vous avez terminé, utilisez **Ctrl + C** pour terminer le processus de production.
 
-3. Dans la connexion SSH au cluster **de destination**, utilisez **Ctrl + C** pour mettre fin au processus MirrorMaker. Pour vérifier que la rubrique et les messages ont été répliqués vers la destination, utilisez les commandes suivantes :
+3. Dans la connexion SSH au cluster **de destination**, utilisez **Ctrl + C** pour mettre fin au processus MirrorMaker. Plusieurs secondes peuvent être nécessaires pour terminer le processus. Pour vérifier que les messages ont été répliqués vers la destination, utilisez la commande suivante :
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 

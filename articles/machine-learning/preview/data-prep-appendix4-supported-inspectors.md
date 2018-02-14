@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspecteurs pris en charge pour la préversion de préparation des données Azure Machine Learning
 Ce document décrit le jeu d’inspecteurs disponibles dans cette préversion.
@@ -52,6 +52,7 @@ Cet inspecteur prend en charge l’effet de Halo.
 - Nombre de compartiments par défaut (règle de Scott) 
 - Afficher le halo
 - Superposition du tracé de la densité du noyau (noyau gaussien) 
+- Utiliser l’échelle logarithmique
 
 
 ### <a name="actions"></a>Actions
@@ -65,6 +66,7 @@ Cet inspecteur présente un tableau de la fréquence des valeurs pour la colonne
 - Tri décroissant
 - Inclure les erreurs/valeurs NULL
 - Afficher le halo
+- Utiliser l’échelle logarithmique
 
 
 ### <a name="actions"></a>Actions 
