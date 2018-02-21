@@ -3,7 +3,7 @@ title: Optimisation de votre environnement SQL Server avec Azure Log Analytics |
 description: "Avec Azure Log Analytics, la solution SQL Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimisez votre environnement SQL avec la solution SQL Server Health Check dans Log Analytics
 
@@ -43,7 +43,7 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
 
 * La solution SQL Health Check nécessite l’installation d’une version prise en charge de .NET Framework 4 sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.  
 * La solution prend en charge SQL Server 2012, 2014 et 2016.
-* Espace de travail Log Analytics pour ajouter la solution SQL Health Check à partir de la Place de marché Azure dans le portail Azure.  Pour installer la solution,vous devez être administrateur ou collaborateur dans l’abonnement Azure. 
+* Espace de travail Log Analytics pour ajouter la solution SQL Health Check à partir de la Place de marché Azure dans le portail Azure.  Pour installer la solution,vous devez être administrateur ou collaborateur dans l’abonnement Azure.
 
   > [!NOTE]
   > Une fois que vous avez ajouté la solution, le fichier AdvisorAssessment.exe est ajouté aux serveurs comportant des agents. Les données de configuration sont lues puis envoyées au service Log Analytics dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données.
@@ -61,12 +61,12 @@ L’agent sur votre serveur SQL Server qui est rattaché à un groupe d’admini
 Si le serveur SQL Server est surveillé par Operations Manager, vous devez configurer un compte d’identification Operations Manager. Consultez la rubrique [Comptes d’identification Operations Manager pour Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) ci-dessous pour plus d’informations.
 
 ## <a name="sql-health-check-data-collection-details"></a>Détails de la collecte des données SQL Health Check
-SQL Health Check collecte les données provenant des sources suivantes à l’aide de l’agent que vous avez activé : 
+SQL Health Check collecte les données provenant des sources suivantes à l’aide de l’agent que vous avez activé :
 
-* Windows Management Instrumentation (WMI) 
-* Registre 
+* Windows Management Instrumentation (WMI)
+* Registre
 * Compteurs de performances
-* Résultats de la vue de gestion dynamique SQL Server 
+* Résultats de la vue de gestion dynamique SQL Server
 
 Les données sont collectées sur le serveur SQL Server et transmises à Log Analytics tous les sept jours.
 
@@ -163,10 +163,10 @@ Avant de pouvoir utiliser une solution d’évaluation dans Log Analytics, vous 
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
-1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
+1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
 2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Vue d’ensemble**.  
-4. Dans la page **Vue d’ensemble**, cliquez sur la vignette **SQL Health Check**. 
+4. Dans la page **Vue d’ensemble**, cliquez sur la vignette **SQL Health Check**.
 5. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
 6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
@@ -174,7 +174,7 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
 Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier texte que Log Analytics utilisera pour empêcher les recommandations d’apparaître dans les résultats de votre évaluation.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Pour identifier les recommandations que vous ignorerez
 1. Dans le portail Azure, dans la page des espaces de travail Log Analytics, cliquez sur la vignette **Rechercher dans les journaux** pour votre espace de travail sélectionné.

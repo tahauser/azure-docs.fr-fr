@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Application .NET locale/de cloud hybride avec Azure WCF Relay
 
@@ -231,7 +231,7 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
     ![][18]
 
 7. De retour dans la boîte de dialogue **Nouvelle application web ASP.NET**, cliquez sur **OK** pour créer l’application MVC.
-8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de [publication sur Azure décrites dans cet article](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
+8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de [publication sur Azure décrites dans cet article](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
 10. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Dans la zone **Nom**, saisissez le nom **Product.cs**. Cliquez ensuite sur **Add**.
 
     ![][17]
@@ -451,7 +451,7 @@ Avant d’exécuter l’application dans le cloud, vous devez vous assurer que *
 
     ![][38]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Azure Relay, consultez les ressources suivantes :  
 

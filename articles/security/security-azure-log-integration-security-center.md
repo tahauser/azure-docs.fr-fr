@@ -16,10 +16,10 @@ ms.date: 08/29/2017
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9acce21d544a43adcd0c0983771c02c6bb39caec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Recevoir les alertes de Security Center via l’intégration des journaux à Azure
 
@@ -49,7 +49,7 @@ Les étapes suivantes créent le principal de service nécessaire pour Azure Act
 
 Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support](/azure-supportability/how-to-create-azure-support-request.md) et sélectionnez le service **Intégration des journaux** pour demander un support.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur l’intégration des journaux Azure, consultez les documents suivants :
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : Centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation sur l’intégration des journaux Azure.

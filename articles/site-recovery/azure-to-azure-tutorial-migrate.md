@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
 ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrer des machines virtuelles Azure vers une autre région
 
@@ -32,7 +32,7 @@ Ce didacticiel suppose que vous possédez déjà un abonnement Azure. Si vous n�
 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour effectuer ce didacticiel, vous avez besoin de machines virtuelles Azure dans une région Azure à partir de laquelle vous souhaitez migrer. En outre, il existe un certain nombre de paramètres que vous devez vérifier avant de commencer.
 
@@ -51,7 +51,7 @@ Si vous venez de créer votre compte Azure gratuit, vous êtes l’administrateu
 1. Des autorisations pour créer une machine virtuelle dans les ressources Azure. Le rôle prédéfini « Contributeur de machines virtuelles » a ces autorisations, incluant :
     - L’autorisation de créer une machine virtuelle dans le groupe de ressources sélectionné
     - L’autorisation de créer une machine virtuelle dans le réseau virtuel sélectionné
-    - L’autorisation d’écrire sur le compte de stockage sélectionné
+    - L’autorisation d’écrire dans le compte de stockage sélectionné
 
 2. Vous devez également avoir l’autorisation de gérer les opérations Azure Site Recovery. Le rôle « Collaborateur Site Recovery » a toutes les autorisations nécessaires pour gérer les opérations Site Recovery dans un coffre Recovery Services.
 
@@ -121,7 +121,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine, puis sur **Basculement**.
 2. Dans **Basculement**, sélectionnez **Dernier**. Le paramètre de clé de chiffrement ne s’applique pas à ce scénario.
-3. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
 5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration et interrompt la réplication pour la machine virtuelle.
 

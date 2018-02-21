@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
 ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure 
 
@@ -34,7 +34,7 @@ Vous devez installer [l’agent de machine virtuelle](../virtual-machines/window
 
 
 1. Pour installer l’agent de machine virtuelle sur des machines virtuelles Windows, téléchargez et exécutez le [programme d’installation de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous devez avoir des privilèges Administrateur sur les machines virtuelles pour effectuer l’installation.
-2. Pour installer l’agent de machine virtuelle sur des machines virtuelles Linux, installez la dernière version de [l’agent Linux](../virtual-machines/linux/agent-user-guide.md). Vous avez besoin de privilèges d’administrateur pour effectuer l’installation. Nous vous recommandons de procéder à l’installation à partir de votre dépôt de distribution. Nous vous déconseillons d’installer l’agent de machine virtuelle Linux directement à partir de GitHub. 
+2. Pour installer l’agent de machine virtuelle sur des machines virtuelles Linux, installez la dernière version de [l’agent Linux](../virtual-machines/linux/agent-user-guide.md). Vous avez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons de procéder à l’installation à partir de votre dépôt de distribution. Nous vous déconseillons d’installer l’agent de machine virtuelle Linux directement à partir de GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Vérifier l’installation sur des machines virtuelles Windows
@@ -62,6 +62,6 @@ Si vous migrez des machines virtuelles VMware locales (ou des serveurs physiques
         ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Répliquer rapidement](azure-to-azure-quickstart.md) une machine virtuelle Azure dans une région secondaire.

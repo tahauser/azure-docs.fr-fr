@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procédure pas à pas de la solution préconfigurée d’usine connectée
 
@@ -32,7 +32,7 @@ La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée 
 * Vous permet de parcourir et de modifier les données de serveur OPC UA.
 * S’intègre avec le service Azure Time Series Insights (TSI) pour fournir des vues personnalisées des données à partir de vos serveurs OPC UA.
 
-Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser][lnk-customize] pour répondre à vos propres exigences professionnelles.
+Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser] [ lnk-customize] pour répondre à vos propres exigences professionnelles.
 
 Cet article vous présente quelques éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Cet article décrit aussi le flux de données dans la solution. Ces connaissances vous aident à :
 
@@ -118,7 +118,7 @@ L’instance IoT Hub de la solution effectue également ce qui suit :
 - Gère un registre d’identité qui stocke les ID des modules Éditeur d’OPC et de tous les modules de Proxy OPC.
 - Est utilisé en tant que canal de transport pour la communication bidirectionnelle du module Proxy OPC.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Stockage Azure
 La solution utilise le stockage d’objets blob Azure comme stockage sur disque pour la machine virtuelle et pour stocker les données de déploiement.
 
 ## <a name="web-app"></a>Application web
@@ -227,13 +227,13 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 > [!NOTE]
 > Pour le serveur UA OPC et la pile UA OPC au sein de l’application web d’usine connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 
 * [Autorisations sur le site azureiotsuite.com][lnk-permissions]
 * [Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
-* [Implémentation de référence de l’éditeur OPC](iot-suite-connected-factory-publisher.md).
+* [Implémentation de référence de l’éditeur OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

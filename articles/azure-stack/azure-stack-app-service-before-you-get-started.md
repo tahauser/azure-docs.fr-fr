@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdeec60b4935fda58e2657a215826d8355c81664
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -156,22 +156,22 @@ Pour les déploiements du Kit de développement Azure Stack uniquement, vous pou
 Lorsque vous utilisez le modèle Azure Resource Manager, les utilisateurs sont déjà créés.
 
 1. Exécutez les commandes suivantes pour créer les comptes FileShareOwner et FileShareUser. Remplacez `<password>` par vos propres valeurs.
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+    ``` DOS
+    net user FileShareOwner <password> /add /expires:never /passwordchg:no
+    net user FileShareUser <password> /add /expires:never /passwordchg:no
+    ```
 2. Définissez les mots de passe pour les comptes de sorte qu’ils n’expirent jamais en exécutant les commandes WMIC suivantes :
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+    ``` DOS
+    WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+    WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+    ```
 3. Créez les groupes locaux FileShareUsers et FileShareOwners et ajoutez-y les comptes lors de la première étape :
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+    ``` DOS
+    net localgroup FileShareUsers /add
+    net localgroup FileShareUsers FileShareUser /add
+    net localgroup FileShareOwners /add
+    net localgroup FileShareOwners FileShareOwner /add
+    ```
 
 ### <a name="provision-the-content-share"></a>Approvisionner le partage de contenu
 

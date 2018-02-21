@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -38,7 +38,7 @@ Le livrable à la fin de cette phase est un rapport d’exploration de données.
 
 ### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>Exploration des données, analyse et création de rapports interactives à l’aide de l’utilitaire IDEAR
 
-Cet utilitaire R Markdown ou Python Notebook constitue un outil souple et interactif qui permet d’évaluer et d’explorer les jeux de données. Les utilisateurs peuvent rapidement générer des rapports à partir d’un jeu de données avec un minimum de code. Ils peuvent exporter les résultats de l’exploration dans l’outil interactif vers un rapport final, que vous pouvez remettre aux clients ou utiliser pour prendre des décisions concernant les variables à inclure dans l’étape suivante de modélisation.
+Cet utilitaire R Markdown ou Python Notebook constitue un outil souple et interactif qui permet d’évaluer et d’explorer les jeux de données. Les utilisateurs peuvent rapidement générer des rapports à partir d’un jeu de données avec un minimum de codage. Ils peuvent exporter les résultats de l’exploration dans l’outil interactif vers un rapport final, que vous pouvez remettre aux clients ou utiliser pour prendre des décisions concernant les variables à inclure dans l’étape suivante de modélisation.
 
 Pour l’instant, l’outil fonctionne uniquement sur les trames de données en mémoire. Un fichier YAML est nécessaire pour spécifier les paramètres du jeu de données à explorer. Pour plus d’informations, consultez [IDEAR dans Utilitaires de science des données TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -88,7 +88,7 @@ Le déploiement de production permet à un modèle de jouer un rôle actif dans 
 Il existe différentes approches et plateformes pour mettre les modèles en production. Voici quelques options :
 
 
-- [Déploiement du modèle dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Déploiement du modèle dans Azure Machine Learning](../preview/model-management-overview.md)
 - [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -105,7 +105,7 @@ REMARQUE : Pour un déploiement à l’aide de Microsoft Azure Machine Learning 
 Quand plusieurs modèles sont en production, il peut être utile d’effectuer un [test A/B](https://en.wikipedia.org/wiki/A/B_testing) pour comparer les performances des modèles. 
 
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Suivre la progression des projets de science des données](track-progress.md) montre comment un scientifique des données peut suivre la progression d’un projet de science des données.
  

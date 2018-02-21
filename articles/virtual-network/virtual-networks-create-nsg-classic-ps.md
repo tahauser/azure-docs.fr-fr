@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e3f84e4757e3854fc63e3069e179446174f0c0bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72f962fdc3b5d1b26dc0a08916a21694ddf7afe7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>Procédure de création des groupes de sécurité réseau (classique) dans PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -35,9 +35,9 @@ Cet article traite du modèle de déploiement classique. Vous pouvez également 
 Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Création d’un réseau virtuel](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Création du groupe de sécurité réseau pour le sous-réseau frontal
-Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous :
+Pour créer un groupe de sécurité réseau nommé **NSG-FrontEnd** selon le scénario ci-dessus, suivez les étapes ci-dessous :
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Création d’un groupe de sécurité réseau nommé **NSG-FrontEnd**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `

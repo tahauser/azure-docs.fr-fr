@@ -17,6 +17,7 @@
 #### [Autorisations sur azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Procédure pas à pas pour la solution de surveillance à distance](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connexion de votre Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Connexion de votre MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Utiliser C
 ###### [Données simulés](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Utiliser des capteurs réels](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## Fabrique connectée
 ### [Déployer une passerelle pour l’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
 ### [Personnaliser la fabrique connectée](iot-suite-connected-factory-customize.md)
-### [Utiliser le serveur de publication OPC de l’usine connecté](iot-suite-connected-factory-publisher.md)
+### [Utiliser le serveur de publication OPC de l’usine connecté](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configurer la fabrique connectée](iot-suite-connected-factory-configure.md)
 ## [Autorisations sur azureiotsuite.com](iot-suite-permissions.md)
 

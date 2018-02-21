@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
 
@@ -30,7 +30,7 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Ouvrez votre compte Data Lake Analytics et sélectionnez **Journaux de diagnostic** dans la section __Surveiller__. Ensuite, sélectionnez __Activer les diagnostics__.
 
@@ -130,26 +130,26 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
 
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |String |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
+| ResourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Demandes**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, GetAggregatedJobHistory. |
 | resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
 | callerIpAddress |Chaîne |L’adresse IP du client qui a effectué la demande. |
-| correlationId |String |L’identificateur du journal. Cette valeur peut être utilisée pour regrouper un ensemble d’entrées de journal associées. |
+| correlationId |Chaîne |L’identificateur du journal. Cette valeur peut être utilisée pour regrouper un ensemble d’entrées de journal associées. |
 | identité |Object |L’identité qui a généré le journal. |
 | properties |JSON |Consultez la section suivante (Schéma des propriétés de journal de demande) pour plus d’informations |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
 
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
-| Chemin |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
+| path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 | RequestContentLength |int |La longueur du contenu de la demande HTTP. |
-| ClientRequestId |String |L’identificateur qui identifie de façon unique cette demande. |
+| ClientRequestId |Chaîne |L’identificateur qui identifie de façon unique cette demande. |
 | StartTime |Chaîne |L’heure à laquelle le serveur a reçu la demande. |
 | EndTime |Chaîne |L’heure à laquelle le serveur a envoyé une réponse. |
 
@@ -182,15 +182,15 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
 
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |String |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
+| ResourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Audit**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, JobSubmitted. |
 | resultType |Chaîne |Un sous-état de l’état de la tâche (operationName). |
 | resultSignature |Chaîne |Informations supplémentaires sur l’état de la tâche (operationName). |
-| identité |Chaîne |L’utilisateur qui a demandé l’opération. Par exemple, susan@contoso.com. |
+| identité |Chaîne |L’utilisateur qui a demandé l’opération. Par exemple : susan@contoso.com. |
 | properties |JSON |Consultez la section suivante (Schéma des propriétés de journal d’audit) pour plus d’informations |
 
 > [!NOTE]
@@ -200,15 +200,15 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
 
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | JobId |Chaîne |L’ID affecté à la tâche. |
 | JobName |Chaîne |Le nom fourni pour la tâche. |
 | JobRunTime |Chaîne |Le runtime utilisé pour traiter la tâche. |
 | SubmitTime |Chaîne |L’heure (UTC) à laquelle la tâche a été envoyée. |
-| StartTime |String |L’heure à laquelle l’exécution de la tâche a commencé après la soumission (UTC). |
-| EndTime |String |L’heure à laquelle la tâche s’est terminée. |
-| Parallélisme |String |Le nombre d’unités Data Lake Analytics demandées pour cette tâche pendant la soumission. |
+| StartTime |Chaîne |L’heure à laquelle l’exécution de la tâche a commencé après la soumission (UTC). |
+| EndTime |Chaîne |L’heure à laquelle la tâche s’est terminée. |
+| Parallélisme |Chaîne |Le nombre d’unités Data Lake Analytics demandées pour cette tâche pendant la soumission. |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** et **Parallélisme** fournissent des informations sur une opération. Ces entrées ne contiennent une valeur que si cette opération a démarré ou est terminée. Par exemple, **SubmitTime** contient uniquement une valeur après que **operationName** a la valeur **JobSubmitted**.
@@ -217,5 +217,5 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 Azure Data Lake Analytics fournit un exemple de traitement et d’analyse des données de journal. Vous trouverez l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md)

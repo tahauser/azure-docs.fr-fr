@@ -1,5 +1,5 @@
 ---
-title: "Analyser les journaux d’Application Insights avec Spark - Azure HDInsight | Microsoft Docs"
+title: "Analyser les journaux d’Application Insights avec Spark - Azure HDInsight | Documents Microsoft"
 description: "Découvrez comment exporter des journaux d’Application Insight pour le stockage d’objets blob, puis comment analyser les journaux avec Spark sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8534fefc863a6cb04c43e81a4bea459844e58d91
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analyser les journaux de télémétrie Application Insights avec Spark sur HDInsight
 
@@ -27,7 +27,7 @@ Apprenez à utiliser Spark sur HDInsight pour analyser les données de télémé
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) est un service d’analyse qui surveille vos applications web. Vous pouvez exporter les données de télémétrie générées par Application Insights vers Stockage Azure. Une fois les données dans Stockage Azure, vous pouvez utiliser HDInsight pour les analyser.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Une application configurée pour utiliser Application Insights.
 
@@ -365,13 +365,13 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         ...
         +---------+
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour d’autres d’exemples d’utilisation de Spark avec des données et des services dans Azure, consultez les documents suivants :
 
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu](apache-spark-eventhub-streaming.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 

@@ -3,7 +3,7 @@ title: "Solution de données de communication dans Log Analytics | Microsoft Doc
 description: "Les données de communication sont des données de réseau et de performance centralisées issues d’ordinateurs sur lesquels des agents OMS sont installés, notamment Operations Manager et les agents connectés à Windows. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: magoedte;banders
-ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: magoedte
+ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solution Wire Data 2.0 (préversion) dans Log Analytics
 
@@ -387,7 +387,7 @@ Sur le portail OMS, cliquez sur la vignette de **Wire Data 2.0** pour ouvrir le 
 | Sous-réseaux locaux | Affiche le nombre de sous-réseaux locaux découverts par les agents.  Cliquez sur le nombre pour exécuter une recherche de <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> dans les journaux, qui liste tous les sous-réseaux avec le nombre d’octets envoyés sur chacun d’eux. Cliquez sur un sous-réseau dans la liste pour exécuter une recherche dans les journaux qui renvoie le nombre total d’octets envoyés dessus. |
 | Protocole de niveau application | Affiche le nombre de protocoles de niveau application en cours d’utilisation, découverts par les agents. Cliquez sur le nombre pour exécuter une recherche de <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code> dans les journaux. Cliquez sur un protocole dans la liste pour exécuter une recherche dans les journaux qui renvoie le nombre total d’octets envoyés par son biais. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Tableau de bord de Wire Data](./media/log-analytics-wire-data/wire-data-dash.png)
 

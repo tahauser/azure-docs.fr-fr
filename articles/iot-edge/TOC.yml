@@ -88,7 +88,7 @@
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Calculatrice de prix

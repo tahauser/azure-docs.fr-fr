@@ -3,7 +3,7 @@ title: Optimisation de votre environnement System Center Operations Manager avec
 description: "La solution System Center Operations Manager Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -60,7 +60,7 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Détails de l’évaluation de la collecte de données System Center Operations Manager
 
-L’évaluation de System Center Operations Manager collecte des données à partir des sources suivantes : 
+L’évaluation de System Center Operations Manager collecte des données à partir des sources suivantes :
 
 * Registre
 * Windows Management Instrumentation (WMI)
@@ -72,7 +72,7 @@ Les données sont collectées sur le serveur d’administration et transmises à
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Comptes d’identification Operations Manager pour Log Analytics
 
-Log Analytics utilise les packs d’administration pour les charges de travail afin de fournir des services à valeur ajoutée. Chaque charge de travail nécessite des privilèges spécifiques de la charge de travail pour exécuter les packs d’administration dans un contexte de sécurité différent, comme un compte d’utilisateur de domaine. Configurez un compte d’identification Operations Manager avec élévation des informations d’identification. Pour plus d’informations, consultez [Guide pratique pour créer un compte d’identification](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) dans la documentation Operations Manager. 
+Log Analytics utilise les packs d’administration pour les charges de travail afin de fournir des services à valeur ajoutée. Chaque charge de travail nécessite des privilèges spécifiques de la charge de travail pour exécuter les packs d’administration dans un contexte de sécurité différent, comme un compte d’utilisateur de domaine. Configurez un compte d’identification Operations Manager avec élévation des informations d’identification. Pour plus d’informations, consultez [Guide pratique pour créer un compte d’identification](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) dans la documentation Operations Manager.
 
 Utilisez les informations suivantes pour définir le compte d'identification Operations Manager pour System Center Operations Manager Health Check.
 
@@ -82,13 +82,13 @@ Le compte d’identification doit respecter les conditions suivantes avant de co
 
 * Un compte d’utilisateur de domaine qui est membre du groupe Administrateurs locaux sur tous les serveurs prenant en charge n’importe quel rôle Operations Manager : serveur d’administration, SQL Server qui héberge les opérations, entrepôt de données et base de données ACS, création de rapports, console Web et serveur de passerelle.
 * Rôle Administrateur Operations Manager pour le groupe de gestion en cours d’évaluation
-* Si le compte ne dispose pas de droits d’administrateur système SQL, exécutez le [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) pour accorder des autorisations granulaires au compte sur chaque instance SQL Server qui héberge une ou toutes les bases de données Operations Manager. 
+* Si le compte ne dispose pas de droits d’administrateur système SQL, exécutez le [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) pour accorder des autorisations granulaires au compte sur chaque instance SQL Server qui héberge une ou toutes les bases de données Operations Manager.
 
 1. Dans la console Operations Manager, sélectionnez le bouton de navigation **Administration**.
 2. Sous **Configuration d’identification**, cliquez sur **Comptes**.
 3. Dans l’Assistant **Créer un compte d’identification**, sur la page **Introduction**, cliquez sur **suivant**.
 4. Sur la page **Propriétés générales**, sélectionnez **Windows** dans la liste **Type de compte d’identification :** .
-5. Entrez un nom d’affichage dans la zone de texte **Nom d’affichage**, saisissez éventuellement une description dans la zone **Description**, puis cliquez sur **Suivant**. 
+5. Entrez un nom d’affichage dans la zone de texte **Nom d’affichage**, saisissez éventuellement une description dans la zone **Description**, puis cliquez sur **Suivant**.
 6. Sur la page **Sécurité de la distribution**, sélectionnez **Plus sécurisé**.
 7. Cliquez sur **Créer**.  
 
@@ -96,7 +96,7 @@ Maintenant que le compte d’identification est créé, il doit cibler les serve
 
 1. Sous **Configuration d’identification**, **Comptes**, dans le volet des résultats, double-cliquez sur le compte que vous avez créé précédemment.
 2. Dans l’onglet **Distribution**, cliquez sur **Ajouter** pour **Ordinateurs sélectionnés** et ajoutez le serveur d’administration auquel distribuer le compte.  Cliquez deux fois sur **OK** pour enregistrer vos modifications.
-3. Sous **Configuration d’identification**, cliquez sur **Profils**. 
+3. Sous **Configuration d’identification**, cliquez sur **Profils**.
 4. Recherchez *Profil d’évaluation SCOM*.
 5. Le nom du profil doit être : *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
 6. Avec le bouton droit, mettez à jour ses propriétés et ajoutez le nouveau compte d’identification créé précédemment.
@@ -216,7 +216,7 @@ Avant de pouvoir utiliser une solution de contrôle d’intégrité dans Log Ana
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
-1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
+1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
 2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Portail OMS**.  
 4. Dans la page **Vue d’ensemble**, cliquez sur la mosaïque **System Center Operations Manager Health Check**.
@@ -228,10 +228,10 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 
 Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier texte que Log Analytics utilise pour empêcher les recommandations d'apparaître dans les résultats de votre évaluation.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Pour identifier les recommandations que vous voulez ignorer
-1. Dans le portail Azure, dans la page d’espace de travail Log Analytics pour votre espace de travail sélectionné, cliquez sur la vignette **Recherche dans les journaux**.
+1. Dans le portail Azure, dans la page des espaces de travail Log Analytics, cliquez sur la vignette **Rechercher dans les journaux** pour votre espace de travail sélectionné.
 2. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
 
     ```
@@ -278,7 +278,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 - [Configurer la règle System Center Operations Manager Health Check](#configure-the-health-check-rule)
 
 
-*Est-il possible de configurer la fréquence d'exécution du contrôle ?* Oui. Consultez [Configuration de la fréquence d’exécution](#configure-the-run-frequency).
+*Est-il possible de configurer la fréquence d’exécution du contrôle ?* Oui. Consultez [Configuration de la fréquence d’exécution](#configure-the-run-frequency).
 
 *Si un autre serveur est découvert après l’ajout de la solution System Center Operations Manager Assessment, ce serveur sera-t-il évalué ?* Oui, après la découverte, il sera évalué ; par défaut, tous les sept jours.
 
@@ -303,6 +303,6 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 *Est-il possible d'ignorer une recommandation ?* Oui, consultez [Ignorer les recommandations](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

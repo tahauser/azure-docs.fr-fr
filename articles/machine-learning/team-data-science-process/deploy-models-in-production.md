@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: bradsev;
-ms.openlocfilehash: c7be9eda2d6f37951eb120250861cf4a39b0141b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-models-in-production"></a>Déployer des modèles en production
 
@@ -27,7 +27,7 @@ Le déploiement en production permet à un modèle de jouer un rôle actif dans 
 Il existe différentes approches et plateformes pour mettre les modèles en production. Voici quelques options :
 
 
-- [Déploiement du modèle dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Déploiement du modèle dans Azure Machine Learning](../preview/model-management-overview.md)
 - [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -45,9 +45,9 @@ Il existe différentes approches et plateformes pour mettre les modèles en prod
 Quand plusieurs modèles sont en production, il peut être utile d’effectuer un [test A/B](https://en.wikipedia.org/wiki/A/B_testing) pour comparer les performances des modèles. 
 
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Des procédures pas à pas illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. L’article [Exemples de procédures pas à pas](walkthroughs.md) les répertorie et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
+Des procédures pas à pas illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. L’article [Exemples de procédures pas à pas](walkthroughs.md) les liste et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
  
 
 

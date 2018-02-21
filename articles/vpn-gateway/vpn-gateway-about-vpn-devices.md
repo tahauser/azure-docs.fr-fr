@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: yushwang
-ms.openlocfilehash: bb6f9f4df9afa9d0c1a75fbb1166798a2aef4bb4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -57,6 +57,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guide de configuration*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemples de configuration**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/A |Non compatible |Non compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 et versions ultérieures |[Guide de configuration](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatible |
 | F5 |Série BIG-IP |12.0 |[Guide de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guide de configuration](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Guide de configuration](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -71,7 +72,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | ShareTech | UTM nouvelle génération (série NU) | 9.0.1.3 | Non compatible | [Guide de configuration](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Non compatible |[Guide de configuration](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Pare-feu XG Next Gen | XG v17 | | [Guide de configuration](https://community.sophos.com/kb/127546) |
-| WatchGuard |Tout |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |Tous |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
 >
@@ -138,8 +139,8 @@ Dans les tableaux suivants :
 | Chiffrement et algorithmes de hachage |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
 | Durée de vie de l’AS (durée)            |3 600 secondes  |27 000 secondes                                |
 | Durée de vie de l’AS (octets)           |102 400 000 Ko | -                                           |
-| PFS (Perfect Forward Secrecy) |Non             |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
-| Détection d’homologue mort     |Non pris en charge  |Pris en charge                                    |
+| PFS (Perfect Forward Secrecy) |Non              |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
+| Détection d’homologue mort     |Non pris en charge  |Prise en charge                                    |
 
 
 ### <a name ="RouteBasedOffers"></a>Offres d’association de sécurité VPN IPsec RouteBased (AS IKE en mode rapide)
@@ -154,8 +155,8 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 2 |AES256        |SHA1              |Aucun         |
 | 3 |3DES          |SHA1              |Aucun         |
 | 4 |AES256        |SHA256            |Aucun         |
-| 5 |AES128        |SHA1              |Aucun         |
-| 6 |3DES          |SHA256            |Aucun         |
+| 5. |AES128        |SHA1              |Aucun         |
+| 6. |3DES          |SHA256            |Aucun         |
 
 #### <a name="azure-gateway-as-responder"></a>Passerelle Azure en tant que répondeur
 
@@ -165,11 +166,11 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 2 |AES256        |SHA1              |Aucun         |
 | 3 |3DES          |SHA1              |Aucun         |
 | 4 |AES256        |SHA256            |Aucun         |
-| 5 |AES128        |SHA1              |Aucun         |
-| 6 |3DES          |SHA256            |Aucun         |
+| 5. |AES128        |SHA1              |Aucun         |
+| 6. |3DES          |SHA256            |Aucun         |
 | 7 |DES           |SHA1              |Aucun         |
 | 8 |AES256        |SHA1              |1            |
-| 9 |AES256        |SHA1              |2            |
+| 9. |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
 | 11|AES128        |SHA1              |1            |
 | 12|AES128        |SHA1              |2            |

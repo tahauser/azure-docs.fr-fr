@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-2---december-2017"></a>Sprint 2 - décembre 2017 
 
 #### <a name="version-number-01171115263"></a>Numéro de version : 0.1.1711.15263
 
->Voici comment vous pouvez [trouver le numéro de version](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Voici comment vous pouvez [trouver le numéro de version](known-issues-and-troubleshooting-guide.md).
 
 Bienvenue dans la troisième mise à jour d’Azure Machine Learning Workbench. Cette mise à jour inclut des améliorations dans l’application Workbench, l’interface de ligne de commande (CLI) et les services principaux. Merci beaucoup pour les sourires et les smileys mécontents que vous envoyez. La plupart des mises à jour suivantes sont les résultats directs de vos commentaires. 
 
 ## <a name="notable-new-features"></a>Nouvelles fonctionnalités notables
-- [Prise en charge de SQL Server et Azure SQL DB comme source de données](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Prise en charge de SQL Server et Azure SQL DB comme source de données](data-prep-appendix2-supported-data-sources.md#types) 
 - [Apprentissage approfondi sur Spark avec prise en charge GPU à l’aide de MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Tous les conteneurs AML sont compatibles avec les appareils Azure IoT Edge lors du déploiement (aucune étape supplémentaire requise)](http://aka.ms/aml-iot-edge-blog)
 - Liste de modèles inscrits et vues de détails disponibles dans le portail Azure
@@ -56,7 +56,7 @@ Vous trouverez ci-dessous une liste des mises à jour détaillées de chaque zon
 
 - Améliorations des performances lors de la recommandation de cas à réviser dans la colonne « Dériver des colonnes par exemple »
 
-- [Prise en charge de SQL Server et Azure SQL DB comme source de données](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Prise en charge de SQL Server et Azure SQL DB comme source de données](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Image de la création d’une nouvelle source de données SQL Server](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ Vous pouvez désormais créer et accéder à une cible de calcul de type remoted
 
 - Vous pouvez préparer cette cible de calcul et l’utiliser pour l’exécution, et Azure ML Workbench utilisera cette clé pour l’authentification.  
 
-Pour plus d’informations sur la création de cibles de calcul, consultez [Configuration du service Azure Machine Learning - Expérimentation](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration)
+Pour plus d’informations sur la création de cibles de calcul, consultez [Configuration du service Azure Machine Learning - Expérimentation](experimentation-service-configuration.md)
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools pour IA
 - Ajout de la prise en charge de [Visual Studio Tools pour AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
