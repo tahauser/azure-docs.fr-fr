@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/19/2017
 ms.author: anoopkv
-ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Gérer un serveur de processus en cours d’exécution dans Azure (Resource Manager)
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 > * [Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 Lors de la restauration automatique, il est recommandé de déployer le serveur de processus dans Azure s’il existe une latence élevée entre le réseau virtuel Azure et votre réseau local. Cet article explique comment installer, configurer et gérer les serveurs de processus en cours d’exécution dans Azure.
@@ -30,7 +30,7 @@ Lors de la restauration automatique, il est recommandé de déployer le serveur 
 > [!NOTE]
 > Consultez cet article si vous avez utilisé **Resource Manager** comme modèle de déploiement pour les machines virtuelles lors du basculement. Si vous avez utilisé le modèle de déploiement **Classic**, suivez les étapes de la rubrique [Guide pratique pour installer et configurer un serveur de processus de restauration automatique (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 

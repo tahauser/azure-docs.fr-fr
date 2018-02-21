@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Analytics dans Application Insights
 Analytics est le puissant outil de recherche et de requête d[’Application Insights](app-insights-overview.md). Analytics étant un outil web, aucune installation n’est nécessaire. Si vous avez déjà configuré Application Insights pour l’une de vos applications, vous pouvez alors analyser les données de votre application en ouvrant Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application.
@@ -47,15 +47,15 @@ Nous comptons ensuite le nombre d’enregistrements par pays (ces données se tr
 
 Le langage possède de nombreuses fonctionnalités attrayantes :
 
-* [Filtrer](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et métriques personnalisées.
-* [Joindre](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
-* [Agrégations](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions)statistiques puissantes.
+* [Filtrer](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et métriques personnalisées.
+* [Joindre](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
+* [Agrégations](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)statistiques puissantes.
 * Visualisations immédiates et puissantes.
 * Il existe une [API REST](https://dev.applicationinsights.io/) que vous pouvez utiliser pour exécuter des requêtes par programme, par exemple à partir de PowerShell.
 
 La [référence complète du langage](https://go.microsoft.com/fwlink/?linkid=856079) détaille chaque commande prise en charge et se met à jour régulièrement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Prise en main du [portail Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * Prise en main de l[’écriture de requêtes](https://go.microsoft.com/fwlink/?linkid=856078)
 * Consultez l[’aide-mémoire des utilisateurs de SQL](https://aka.ms/sql-analytics) pour obtenir la traduction des idiomes courants.

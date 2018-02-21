@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Avec Azure, SnelStart a rapidement développé ses services d’entreprise au rythme de 1 000 nouvelles bases de données Azure SQL Database par mois
 ![Logo SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -103,8 +103,7 @@ SnelStart apprécie également l’étroit partenariat développé avec l’équ
 L’objectif immédiat de SnelStart est de continuer à faire croître sa base de clients satisfaits. Comme l’affirme Been, « Sans les restrictions techniques et les limites de ressources que nous avions en tant qu’éditeur de logiciels indépendant, nos possibilités de développement ne connaissent plus de barrières. »
 
 ## <a name="more-information"></a>Plus d’informations
-* Pour plus d’informations sur les pools élastiques Azure, consultez [Pools élastiques](sql-database-elastic-pool.md).
-* Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
+* Pour plus d’informations sur les pools élastiques Azure, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
 * Pour plus d’informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Pour plus d’informations sur SnelStart, consultez [SnelStart](http://www.snelstart.nl).
 

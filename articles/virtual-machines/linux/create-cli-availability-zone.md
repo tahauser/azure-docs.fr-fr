@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface de ligne de commande Azure
 
@@ -28,7 +28,7 @@ Cet article aborde l’utilisation de l’interface de ligne de commande Azure p
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Assurez-vous que vous avez installé la dernière version de [l’interface de ligne de commande Azure 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec [az login](/cli/azure/#login).
+Assurez-vous que vous avez installé la dernière version de [l’interface de ligne de commande Azure 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec [az login](/cli/azure/#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Vérifier la disponibilité de la référence SKU de machine virtuelle

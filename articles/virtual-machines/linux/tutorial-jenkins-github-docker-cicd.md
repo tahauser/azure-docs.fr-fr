@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Comment créer une infrastructure de développement sur une machine virtuelle Linux dans Azure avec Jenkins, GitHub et Docker
 Pour automatiser les phases de création et de test du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
@@ -68,13 +68,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Pour pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupJenkins* à l’emplacement *eastus* :
+Pour pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupJenkins* à l’emplacement *eastus* :
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers *cloud-init-jenkins.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel.
+Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers *cloud-init-jenkins.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Il faut quelques minutes pour que la machine virtuelle soit créée et configurée.
 
-Pour que le trafic web puisse atteindre votre machine virtuelle, utilisez [az vm open-port](/cli/azure/vm#open-port) pour ouvrir le port *8080* pour le trafic Jenkins et le port *1337* pour l’application Node.js qui sert à exécuter un exemple d’application :
+Pour que le trafic web puisse atteindre votre machine virtuelle, utilisez [az vm open-port](/cli/azure/vm#az_vm_open_port) pour ouvrir le port *8080* pour le trafic Jenkins et le port *1337* pour l’application Node.js qui sert à exécuter un exemple d’application :
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
-Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Avec Azure Container Service, l’approvisionnement d’un cluster Kubernetes prêt pour la production est une opération simple et rapide. Dans ce didacticiel (troisième d’une série de huit), un cluster Kubernetes est déployé dans ACS. Les étapes terminées sont les suivantes :
+Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Avec Azure Container Service, l’approvisionnement d’un cluster Kubernetes prêt pour la production est une opération simple et rapide. Dans ce didacticiel (troisième d’une série de huit), un cluster Kubernetes est déployé dans ACS. Les étapes effectuées sont les suivantes :
 
 > [!div class="checklist"]
 > * Déploiement d’un cluster ACS Kubernetes
@@ -41,10 +41,10 @@ Une fois celui-ci inscrit, vous êtes prêt à créer un cluster Kubernetes avec
 
 ## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
 
-L’exemple suivant crée un cluster nommé `myK8sCluster` dans le groupe de ressources `myResourceGroup`. Vous avez créé le groupe de ressources au [tutoriel précédent][aks-tutorial-prepare-acr].
+L’exemple suivant crée un cluster nommé `myAKSCluster` dans le groupe de ressources `myResourceGroup`. Vous avez créé le groupe de ressources au [tutoriel précédent][aks-tutorial-prepare-acr].
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 Au bout de quelques minutes, le déploiement se termine et retourne des informations au format JSON concernant le déploiement ACS.
@@ -64,7 +64,7 @@ az aks install-cli
 Pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes, exécutez la commande suivante :
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
 ```
 
 Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get].
@@ -73,16 +73,16 @@ Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get
 kubectl get nodes
 ```
 
-Output:
+Sortie :
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 ```
 
 À l’issue du didacticiel, vous disposez d’un cluster ACS prêt pour les charges de travail. Dans les didacticiels suivants, une application à plusieurs conteneurs est déployée sur ce cluster, mise à l’échelle, mise à jour et surveillée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, un cluster Kubernetes a été déployé dans ACS. Les étapes suivantes ont été effectuées :
 

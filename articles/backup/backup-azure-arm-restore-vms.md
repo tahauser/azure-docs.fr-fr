@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
 Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. Lorsque vous restaurez un point de récupération, vous pouvez :
@@ -104,7 +104,7 @@ Après avoir sélectionné le point de restauration, choisissez une configuratio
 
    * **Restaurer des disques**
 
-Le portail fournit une option **Création rapide** pour la machine virtuelle restaurée. Pour personnaliser la configuration de la machine virtuelle ou les noms des ressources créées dans le cadre de la création d’un choix de machines virtuelles, utilisez PowerShell ou le portail pour restaurer des disques sauvegardés. Utilisez les commandes PowerShell pour les associer à votre choix de configuration de machine virtuelle. Vous pouvez également utiliser le modèle fourni avec les disques restaurés pour personnaliser la machine virtuelle restaurée. Pour plus d’informations sur la façon de restaurer une machine virtuelle possédant plusieurs cartes réseau ou sous un équilibrage de charge, voir [Restaurer une machine virtuelle avec des configurations réseau spéciales](#restore-a vm-with-special-network-configurations). Si vous utilisez des [licences HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaurez des disques et utilisez PowerShell/modèle comme indiqué dans cet article pour créer la machine virtuelle. Veillez à spécifier **LicenseType** comme « Windows_Server » lorsque vous créez la machine virtuelle pour profiter des avantages HUB sur la machine virtuelle restaurée. 
+Le portail fournit une option **Création rapide** pour la machine virtuelle restaurée. Pour personnaliser la configuration de la machine virtuelle ou les noms des ressources créées dans le cadre de la création d’un choix de machines virtuelles, utilisez PowerShell ou le portail pour restaurer des disques sauvegardés. Utilisez les commandes PowerShell pour les associer à votre choix de configuration de machine virtuelle. Vous pouvez également utiliser le modèle fourni avec les disques restaurés pour personnaliser la machine virtuelle restaurée. Pour plus d’informations sur la façon de restaurer une machine virtuelle possédant plusieurs cartes réseau ou sous un équilibrage de charge, voir [Restaurer une machine virtuelle avec des configurations réseau spéciales](#restore-vms-with-special-network-configurations). Si vous utilisez des [licences HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaurez des disques et utilisez PowerShell/modèle comme indiqué dans cet article pour créer la machine virtuelle. Veillez à spécifier **LicenseType** comme « Windows_Server » lorsque vous créez la machine virtuelle pour profiter des avantages HUB sur la machine virtuelle restaurée. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Créer une machine virtuelle à partir d’un point de restauration
 1. Si ce n’est pas encore fait, [sélectionnez un point de restauration](#restore-a vm-with-special-network-configurations) avant de procéder à la création d’une machine virtuelle à partir d’un point de restauration. Une fois le point de restauration sélectionné, sur le panneau **Configuration de la restauration**, entrez ou sélectionnez des valeurs pour chacun des champs suivants :

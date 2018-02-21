@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1fcc432e8437a7fd284a75aa40454848a2af3006
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 471749563fae5b5de6e98e22ebf2ec5cc9365368
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Utiliser cloud-init pour exécuter un script bash dans une machine virtuelle Linux sur Azure
-Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour exécuter un script bash existant sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md).
+Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour exécuter un script bash existant sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
 
 ## <a name="run-a-bash-script-with-cloud-init"></a>Exécuter un script bash avec init-cloud
 Avec cloud-init, vous n’avez pas besoin de convertir vos scripts existant en un cloud-config, cloud-init accepte plusieurs types d’entrées, dont l’une d’entre elles est un script bash.
@@ -35,13 +35,13 @@ Pour voir cette fonctionnalité en action, créez un script bash pour le test. C
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Avant de déployer cette image, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
+Avant de déployer cette image, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maintenant, créez une machine virtuelle avec [az vm create](/cli/azure/vm#create) et spécifiez le fichier de script bash avec `--custom-data simple_bash.sh` comme suit :
+Maintenant, créez une machine virtuelle avec [az vm create](/cli/azure/vm#az_vm_create) et spécifiez le fichier de script bash avec `--custom-data simple_bash.sh` comme suit :
 
 ```azurecli-interactive 
 az vm create \
@@ -64,10 +64,10 @@ Remplacez par le répertoire **/tmp** et vérifiez que ce fichier myScript.txt e
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des exemples cloud-init supplémentaires de modifications de configuration, consultez les rubriques suivantes :
  
-- [Use cloud-init to add a user to a Linux VM in Azure](cloudinit-add-user.md) (Utiliser cloud-init pour ajouter un utilisateur à une machine virtuelle dans Azure)
-- [Use cloud-init to update and install packages in a Linux VM in Azure](cloudinit-update-vm.md) (Utiliser cloud-init pour mettre à jour et installer des packages dans une machine virtuelle Linux dans Azure)
+- [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)
+- [Exécuter un gestionnaire de package pour mettre à jour les packages existants au premier démarrage](cloudinit-update-vm.md)
 - [Use cloud-init to set hostname for a Linux VM in Azure](cloudinit-update-vm-hostname.md) (Utiliser cloud-init pour définir un nom d’hôte pour une machine virtuelle Linux dans Azure) 
-- [Comment personnaliser une machine virtuelle Linux au premier démarrage](tutorial-automate-vm-deployment.md)
+- [Installer un package d’application, mettre à jour des fichiers de configuration et injecter des clés](tutorial-automate-vm-deployment.md)

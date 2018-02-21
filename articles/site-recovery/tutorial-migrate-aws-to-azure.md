@@ -2,28 +2,22 @@
 title: Migrer des machines virtuelles depuis AWS vers Azure avec Azure Site Recovery | Microsoft Docs
 description: "Cet article décrit comment migrer des machines virtuelles s’exécutant dans Amazon Web Services (AWS) vers Azure en utilisant Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4acdc540ca1a87a4545130eb5fbc096633b0605c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
-Ce didacticiel vous montre comment migrer des machines virtuelles Amazon Web Services (AWS) vers des machines virtuelles Azure en utilisant Site Recovery. Durant la migration d’instances EC2 vers Azure, les machines virtuelles sont traitées comme des ordinateurs locaux physiques. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment migrer des machines virtuelles Amazon Web Services (AWS) vers des machines virtuelles Azure en utilisant Site Recovery. Durant la migration d’instances EC2 vers Azure, les machines virtuelles sont traitées comme des ordinateurs locaux physiques. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Préparer les ressources Azure
@@ -214,7 +208,7 @@ Vous pouvez suivre la progression du travail **Activer la protection** dans **Su
         
 Quand vous activez la réplication pour une machine virtuelle, vous devrez peut-être attendre 15 minutes ou plus avant que les modifications prennent effet et qu’elles apparaissent dans le portail.
 
-## <a name="run-a-test-failover"></a>Exécution d’un test de basculement
+## <a name="run-a-test-failover"></a>Exécuter un test de basculement
 
 Quand vous effectuez un test de basculement, voici ce qui se produit :
 
@@ -258,7 +252,7 @@ Effectuez un basculement réel pour les instances EC2 pour les migrer vers des m
 
     
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cette rubrique, vous avez découvert comment migrer des instances AWS EC2 vers des machines virtuelles Azure. Pour plus d’informations sur les machines virtuelles Azure, consultez les didacticiels sur les machines virtuelles Windows.
 

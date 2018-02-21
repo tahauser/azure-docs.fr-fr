@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux complète avec Azure CLI
 Pour créer rapidement une machine virtuelle dans Azure, vous pouvez utiliser une seule commande Azure CLI qui utilise des valeurs par défaut pour créer toutes les ressources associées requises. Les ressources telles que le réseau virtuel, l’adresse IP publique et les règles de groupe de sécurité réseau sont automatiquement créées. Pour un meilleur contrôle de votre environnement en production, vous pouvez créer ces ressources à l’avance, puis leur ajouter vos machines virtuelles. Cet article vous accompagne dans la création d’une machine virtuelle et de chacune des ressources associées.
 
-Assurez-vous que vous avez installé la dernière version de l’interface [Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/#login).
+Assurez-vous que vous avez installé la dernière version de l’interface [Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/#az_login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant la machine virtuelle et les ressources de réseau virtuel associées. Créez le groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant la machine virtuelle et les ressources de réseau virtuel associées. Créez le groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Par défaut, la sortie des commandes Azure CLI est au format JSON (JavaScript Object Notation). Pour remplacer la sortie par défaut pour une liste ou une table, par exemple, utilisez [az configure --output](/cli/azure/#configure). Vous pouvez également ajouter `--output` à n’importe quelle commande pour modifier ponctuellement le format de sortie. L’exemple suivant illustre la sortie JSON obtenue avec la commande `az group create` :
+Par défaut, la sortie des commandes Azure CLI est au format JSON (JavaScript Object Notation). Pour remplacer la sortie par défaut pour une liste ou une table, par exemple, utilisez [az configure --output](/cli/azure/#az_configure). Vous pouvez également ajouter `--output` à n’importe quelle commande pour modifier ponctuellement le format de sortie. L’exemple suivant illustre la sortie JSON obtenue avec la commande `az group create` :
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Par défaut, la sortie des commandes Azure CLI est au format JSON (JavaScript Ob
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Créer un réseau virtuel et un sous-réseau
-Ensuite, vous créez un réseau virtuel dans Azure et un sous-réseau dans lequel vous pouvez créer vos machines virtuelles. Utilisez [az network vnet create](/cli/azure/network/vnet#create) pour créer un réseau virtuel nommé *myVnet* avec le préfixe d’adresse *192.168.0.0/16*. Vous pouvez également ajouter un sous-réseau nommé *mySubnet* avec le préfixe d’adresse *192.168.1.0/24* :
+Ensuite, vous créez un réseau virtuel dans Azure et un sous-réseau dans lequel vous pouvez créer vos machines virtuelles. Utilisez [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) pour créer un réseau virtuel nommé *myVnet* avec le préfixe d’adresse *192.168.0.0/16*. Vous pouvez également ajouter un sous-réseau nommé *mySubnet* avec le préfixe d’adresse *192.168.1.0/24* :
 
 ```azurecli
 az network vnet create \
@@ -102,7 +102,7 @@ La sortie montre que le sous-réseau est logiquement créé à l’intérieur du
 
 
 ## <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
-Créons à présent une adresse IP publique avec la commande [az network public-ip create](/cli/azure/network/public-ip#create). Cette adresse IP publique vous permet de vous connecter à vos machines virtuelles à partir d’Internet. Comme l’adresse par défaut est dynamique, créez également une entrée DNS nommée avec le paramètre `--domain-name-label`. L’exemple suivant permet de créer une adresse IP publique nommée *myPublicIP* avec le nom DNS de *mypublicdns*. Puisque le nom DNS doit être unique, indiquez votre propre nom DNS unique :
+Créons à présent une adresse IP publique avec la commande [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Cette adresse IP publique vous permet de vous connecter à vos machines virtuelles à partir d’Internet. Comme l’adresse par défaut est dynamique, créez également une entrée DNS nommée avec le paramètre `--domain-name-label`. L’exemple suivant permet de créer une adresse IP publique nommée *myPublicIP* avec le nom DNS de *mypublicdns*. Puisque le nom DNS doit être unique, indiquez votre propre nom DNS unique :
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Sortie :
 
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
-Pour contrôler le flux du trafic en direction et en provenance de vos machines virtuelles, vous appliquez un groupe de sécurité réseau à un sous-réseau ou à une carte d’interface réseau virtuelle. L’exemple suivant utilise la commande [az network nsg create](/cli/azure/network/nsg#create) pour créer un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
+Pour contrôler le flux du trafic en direction et en provenance de vos machines virtuelles, vous appliquez un groupe de sécurité réseau à un sous-réseau ou à une carte d’interface réseau virtuelle. L’exemple suivant utilise la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) pour créer un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Vous définissez des règles qui autorisent ou refusent certains types de trafic. Pour autoriser les connexions entrantes sur le port 22 (afin d’autoriser l’accès SSH), créez une règle entrante avec la commande [az network nsg rule create](/cli/azure/network/nsg/rule#create). L’exemple suivant crée une règle nommée *myNetworkSecurityGroupRuleSSH* :
+Vous définissez des règles qui autorisent ou refusent certains types de trafic. Pour autoriser les connexions entrantes sur le port 22 (afin d’autoriser l’accès SSH), créez une règle entrante avec la commande [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). L’exemple suivant crée une règle nommée *myNetworkSecurityGroupRuleSSH* :
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Examinez le groupe et les règles de sécurité réseau avec la commande [az network nsg show](/cli/azure/network/nsg#show) :
+Examinez le groupe et les règles de sécurité réseau avec la commande [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) :
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ Sortie :
 ```
 
 ## <a name="create-a-virtual-nic"></a>Créer une carte d’interface réseau virtuelle
-La disponibilité des cartes d’interface réseau virtuelles peut être déterminée par programme car vous pouvez définir des règles régissant leur utilisation. En fonction de la [taille de la machine virtuelle](sizes.md), vous pouvez attacher un nombre variable de cartes d’interface réseau virtuelles à une machine virtuelle. Dans la commande [az network nic create](/cli/azure/network/nic#create) suivante, vous créez une carte d’interface réseau nommée *myNic* et l’associez à votre groupe de sécurité réseau. L’adresse IP publique *myPublicIP* est également associée à la carte d’interface réseau virtuelle.
+La disponibilité des cartes d’interface réseau virtuelles peut être déterminée par programme car vous pouvez définir des règles régissant leur utilisation. En fonction de la [taille de la machine virtuelle](sizes.md), vous pouvez attacher un nombre variable de cartes d’interface réseau virtuelles à une machine virtuelle. Dans la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create) suivante, vous créez une carte d’interface réseau nommée *myNic* et l’associez à votre groupe de sécurité réseau. L’adresse IP publique *myPublicIP* est également associée à la carte d’interface réseau virtuelle.
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ Les domaines de mise à jour indiquent les groupes de machines virtuelles et les
 
 Azure distribue automatiquement les machines virtuelles sur les domaines d’erreur et de mise à jour lorsque vous les placez dans un groupe à haute disponibilité. Pour plus d’informations, consultez l’article sur la [gestion de la disponibilité des machines virtuelles](manage-availability.md).
 
-Créez un groupe à haute disponibilité pour votre machine virtuelle avec la commande [az vm availability-set create](/cli/azure/vm/availability-set#create). L’exemple suivant permet de créer un groupe à haute disponibilité nommé *myAvailabilitySet* :
+Créez un groupe à haute disponibilité pour votre machine virtuelle avec la commande [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). L’exemple suivant permet de créer un groupe à haute disponibilité nommé *myAvailabilitySet* :
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ La sortie indique les domaines d’erreur et les domaines de mise à jour :
 
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
-Vous avez créé les ressources de réseau pour prendre en charge des machines virtuelles accessibles par Internet. Maintenant, créez une machine virtuelle et sécurisez-la avec une clé SSH. Dans cet exemple, nous allons créer une machine virtuelle Ubuntu basée sur la dernière version de LTS. Vous pouvez trouver des images supplémentaires avec la commande [az vm image list](/cli/azure/vm/image#list), comme décrit dans l’article sur la [recherche d’images de machine virtuelle Azure](cli-ps-findimage.md).
+Vous avez créé les ressources de réseau pour prendre en charge des machines virtuelles accessibles par Internet. Maintenant, créez une machine virtuelle et sécurisez-la avec une clé SSH. Dans cet exemple, nous allons créer une machine virtuelle Ubuntu basée sur la dernière version de LTS. Vous pouvez trouver des images supplémentaires avec la commande [az vm image list](/cli/azure/vm/image#az_vm_image_list), comme décrit dans l’article sur la [recherche d’images de machine virtuelle Azure](cli-ps-findimage.md).
 
 Spécifiez une clé SSH à utiliser pour l’authentification. Si vous ne disposez pas d’une paire de clés publiques SSH, vous pouvez [les créer](mac-create-ssh-keys.md) ou utiliser le paramètre `--generate-ssh-keys` pour les créer automatiquement. Dans le cas où vous disposez déjà d’une paire de clés, ce paramètre utilise les clés existantes dans `~/.ssh`.
 
-Créez la machine virtuelle en regroupant toutes les ressources et informations avec la commande [az vm create](/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVM* :
+Créez la machine virtuelle en regroupant toutes les ressources et informations avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVM* :
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ Pour voir le site NGINX par défaut en action, ouvrez votre navigateur web, puis
 ![Site NGINX par défaut sur votre machine virtuelle](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exporter en tant que modèle
-Que se passe-t-il si vous souhaitez créer un environnement de développement supplémentaire avec les mêmes paramètres ou un environnement de production correspondant ? Resource Manager utilise des modèles JSON qui définissent tous les paramètres pour votre environnement. Vous créez des environnements entiers en faisant référence à ce modèle JSON. Vous pouvez [créer manuellement des modèles JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exporter un environnement existant qui créera le modèle JSON pour vous. Utilisez la commande [az group export](/cli/azure/group#export) pour exporter votre groupe de ressources comme suit :
+Que se passe-t-il si vous souhaitez créer un environnement de développement supplémentaire avec les mêmes paramètres ou un environnement de production correspondant ? Resource Manager utilise des modèles JSON qui définissent tous les paramètres pour votre environnement. Vous créez des environnements entiers en faisant référence à ce modèle JSON. Vous pouvez [créer manuellement des modèles JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exporter un environnement existant qui créera le modèle JSON pour vous. Utilisez la commande [az group export](/cli/azure/group#az_group_export) pour exporter votre groupe de ressources comme suit :
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Cette commande crée le fichier `myResourceGroup.json` dans votre répertoire de travail actuel. Quand vous créez un environnement à partir de ce modèle, vous êtes invité à indiquer tous les noms de ressources. Vous pouvez renseigner ces noms dans votre fichier de modèle en ajoutant le paramètre `--include-parameter-default-value` à la commande `az group export`. Modifiez votre modèle JSON pour spécifier les noms de ressources, ou [créez un fichier parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) qui spécifie les noms de ressources.
 
-Pour créer un environnement à partir de votre modèle, utilisez la commande [az group deployment create](/cli/azure/group/deployment#create) comme suit :
+Pour créer un environnement à partir de votre modèle, utilisez la commande [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) comme suit :
 
 ```azurecli
 az group deployment create \

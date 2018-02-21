@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Tableau de bord Kubernetes avec Azure Container Service (ACS)
 
@@ -21,7 +21,7 @@ Vous pouvez utiliser Azure CLI pour démarrer le tableau de bord Kubernetes. Ce 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [démarrage rapide d’ACS][aks-quickstart].
+Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [guide de démarrage rapide d’ACS][aks-quickstart].
 
 Vous devez également avoir installé et configuré Azure CLI version 2.0.21 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
 
@@ -30,7 +30,7 @@ Vous devez également avoir installé et configuré Azure CLI version 2.0.21 ou 
 Pour démarrer le tableau de bord Kubernetes, utilisez la commande `az aks browse`. Lorsque vous exécutez cette commande, remplacez les noms du groupe de ressources et du cluster.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Cette commande crée un proxy entre votre système de développement et l’API Kubernetes, et ouvre un navigateur web sur le tableau de bord Kubernetes.
@@ -71,7 +71,7 @@ Lorsque vous êtes prêt, sélectionnez **Mettre à jour**.
 
 ![Modification de Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur le tableau de bord Kubernetes, voir la documentation de Kubernetes.
 

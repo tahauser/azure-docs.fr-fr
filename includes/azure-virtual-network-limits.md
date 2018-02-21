@@ -52,7 +52,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles par ressource, De base | 150 | 250 |
 | Règles par ressource, Standard | 1250 | 1 500 |
 | Règles par configuration IP | 299 |299 |
-| Configurations d’adresses IP frontales, De base | 10 | contacter le support |
+| Configurations d’adresses IP frontales, De base | 10 | 200 |
 | Configurations d’adresses IP frontales, Standard | 10 | 600 |
 | Pool principal, De base | 100, un seul groupe à haute disponibilité | - |
 | Pool principal, Standard | 1000, un seul réseau virtuel | - |

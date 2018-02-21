@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principaux de service avec Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ Lors du déploiement d’un cluster AKS avec la commande `az aks create`, vous a
 Dans l’exemple suivant, un cluster AKS est créé, et puisqu’un principal de service existant n’est pas spécifié, un principal de service est créé pour le cluster. Pour effectuer cette opération, votre compte doit disposer des droits nécessaires pour la création d’un principal de service.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Utiliser un Service Pack existant
@@ -67,7 +67,7 @@ Le résultat ressemble à ce qui suit. Notez la valeur de `appId` et `password`.
 Lorsque vous utilisez un principal de service créé au préalable, fournissez `appId` et `password` en tant que valeurs d’argument à la commande `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Si vous déployez un cluster AKS à l’aide du portail Azure, entrez la valeur `appId` dans le champ **ID client de principal de service** et la valeur `password` dans le champ **Clé secrète client de principal de service** dans le formulaire de configuration de cluster AKS.
@@ -86,7 +86,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 * Si vous utilisez la commande `az aks create` pour générer automatiquement le principal de service, ce dernier peut également s’authentifier auprès d’un [registre de conteneurs Azure][acr-intro] créé dans le même abonnement.
 * Lors de la suppression d’un cluster AKS qui a été créé par `az aks create`, le principal du service qui a été créé automatiquement ne sera pas supprimé. Vous pouvez utiliser `az ad sp delete --id $clientID` pour le supprimer.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les principaux de service Azure Active Directory, consultez la documentation d’applications Azure AD.
 

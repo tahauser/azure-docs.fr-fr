@@ -1,9 +1,9 @@
 ---
 title: Chiffrement dans Azure Data Lake Store | Microsoft Docs
-description: "Comprendre le fonctionnement du chiffrement et de la rotation des clés dans Azure Data Lake Store"
+description: "Le chiffrement dans Azure Data Lake Store vous permet de protéger vos données, de mettre en œuvre des stratégies de sécurité d’entreprise et de répondre aux exigences de conformité réglementaire. Cet article fournit une vue d’ensemble de la conception et présente certains aspects techniques de la mise en œuvre."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Chiffrement des données dans Azure Data Lake Store
 
@@ -61,11 +61,11 @@ Voici une brève comparaison des fonctionnalités fournies par les deux modes de
 | --- | --- | --- |
 |Comment les données sont stockées ?|Toujours chiffrées avant d’être stockées.|Toujours chiffrées avant d’être stockées.|
 |Où est stockée la clé de chiffrement principale ?|Key Vault|Key Vault|
-|Des clés de chiffrement sont-elles stockées en dehors de Key Vault ? |Non|Non|
+|Des clés de chiffrement sont-elles stockées en dehors de Key Vault ? |Non |Non |
 |La MEK peut-elle être récupérée dans Key Vault ?|Non. Une fois la MEK stockée dans Key Vault, elle peut uniquement être utilisée pour le chiffrement et le déchiffrement.|Non. Une fois la MEK stockée dans Key Vault, elle peut uniquement être utilisée pour le chiffrement et le déchiffrement.|
 |Qui possède l’instance Key Vault et la MEK ?|Service Data Lake Store|Vous possédez l’instance Key Vault, qui appartient à votre propre abonnement Azure. La MEK dans Key Vault peut être gérée par logiciel ou matériel.|
-|Pouvez-vous révoquer l’accès à la MEK pour le service Data Lake Store ?|Non|Oui. Vous pouvez gérer des listes de contrôle d’accès sur Key Vault et supprimer des entrées de contrôle d’accès à l’identité de service pour le service Data Lake Store.|
-|Pouvez-vous supprimer définitivement la MEK ?|Non|Oui. Si le client supprime la MEK de Key Vault, les données dans le compte Data Lake Store ne peuvent pas être déchiffrées par quiconque, y compris le service Data Lake Store. <br><br> Si vous avez explicitement sauvegardé la MEK avant de la supprimer de Key Vault, elle peut être restaurée et les données peuvent ensuite être récupérées. Toutefois, si vous n’avez pas sauvegardé la MEK avant de la supprimer de Key Vault, les données dans le compte Data Lake Store ne peuvent jamais être déchiffrées ultérieurement.|
+|Pouvez-vous révoquer l’accès à la MEK pour le service Data Lake Store ?|Non |Oui. Vous pouvez gérer des listes de contrôle d’accès sur Key Vault et supprimer des entrées de contrôle d’accès à l’identité de service pour le service Data Lake Store.|
+|Pouvez-vous supprimer définitivement la MEK ?|Non |Oui. Si le client supprime la MEK de Key Vault, les données dans le compte Data Lake Store ne peuvent pas être déchiffrées par quiconque, y compris le service Data Lake Store. <br><br> Si vous avez explicitement sauvegardé la MEK avant de la supprimer de Key Vault, elle peut être restaurée et les données peuvent ensuite être récupérées. Toutefois, si vous n’avez pas sauvegardé la MEK avant de la supprimer de Key Vault, les données dans le compte Data Lake Store ne peuvent jamais être déchiffrées ultérieurement.|
 
 
 Hormis la différence entre l’utilisateur qui gère la MEK et l’instance Key Vault dans lequel elle se trouve, les autres éléments de conception sont les mêmes pour les deux modes.
@@ -79,7 +79,7 @@ Il est important de se rappeler ce qui suit lors du choix du mode des clés de c
 
 Trois types de clés sont utilisées dans la conception du chiffrement des données. Le tableau suivant présente une synthèse :
 
-| Clé                   | Abréviation | Associée à | Emplacement de stockage                             | Type       | Remarques                                                                                                   |
+| Clé                   | Abréviation | Associée à | Emplacement de stockage                             | type       | Notes                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Clé de chiffrement principale | MEK          | Compte Data Lake Store | Key Vault                              | Asymétrique | Peut être gérée par Data Lake Store ou par vous.                                                              |
 | Clé de chiffrement des données   | DEK          | Compte Data Lake Store | Stockage permanent, géré par le service Data Lake Store | Symétrique  | La DEK est chiffrée par la MEK. La DEK chiffrée est stockée sur un support permanent. |
@@ -112,7 +112,7 @@ Le schéma suivant illustre ces concepts :
 
 Lorsque vous utilisez des clés gérées par le client, vous pouvez effectuer une rotation de la MEK. Pour savoir comment configurer un compte Data Lake Store avec des clés gérées par le client, consultez [Prise en main](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Lorsque vous avez configuré le compte Data Lake Store, vous avez choisi d’utiliser vos propres clés. Cette option ne peut pas être modifiée une fois le compte créé. Les étapes ci-dessous supposent que vous utilisez des clés gérées par le client (c’est-à-dire que vous avez choisi vos propres clés dans Key Vault).
 
@@ -120,7 +120,7 @@ Notez que si vous utilisez les options par défaut pour le chiffrement, vos donn
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Comment effectuer une rotation de la MEK dans Data Lake Store
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à l’instance Key Vault dans laquelle sont stockées vos clés associées à votre compte Data Lake Store, puis sélectionnez des clés. Sélectionner **Clés**.
 
     ![Capture d’écran de Key Vault](./media/data-lake-store-encryption/keyvault.png)

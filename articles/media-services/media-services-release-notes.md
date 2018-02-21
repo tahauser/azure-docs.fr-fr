@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
@@ -38,7 +38,7 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 | La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échoue. |Media Services génère des URL SAS basées sur la version du [02/12/2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Si vous voulez utiliser le SDK d’Azure Storage pour répertorier les objets blob dans un conteneur d’objets blob, utilisez la méthode [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) intégrée à la version 2.x de ce SDK. |
 | Le mécanisme de limitation de Media Services restreint l’utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d’état HTTP 503 « Service indisponible ». |Pour plus d’informations, consultez la description du code d’état HTTP 503 dans [Codes d’erreur d’Azure Media Services](media-services-encoding-error-codes.md). |
 | Quand vous interrogez des entités, il existe une limite de 1000 entités retournées simultanément, car l’API REST version 2 publique limite les résultats des requêtes à 1000 résultats. |Utilisez Skip et Take (.NET)/ top (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
-| Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste Smooth Streaming. |Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues). |
+| Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. |Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues). |
 | Les objets du SDK Media Services .NET ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec Cache Redis Azure. |Si vous essayez de sérialiser l’objet AssetCollection du SDK pour l’ajouter à Cache Redis Azure, une exception est levée. |
 
 
@@ -120,7 +120,7 @@ Quand une tâche d’encodage est soumise à Media Encoder Standard ou à Media 
 > 
 
 ### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Un nouveau fichier manifeste client (*.ISMC) est généré dans l’élément de sortie quand une tâche d’encodage génère un ou plusieurs fichiers MP4.
-À compter de la version de service la plus récente, une fois que la tâche d’encodage a généré plusieurs fichiers MP4, l’élément de sortie contient également un fichier manifeste de streaming (*.ismc) client. Le fichier .ismc vous aide à améliorer les performances de dstreaming dynamique. 
+À compter de la version de service la plus récente, une fois que la tâche d’encodage a généré plusieurs fichiers MP4, l’élément de sortie contient également un fichier manifeste de streaming (*.ismc) client. Le fichier .ismc vous aide à améliorer les performances de diffusion en continu dynamique. 
 
 > [!NOTE]
 > La syntaxe du fichier manifeste client (.ism) est réservée à un usage interne. Elle est susceptible de changer dans les versions à venir. Ne pas modifier ni manipuler le contenu de ce fichier.
@@ -130,7 +130,7 @@ Quand une tâche d’encodage est soumise à Media Encoder Standard ou à Media 
 Pour plus d’informations, consultez [ce blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### <a name="known-issues"></a>Problèmes connus
-Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste Smooth Streaming. Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues).
+Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues).
 
 ## <a id="apr_changes16"></a>Version d’avril 2016
 ### <a name="media-analytics"></a>Media Analytics
@@ -288,7 +288,7 @@ Cette version a marqué le constructeur Microsoft.WindowsAzure.MediaServices.Cli
 * La prise en charge de CORS a été ajoutée pour le service de remise de clé.
 * Les performances d’interrogation des options de stratégie d’autorisation ont été améliorées.
 * Dans le centre de données en Chine, [l’URL de remise de clé](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) fonctionne désormais par client (comme dans les autres centres de données).
-* La durée cible HLS automatique a été ajoutée. Lors du streaming en direct, HLS est toujours empaqueté de façon dynamique. Par défaut, Media Services calcule automatiquement le coefficient d’empaquetage de segment HLS (FragmentsPerSegment) en fonction de l’intervalle d’image clé (KeyFrameInterval). On emploie également le terme de groupe d’images (GOP) reçu à partir de l’encodeur en direct. Pour plus d’informations, consultez [Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* La durée cible HLS automatique a été ajoutée. Lors de la diffusion en continu, TLS est toujours empaquetée de façon dynamique. Par défaut, Media Services calcule automatiquement le coefficient d’empaquetage de segment HLS (FragmentsPerSegment) en fonction de l’intervalle d’image clé (KeyFrameInterval). On emploie également le terme de groupe d’images (GOP) reçu à partir de l’encodeur en direct. Pour plus d’informations, consultez [Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ### <a name="media-services-net-sdk-updates"></a>Mises à jour du SDK .NET Media Services
 Le [SDK Media Services](http://www.nuget.org/packages/windowsazure.mediaservices/) en est maintenant à la version 3.1.0.0. Les mises à jour suivantes ont été effectuées :
@@ -307,7 +307,7 @@ Le [SDK Media Services](http://www.nuget.org/packages/windowsazure.mediaservices
 ### <a id="new_encoder_release"></a>Version de l’encodeur Media Services
  La nouvelle version de l’encodeur Azure Media Encoder de Media Services a été annoncée. Avec la version la plus récente de Media Encoder, vous êtes facturé uniquement pour les Go de sortie. Autrement, les fonctionnalités du nouvel encodeur sont compatibles avec celles de l’encodeur précédent. Pour plus d’informations, consultez [Tarification Media Services].
 
-### <a id="oct_sdk"></a>Kit Media Services .NET SDK
+### <a id="oct_sdk"></a>Kit de développement logiciel (SDK) .NET de Media Services
 La dernière version des extensions du SDK Media Services pour .NET est la version 2.0.0.3.
 
 La dernière version du SDK Media Services pour .NET est la version 3.0.0.8. Les mises à jour suivantes ont été effectuées :
@@ -344,12 +344,12 @@ La dernière version du SDK Media Services pour .NET est la version 3.0.0.7.
 
     Pour plus d’informations, consultez la propriété CustomHostNames dans l’article [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-### <a id="sept_14_preview_changes"></a>Nouvelles fonctionnalités/nouveaux scénarios intégrés à la préversion publique
+### <a id="sept_14_preview_changes"></a>Nouvelles fonctionnalités/nouveaux scénarios intégrés à la version préliminaire publique
 * Streaming en direct (préversion). Pour plus d’informations, consultez [Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Service de remise de clé. Pour plus d’informations, consultez [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Chiffrement dynamique AES. Pour plus d’informations, consultez [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Service de remise de licence PlayReady. Pour plus d’informations, consultez [Utilisation du chiffrement dynamique et du service de distribution des licences PlayReady](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* Chiffrement dynamique PlayReady. Pour plus d’informations, consultez [Utilisation du chiffrement dynamique et du service de distribution des licences PlayReady](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* Service de remise de licence PlayReady. 
+* Chiffrement dynamique PlayReady. 
 * Modèle de licence PlayReady de Media Services. Pour plus d’informations, consultez [Présentation du modèle de licence PlayReady de Media Services].
 * Diffuser des actifs multimédias chiffrés dans le stockage. Pour plus d’informations, consultez [Diffuser du contenu chiffré dans le stockage](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
@@ -477,7 +477,7 @@ Les modifications suivantes sont incluses dans les versions du SDK Media Service
 * IntelliSense : la documentation IntelliSense manquante a été ajoutée pour de nombreux types.
 * Microsoft.Practices.TransientFaultHandling.Core : résolution d’un problème dû au fait que le SDK dépendait encore d’une ancienne version de cet assembly. Il fait dorénavant référence à la version 5.1.1209.1 de cet assembly.
 
-Correctifs pour les problèmes détectés dans le kit SDK de novembre 2012 :
+Correctifs pour les problèmes détectés dans le Kit de développement logiciel (SDK) de novembre 2012 :
 
 * IAsset.Locators.Count : ce nombre est maintenant indiqué correctement sur les nouvelles interfaces IAsset après la suppression de tous les localisateurs.
 * IAssetFile.ContentFileSize : cette valeur est maintenant définie correctement après un chargement par IAssetFile.Upload(filepath).
@@ -494,7 +494,7 @@ Correctifs pour les problèmes détectés dans le kit SDK de novembre 2012 :
 ## <a id="november_changes_12"></a>Version de novembre 2012
 Les changements mentionnés dans cette section étaient des mises à jour incluses dans le Kit de développement logiciel (SDK) de novembre 2012 (version 2.0.0.0). Ces changements peuvent nécessiter une modification ou une réécriture du code écrit pour la préversion du SDK de juin 2012.
 
-* Actifs multimédias
+* Éléments multimédias
   
     * IAsset.Create(assetName) est la *seule* fonction de création d’actifs multimédias. IAsset.Create ne télécharge plus les fichiers dans le cadre de l'appel de la méthode. Utilisez IAssetFile pour le téléchargement.
     * La méthode IAsset.Publish et la valeur d’énumération AssetState.Publish ont été supprimées du SDK Services. Tous les codes qui dépendent de cette valeur doivent être réécrits.

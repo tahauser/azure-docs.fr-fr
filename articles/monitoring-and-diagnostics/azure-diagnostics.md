@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Que sont les diagnostics Azure ?
 Azure Diagnostics est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et les rôles de travail Azure Cloud Service, Azure Virtual Machines sous Microsoft Windows et Service Fabric. Les autres services Azure ont leurs propres diagnostics distincts.
@@ -26,7 +26,7 @@ Azure Diagnostics est la fonctionnalité Azure qui active la collecte de donnée
 ## <a name="data-you-can-collect"></a>Données que vous pouvez collecter
 Les diagnostics Azure peuvent collecter les types de données suivants :
 
-| Source de données | Description |
+| source de données | DESCRIPTION |
 | --- | --- |
 | Compteurs de performances |Système d’exploitation et compteurs de performances personnalisés |
 | Journaux d’application |Messages de trace écrits par votre application |
@@ -43,7 +43,7 @@ L’extension des diagnostics Azure peut transférer ces données vers un compte
 ## <a name="versioning"></a>Contrôle de version
 Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
 
 ## <a name="web-apps"></a>Web Apps
@@ -75,6 +75,6 @@ Commencez avec [Surveillance d’une application Service Fabric](../service-fabr
 ## <a name="general-azure-diagnostics-articles"></a>Articles généraux sur les diagnostics Azure
 * [Configuration du schéma des diagnostics Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) - Apprenez à modifier le fichier de schéma pour collecter et acheminer les données des diagnostics. Vous pouvez également utiliser Visual Studio pour modifier le fichier de schéma.
 * [Mode de stockage des données des diagnostics Azure dans le stockage Azure](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) : identifiez les noms des tables et des objets blob dans lesquels les données des diagnostics sont écrites.
-* Apprenez à [utiliser les compteurs de performances dans les diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Apprenez à [utiliser les compteurs de performances dans les diagnostics Azure](../cloud-services/diagnostics-performance-counters.md).
 * Apprenez à [acheminer les informations des diagnostics Azure vers Application Insights](azure-diagnostics-configure-application-insights.md)
 * Si vous rencontrez des difficultés avec le lancement des diagnostics ou la recherche des données dans les tables de stockage Azure, consultez [Résolution des problèmes des diagnostics Azure](azure-diagnostics-troubleshooting.md)

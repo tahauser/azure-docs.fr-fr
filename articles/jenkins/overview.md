@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
@@ -29,7 +29,7 @@ Hébergez Jenkins dans Azure pour centraliser l’automatisation de votre build 
  
 - [Modèle de solution Jenkins](install-jenkins-solution-template.md) dans Place de marché Microsoft Azure.
 - [Machines virtuelles Azure](/azure/virtual-machines/linux/overview). Consultez notre [didacticiel](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) pour créer une instance de Jenkins sur une machine virtuelle.
-- Sur un cluster Kubernetes qui exécute [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consultez nos [procédures](/azure/container-service/kubernetes/container-service-kubernetes-jenkin).
+- Sur un cluster Kubernetes qui exécute [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consultez nos [procédures](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Surveiller et gérer votre déploiement Azure Jenkins à l’aide [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)et [Azure CLI] (/cli/azure/overview).
 

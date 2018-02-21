@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.
@@ -26,10 +26,10 @@ Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en
 ## <a name="how-to-prepare"></a>Préparation
 Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. L’effort de récupération suite à une panne de stockage implique généralement l’intervention du personnel opérationnel ainsi que l’application de procédures automatisées afin de rétablir le bon fonctionnement de vos applications. Reportez-vous à la documentation Azure ci-dessous pour créer votre propre plan de récupération d’urgence :
 
-* [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Guide technique de la résilience Azure](/azure/architecture/resiliency.md)
+* [Liste de contrôle de disponibilité](https://docs.microsoft.com/azure/architecture/checklist/availability)
+* [Conception d’applications résilientes pour Azure](/azure/architecture/resiliency)
 * [Service Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Réplication Azure Storage](storage-redundancy.md)
+* [Réplication Azure Storage](storage-redundancy)
 * [Service Azure Backup](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Mode de détection

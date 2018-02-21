@@ -2,19 +2,19 @@
 title: "Guide pratique pour utiliser l’historique des exécutions et les métriques de modèles dans Azure Machine Learning Workbench | Microsoft Docs"
 description: "Guide de l’utilisation des fonctionnalités de l’historique des exécutions et des métriques de modèles d’Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2d1bce6463ac7880fd9091b4f3f2cbb226ea516d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Guide pratique pour utiliser l’historique des exécutions et les métriques de modèles dans Azure Machine Learning Workbench
 
@@ -23,7 +23,7 @@ L’**historique des exécutions** offre un moyen de suivre les sorties de vos e
 Les **métriques de modèles** peuvent être enregistrées à partir de n’importe quel point de vos scripts, pour suivre toutes les valeurs les plus importantes dans vos expérimentations de science des données.
 Cet article décrit comment tirer parti de ces fonctionnalités pour augmenter la vitesse et la qualité de votre expérimentation de la science des données.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour parcourir ce guide pratique, vous devez :
 * [Créer et installer Azure Machine Learning](quickstart-installation.md)
 - [Créer un projet](quickstart-installation.md)

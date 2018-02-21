@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0
 
@@ -35,7 +35,7 @@ Deux options s'offrent à vous :
 
 ## <a name="quick-commands"></a>Commandes rapides
 
-Lorsque vous créez une machine virtuelle à l’aide de la commande [az vm create](/cli/azure/vm#create) à partir d’un disque spécialisé ou personnalisé, vous **attachez** le disque (--attach-os-disk) au lieu de spécifier une image personnalisée ou marketplace (--image). L’exemple suivant crée une machine virtuelle nommée *myVM* à l’aide du disque géré nommé *myManagedDisk* créé à partir de votre disque dur virtuel personnalisé :
+Lorsque vous créez une machine virtuelle à l’aide de la commande [az vm create](/cli/azure/vm#az_vm_create) à partir d’un disque spécialisé ou personnalisé, vous **attachez** le disque (--attach-os-disk) au lieu de spécifier une image personnalisée ou marketplace (--image). L’exemple suivant crée une machine virtuelle nommée *myVM* à l’aide du disque géré nommé *myManagedDisk* créé à partir de votre disque dur virtuel personnalisé :
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,7 +56,7 @@ Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants 
 > 
 
 
-* Assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/#login).
+* Assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/#az_login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *mystorageaccount* et *mydisks*.
 
@@ -87,7 +87,7 @@ Vous pouvez charger un disque dur virtuel personnalisé s’exécutant sur un or
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Avant de charger votre disque personnalisé et de créer des machines virtuelles, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create).
+Avant de charger votre disque personnalisé et de créer des machines virtuelles, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create).
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* : [Vue d’ensemble d’Azure Managed Disks](../windows/managed-disks-overview.md)
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage pour votre disque personnalisé et vos machines virtuelles avec la commande [az storage account create](/cli/azure/storage/account#create). 
+Créez un compte de stockage pour votre disque personnalisé et vos machines virtuelles avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 L’exemple suivant crée un compte de stockage nommé *mystorageaccount* dans le groupe de ressources que vous avez créé :
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Répertorier les clés de compte de stockage
-Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Vous affichez les clés d’accès avec [az storage account keys list](/cli/azure/storage/account/keys#list).
+Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Vous affichez les clés d’accès avec [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Affichez les clés d’accès au compte de stockage que vous avez créé :
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 Prenez note de l’élément **key1**, car vous allez l’utiliser pour interagir avec votre compte de stockage au cours des étapes suivantes.
 
 ### <a name="create-a-storage-container"></a>Créer un conteneur de stockage
-De la même façon que vous créez des répertoires différents pour organiser de manière logique votre système de fichiers local, vous créez des conteneurs dans un compte de stockage afin d’organiser vos disques. Un compte de stockage peut contenir un certain nombre de conteneurs. Créez un conteneur avec la commande [az storage container create](/cli/azure/storage/container#create).
+De la même façon que vous créez des répertoires différents pour organiser de manière logique votre système de fichiers local, vous créez des conteneurs dans un compte de stockage afin d’organiser vos disques. Un compte de stockage peut contenir un certain nombre de conteneurs. Créez un conteneur avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 L’exemple suivant permet de créer un conteneur nommé *mydisks* :
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Charger le disque dur virtuel
-Chargez votre disque personnalisé avec la commande [az storage blob upload](/cli/azure/storage/blob#upload). Téléchargez et stockez votre disque personnalisé en tant qu’objet blob de pages.
+Chargez votre disque personnalisé avec la commande [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Téléchargez et stockez votre disque personnalisé en tant qu’objet blob de pages.
 
 Spécifiez votre clé d’accès, le conteneur que vous avez créé au cours de l’étape précédente, puis le chemin d’accès au disque personnalisé sur votre ordinateur local :
 
@@ -164,7 +164,7 @@ Le chargement du disque dur virtuel peut prendre un certain temps.
 ### <a name="create-a-managed-disk"></a>Créer un disque géré
 
 
-Créez un disque géré à partir du disque dur virtuel à l’aide de la commande [az disk create](/cli/azure/disk#create). L’exemple suivant crée un disque géré nommé *myManagedDisk* à partir du disque dur virtuel que vous avez chargé dans votre conteneur et votre compte de stockage nommés :
+Créez un disque géré à partir du disque dur virtuel à l’aide de la commande [az disk create](/cli/azure/disk#az_disk_create). L’exemple suivant crée un disque géré nommé *myManagedDisk* à partir du disque dur virtuel que vous avez chargé dans votre conteneur et votre compte de stockage nommés :
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Maintenant, créez votre machine virtuelle avec [az vm create](/cli/azure/vm#create) et attachez le disque géré en tant que disque du système d’exploitation (--attach-os-disk). L’exemple suivant crée une machine virtuelle nommée *myNewVM* à l’aide du disque géré créé à partir du disque dur virtuel chargé :
+Maintenant, créez votre machine virtuelle avec [az vm create](/cli/azure/vm#az_vm_create) et attachez le disque géré en tant que disque du système d’exploitation (--attach-os-disk). L’exemple suivant crée une machine virtuelle nommée *myNewVM* à l’aide du disque géré créé à partir du disque dur virtuel chargé :
 
 ```azurecli
 az vm create \
@@ -223,6 +223,6 @@ az vm create \
 
 Vous devriez pouvoir utiliser SSH pour vous connecter à la machine virtuelle en utilisant les informations d’identification de la machine virtuelle source. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/resource-group-overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

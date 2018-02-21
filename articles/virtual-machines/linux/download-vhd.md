@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
@@ -43,7 +43,7 @@ Pour utiliser le disque VHD en tant qu’image pour créer d’autres machines v
     exit 
     ```
 
-2. Connectez-vous à votre compte Azure avec [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Connectez-vous à votre compte Azure avec [az login](https://docs.microsoft.com/cli/azure/#az_login).
 3. Arrêtez et libérez la machine virtuelle.
 
     ```azurecli
@@ -58,7 +58,7 @@ Pour utiliser le disque VHD en tant qu’image pour créer d’autres machines v
 
 Pour utiliser le disque VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, suivez les étapes ci-dessous :
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2.  Dans le menu Hub, cliquez sur **Machines virtuelles**.
 3.  Sélectionnez la machine virtuelle dans la liste.
 4.  Dans le panneau de la machine virtuelle, cliquez sur **Arrêter**.
@@ -85,7 +85,7 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 
     ![Cliquez sur Enregistrer dans le navigateur](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez comment [charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Gestion des disques Azure avec l’interface de ligne de commande Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

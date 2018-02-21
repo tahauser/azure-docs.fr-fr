@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
-## <a name="overview"></a>Vue d’ensemble ##
+## <a name="overview"></a>Vue d'ensemble ##
 Cet article vous montre comment créer et gérer des groupes d’actions dans le portail Azure.
 
 Vous pouvez configurer une liste d’actions avec des groupes d’actions. Ces groupes peuvent alors servir pour définir des alertes du journal d’activité. Ils peuvent être réutilisés par chaque alerte du journal d’activité que vous avez définie, afin que les mêmes actions soient entreprises chaque fois que l’alerte du journal d’activité est déclenchée.
@@ -58,10 +58,10 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
     b. **Type d’action** : sélectionner un SMS, un courrier électronique, un webhook, une application Azure, un outil ITSM ou un runbook Automation.
 
-    c. **Détails** : selon le type d’action, saisissez un numéro de téléphone, une adresse e-mail, un URI de webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM. 
+    c. **Détails** : selon le type d’action, saisissez un numéro de téléphone, une adresse e-mail, un URI de webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM.
 
    > [!NOTE]
-   > ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action fonctionne actuellement uniquement pour les alertes de journal d’activité. Pour les autres types d’alertes, cette action n’a actuellement aucun effet.
+   > ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Sélectionnez **OK** pour créer le groupe d’actions.
 
@@ -75,6 +75,6 @@ Après sa création, un groupe d’actions apparaît dans la section **Groupes d
 * En savoir plus sur le [comportement des alertes SMS](monitoring-sms-alert-behavior.md).  
 * [Comprendre le schéma Webhook des alertes du journal d’activité](monitoring-activity-log-alerts-webhook.md).  
 * En savoir plus sur [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
-* En savoir plus sur la [limitation de la fréquence](monitoring-alerts-rate-limiting.md) des alertes. 
+* En savoir plus sur la [limitation de la fréquence](monitoring-alerts-rate-limiting.md) des alertes.
 * Obtenir une [vue d’ensemble des alertes du journal d’activité](monitoring-overview-alerts.md) et découvrir comment recevoir des alertes.  
 * Découvrir comment [configurer des alertes lorsqu’une notification d’intégrité de service est publiée](monitoring-activity-log-alerts-on-service-notifications.md).
