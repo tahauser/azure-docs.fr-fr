@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
 
@@ -33,7 +33,7 @@ Les réseaux de neurones profonds ont conduit à une énorme amélioration du do
 ## <a name="link-to-the-gallery-github-repository"></a>Lien vers le dépôt GitHub de la galerie
 [https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK](https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel est divisé en trois parties :
 
@@ -193,7 +193,7 @@ Enfin, le Notebook `showResults.py` est fourni pour faire défiler les images de
 ### <a name="step-6-deployment"></a>Étape 6 : Déploiement
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Le système formé peut maintenant être publié en tant qu’API REST. Le déploiement est expliqué dans le Notebook `deploy.ipynb` et repose sur les fonctionnalités d’Azure Machine Learning Workbench (pensez à définir le noyau en tant que noyau de projet local portant le nom « nom_projet local »). Pour plus d’informations sur le déploiement, consultez également l’excellente section consacrée au déploiement dans le [didacticiel IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Le système formé peut maintenant être publié en tant qu’API REST. Le déploiement est expliqué dans le Notebook `deploy.ipynb` et repose sur les fonctionnalités d’Azure Machine Learning Workbench (pensez à définir le noyau en tant que noyau de projet local portant le nom « nom_projet local »). Pour plus d’informations sur le déploiement, consultez également l’excellente section consacrée au déploiement dans le [didacticiel IRIS](tutorial-classifying-iris-part-3.md).
 
 Une fois déployé, le service web peut être appelé à l’aide du script `6_callWebservice.py`. Notez que l’adresse IP (locale ou dans le cloud) du service web doit être définie en premier dans le script. Le Notebook `deploy.ipynb` explique comment trouver cette adresse IP.
 
@@ -228,7 +228,7 @@ Comme vous pouvez le voir sur le tracé ci-dessous, la précision par affinement
 
 ### <a name="run-history-tracking"></a>Suivi de l’historique des exécutions
 
-Azure Machine Learning Workbench stocke l’historique de chaque exécution sur Azure pour permettre la comparaison de deux ou plusieurs exécutions, même quand elles sont espacées de plusieurs semaines. Ceci est expliqué en détail dans le [didacticiel Iris](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Vous pouvez également le voir dans les captures d’écran suivantes où nous comparons deux exécutions du script `5_evaluate.py`, à l’aide de l’affinement du réseau de neurones profond via `classifier = "dnn"` (numéro d’exécution 148) ou de l’apprentissage de la machine à vecteurs de support via `classifier = "svm"` (numéro d’exécution 150).
+Azure Machine Learning Workbench stocke l’historique de chaque exécution sur Azure pour permettre la comparaison de deux ou plusieurs exécutions, même quand elles sont espacées de plusieurs semaines. Ceci est expliqué en détail dans le [didacticiel Iris](tutorial-classifying-iris-part-2.md). Vous pouvez également le voir dans les captures d’écran suivantes où nous comparons deux exécutions du script `5_evaluate.py`, à l’aide de l’affinement du réseau de neurones profond via `classifier = "dnn"` (numéro d’exécution 148) ou de l’apprentissage de la machine à vecteurs de support via `classifier = "svm"` (numéro d’exécution 150).
 
 Dans la première capture d’écran, l’affinement du réseau de neurones profond conduit à de meilleures précisions que l’apprentissage de la machine à vecteurs de support pour toutes les classes. La deuxième capture d’écran montre toutes les métriques qui font l’objet d’un suivi, ainsi que le classifieur. Ce suivi est effectué dans le script `5_evaluate.py` via l’appel de l’enregistreur d’événements d’Azure Machine Learning Workbench. De plus, le script enregistre également la courbe ROC et la matrice de confusion dans le dossier *outputs*. Ce dossier *outputs* est spécial dans la mesure où son contenu est également suivi par la fonctionnalité d’historique de Workbench. Ainsi, vous pouvez accéder aux fichiers de sortie à tout moment, indépendamment du fait que les copies locales aient été remplacées ou non.
 

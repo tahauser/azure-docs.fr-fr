@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
@@ -68,9 +68,9 @@ Les limitations suivantes existent lors de l’utilisation de cette fonctionnali
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.
+Installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#az_login). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *centralus* :
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *centralus* :
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Vous devez sélectionner une région de Linux prise en charge et répertoriée dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#create). L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un sous-réseau :
+Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un sous-réseau :
 
 ```azurecli
 az network vnet create \
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
-Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
+Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
 
 ```azurecli
 az network nsg create \
@@ -125,7 +125,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Créez une interface réseau avec [az network nic create](/cli/azure/network/nic#create), puis activez la mise en réseau accélérée. L’exemple suivant permet de créer une interface réseau nommée *myNic* dans le sous-réseau *mySubnet* du réseau virtuel *myVnet* et de lui associer le groupe de sécurité réseau *myNetworkSecurityGroup* :
+Créez une interface réseau avec [az network nic create](/cli/azure/network/nic#az_network_nic_create), puis activez la mise en réseau accélérée. L’exemple suivant permet de créer une interface réseau nommée *myNic* dans le sous-réseau *mySubnet* du réseau virtuel *myVnet* et de lui associer le groupe de sécurité réseau *myNetworkSecurityGroup* :
 
 ```azurecli
 az network nic create \
@@ -141,7 +141,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nic"></a>Créer une machine virtuelle et attacher la carte réseau
 Lorsque vous créez la machine virtuelle, spécifiez la carte réseau que vous avez générée avec `--nics`. Vous devez sélectionner une taille et une distribution répertoriées dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVM* avec l’image UbuntuLTS et une taille qui prend en charge la mise en réseau accélérée (*Standard_DS4_v2*) :
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVM* avec l’image UbuntuLTS et une taille qui prend en charge la mise en réseau accélérée (*Standard_DS4_v2*) :
 
 ```azurecli
 az vm create \

@@ -67,8 +67,10 @@
           href: kubernetes-helm.md
         - name: Développer des applications avec Draft
           href: kubernetes-draft.md
-        - name: Intégrer avec Azure à l’aide d’OSBA
+        - name: Open Service Broker pour Azure
           href: integrate-azure.md
+        - name: Déploiement continu Jenkins
+          href: jenkins-continuous-deployment.md
     - name: Concepts de base Kubernetes
       items:
         - name: Utiliser le tableau de bord Kubernetes

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 Log Analytics inclut des informations sur la quantité de données collectées, les systèmes qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour voir la quantité de données envoyées au service Log Analytics. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.
@@ -36,7 +36,9 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
 - Offres
     - Nœuds Insight & Analytics
     - Nœuds d’automatisation et de contrôle
-    - Nœuds de sécurité
+    - Nœuds de sécurité  
+- Performances
+    - Temps nécessaire pour recueillir et indexer les données  
 - Liste de requêtes
 
 ![tableau de bord utilisation](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Cliquez sur **Afficher tout...**  pour consulter la liste complète des ordinate
 
 Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Vérifier s’il existe une latence d’ingestion
-Avec Log Analytics, il existe une latence anticipée avec l’ingestion des données collectées.  Le temps absolu entre l’indexation des données et leur disponibilité pour une recherche peut être imprévisible. Précédemment, nous avions inclus un graphique des performances dans le tableau de bord, montrant le temps nécessaire pour la collecte et l’indexation des données, nous l’avons temporairement supprimé du fait de l’introduction du nouveau langage de requête.  La requête suivante peut être utilisée comme solution temporaire pour estimer la latence de chaque type de données, en attendant une mise à jour des métriques de latence d’ingestion des données.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> La requête de latence d’ingestion n’affiche pas de latences antérieures et elle retourne uniquement des résultats actuels.  La valeur de *TimeGenerated* est remplie au niveau de l’agent pour les journaux de schémas courants et elle est remplie au point de terminaison de collection pour les journaux personnalisés.  
->
 
 ## <a name="next-steps"></a>étapes suivantes
 * Consultez [Recherche de données à l’aide de recherches de journal](log-analytics-log-searches.md) pour apprendre à utiliser le langage de recherche. Vous pouvez utiliser des requêtes de recherche pour effectuer des analyses supplémentaires sur les données d’utilisation.

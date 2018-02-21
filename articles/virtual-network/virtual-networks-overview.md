@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Réseau virtuel Azure
 
@@ -44,7 +44,7 @@ Vous pouvez implémenter plusieurs réseaux virtuels au sein de chaque [abonneme
 - Utilisez la résolution de noms fournie par Azure ou spécifiez votre propre serveur DNS pour une utilisation par les ressources d’un réseau virtuel. Pour plus d’informations sur la résolution de noms dans les réseaux virtuels, consultez l’article [Résolution de noms pour les ressources dans les réseaux virtuels](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name = "internet"></a>Communication Internet
-Toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet. Par défaut, l’adresse IP privée de la ressource est traduite via SNAT (Source Network Address Translated) en une adresse IP publique sélectionnée par l’infrastructure Azure. Pour en savoir plus sur la connectivité Internet sortante, lisez l’article [Présentation des connexions sortantes dans Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address). Pour empêcher une connexion Internet sortante, vous pouvez implémenter des itinéraires personnalisés ou un filtrage du trafic.
+Toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet. Par défaut, l’adresse IP privée de la ressource est traduite via SNAT (Source Network Address Translated) en une adresse IP publique sélectionnée par l’infrastructure Azure. Pour en savoir plus sur la connectivité Internet sortante, lisez l’article [Présentation des connexions sortantes dans Azure](..\load-balancer\load-balancer-outbound-connections.md). Pour empêcher une connexion Internet sortante, vous pouvez implémenter des itinéraires personnalisés ou un filtrage du trafic.
 
 Pour pouvoir communiquer avec les ressources Azure à partir ou depuis Internet sans SNAT, une ressource doit être affectée à une adresse IP publique. Pour en savoir plus sur les adresses IP publiques, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md).
 

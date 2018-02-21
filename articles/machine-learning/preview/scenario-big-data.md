@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prévision de charges de travail de serveur sur des téraoctets de données
 
@@ -42,7 +42,7 @@ La prévision de la charge de travail sur des serveurs est un besoin métier com
 Dans ce scénario, vous vous concentrez sur la prédiction de la charge de travail pour chaque machine (ou serveur). Vous utilisez notamment les données de session sur chaque serveur pour prédire la classe de la charge de travail du serveur à l’avenir. Vous classifiez la charge de chaque serveur en trois classes, à savoir faible, moyenne et haute, à l’aide de Random Forest Classifier dans [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Dans cet exemple, les techniques de Machine Learning et le flux de travail peuvent facilement être étendus à d’autres problèmes similaires. 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -51,7 +51,7 @@ Cet exemple nécessite les prérequis suivants :
 * Windows 10 (les instructions de cet exemple s’appliquent en général avec les systèmes macOS).
 * Une image DSVM (Data Science Virtual Machine) pour Linux (Ubuntu), de préférence dans la région États-Unis de l’Est où les données se trouvent. Vous pouvez approvisionner une machine virtuelle de science des données Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Vous pouvez aussi consulter ce [guide de démarrage rapide](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 32 Go de mémoire. 
 
-Suivez les [instruction](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) pour activer l’accès à sudoer sans mot de passe sur la machine virtuelle pour AML Workbench.  Vous pouvez choisir d’utiliser [l’authentification basée sur la clé SSH pour la création et l’utilisation de la machine virtuelle dans AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Dans cet exemple, nous utilisons le mot de passe pour accéder à la machine virtuelle.  Enregistrez le tableau suivant qui contient les informations sur la machine virtuelle de science des données pour les étapes ultérieures :
+Suivez les [instruction](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) pour activer l’accès à sudoer sans mot de passe sur la machine virtuelle pour AML Workbench.  Vous pouvez choisir d’utiliser [l’authentification basée sur la clé SSH pour la création et l’utilisation de la machine virtuelle dans AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Dans cet exemple, nous utilisons le mot de passe pour accéder à la machine virtuelle.  Enregistrez le tableau suivant qui contient les informations sur la machine virtuelle de science des données pour les étapes ultérieures :
 
  Nom du champ| Valeur |  
  |------------|------|
@@ -90,7 +90,7 @@ Créez un projet en utilisant cet exemple comme modèle :
 4.  Dans la zone de recherche **Rechercher dans les modèles de projet**, tapez **Prédiction de charge de travail sur des téraoctets de données** et sélectionnez le modèle.
 5.  Sélectionnez **Créer**.
 
-Vous pouvez créer un projet Workbench avec un dépôt Git créé au préalable en suivant ces [instructions](./tutorial-classifying-iris-part-1.md).  
+Vous pouvez créer un projet Workbench avec un référentiel Git créé au préalable en suivant ces [instructions](./tutorial-classifying-iris-part-1.md).  
 Exécutez `git status` pour examiner l’état des fichiers de suivi de version.
 
 ## <a name="data-description"></a>Description des données
@@ -330,7 +330,7 @@ Accédez à **Exécutions** dans le volet droit de Workbench pour afficher l’h
 
 Dans cette section, vous opérationnalisez le modèle créé dans les étapes précédentes en tant que service web. Vous apprenez aussi à utiliser le service web pour prédire la charge de travail. Utilisez des interfaces de ligne de commande (CLI) d’opérationnalisation Machine Learning pour empaqueter le code et les dépendances sous forme d’images Docker et publier le modèle en tant que service web en conteneur.
 
-Vous pouvez utiliser l’invite de ligne de commande dans Machine Learning Workbench pour exécuter les CLI.  Vous pouvez également exécuter les interfaces CLI d’opérationnalisation sur Ubuntu Linux en suivant les instructions du [guide d’installation](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+Vous pouvez utiliser l’invite de ligne de commande dans Machine Learning Workbench pour exécuter les CLI.  Vous pouvez également exécuter les interfaces CLI d’opérationnalisation sur Ubuntu Linux en suivant les instructions du [guide d’installation](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > Remplacez toute variable d’argument dans toutes les commandes suivantes par sa valeur réelle. La procédure de cette section prend environ 40 minutes.
@@ -416,7 +416,7 @@ Choisissez une chaîne unique comme environnement pour l’opérationnalisation.
 
 8. Mettez à l’échelle le service web. 
 
-   Pour en savoir plus, consultez [How to scale operationalization on your Azure Container Service cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md) (Mise à l’échelle d’une opérationnalisation sur un cluster Azure Container Service).
+   Pour en savoir plus, consultez [How to scale operationalization on your Azure Container Service cluster](how-to-scale-clusters.md) (Mise à l’échelle d’une opérationnalisation sur un cluster Azure Container Service).
  
 
 ## <a name="next-steps"></a>étapes suivantes

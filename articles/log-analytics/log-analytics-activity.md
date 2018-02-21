@@ -3,7 +3,7 @@ title: "Collecter et analyser les journaux d’activités Azure dans Log Analyti
 description: "Vous pouvez utiliser la solution Journaux d’activité Azure pour analyser et rechercher le journal d’activité Azure parmi tous vos abonnements Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
-ms.author: banders
-ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: magoedte
+ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 

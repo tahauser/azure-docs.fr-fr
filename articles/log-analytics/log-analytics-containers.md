@@ -3,7 +3,7 @@ title: "Solution Container Monitoring d’Azure Log Analytics | Microsoft Docs"
 description: "La solution Container Monitoring de Log Analytics vous aide à afficher et à gérer vos hôtes de conteneur Docker et Windows dans un emplacement unique."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solution Container Monitoring dans Log Analytics
 
@@ -51,7 +51,7 @@ Le tableau suivant présente l’orchestration de Docker et la prise en charge d
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mésosphère<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Service<br>Structure | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| de diffusion en continu<br>Structure | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonome) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serveur Linux<br>(autonome) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -402,8 +402,8 @@ Pour Windows Kubernetes, vous utilisez un script afin de générer le fichier ya
         ```
     3. Créer votre DaemonsSet de l’agent OMS en exécutant ``` kubectl create -f omsagentsecret.yaml ```
     4. Pour vérifier, exécutez la commande suivante :
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,13 +418,13 @@ Pour Windows Kubernetes, vous utilisez un script afin de générer le fichier ya
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
     5. Créer votre DaemonsSet de l’agent OMS en exécutant ```kubectl create -f ws-omsagent-de-secrets.yaml```
@@ -437,9 +437,9 @@ Pour Windows Kubernetes, vous utilisez un script afin de générer le fichier ya
     omsagent   1         1         <none>          1h
     ```
 
-3. Pour installer l’agent sur le nœud Worker qui exécute Windows, suivez les étapes décrites dans la section [Installer et configurer des hôtes de conteneur Windows](#install-and-configure-windows-container-hosts). 
+3. Pour installer l’agent sur le nœud Worker qui exécute Windows, suivez les étapes décrites dans la section [Installer et configurer des hôtes de conteneur Windows](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Utiliser Helm pour déployer l’agent OMS sur Linux Kubernetes 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Utiliser Helm pour déployer l’agent OMS sur Linux Kubernetes
 Pour utiliser Helm afin de déployer l’agent OMS sur votre environnement Linux Kubernetes, procédez comme suit.
 
 1. Créer votre DaemonsSet de l’agent OMS en exécutant ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
@@ -653,7 +653,7 @@ Cela a pour effet d’afficher la liste des mesures de performances collectées 
 ## <a name="example-log-search-queries"></a>Exemples de requêtes de recherche de journal
 Il est souvent utile de créer des requêtes en commençant par un exemple ou deux, puis en les modifiant afin de les adapter à votre environnement. Comme point de départ, vous pouvez utiliser la zone **Exemples de requêtes** pour vous aider à créer des requêtes plus avancées.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Requêtes de conteneurs](./media/log-analytics-containers/containers-queries.png)
 
@@ -663,5 +663,5 @@ L’enregistrement des requêtes est une fonctionnalité standard dans Log Analy
 
 Après avoir créé une requête qui vous semble utile, enregistrez-la en cliquant sur **Favorites** en haut de la page Recherche de journal. Vous pourrez ainsi y accéder facilement par la suite à partir de la page **Mon tableau de bord**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour consulter des enregistrements de données de conteneur détaillées.

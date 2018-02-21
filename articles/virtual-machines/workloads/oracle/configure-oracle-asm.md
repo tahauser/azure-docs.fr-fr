@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure  
 
@@ -41,7 +41,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Pour créer un groupe de ressources, utilisez la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Dans cet exemple, un groupe de ressources nommé *myResourceGroup* est créé dans la région *eastus*.
+Pour créer un groupe de ressources, utilisez la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Dans cet exemple, un groupe de ressources nommé *myResourceGroup* est créé dans la région *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Pour créer une machine virtuelle basée sur l’image d’Oracle Database et la configurer pour utiliser Oracle ASM, exécutez la commande [az vm create](/cli/azure/vm#create). 
+Pour créer une machine virtuelle basée sur l’image d’Oracle Database et la configurer pour utiliser Oracle ASM, exécutez la commande [az vm create](/cli/azure/vm#az_vm_create). 
 
 L’exemple suivant crée une machine virtuelle nommée myVM qui a une taille Standard_DS2_v2 avec quatre disques de données associés de 50 Go. Il crée également des clés SSH si elles n’existent pas encore à un emplacement de clé par défaut.  Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
 
@@ -580,7 +580,7 @@ Vous avez correctement configuré Oracle Automated Storage Management sur l’im
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Didacticiel : Configurer Oracle DataGuard](configure-oracle-dataguard.md)
 

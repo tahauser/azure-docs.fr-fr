@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
 
@@ -45,12 +45,12 @@ Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce di
   
 -   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un serveur SQL Server Analysis Services 2017 local.  
   
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>configuration requise  
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :  
   
 -   Un serveur Azure Analysis Services. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). 
 
--   [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) avec **l’exemple de base de données AdventureWorksDW**, ou SQL Server Data Warehouse avec [l’exemple de base de données Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) avec **l’exemple de base de données AdventureWorksDW**, ou SQL Server Data Warehouse avec [l’exemple de base de données Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Important** : Si vous installez l’exemple de base de données sur un SQL Server Data Warehouse local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
 

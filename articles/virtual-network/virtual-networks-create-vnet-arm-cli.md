@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Créer un réseau virtuel à l’aide d’Azure CLI
 
@@ -45,9 +45,9 @@ Vous pouvez également créer un réseau virtuel via Resource Manager à l’aid
 
 Pour créer un réseau virtuel à l’aide d’Azure CLI, procédez comme suit :
 
-1. Installez et configurez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
+1. Installez et configurez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#az_login).
 
-2. Créez un groupe de ressources pour votre réseau virtuel à l’aide de commande [az group create](/cli/azure/group#create) avec les arguments `--name` et `--location` :
+2. Créez un groupe de ressources pour votre réseau virtuel à l’aide de commande [az group create](/cli/azure/group#az_group_create) avec les arguments `--name` et `--location` :
 
     ```azurecli
     az group create --name TestRG --location centralus
@@ -184,7 +184,7 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI, procédez comme suit 
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Apprenez à connecter :
 

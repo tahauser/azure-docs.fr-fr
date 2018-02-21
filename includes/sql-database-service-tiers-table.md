@@ -52,18 +52,6 @@ sql-database-single-database-resources.md
 | Nombre maximal de sessions simultanées | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-### <a name="premium-rs-service-tier"></a>Niveau de service RS Premium 
-| **Niveau de performances** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
-| :--- |---:|---:|---:|---:|---:|---:|
-| DTU max | 125 | 250 | 500 | 1 000 |
-| Espace de stockage inclus (Go) | 500 | 500 | 500 | 500 |
-| Choix de l’espace de stockage maximal (Go)* | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | 1 | 2 | 4 | 8 |
-| Nombre maximal d’ouvriers simultanés (demandes)| 200 | 400 | 800 | 1 600 |
-| Nombre maximal de connexions simultanées | 200 | 400 | 800 | 1 600 |
-| Nombre maximal de sessions simultanées | 30000 | 30000 | 30000 | 30000 |
-|||||||
-
 > [!IMPORTANT]
 > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >

@@ -3,7 +3,7 @@ title: Suivi des modifications avec Azure Log Analytics | Microsoft Docs
 description: "La solution de suivi des modifications dans Log Analytics permet d’identifier les modifications apportées aux logiciels et au service Windows qui se produisent dans votre environnement."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
 
@@ -40,7 +40,7 @@ Suivez les étapes ci-dessous pour configurer les fichiers à suivre sur les ord
 
 1. Dans le portail OMS, cliquez sur **Paramètres** (symbole d'engrenage).
 2. Sur la page **Paramètres** cliquez sur **Données**, puis sur **Suivi des fichiers Linux**.
-3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/* .conf »
+3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/*.conf »
 4. Cliquez sur **Enregistrer**.  
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Utilisez les étapes suivantes pour configurer les fichiers à suivre sur les or
 1. Dans le portail OMS, cliquez sur **Paramètres** (symbole d'engrenage).
 2. Sur la page **Paramètres** cliquez sur **Données**, puis sur **Suivi des fichiers Windows**.
 3. Sous Suivi des modifications des fichiers Windows, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : C:\Program Files (x86)\Internet Explorer\iexplore.exe ou C:\Windows\System32\drivers\etc\hosts.
-4. Cliquez sur **Save**.  
+4. Cliquez sur **Enregistrer**.  
    ![Suivi des modifications des fichiers Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurer les clés de Registre Windows pour effectuer le suivi
@@ -61,7 +61,7 @@ Utilisez les étapes suivantes pour configurer les clés de Registre à suivre s
 1. Dans le portail OMS, cliquez sur **Paramètres** (symbole d'engrenage).
 2. Sur la page **Paramètres**, cliquez sur **Données**, puis sur **Suivi du Registre Windows**.
 3. Sous Suivi des modifications du Registre Windows, tapez la clé que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**.
-4. Cliquez sur **Save**.  
+4. Cliquez sur **Enregistrer**.  
    ![Suivi des modifications du Registre Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Explication des propriétés de collection de fichiers Linux
@@ -105,7 +105,7 @@ Le suivi des modifications collecte des métadonnées d’inventaire logiciel et
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte en vue du suivi des modifications.
 
-| plateforme | Agent direct | Agent Operations Manager | Agent Linux | Azure Storage | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
+| plateforme | Agent direct | Agent Operations Manager | Agent Linux | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Windows et Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Entre 5 minutes et 50 minutes, selon le type de modification. Pour plus d’informations, consultez le tableau suivant. |
 
@@ -114,7 +114,7 @@ Le tableau suivant indique la fréquence de collecte de données selon les types
 
 | **type de modification** | **frequency** | **L’agent****envoie-t-il****les différences lorsqu’il en détecte ?** |
 | --- | --- | --- |
-| Registre Windows | 50 minutes | Non |
+| Registre Windows | 50 minutes | Non  |
 | Fichier Windows | 30 minutes | Oui. Une capture instantanée est envoyée si aucune modification n’est relevée dans les 24 heures. |
 | Fichier Linux | 15 minutes | Oui. Une capture instantanée est envoyée si aucune modification n’est relevée dans les 24 heures. |
 | Services Windows | 30 minutes | Oui, toutes les 30 minutes lorsque des modifications sont détectées. Une capture instantanée est envoyée toutes les 24 heures, quelle que soit la modification. La capture instantanée est donc envoyée même en l’absence de modification. |
@@ -185,5 +185,5 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 2. Sur le tableau de bord **Suivi des modifications**, passez en revue les informations résumées de l’un des panneaux de type de modification, puis cliquez sur l’une d’entre elles pour afficher des informations détaillées dans la page **Recherche de journal**.
 3. Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez les [recherches de journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.

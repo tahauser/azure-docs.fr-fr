@@ -1,6 +1,6 @@
 - name: Azure Time Series Insights
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Time Series Insights
       href: time-series-insights-overview.md
@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Résoudre la limitation
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Comprendre la rétention des données
+      href: time-series-insights-concepts-retention.md
     - name: Diagnostiquer et résoudre les problèmes
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Développement
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Connexion à IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Configurer la rétention de données
+      href: time-series-insights-how-to-configure-retention.md
     - name: Créer un jeu de données de référence
       href: time-series-insights-add-reference-data-set.md
     - name: Envoyer des événements

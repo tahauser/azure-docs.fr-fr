@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Créer une fonction déclenchée par un webhook générique
 
@@ -28,7 +28,7 @@ Azure Functions vous permet d’exécuter votre code dans un environnement sans 
 
 ![Fonction déclenchée par un webhook générique dans le portail Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>configuration requise 
 
 Pour suivre ce didacticiel :
 
@@ -72,17 +72,17 @@ Créez ensuite un point de terminaison webhook dans une alerte de journal d’ac
 
     ![Créer une alerte de journal d’activité](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-    | Paramètre      |  Valeur suggérée   | Description                              |
+    | Paramètre      |  Valeur suggérée   | DESCRIPTION                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de l’alerte de journal d’activité** | resource-group-create-alert | Nom de l’alerte de journal d’activité. |
     | **Abonnement** | Votre abonnement | L’abonnement que vous utilisez pour ce didacticiel. | 
     |  **Groupe de ressources** | myResourceGroup | Le groupe de ressources dans lequel les ressources d’alerte sont déployées. L’utilisation du même groupe de ressources que votre application de fonction facilite le nettoyage une fois le didacticiel terminé. |
     | **Catégorie d’événement** | Administratif | Cette catégorie inclut les modifications apportées aux ressources Azure.  |
     | **Type de ressource** | Groupes de ressources | Filtre les alertes pour les activités du groupe de ressources. |
-    | **Groupe de ressources**<br/>et **Ressource** | Tout | Surveille toutes les ressources. |
+    | **Groupe de ressources**<br/>et **Ressource** | Tous | Surveille toutes les ressources. |
     | **Nom d’opération** | Créer un groupe de ressources | Filtre les alertes pour créer des opérations. |
     | **Niveau** | Informations | Incluez les alertes de niveau d’informations. | 
-    | **État** | Réussi | Filtre les alertes aux actions qui ont réussi. |
+    | **État** | Succeeded | Filtre les alertes aux actions qui ont réussi. |
     | **Groupe d’actions** | Nouveau | Créez un nouveau groupe d’actions, qui définit l’action effectuée lorsqu’une alerte est renvoyée. |
     | **Nom du groupe d’actions** | function-webhook | Nom destiné à identifier le groupe d’actions.  | 
     | **Nom court** | funcwebhook | Nom court du groupe d’actions. |  
@@ -128,7 +128,7 @@ Le webhook est maintenant appelé lorsqu’un groupe de ressources est créé da
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."
@@ -163,7 +163,7 @@ Vous pouvez maintenant tester la fonction en créant un nouveau groupe de ressou
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez créé une fonction qui s’exécute lorsqu’une requête est reçue à partir d’un webhook générique. 
 

@@ -17,8 +17,9 @@
 ### [Fonctions techniques de sécurité](azure-security-technical-capabilities.md)
 ### [Gouvernance dans Azure](governance-in-azure.md)
 ### [Chiffrement des données au repos](azure-security-encryption-atrest.md)
-### Plans d'architecture
-#### [Conformité - PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Schémas de sécurité et de conformité Azure
+#### PCI DSS
+##### [Traitement des paiements pour les environnements conformes à la norme PCI DSS](./blueprints/payment-processing-blueprint.md)
 ##### [Vue d’ensemble des conditions requises](./blueprints/pci-dss-requirements-overview.md)
 ##### [Condition 1 : pare-feux](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Condition 2 : mots de passe](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Condition 10 : surveillance](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Condition 11 : test](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Condition 12 : stratégie](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Conformité - FedRAMP ](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Automatisation des applications Web](./blueprints/fedramp.md)
 ##### [Vue d’ensemble des contrôles de sécurité](./blueprints/fedramp-controls-overview.md)
 ##### [Contrôle d’accès](./blueprints/fedramp-access-controls.md)
 ##### [Audit et responsabilité](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Protection du système et des communications](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [Intégrité du système et des informations](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Acquisition du système et des services](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Conformité - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
+#### ROYAUME-UNI-OFFICIEL
+##### [Automatisation des applications Web à trois niveaux](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Vue d’ensemble](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Vue d’ensemble des principes](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Conformité - Services financiers
+#### Services financiers
 ##### [Services financiers pour les charges de travail réglementées](./blueprints/financial-services-regulated-workloads.md)
 
 # Prise en main
