@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
-Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez également effectuer ces étapes à l’aide [d’Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les conditions requises sont :
+Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les conditions requises sont :
 
 - [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [des fichiers de clés SSH publiques et privées](mac-create-ssh-keys.md)
@@ -67,7 +67,7 @@ Un bon moyen de déboguer les journaux consiste à déplacer les fichiers vers u
 
 Pour cette procédure pas à pas détaillée, nous créons la configuration requise pour d’abord créer le partage de Stockage Fichier, puis le monter via SMB sur une machine virtuelle Linux.
 
-1. Créez un groupe de ressource avec la commande [az group create](/cli/azure/group#create) pour contenir le partage de fichiers.
+1. Créez un groupe de ressource avec la commande [az group create](/cli/azure/group#az_group_create) pour contenir le partage de fichiers.
 
     Créez un groupe de ressources nommé `myResourceGroup` dans la région États-Unis de l’Ouest en suivant l’exemple suivant :
 
@@ -75,7 +75,7 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
     az group create --name myResourceGroup --location westus
     ```
 
-2. Créez un compte de stockage Azure avec [az storage account create](/cli/azure/storage/account#create) pour stocker les fichiers.
+2. Créez un compte de stockage Azure avec [az storage account create](/cli/azure/storage/account#az_storage_account_create) pour stocker les fichiers.
 
     Pour créer un compte de stockage nommé mystorageaccount à l’aide de la référence de stockage Standard_LRS, suivez l’exemple suivant :
 
@@ -90,7 +90,7 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
 
     Quand vous créez un compte de stockage, les clés du compte sont créées par paires afin qu’elles puissent faire l’objet d’une rotation sans interruption du service. Lorsque vous basculez vers la deuxième clé de la paire, vous créez une nouvelle paire de clés. Les nouvelles clés de compte de stockage sont toujours créées par paires, pour garantir que vous disposiez toujours d’au moins une clé de stockage inutilisée prête au basculement.
 
-    Utilisez [az storage account keys list](/cli/azure/storage/account/keys#list) pour afficher les clés du compte de stockage. Les clés de compte de stockage pour l’élément nommé `mystorageaccount` sont répertoriées dans l’exemple suivant :
+    Utilisez [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) pour afficher les clés du compte de stockage. Les clés de compte de stockage pour l’élément nommé `mystorageaccount` sont répertoriées dans l’exemple suivant :
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
 
 4. Créez le partage de stockage de fichiers.
 
-    Créez le partage de stockage de fichiers qui contient le partage SMB avec [az storage share create](/cli/azure/storage/share#create). Le quota est toujours exprimé en gigaoctets (Go). Passez l’une des clés de la commande `az storage account keys list` précédente. Créez un partage nommé mystorageshare avec un quota de 10 Go en appliquant l’exemple suivant :
+    Créez le partage de stockage de fichiers qui contient le partage SMB avec [az storage share create](/cli/azure/storage/share#az_storage_share_create). Le quota est toujours exprimé en gigaoctets (Go). Passez l’une des clés de la commande `az storage account keys list` précédente. Créez un partage nommé mystorageshare avec un quota de 10 Go en appliquant l’exemple suivant :
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,10 +137,10 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
     Lorsque vous redémarrez la machine virtuelle Linux, le partage SMB monté est démonté lors de l’arrêt. Pour remonter le partage SMB au démarrage, ajoutez une ligne à /etc/fstab dans Linux. Linux utilise le fichier fstab pour lister les systèmes de fichiers à monter pendant le processus de démarrage. L’ajout du partage SMB garantit que le partage de stockage de fichiers est un système de fichiers monté définitivement pour la machine virtuelle Linux. Il est possible d’ajouter le partage SMB du Stockage Fichier sur une nouvelle machine virtuelle si vous utilisez cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ajouter un disque à une machine virtuelle Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 630e9958d5083300fdf7910c5fdd47989b0376ad
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 2a9302502594fa23d7bde1a71e7b096bc4152e59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reformer un nouveau service web basé sur Resource Manager à l’aide des applets de commande PowerShell de gestion Machine Learning
 Quand vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé.  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Vous devez configurer une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -42,12 +42,12 @@ Voici les étapes à suivre :
 
 1. Connectez-vous à votre compte Azure Resource Manager.
 2. Obtenir la définition du service web
-3. Exporter la définition du service web au format JSON
+3. Exportez la définition du service web au format JSON
 4. Mettez à jour la référence sur l’objet blob ilearner dans le JSON.
-5. Importer le JSON dans une définition du service web
+5. Importez le JSON dans une définition du service web
 6. Mettre à jour le service web avec la nouvelle définition du service web
 
-## <a name="sign-in-to-your-azure-resource-manager-account"></a>Se connecter à son compte Azure Resource Manager
+## <a name="sign-in-to-your-azure-resource-manager-account"></a>Connectez-vous à votre compte Azure Resource Manager
 Vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) .
 
 ## <a name="get-the-web-service-definition"></a>Obtenir la définition du service web
@@ -69,7 +69,7 @@ Pour déterminer le nom du groupe de ressources d’un service web existant, vou
     https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
-## <a name="export-the-web-service-definition-as-json"></a>Exporter la définition du service web au format JSON
+## <a name="export-the-web-service-definition-as-json"></a>Exportez la définition du service web au format JSON
 Pour modifier la définition du modèle formé de manière à utiliser le modèle nouvellement formé, vous devez d’abord utiliser l’applet de commande [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) pour l’exporter vers un fichier au format JSON.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
@@ -90,7 +90,7 @@ Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *u
         }
       },
 
-## <a name="import-the-json-into-a-web-service-definition"></a>Importer le JSON dans une définition du service web
+## <a name="import-the-json-into-a-web-service-definition"></a>Importez le JSON dans une définition du service web
 Vous devez utiliser l’applet de commande [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) pour convertir le fichier JSON modifié en une définition du service web que vous pouvez utiliser pour mettre à jour la définition de service web.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"

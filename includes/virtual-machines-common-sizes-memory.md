@@ -81,7 +81,7 @@ ACU : 180 - 240
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
+<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique. 
 
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles 
 
@@ -117,7 +117,7 @@ ACU : 210-250
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> Instance est un nœud isolé qui garantit que votre machine virtuelle est la seule machine virtuelle sur notre nœud Intel Haswell.
+<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique. 
 
 <sup>3</sup> 25 000 Mbits/s avec mise en réseau accélérée.
 
@@ -135,7 +135,7 @@ ACU : 210-250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> Instance est un nœud isolé qui garantit que votre machine virtuelle est la seule machine virtuelle sur notre nœud Intel Haswell.
+<sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique. 
 
 <sup>2</sup> 25 000 Mbits/s avec mise en réseau accélérée.
 

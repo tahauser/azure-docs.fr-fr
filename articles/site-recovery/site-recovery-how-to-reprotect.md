@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
 
 
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article explique comment reprotéger des machines virtuelles Azure depuis Azure vers un site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure (comme décrit dans [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md)).
+Cet article explique comment reprotéger des machines virtuelles Azure d’Azure vers un site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure (comme décrit dans [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
 > Vous ne pouvez pas procéder à une restauration automatique après avoir [effectué une migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé une machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure. Si vous désactivez la protection de la machine virtuelle, vous ne pouvez pas effectuer de restauration automatique. Si la machine virtuelle a été créée initialement dans Azure (dans le cloud), vous ne pouvez pas la reprotéger localement. Il faut que la machine ait été initialement protégée localement et qu’elle ait basculé vers Azure avant la reprotection.
@@ -42,7 +42,7 @@ Pour une vue d’ensemble, regardez la vidéo suivante sur la procédure de basc
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 > [!IMPORTANT]
 > Pendant le basculement vers Azure, comme le site local risque de ne pas être accessible, le serveur de configuration peut être indisponible ou à l’arrêt. Le serveur de configuration local doit être en cours d’exécution et connecté au cours de la reprotection et de la restauration automatique.
@@ -62,7 +62,7 @@ Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou 
   * **Le serveur cible maître** : il reçoit des données de restauration automatique. Un serveur cible maître est installé par défaut sur le serveur d’administration sur site que vous avez créé. Toutefois, en fonction du volume de trafic restauré automatiquement, vous devrez peut-être créer un serveur cible maître distinct pour procéder à la restauration automatique.
     * [Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux](site-recovery-how-to-install-linux-master-target.md).
     * Si vous avez une machine virtuelle Windows, vous avez besoin d’un serveur cible maître Windows. Vous pouvez réutiliser le serveur de processus local et les machines cibles maîtres.
-    * D’autres prérequis s’appliquent au serveur cible maître. Ils sont listés dans la section [Points à vérifier après l’installation du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    * D’autres conditions préalables s’appliquent au serveur cible maître. Elles sont répertoriées dans la section [Points à vérifier après l’installation du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > Toutes les machines virtuelles d’un groupe de réplication doivent être du même type de système d’exploitation (toutes Windows ou toutes Linux). Un groupe de réplication avec des systèmes d’exploitation mixtes n’est pas pris en charge actuellement pour la reprotection et la restauration automatique locale. Ceci est dû au fait que le serveur cible maître doit exécuter le même système d’exploitation que la machine virtuelle, et toutes les machines virtuelles d’un groupe de réplication doivent avoir le même serveur cible maître. 
@@ -204,7 +204,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 4. Pour **Banque de données**, sélectionnez la banque de données dans laquelle vous souhaitez récupérer les disques locaux. Cette option est utilisée lorsque la machine virtuelle locale est supprimée et que vous devez créer de nouveaux disques. Cette option est ignorée si les disques existent déjà, mais vous devez toujours spécifier une valeur.
 5. Choisissez le lecteur de rétention.
 6. La stratégie de restauration automatique est sélectionnée automatiquement.
-7. Cliquez sur **OK** pour commencer l’opération de reprotection. Un travail est lancé pour répliquer la machine virtuelle à partir d’Azure vers le site local. Vous pouvez en suivre la progression sous l’onglet **Travaux** .
+7. Cliquez sur **OK** pour commencer l’opération de reprotection. Un travail est lancé pour répliquer la machine virtuelle à partir d’Azure vers le site local. Vous pouvez en suivre la progression sous l’onglet **Tâches** .
 
 Si vous souhaitez procéder à la récupération vers un autre emplacement (si la machine virtuelle locale est supprimée), sélectionnez le lecteur de rétention et la banque de données configurés pour le serveur cible maître. Si vous effectuez la restauration automatique vers le site local, les machines virtuelles VMware du plan de protection de la restauration automatique utilisent la même banque de données que le serveur cible maître. Une nouvelle machine virtuelle est créée dans vCenter.
 
@@ -221,13 +221,7 @@ Vous pouvez également effectuer la reprotection au niveau du plan de récupéra
 
 Une fois la reprotection réussie, la machine virtuelle passera à l’état protégé.
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Une fois que la machine virtuelle est passée à l’état protégé, vous pouvez [commencer une restauration automatique](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-La restauration automatique arrêtera la machine virtuelle dans Azure et démarrera la machine virtuelle en local. Prévoyez un temps d’arrêt de l’application. Effectuez la restauration automatique lorsque l’application peut tolérer un temps d’arrêt.
-
-## <a name="common-problems"></a>Problèmes courants
+## <a name="common-issues"></a>Problèmes courants
 
 * Si vous avez utilisé un modèle pour créer vos machines virtuelles, assurez-vous que chaque machine virtuelle possède son UUID pour les disques. Si l’UUID de la machine virtuelle locale est en conflit avec celui du serveur cible maître (car ceux-ci ont été créés à partir du même modèle), la reprotection échoue. Déployez un autre serveur cible maître qui n’a pas été créé à partir du même modèle.
 
@@ -245,38 +239,9 @@ La restauration automatique arrêtera la machine virtuelle dans Azure et démarr
 
 * Un serveur Windows Server 2008 R2 SP1 protégé comme serveur physique sur site ne peut pas être restauré localement à partir d’Azure.
 
-### <a name="common-error-codes"></a>Codes d’erreur courants
 
-#### <a name="error-code-95226"></a>Code d'erreur 95226
+## <a name="next-steps"></a>étapes suivantes
 
-*Échec de la reprotection, car la machine virtuelle Azure n’a pas pu contacter le serveur de configuration local.*
+Une fois que la machine virtuelle est passée à l’état protégé, vous pouvez [commencer une restauration automatique](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Cela se produit dans les situations suivantes 
-1. Comme la machine virtuelle Azure n’a pas pu contacter le serveur de configuration local, elle ne peut pas être découverte et inscrite sur le serveur de configuration. 
-2. Le service InMage Scout Application sur la machine virtuelle Azure qui doit être en cours d’exécution pour communiquer avec le serveur de configuration local n’est peut-être plus exécuté après le basculement.
-
-Pour résoudre ce problème
-1. Vous devez vérifier que le réseau de la machine virtuelle Azure est configuré pour que la machine virtuelle puisse communiquer avec le serveur de configuration local. Pour ce faire, configurez un VPN de site à site dans votre centre de données local ou une connexion ExpressRoute avec un appairage privé sur le réseau virtuel de la machine virtuelle Azure. 
-2. Si vous avez déjà configuré un réseau pour que la machine virtuelle Azure puisse communiquer avec le serveur de configuration local, connectez-vous à la machine virtuelle et vérifiez le « service InMage Scout Application ». Si le service InMage Scout Application n’est pas en cours d’exécution, démarrez le service manuellement et vérifiez que le type de démarrage du service est défini sur Automatique.
-
-### <a name="error-code-78052"></a>Code d'erreur 78052
-Échec de la reprotection avec le message d’erreur : *Impossible d’appliquer la protection à la machine virtuelle.*
-
-Cela peut se produire pour deux raisons
-1. La machine virtuelle que vous reprotégez est un serveur Windows Server 2016. Actuellement, ce système d’exploitation n’est pas pris en charge pour la restauration automatique, mais le sera très bientôt.
-2. Une machine virtuelle de même nom existe déjà sur le serveur cible maître sur lequel vous effectuez la restauration automatique.
-
-Pour résoudre ce problème, vous pouvez sélectionner un autre serveur cible maître sur un hôte différent. La reprotection crée alors la machine sur l’autre hôte où les noms ne sont pas en conflit. Vous pouvez également déplacer via vMotion le serveur cible maître sur un autre hôte où le conflit de noms ne se produira pas. Si la machine virtuelle existante est isolée, vous pouvez simplement la renommer pour que la nouvelle machine virtuelle puisse être créée sur le même hôte ESXi.
-
-### <a name="error-code-78093"></a>Code d'erreur 78093
-
-*La machine virtuelle n’est pas en cours d’exécution, est dans un état suspendu ou n’est pas accessible.*
-
-Pour reprotéger une machine virtuelle basculée sur un emplacement local, la machine virtuelle Azure doit être en cours d’exécution. De cette façon, le service Mobilité s’inscrit auprès du serveur de configuration local et peut commencer la réplication en communiquant avec le serveur de processus. Si la machine ne se trouve pas sur le bon réseau ou n’est pas en cours d’exécution (état suspendu ou arrêté), le serveur de configuration ne peut pas contacter le service Mobilité sur la machine virtuelle pour commencer la reprotection. Vous pouvez redémarrer la machine virtuelle pour qu’elle puisse recommencer à communiquer localement. Redémarrer le travail de reprotection après le démarrage de la machine virtuelle Azure
-
-### <a name="error-code-8061"></a>Code d’erreur 8061
-
-*La banque de données n’est pas accessible à partir de l’hôte ESXi*.
-
-Consultez les sections relatives à la [configuration requise du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) et aux [banques de données prises en charge](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) pour procéder à la restauration automatique.
-
+La restauration automatique arrêtera la machine virtuelle dans Azure et démarrera la machine virtuelle en local. Prévoyez un temps d’arrêt de l’application. Effectuez la restauration automatique lorsque l’application peut tolérer un temps d’arrêt.

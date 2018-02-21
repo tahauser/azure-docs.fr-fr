@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 231255d9a119c404c0c947c00414572aaab82719
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Emplacements nommés dans Azure Active Directory
 
@@ -26,7 +26,7 @@ Les emplacements nommés vous permettent d’étiqueter des plages d’adresses 
 
 - La détection [d’événements à risque](active-directory-reporting-risk-events.md) pour réduire le nombre de faux positifs reportés.  
 
-- [Accès conditionnel en fonction des emplacements](active-directory-conditional-access-azure-portal.md#locations).
+- [Accès conditionnel en fonction des emplacements](active-directory-conditional-access-locations.md).
 
 
 Cet article explique comment configurer des emplacements nommés dans votre environnement.
@@ -85,7 +85,7 @@ Vous pouvez accéder à la page de configuration des emplacements nommés dans l
 
     b. Dans la zone de texte **Plage d’adresses IP**, tapez une plage d’adresses IP. La plage d’adresses IP doit être au format *CIDR* (Classless Inter-Domain Routing).  
 
-    c. Cliquez sur **Create**.
+    c. Cliquez sur **Créer**.
 
 
 
@@ -99,7 +99,7 @@ Vous pouvez accéder à la page de configuration des emplacements nommés dans l
 **Limites** : vous pouvez définir un maximum de 60 emplacements nommés avec une plage d’adresses IP assignée à chacun d’eux. Si vous n’avez qu’un seul emplacement nommé configuré, vous pouvez définir jusqu’à 500 plages d’adresses IP pour celui-ci.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur :
 

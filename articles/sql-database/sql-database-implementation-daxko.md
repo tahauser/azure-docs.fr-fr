@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI a utilisé Azure pour accélérer son cycle de développement et améliorer ses performances et ses services clients
 ![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -91,7 +91,6 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 * Pour plus d’informations sur les outils de bases de données et la mise à l’échelle élastique, consultez [Outils de bases de données élastique et mise à l’échelle élastique](sql-database-elastic-scale-get-started.md).
 * Pour en savoir plus sur la migration d’une base de données SQL Server, consultez [Migrer une base de données SQL Server vers Azure](sql-database-cloud-migrate.md).
 * Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
-* Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure Service Bus, consultez [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l’échelle des services cloud](../cloud-services/cloud-services-how-to-scale-portal.md).
 

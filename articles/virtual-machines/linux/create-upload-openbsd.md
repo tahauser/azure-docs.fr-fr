@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Créer et charger une image de disque OpenBSD sur Azure
 Cet article montre comment créer et charger un disque dur virtuel (VHD) contenant le système d’exploitation OpenBSD. Après l’avoir chargé, vous pouvez l’utiliser comme image personnelle pour créer une machine virtuelle (VM) dans Azure via Azure CLI.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Cet article part du principe que vous disposez des éléments suivants :
 
 * **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez en créer un en quelques minutes. Si vous disposez d’un abonnement MSDN, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, découvrez comment [créer un compte d'essai gratuit](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** : assurez-vous que vous avez installé la dernière version d’[Azure CLI 2.0](/cli/azure/install-azure-cli) et que vous vous êtes connecté à votre compte Azure avec la commande [az login](/cli/azure/#login).
+* **Azure CLI 2.0** : assurez-vous que vous avez installé la dernière version d’[Azure CLI 2.0](/cli/azure/install-azure-cli) et que vous vous êtes connecté à votre compte Azure avec la commande [az login](/cli/azure/#az_login).
 * **Système d’exploitation OpenBSD installé dans un fichier .vhd** : un système d’exploitation OpenBSD pris en charge (version 6.1) doit être installé sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation comme Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions pour installer et utiliser Hyper-V, consultez la page [Installer Hyper-V et créer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,13 +102,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Créer des ressources de stockage et charger
-Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Pour charger votre disque dur virtuel, créez un compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#create). Le nom du compte de stockage devant être unique, entrez votre propre nom. L’exemple qui suit permet de créer un compte de stockage nommé *mystorageaccount* :
+Pour charger votre disque dur virtuel, créez un compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). Le nom du compte de stockage devant être unique, entrez votre propre nom. L’exemple qui suit permet de créer un compte de stockage nommé *mystorageaccount* :
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Pour contrôler l’accès au compte de stockage, obtenez la clé de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#list) comme suit :
+Pour contrôler l’accès au compte de stockage, obtenez la clé de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) comme suit :
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Pour séparer logiquement les disques durs virtuels que vous chargez, créez un conteneur dans le compte de stockage avec la commande [az storage container create](/cli/azure/storage/container#create) :
+Pour séparer logiquement les disques durs virtuels que vous chargez, créez un conteneur dans le compte de stockage avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create) :
 
 ```azurecli
 az storage container create \
@@ -135,7 +135,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Enfin, chargez votre disque dur virtuel avec la commande [az storage blob upload](/cli/azure/storage/blob#upload) comme suit :
+Enfin, chargez votre disque dur virtuel avec la commande [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) comme suit :
 
 ```azurecli
 az storage blob upload \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Créer la machine virtuelle à partir de votre disque dur virtuel
-Vous pouvez créer une machine virtuelle avec un [exemple de script](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou directement avec la commande [az vm create](/cli/azure/vm#create). Pour spécifier le disque dur virtuel OpenBSD que vous avez chargé, utilisez le paramètre `--image` comme suit :
+Vous pouvez créer une machine virtuelle avec un [exemple de script](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou directement avec la commande [az vm create](/cli/azure/vm#az_vm_create). Pour spécifier le disque dur virtuel OpenBSD que vous avez chargé, utilisez le paramètre `--image` comme suit :
 
 ```azurecli
 az vm create \
@@ -173,7 +173,7 @@ ssh azureuser@<ip address>
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur la prise en charge de Hyper-V sur OpenBSD6.1, voir [OpenBSD 6.1](https://www.openbsd.org/61.html) et [hyperv.4](http://man.openbsd.org/hyperv.4).
 
 Pour savoir comment créer une machine virtuelle à partir d’un disque géré, voir [az disk](/cli/azure/disk). 

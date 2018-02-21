@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -39,7 +39,7 @@ Si ce n’est pas les informations que vous recherchez, laissez un commentaire �
 
 ## <a name="cloud-apps-assignments"></a>Affectations des applications cloud
 
-Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](active-directory-conditional-access-azure-portal.md#who). Quand vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
+Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](active-directory-conditional-access-conditions.md#cloud-apps). Quand vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
 
 ![Sélectionner les applications cloud pour votre stratégie](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition
 
 ## <a name="client-apps-condition"></a>Condition d’applications clientes 
 
-Dans votre stratégie d’accès conditionnel, vous pouvez configurer la condition [Applications clientes](active-directory-conditional-access-azure-portal.md#client-apps) pour lier la stratégie à l’application cliente à l’origine d’une tentative d’accès. Configurez la condition d’applications clientes afin d’accorder ou de bloquer l’accès en cas de tentative d’accès à partir des types d’applications clientes suivantes :
+Dans votre stratégie d’accès conditionnel, vous pouvez configurer la condition [Applications clientes](active-directory-conditional-access-conditions.md#client-apps) pour lier la stratégie à l’application cliente à l’origine d’une tentative d’accès. Configurez la condition d’applications clientes afin d’accorder ou de bloquer l’accès en cas de tentative d’accès à partir des types d’applications clientes suivantes :
 
 - Browser
 - Applications mobiles et de bureau
@@ -169,10 +169,9 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 |Outlook 2016 (Office pour Mac OS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Application Outlook Mobile|Office 365 Exchange Online|Android, iOS|
-|Application PowerBI. L’application Power BI pour Android ne prend pas en charge actuellement l’accès conditionnel en fonction de l’appareil.|Service PowerBI|Windows 10, Windows 8.1, Windows 7 et iOS|
+|Application PowerBI|Service PowerBI|Windows 10, Windows 8.1, Windows 7 et iOS|
 |Skype Entreprise|Office 365 Exchange Online|Android, IOS |
 |Application Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Spécification d’application cliente approuvée 
@@ -186,6 +185,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Entreprise
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

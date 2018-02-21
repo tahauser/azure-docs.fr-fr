@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco utilise Azure SQL Database afin d’approvisionner rapidement des services et de les mettre à l’échelle pour des milliers de locataires dans le cloud
 ![Logo Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -124,7 +124,6 @@ Depuis le choix d’Azure comme partenaire cloud, Umbraco a pu fournir aux clien
 ## <a name="more-information"></a>Plus d’informations
 * Pour plus d’informations sur les pools élastiques Azure, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
 * Pour plus d’informations sur Azure Service Bus, consultez [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur les réseaux virtuels, consultez [Réseaux virtuels](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Pour plus d’informations sur la sauvegarde et la récupération, consultez [Continuité d’activité](sql-database-business-continuity.md).    
 * Pour plus d’informations sur l’analyse des pools, consultez [Analyse des pools](sql-database-elastic-pool-manage-portal.md).    

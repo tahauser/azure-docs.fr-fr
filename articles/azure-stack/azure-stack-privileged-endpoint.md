@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -78,8 +78,6 @@ Nous vous recommandons de vous connecter au point de terminaison privilégié un
       - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
     
 3.  Après vous être connecté, l’invite devient **[*adresse IP ou nom de machine virtuelle ERCS*]: PS>** ou **[azs-ercs01]: PS>**, en fonction de l’environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
-
-    ![Sortie de l’applet de commande Get-Command affichant la liste des commandes disponibles](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Un grand nombre de ces applets de commande sont uniquement destinées aux environnements de système intégré (par exemple, les applets de commande associées à l’intégration au centre de données). Dans le Kit ASDK, les applets de commande suivantes ont été validées :
 

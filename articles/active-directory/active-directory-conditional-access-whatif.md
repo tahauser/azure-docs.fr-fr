@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Outil de simulation d’accès conditionnel Azure Active Directory (préversion)
 
@@ -78,14 +78,14 @@ La valeur par défaut pour ce paramètre est **Toutes les applications cloud**. 
 
 ### <a name="ip-address"></a>Adresse IP
 
-L’adresse IP est une adresse IPv4 unique pour reproduire la [condition d’emplacement](active-directory-conditional-access-azure-portal.md#locations). L’adresse représente l’adresse accessible sur Internet de l’appareil utilisé par vos utilisateurs pour se connecter. Vous pouvez vérifier l’adresse IP d’un appareil, en accédant par exemple à [Quelle est mon adresse IP](https://whatismyipaddress.com).    
+L’adresse IP est une adresse IPv4 unique pour reproduire la [condition d’emplacement](active-directory-conditional-access-locations.md). L’adresse représente l’adresse accessible sur Internet de l’appareil utilisé par vos utilisateurs pour se connecter. Vous pouvez vérifier l’adresse IP d’un appareil, en accédant par exemple à [Quelle est mon adresse IP](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Plateformes d’appareils
 
-Ce paramètre reproduit la [condition des plateformes d’appareil](active-directory-conditional-access-azure-portal.md#device-platforms) et représente l’équivalent de **Toutes les plateformes (y compris celles non prises en charge)**. 
+Ce paramètre reproduit la [condition des plateformes d’appareil](active-directory-conditional-access-conditions.md#device-platforms) et représente l’équivalent de **Toutes les plateformes (y compris celles non prises en charge)**. 
 ### <a name="client-apps"></a>Applications clientes
 
-Ce paramètre reproduit la [condition des applications client](active-directory-conditional-access-azure-portal.md#client-apps).
+Ce paramètre reproduit la [condition des applications client](active-directory-conditional-access-conditions.md#client-apps).
 Par défaut, ce paramètre entraîne une évaluation de toutes les stratégies ayant **Navigateur** et/ou **Applications mobiles et clients de bureau** sélectionnés. Il détecte également les stratégies qui appliquent **Exchange ActiveSync (EAS)**. Vous pouvez réduire la portée de ce paramètre en sélectionnant :
 
 - **Navigateur** pour évaluer toutes les stratégies ayant au moins **Navigateur** sélectionné. 
@@ -95,7 +95,7 @@ Par défaut, ce paramètre entraîne une évaluation de toutes les stratégies a
 
 ### <a name="sign-in-risk"></a>Risque à la connexion
 
-Ce paramètre reproduit la [condition de risque de connexion](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Ce paramètre reproduit la [condition de risque de connexion](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Évaluation 

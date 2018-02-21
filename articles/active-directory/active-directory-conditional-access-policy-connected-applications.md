@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory
 
@@ -41,11 +41,11 @@ L’accès conditionnel basé sur les appareils fait le lien entre l’**accès 
 
 Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan, Azure Active Directory autorise une authentification unique sur les appareils, applications et services depuis n’importe où. Pour certaines ressources de votre environnement, accorder l’accès aux utilisateurs appropriés n’est parfois pas suffisant. Outre les utilisateurs appropriés, vous pourriez également vouloir qu’appareil de confiance soit utilisé pour accéder à une ressource. Dans votre environnement, vous pouvez définir un appareil de confiance selon les caractéristiques suivantes :
 
-- Les [plateformes d’appareils](active-directory-conditional-access-azure-portal.md#device-platforms) sur un appareil
+- Les [plateformes d’appareils](active-directory-conditional-access-conditions.md#device-platforms) sur un appareil
 - Si un appareil est conforme ou non
 - Si un appareil est joint à un domaine 
 
-Les [plateformes d’appareils](active-directory-conditional-access-azure-portal.md#device-platforms) se caractérisent par le système d’exploitation qui s’exécute sur votre appareil. Dans votre stratégie d’accès conditionnel basé sur les appareils, vous pouvez limiter l’accès à certaines ressources à des plateformes d’appareils spécifiques.
+Les [plateformes d’appareils](active-directory-conditional-access-conditions.md#device-platforms) se caractérisent par le système d’exploitation qui s’exécute sur votre appareil. Dans votre stratégie d’accès conditionnel basé sur les appareils, vous pouvez limiter l’accès à certaines ressources à des plateformes d’appareils spécifiques.
 
 
 
@@ -73,7 +73,7 @@ Si vous avez une empreinte Active Directory (AD) locale, vous pouvez envisager d
 ![Applications cloud](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Avant de configurer une stratégie d’accès conditionnel basé sur les appareils dans votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 4b677a4063ebef84dbd2fa476b5f633b859f90ed
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Comment créer et utiliser une paire de clés publique et privée SSHpour les machines virtuelles Linux dans Azure
 Avec une paire de clés SSH (secure shell), vous pouvez créer des machines virtuelles sur Azure qui utilisent par défaut des clés SSH pour l’authentification, éliminant ainsi la nécessité de recourir aux mots de passe pour la connexion. Cet article vous indique comment générer et utiliser rapidement une paire de clés publique et privée SSH RSA de version de protocole 2 pour des machines virtuelles Linux. Vous pouvez effectuer ces étapes avec Azure Cloud Shell, un hôte Linux ou macOS ou le sous-système Windows pour Linux. Pour accéder à une procédure plus détaillée et à des exemples supplémentaires, consultez la [procédure détaillée de création de paires de clés SSH et de certificats](create-ssh-keys-detailed.md).
@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 2048
 ```
 
 ## <a name="use-the-ssh-key-pair"></a>Utilisation de la paire de clés SSH
-La clé publique que vous placez sur votre machine virtuelle Linux dans Azure est stockée par défaut dans `~/.ssh/id_rsa.pub`, sauf si vous avez modifié l’emplacement au moment de sa création. Si vous utilisez [Azure CLI 2.0](/cli/azure) pour créer votre machine virtuelle, spécifiez l’emplacement de cette clé publique lorsque vous utilisez la commande [az vm create](/cli/azure/vm#create) avec l’option `--ssh-key-path`. Si vous copiez et collez le contenu du fichier de clé publique pour l’utiliser dans le portail Azure ou dans un modèle Resource Manager, veillez à ne pas copier pas les espaces blancs supplémentaires. Par exemple, si vous utilisez OS X, vous pouvez diriger le fichier de clé publique (par défaut, **~/.ssh/id_rsa.pub**) sur **pbcopy** pour en copier le contenu (d’autres programmes Linux, par exemple `xclip`, peuvent être utilisés à cette fin).
+La clé publique que vous placez sur votre machine virtuelle Linux dans Azure est stockée par défaut dans `~/.ssh/id_rsa.pub`, sauf si vous avez modifié l’emplacement au moment de sa création. Si vous utilisez [Azure CLI 2.0](/cli/azure) pour créer votre machine virtuelle, spécifiez l’emplacement de cette clé publique lorsque vous utilisez la commande [az vm create](/cli/azure/vm#az_vm_create) avec l’option `--ssh-key-path`. Si vous copiez et collez le contenu du fichier de clé publique pour l’utiliser dans le portail Azure ou dans un modèle Resource Manager, veillez à ne pas copier pas les espaces blancs supplémentaires. Par exemple, si vous utilisez OS X, vous pouvez diriger le fichier de clé publique (par défaut, **~/.ssh/id_rsa.pub**) sur **pbcopy** pour en copier le contenu (d’autres programmes Linux, par exemple `xclip`, peuvent être utilisés à cette fin).
 
 Si vous n’êtes pas familiarisé avec les clés publiques SSH, vous pouvez voir votre clé publique en exécutant `cat` comme suit, en remplaçant `~/.ssh/id_rsa.pub` par l’emplacement de votre propre fichier de clé publique :
 

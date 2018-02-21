@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Utilisation du stockage d'objets blob à partir de Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Cet article décrit le déroulement de scénarios courants dans le cadre de l’
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
-Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service], [Création et déploiement d’une application Node.js dans Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- à l’aide de Windows PowerShell, ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix](https://www.microsoft.com/web/webmatrix/).
+Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer une application web Node.js dans Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Création et déploiement d’une application Node.js dans un service cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- à l’aide de Windows PowerShell, ou [Créer et déployer une application web Node.js dans Azure à l’aide de WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuration de votre application pour accéder au stockage
 Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logiciel (SDK) Azure Storage pour Node.js, qui inclut un ensemble de bibliothèques pratiques qui communiquent avec les services REST de stockage.
@@ -64,7 +64,7 @@ var azure = require('azure-storage');
 ## <a name="set-up-an-azure-storage-connection"></a>Configurer une connexion Azure Storage
 Le module Azure lit les variables d'environnement `AZURE_STORAGE_ACCOUNT` et `AZURE_STORAGE_ACCESS_KEY`, ou `AZURE_STORAGE_CONNECTION_STRING`, pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createBlobService**.
 
-## <a name="create-a-container"></a>Créer un conteneur
+## <a name="create-a-container"></a>Créez un conteneur.
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService** . Ajoutez le code suivant vers le début du fichier **server.js**:
 
 ```nodejs
@@ -192,7 +192,7 @@ Pour ajouter un bloc à un objet blob d’ajout existant, procédez comme suit :
 * **appendBlockFromText** : permet d’ajouter le contenu d’une chaîne à un objet blob d’ajout existant
 
 > [!NOTE]
-> Les API appendFromXXX effectuent une validation côté client de manière à échouer rapidement afin d’éviter tout appel inutile au serveur. Ce n’est pas le cas des API appendBlockFromXXX.
+> Les API appendFromXXX effectuent une validation côté client de manière à effectuer un Fail-fast afin d’éviter tout appel inutile au serveur. Ce n’est pas le cas des API appendBlockFromXXX.
 >
 >
 
@@ -230,7 +230,7 @@ blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', fun
 >
 >
 
-## <a name="list-the-blobs-in-a-container"></a>Création d’une liste d’objets blob dans un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 Pour créer une liste d'objets blob dans un conteneur, utilisez la méthode **listBlobsSegmented** . Pour renvoyer les objets blob avec un préfixe donné, utilisez **listBlobsSegmentedWithPrefix**.
 
 ```nodejs
@@ -265,7 +265,7 @@ blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.tx
 
 Le `result` contient les informations de l’objet blob, y compris les informations **ETag** .
 
-## <a name="delete-a-blob"></a>Supprimer un objet blob
+## <a name="delete-a-blob"></a>Supprimer un objet blob
 Pour supprimer un objet blob, appelez **deleteBlob**. L’exemple de code suivant supprime l’objet blob nommé **myblob**.
 
 ```nodejs
@@ -409,7 +409,7 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer des sign
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d'informations, consultez les ressources suivantes.
 
 * [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node][Kit de développement logiciel (SDK) Stockage Azure pour la référence de l'API Node]  
@@ -423,6 +423,6 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Création et déploiement d’une application Node.js dans un service cloud Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Création et déploiement d’une application Node.js dans Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog de l’équipe Stockage Azure] : http://blogs.msdn.com/b/windowsazurestorage/  
 [SDK Stockage Azure pour les références de l’API de nœud] : http://dl.windowsazure.com/nodestoragedocs/index.html  
