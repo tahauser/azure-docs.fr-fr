@@ -3,8 +3,8 @@ title: "Déployer votre application sur Azure et Azure Stack | Microsoft Docs"
 description: "Découvrez comment déployer des applications sur Azure et Azure Stack avec un pipeline CI/CD hybride."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Déployer des applications sur Azure et Azure Stack
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -31,7 +32,7 @@ Un pipeline CI/CD ([intégration continue](https://www.visualstudio.com/learn/wh
 > * Une fois que votre code a réussi le test, effectuer automatiquement le déploiement sur Azure Stack. 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Certains composants sont nécessaires pour créer un pipeline CI/CD hybride, et leur préparation peut prendre un certain temps.  Si vous disposez déjà de certains de ces composants, vérifiez qu’ils répondent aux conditions requises avant de commencer.
 
 Cette rubrique suppose également que vous connaissez déjà Azure et Azure Stack. Si vous voulez en savoir plus avant de continuer, veillez à commencer par les rubriques suivantes :
@@ -39,7 +40,7 @@ Cette rubrique suppose également que vous connaissez déjà Azure et Azure Stac
 - [Présentation de Microsoft Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
 - [Concepts clés d’Azure Stack](../azure-stack-key-features.md)
 
-### <a name="azure"></a>Microsoft Azure
+### <a name="azure"></a>Azure
  - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
  - Créez une [application web](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md), puis configurez-la pour la [publication FTP](../../app-service/app-service-deploy-ftp.md).  Notez la nouvelle URL de l’application web, car nous l’utiliserons ultérieurement.
 
@@ -82,7 +83,7 @@ Dans cette section, vous allez créer une application ASP.NET simple et l’envo
 ### <a name="review-code-in-vsts"></a>Revoir le code dans VSTS
 Une fois que vous avez validé un changement et que vous l’avez envoyé (push) à VSTS, vérifiez votre code à partir du portail VSTS.  Sélectionnez **Code**, puis **Fichiers** dans le menu déroulant.  Vous pouvez voir la solution que vous avez créée.
 
-## <a name="create-build-definition"></a>Création d’une définition de build
+## <a name="create-build-definition"></a>Créer une définition de build
 Le processus de génération définit la façon dont votre application est créée et empaquetée pour un déploiement à chaque validation de modifications du code. Dans notre exemple, nous utilisons le modèle inclus pour configurer le processus de génération d’une application ASP.NET, même s’il est possible d’adapter cette configuration en fonction de votre application.
 
 1.  Connectez-vous à votre espace de travail VSTS à partir d’un navigateur web.
@@ -97,7 +98,7 @@ Le processus de génération définit la façon dont votre application est cré�
 7.  Sélectionnez l’onglet **Déclencheurs**, puis activez **Intégration continue**.
 7.  Cliquez sur **Enregistrer et mettre en file d’attente**, puis sélectionnez **Enregistrer** dans la liste déroulante. 
 
-## <a name="create-release-definition"></a>Création d’une définition de mise en production
+## <a name="create-release-definition"></a>Créer une définition de mise en production
 Le processus de mise en production définit la façon dont les builds de l’étape précédente sont déployées dans un environnement.  Dans ce didacticiel, nous publions notre application ASP.NET avec le protocole FTP sur une application web Azure. Pour configurer une mise en production sur Azure, effectuez la procédure suivante :
 
 1.  Dans la bannière VSTS, sélectionnez **Build et mise en production**, puis **Mises en production**.
@@ -123,7 +124,7 @@ Maintenant que vous avez créé une définition de mise en production vide et qu
 
 4.  Cliquez sur **Enregistrer**.
 
-Enfin, vous configurez la définition de mise en production pour utiliser le pool d’agents contenant l’agent déployé en effectuant la procédure suivante :
+Enfin, configurez la définition de mise en production pour utiliser le pool d’agents contenant l’agent déployé en effectuant la procédure suivante :
 1.  Sélectionnez la définition de mise en production et cliquez sur **Modifier**.
 2.  Sélectionnez **Exécuter sur l’agent** dans la colonne du milieu.  Dans la colonne de droite, sélectionnez la file d’attente d’agents contenant l’agent de build en cours d’exécution sur Azure Stack.  
     ![image montrant la configuration de la définition de mise en production pour utiliser une file d’attente spécifique](./media/azure-stack-solution-pipeline/image3.png)
@@ -181,7 +182,7 @@ Vous pouvez maintenant tester le pipeline CI/CD hybride avec la dernière étape
         <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
     `
 
-    De la manière suivante :
+    par ceci :
 
     `
         <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application delivered by VSTS, Azure, and Azure Stack</p>
@@ -196,9 +197,9 @@ Vous pouvez maintenant tester le pipeline CI/CD hybride avec la dernière étape
     ![image montrant l’application ASP.NET avec le pied de page modifié](./media/azure-stack-solution-pipeline/image5.png)
 
 
-Vous pouvez maintenant utiliser votre nouveau pipeline CI/CD hybride comme bloc de construction pour d’autres modèles de cloud hybrides.
+Vous pouvez maintenant utiliser votre nouveau pipeline CI/CD hybride comme module pour d’autres modèles de cloud hybrides.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à générer un pipeline CI/CD hybride qui :
 
 > [!div class="checklist"]
@@ -209,6 +210,6 @@ Dans ce didacticiel, vous avez appris à générer un pipeline CI/CD hybride qui
 Maintenant que vous avez un pipeline CI/CD hybride, poursuivez en apprenant à développer des applications pour Azure Stack.
 
 > [!div class="nextstepaction"]
-> [Développer pour Azure Stack](azure-stack-developer.md)
+> [Développer pour Azure Stack](azure-stack-developer.md)
 
 

@@ -3,8 +3,8 @@ title: "Utiliser la boîte à outils Place de Marché pour créer et publier des
 description: "Découvrez comment créer rapidement des éléments de Place de Marché avec la boîte à outils de publication."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Ajouter des éléments de Place de Marché à l’aide de l’outil de publication
 L’ajout de votre contenu à la [Place de Marché Azure Stack](azure-stack-marketplace.md) met vos solutions à disposition de vos locataires (et de vous-même) pour le déploiement.  La boîte à outils Place de Marché crée des fichiers de packages Place de Marché Azure (.azpkg) basés sur vos extensions de machine virtuelle ou vos modèles IaaS Azure Resource Manager.  Vous pouvez également utiliser la boîte à outils Place de Marché pour publier des fichiers .azpkg créés avec l’outil ou par le biais d’étapes [manuelles](azure-stack-create-and-publish-marketplace-item.md).  Cette rubrique vous montre comment télécharger l’outil, créer un élément de Place de Marché basé sur un modèle de machine virtuelle, puis publier cet élément sur la Place de Marché Azure Stack.     
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
  - Vous devez exécuter la boîte à outils sur l’hôte Azure Stack ou disposer d’une connectivité [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) à partir de l’ordinateur sur lequel vous exécutez l’outil.
 
  - Téléchargez les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) et effectuez leur extraction.
@@ -70,7 +71,7 @@ Dans cette section, vous allez publier l’élément de Place de Marché sur vot
 
 1.  L’Assistant a besoin d’informations pour publier votre solution :
     
-    |Champ|Description|
+    |Champ|DESCRIPTION|
     |-----|-----|
     | Nom de l’administrateur de service | Compte de l’administrateur de service.  Exemple : ServiceAdmin@mydomain.onmicrosoft.com |
     | Mot de passe | Mot de passe du compte d’administrateur de service. |
@@ -86,7 +87,7 @@ La boîte à outils Place de Marché comprend un fichier *solution.parameters.ps
 
 
 ## <a name="support-files"></a>Fichiers de prise en charge
-| Description | Exemple |
+| DESCRIPTION | Exemple |
 | ----- | ----- |
 | icône .png de 40x40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | icône .png de 90x90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |

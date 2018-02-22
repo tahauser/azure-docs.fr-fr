@@ -3,8 +3,8 @@ title: "Mettre des applications web et API à la disposition des utilisateurs Az
 description: "Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent la possibilité aux utilisateurs Azure Stack de créer des applications web et API."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web et API à la disposition des utilisateurs Azure Stack
 
@@ -81,7 +82,7 @@ Maintenant que vous avez déployé le fournisseur de ressources App Service et 
 5. Cliquez sur **Base de données**, puis entrez les informations relatives à la base de données SQL créée précédemment.
 6. Cliquez sur **Créer**.
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer le fournisseur de ressources App Service

@@ -2,18 +2,19 @@
 title: "Guide de démarrage rapide avec Azure Stack - Créer une machine virtuelle Windows"
 description: "Guide de démarrage rapide avec Azure Stack - Créer une machine virtuelle Windows avec le portail"
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 64a623b3f5cb443e0676e7d89d7040837be95737
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9df976fd26318038ab4152863638e262d7f284aa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Créer une machine virtuelle Windows avec le portail Azure Stack
 
@@ -46,5 +47,5 @@ Connectez-vous au portail Azure Stack. L’adresse du portail Azure Stack varie 
 
 Quand vous n’avez plus besoin de la machine virtuelle, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources à partir de la page de la machine virtuelle, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).

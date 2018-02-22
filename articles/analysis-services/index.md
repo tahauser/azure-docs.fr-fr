@@ -10,13 +10,13 @@ ms.service: analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/14/2018
 ms.author: carolz
-ms.openlocfilehash: 3f66f61651aab5f1cf0850cdbbd069b0a9a65543
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e33dd7b691781926ab6dfc7cf08352fc9e7eca90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analysis-services-documentation"></a>Documentation Analysis Services
 
@@ -81,7 +81,7 @@ Découvrez comment configurer et gérer la modélisation de données avec Analys
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -101,7 +101,7 @@ Découvrez comment configurer et gérer la modélisation de données avec Analys
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/analysisservices/">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/analysisservices/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>

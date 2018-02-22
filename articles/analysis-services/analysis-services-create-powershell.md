@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: 2db167fd746b53e234aac3dbe2e5b76b56737e24
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 99798af8cb0a2b13f2c3c3808222113656a5a388
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Créer un serveur Azure Analysis Services à l’aide de PowerShell
 
@@ -30,7 +30,7 @@ Cette tâche requiert le module Azure PowerShell version 4.0 ou ultérieure. Po
 > [!NOTE]
 > La création d’un serveur peut donner lieu à un nouveau service facturable. Pour en savoir plus, consultez [Tarification d’Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 * **Abonnement Azure** : visitez [version d’évaluation gratuite d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) pour créer un compte.
@@ -76,7 +76,7 @@ Vous pouvez supprimer le serveur à partir de votre abonnement à l’aide de la
 Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)   
 [Déployer un modèle à partir de SSDT](analysis-services-deploy.md)   
 [Créer un modèle dans le portail Azure](analysis-services-create-model-portal.md)

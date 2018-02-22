@@ -3,8 +3,8 @@ title: "Configurer des sources de déploiement pour App Services sur Azure Stack
 description: "Comment un administrateur de service peut configurer des sources de déploiement (Git, GitHub, BitBucket, Dropbox et OneDrive) pour App Service sur Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*

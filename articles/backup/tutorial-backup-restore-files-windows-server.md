@@ -13,18 +13,18 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
 
-La sauvegarde Azure permet de récupérer des éléments individuels à partir de sauvegardes de votre serveur Windows Server. La récupération de fichiers individuels est utile si vous devez restaurer rapidement des fichiers accidentellement supprimés. Ce didacticiel décrit l’utilisation de l’agent Microsoft Azure Recovery Services pour récupérer des éléments à partir de sauvegardes que vous avez déjà effectuées dans Azure. Ce didacticiel vous explique comment effectuer les opérations suivantes :
+La sauvegarde Azure permet de récupérer des éléments individuels à partir de sauvegardes de votre serveur Windows Server. La récupération de fichiers individuels est utile si vous devez restaurer rapidement des fichiers accidentellement supprimés. Ce didacticiel décrit l’utilisation de l’agent Microsoft Azure Recovery Services pour récupérer des éléments à partir de sauvegardes que vous avez déjà effectuées dans Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Lancer la récupération d’éléments individuels 
@@ -75,7 +75,7 @@ Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure e
 
     Une fois la capture instantanée démontée, le message **Tâche terminée** s’affiche dans le volet **Tâches** de la console de l’agent.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel marque la fin des didacticiels sur la sauvegarde et la restauration de données Windows Server vers Azure. Pour en savoir plus sur la sauvegarde Azure, consultez l’exemple PowerShell sur la sauvegarde des machines virtuelles chiffrées.
 

@@ -3,8 +3,8 @@ title: "Mettre des bases de données SQL à la disposition de vos utilisateurs A
 description: "Didacticiel pour installer le fournisseur de ressources SQL Server et de créer des offres permettant aux utilisateurs d’Azure Stack de créer des bases de données SQL."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 
@@ -41,7 +42,7 @@ Le processus de déploiement est décrit en détail dans l’[article Utiliser d
 ## <a name="create-an-offer"></a>Créer une offre
 
 1.  [Définissez un quota](azure-stack-setting-quotas.md) et nommez-le *SQLServerQuota*. Sélectionnez **Microsoft.SQLAdapter** pour le champ **Namespace**.
-2.  [Créez un plan](azure-stack-create-plan.md). Nommez-le *TestSQLServerPlan*, puis sélectionnez le service **Microsoft.SQLAdapter** et le quota **SQLServerQuota**.
+2.  [Créer un plan](azure-stack-create-plan.md). Nommez-le *TestSQLServerPlan*, puis sélectionnez le service **Microsoft.SQLAdapter** et le quota **SQLServerQuota**.
 
     > [!NOTE]
     > Pour permettre aux utilisateurs de créer d’autres applications, il est possible que d’autres services soient exigés dans le plan. Par exemple, Azure Functions exige que le plan inclue le service **Microsoft.Storage**, tandis que Wordpress exige **Microsoft.MySQLAdapter**.
@@ -73,9 +74,9 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 4. Cliquez sur **Référence** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > **OK**.
 5. Cliquez sur **Créer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer le fournisseur de ressources SQL Server

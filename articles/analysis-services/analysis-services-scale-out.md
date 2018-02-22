@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -69,7 +69,7 @@ Dans **Vue d’ensemble** > Modèle > **Synchroniser le modèle**.
 
 ![Curseur de montée en charge](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>de l’API REST
 Utilisez l’opération de **synchronisation**.
 
 #### <a name="synchronize-a-model"></a>Synchroniser un modèle   
@@ -81,7 +81,7 @@ Utilisez l’opération de **synchronisation**.
 ### <a name="powershell"></a>PowerShell
 Pour exécuter la synchronisation à partir de PowerShell, [effectuez une mise à jour vers le tout dernier](https://github.com/Azure/azure-powershell/releases) module AzureRM 5.01 ou version ultérieure. Utilisez [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-## <a name="connections"></a>Connexions
+## <a name="connections"></a>connexions
 
 Dans la page Vue d’ensemble de votre serveur, vous voyez deux noms de serveur. Si vous n’avez pas encore configuré la montée en charge pour un serveur, les deux noms de serveur fonctionnent de la même façon. Une fois que vous configurez la montée en charge pour un serveur, vous devez spécifier le nom du serveur approprié en fonction du type de connexion. 
 

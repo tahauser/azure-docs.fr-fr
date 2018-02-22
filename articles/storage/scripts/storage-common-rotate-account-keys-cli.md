@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Créer un compte de stockage et faire tourner ses clés d’accès
 
@@ -45,14 +45,14 @@ az group delete --name myResourceGroup
 
 Ce script utilise les commandes suivantes pour créer le compte de stockage, récupérer ses clés d’accès et les faire tourner. Chaque élément du tableau renvoie à une documentation spécifique de la commande.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#create) | Crée un compte de stockage Azure dans le groupe de ressources spécifié. |
-| [az storage account keys list](/cli/azure/storage/account/keys#list) | Affiche les clés de l’accès au compte de stockage spécifié. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#renew) | Régénère la clé d’accès au compte de stockage principal ou secondaire. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure dans le groupe de ressources spécifié. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Affiche les clés de l’accès au compte de stockage spécifié. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Régénère la clé d’accès au compte de stockage principal ou secondaire. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 

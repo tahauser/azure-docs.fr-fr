@@ -1,31 +1,31 @@
 ---
 title: Sauvegarder Windows Server dans Azure | Microsoft Docs
 description: "Ce didacticiel décrit en détail la sauvegarde de serveurs Windows locaux dans un coffre Recovery Services."
-services: back up
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
 keywords: "sauvegarde serveur windows ; sauvegarder windows server ; sauvegarde et récupération d’urgence"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
 
-Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contre les altérations, les attaques et sinistres. Sauvegarde Azure fournit un outil léger appelé l’agent Microsoft Azure Recovery Services (MARS). L’agent MARS est installé sur le serveur Windows pour protéger les fichiers et les dossiers, et les informations de configuration du serveur via l’état du système Windows Server. Ce didacticiel explique comment vous pouvez utiliser l’agent MARS pour sauvegarder votre serveur Windows sur Azure. Ce didacticiel vous explique comment effectuer les opérations suivantes : 
+Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contre les altérations, les attaques et sinistres. Sauvegarde Azure fournit un outil léger appelé l’agent Microsoft Azure Recovery Services (MARS). L’agent MARS est installé sur le serveur Windows pour protéger les fichiers et les dossiers, et les informations de configuration du serveur via l’état du système Windows Server. Ce didacticiel explique comment vous pouvez utiliser l’agent MARS pour sauvegarder votre serveur Windows sur Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes : 
 
 
 > [!div class="checklist"]
@@ -80,13 +80,13 @@ L’agent Microsoft Azure Recovery Services (MARS) crée une association entre W
 4.  Cliquez sur **Préparer l’infrastructure** pour ouvrir le menu **Préparer l’infrastructure**.
 5.  Dans le menu **Préparer l’infrastructure**, cliquez sur **Télécharger l’agent pour Windows Server ou pour le client Windows** pour télécharger *MARSAgentInstaller.exe*. 
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
+    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     Le programme d’installation ouvre un autre navigateur et télécharge **MARSAgentInstaller.exe**.
  
 6.  Avant d’exécuter le fichier téléchargé, cliquez sur le bouton **Télécharger** dans le panneau Préparer l’infrastructure pour télécharger et enregistrer le fichier **Informations d’identification du coffre**. Ce fichier est requis pour la connexion de l’agent MARS avec le coffre Recovery Services.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
+    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
 ## <a name="install-and-register-the-agent"></a>Installer et inscrire l’agent
 
@@ -96,7 +96,7 @@ L’agent Microsoft Azure Recovery Services (MARS) crée une association entre W
     - Informations relatives au serveur proxy, si vous en utilisez un pour vous connecter à Internet.
     - Votre nom d’utilisateur et votre mot de passe si vous utilisez un proxy authentifié.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. À la fin de l’Assistant, cliquez sur **Procéder à l’enregistrement** et fournissez le fichier **Informations d’identification du coffre** que vous avez téléchargé dans la procédure précédente.
  
@@ -112,7 +112,7 @@ Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand l
 
 2.  Dans la console de l’agent Recovery Services, cliquez sur **Planifier la sauvegarde** sous le **volet Actions**.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
 3. Cliquez sur **Suivant** pour accéder à la page **Sélectionner les éléments à sauvegarder**.
 
@@ -134,7 +134,7 @@ Vous avez établi la planification lors de l’exécution des tâches de sauvega
 
 1.  Dans la console de l’agent Microsoft Azure Recovery Services, cliquez sur **Sauvegarder maintenant**.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
+    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Dans l’Assistant **Sauvegarder maintenant**, sélectionnez dans **Fichiers et dossiers** ou **État du système** l’élément que vous souhaitez sauvegarder, puis cliquez sur **Suivant**. 
 3. Dans la page **Confirmation**, vérifiez les paramètres utilisés par l’Assistant **Sauvegarder maintenant** pour sauvegarder votre serveur, puis cliquez sur **Sauvegarder**.
@@ -142,7 +142,7 @@ Vous avez établi la planification lors de l’exécution des tâches de sauvega
 4.  Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans le volet **Travaux** de la console de l’agent MARS.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opérations suivantes : 
  

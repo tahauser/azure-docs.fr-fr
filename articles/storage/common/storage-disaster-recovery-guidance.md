@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.
@@ -27,9 +27,9 @@ Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en
 Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. L’effort de récupération suite à une panne de stockage implique généralement l’intervention du personnel opérationnel ainsi que l’application de procédures automatisées afin de rétablir le bon fonctionnement de vos applications. Reportez-vous à la documentation Azure ci-dessous pour créer votre propre plan de récupération d’urgence :
 
 * [Liste de contrôle de disponibilité](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Conception d’applications résilientes pour Azure](/azure/architecture/resiliency)
+* [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Service Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Réplication Azure Storage](storage-redundancy)
+* [Réplication Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Service Azure Backup](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Mode de détection

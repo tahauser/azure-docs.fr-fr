@@ -3,8 +3,8 @@ title: "Déployer des modèles avec Visual Studio dans Azure Stack | Microsoft D
 description: "Découvrez comment déployer des modèles avec Visual Studio dans Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 8fc32dc50d96d202dfc982cbdc52d8e479c3a3eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: ecefa8c3695aad0593516cb9ad8812216e163192
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Déploiement de modèles dans Azure Stack à l’aide de Visual Studio
 
@@ -39,7 +40,7 @@ Utilisez Visual Studio pour déployer des modèles Azure Resource Manager dans l
 11. Dans la liste **Emplacement du groupe de ressources**, choisissez un emplacement, puis cliquez sur **Déployer**.
 12. Dans la boîte de dialogue **Modifier les paramètres**, saisissez les valeurs correspondant aux paramètres (qui varient selon le modèle), puis cliquez sur **Enregistrer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déployer des modèles avec la ligne de commande](azure-stack-deploy-template-command-line.md)
 
 [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
