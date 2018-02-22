@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14cc32c22653d5d8bd3dd5a1a41d2f64cfd8c73c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Flux structuré Apache Spark sur HDInsight pour traiter des événements à partir d’Event Hubs
 
@@ -29,13 +29,11 @@ Dans cet article, vous apprenez à traiter les données de télémétrie en temp
 1. Compiler et exécuter sur votre station de travail locale un exemple d’application de producteur d’événements qui génère des événements à envoyer à Event Hubs.
 2. Utilisez [l’interpréteur de commandes Spark](apache-spark-shell.md) pour définir et exécuter une application de flux structuré Spark simple.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-
-* Un espace de noms Azure Event Hubs. Consultez [Création d’un hub d’événements Azure](apache-spark-eventhub-streaming.md#create-an-azure-event-hub) pour plus d’informations.
 
 * Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir [d’ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 

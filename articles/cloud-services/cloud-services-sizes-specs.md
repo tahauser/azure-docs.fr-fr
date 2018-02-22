@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -147,23 +147,23 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 | Taille            | Cœurs d’unité centrale | Mémoire : Gio   | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2 / Modérée |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / Élevée |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / Élevée |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / Extrêmement élevée |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / Extrêmement élevée |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / Extrêmement élevée |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2 / Modérée |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / Élevée |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / Élevée |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / Extrêmement élevée |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / Extrêmement élevée |
+| Standard_D64_v3 | 64        | 256           | 1 600                 | 8 / Extrêmement élevée |
 
 ## <a name="ev3-series"></a>Série Ev3
 
 | Taille            | Cœurs d’unité centrale | Mémoire : Gio   | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2 / Modérée |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / Élevée |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / Élevée |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / Extrêmement élevée |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / Extrêmement élevée |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / Extrêmement élevée |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2 / Modérée |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / Élevée |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / Élevée |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / Extrêmement élevée |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / Extrêmement élevée |
+| Standard_E64_v3 | 64        | 432           | 1 600                 | 8 / Extrêmement élevée |
 
 
 ## <a name="g-series"></a>Série G

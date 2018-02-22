@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 Les serveurs Azure Analysis Services prennent en charge la connexion aux données sources dans le cloud et en local au sein de votre organisation. Des sources de données supplémentaires prises en charge sont ajoutées en permanence. Vérifiez ces données régulièrement. 
@@ -60,7 +60,7 @@ Les fournisseurs de source de données suivants sont pris en charge pour les mod
 | **Source de données** | **En mémoire** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL Data Warehouse |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server |
-| Azure SQL Database |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
+| Base de données SQL Azure |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Local (via une passerelle)
 |**Source de données** | **En mémoire** | **DirectQuery** |
@@ -99,7 +99,7 @@ Pour les sources de données cloud :
 
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Si vous disposez de sources de données locales, veillez à installer la [Passerelle locale](analysis-services-gateway.md).   
 Pour en savoir plus sur la gestion de votre serveur dans SSDT ou SSMS, consultez [Gérer votre serveur](analysis-services-manage.md).
 

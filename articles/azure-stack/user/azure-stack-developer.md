@@ -3,8 +3,8 @@ title: "Développer des applications pour Azure Stack | Microsoft Docs"
 description: "Découvrez les considérations relatives au développement pour le prototypage d’applications sur Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 062c17173f87eec8e0eaa3f74323cbf8a8f48571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 4b9e0f5a264296e59579539dd929f5d75a54b62a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="develop-for-azure-stack"></a>Développer pour Azure Stack
 Vous pouvez commencer à développer des applications dès aujourd’hui, même si vous n’avez pas accès à un environnement Azure Stack. Comme Azure Stack fournit des services Microsoft Azure qui s’exécutent dans votre centre de données, vous pouvez utiliser des outils et des processus similaires pour développer sur Azure Stack comme vous le feriez avec Azure.  Avec un peu de préparation et grâce aux instructions de la rubrique suivante, vous pouvez utiliser Azure pour émuler un environnement Azure Stack :

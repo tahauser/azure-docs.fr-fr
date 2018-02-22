@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -53,7 +53,7 @@ Les API Cognitive Services sont disponibles dans Azure en tant que ressources in
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+2. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
 3. Cliquez sur **AI + Analytics** > **API Analyse de texte**. Puis, utilisez les paramètres comme indiqué dans le tableau, acceptez les termes du contrat et cochez **Épingler au tableau de bord**.
 

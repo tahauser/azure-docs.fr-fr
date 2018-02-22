@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calculer la taille totale d’un conteneur de stockage d’objets blob
 
@@ -48,13 +48,13 @@ az group delete --name myResourceGroup
 
 Ce script utilise les commandes suivantes pour calculer la taille du conteneur de stockage d’objets blob. Chaque élément du tableau renvoie à une documentation spécifique de la commande.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage blob upload](/cli/azure/storage/account#create) | Charge des fichiers locaux dans un conteneur de stockage d’objets blob Azure. |
-| [az storage blob list](/cli/azure/storage/account/keys#list) | Répertorie les objets blob inclus dans un conteneur de stockage d’objets blob Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Charge des fichiers locaux dans un conteneur de stockage d’objets blob Azure. |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Répertorie les objets blob inclus dans un conteneur de stockage d’objets blob Azure. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 

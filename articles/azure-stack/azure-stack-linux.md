@@ -3,8 +3,8 @@ title: "Ajouter des images Linux à Azure Stack"
 description: "Découvrez comment ajouter des images Linux à Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: anjayajodha
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
-ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: anajod
+ms.openlocfilehash: 29e5443de4dc43efe6d536b0f8b9cfc6ad37a669
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Ajouter des images Linux à Azure Stack
 
@@ -94,6 +95,6 @@ Vous pouvez préparer votre propre image Linux en appliquant l’une des instruc
 2. [Ajoutez l’image à la Place de Marché](azure-stack-add-vm-image.md). Vérifiez que le paramètre `OSType` a la valeur `Linux`.
 3. Une fois que vous avez ajouté l’image à la Place de marché, un élément de Place de marché est créé et les utilisateurs peuvent déployer une machine virtuelle Linux.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Vue d’ensemble de l’offre de services dans Azure Stack](azure-stack-offer-services-overview.md)
 

@@ -3,8 +3,8 @@ title: "Gérer les autorisations d’accès aux ressources par utilisateur dans 
 description: "En tant qu’administrateur de service ou locataire, découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC)."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: dfec5648ff383fd98965c1918cdab6472bb3c17f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
 
@@ -36,6 +37,6 @@ Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collabo
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour l’utilisateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 

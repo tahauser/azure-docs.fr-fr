@@ -3,8 +3,8 @@ title: "Créer et publier un article de Marketplace dans Azure Stack | Microsoft
 description: "Créez et publiez un article de Marketplace dans Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -72,12 +73,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="publish-a-marketplace-item"></a>Publier un élément du Marketplace
 1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack local ou sur le Stockage Azure. (Il s’agit d’un emplacement temporaire du package.) Assurez-vous que l’objet blob est accessible publiquement.
 2. Sur la machine virtuelle cliente de l’environnement Microsoft Azure Stack, assurez-vous que votre session PowerShell est configurée avec vos informations d’identification d’administrateur de services fédérés. Vous trouverez des instructions sur l’authentification de PowerShell dans Azure Stack sur la page [Déployer un modèle avec PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Utilisez la cmdlet PowerShell **Add-AzureRMGalleryItem** pour publier l’article de Marketplace sur Azure Stack. Par exemple :
+3. Utilisez la cmdlet PowerShell **Add-AzureRMGalleryItem** pour publier l’article de Marketplace sur Azure Stack. Par exemple : 
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
-   | Paramètre | Description |
+   | Paramètre | DESCRIPTION |
    | --- | --- |
    | SubscriptionID |ID d’abonnement d’administrateur. Vous pouvez le récupérer avec PowerShell. Si vous préférez le récupérer sur le portail, accédez à l’abonnement du fournisseur et copiez l’ID d’abonnement. |
    | GalleryItemUri |URI Blob du package de galerie déjà chargé sur le stockage. |
@@ -100,29 +101,29 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Référence : manifest.json d’un article de Marketplace
 ### <a name="identity-information"></a>Informations d’identité
-| Nom | Requis | Type | Contraintes | Description |
+| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
 | --- | --- | --- | --- | --- |
-| Nom |X |String |[A-Za-z0-9]+ | |
-| Éditeur |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](http://semver.org/) | |
+| NOM |X |Chaîne |[A-Za-z0-9]+ | |
+| Publisher |X |Chaîne |[A-Za-z0-9]+ | |
+| Version |X |Chaîne |[SemVer v2](http://semver.org/) | |
 
-### <a name="metadata"></a>Metadata
-| Nom | Requis | Type | Contraintes | Description |
+### <a name="metadata"></a>Métadonnées
+| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
-| PublisherDisplayName |X |String |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
-| PublisherLegalName |X |String |256 caractères maximum | |
-| Résumé |X |String |60 à 100 caractères | |
-| LongSummary |X |String |140 à 256 caractères |Non encore applicable dans Azure Stack |
-| Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |Entre 500 et 5 000 caractères | |
+| DisplayName |X |Chaîne |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
+| PublisherDisplayName |X |Chaîne |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
+| PublisherLegalName |X |Chaîne |256 caractères maximum | |
+| Résumé |X |Chaîne |60 à 100 caractères | |
+| LongSummary |X |Chaîne |140 à 256 caractères |Non encore applicable dans Azure Stack |
+| DESCRIPTION |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |Entre 500 et 5 000 caractères | |
 
 ### <a name="images"></a>Images
 La Marketplace utilise les icônes suivantes :
 
-| Nom | Largeur | Hauteur | Remarques |
+| NOM | Largeur | Hauteur | Notes |
 | --- | --- | --- | --- |
 | Large |255 px |115 px |Toujours obligatoire |
-| Grande |115 px |115 px |Toujours obligatoire |
+| grand |115 px |115 px |Toujours obligatoire |
 | Moyenne |90 px |90 px |Toujours obligatoire |
 | Petite |40 px |40 px |Toujours obligatoire |
 | Capture d'écran |533 px |32 px |Facultatif |
@@ -133,18 +134,18 @@ Chaque article de Marketplace doit être étiqueté avec une catégorie qui iden
 ### <a name="links"></a>Liens
 Chaque article de Marketplace peut comporter différents liens vers du contenu supplémentaire. Les liens sont spécifiés comme une liste de noms et d’URI.
 
-| Nom | Requis | Type | Contraintes | Description |
+| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |64 caractères maximum | |
+| DisplayName |X |Chaîne |64 caractères maximum | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Propriétés supplémentaires
 En plus des métadonnées précédentes, les auteurs de la Marketplace peuvent fournir des données de paire clé-valeur personnalisées sous la forme suivante :
 
-| Nom | Requis | Type | Contraintes | Description |
+| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |25 caractères maximum | |
-| Valeur |X |String |30 caractères maximum | |
+| DisplayName |X |Chaîne |25 caractères maximum | |
+| Valeur |X |Chaîne |30 caractères maximum | |
 
 ### <a name="html-sanitization"></a>Nettoyage du HTML
 Pour tout champ autorisant le HTML, les éléments et attributs suivants sont permis :

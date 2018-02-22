@@ -5,15 +5,15 @@ services: backup
 keywords: "sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde de MV ; sauvegarder une MV ; sauvegarde de MV Azure ; sauvegarde et récupération d’urgence"
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -33,7 +33,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 Le coffre Recovery Services contient les données de sauvegarde et la stratégie de sauvegarde appliquée aux machines virtuelles protégées. La sauvegarde des machines virtuelles est un processus local. Vous ne pouvez pas sauvegarder une machine virtuelle se trouvant dans un emplacement vers un coffre Recovery Services situé dans un autre emplacement. Donc, chaque emplacement Azure contenant des machines virtuelles à sauvegarder, doit comprendre au moins un coffre Recovery Services.
 
-1. Dans le menu de gauche, sélectionnez **Autres services**, puis, dans la liste des services, tapez *Recovery Services*. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Lorsque vous voyez l’option Coffres Recovery Services dans la liste, sélectionnez-la pour ouvrir le Coffres Recovery Services.
+1. Dans le menu de gauche, sélectionnez **Tous les services**, puis dans la liste des services, tapez *Recovery Services*. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Lorsque vous voyez l’option Coffres Recovery Services dans la liste, sélectionnez-la pour ouvrir le Coffres Recovery Services.
 
     ![Ouvrir le menu Coffres Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 
@@ -171,7 +171,7 @@ Si vous souhaitez suivre les didacticiels suivants, ne nettoyez pas les ressourc
     Une fois le coffre supprimé, vous revenez à la liste des coffres Recovery Services.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opérations suivantes :
 

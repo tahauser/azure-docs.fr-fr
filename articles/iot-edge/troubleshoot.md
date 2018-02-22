@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5de069eb35e88c1dce6dcfa5a1661e8ab87302b1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -56,7 +56,7 @@ Edge Agent démarre et s’exécute avec succès pendant environ une minute, pui
 
 Exemples de journaux Edge Agent :
 
-```
+```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
 2017-11-28 18:46:19 [INF] - Version - 1.0.7516610 (03c94f85d0833a861a43c669842f0817924911d5) 
 2017-11-28 18:46:19 [INF] - Edge agent attempting to connect to IoT Hub via AMQP... 
@@ -75,7 +75,7 @@ Assurez-vous qu’il existe un itinéraire vers Internet pour les adresses IP af
 
 Edge Hub ne parvient pas à démarrer et le message suivant est consigné dans les journaux : 
 
-```
+```output
 One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
@@ -97,5 +97,5 @@ Edge Agent ne possède pas les autorisations pour accéder à l’image d’un m
 ### <a name="resolution"></a>Résolution :
 Essayez d’exécuter à nouveau la commande `iotedgectl login`.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pensez que vous avez trouvé un bogue dans la plateforme IoT Edge ? Veuillez [soumettre un problème](https://github.com/Azure/iot-edge/issues) afin que nous puissions poursuivre les améliorations. 

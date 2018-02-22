@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: v-craic
-ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 616117e1f1e55e9c59b409740e17e295ce114d52
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Créer et gérer des machines virtuelles revendicables dans un laboratoire dans Azure DevTest Labs
 Vous ajoutez une machine virtuelle exigible à un laboratoire comme vous [ajouteriez une machine virtuelle standard](devtest-lab-add-vm.md), à partir d’une *base* qui est une [image personnalisée](devtest-lab-create-template.md), une [formule](devtest-lab-manage-formulas.md) ou une [image de la plateforme Place de marché](devtest-lab-configure-marketplace-images.md). Ce didacticiel vous guide tout au long de l’utilisation du Portail Azure pour ajouter une machine virtuelle revendicable à un laboratoire dans DevTest Labs, et vous présente la procédure qu’un utilisateur suit pour revendiquer ou cesser de revendiquer la machine virtuelle.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Procédure d’ajout d’une machine virtuelle exigible à un laboratoire dans Azure DevTest Labs
 1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 1. Dans la liste des laboratoires, sélectionnez le laboratoire dans lequel vous souhaitez créer la machine virtuelle revendicable.  
 1. Dans le volet **Vue d’ensemble** du laboratoire, sélectionnez **+ Ajouter**.  
 

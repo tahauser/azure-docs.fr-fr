@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 139679eb58516c9eda02f048e8c839e1b7bceb48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Créer une stratégie de basculement pour une haute disponibilité à l’aide d’Azure CLI
 
@@ -46,14 +46,14 @@ az group delete --name myResourceGroup
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az cosmosdb create](/cli/azure/sql/server#create) | Crée un compte Azure Cosmos DB. |
-| [az cosmosdb update](/cli/azure/cosmosdb#update) | Met à jour un compte Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Crée un compte Azure Cosmos DB. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Met à jour un compte Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

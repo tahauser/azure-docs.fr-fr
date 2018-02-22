@@ -7,7 +7,7 @@ author: neilpeterson
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: Docker, conteneurs, micro-services, Kubernetes, DC/OS, Azure
+keywords: Docker, conteneurs, microservices, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d12299d08fa989c0990ae45a41c638470e1075a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Mettre à l’échelle un cluster Azure Container Service
 
@@ -48,11 +48,11 @@ az group delete --name myResourceGroup
 
 Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque élément du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az acs scale](/cli/azure/acs#scale) | Met à l’échelle un cluster ACS. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | Met à l’échelle un cluster ACS. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

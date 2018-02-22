@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 89eb2e567e06660efa5feddce1db0fcdb47792f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -196,7 +196,7 @@ Créez un service lié pour lier votre base de données Azure SQL qui héberge l
 
     ```json
     {
-        "name": "AzureSqlDbLinkedService",
+        "name": "AzureSqlDatabaseLinkedService",
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
@@ -235,7 +235,7 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
                     "description":"Runs an SSIS package",
                     "type": "SqlServerStoredProcedure",
                     "linkedServiceName": {
-                        "referenceName": "AzureSqlDbLinkedService",
+                        "referenceName": "AzureSqlDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
                     "typeProperties": {

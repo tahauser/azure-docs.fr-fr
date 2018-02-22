@@ -1,29 +1,29 @@
 ---
 title: Restaurer des fichiers sur une machine virtuelle avec Sauvegarde Azure | Microsoft Docs
 description: "Découvrez comment effectuer des restaurations au niveau du fichier sur une machine virtuelle avec Sauvegarde Azure et Recovery Services."
-services: backup, virtual-machines
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e1bbae56b70c50fcf691db47efd9dc587686e7da
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
-Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer des fichiers individuels. Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer des fichiers individuels. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Répertorier et sélectionner des points de récupération
@@ -35,7 +35,7 @@ Azure Backup crée des points de récupération stockés dans des coffres de ré
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de fichiers et le processus de récupération, vous supprimez une page d’un serveur web. Si vous avez besoin d’une machine virtuelle Linux qui exécute un serveur Web et qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
 
@@ -198,7 +198,7 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez connecté un point de récupération à une machine virtuelle et restauré des fichiers pour un serveur web. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: v-craic
-ms.openlocfilehash: f7ccd9f56742fe4500c6f5441623beca28801bcd
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3f5fc5051bb8acd9ae107eeadc2a00e992eb378c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer les stratégies de laboratoire de base dans Azure DevTest Labs
 
@@ -31,7 +31,7 @@ Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme 
 
 1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
 

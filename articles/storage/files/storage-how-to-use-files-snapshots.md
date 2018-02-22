@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Utiliser des instantanés de partage (préversion)
 Un instantané de partage (préversion) est une version en lecture seule d’un partage de fichiers Azure pris à un certain point dans le temps. Une fois créé, un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Un instantané de partage offre un moyen de sauvegarder le partage tel qu’il apparaît à un certain moment. 
@@ -246,7 +246,6 @@ Dans la sortie, vous voyez que le contenu du fichier téléchargé et ses propri
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Opérations sur les instantanés de partage de fichiers dans Azure PowerShell
 Vous pouvez utiliser Azure PowerShell pour effectuer les mêmes opérations, telles que répertorier les instantanés de partage, explorer le contenu des instantanés de partage, restaurer ou télécharger des fichiers à partir des instantanés de partage, ou supprimer des instantanés de partage.
 
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Supprimer un instantané de partage de fichiers Azure
-=======
 ## <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Vous pouvez supprimer des instantanés de partage en utilisant le portail Azure, PowerShell, l’interface CLI, l’API REST ou n’importe quel SDK Stockage. Les sections suivantes décrivent comment supprimer un instantané de partage avec le portail Azure, l’interface CLI et PowerShell.
 

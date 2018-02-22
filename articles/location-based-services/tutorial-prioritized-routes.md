@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Rechercher des itinéraires pour différents modes de déplacement à l’aide d’Azure Location Based Services
 
@@ -209,9 +209,9 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
     ```
     Cet extrait de code crée un objet [XMLHttpRequest](https://xhr.spec.whatwg.org/), puis ajoute un gestionnaire d’événements pour analyser la réponse entrante. Pour obtenir une réponse correcte, il crée un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la couche `truckRouteLayerName` de la carte. 
     
-    Cet extrait de code envoie aussi la requête à Route Service, afin d’obtenir l’itinéraire pour des points de départ et d’arrivée spécifiés, pour la clé de votre compte. Les paramètres facultatifs suivants sont utilisés pour indiquer l’itinéraire pour un poids lourd : - Le paramètre `travelMode=truck` spécifie le mode de déplacement en tant que *camion*. Les autres modes de déplacement pris en charge sont *taxi*, *bus*, *van*, *moto* et par défaut *voiture*.  
-        - Les paramètres `vehicleWidth`, `vehicleHeight` et `vehicleLength` spécifient les dimensions du véhicule en mètres, et ne sont pris en compte que si le mode de déplacement est *camion*.  
-        - Le paramètre `vehicleLoadType` classe la cargaison comme dangereuse et restreinte sur certaines routes. Actuellement, ce paramètre n’est également pris en charge que pour le mode *camion*.  
+    Cet extrait de code envoie aussi la requête à Route Service, afin d’obtenir l’itinéraire pour des points de départ et d’arrivée spécifiés, pour la clé de votre compte. Les paramètres facultatifs suivants sont utilisés pour indiquer l’itinéraire pour un poids lourd : - Le paramètre `travelMode=truck` spécifie le mode de déplacement en tant que *camion*. Les autres modes de déplacement pris en charge sont *taxi*, *bus*, *van*, *moto* et par défaut *voiture*.
+        - Les paramètres `vehicleWidth`, `vehicleHeight` et `vehicleLength` spécifient les dimensions du véhicule en mètres, et ne sont pris en compte que si le mode de déplacement est *camion*.
+        - Le paramètre `vehicleLoadType` classe la cargaison comme dangereuse et restreinte sur certaines routes. Actuellement, ce paramètre n’est également pris en charge que pour le mode *camion*.
 
 2. Ajoutez le code JavaScript suivant pour obtenir l’itinéraire pour une voiture à l’aide de Route Service :
 

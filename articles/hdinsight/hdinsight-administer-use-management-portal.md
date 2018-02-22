@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Hadoop Windows dans HDInsight à l'aide du portail Azure
 
@@ -32,18 +32,18 @@ Les informations mentionnées dans cet article s’appliquent uniquement aux clu
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Ouvrir le portail
 1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com).
 2. Une fois que vous ouvrez le portail, vous pouvez :
 
-   * Cliquez sur **Nouveau** dans le menu de gauche pour créer un nouveau cluster :
+   * Cliquez sur **Créer une ressource** dans le menu de gauche pour créer un nouveau cluster :
 
        ![bouton nouveau cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Cliquez sur **HDInsight Clusters** dans le menu de gauche.
@@ -164,7 +164,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     Vous pouvez augmenter de façon continue le nombre de nœuds de travail dans un cluster Hadoop exécuté sans affecter aucune tâche en attente ou en cours. De nouvelles tâches peuvent également être soumises lorsque l'opération est en cours. Les défaillances dans l'opération de mise à l'échelle sont correctement gérées de sorte que le cluster reste toujours fonctionnel.
 
     Lorsqu’un cluster Hadoop est diminué par la réduction du nombre de nœuds de données, certains services du cluster sont redémarrés. Pour cette raison, toutes les tâches en cours ou en attente échouent lors de la réalisation de l'opération de mise à l'échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l'opération terminée.
-* HBase
+* hbase
 
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
 
@@ -356,7 +356,7 @@ Pour vous connecter au cluster à l’aide du Bureau à distance et utiliser la 
 
     Pour plus d’informations sur les commandes Hadoop, consultez la rubrique [Référence aux commandes Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Sur la capture d’écran précédente, le numéro de la version d’Hadoop est intégré au nom du dossier. Il peut être modifié en fonction de la version des composants Hadoop installés sur le cluster. Vous pouvez utiliser des variables d'environnement Hadoop pour faire référence à ces dossiers. Par exemple :
+Sur la capture d’écran précédente, le numéro de la version d’Hadoop est intégré au nom du dossier. Il peut être modifié en fonction de la version des composants Hadoop installés sur le cluster. Vous pouvez utiliser des variables d'environnement Hadoop pour faire référence à ces dossiers. Par exemple : 
 
     cd %hadoop_home%
     cd %hive_home%
@@ -365,7 +365,7 @@ Sur la capture d’écran précédente, le numéro de la version d’Hadoop est 
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du portail et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
 
 * [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md)

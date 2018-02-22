@@ -3,8 +3,8 @@ title: "Gérer les comptes de stockage Azure Stack | Microsoft Docs"
 description: "Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: AniAnirudh
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
-ms.author: anirudha
-ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: anirudha
+ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -44,7 +45,7 @@ La liste des comptes de stockage de la région peut être affichée dans Azure S
 
 Par défaut, les 10 premiers comptes sont affichés. Vous pouvez choisir d’en afficher plus en cliquant sur le lien **Charger plus** en bas de la liste.
 
-OU
+Ou
 
 Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **filtrer et extraire les comptes appropriés** uniquement.
 
@@ -79,7 +80,7 @@ Dans Azure Stack, il existe un moyen très simple de le faire :
 3. Vérifiez l’*état* du compte. Il doit être **Supprimé**.
 4. Cliquez sur le compte pour ouvrir le panneau des détails du compte.
 5. En haut de ce panneau, recherchez le bouton **Récupérer** et cliquez sur celui-ci.
-6. Cliquez sur **Yes** (Oui) pour confirmer.
+6. Cliquez sur **Oui** pour confirmer.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. La récupération est maintenant *en cours... Attendez* un message indiquant que la récupération est effective.
