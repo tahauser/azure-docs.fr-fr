@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
 ## <a name="overview"></a>Vue d'ensemble ##
 
@@ -55,15 +55,22 @@ Les ports d’accès normaux pour les applications sont les suivants :
 
 Ces ports s’appliquent aussi bien pour un ASE externe que pour un ASE ILB. Si vous êtes dans un ASE externe, appuyez sur ces ports sur l’adresse IP virtuelle publique. Si vous vous trouvez dans un ASE ILB, vous atteignez ces ports sur l’équilibreur de charge interne. Si vous verrouillez le port 443, certaines fonctionnalités exposées dans le portail peuvent être affectées. Pour plus d’informations, consultez la section [Dépendances du portail](#portaldep).
 
+## <a name="ase-subnet-size"></a>Taille du sous-réseau de l’ASE ##
+
+La taille du sous-réseau utilisé pour héberger un ASE ne peut pas être modifiée une fois l’ASE déployé.  L’ASE utilise une adresse pour chaque rôle d’infrastructure, ainsi que pour chaque instance de plan App Service Isolé.  De plus, 5 adresses sont utilisées par Azure Networking pour chaque sous-réseau créé.  Un ASE sans aucun plan App Service utilise 12 adresses avant la création d’une application.  S’il s’agit d’un ASE ILB, il utilise 13 adresses avant la création d’une application dans cet ASE. À mesure que vous augmentez la taille des instances de vos plans App Service, des adresses supplémentaires sont nécessaires pour chaque serveur frontend ajouté.  Par défaut, un serveur frontend est ajouté toutes les 15 instances de plan App Service. 
+
+   > [!NOTE]
+   > Le sous-réseau doit contenir uniquement l’ASE. Veillez à choisir un espace d’adressage qui permet une croissance future. Vous ne pouvez pas modifier ce paramètre par la suite. Nous vous recommandons une taille de `/25` avec 128 adresses.
+
 ## <a name="ase-dependencies"></a>Dépendances d’un ASE ##
 
 Un ASE présente la dépendance d’accès entrant suivante :
 
 | Utilisation | À partir | À |
 |-----|------|----|
-| Gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
+| gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
 |  Communications internes de l’ASE | Sous-réseau de l’ASE : tous les ports | Sous-réseau de l’ASE : tous les ports
-|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : tous les ports
+|  Autoriser le trafic entrant de l’équilibreur de charge Azure | Équilibreur de charge Azure | Sous-réseau de l’ASE : tous les ports
 |  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : tous les ports
 
 Le trafic entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses IP sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP.
@@ -78,7 +85,7 @@ Pour l’accès sortant, un ASE dépend de plusieurs systèmes externes. Ces dé
 
 | Utilisation | À partir | À |
 |-----|------|----|
-| Azure Storage | Sous-réseau de l’ASE | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net : 80, 443, 445 (le port 445 est requis uniquement pour ASEv1) |
+| Stockage Azure | Sous-réseau de l’ASE | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net : 80, 443, 445 (le port 445 est requis uniquement pour ASEv1) |
 | Azure SQL Database | Sous-réseau de l’ASE | database.windows.net : 1433, 11000-11999, 14000-14999 (pour plus d’informations, consultez [Port utilisé par SQL Database V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
 | Gestion d’Azure | Sous-réseau de l’ASE | management.core.windows.net, management.azure.com : 443 
 | Vérification du certificat SSL |  Sous-réseau de l’ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com : 443
@@ -102,7 +109,7 @@ Si le réseau virtuel est configuré avec un DNS client de l’autre côté d’
 Outre les dépendances fonctionnelles que présente un ASE, il existe quelques éléments supplémentaires liés à l’utilisation du portail. Certaines des fonctionnalités du portail Azure dépendent d’un accès direct au _site du Gestionnaire de contrôle des services (SCM)_. Pour chaque application dans Azure App Service, il existe deux URL. La première URL sert à accéder à votre application. La seconde permet d’accéder au site SCM, également désigné sous le nom de _console Kudu_. Voici quelques-unes des fonctionnalités qui utilisent le site SCM :
 
 -   Tâches web
--   Fonctions
+-   Functions
 -   Diffusion de journaux
 -   Kudu
 -   Extensions
@@ -142,7 +149,7 @@ Avec un ASE externe, vous pouvez assigner des adresses IP à des applications in
 
 Lorsqu’une application possède sa propre adresse SSL basée sur IP, l’ASE réserve deux ports pour le mappage à cette adresse IP. Un port est destiné au trafic HTTP et l’autre au trafic HTTPS. Ces ports sont répertoriés dans l’interface utilisateur de l’ASE, dans la section des adresses IP. Le trafic doit pouvoir atteindre ces ports à partir de l’adresse IP virtuelle. Sinon, les applications ne sont pas accessibles. Il est important de ne pas oublier cela lorsque vous configurez des groupes de sécurité réseau (NSG).
 
-## <a name="network-security-groups"></a>Groupes de sécurité réseau ##
+## <a name="network-security-groups"></a>Network Security Group ##
 
 Les [groupes de sécurité réseau][NSGs] permettent de contrôler l’accès réseau au sein d’un réseau virtuel. Lorsque vous utilisez le portail, il existe une règle de refus implicite au niveau de priorité le plus bas qui fait que tout accès est refusé. Ce que vous créez sont vos règles d’autorisation.
 
@@ -150,7 +157,7 @@ Dans un ASE, vous n’avez pas accès aux machines virtuelles utilisées pour h�
 
 Les groupes de sécurité réseau peuvent être configurés à l’aide du portail Azure ou via PowerShell. Seul le portail Azure est illustré ici. Les groupes de sécurité réseau sont créés et gérés en tant que ressources de niveau supérieur dans la section **Mise en réseau** du portail.
 
-En tenant compte des exigences liées au trafic entrant et sortant, les groupes de sécurité réseau doivent se ressembler aux groupes de sécurité réseau présentés dans cet exemple. La plage d’adresses du réseau virtuel est _192.168.250.0/16_ et le sous-réseau dans lequel l’ASE se trouve est _192.168.251.128/25_.
+En tenant compte des exigences liées au trafic entrant et sortant, les groupes de sécurité réseau doivent se ressembler aux groupes de sécurité réseau présentés dans cet exemple. La plage d’adresses du réseau virtuel est _192.168.250.0/23_, et le sous-réseau dans lequel l’ASE se trouve est _192.168.251.128/25_.
 
 Les deux premières exigences liées au trafic entrant pour l’ASE figurent en haut de la liste dans cet exemple. Elles permettent la gestion de l’ASE et autorisent l’ASE à communiquer avec lui-même. Les autres entrées sont toutes configurables par le client et peuvent régir l’accès réseau aux applications hébergées dans l’ASE. 
 
@@ -168,13 +175,13 @@ Une fois vos groupes de sécurité réseau définis, vous devez les attribuer au
 
 ## <a name="routes"></a>Itinéraires ##
 
-Les itinéraires posent le plus souvent problème lorsque vous configurez votre réseau virtuel avec Azure ExpressRoute. Il existe trois types d’itinéraires dans un réseau virtuel :
+Les itinéraires sont un aspect essentiel de la nature du tunneling forcé et de son exploitation. Dans un réseau virtuel Azure, le routage repose sur la correspondance de préfixe la plus longue. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
 
--   Itinéraires système
--   Itinéraires BGP
--   Itinéraires définis par l’utilisateur (UDR)
+- Itinéraire défini par l’utilisateur (UDR)
+- Itinéraire BGP (lorsque ExpressRoute est utilisé)
+- Itinéraire du système
 
-Les itinéraires BGP prennent le pas sur les itinéraires système. Les UDR prennent le pas sur les itinéraires BGP. Pour plus d’informations sur les itinéraires dans les réseaux virtuels Azure, consultez [Présentation des itinéraires définis par l’utilisateur][UDRs].
+Pour en savoir plus sur le routage dans un réseau virtuel, consultez [Itinéraires définis par l’utilisateur et transfert IP][UDRs].
 
 La base de données SQL Azure qu’utilise l’ASE pour gérer le système dispose d’un pare-feu. Il requiert une communication provenant de l’adresse IP virtuelle publique ASE. Les connexions à la base de données SQL à partir de l’ASE sont refusées si elles sont envoyées via la connexion ExpressRoute et depuis une autre adresse IP.
 

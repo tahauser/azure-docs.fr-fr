@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Didacticiel : Intégration d’Azure Active Directory à EBSCO
 
@@ -32,7 +32,7 @@ L’intégration d’EBSCO à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD à EBSCO, vous avez besoin des éléments suivants :
 
@@ -119,13 +119,13 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     o **Éléments uniques :**  
 
-       **Custid** (ID client) : entrez l’ID client EBSCO unique. 
+    o **Custid** = Entrez l’ID client EBSCO unique 
 
-       **Profile** (Profil) : les clients peuvent adapter le lien pour diriger les utilisateurs vers un profil spécifique (selon ce qu’ils achètent auprès d’EBSCO). Ils peuvent entrer un ID de profil spécifique. Les principaux ID sont eds (service de découverte EBSCO) et ehost (bases de données EBSOCOhost). Vous trouverez des instructions les concernant [ici](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o **Profile** = Les clients peuvent adapter le lien pour diriger les utilisateurs vers un profil spécifique (selon ce qu’ils achètent auprès d’EBSCO). Ils peuvent entrer un ID de profil spécifique. Les principaux ID sont eds (service de découverte EBSCO) et ehost (bases de données EBSOCOhost). Vous trouverez des instructions les concernant [ici](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 5. L’application EBSCO attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
     > L’attribut **name** est obligatoire et il est mappé avec **User Identifier** (Identificateur d’utilisateur) dans l’application EBSCO. C’est ajouté par défaut pour vous éviter d’avoir à le faire manuellement.
@@ -140,9 +140,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-ebsco-tutorial/tutorial_officespace_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_officespace_04.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-ebsco-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ebsco-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     

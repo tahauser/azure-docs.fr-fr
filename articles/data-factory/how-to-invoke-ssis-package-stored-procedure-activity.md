@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -39,8 +39,9 @@ Dans cette section, vous utilisez l’interface utilisateur de Data Factory pour
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données
 La première étape consiste à créer une fabrique de données à l’aide du portail Azure. 
 
-1. Accédez au [portail Azure](https://portal.azure.com). 
-2. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
+1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
+2. Accédez au [portail Azure](https://portal.azure.com). 
+3. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
@@ -75,7 +76,7 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
 1. Dans la page de prise en main, cliquez sur **Créer un pipeline** : 
 
     ![Page de prise en main](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. Dans la boîte à outils **Activités**, développez **Base de données SQL** et glissez-déplacez l’activité **Procédure stockée** vers la surface du concepteur de pipeline. 
+2. Dans la boîte à outils **Activités**, développez **Général** et glissez-déplacez l’activité **Procédure stockée** vers la surface du concepteur de pipeline. 
 
     ![Glisser-déplacer l’activité de procédure stockée](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. Dans la fenêtre de propriétés de l’activité de procédure stockée, basculez vers l’onglet **Compte SQL**, puis cliquez sur **+ Nouveau**. Vous créez une connexion à la base de données SQL Azure qui héberge le catalogue SSIS (base de données SSIDB). 
@@ -94,11 +95,12 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
         ![Service lié pour base de données SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Dans la fenêtre de propriétés, basculez vers l’onglet **Procédure stockée** à partir de l’onglet **Compte SQL** et effectuez les étapes suivantes : 
 
-    1. Dans le champ **Nom de la procédure stockée**, entrez `sp_executesql`. 
-    2. Cliquez sur **+ Nouveau** dans la section **Paramètres de procédure stockée**. 
-    3. Comme **Nom** du paramètre, entrez **stmt**. 
-    4. Comme **Type** de paramètre, entrez **String**. 
-    5. Comme **Valeur** du paramètre, entrez la requête SQL suivante :
+    1. Sélectionnez **Modifier**. 
+    2. Dans le champ **Nom de la procédure stockée**, entrez `sp_executesql`. 
+    3. Cliquez sur **+ Nouveau** dans la section **Paramètres de procédure stockée**. 
+    4. Comme **Nom** du paramètre, entrez **stmt**. 
+    5. Comme **Type** de paramètre, entrez **String**. 
+    6. Comme **Valeur** du paramètre, entrez la requête SQL suivante :
 
         Dans la requête SQL, spécifiez les valeurs correctes pour les paramètres **folder_name**, **project_name** et **package_name**. 
 
@@ -120,7 +122,8 @@ Dans cette section, vous déclenchez une exécution du pipeline puis vous la sur
 1. Pour déclencher une exécution de pipeline, cliquez sur **Déclencher** dans la barre d’outils, puis sur **Déclencher maintenant**. 
 
     ![Déclencher maintenant](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Basculez vers l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution de pipeline et son état, ainsi que d’autres informations (telles que l’heure de début d’exécution). Pour actualiser la vue, cliquez sur **Actualiser**.
+2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**. 
+3. Basculez vers l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution de pipeline et son état, ainsi que d’autres informations (telles que l’heure de début d’exécution). Pour actualiser la vue, cliquez sur **Actualiser**.
 
     ![Exécutions de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Cliquez sur le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Une seule exécution d’activité est affichée, étant donnée que le pipeline n’a qu’une seule activité (activité de procédure stockée).

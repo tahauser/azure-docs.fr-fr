@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 70564905d6c71589c898ca84d56940c0d775a2b0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f2ef582bd3a5ecd837dd053067cae6c1ea47b6f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Didacticiel : configurer LinkedIn Learning pour l’approvisionnement automatique d’utilisateurs
 
@@ -117,8 +117,9 @@ La première étape consiste à récupérer votre jeton d’accès LinkedIn. Si 
 
 16) Cliquez sur **Enregistrer**. 
 
-Cette commande lance la synchronisation initiale des utilisateurs et/ou groupes assignés à LinkedIn Learning dans la section Utilisateurs et groupes. Notez que la synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 20 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service d’approvisionnement dans votre application LinkedIn Learning.
+Cette commande lance la synchronisation initiale des utilisateurs et/ou groupes assignés à LinkedIn Learning dans la section Utilisateurs et groupes. Notez que la synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application LinkedIn Learning.
 
+Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

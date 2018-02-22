@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
 La gouvernance informatique fait clairement la distinction entre les objectifs métier et les projets informatiques. Une bonne gouvernance informatique implique la planification de vos initiatives et la définition de priorités à un niveau stratégique. Votre société rencontre un nombre important de problèmes informatiques qui ne semblent jamais résolus ? L’implémentation de stratégies vous permet de mieux les gérer et les prévenir. C’est ici qu’Azure Policy entre en jeu.
 
-Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer des définitions de stratégie. Les définitions de stratégie appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. Azure Policy exécute une évaluation de vos ressources, en analysant celles qui ne sont pas conformes avec les définitions de stratégie dont vous disposez. Par exemple, vous pouvez disposer d’une stratégie pour n’autoriser que certains types de machine virtuelle. Une autre stratégie peut également exiger que toutes les ressources soient marquées. Ces stratégies sont alors évaluées lors de la création et de la mise à jour des ressources.
+Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer des définitions de stratégie. Les définitions de stratégie appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. Azure Policy exécute une évaluation de vos ressources, en analysant celles qui ne sont pas conformes avec les définitions de stratégie dont vous disposez. Par exemple, vous pouvez disposer d’une stratégie pour n’autoriser que certains types de machines virtuelles. Une autre stratégie peut également exiger que toutes les ressources soient marquées. Ces stratégies sont alors évaluées lors de la création et de la mise à jour des ressources.
 
 ## <a name="how-is-it-different-from-rbac"></a>Quelle est la différence avec RBAC ?
 

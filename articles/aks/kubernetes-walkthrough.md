@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: abefbf94c9e28b21def15e6179b7dbd464c43644
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
@@ -63,10 +63,10 @@ Sortie :
 
 ## <a name="create-aks-cluster"></a>Créer un cluster ACS
 
-L’exemple suivant crée un cluster à un nœud nommé *myK8sCluster*.
+L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
@@ -85,7 +85,7 @@ az aks install-cli
 Pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes, exécutez la commande suivante. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
@@ -98,7 +98,7 @@ Sortie :
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
@@ -210,7 +210,20 @@ Vous pouvez désormais accéder à l’adresse IP externe pour voir l’applicat
 
 ![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="open-kubernetes-dashboard"></a>Ouvrir le tableau de bord Kubernetes
+
+L’interface de ligne de commande Azure peut également servir à configurer une connexion avec le tableau de bord Kubernetes. Pour ce faire, utilisez la commande [az aks browse][az-aks-browse].
+
+```azurecli-interactive
+az aks browse --resource-group myResourceGroup --name myAKSCluster
+```
+
+Une fois exécutée, un navigateur s’ouvre dans le tableau de bord Kubernetes.
+
+![Tableau de bord Kubernetes](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
+
 ## <a name="delete-cluster"></a>Supprimer un cluster
+
 Lorsque vous n’avez plus besoin du cluster, vous pouvez utiliser la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le service de conteneur et toutes les ressources associées.
 
 ```azurecli-interactive
@@ -241,6 +254,7 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete

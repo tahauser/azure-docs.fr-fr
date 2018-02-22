@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Déployer une application sur un cluster tiers dans Azure
 Deuxième d’une série, ce didacticiel vous montre comment déployer une application Azure Service Fabric sur un cluster tiers dans Azure.
@@ -59,14 +59,33 @@ Si vous le souhaitez, vous pouvez utiliser votre propre cluster à la place du c
 > [!NOTE]
 > Les clusters tiers ne sont pas sécurisés. Vos applications et toutes les données que vous y placez sont donc visibles par d’autres personnes. Ne déployez aucun élément que vous souhaitez cacher aux autres utilisateurs. Veillez à lire les conditions d’utilisation pour plus d’informations.
 
+Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Le certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
+
+![Certificat PFX et point de terminaison de connexion](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Sur un ordinateur Windows, installez le certificat PFX dans le magasin de certificats *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Déployer l’application dans Azure
 Maintenant que l’application est prête, vous pouvez la déployer sur le cluster tiers directement à partir de Visual Studio.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis choisissez **Publier**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis choisissez **Publier**. 
 
-    ![Boîte de dialogue Publier](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Boîte de dialogue Publier](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Saisissez le point de terminaison de connexion du cluster tiers dans le champ **Point de terminaison de connexion** et cliquez sur **Publier**.
+2. Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers dans le champ **Point de terminaison de connexion**. Par exemple : `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Cliquez sur **Paramètres de connexion avancés** et renseignez les informations suivantes.  Les valeurs *FindValue* et *ServerCertThumbprint* doivent correspondre à l’empreinte numérique du certificat installé lors de l’étape précédente. Cliquez sur **Publier**. 
 
     Une fois la publication terminée, vous devez être en mesure d’envoyer une demande à l’application via un navigateur.
 
@@ -81,7 +100,7 @@ Service Fabric Explorer est une interface utilisateur graphique qui permet d’e
 
 Pour supprimer l’application du cluster tiers :
 
-1. Accédez à Service Fabric Explorer à l’aide du lien fourni sur la page d’inscription du cluster tiers. Par exemple, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Accédez à Service Fabric Explorer à l’aide du lien fourni sur la page d’inscription du cluster tiers. Par exemple, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
 2. Dans Service Fabric Explorer, accédez au nœud **fabric://Voting**, dans l’arborescence figurant sur le côté gauche.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Didacticiel : configurer Slack pour l’approvisionnement automatique d’utilisateurs
 
@@ -107,7 +107,9 @@ Si vous le souhaitez, vous pouvez activer l’approvisionnement des objets de gr
 
 4) Cliquez sur **Enregistrer**.
 
-Ainsi, les objets de groupe affectés à Slack dans la section **Utilisateurs et groupes** seront entièrement synchronisés d’Azure AD vers Slack. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application Slack.
+Ainsi, les objets de groupe affectés à Slack dans la section **Utilisateurs et groupes** seront entièrement synchronisés d’Azure AD vers Slack. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application Slack.
+
+Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

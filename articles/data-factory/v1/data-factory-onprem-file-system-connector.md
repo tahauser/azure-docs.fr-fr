@@ -83,8 +83,8 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exemples de définitions de jeux de données et de service liés
 | Scénario | Hôte dans la définition du service lié | folderPath dans la définition du jeu de données |
 | --- | --- | --- |
-| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples: D:\\\* ou D:\dossier\sous-dossier\\*\ |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
-| Dossier partagé distant :  <br/><br/>Exemples: \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\*\ |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
+| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples: D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
+| Dossier partagé distant :  <br/><br/>Exemples: \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 
 ### <a name="example-using-username-and-password-in-plain-text"></a>Exemple : utilisation d’un nom d'utilisateur et d’un mot de passe en texte brut

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f08f9c1fa141f85077c1e868fb309516ce52342b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copier des données à partir d’Azure Database pour MySQL avec Azure Data Factory
 
@@ -44,8 +44,8 @@ Les propriétés suivantes sont prises en charge par le service lié Azure Datab
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AzureMySql**. | Oui |
-| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. Marquez ce champ comme SecureString. | Oui |
+| Type | La propriété de type doit être définie sur **AzureMySql**. | OUI |
+| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple :**
@@ -77,7 +77,7 @@ Pour copier des données à partir d’Azure Database pour MySQL, définissez la
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du jeu de données doit être définie sur **AzureMySqlTable**. | Oui |
+| Type | La propriété de type du jeu de données doit être définie sur **AzureMySqlTable**. | OUI |
 | TableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -108,7 +108,7 @@ Pour copier des données à partir d’Azure Database pour MySQL, définissez le
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **AzureMySqlSource**. | Oui |
+| Type | La propriété de type de la source d’activité de copie doit être définie sur **AzureMySqlSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
@@ -44,7 +44,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Passer en revue les résultats de la deuxième exécution
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Voici le diagramme général de la solution : 
 
 ![Chargement incrémentiel de données](media\tutorial-Incremental-copy-portal\incrementally-load.png)
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
+1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 3. Sur la page **Général** de la fenêtre **Propriétés** pour le pipeline, entrez le nom **IncrementalCopyPipeline**. 
 
    ![Nom du pipeline](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Vous allez ajouter la première activité de recherche pour obtenir l’ancienne valeur de filigrane. Dans la boîte à outils **Activités**, développez **Base de données SQL**et glissez-déposez l’activité **Recherche** vers la surface du concepteur de pipeline. Changez le nom de l’activité par **LookupOldWaterMarkActivity**.
+4. Vous allez ajouter la première activité de recherche pour obtenir l’ancienne valeur de filigrane. Dans la boîte à outils **Activités**, Développez **Général**, puis faites glisser et déposez une activité **Recherche** sur la surface du concepteur de pipeline. Changez le nom de l’activité par **LookupOldWaterMarkActivity**.
 
    ![Première activité de recherche - nom](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Basculez vers l’onglet **Paramètres**, puis cliquez sur **+ Nouveau** comme **jeu de données source**. Dans cette étape, vous créez un jeu de données pour représenter des données dans la **table filigrane**. Cette table contient l’ancien filigrane utilisé dans l’opération de copie précédente. 
@@ -224,7 +225,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 11. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **WatermarkDataset** est sélectionné dans le champ **Jeu de données source**. 
 
     ![Pipeline - ancien jeu de données de filigrane](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. Dans la boîte à outils **Activités**, développez **Base de données SQL**et glissez-déposez une autre activité de **recherche** vers la surface du concepteur de de pipeline et saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination. 
+12. Dans la boîte à outils **Activités**, développez **Général**et faites glisser et déposez une autre activité de **recherche** sur la surface du concepteur de pipeline, puis saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination. 
 
     ![Deuxième activité de recherche - nom](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. Dans la fenêtre Propriétés pour la deuxième activité de **recherche**, basculez vers l’onglet **Paramètres**, puis cliquez sur **Nouveau**. Vous créez un jeu de données pour pointer vers la table source qui contient la nouvelle valeur du filigrane (valeur maximale de LastModifyTime). 
@@ -295,7 +296,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
         ![Jeu de données récepteur - paramètres de connexion](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Basculez vers l’éditeur de **pipeline** en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. 
-29. Dans la boîte à outils **Activités**, développez **SQL Database**, et glissez-déposez l’activité **Procédure stockée** depuis la boîte à outils **Activités** vers la surface du concepteur de pipeline. **Connectez** le résultat vert (succès) de l’activité de **copie** à l’activité **Procédure stockée**. 
+29. Dans la boîte à outils **Activités**, développez **Général**, et faites glisser et déposez l’activité **Procédure stockée** de la boîte à outils **Activités** sur la surface du concepteur de pipeline. **Connectez** le résultat vert (succès) de l’activité de **copie** à l’activité **Procédure stockée**. 
     
     ![Activité de copie - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Sélectionnez **Activité de procédure de stockage** dans le concepteur de pipeline, remplacez son nom par **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,8 +307,8 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ![Activité de procédure stockée - Compte SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Basculez vers l’onglet **Procédure stockée**, et procédez comme suit : 
 
-    1. Entrez **sp_write_watermark** comme **nom de la procédure stockée**. 
-    2. Pour spécifier des valeurs pour les paramètres de procédure stockée, cliquez sur **+ Nouveau** dans la section **Paramètres de procédure stockée** et entrez les valeurs suivantes : 
+    1. Pour **Nom de la procédure stockée**, sélectionnez **sp_write_watermark**. 
+    2. Pour spécifier des valeurs correspondant aux paramètres de procédure stockée, cliquez sur **Import parameter** (Paramètre d’importation), puis entrez les valeurs suivantes pour les paramètres : 
 
         | NOM | type | Valeur | 
         | ---- | ---- | ----- | 
@@ -318,14 +319,15 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 27. Pour valider les paramètres du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Pour fermer la fenêtre **Rapport de validation de pipeline**, cliquez sur >>.   
 
     ![Valider le pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Publiez des entités (services liés, jeux de données et pipelines) pour le service Azure Data Factory en cliquant sur le bouton **Publier**. Patientez jusqu’à voir le message de réussite de la publication. 
+28. Publiez des entités (services liés, jeux de données et pipelines) pour le service Azure Data Factory en sélectionnant le bouton **Publier tout**. Patientez jusqu’à voir le message de réussite de la publication. 
 
     ![Bouton Publier](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
-Cliquez sur **Déclencher** dans la barre d’outils, cliquez sur **Déclencher maintenant**. 
+1. Cliquez sur **Déclencher** dans la barre d’outils, cliquez sur **Déclencher maintenant**. 
 
-![Bouton Déclencher maintenant](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Bouton Déclencher maintenant](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 

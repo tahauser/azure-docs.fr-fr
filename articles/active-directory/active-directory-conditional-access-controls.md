@@ -1,6 +1,6 @@
 ---
-title: "Contrôles dans l’accès conditionnel Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment fonctionnent les contrôles dans l’accès conditionnel Azure Active Directory."
+title: "Contrôles d’accès dans l’accès conditionnel Azure Active Directory | Microsoft Docs"
+description: "Découvrez comment fonctionnent les contrôles d’accès dans l’accès conditionnel Azure Active Directory."
 services: active-directory
 keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Contrôles dans l’accès conditionnel Azure Active Directory 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Contrôles d’accès dans l’accès conditionnel Azure Active Directory 
 
-Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») à une condition spécifique (« quand cela se produit »). Dans le contexte de l’accès conditionnel, 
+Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») sur la raison du déclenchement de votre stratégie (« quand cela se produit »). 
 
-- « **When this happens** » est une **instruction de condition**
+![Contrôle](./media/active-directory-conditional-access-controls/10.png)
 
-- « **Then do this** » est un **contrôle**
 
-![Contrôle](./media/active-directory-conditional-access-controls/11.png)
+Dans le contexte de l’accès conditionnel, 
+
+- « **Quand cela se produit** » est une **condition**
+
+- « **Faire** » est un **contrôle d’accès**
+
 
 Une stratégie d’accès conditionnel combine une instruction de condition à des contrôles.
 
-![Contrôle](./media/active-directory-conditional-access-controls/12.png)
+![Contrôle](./media/active-directory-conditional-access-controls/61.png)
 
 Chaque contrôle est soit une exigence qui doit être remplie par la personne ou le système qui se connecte, soit une restriction sur ce que l’utilisateur peut faire après la connexion. 
 

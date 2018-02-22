@@ -30,8 +30,15 @@ Vous pouvez acheter des instances de machines virtuelles réservées sur le [por
 
     ![Capture d’écran avant de soumettre l’achat de la réservation](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Étapes consécutives à l’achat d’une réservation
+## <a name="next-steps"></a>étapes suivantes 
 La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous pouvez mettre à jour l’étendue de la réservation par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API. 
 
-Pour savoir comment gérer une réservation, consultez [Gérer les instances de machines virtuelles réservées Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Pour savoir comment gérer une réservation, consultez [Gérer Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Pour plus d’informations sur les instances de machine virtuelle réservées, consultez les articles suivants.
+
+- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Coûts des logiciels Windows non inclus dans les instances réservées](../articles/billing/billing-reserved-instance-windows-software-costs.md)

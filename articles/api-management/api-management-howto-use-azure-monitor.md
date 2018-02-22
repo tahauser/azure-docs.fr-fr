@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -50,7 +50,7 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 Les journaux d’activité fournissent des informations sur les opérations qui ont été effectuées sur les services de Gestion des API. Avec les journaux d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos services de Gestion des API. 
 
 > [!NOTE]
-> Les journaux d’activité n’incluent pas les opérations de lecture (GET) ou les opérations effectuées dans le portail des éditeurs classique ou utilisant les API de gestion d’origine.
+> Les journaux d’activité n’incluent pas les opérations de lecture (GET) ou les opérations effectuées dans le portail Azure ou utilisant les API de gestion d’origine.
 
 Vous pouvez accéder aux journaux d’activité dans votre service de Gestion des API, ou accéder aux journaux de toutes vos ressources Azure dans Azure Monitor. 
 

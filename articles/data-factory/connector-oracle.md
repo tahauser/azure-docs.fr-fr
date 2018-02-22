@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d6b96bc40325d398c91e293ec6ca8f8cc2993e58
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dfbc6e1d8bdf20cc7a0a4b1571882ba84487dddc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-onprem-oracle-connector.md)
+> * [Version 1 – Disponibilité générale](v1/data-factory-onprem-oracle-connector.md)
 > * [Version 2 - Préversion](connector-oracle.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers une base de données Oracle. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -58,8 +58,8 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Oracle**. | OUI |
-| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ comme SecureString.<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | OUI |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple :**
 
@@ -84,9 +84,9 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Oracle.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Oracle.
 
-Pour copier des données depuis et vers Oracle, affectez la valeur **OracleTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes.
+Pour copier des données depuis et vers Oracle, affectez la valeur **OracleTable** à la propriété type du jeu de données. Les propriétés suivantes sont prises en charge.
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
@@ -118,7 +118,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="oracle-as-a-source-type"></a>Oracle comme un type de source
 
-Pour copier des données d’Oracle, définissez le type de source dans l’activité de copie sur **OracleSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes.
+Pour copier des données d’Oracle, définissez le type de source dans l’activité de copie sur **OracleSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
@@ -161,7 +161,7 @@ Si vous ne spécifiez pas « oracleReaderQuery », les colonnes définies dans
 
 ### <a name="oracle-as-a-sink-type"></a>Oracle comme type de récepteur
 
-Pour copier des données vers Oracle, définissez **OracleSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **sink** (récepteur) de l’activité de copie.
+Pour copier des données vers Oracle, définissez **OracleSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
@@ -205,7 +205,7 @@ Pour copier des données vers Oracle, définissez **OracleSink** comme type de r
 
 Lorsque vous copiez des données depuis et vers Oracle, les mappages suivants sont utilisés entre les types de données Oracle et les types de données intermédiaires Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
-| Type de données Oracle | Type de données intermédiaires de Data Factory |
+| Type de données Oracle | Type de données intermédiaires d’Azure Data Factory |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(seulement pris en charge sur Oracle 10g et les versions ultérieures) |
@@ -234,4 +234,4 @@ Lorsque vous copiez des données depuis et vers Oracle, les mappages suivants so
 
 
 ## <a name="next-steps"></a>étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

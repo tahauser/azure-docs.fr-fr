@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3d9248d2501c7fea0492bad2687b6bdfb0b903e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -38,7 +38,7 @@ Avant de commencer, il est utile [d’examiner l’architecture](concepts-vmware
 1. Dans **Coffres Recovery Services**, cliquez sur le nom du coffre, **ContosoVMVault**.
 2. Dans **Prise en main**, cliquez sur Site Recovery. Cliquez ensuite sur **Préparer l’infrastructure**.
 3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
-4. Dans **Sur quelle cible souhaitez-vous répliquer vos machines, sélectionnez **Sur Azure**.
+4. Dans **Où voulez-vous répliquer vos machines**, sélectionnez **Dans Azure**.
 5. Dans **Vos machines sont-elles virtualisées**, sélectionnez **Oui, avec l’hyperviseur VMware vSphere**. Cliquez ensuite sur **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
@@ -63,7 +63,7 @@ Pour configurer le serveur de configuration comme une machine virtuelle VMware h
 
 ## <a name="import-the-template-in-vmware"></a>Importer le modèle dans VMware
 
-1. Ouvrez une session sur le serveur vCenter ou l’hôte vSphere ESXi de VMWare, à l’aide du client vSphere de VMWare.
+1. Ouvrez une session sur le serveur vCenter ou l’hôte vSphere ESXi de VMware, à l’aide du client vSphere de VMware.
 2. Dans le menu **Fichiers**, sélectionnez **Déployer le modèle OVF** pour lancer l’assistant de déploiement du modèle OVF.  
 
      ![Modèle OVF](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
@@ -85,12 +85,12 @@ Si vous souhaitez ajouter une carte réseau supplémentaire au serveur de config
 1. Dans l’inventaire du client vSphere, faites un clic droit sur la machine virtuelle, puis sélectionnez **Modifier les paramètres**.
 2. Dans **Matériel**, cliquez sur **Ajouter** > **Carte Ethernet**. Cliquez ensuite sur **Suivant**.
 3. Sélectionnez un type de carte et un réseau. 
-4. Pour connecter la carte réseau virtuelle lorsque la machine est allumée, sélectionnez **Connecter à la mise sous tension**. Cliquez sur **Suivant** > **Terminer**, puis cliquez sur **OK**.
+4. Pour connecter la carte réseau virtuelle lorsque la machine virtuelle est allumée, sélectionnez **Connecter à la mise sous tension**. Cliquez sur **Suivant** > **Terminer**, puis cliquez sur **OK**.
 
 
 ## <a name="register-the-configuration-server"></a>Inscrire le serveur de configuration 
 
-1. À partir de la console du client vSphere de VMWare, activez la machine virtuelle.
+1. À partir de la console du client vSphere de VMware, activez la machine virtuelle.
 2. La machine virtuelle démarre sur une expérience d’installation de Windows Server 2016. Acceptez le contrat de licence et spécifiez un mot de passe administrateur.
 3. Une fois l’installation terminée, connectez-vous à la machine virtuelle en tant qu’administrateur.
 4. L’outil de Configuration Azure Site Recovery se lance la première fois que vous vous connectez.
@@ -104,7 +104,7 @@ Si vous souhaitez ajouter une carte réseau supplémentaire au serveur de config
 1. Dans l’assistant de gestion de serveur de configuration > **Configurer la connectivité**, sélectionnez la carte réseau qui recevra le trafic de réplication. Cliquez ensuite sur **Enregistrer**. Vous ne pouvez pas modifier ce paramètre une fois configuré.
 2. Dans **Sélectionner le coffre Recovery Services**, sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre appropriés.
 3. Dans **Installer un logiciel tiers**, acceptez le contrat de licence et cliquez sur **Télécharger et installer** pour installer MySQL Server.
-4. Cliquez sur **Installer VMware PowerLCI**. Assurez-vous que toutes les fenêtres du navigateur sont fermées avant de continuer. Cliquez ensuite sur **Continuer**
+4. Cliquez sur **Installer VMware PowerCLI**. Assurez-vous que toutes les fenêtres du navigateur sont fermées avant de continuer. Cliquez ensuite sur **Continuer**
 5. Dans **Valider la configuration de l’appliance**, les conditions préalables sont vérifiées avant de continuer.
 6. Dans **Configurer le serveur vCenter/vSphere ESXi**, spécifiez le nom de domaine complet ou l’adresse IP du serveur vCenter, ou l’hôte vSphere, sur lequel sont situées les machines virtuelles que vous souhaitez répliquer. Spécifiez le port écouté par le serveur et un nom convivial à utiliser pour le serveur VMware dans le coffre.
 7. Spécifiez les informations d’identification à utiliser par le serveur de configuration pour se connecter au serveur VMware. Site Recovery utilise ces informations d’identification pour détecter automatiquement les machines virtuelles VMware disponibles pour la réplication. Cliquez sur **Ajouter**, puis sur **Continuer**.

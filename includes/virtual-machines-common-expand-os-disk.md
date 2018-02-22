@@ -8,6 +8,9 @@ Lorsque vous créez une machine virtuelle (VM) dans un groupe de ressources en d
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle Resource Manager. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 > 
 > 
+> [!WARNING]
+> Le redimensionnement du disque du système d’exploitation d’une machine virtuelle Azure entraînera son redémarrage.
+>
 
 ## <a name="resize-the-os-drive"></a>Redimensionner le lecteur du système d’exploitation
 Dans cet article, nous allons exécuter la tâche consistant à redimensionner le lecteur du système d’exploitation à l’aide de modules Resource Manager d’ [Azure Powershell](/powershell/azureps-cmdlets-docs). Nous allons montrer le redimensionnement du lecteur du système d’exploitation à la fois pour les disques non gérés et gérés, car l’approche diffère entre les deux types de disques.

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Meilleures pratiques de chargement de données dans Azure SQL Data Warehouse
 Recommandations et optimisation des performances pour le chargement de données dans Azure SQL Data Warehouse. 
@@ -120,15 +120,19 @@ En matière de sécurité, il est recommandé de modifier régulièrement la cl�
 
 Pour passer d’une clé de compte de stockage Azure à une autre :
 
-1. Créez un deuxième fichier d’informations d’identification de niveau base de données en fonction de la clé d’accès de stockage secondaire.
-2. Créez une deuxième source de données externe en fonction de ces nouvelles informations d’identification.
-3. Supprimez et créez les tables externes de façon qu’elles pointent vers les nouvelles sources de données externes. 
+Pour chaque compte de stockage dont la clé a changé, exécutez l’instruction [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Après la migration de vos tables externes vers la nouvelle source de données, effectuez les tâches de nettoyage suivantes :
+Exemple :
 
-1. Suppression de la première source de données externe.
-2. Suppression du premier fichier d’informations d’identification de niveau base de données en fonction de la clé d’accès de stockage primaire.
-3. Connexion à Azure et régénération de la clé d’accès primaire, afin qu’elle soit prête pour votre prochaine rotation.
+Une clé d’origine est créée
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Passer de la clé 1 à la clé 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Aucune autre modification des sources de données externes sous-jacentes n’est nécessaire.
 
 
 ## <a name="next-steps"></a>étapes suivantes

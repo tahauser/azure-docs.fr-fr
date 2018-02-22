@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ Plus spécifiquement, ce connecteur Amazon S3 prend en charge la copie de fichie
 Pour copier des données à partir d’Amazon S3, assurez-vous que vous disposez des autorisations suivantes :
 
 - `s3:GetObject` et `s3:GetObjectVersion` pour les opérations d’objet Amazon S3 ;
-- `s3:ListBucket` pour les opérations de compartiment Amazon S3. Si vous utilisez l’Assistant de copie de Data Factory, l’élément `s3:ListAllMyBuckets` est également requis.
+- `s3:ListBucket` ou `s3:GetBucketLocation` pour les opérations de compartiment Amazon S3. Si vous utilisez l’Assistant de copie de Data Factory, l’élément `s3:ListAllMyBuckets` est également requis.
 
-Pour obtenir la liste complète des autorisations Amazon S3, consultez l’article [Spécification des autorisations d’une stratégie](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+Pour obtenir la liste complète des autorisations Amazon S3, consultez l’article [Spécification des autorisations d’une stratégie](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -55,7 +55,7 @@ Les propriétés prises en charge pour le service lié Amazon S3 prises en charg
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
 | accessKeyId | ID de la clé d’accès secrète. |OUI |
-| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ comme SecureString. |OUI |
+| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 >[!NOTE]
@@ -171,7 +171,7 @@ Pour copier des données d’Amazon S3, définissez **FileSystemSource** (qui in
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
-| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur fichier, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
 
 **Exemple :**
 

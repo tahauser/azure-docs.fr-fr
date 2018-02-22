@@ -1,142 +1,189 @@
 ---
-title: "Héberger plusieurs sites sur la passerelle Azure Application Gateway | Microsoft Docs"
-description: "Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure pour l’hébergement de plusieurs applications web sur la même passerelle avec le portail Azure."
-documentationcenter: na
+title: "Créer une passerelle d’application hébergeant plusieurs sites - Portail Azure | Microsoft Docs"
+description: "Découvrez comment créer une passerelle d’application qui héberge plusieurs sites à l’aide du portail Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configurer une passerelle Application Gateway existante pour l’hébergement de plusieurs applications web
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Créer une passerelle d’application hébergeant plusieurs sites à l’aide du portail Azure
 
-> [!div class="op_single_selector"]
-> * [portail Azure](application-gateway-create-multisite-portal.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
+Vous pouvez utiliser le portail Azure pour configurer [l’hébergement de plusieurs sites web](application-gateway-multi-site-overview.md) quand vous créez une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez des pools backend à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
-L’hébergement de plusieurs sites vous permet de déployer plusieurs applications web sur la même passerelle Application Gateway. Il s’appuie sur la présence de l’en-tête de l’hôte dans la requête HTTP entrante pour déterminer l’écouteur qui doit recevoir le trafic. L’écouteur dirige ensuite le trafic vers le pool principal approprié tel que configuré dans la définition des règles de la passerelle. Dans les applications web SSL, la passerelle Application Gateway s’appuie sur l’extension d’indication du nom du serveur (SNI) pour choisir l’écouteur approprié au trafic web. Une utilisation courante de l’hébergement de plusieurs sites consiste à équilibrer la charge des demandes pour différents domaines Web entre différents pools de serveurs principaux. De même, plusieurs sous-domaines du même domaine racine pourraient également être hébergés sur la même passerelle Application Gateway.
+Dans cet article, vous allez apprendre à :
 
-## <a name="scenario"></a>Scénario
+> [!div class="checklist"]
+> * Créer une passerelle Application Gateway
+> * Créer des machines virtuelles pour les serveurs principaux
+> * Créer des pools principaux avec les serveurs principaux
+> * Créer des écouteurs et des règles de routage
+> * Créer un enregistrement CNAME dans votre domaine
 
-Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : un pool de serveurs contoso et un pool de serveurs fabrikam. Une configuration similaire pourrait servir à héberger des sous-domaines hôtes comme app.contoso.com et blog.contoso.com.
+![Exemple de routage multisite](./media/application-gateway-create-multisite-portal/scenario.png)
 
-![scénario multisite][multisite]
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Ce scénario ajoute la prise en charge de plusieurs sites à une passerelle Application Gateway existante. Pour ce scénario, une passerelle Application Gateway existante doit être disponible pour pouvoir procéder à la configuration. Consultez [Créer une passerelle Application Gateway à l’aide du portail](application-gateway-create-gateway-portal.md) pour apprendre à créer une passerelle Application Gateway de base dans le portail.
+Connectez-vous au portail Azure à l’adresse [http://portal.azure.com](http://portal.azure.com)
 
-Procédez comme suit pour mettre à jour une passerelle Application Gateway :
+## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-1. Créez des pools principaux à utiliser pour chaque site.
-2. Créez un écouteur pour chaque site que la passerelle Application Gateway prend en charge.
-3. Créez des règles pour associer chaque écouteur au serveur principal approprié.
+Un réseau virtuel est nécessaire pour la communication entre les ressources que vous créez. Deux sous-réseaux sont créés dans cet exemple : une pour la passerelle d’application et l’autre pour les serveurs principaux. Vous pouvez créer un réseau virtuel en même temps que la passerelle d’application.
 
-## <a name="requirements"></a>Configuration requise
+1. Cliquez sur **Nouveau** dans le coin supérieur gauche du portail Azure.
+2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste de suggestions.
+3. Entrez ces valeurs pour la passerelle d’application :
 
-* **Pool de serveurs principaux :** liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou doivent correspondre à une adresse IP/VIP publique. Le nom de domaine complet peut également être utilisé.
-* **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-* **Port frontal :** il s’agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-* **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). Pour les passerelles Application Gateway activées pour plusieurs sites, le nom d’hôte et les indicateurs SNI sont également ajoutés.
-* **Règle :** la règle lie l’écouteur et le pool de serveurs principaux, et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Les règles sont traitées dans l’ordre où elles sont répertoriées, et le trafic est orienté selon la première règle correspondante, quelle que soit sa spécificité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
-* **Certificats :** chaque écouteur requiert un certificat unique, dans cet exemple, 2 écouteurs sont créés pour plusieurs sites. Deux certificats .pfx et leurs mots de passe doivent être créés.
+    - *myAppGateway* : pour le nom de la passerelle d’application.
+    - *myResourceGroupAG* : pour le nouveau groupe de ressources.
 
-## <a name="create-back-end-pools-for-each-site"></a>Créer des pools principaux pour chaque site
+    ![Créer une nouvelle passerelle d’application](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
-Un pool principal pour chaque site que cette passerelle Application Gateway prend en charge est nécessaire, dans cet exemple, 2 sont créés : un pour contoso11.com et un fabrikam11.com.
+4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
 
-### <a name="step-1"></a>Étape 1 :
+    - *myVNet* : pour le nom du réseau virtuel.
+    - *10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
+    - *myAGSubnet* : pour le nom du sous-réseau.
+    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-Accédez à une passerelle Application Gateway existante dans le portail Azure (https://portal.azure.com). Sélectionnez **Pools principaux** et cliquez sur **Ajouter**
+    ![Création d’un réseau virtuel](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
-![ajouter des pools principaux][7]
+6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
+7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
+8. Acceptez les valeurs par défaut pour la configuration de l’écouteur, laissez le pare-feu d’applications web désactivé, puis cliquez sur **OK**.
+9. Passez en revue les paramètres sur la page de résumé, puis cliquez sur **OK** pour créer les ressources réseau et la passerelle d’application. La création de la passerelle d’application peut prendre plusieurs minutes. Patientez jusqu’à ce que le déploiement soit terminé avant de passer à la section suivante.
 
-### <a name="step-2"></a>Étape 2
+### <a name="add-a-subnet"></a>Ajouter un sous-réseau
 
-Fournissez les informations sur le pool principal **pool1**, en ajoutant les adresses IP ou les noms de domaine complets des serveurs principaux, puis cliquez sur **OK**
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myVNet** dans la liste des ressources.
+2. Cliquez sur **Sous-réseaux**, puis cliquez sur **Sous-réseau**.
 
-![paramètres du pool principal pool1][8]
+    ![Créer un sous-réseau](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
-### <a name="step-3"></a>Étape 3 :
+3. Entrez *myBackendSubnet* pour le nom du sous-réseau, puis cliquez sur **OK**.
 
-Dans le panneau des pools principals, cliquez sur **Ajouter** pour ajouter un autre pool principal, **pool2**, en ajoutant les adresses IP ou les noms de domaine complets des serveurs principaux, puis cliquez sur **OK**
+## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-![paramètres du pool principal pool2][9]
+Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que serveurs principaux pour la passerelle d’application. Vous installez également IIS sur les machines virtuelles pour vérifier que le trafic est correctement acheminé.
 
-## <a name="create-listeners-for-each-back-end"></a>Créer des écouteurs pour chaque serveur principal
+1. Cliquez sur **Nouveau**.
+2. Cliquez sur **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste de suggestions.
+3. Entrez ces valeurs pour la machine virtuelle :
 
-Application Gateway se base sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur les mêmes adresses IP et port. L’écouteur de base créé dans le portail ne contient pas cette propriété.
+    - *contosoVM* : pour le nom de la machine virtuelle.
+    - *azureuser* : pour le nom d’utilisateur administrateur.
+    - *Azure123456!* pour le mot de passe.
+    - Sélectionnez **Utiliser l’existant**, puis *myResourceGroupAG*.
 
-### <a name="step-1"></a>Étape 1
+4. Cliquez sur **OK**.
+5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle, puis cliquez sur **Sélectionner**.
+6. Assurez-vous que **myVNet** est sélectionné pour le réseau virtuel et que le sous-réseau est **myBackendSubnet**. 
+7. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
+8. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
 
-Cliquez sur **Écouteurs** sur la passerelle Application Gateway existante et cliquez sur **Multisite** pour ajouter le premier écouteur.
+### <a name="install-iis"></a>Installer IIS
 
-![panneau Vue d’ensemble des écouteurs][1]
+1. Ouvrez l’interpréteur de commandes interactif et assurez-vous qu’il est défini sur **PowerShell**.
 
-### <a name="step-2"></a>Étape 2 :
+    ![Installer l’extension personnalisée](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
 
-Fournissez les informations sur l’écouteur. Dans cet exemple la terminaison SSL est configurée, créez un nouveau port de serveur frontal. Téléchargez le certificat .pfx à utiliser pour la terminaison SSL. La seule différence dans ce panneau par rapport au panneau d’écouteur de base standard est le nom d’hôte.
+2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle : 
 
-![panneau Propriétés d’écouteur][2]
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName contosoVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
 
-### <a name="step-3"></a>Étape 3 :
+3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez *fabrikamVM* comme nom et valeur de VMName dans Set-AzureRmVMExtension.
 
-Cliquez sur **Multisite** et créez un autre écouteur comme décrit dans l’étape précédente pour le deuxième site. Veillez à utiliser un certificat différent pour le deuxième écouteur. La seule différence dans ce panneau par rapport au panneau d’écouteur de base standard est le nom d’hôte. Fournissez les informations sur l’écouteur et cliquez sur **OK**.
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools backend avec les machines virtuelles
 
-![panneau Propriétés d’écouteur][3]
+1. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
+2. Cliquez sur **Pools principaux**, puis sur **Ajouter**.
+3. Entrez le nom *contosoPool* et ajoutez *contosoVM* avec **Ajouter une cible**.
 
-> [!NOTE]
-> La création d’écouteurs dans le portail Azure pour la passerelle Application Gateway est une tâche longue. Un certain temps peut être nécessaire pour créer les deux écouteurs dans ce scénario. Une fois la tâche terminée, les écouteurs s’affichent dans le portail comme indiqué dans l’image suivante :
+    ![Ajouter des serveurs principaux](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
-![vue d’ensemble de l’écouteur][4]
+4. Cliquez sur **OK**.
+5. Cliquez sur **Pools principaux**, puis sur **Ajouter**.
+6. Créez le pool *fabrikamPool* avec la machine virtuelle *fabrikamVM* en suivant la procédure que vous venez de terminer.
 
-## <a name="create-rules-to-map-listeners-to-backend-pools"></a>Créer des règles pour associer des écouteurs aux pools principaux
+## <a name="create-listeners-and-routing-rules"></a>Créer des écouteurs et des règles de routage
 
-### <a name="step-1"></a>Étape 1
+1. Cliquez sur  **Écouteurs** puis sur **Multisite**.
+2. Entrez ces valeurs pour l’écouteur :
+    
+    - *contosoListener* : pour le nom de l’écouteur.
+    - *www.contoso.com* : remplacez cet exemple de nom d’hôte par votre nom de domaine.
 
-Accédez à une passerelle Application Gateway existante dans le portail Azure (https://portal.azure.com). Sélectionnez **Règles** et choisissez la règle existante par défaut **rule1**, puis cliquez sur **Modifier**.
+3. Cliquez sur **OK**.
+4. Créez un deuxième écouteur en utilisant le nom *fabrikamListener* et utilisez le nom de votre deuxième domaine. Dans cet exemple, *www.fabrikam.com* est utilisé.
 
-### <a name="step-2"></a>Étape 2
+Les règles sont traitées dans l’ordre dans lequel elles sont répertoriées, et le trafic est dirigé selon la première règle correspondante, quelle que soit sa spécificité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
 
-Renseignez le panneau des règles comme indiqué dans l’image suivante. Choisissez le premier écouteur et le premier pool, puis cliquez sur **Enregistrer** lorsque vous avez terminé.
+Dans cet exemple, vous créez deux règles et supprimez la règle par défaut qui a été créée au moment de la création de la passerelle d’application. 
 
-![modifier une règle existante][6]
+1. Cliquez sur **Règles**, puis sur **De base**.
+2. Entrez *contosoRule* comme nom.
+3. Sélectionnez *contosoListener* comme écouteur.
+4. Sélectionnez *contosoPool* comme pool backend.
 
-### <a name="step-3"></a>Étape 3 :
+    ![Créer une règle basée sur le chemin](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-Cliquez sur **Règle de base** pour créer la deuxième règle. Remplissez le formulaire avec le deuxième écouteur et le deuxième pool principal, puis cliquez sur **OK** à enregistrer.
+5. Cliquez sur **OK**.
+6. Créez une deuxième règle en utilisant les noms *fabrikamRule*, *fabrikamListener* et *fabrikamPool*.
+7. Supprimez la règle par défaut nommée *rule1*. Pour cela, cliquez dessus, puis cliquez sur **Supprimer**.
 
-![panneau ajouter une règle de base][10]
+## <a name="create-a-cname-record-in-your-domain"></a>Créer un enregistrement CNAME dans votre domaine
 
-La configuration d’une passerelle Application Gateway existante avec la prise en charge de plusieurs sites via le portail Azure est terminée par ce scénario.
+Une fois la passerelle d’application créée avec son adresse IP publique, vous pouvez obtenir l’adresse DNS et l’utiliser pour créer un enregistrement CNAME dans votre domaine. L’utilisation d’enregistrements A n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer au moment du redémarrage de la passerelle d’application.
+
+1. Cliquez sur **Toutes les ressources**, puis sur **myAGPublicIPAddress**.
+
+    ![Enregistrer l’adresse DNS de la passerelle d’application](./media/application-gateway-create-multisite-portal/application-gateway-multisite-dns.png)
+
+2. Copiez l’adresse DNS et utilisez-la comme valeur pour un nouvel enregistrement CNAME dans votre domaine.
+
+## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
+
+1. Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple : http://www.contoso.com.
+
+    ![Tester le site contoso dans la passerelle d’application](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+
+2. Remplacez l’adresse par celle de votre autre domaine. Voici ce qui doit apparaître :
+
+    ![Tester le site fabrikam dans la passerelle d’application](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment protéger vos sites web grâce au [Pare-feu d’applications web sur Application Gateway](application-gateway-webapplicationfirewall-overview.md)
+Dans cet article, vous avez appris à effectuer les opérations suivantes :
 
-<!--Image references-->
-[1]: ./media/application-gateway-create-multisite-portal/figure1.png
-[2]: ./media/application-gateway-create-multisite-portal/figure2.png
-[3]: ./media/application-gateway-create-multisite-portal/figure3.png
-[4]: ./media/application-gateway-create-multisite-portal/figure4.png
-[5]: ./media/application-gateway-create-multisite-portal/figure5.png
-[6]: ./media/application-gateway-create-multisite-portal/figure6.png
-[7]: ./media/application-gateway-create-multisite-portal/figure7.png
-[8]: ./media/application-gateway-create-multisite-portal/figure8.png
-[9]: ./media/application-gateway-create-multisite-portal/figure9.png
-[10]: ./media/application-gateway-create-multisite-portal/figure10.png
-[multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
+> [!div class="checklist"]
+> * Créer une passerelle Application Gateway
+> * Créer des machines virtuelles pour les serveurs principaux
+> * Créer des pools principaux avec les serveurs principaux
+> * Créer des écouteurs et des règles de routage
+> * Créer un enregistrement CNAME dans votre domaine
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur ce que la passerelle d’application vous permet de faire](application-gateway-introduction.md)

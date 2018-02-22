@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: be4a61f185435238db68e4dc43c323a30a754f03
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Ajouter l’image de machine virtuelle Windows Server 2016 sur la Place de marché Azure Stack
 
@@ -139,7 +139,7 @@ Pour vous assurer que l’image de machine virtuelle Windows Server 2016 contie
 
 ### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
 
-Crée et charge un nouveau Server 2016 Core et/ou une image complète, et crée un élément du marketplace pour celui-ci.
+Crée et charge un nouveau Server 2016 Core et/ou une image complète et crée un élément du marketplace pour celui-ci.
 
 | parameters | Obligatoire | exemples | DESCRIPTION |
 |-----|-----|------|---- |

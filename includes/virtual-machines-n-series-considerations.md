@@ -4,9 +4,7 @@
 
 * Les machines virtuelles de série N ne peuvent être déployées que dans le modèle de déploiement Resource Manager.
 
-* Lorsque vous créez une machine virtuelle de série N à l’aide du portail Azure, dans le panneau **Informations de base**, sélectionnez un **type de disque de machine virtuelle** **HDD**. Pour choisir une taille de série N disponible, dans le panneau **Taille**, cliquez sur **Afficher tout**.
-
-* Les machines virtuelles NC et NV ne prennent pas en charge les disques de machines virtuelles sauvegardés par le stockage Premium Azure.
+* Les machines virtuelles de série N diffèrent en fonction du type de stockage Azure qu’elles prennent en charge pour les disques. Les machines virtuelles NC et NV ne prennent en charge que les disques de machines virtuelles sauvegardés par le Stockage sur disque Standard (HDD). Les machines virtuelles NCv2, ND, et NCv3 (préversion) ne prennent en charge que les disques de machines virtuelles sauvegardés par le Stockage sur disque Premium (SSD).
 
 * Si vous voulez déployer plus de quelques machines virtuelles de série N, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 

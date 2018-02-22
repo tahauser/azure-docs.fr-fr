@@ -19,7 +19,7 @@ Le périphérique en exemple également :
 * Répond aux actions déclenchées à partir de la page **Périphériques** dans la solution.
 * Répond aux modifications de configuration envoyées à partir de la page **Périphériques** dans la solution.
 
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -36,13 +36,13 @@ Au terme du processus d’approvisionnement de la solution de surveillance à di
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Configurer votre appareil dans la solution de surveillance à distance
 
 > [!NOTE]
-> Si vous avez déjà approvisionné un appareil dans votre solution, vous pouvez ignorer cette étape. Vous devez connaître les informations d'identification du périphérique lorsque vous créez l'application cliente.
+> Si vous avez déjà approvisionné un appareil dans votre solution, vous pouvez ignorer cette étape. Vous avez besoin de la chaîne de connexion de l’appareil, que vous pouvez récupérer depuis le portail Azure lors de la création de l’application cliente.
 
-Pour qu’un appareil puisse se connecter à la solution préconfigurée, il doit s’identifier auprès d’IoT Hub à l’aide d’informations d’identification valides. Vous pouvez récupérer les informations d’identification du périphérique à partir de la page **Périphérique** de la solution. Les informations d’identification de l’appareil seront ajoutées dans votre application cliente dans la suite de ce didacticiel.
+Pour qu’un appareil puisse se connecter à la solution préconfigurée, il doit s’identifier auprès d’IoT Hub à l’aide d’informations d’identification valides. Vous avez l’opportunité d’enregistrer la chaîne de connexion de l’appareil qui contient les informations d’identification lorsque vous ajoutez la solution à l’appareil. La chaîne de connexion de l’appareil sera ajoutée dans votre application cliente dans la suite de ce didacticiel.
 
 Pour ajouter un périphérique à votre solution de surveillance à distance, procédez comme suit dans la page **Périphériques** de la solution :
 
-1. Choisissez **Configurer**, puis choisissez **Physique** comme **Type de périphérique** :
+1. Choisissez **+ Nouvel appareil**, puis **Physique** comme **Type de périphérique** :
 
     ![Configurer un périphérique physique](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Pour ajouter un périphérique à votre solution de surveillance à distance, pr
 
     ![Choisissez les options de périphérique](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Choisissez **Appliquer**. Notez quelque part les valeurs de l’**ID de l’appareil**, de la **Clé primaire** et de la **Clé primaire de la chaîne de connexion** :
+
+    ![Récupérer les informations d’identification](media/iot-suite-selector-connecting/credentials.png)
+
 Pour trouver les informations d’identification que votre périphérique doit utiliser pour se connecter à la solution préconfigurée, accédez au portail Azure dans votre navigateur. Connectez-vous à votre abonnement.
-
-1. Localisez le groupe de ressources qui contient les services Azure qu’utilise votre solution de surveillance à distance. Le groupe de ressources a le même nom que celui de la solution de surveillance à distance configurée.
-
-1. Naviguez jusqu'au concentrateur IoT dans ce groupe de ressources. Ensuite, sélectionnez **Appareils IoT** :
-
-    ![Explorateur d’appareils](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Choisissez l’**ID de périphérique** que vous avez créé sur la page **Périphériques** dans la solution de surveillance à distance.
-
-1. Prenez note des valeurs **ID du périphérique** et **Clé principale**. Vous utilisez ces valeurs lorsque vous ajoutez du code pour connecter votre périphérique à la solution.
 
 Vous avez maintenant configuré un périphérique physique dans la solution de surveillance à distance solution préconfigurée. Dans les sections suivantes, vous mettez en œuvre l’application cliente qui utilise les informations d’identification du périphérique pour se connecter à votre solution.
 
@@ -68,4 +62,4 @@ L’application cliente met en œuvre le modèle de périphérique **Condenseur*
 
 * Les propriétés que le périphérique signale à la solution. Par exemple, un périphérique **Condenseur** fournit des informations sur son microprogramme et son emplacement.
 * Les types de données de télémétrie envoyés par le périphérique à la solution. Par exemple, un périphérique **Condenseur** envoie des valeurs sur la température, l’humidité et la pression.
-* Les méthodes que vous pouvez planifier à partir de la solution pour s’exécuter sur le périphérique. Par exemple, un périphérique **Condenseur** doit mettre en œuvre des méthodes **Redémarrer**, **FirmwareUpdate**, **EmergencyValveRelease** et  **IncreasePressuree**.
+* Les méthodes que vous pouvez planifier à partir de la solution pour s’exécuter sur le périphérique. Par exemple, un périphérique **Condenseur** doit mettre en œuvre des méthodes **Redémarrer**, **FirmwareUpdate**, **EmergencyValveRelease** et  **IncreasePressure**.
