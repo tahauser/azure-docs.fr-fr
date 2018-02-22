@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>déployer la Gestion des API avec Service Fabric.
 Ce didacticiel est la quatrième partie de la série.  Le déploiement du service Gestion des API Azure avec Service Fabric représente un scénario avancé.  Le service Gestion des API est utile lorsque vous avez besoin de publier des API avec un ensemble complet de règles d’acheminement pour vos services Service Fabric principaux. Les applications cloud ont généralement besoin d’une passerelle frontale afin de fournir un point d’entrée unique pour les utilisateurs, les appareils ou d’autres applications. Dans Service Fabric, une passerelle peut être n’importe quel service sans état conçu pour l’entrée de trafic, comme une application ASP.NET Core, Event Hubs, IoT Hub ou Gestion des API Azure. 
@@ -38,7 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle ;
-> * [Mettre à l’échelle un cluster](/service-fabric-tutorial-scale-cluster.md)
+> * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * déployer la Gestion des API avec Service Fabric.
 
@@ -93,7 +93,7 @@ Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET
     </Resources>
     ```
 
-    La suppression du port permet à Service Fabric de spécifier un port dynamique à partir de la plage de ports d’application, ouverte via le Groupe de sécurité réseau dans le modèle Resource Manager du cluster, autorisant le trafic à y accéder à partir du service Gestion des API.
+    La suppression du port permet à Service Fabirc de spécifier un port dynamique à partir de la plage de ports d’application, ouverte via le Groupe de sécurité réseau dans le modèle Resource Manager du cluster, autorisant le trafic à y accéder à partir du service Gestion des API.
  
  6. Appuyez sur F5 dans Visual Studio pour vérifier que l’API web est disponible localement. 
 

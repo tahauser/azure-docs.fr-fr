@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -27,15 +27,17 @@ Dans ce didacticiel, vous utilisez les services Azure Machine Learning (prévers
 > * Générer un package de préparation des données
 > * Exécuter le package de préparation des données à l’aide de Python
 > * Générer un jeu de données d’apprentissage en réutilisant le package de préparation des données pour des fichiers d’entrée supplémentaires
+> * Exécuter des scripts dans une fenêtre Azure CLI locale.
+> * Exécuter des scripts dans un environnement Azure HDInsight cloud.
 
-> [!IMPORTANT]
-> Ce didacticiel prépare uniquement les données, il ne génère pas le modèle de prévision.
->
-> Vous pouvez utiliser les données préparées pour former vos propres modèles de prévision. Par exemple, vous pouvez créer un modèle pour prévoir la demande de vélos pendant une période de 2 heures.
 
 ## <a name="prerequisites"></a>configuration requise
 * Azure Machine Learning Workbench doit être installé localement. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](quickstart-installation.md).
+* Si vous ne disposez pas d’Azure CLI, suivez les instructions pour [installer la dernière version]. (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Un [cluster HDInsight Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) doit être créé dans Azure.
+* Un compte de stockage Azure.
 * Vous devez savoir créer un projet dans Workbench.
+* Bien que ce ne soit pas obligatoire, il est utile d’installer [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour pouvoir charger, télécharger et afficher les objets blob dans le compte de stockage. 
 
 ## <a name="data-acquisition"></a>Acquisition de données
 Ce didacticiel utilise le [jeu de données Boston Hubway](https://s3.amazonaws.com/hubway-data/index.html) et les données météorologiques de Boston diffusées par l’agence [NOAA](http://www.noaa.gov/).
@@ -53,6 +55,22 @@ Ce didacticiel utilise le [jeu de données Boston Hubway](https://s3.amazonaws.c
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. Décompressez chaque fichier .zip après son téléchargement.
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>Charger des données dans le Stockage Blob Azure
+Vous pouvez utiliser le Stockage Blob pour héberger vos fichiers de données.
+
+1. Utilisez le compte de stockage Azure associé au cluster HDInsight que vous utilisez.
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. Créez un conteneur nommé « **data-files** » pour stocker les fichiers de données BikeShare.
+
+3. Chargez les fichiers de données. Chargez `BostonWeather.csv` dans un dossier nommé `weather`, et les fichiers de données de voyage dans un dossier nommé `tripdata`.
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> Vous pouvez également utiliser **l’Explorateur Stockage Azure** pour charger des objets blob. Cet outil permet également d’afficher le contenu de chacun des fichiers générés dans le didacticiel.
 
 ## <a name="learn-about-the-datasets"></a>En savoir plus sur les jeux de données
 1. Le fichier __Boston weather__ contient les champs d’informations météo suivants, consignées toutes les heures :
@@ -78,7 +96,7 @@ Ce didacticiel utilise le [jeu de données Boston Hubway](https://s3.amazonaws.c
 1. Lancez **Azure Machine Learning Workbench** à partir de votre menu Démarrer ou du lanceur.
 
 2. Créez un projet Azure Machine Learning.  Cliquez sur le bouton **+** dans la page **Projets**, ou bien sur **Fichier** > **Nouveau**.
-   - Utilisez le modèle de **projet vide**.
+   - Utilisez le modèle **Bike Share**.
    - Nommez votre projet **BikeShare**. 
 
 ## <a id="newdatasource"></a>Créer une source de données
@@ -97,9 +115,9 @@ Ce didacticiel utilise le [jeu de données Boston Hubway](https://s3.amazonaws.c
 
    ![Image de l’entrée Fichier(s)/Répertoire](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Sélection de fichiers** : Ajoutez les données météorologiques. Recherchez et sélectionnez le fichier `BostonWeather.csv` que vous avez précédemment téléchargé. Cliquez sur **Suivant**.
+2. **Sélection de fichiers** : Ajoutez les données météorologiques. Recherchez et sélectionnez le fichier `BostonWeather.csv` que vous avez chargé tout à l’heure dans le __Stockage Blob Azure__. Cliquez sur **Suivant**.
 
-   ![Image de la sélection de fichiers avec BostonWeather.csv sélectionné](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![Image de la sélection de fichiers avec BostonWeather.csv sélectionné](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **Détails du fichier** : Vérifiez le schéma de fichier détecté. Azure Machine Learning Workbench analyse les données dans le fichier et en déduit le schéma à utiliser.
 
@@ -136,9 +154,9 @@ Ce didacticiel utilise le [jeu de données Boston Hubway](https://s3.amazonaws.c
 
    Pour continuer, sélectionnez __Suivant__. 
 
-5. **Échantillonnage** : Pour créer un schéma d’échantillonnage, sélectionnez le bouton **+ Nouveau**. Sélectionnez la nouvelle ligne __Top 10000__ qui s’ajoute, puis sélectionnez __Modifier__. Définissez l’__exemple de stratégie__ sur **Fichier complet**, puis sélectionnez **Appliquer**.
+5. **Échantillonnage** : Pour créer un schéma d’échantillonnage, sélectionnez le bouton **Modifier**. Sélectionnez la nouvelle ligne __Top 10000__ qui s’ajoute, puis sélectionnez __Modifier__. Définissez l’__exemple de stratégie__ sur **Fichier complet**, puis sélectionnez **Appliquer**.
 
-   ![Image de l’ajout d’une nouvelle stratégie d’échantillonnage](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![Image de l’ajout d’une nouvelle stratégie d’échantillonnage](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    Pour utiliser la stratégie __Fichier complet__, sélectionnez l’entrée __Fichier complet__, puis sélectionnez __Définir comme actif__. Une étoile apparaît en regard de __Fichier complet__ pour indiquer qu’il s’agit de la stratégie active.
 
@@ -223,6 +241,8 @@ Vous n’avez plus besoin de la colonne __REPORTTYPE__. Cliquez avec le bouton d
 
    Pour supprimer les lignes qui contiennent des erreurs, cliquez avec le bouton droit sur l’en-tête de colonne **HOURLYDRYBULBTEMPF**. Sélectionnez **Filtrer la colonne**. Pour l’option **Je veux**, utilisez la valeur par défaut **Conserver les lignes**. Modifiez la valeur indiquée dans la liste déroulante **Conditions** pour sélectionner **n’est pas une erreur**. Sélectionnez **OK** pour appliquer le filtre.
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. Pour éliminer les lignes d’erreur restantes dans les autres colonnes, répétez ce processus de filtrage pour les colonnes **HOURLYRelativeHumidity** et **HOURLYWindSpeed**.
 
 ## <a name="use-by-example-transformations"></a>Utiliser des transformations par un exemple
@@ -261,7 +281,10 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
 
    > [!NOTE]
    > Azure Machine Learning Workbench synthétise un programme basé sur les exemples que vous fournissez et applique le même programme sur les lignes restantes. Toutes les autres lignes sont automatiquement renseignées en fonction de l’exemple que vous avez fourni. Workbench analyse également vos données et tente d’identifier les cas marginaux. 
-  
+
+   > [!IMPORTANT]
+   > Identification des cas marginaux peut ne pas fonctionner sur Mac dans la version actuelle de Workbench. Ignorez l’__étape 3__ et l’__étape 4__ ci-dessous sur Mac. Au lieu de cela, appuyez sur __OK__ une fois toutes les lignes remplies avec les valeurs dérivées.
+   
 3. Le texte **Analyse des données** au-dessus de la grille indique que Workbench tente de détecter les cas marginaux. Une fois l’opération terminée, l’état passe à **Passer en revue la ligne suggérée suivante** ou **Aucune suggestion**. Dans cet exemple, **Passer en revue la ligne suggérée suivante** est retourné.
 
 4. Pour passer en revue les modifications suggérées, sélectionnez **Passer en revue la ligne suggérée suivante**. La cellule que vous devez passer en revue et corriger (si besoin) est mise en surbrillance dans l’affichage.
@@ -291,6 +314,11 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
 
    ![Image de l’exemple Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > Sur Mac, effectuez l’étape suivante au lieu de l’__étape 8__ ci-dessous.
+   >
+   > * Accédez à la première cellule qui contient `Feb 01, 2015 12AM-2AM`. Il doit s’agir de la __ligne 15__. Remplacez la valeur par `Jan 02, 2015 12AM-2AM`, puis appuyez sur __Entrée__. 
+   
 
 8. Attendez que l’état passe de **Analyse des données** à **Passer en revue la ligne suggérée suivante**. L’attente peut durer plusieurs secondes. Sélectionnez le lien d’état pour accéder à la ligne suggérée. 
 
@@ -306,6 +334,7 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
 
    > [!TIP]
    > Vous pouvez utiliser le mode avancé de **Dériver une colonne par un exemple** pour cette étape en cliquant sur la flèche vers le bas dans le volet **Étapes**. Dans la grille de données, des cases à cocher se trouvent en regard des noms de colonne **DATE\_1** et **Plage horaire**. Décochez celle située à côté de la colonne **Plage horaire** pour voir comment cela modifie la sortie. En l’absence de colonne **Plage horaire**en tant qu’entrée, la valeur **12AM-2AM** est traitée comme une constante et ajoutée aux valeurs dérivées. Sélectionnez **Annuler** pour revenir à la grille principale sans appliquer les modifications.
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. Pour renommer la colonne, double-cliquez sur son en-tête. Remplacez le nom par **Date Plage horaire**, puis appuyez sur **Entrée**.
 
@@ -331,7 +360,7 @@ L’étape suivante consiste à résumer les conditions météo en prenant la mo
 
 Remplacer les données situées dans les colonnes numériques par une plage de 0-1 permet à certains modèles de converger rapidement. Pour le moment, il n’existe aucune transformation intégrée pour effectuer cette transformation de façon générique, mais un script Python peut être utilisé pour effectuer cette opération.
 
-1. Dans le menu **Transformation**, sélectionnez **Transformer le flux de données**.
+1. Dans le menu **Transformation**, sélectionnez **Transformer le flux de données (script)**.
 
 2. Entrez le code suivant dans la zone de texte qui s’affiche. Si vous avez utilisé les noms de colonne, le code doit fonctionner sans modification. Vous écrivez une logique de normalisation min-max simple dans Python.
 
@@ -372,6 +401,7 @@ Vous avez terminé la préparation des données météorologiques. Ensuite, pré
 
 1. Pour importer le fichier `201701-hubway-tripdata.csv`, utilisez les étapes indiquées dans la section [Créer une source de données](#newdatasource). Pendant le processus d’importation, utilisez les options suivantes :
 
+    * __Sélection du fichier__ : Sélectionnez **Blob Azure** pour rechercher et sélectionner le fichier.
     * __Schéma d’échantillonnage__ : **Fichier complet**. Activez l’exemple. 
     * __Type de données__ : Acceptez les valeurs par défaut.
 
@@ -505,7 +535,12 @@ Pour résumer la demande de vélos pendant une période de 2 heures, utilisez d
     > Vous pouvez donner un exemple par rapport à n’importe quelle ligne. Pour cet exemple, la valeur `Jan 01, 2017 12AM-2AM` est valide pour la première ligne de données.
 
     ![Image de l’exemple de données](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > Sur Mac, effectuez l’étape suivante au lieu de l’__étape 3__ ci-dessous.
+   >
+   > * Accédez à la première cellule qui contient `Jan 01, 2017 1AM-2AM`. Il doit s’agir de la __ligne 14__. Remplacez la valeur par `Jan 01, 2017 12AM-2AM`, puis appuyez sur __Entrée__. 
+
 3. Attendez que l’application calcule les valeurs par rapport à toutes les lignes. L’attente peut durer plusieurs secondes. Une fois l’analyse terminée, utilisez le lien __Passer en revue la ligne suggérée suivante__ pour passer en revue les données.
 
    ![Image de l’analyse terminée avec un lien de passage en revue](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ Pour ce didacticiel, le nom du fichier est `BikeShare Data Prep.py`. Ce fichier 
 
 ## <a name="save-test-data-as-a-csv-file"></a>Enregistrer les données de test dans un fichier CSV
 
-Pour enregistrer le flux de données **Résultat de la jointure** dans un fichier .CSV, vous devez modifier le script `BikeShare Data Prep.py`. Mettez à jour le script Python en utilisant le code suivant :
+Pour enregistrer le flux de données **Résultat de la jointure** dans un fichier .CSV, vous devez modifier le script `BikeShare Data Prep.py`. 
 
-```python
-from azureml.dataprep.package import run
+1. Ouvrez le projet pour le modifier dans VSCode.
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. Mettez à jour le script Python dans le fichier `BikeShare Data Prep.py` en utilisant le code suivant :
 
-Sélectionnez **Exécuter** en haut de l’écran. Le script est envoyé en tant que **travail** sur l’ordinateur local. Une fois que l’état du travail devient __Terminé__, le fichier est écrit à l’emplacement spécifié.
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. Remplacez `Your Azure Storage blob path` par le chemin d’accès du fichier de sortie qui sera créé, à la fois pour la variable `blobfolder` et pour la variable `csvfiles`.
+
+## <a name="create-hdinsight-run-configuration"></a>Créer une configuration de série de tests HDInsight
+
+1. Dans Azure Machine Learning Workbench, ouvrez la fenêtre de ligne de commande, sélectionnez le menu **Fichier**, puis **Ouvrir l’invite de commandes**. Votre invite de commandes démarre dans le dossier du projet avec l’invite `C:\Projects\BikeShare>`.
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >Vous devez utiliser la fenêtre de ligne de commande (ouverte à partir de Workbench) pour effectuer les étapes suivantes.
+
+2. Utilisez l’invite de commandes pour vous connecter à Azure. 
+
+   L’application Workbench et l’interface CLI utilisent des caches d’informations d’identification indépendants pendant l’authentification auprès des ressources Azure. Vous ne devez effectuer cette opération qu’une seule fois, jusqu’à ce que le jeton mis en cache expire. La commande `az account list` retourne la liste des abonnements auxquels votre connexion a accès. S’il existe plusieurs options, utilisez la valeur d’ID de l’abonnement souhaité. Choisissez cet abonnement comme compte par défaut à utiliser avec la commande `az account set -s`, puis indiquez la valeur de l’ID d’abonnement. Vérifiez ensuite le paramètre à l’aide de la commande account `show`.
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. Créez la configuration de série de tests HDInsight. Vous aurez besoin du nom de votre cluster et du mot de passe sshuser.
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> Lorsqu’un projet vide est créé, les configurations de série de tests par défaut sont **local** et **docker**. Cette étape crée une nouvelle configuration de série de test qui est accessible dans **Azure Machine Learning Workbench** lors de l’exécution des scripts. 
+
+## <a name="run-in-hdinsight-cluster"></a>Exécuter dans un cluster HDInsight
+
+Revenez à l’application **Azure Machine Learning Workbench** pour exécuter votre script dans le cluster HDInsight.
+
+1. Revenez sur l’écran d’accueil de votre projet en cliquant sur l’icône **Accueil** à gauche.
+
+2. Sélectionnez **hdinsight** dans la liste déroulante pour exécuter votre script dans le cluster HDInsight.
+
+3. Sélectionnez **Exécuter** en haut de l’écran. Le script est soumis sous forme de **Tâche**. Lorsqu’elle passe à l’état __Terminé__, le fichier est écrit à l’emplacement spécifié dans votre **Conteneur de stockage Azure**.
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>Remplacer des sources de données
 
@@ -608,7 +719,7 @@ Dans les étapes précédentes, vous avez utilisé les sources de données `2017
 
     * __Sélection de fichiers__ : Lors de la sélection multiple de fichiers, sélectionnez les six fichiers .CSV de données de trajet restants.
 
-        ![Charger les six fichiers restants](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Charger les six fichiers restants](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > L’entrée __+5__ indique qu’il existe cinq fichiers supplémentaires en plus de celui répertorié.
@@ -619,11 +730,13 @@ Dans les étapes précédentes, vous avez utilisé les sources de données `2017
 
    Enregistrez le nom de cette source de données, car il sera utilisé dans les étapes ultérieures.
 
-2. Sélectionnez l’icône de dossier pour afficher les fichiers inclus dans votre projet. Développez le répertoire __aml\_config__ et sélectionnez le fichier `local.runconfig`.
+2. Sélectionnez l’icône de dossier pour afficher les fichiers inclus dans votre projet. Développez le répertoire __aml\_config__ et sélectionnez le fichier `hdinsight.runconfig`.
 
-    ![Image de l’emplacement de local.runconfig](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![Image de l’emplacement de hdinsight.runconfig](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. Ajoutez les lignes suivantes à la fin du fichier `local.runconfig`, puis sélectionnez l’icône de disque pour enregistrer le fichier.
+3. Cliquez sur le bouton Modifier pour ouvrir le fichier dans VSCode.
+
+4. Ajoutez les lignes suivantes à la fin du fichier `hdinsight.runconfig`, puis sélectionnez l’icône de disque pour enregistrer le fichier.
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ Dans les étapes précédentes, vous avez utilisé les sources de données `2017
 Accédez au fichier Python `BikeShare Data Prep.py` que vous avez modifié précédemment et indiquez un autre chemin de fichier pour enregistrer les données d’apprentissage.
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-Pour envoyer un nouveau travail, utilisez l’icône **Exécuter** située en haut de la page. Un **travail** est envoyé avec la nouvelle configuration. La sortie de ce travail correspond aux données d’apprentissage. Ces données sont créées à l’aide des mêmes étapes de préparation des données que vous avez créées précédemment. Quelques minutes peuvent être nécessaires pour terminer le travail.
+1. Utilisez le nom de dossier `traindata` pour la sortie des données d’apprentissage.
+
+2. Pour envoyer un nouveau travail, utilisez l’icône **Exécuter** située en haut de la page. Vérifiez que **hdinsight** est sélectionné. Un **travail** est envoyé avec la nouvelle configuration. La sortie de ce travail correspond aux données d’apprentissage. Ces données sont créées à l’aide des mêmes étapes de préparation des données que vous avez créées précédemment. Quelques minutes peuvent être nécessaires pour terminer le travail.
+
 
 ## <a name="next-steps"></a>étapes suivantes
 Vous avez terminé le didacticiel de préparation des données BikeShare. Dans ce didacticiel, vous avez utilisé les services Azure Machine Learning (préversion) pour apprendre à effectuer les tâches suivantes :

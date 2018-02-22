@@ -3,8 +3,8 @@ title: "Vue d’ensemble des plans, des offres, des quotas et des abonnements Az
 description: "En tant qu’opérateur cloud, je souhaite comprendre les plans, les offres, les quotas et les abonnements Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Vue d’ensemble des plans, des offres, des quotas et des abonnements
 
@@ -49,7 +50,7 @@ Les plans regroupent un ou plusieurs services. En tant qu’opérateur Azure Sta
 
 Pour mieux gérer votre capacité cloud, vous pouvez sélectionner ou créer un quota pour chacun des services d’un plan. Les quotas définissent les limites de ressources supérieures qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur à créer jusqu’à cinq machines virtuelles. Les quotas peuvent limiter différentes ressources, notamment les machines virtuelles, la RAM et l’UC.
 
-Les quotas peuvent être configurés région par région. Par exemple, un plan comprenant des services de calcul de la région A peut avoir un quota de deux machines virtuelles, 4 Go de RAM et 10 cœurs de processeur. Dans le kit de développement Azure Stack, une seule région (nommée *local*) est disponible.
+Les quotas peuvent être configurés région par région. Par exemple, un plan comprenant des services de calcul de la région A peut avoir un quota de deux machines virtuelles, 4 Go de RAM et 10 cœurs de processeur. Dans le Kit de développement Azure Stack, une seule région (nommée *local*) est disponible.
 
 ### <a name="base-plan"></a>Plan de base
 
@@ -73,8 +74,8 @@ L’abonnement est la forme sous laquelle les utilisateurs accèdent aux offres.
 
 ### <a name="default-provider-subscription"></a>Abonnement au fournisseur par défaut
 
-L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du kit de développement Azure Stack. Il permet de gérer Azure Stack, de déployer d’autres fournisseurs de ressources et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients. 
+L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du Kit de développement Azure Stack. Il permet de gérer Azure Stack, de déployer d’autres fournisseurs de ressources et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Créer un plan](azure-stack-create-plan.md)
