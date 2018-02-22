@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Déployer une application conteneur Azure Service Fabric Linux sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -34,50 +34,47 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > * Échelle et conteneurs de basculement dans Service Fabric
 
 ## <a name="prerequisite"></a>Configuration requise
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande (CLI) en local, assurez-vous d’exécuter la version 2.0.4 de l’interface de ligne de commande Azure ou une version ultérieure. Pour rechercher la version, exécutez az--version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande (CLI) en local, assurez-vous d’exécuter la version 2.0.4 de l’interface de ligne de commande Azure ou une version ultérieure. Pour rechercher la version, exécutez az--version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Obtenir le package d’application
 Pour déployer des conteneurs sur Service Fabric, vous avez besoin d’un ensemble de fichiers manifestes (la définition d’application), qui décrivent les conteneurs individuels et l’application.
 
 Dans le Cloud Shell, utilisez git pour cloner une copie de la définition d’application.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Déploiement de l'application dans Azure
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Déployez les conteneurs sur un cluster Service Fabric dans Azure.
-Pour déployer l’application sur un cluster dans Azure, utilisez votre propre cluster ou celui d’un tiers.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurer un cluster Azure Service Fabric
+Pour déployer l’application sur un cluster dans Azure, créez votre propre cluster.
 
-> [!Note]
-> L’application doit être déployée sur un cluster dans Azure, et non sur un cluster Service Fabric de votre ordinateur de développement. 
->
+Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
 
-Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plate-forme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
+Pour effectuer des opérations de gestion sur le cluster tiers sécurisé, vous pouvez utiliser Service Fabric Explorer, CLI ou Powershell. Pour utiliser Service Fabric Explorer, vous devez télécharger le fichier PFX sur le site du cluster tiers et importer le certificat dans votre magasin de certificats (Windows ou Mac) ou dans le navigateur lui-même (Ubuntu). Il n’existe aucun mot de passe pour les certificats auto-signés venant cluster tiers. 
+
+Pour effectuer des opérations de gestion avec Powershell ou CLI, vous avez besoin du fichier PFX (Powershell) ou PEM (CLI). Pour convertir le fichier PFX en un fichier PEM, exécutez la commande suivante :  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Le service frontal web est configuré pour écouter le trafic entrant sur le port 80. Assurez-vous que ce port est ouvert dans votre cluster. Si vous utilisez un cluster tiers, ce port est ouvert.
+> Le service frontal web est configuré pour écouter le trafic entrant sur le port 80. Assurez-vous que ce port est ouvert dans votre cluster. Si vous utilisez le cluster tiers, ce port est ouvert.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Installer l’interface de ligne de commande Service Fabric et la connecter à votre cluster
-Installer [l’interface de ligne de commande Service Fabric (sfctl)](service-fabric-cli.md) dans votre environnement d’interface de ligne de commande
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Connectez-vous au cluster Service Fabric dans Azure à l’aide d’Azure CLI. Le point de terminaison est le point de terminaison de gestion de votre cluster. Par exemple, `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Connectez-vous au cluster Service Fabric dans Azure à l’aide d’Azure CLI. Le point de terminaison est le point de terminaison de gestion de votre cluster. Par exemple, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Déployer l’application Service Fabric 
@@ -86,13 +83,13 @@ Les applications de conteneur Service Fabric peuvent être déployées à l’ai
 #### <a name="deploy-using-service-fabric-application-package"></a>Déployer à l’aide du package d’application Service Fabric
 Utilisez le script d’installation fourni pour copier la définition d’application de vote dans le cluster, inscrivez le type d’application et créez une instance de l’application.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Déployer l’application à l’aide de Docker Compose
 Déployez et installez l’application sur le cluster Service Fabric à l’aide de Docker Compose avec la commande suivante.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

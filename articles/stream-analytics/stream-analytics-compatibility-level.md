@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
  
@@ -57,7 +57,10 @@ Voici les principales modifications introduites dans le niveau de compatibilité
   * **versions précédentes :** les noms de champs passaient en minuscules au moment du traitement par le moteur Azure Stream Analytics. 
 
   * **version actuelle :** la casse des noms de champ est préservée pour les noms de champs lorsqu’ils sont traités par le moteur Azure Stream Analytics. 
- 
+
+  > [!NOTE] 
+  > La conservation de la casse n’est pas encore disponible pour les tâches Stream Analytics hébergés à l’aide de l’environnement Edge. Par conséquent, tous les noms de champs sont convertis en minuscules si votre tâche est hébergée sur Edge. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **versions précédentes :** la commande CREATE TABLE ne filtrait pas les événements avec une valeur NaN (Not-a-Number. Par exemple, Infinity, -Infinity) dans une colonne de type FLOAT, car ils étaient en dehors des limites documentées pour ces numéros.

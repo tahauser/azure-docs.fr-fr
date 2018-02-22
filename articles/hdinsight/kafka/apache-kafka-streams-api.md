@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>API de flux Apache Kafka
 
@@ -27,7 +27,7 @@ Découvrez comment créer une application qui utilise l’API de flux Kafka et c
 
 Lors de l’utilisation d’Apache Kafka, le traitement des flux est souvent effectué à l’aide d’Apache Spark ou Storm. Kafka version 0.10.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie, à l’aide d’une application qui s’exécute sur Kafka. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm. Pour plus d’informations sur les flux Kafka, consultez la documentation [d’introduction aux flux](https://kafka.apache.org/10/documentation/streams/) sur le site Apache.org.
 
-## <a name="set-up-your-development-environment"></a>Configurer votre environnement de développement
+## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 
 Les composants suivants doivent être installés dans votre environnement de développement :
 
@@ -100,6 +100,12 @@ Utilisez les étapes suivantes pour générer et déployer le projet sur votre c
     * Démarrer un producteur qui écrit dans la rubrique `test`
     * Démarrer un consommateur pour que vous puissiez voir la sortie écrite dans la rubrique `wordcounts`
 
+    > [!NOTE]
+    > Vous devez vérifier que la propriété `auto.create.topics.enable` est définie sur `true` dans le fichier de configuration Kafka Broker. Cette propriété peut être affichée et modifiée dans le fichier de configuration avancé Kafka Broker à l’aide de l’interface utilisateur web Ambari. Sinon, vous devez créer la rubrique intermédiaire `RekeyedIntermediateTopic` manuellement avant d’exécuter cet exemple à l’aide de la commande suivante :
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Vous pouvez effectuer ces opérations en ouvrant trois sessions SSH, mais dans ce cas vous devez définir `$KAFKABROKERS` et `$KAFKAZKHOSTS` pour chaque session en exécutant l’étape 4 de cette section dans chaque session SSH. Une solution plus simple consiste à recourir à l’utilitaire `tmux`, qui peut fractionner l’affichage SSH actuel en plusieurs sections. Pour démarrer le flux, le producteur et le consommateur à l’aide de `tmux`, utilisez la commande suivante :
 
     ```bash
@@ -137,7 +143,7 @@ Utilisez les étapes suivantes pour générer et déployer le projet sur votre c
 
 7. Utilisez __Ctrl + C__ pour quitter le producteur. Continuez à utiliser __Ctrl + C__ pour quitter l’application et le consommateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce document, vous avez découvert comment utiliser l’API de flux Kafka avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
 

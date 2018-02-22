@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe #
 
@@ -87,7 +87,7 @@ Pour créer un environnement App Service en même temps que le plan App Service 
 
     b. Entrer un nom pour le nouveau sous-réseau
 
-    c. Sélectionner la taille du sous-réseau. *Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute future croissance de votre environnement App Service.* Nous recommandons `/25`, qui comprend 128 adresses et peut gérer un environnement App Service de taille maximale. Par exemple, `/28` est déconseillé, car 16 adresses seulement sont disponibles. L’infrastructure utilise au moins cinq adresses. Dans un sous-réseau `/28`, vous vous retrouvez avec une mise à l’échelle maximale de 11 instances.
+    c. Sélectionner la taille du sous-réseau. *Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute future croissance de votre environnement App Service.* Nous recommandons `/25`, qui comprend 128 adresses et peut gérer un environnement App Service de taille maximale. Par exemple, `/28` est déconseillé, car 16 adresses seulement sont disponibles. L’infrastructure utilise au moins 7 adresses et Azure Networking 5 autres. Dans un sous-réseau `/28`, vous vous retrouvez avec une mise à l’échelle maximale de 4 instances de plan App Service pour un ASE externe et uniquement 3 instances de plan App Service pour un ASE ILB.
 
     d. Sélectionner la plage IP du sous-réseau
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Définissez la valeur de la propriété « authenticationType » sur **De base
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
-| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ comme SecureString. | OUI |
+| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 
 **Exemple**
 
@@ -100,7 +100,7 @@ Pour utiliser l’authentification ClientCertificate, définissez la valeur de l
 |:--- |:--- |:--- |
 | embeddedCertData | Données du certificat encodé en Base64. | Spécifiez soit la propriété `embeddedCertData`, soit la propriété `certThumbprint`. |
 | certThumbprint | Empreinte numérique du certificat installé sur le magasin de certificats de votre ordinateur exécutant le runtime d’intégration auto-hébergé. S’applique uniquement quand un type auto-hébergé du runtime d’intégration est spécifié dans connectVia. | Spécifiez soit la propriété `embeddedCertData`, soit la propriété `certThumbprint`. |
-| password | Mot de passe associé au certificat. Marquez ce champ comme SecureString. | Non  |
+| password | Mot de passe associé au certificat. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
 
 Si vous utilisez « certThumbprint » pour l’authentification et que le certificat est installé dans le magasin personnel de l’ordinateur local, vous devez accorder l’autorisation de lecture à l’ordinateur exécutant le runtime d’intégration auto-hébergé :
 

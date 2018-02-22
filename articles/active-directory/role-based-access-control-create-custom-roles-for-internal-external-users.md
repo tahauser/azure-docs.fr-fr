@@ -3,7 +3,7 @@ title: "Créer des rôles de contrôle d’accès en fonction du rôle personnal
 description: "Attribuer des rôles RBAC personnalisés créés à l’aide de PowerShell et d’Azure CLI à des utilisateurs internes et externes"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
 
 Le contrôle d’accès en fonction du rôle (RBAC) est une fonctionnalité exclusive du portail Azure permettant aux propriétaires d’abonnement d’attribuer des rôles granulaires à d’autres utilisateurs afin qu’ils puissent gérer des étendues de ressource spécifiques dans leur environnement.
 
-La fonctionnalité RBAC permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de l’environnement de l’entreprise, mais pas nécessairement à l’infrastructure toute entière ou à des étendues liées à la facturation. La fonctionnalité RBAC offre la flexibilité de pouvoir être propriétaire d’un seul abonnement Azure géré par le compte d’administrateur (rôle Administrateur du service au niveau d’un abonnement) et d’avoir plusieurs utilisateurs invités à travailler dans le cadre de cet abonnement, mais sans droits d’administration sur celui-ci. Du point de vue de la facturation et de la gestion, la fonctionnalité RBAC s’avère être une option efficace en termes de temps et de gestion pour l’utilisation d’Azure dans diverses circonstances.
+La fonctionnalité RBAC permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux domaines de la facturation. La fonctionnalité RBAC offre la flexibilité de pouvoir être propriétaire d’un seul abonnement Azure géré par le compte d’administrateur (rôle Administrateur du service au niveau d’un abonnement) et d’avoir plusieurs utilisateurs invités à travailler dans le cadre de cet abonnement, mais sans droits d’administration sur celui-ci. Du point de vue de la facturation et de la gestion, la fonctionnalité RBAC s’avère être une option efficace en termes de temps et de gestion pour l’utilisation d’Azure dans diverses circonstances.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 L’utilisation de la fonctionnalité RBAC dans l’environnement Windows Azure nécessite ce qui suit :
 
 * Avoir un abonnement Azure autonome attribué à l’utilisateur en tant que propriétaire (rôle d’abonnement)
@@ -50,7 +50,7 @@ La fonctionnalité RBAC peut être appliquée à trois étendues différentes da
 Il existe notamment deux cas courants d’utilisation de la fonctionnalité RBAC :
 
 * Invitation d’utilisateurs externes à l’organisation (ne faisant pas partie du client Azure Active Directory de l’utilisateur administrateur) à gérer certaines ressources ou la totalité de l’abonnement.
-* Collaboration avec des utilisateurs internes à l’organisation (faisant partie du client Azure Active Directory de l’utilisateur) qui appartiennent à différents groupes ou équipes qui doivent avoir un accès granulaire soit à la totalité de l’abonnement, soit à certains groupes ou étendues de ressources dans l’environnement.
+* Collaboration avec des utilisateurs internes à l’organisation (faisant partie du locataire Azure Active Directory de l’utilisateur) qui appartiennent à différents groupes ou équipes et doivent avoir un accès granulaire à la totalité de l’abonnement ou seulement à certains groupes ou étendues de ressources dans l’environnement
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Octroyer l’accès au niveau d’un abonnement à un utilisateur extérieur à Azure Active Directory
 Les rôles RBAC peuvent être octroyés uniquement par des **propriétaires** d’abonnement. Par conséquent, l’utilisateur administrateur doit être connecté avec un nom d’utilisateur auquel ce rôle est pré-attribué ou qui a créé l’abonnement Azure.
@@ -59,7 +59,7 @@ Dans le portail Azure, après vous être connecté en tant qu’administrateur, 
 ![Panneau d’abonnement dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) Par défaut, si l’utilisateur administrateur a acheté l’abonnement Azure, il apparaît en tant que **Administrateur de compte**, ce qui correspond au rôle d’abonnement. Pour plus d’informations sur les rôles d’abonnement Azure, voir [Ajouter ou modifier des rôles Administrateur Azure qui gèrent l’abonnement ou les services](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Dans cet exemple, l’utilisateur « alflanigan@outlook.com » est le **Propriétaire** de l’abonnement « Évaluation gratuite » dans le client AAD « Client Azure par défaut ». Étant donné que cet utilisateur est le créateur de l’abonnement Azure avec le compte Microsoft initial « Outlook » (compte Microsoft = Outlook, Live, etc.), le nom de domaine par défaut pour tous les autres utilisateurs ajoutés à ce client sera **« @alflaniganuoutlook.onmicrosoft.com »**. Par conception, la syntaxe du nouveau domaine est formée par assemblage du nom d’utilisateur et du nom domaine de l’utilisateur qui a créé le client, avec ajout de l’extension **« .onmicrosoft.com »**.
-De plus, les utilisateurs peuvent se connecter avec un nom de domaine personnalisé dans le client, après ajout et vérification de ce nom de domaine pour le nouveau client. Pour plus d’informations sur la façon de vérifier un nom de domaine personnalisé dans un client Azure Active Directory, voir [Ajouter un nom de domaine personnalisé à votre annuaire](/active-directory/active-directory-add-domain).
+De plus, les utilisateurs peuvent se connecter avec un nom de domaine personnalisé dans le locataire (ils doivent d’abord l’ajouter et le vérifier pour le nouveau locataire). Pour plus d’informations sur la vérification d’un nom de domaine personnalisé dans un locataire Azure Active Directory, consultez [Ajouter un nom de domaine personnalisé à votre annuaire](/active-directory/active-directory-add-domain).
 
 Dans cet exemple, l’annuaire « Client par défaut Azure » contient uniquement les utilisateurs dont le nom de domaine est « @alflanigan.onmicrosoft.com ».
 
@@ -96,7 +96,7 @@ L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de
 L’utilisateur « chessercarlton@gmail.com » a été invité à être **Propriétaire** d’un abonnement « Évaluation gratuite ». Une fois l’invitation envoyée, l’utilisateur externe reçoit un e-mail de confirmation contenant un lien d’activation.
 ![e-mail d'invitation pour le rôles RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Étant externe à l’organisation, le nouvel utilisateur ne dispose pas de tous les attributs existants dans l’annuaire « Client Azure par défaut ». Ceux-ci sont créés après que l’utilisateur externe a consenti à être inscrit dans l’annuaire associé à l’abonnement pour lequel un rôle lui a été attribué.
+Étant externe à l’organisation, le nouvel utilisateur ne dispose pas de tous les attributs existants dans l’annuaire « Client Azure par défaut ». Ceux-ci sont créés une fois que l’utilisateur externe accepte d’être inscrit dans l’annuaire associé à l’abonnement pour lequel un rôle lui a été attribué.
 
 
 
@@ -119,7 +119,7 @@ Dans la vue **Utilisateurs**, les utilisateurs externes sont signalés par le ty
 Toutefois, l’octroi à un utilisateur externe d’un accès **Propriétaire** ou **Contributeur** à l’étendue **Abonnement** n’autorise pas l’accès à l’annuaire de l’utilisateur administrateur, sauf si l’**Administrateur général** l’autorise. Dans les propriétés de l’utilisateur, le **Type d’utilisateur** qui a deux paramètres communs, **Membre** et **Invité**, peut être identifié. Un membre est un utilisateur inscrit dans l’annuaire, tandis qu’un invité est un utilisateur invité dans l’annuaire à partir d’une source externe. Pour plus d’informations, voir [Comment les administrateurs Azure Active Directory ajoutent des utilisateurs B2B Collaboration](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
-> Assurez-vous qu’une fois les informations d’identification entrées dans le portail, l’utilisateur externe sélectionne l’annuaire approprié auquel se connecter. Le même utilisateur peut avoir accès à plusieurs annuaires et sélectionner l’un d'eux en cliquant sur le nom d’utilisateur dans la partie supérieure droite du portail Azure, puis en choisissant l’annuaire approprié dans la liste déroulante.
+> Vérifiez qu’une fois les informations d’identification entrées dans le portail, l’utilisateur externe sélectionne l’annuaire approprié auquel se connecter. Le même utilisateur peut avoir accès à plusieurs annuaires et sélectionner l’un d'eux en cliquant sur le nom d’utilisateur dans la partie supérieure droite du portail Azure, puis en choisissant l’annuaire approprié dans la liste déroulante.
 
 Bien qu’étant un invité dans l’annuaire, l’utilisateur externe peut gérer toutes les ressources de l’abonnement Azure. En revanche, il ne peut pas accéder à l’annuaire.
 
@@ -129,7 +129,7 @@ Bien qu’étant un invité dans l’annuaire, l’utilisateur externe peut gér
 
 ![accès restreint au portail azure active directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory et un abonnement Azure n’ont pas de relation enfant-parent comme l’ont d’autres ressources Azure (par exemple, Azure Virtual Machines, Azure Virtual Networks, Web Apps, Stockage Azure, etc.). Ces dernières sont créées, gérées et facturées en relation avec un abonnement Azure, tandis que celui-ci est utilisé pour gérer l’accès à un annuaire Azure. Pour plus d’informations, voir [Association des abonnements Azure avec Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory et un abonnement Azure n’ont pas de relation enfant-parent comme l’ont d’autres ressources Azure (par exemple, Azure Virtual Machines, Azure Virtual Networks, Web Apps, Stockage Azure, etc.). Ces dernières sont créées, gérées et facturées en relation avec un abonnement Azure, tandis que celui-ci est utilisé pour gérer l’accès à un annuaire Azure. Pour plus d’informations, consultez [Association d’un abonnement Azure à Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
 Parmi tous les rôles RBAC intégrés, les rôles **Propriétaire** et **Contributeur** offrent un accès en gestion complet à toutes les ressources de l’environnement, à la seule différence qu’un Contributeur ne peut pas créer ou supprimer des rôles RBAC. Les autres rôles intégrés, tels que **Contributeur de machines virtuelles**, offrent un accès en gestion complet uniquement aux ressources indiquées par le nom, quel que soit le **Groupe de ressources** dans lequel ils sont créés.
 
@@ -161,9 +161,9 @@ Le flux du processus est identique à celui de l’ajout d’un utilisateur exte
 L’attribution d’un rôle RBAC au niveau de l’étendue d’un **Groupe de ressources** est un processus identique à celui de l’attribution du rôle au niveau de l’abonnement pour les deux types d’utilisateurs, externes ou internes (au sein du même annuaire). Les utilisateurs auxquels le rôle RBAC est attribué peuvent voir dans leur environnement uniquement le groupe de ressources auquel ils ont accès à partir de l’icône **Groupes de ressources** dans le portail Azure.
 
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>Attribuer des rôles RBAC au niveau de l’étendue d’une ressource
-L’attribution d’un rôle RBAC au niveau de l’étendue d’une ressource dans Azure est un processus identique à celui de l’attribution du rôle au niveau de l’abonnement ou du groupe de ressources. Le flux de travail est le même pour les deux scénarios. Une fois encore, les utilisateurs auxquels le rôle RBAC est attribué peuvent voir uniquement les éléments auxquels ils ont accès, soit sous l’onglet **Toutes les ressources**, soit directement sur leur tableau de bord.
+L’attribution d’un rôle RBAC au niveau de l’étendue d’une ressource dans Azure est un processus identique à celui de l’attribution du rôle au niveau de l’abonnement ou du groupe de ressources. Le flux de travail est le même pour les deux scénarios. Une fois encore, les utilisateurs auxquels le rôle RBAC est attribué peuvent voir uniquement les éléments auxquels ils ont accès, sous l’onglet **Toutes les ressources** ou directement dans leur tableau de bord.
 
-Un aspect important de la fonctionnalité RBAC, tant au niveau de l’étendue de groupe de ressources qu’à celui de l’étendue de la ressource, est que les utilisateurs doivent veiller à se connecter à l’annuaire approprié.
+Un aspect important de la fonctionnalité RBAC, tant au niveau du groupe de ressources qu’à celui de la ressource, est que les utilisateurs doivent vérifier qu’ils se connectent à l’annuaire approprié.
 
 
 
@@ -172,7 +172,7 @@ Un aspect important de la fonctionnalité RBAC, tant au niveau de l’étendue d
 ![connexion à un annuaire dans le portail azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Attribuer des rôles RBAC pour un groupe Azure Active Directory
-Tous les scénarios utilisant la fonctionnalité RBAC aux trois niveaux d’étendue dans Azure offrent le privilège de pouvoir gérer, déployer et administrer diverses ressources comme un utilisateur assigné sans avoir besoin de gérer un abonnement personnel. Quel que soit le rôle RBAC attribué pour un abonnement, qu’il s’agisse de groupe de ressources ou d’étendue de ressource, toutes les ressources créées ensuite par les utilisateurs affectés sont facturés sous le seul abonnement Azure auquel ils ont accès. Ainsi, les utilisateurs qui disposent d’autorisations d’administrateur de facturation pour cet abonnement Azure entier ont une vue d’ensemble complète de la consommation, quelle que soit la personne qui gère les ressources.
+Tous les scénarios utilisant la fonctionnalité RBAC aux trois niveaux d’étendue dans Azure offrent le privilège de pouvoir gérer, déployer et administrer diverses ressources comme un utilisateur assigné sans avoir besoin de gérer un abonnement personnel. Que le rôle RBAC soit attribué à un abonnement, un groupe de ressources ou une ressource, toutes les ressources créées ensuite par les utilisateurs attribués sont facturées sous le seul abonnement Azure auquel ils ont accès. Ainsi, les utilisateurs qui disposent d’autorisations d’administrateur de facturation pour cet abonnement Azure entier ont une vue d’ensemble complète de la consommation, quelle que soit la personne qui gère les ressources.
 
 Pour les entreprises de grande taille, les rôles RBAC peuvent être appliqués de la même façon pour des groupes Azure Active Directory, en considérant que l’utilisateur administrateur souhaite octroyer l’accès granulaire à des équipes ou à des départements entiers plutôt qu’individuellement à chaque utilisateur, et donc en considérant qu’il s’agit d’une option extrêmement efficace sur les plans du temps et de la gestion. Pour illustrer cet exemple, le rôle **Contributeur** a été ajouté à l’un des groupes dans le client au niveau de l’abonnement.
 
@@ -182,16 +182,16 @@ Pour les entreprises de grande taille, les rôles RBAC peuvent être appliqués 
 
 ![ajouter un rôle RBAC pour les groupes AAD](./media/role-based-access-control-create-custom-roles-for-internal-external-users/14.png)
 
-Ces groupes sont des groupes de sécurité qui sont approvisionnés et gérés uniquement dans Azure Active Directory.
+Il s’agit de groupes de sécurité provisionnés et gérés uniquement dans Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Créer un rôle RBAC personnalisé pour ouvrir les demandes de support à l’aide de PowerShell
-Les rôles RBAC intégrés disponibles dans Azure garantissent certains niveaux d’autorisation en fonction ressources disponibles dans l’environnement. Toutefois, si aucun de ces rôles ne répond aux besoins de l’utilisateur administrateur, il est possible de limiter davantage l’accès en créant des rôles RBAC personnalisés.
+Les rôles RBAC intégrés disponibles dans Azure garantissent certains niveaux d’autorisation en fonction des ressources disponibles dans l’environnement. Toutefois, si aucun de ces rôles ne répond aux besoins de l’utilisateur administrateur, il est possible de limiter davantage l’accès en créant des rôles RBAC personnalisés.
 
 La création d’un rôle RBAC personnalisé requiert de prendre un rôle intégré, de le modifier, puis de le réimporter dans l’environnement. Le téléchargement et le chargement du rôle sont gérés à l’aide de PowerShell ou d’Azure CLI.
 
-Il est important de comprendre les conditions préalables à la création d’un rôle personnalisé qui peut octroyer un accès granulaire au niveau de l’abonnement et offrir à l’utilisateur invité la flexibilité nécessaire pour ouvrir des demandes de support.
+Vous devez comprendre les prérequis de la création d’un rôle personnalisé capable d’accorder un accès granulaire au niveau de l’abonnement et de donner à l’utilisateur invité la possibilité d’ouvrir des demandes de support.
 
-Pour cet exemple, le rôle intégré **Lecteur** qui permet à l’utilisateur d’accéder pour afficher toutes les étendues d’une ressource, mais pas de les modifier ou d’en créer, a été personnalisé afin de permettre à l’utilisateur d’ouvrir des demandes de support.
+Pour cet exemple, le rôle intégré **Lecteur**, qui permet à l’utilisateur d’afficher toutes les étendues de ressource, mais pas de les modifier ou d’en créer, a été personnalisé pour permettre à l’utilisateur d’ouvrir des demandes de support.
 
 La première action d’exportation du rôle **Lecteur** doit être accomplie dans PowerShell exécuté avec des autorisations élevées d’administrateur.
 
@@ -245,7 +245,7 @@ Dans cet exemple, le nom de ce rôle RBAC personnalisé est « Niveau d’accè
 > [!NOTE]
 > Les deux seuls rôles RBAC intégrés autorisant l’action d’ouverture de demandes de support sont **Propriétaire** et **Contributeur**. Pour pouvoir ouvrir des demandes de support, un utilisateur doit avoir un rôle RBAC uniquement au niveau de l’étendue de l’abonnement, car toutes les demandes de prise en charge sont créées sur la base d’un abonnement Azure.
 
-Ce nouveau rôle personnalisé a été attribué à un utilisateur figurant dans le même annuaire.
+Ce nouveau rôle personnalisé a été attribué à un utilisateur du même annuaire.
 
 
 

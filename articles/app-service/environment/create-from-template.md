@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
@@ -40,7 +40,7 @@ Pour automatiser la création de votre environnement ASE :
 
 2. Une fois votre ASE ILB créé, un certificat SSL correspondant à votre domaine ASE ILB est chargé.
 
-3. Le certificat SSL chargé est affecté à l’environnement ASE ILB en tant que certificat SSL « par défaut ».  Ce certificat est utilisé pour le trafic SSL vers les applications de l’ASE ILB quand celles-ci utilisent le domaine racine commun assigné à l’ASE (par exemple, https://someapp.mycustomrootcomain.com).
+3. Le certificat SSL chargé est affecté à l’environnement ASE ILB en tant que certificat SSL « par défaut ».  Ce certificat est utilisé pour le trafic SSL vers les applications de l’ASE ILB quand celles-ci utilisent le domaine racine commun assigné à l’ASE (par exemple, https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Créer l’ASE
@@ -150,7 +150,7 @@ L’environnement App Service est disponible en deux versions : ASEv1 et ASEv2.
 
 Dans ASEv1, vous gérez toutes les ressources manuellement. Celles-ci incluent les serveurs frontaux, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter la taille des instances de votre plan App Service, vous devez commencer par augmenter la taille des instances du pool de workers dans lequel vous voulez héberger le plan.
 
-Les versions ASEv1 et ASEv2 utilisent un modèle de tarification différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charge de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, voir [Présentation d’App Service Environment v1][ASEv1Intro].
+Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charge de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, voir [Présentation d’App Service Environment v1][ASEv1Intro].
 
 Pour créer un ASEv1 à l’aide d’un modèle Resource Manager, voir [Comment créer un ILB ASE à l’aide des modèles Azure Resource Manager][ILBASEv1Template].
 

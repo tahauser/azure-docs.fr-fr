@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bdf49265b5ef88d11f4ed669aa05036839c574eb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"></a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
 ## <a name="overview"></a>Vue d'ensemble
-Votre service Mobile Service existant est sécurisé et restera pris en charge. Toutefois, un grand nombre d'avantages fournis par la plateforme *Azure App Service* pour votre application mobile ne sont pas disponibles aujourd'hui avec Mobile Services :
+Votre service Mobile Service existant est sécurisé et restera pris en charge. Toutefois, des avantages fournis par la plateforme *Azure App Service* pour votre application mobile ne sont pas disponibles aujourd'hui avec Mobile Services :
 
 * Offre plus simple, plus facile et plus économique pour les applications qui incluent à la fois des clients web et mobiles
 * Nouvelles fonctionnalités d'hôte, y compris les tâches web, les enregistrements CName personnalisés et une meilleure analyse
-* Intégration clé en main avec Traffic Manager
+* Intégration avec Traffic Manager
 * Connectivité à vos ressources locales et réseaux privés virtuels à l'aide de VNet outre les connexions hybrides
 * Surveillance, alertes et dépannage de votre application à l’aide de NewRelic ou d’AppInsights
 * Plus riche éventail de ressources de calcul sous-jacentes et de tarification
@@ -34,18 +34,18 @@ Votre service Mobile Service existant est sécurisé et restera pris en charge. 
 * Fonctionnalités intégrées intermédiaires, de sauvegarde, de restauration et de test en production
 
 ## <a name="new-hosting-features"></a>Nouvelles fonctionnalités d'hébergement
-Dans *Azure App Service*, le code de backend de la fonctionnalité *Applications mobiles* s'exécute dans le même conteneur que l'application web et l'application API. Par conséquent, vous pouvez tirer parti de toutes les fonctionnalités dans ce conteneur, y compris de certaines qui ne figurent pas actuellement dans Mobile Services :
+Dans *Azure App Service*, le code de backend de la fonctionnalité *Applications mobiles* s'exécute dans le même conteneur que l'application web et l'application API. Vous pouvez tirer parti de toutes les fonctionnalités dans ce conteneur, y compris de certaines qui ne figurent pas actuellement dans Mobile Services :
 
 * Ajoutez une logique de backend qui s’exécute en permanence via les tâches web.
 * Assurez-vous que votre code de backend est toujours en cours d’exécution.
 * Utilisez des enregistrements CName personnalisés pour fournir des noms conviviaux et stables aux points de terminaison de votre backend mobile.
 * Dimensionnez géographiquement votre application avec Traffic Manager.
 * Incluez les bibliothèques et les packages que vous souhaitez.
-* (Pour .NET) Tirez parti des fonctionnalités d’ASP.NET, y compris MVC.
-* (Pour Node.js) Tirer parti de toute bibliothèque JavaScript pure de l’écosystème du nœud, y compris des bibliothèques communes MVC.
+* (Pour .NET) Utilisez des fonctionnalités d’ASP.NET, y compris MVC.
+* (Pour Node.js) Utilisez toute bibliothèque JavaScript pure de l’écosystème du nœud, y compris des bibliothèques communes MVC.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Accédez aux données locales à l'aide de VNet
-Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hybrides pour accéder à des ressources locales. Toutefois, dans certaines situations, une solution VPN est préférée. Avec *Azure App Service* , vous pouvez utiliser Azure VNet pour votre code de backend d'application mobile.
+Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hybrides pour accéder à des ressources locales. Toutefois, dans certaines situations, une solution VPN est préférée. Avec *Azure App Service*, vous pouvez utiliser Azure VNet pour votre code de backend d'application mobile.
 
 ## <a name="use-your-favorite-backend-language"></a>Utilisez votre langage de backend favori
 *Azure App Service* offre une prise en charge plus large et plus riche des plateformes ASP.NET et Node.js, ainsi qu’un accès aux derniers runtimes.
@@ -54,7 +54,7 @@ Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hy
 Avec Mobile Services, toutes les instances de votre code de backend s'exécutaient sur de petites machines virtuelles. *Azure App Service* vous permet de sélectionner la taille des machines virtuelles à partir d'un ensemble d'options beaucoup plus complet. Vous pouvez également augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n’importe quelle charge cliente entrante, en fonction de diverses mesures de performances.
 
 ## <a name="be-in-the-know"></a>Restez dans la connaissance
-Réagissez en temps réel aux problèmes avec la surveillance et les alertes qui vous informent automatiquement vous et votre équipe. Intégrez les fonctionnalités avancées de surveillance et d'analyse d'application de New Relic et AppInsights afin d'enrichir encore votre vision des performances de votre application mobile. Avec *Azure App Service* , vous pouvez maintenant configurer des alertes basées sur diverses mesures de performances, par programmation ou via le portail Azure.
+Réagissez en temps réel aux problèmes avec la surveillance et les alertes qui vous informent automatiquement vous et votre équipe. Intégrez les fonctionnalités avancées de surveillance et d'analyse d'application de New Relic et AppInsights pour vous donner une vision des performances de votre application mobile. Avec *Azure App Service*, vous pouvez maintenant configurer des alertes basées sur diverses mesures de performances, par programmation ou via le portail Azure.
 
 ## <a name="keep-your-assets-safe"></a>Protégez vos actifs
 Sauvegardez automatiquement votre backend et votre base de données. Votre code et vos données sont protégés contre une éventuelle catastrophe et peuvent être restaurées facilement, ce qui vous permet de gérer votre entreprise en toute confiance.

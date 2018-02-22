@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 36fc33813595183856713f01b5a94f84e1f3db4e
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b1d2e5468aa5b6a10b93ea118969d66789a17f50
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour l’approvisionnement automatique d’utilisateurs
 
@@ -29,7 +29,7 @@ L’objectif de ce didacticiel est de vous montrer les étapes à effectuer pour
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un locataire Azure AD
+*   un locataire Azure AD ;
 *   Un [compte professionnel](https://pingboard.com/pricing) de locataire Pingboard 
 *   Un compte utilisateur dans Pingboard avec des autorisations d’administrateur 
 
@@ -93,9 +93,9 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 
 12. Cliquez sur **Enregistrer** pour lancer la synchronisation initiale des utilisateurs affectés à Pingboard.
 
-La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement sur votre application Pingboard.
+La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux décrivent toutes les actions effectuées par le service de provisionnement dans votre application Pingboard.
 
-Pour plus d’informations sur la lecture des journaux de provisionnement Azure AD, consultez [Création de rapports sur le provisionnement automatique de comptes d’utilisateur](active-directory-saas-provisioning-reporting.md).
+Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

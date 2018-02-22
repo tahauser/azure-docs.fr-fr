@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 82f87447a2176dffd55dcf71155c389398f7d64c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
@@ -30,9 +31,9 @@ Azure Functions vous permet d’exécuter votre code dans un environnement [sans
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Ouvrez le portail Azure. Pour cela, connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte Azure.
+Connectez-vous au portail Azure à <http://portal.azure.com/> avec votre compte Azure.
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
@@ -64,7 +65,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 2. Collez l’URL de fonction dans la barre d’adresse de votre navigateur. Ajoutez la valeur de la chaîne de requête `&name=<yourname>` à la fin de cette URL et appuyez sur la touche `Enter` de votre clavier pour exécuter la requête. Vous devez voir la réponse renvoyée par la fonction affichée dans le navigateur.  
 
-    Voici un exemple de la réponse dans le navigateur Edge (d’autres navigateurs peuvent inclure du XML affiché) :
+    L’exemple suivant montre la réponse dans le navigateur Edge (d’autres navigateurs peuvent inclure du XML affiché) :
 
     ![Réponse de la fonction dans le navigateur.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -76,7 +77,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>étapes suivantes
 

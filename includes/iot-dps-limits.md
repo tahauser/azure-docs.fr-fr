@@ -9,7 +9,7 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources du 
 | Nombre maximal d’autorités de certification | 10 |
 
 > [!NOTE]
-> Ces limites concernent la préversion publique. Une fois que le service est disponible globalement, vous pouvez contacter [Support Microsoft](https://azure.microsoft.com/support/options/) pour augmenter le nombre d’instances dans votre abonnement.
+> Vous pouvez contacter [Support Microsoft](https://azure.microsoft.com/support/options/) pour augmenter le nombre d’instances dans votre abonnement.
 
 Le service d’approvisionnement d’appareil limite les demandes lorsque les quotas suivants sont dépassés :
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Copier des données d’Impala à l’aide d’Azure Data Factory (version bêta)
 
@@ -48,17 +48,17 @@ Les propriétés suivantes sont prises en charge pour le service lié Impala.
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Impala**. | OUI |
-| host | Adresse IP ou nom d’hôte du serveur Impala (c’est-à-dire, 192.168.222.160).  | Oui |
+| host | Adresse IP ou nom d’hôte du serveur Impala (c’est-à-dire, 192.168.222.160).  | OUI |
 | port | Port TCP utilisé par le serveur Impala pour écouter les connexions clientes. Valeur par défaut : 21050.  | Non  |
-| authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont **Anonymous**, **SASLUsername** et **UsernameAndPassword**. | Oui |
+| authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont **Anonymous**, **SASLUsername** et **UsernameAndPassword**. | OUI |
 | username | Nom d’utilisateur utilisé pour accéder au serveur Impala. La valeur par défaut est Anonymous si vous utilisez SASLUsername.  | Non  |
-| password | Mot de passe qui correspond au nom d’utilisateur si vous utilisez UsernameAndPassword. Vous pouvez marquer ce champ en tant que SecureString pour le stocker en toute sécurité dans Data Factory. Vous pouvez également stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie l’y récupérer quand vous effectuez une copie de données. Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
+| password | Mot de passe qui correspond au nom d’utilisateur si vous utilisez UsernameAndPassword. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
 | enableSsl | Indique si les connexions au serveur sont chiffrées à l’aide du protocole SSL. La valeur par défaut est **false**.  | Non  |
 | trustedCertPath | Chemin complet du fichier .pem qui contient les certificats d’autorité de certification approuvés utilisés pour vérifier le serveur quand vous vous connectez via SSL. Cette propriété ne peut être définie que quand vous utilisez SSL sur le runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non  |
 | useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. La valeur par défaut est **false**.  | Non  |
 | allowHostNameCNMismatch | Indique si le nom du certificat SSL émis par l’autorité de certification doit correspondre au nom d’hôte du serveur si vous vous connectez via SSL. La valeur par défaut est **false**.  | Non  |
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est **false**.  | Non  |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple :**
 
@@ -112,12 +112,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="impala-as-a-source-type"></a>Impala en tant que type de source
 
-Pour copier des données d’Impala, affectez la valeur **ImpalaSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes.
+Pour copier des données d’Impala, affectez la valeur **ImpalaSource** au type source de l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
-| Propriété | Description | Obligatoire |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Oui |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource**. | OUI |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | OUI |
 
 **Exemple :**
 
@@ -151,5 +151,5 @@ Pour copier des données d’Impala, affectez la valeur **ImpalaSource** au type
 ]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+## <a name="next-steps"></a>étapes suivantes
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

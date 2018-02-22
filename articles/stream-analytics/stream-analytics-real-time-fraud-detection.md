@@ -1,3 +1,26 @@
+---
+title: "Stream Analytics : détection des fraudes en temps réel | Microsoft Docs"
+description: "Apprenez à créer une solution de détection des fraudes en temps réel avec Stream Analytics. Utilisez un concentrateur d’événements pour le traitement des événements en temps réel."
+keywords: "détection des anomalies, détection des fraudes, détection d’anomalies en temps réel"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Prise en main de l’utilisation d’Azure Stream Analytics : détection des fraudes en temps réel
 
 Ce didacticiel illustre de bout en bout l’utilisation d’Azure Stream Analytics. Vous allez apprendre à effectuer les actions suivantes : 
@@ -14,7 +37,7 @@ Dans ce didacticiel, nous utilisons l’exemple de détection des fraudes en tem
 
 Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas précis, des appels passés en même temps dans différents pays. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Dans ce didacticiel, vous allez simuler des données d’appels téléphoniques à l’aide d’une application cliente générant un exemple de métadonnées d’appel téléphonique. Certains des enregistrements produits par l’application ressemblent à des appels frauduleux. 
 
@@ -57,7 +80,7 @@ Dans cette procédure, vous allez commencer par créer un espace de noms Event 
     ![Panneau de création d’un concentrateur Event Hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
  
-7. Cliquez sur **Create**.
+7. Cliquez sur **Créer**.
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Accorder l’accès au concentrateur Event Hub et obtenir une chaîne de connexion
 
 Pour qu’un processus puisse envoyer des données à un concentrateur Event Hub, ce concentrateur doit disposer d’une stratégie autorisant un accès approprié. La stratégie d’accès génère une chaîne de connexion qui inclut des informations d’autorisation.
@@ -73,7 +96,7 @@ Pour qu’un processus puisse envoyer des données à un concentrateur Event Hu
 
     ![Panneau de création d’une stratégie d’accès au concentrateur Event Hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
-4.  Cliquez sur **Create**.
+4.  Cliquez sur **Créer**.
 
 5.  Une fois la stratégie déployée, cliquez dessus dans la liste des stratégies d’accès partagé.
 
@@ -150,7 +173,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
 
     ![Créer un travail Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
-3. Cliquez sur **Create**.
+3. Cliquez sur **Créer**.
 
     Le travail est créé, et le portail en affiche les détails. Rien n’est en cours d’exécution cependant. Vous devez configurer le travail pour qu’il puisse être démarré.
 
@@ -173,7 +196,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
 
     ![Créer une entrée pour le travail Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
-4. Cliquez sur **Create**.
+4. Cliquez sur **Créer**.
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Créer des requêtes pour transformer des données en temps réel
 
@@ -300,7 +323,7 @@ Si vous utilisez une jointure avec des données de flux, la jointure doit indiqu
 
     ![Sortie du travail Stream Analytics pour la jointure réflexive, affichant 6 enregistrements générés](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. Cliquez sur **Save**. Cette opération enregistre la requête de jointure réflexive dans le cadre du travail Stream Analytics. (Elle n’enregistre pas l’exemple de données.)
+3. Cliquez sur **Enregistrer**. Cette opération enregistre la requête de jointure réflexive dans le cadre du travail Stream Analytics. (Elle n’enregistre pas l’exemple de données.)
 
     ![Enregistrer un travail Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
@@ -381,11 +404,11 @@ Toutefois, si vous en avez terminé et n’avez pas besoin des ressources que vo
 5. Supprimez le concentrateur Event Hub.
 6. Supprimez l’espace de noms Event Hub.
 
-## <a name="get-support"></a>Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l’aide
 
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez poursuivre ce didacticiel en lisant l’article suivant :
 
@@ -394,6 +417,6 @@ Vous pouvez poursuivre ce didacticiel en lisant l’article suivant :
 Pour plus d’informations sur Stream Analytics en général, consultez les articles suivants :
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

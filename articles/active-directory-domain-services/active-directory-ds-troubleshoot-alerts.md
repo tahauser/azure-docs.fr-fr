@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -28,7 +28,7 @@ Choisissez les étapes de résolution qui correspondent au message ou ID d’err
 
 | **ID de l'alerte** | **Message d'alerte** | **Résolution :** |
 | --- | --- | :--- |
-| AADDS001 | *LDAP sécurisé sur Internet est activé pour le domaine géré. Toutefois, l’accès au port 636 n’est pas verrouillé à l’aide d’un groupe de sécurité réseau. Cela peut exposer les comptes d’utilisateur sur le domaine géré aux attaques par force brute.* | [Configuration de LDAP sécurisé incorrecte](active-directory-ds-troubleshoot-ldaps.md) |
+| AADDS001 | *LDAP sécurisé sur Internet est activé pour le domaine géré. Toutefois, l’accès au port 636 n’est pas verrouillé à l’aide d’un Groupe de sécurité réseau (NSG). Cela peut exposer les comptes d’utilisateur sur le domaine géré aux attaques par force brute.* | [Configuration de LDAP sécurisé incorrecte](active-directory-ds-troubleshoot-ldaps.md) |
 | AADDS100 | *L’annuaire Azure AD associé à votre domaine géré a peut-être été supprimé. Le domaine géré n’est plus dans une configuration prise en charge. Microsoft ne peut pas surveiller, gérer, mettre à jour et synchroniser votre domaine géré.* | [Répertoire manquant](#aadds100-missing-directory) |
 | AADDS101 | *Les services de domaine Azure AD ne peuvent pas être activés dans un annuaire Azure AD B2C.* | [Azure AD B2C est en cours d’exécution dans ce répertoire](#aadds101-azure-ad-b2c-is-running-in-this-directory) |
 | AADDS102 | *Un principal de service requis pour que les services de domaine Azure AD fonctionnent correctement a été supprimé de votre annuaire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.* | [Principal de service manquant](active-directory-ds-troubleshoot-service-principals.md) |
@@ -75,6 +75,11 @@ Pour restaurer votre service, procédez comme suit :
 
 Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+À l’intérieur du réseau virtuel, les machines peuvent effectuer des requêtes sur les ressources Azure qui se trouvent dans la même plage d’adresses IP que celles configurées pour le sous-réseau. Toutefois, étant donné que le réseau virtuel est configuré pour cette plage, ces requêtes sont routées au sein du réseau virtuel et n’atteignent pas les ressources web prévues. Il peut en résulter des erreurs imprévisibles avec Azure AD Domain Services.
+
+**Si vous avez la plage d’adresses IP dans l’Internet configuré dans votre réseau virtuel, vous pouvez ignorer cette alerte. Il est toutefois impossible pour Azure AD Domain Services de respecter les termes du contrat [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) avec cette configuration, car elle peut entraîner des erreurs imprévisibles.**
+
+
 1. [Supprimez votre domaine géré](active-directory-ds-disable-aadds.md) de votre annuaire.
 2. Corrigez la plage d’adresses IP pour le sous-réseau
   1. Accédez à la [page Réseaux virtuels sur le portail Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet artic
   7. Mettez à jour la plage d’adresses et enregistrez vos modifications.
 3. Suivez [le guide Prise en main des services de domaine Azure AD](active-directory-ds-getting-started.md) pour recréer votre domaine géré. Veillez à sélectionner un réseau virtuel avec une plage d’adresses IP privées.
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Vérifiez l’intégrité de votre domaine après deux heures pour vous assurer que vous avez effectué les étapes correctement.
+8. Pour vérifier que l’alerte est résolue, vérifiez l’intégrité de votre domaine dans deux heures.
 
 
 ## <a name="contact-us"></a>Nous contacter

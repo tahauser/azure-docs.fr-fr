@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -89,8 +89,7 @@ L’échelle d’un cluster est déterminée par la quantité de ses nœuds de m
 
 En fonction de votre type de cluster, l’augmentation du nombre de nœuds worker ajoute de la capacité de calcul supplémentaire (par exemple, davantage de cœurs), mais peut également ajouter à la quantité totale de mémoire requise pour que l’ensemble du cluster prenne en charge le stockage en mémoire des données en cours de traitement. Comme avec le choix de la taille et du type de machine virtuelle, la sélection de l’échelle de cluster appropriée est généralement effectuée de manière empirique, à l’aide de charges de travail simulées ou de requêtes canary.
 
-Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires. Pour plus d’informations, consultez la rubrique [Mettre à l’échelle les clusters HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Cycle de vie du cluster
 

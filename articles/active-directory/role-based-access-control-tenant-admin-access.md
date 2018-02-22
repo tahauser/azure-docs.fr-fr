@@ -3,7 +3,7 @@ title: "Élever l’accès d’un administrateur client - Azure AD | Microsoft D
 description: "Cette rubrique décrit les rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC)."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Élever l’accès en tant qu’administrateur client avec le contrôle d’accès en fonction du rôle
 
@@ -40,7 +40,7 @@ Cette fonctionnalité est importante, car elle permet à l’administrateur clie
     > Lorsque vous choisissez **Non**, retire le rôle **Administrateur d’accès utilisateur** au niveau de la racine « / » (étendue de la racine) pour l’utilisateur avec lequel vous êtes actuellement connecté au portail.
 
 > [!TIP] 
-> Elle peut donner l’impression d’être une propriété globale pour Azure Active Directory, toutefois, elle fonctionne par utilisateur, pour l’utilisateur actuellement connecté. Lorsque vous disposez des droits d’administrateur général dans Azure Active Directory, vous pouvez appeler la fonction elevateAccess pour l’utilisateur avec lequel vous êtes connecté dans le centre d’administration de Azure Active Directory.
+> Elle peut donner l’impression d’être une propriété globale pour Azure Active Directory, toutefois, elle fonctionne par utilisateur, pour l’utilisateur actuellement connecté. Quand vous avez des droits d’administrateur général dans Azure Active Directory, vous pouvez appeler la fonctionnalité elevateAccess pour l’utilisateur avec lequel vous êtes connecté dans le centre d’administration d’Azure Active Directory.
 
 ![Centre d’administration Azure AD - Propriétés - L’administrateur général peut gérer l’abonnement Azure - capture d’écran](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
@@ -101,7 +101,7 @@ Le processus de base comprend les étapes suivantes :
 
 Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour vous-même : pour révoquer ces privilèges, vous devez donc supprimer l’attribution.
 
-1.  Appelez les définitions de rôle GET, où roleName = administrateur des accès utilisateur, pour déterminer le GUID de nom du rôle d’administrateur des accès utilisateur.
+1.  Appelez GET roleDefinitions, où roleName = administrateur des accès utilisateur, pour déterminer le GUID de nom du rôle d’administrateur des accès utilisateur.
     1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
@@ -127,9 +127,9 @@ Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour 
     1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >Un administrateur client ne devrait pas avoir beaucoup d’affectations. Si la requête ci-dessus retourne un trop grand nombre d’affectations, vous pouvez également interroger toutes les attributions uniquement au niveau de la portée du client, puis filtrer les résultats : GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+        >Un administrateur locataire ne doit pas avoir beaucoup d’attributions. Si la requête précédente retourne un trop grand nombre d’attributions, vous pouvez aussi interroger toutes les attributions au niveau de la portée du locataire uniquement, puis filtrer les résultats : GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
         
-    2. Les appels ci-dessus retournent une liste des attributions de rôle. Recherchez l’attribution de rôle dans laquelle la portée est « / » et RoleDefinitionId se termine par le GUID du nom du rôle trouvé à l’étape 1 et PrincipalId correspond au paramètre ObjectId de l’administrateur client. L’attribution de rôle doit ressembler à ceci :
+    2. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle dans laquelle la portée est « / » et RoleDefinitionId se termine par le GUID du nom du rôle trouvé à l’étape 1 et PrincipalId correspond au paramètre ObjectId de l’administrateur client. L’attribution de rôle doit ressembler à ceci :
 
         ```
         {"value":[{"properties":{
@@ -152,7 +152,7 @@ Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour 
 
         DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur la [gestion du contrôle d’accès en fonction du rôle à l’aide de REST](role-based-access-control-manage-access-rest.md)
 

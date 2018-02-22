@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"></a>À propos de Mobile Apps dans Azure App Service
 Azure App Service est une offre de [plateforme en tant que service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) entièrement gérée pour les développeurs professionnels. Ce service apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. 
@@ -33,26 +33,26 @@ Avec la fonctionnalité Mobile Apps, vous pouvez :
 * **Générer des applications natives et multiplateformes** : que vous génériez des applications natives iOS, Android et Windows ou des applications multiplateformes Xamarin ou Cordova (Phonegap), vous pouvez tirer parti d’App Service à l’aide de Kits de développement logiciel (SDK) natifs.
 * **Se connecter aux systèmes de votre entreprise** : la fonctionnalité Mobile Apps vous permet d’ajouter une authentification d’entreprise en quelques minutes et de vous connecter à vos ressources locales et cloud d’entreprise.
 * **Créer des applications disponibles hors connexion avec la synchronisation des données** : augmentez davantage la productivité de votre personnel mobile en créant des applications qui fonctionnent hors connexion et qui utilisent la fonctionnalité Mobile Apps pour synchroniser les données en arrière-plan quand la connexion est établie avec l’une de vos sources de données d’entreprise ou API de software as a service (SaaS).
-* **Notifications push pour des millions de personnes en quelques secondes** : fidélisez vos clients en leur envoyant en temps opportun des notifications push instantanées, adaptées à leurs besoins et sur n’importe quel appareil.
+* **Notifications push pour des millions de personnes en quelques secondes** : fidélisez vos clients en leur envoyant en temps opportun des notifications push instantanées, adaptées à leurs besoins et sur n’importe quel appareil.
 
 ## <a name="mobile-apps-features"></a>Fonctionnalités Mobile Apps
 Les fonctions qui suivent sont importantes pour le développement mobile Cloud :
 
-* **Authentification et autorisation** : bénéficiez d’une liste toujours plus longue de fournisseurs d’identité, notamment Azure Active Directory pour l’authentification d’entreprise, et de fournisseurs de médias sociaux tels que Facebook, Google, Twitter et les comptes Microsoft. Mobile Apps offre un service OAuth 2.0 pour chaque fournisseur. Vous pouvez également intégrer le kit de développement logiciel du fournisseur d’identité pour la fonctionnalité spécifique du fournisseur.
+* **Authentification et autorisation** : prise en charge de fournisseurs d’identité, notamment Azure Active Directory pour l’authentification d’entreprise, et de fournisseurs de médias sociaux tels que Facebook, Google, Twitter et les comptes Microsoft. Mobile Apps offre un service OAuth 2.0 pour chaque fournisseur. Vous pouvez également intégrer le kit de développement logiciel du fournisseur d’identité pour la fonctionnalité spécifique du fournisseur.
 
-    Apprenez-en davantage sur nos [fonctionnalités d’authentification].
+    Apprenez-en davantage sur les [fonctionnalités d’authentification].
 
 * **Accès aux données** : Mobile Apps offre une source de données OData v3 compatible avec les mobiles liée à SQL Azure Database ou à un serveur SQL Server local. Étant donné que ce service peut être développé à partir d’Entity Framework, vous pouvez l’intégrer facilement à d’autres fournisseurs de données NoSQL et SQL, notamment le [Stockage de tables Azure], MongoDB, [Azure Cosmos DB] et des fournisseurs d’API SaaS comme Office 365 et Salesforce.com.
 
-* **Synchronisation hors connexion** : nos Kits de développement logiciel (SDK) clients permettent de facilement générer des applications mobiles robustes et réactives exploitables sur des jeux de données hors connexion. Vous pouvez synchroniser automatiquement les données principales, y compris la prise en charge de la résolution de conflit.
+* **Synchronisation hors connexion** : les Kits de développement logiciel (SDK) clients permettent de facilement générer des applications mobiles robustes et réactives exploitables sur des jeux de données hors connexion. Vous pouvez synchroniser automatiquement les données principales, y compris la prise en charge de la résolution de conflit.
 
-  Apprenez-en davantage sur nos [fonctionnalités de données].
+  Apprenez-en davantage sur les [fonctionnalités de données].
 
-* **Notifications Push** : nos Kits de développement logiciel (SDK) clients s’intègrent de façon transparente aux fonctionnalités d’inscription d’Azure Notification Hubs afin de pouvoir envoyer des notifications Push à des millions d’utilisateurs simultanément.
+* **Notifications Push** : les Kits de développement logiciel (SDK) clients s’intègrent de façon transparente aux fonctionnalités d’inscription d’Azure Notification Hubs afin de pouvoir envoyer des notifications Push à des millions d’utilisateurs simultanément.
 
-  Apprenez-en davantage sur nos [fonctionnalités de notification Push].
+  Apprenez-en davantage sur les [fonctionnalités de notification Push].
 
-* **Kits de développement logiciel clients** : nous fournissons un ensemble complet de Kits de développement logiciel clients qui concernent le développement natif ([iOS], [Android] et [Windows]), le développement multiplateforme ([Xamarin.iOS et Xamarin.Android], [Xamarin.Forms]) et le développement d’applications hybrides ([Apache Cordova]). Chaque kit de développement logiciel client est disponible avec une licence MIT et open source.
+* **Kits de développement logiciel clients** : il existe un ensemble complet de Kits de développement logiciel clients qui concernent le développement natif ([iOS], [Android] et [Windows]), le développement multiplateforme ([Xamarin.iOS et Xamarin.Android], [Xamarin.Forms]) et le développement d’applications hybrides ([Apache Cordova]). Chaque kit de développement logiciel client est disponible avec une licence MIT et open source.
 
 ## <a name="azure-app-service-features"></a>Fonctionnalités d’Azure App Service
 Les fonctionnalités suivantes de la plate-forme sont utiles aux sites de production mobile :
@@ -65,7 +65,7 @@ Les fonctionnalités suivantes de la plate-forme sont utiles aux sites de produc
 
   Apprenez-en davantage sur les [Environnements intermédiaires].
 
-* **Déploiement continu** : App Service peut s’intégrer aux systèmes de gestion de contrôle de code source courants afin de déployer automatiquement une nouvelle version de votre serveur principal en le transférant vers une branche de votre système SCM.
+* **Déploiement continu** : App Service peut s’intégrer aux systèmes de gestion de _contrôle de code source_ courants, vous permettant de déployer facilement une nouvelle version de votre serveur principal.
 
   Apprenez-en davantage sur les [options de déploiement](../app-service/app-service-deploy-local-git.md).
 
@@ -73,7 +73,7 @@ Les fonctionnalités suivantes de la plate-forme sont utiles aux sites de produc
 
   Apprenez-en davantage sur les [connexions hybrides], [les réseaux virtuels] et [ExpressRoute].
 
-* **Environnements isolés/dédiés** : vous pouvez exécuter App Service dans un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service à grande échelle. L’environnement est idéal pour des charges de travail nécessitant un accès à grande échelle, isolé ou avec réseau sécurisé.
+* **Environnements isolés/dédiés** : pour exécuter en toute sécurité des applications Azure App Service, vous pouvez exécuter App Service dans un environnement totalement isolé et dédié. L’environnement est idéal pour des charges de travail nécessitant un accès à grande échelle, isolé ou avec réseau sécurisé.
 
   Apprenez-en davantage sur les [environnements App Service].
 

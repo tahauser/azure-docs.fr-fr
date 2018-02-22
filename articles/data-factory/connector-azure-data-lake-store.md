@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Lake Store à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Pour utiliser une authentification du principal du service, inscrivez une entit�
 
 >[!IMPORTANT]
 > Veillez à accorder l’autorisation appropriée au principal de service dans Azure Data Lake Store :
->- **En tant que source**, accordez au moins l’autorisation d’accès aux données **Lecture + Exécution** pour lister et copier le contenu d’un dossier, ou l’autorisation **Lecture** pour copier un seul fichier. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
->- **En tant que récepteur**, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), pour permettre la détection par Data Factory de la région de Data Lake Store, attribuez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant :
+>- **Pour la source**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Lecture + Exécution** pour lister et copier les fichiers dans les dossiers/sous-dossiers ou une autorisation **Lecture** pour copier un seul fichier ; et choisissez d’ajouter en tant **qu’entrée d’autorisation d’accès et d’autorisation par défaut**. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
+>- **Pour le récepteur**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Écriture + Exécution** pour créer des éléments enfants dans le dossier, puis choisissez d’ajouter en tant **qu’entrée d’autorisation d’accès et entrée d’autorisation par défaut**. Si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), dans Access Control (IAM), accordez au moins le rôle **Lecteur** pour que Data Factory puisse détecter la région Data Lake Store. Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant.
 
 Les propriétés prises en charge sont les suivantes :
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
-| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString. | OUI |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 
 **Exemple :**
 
@@ -114,12 +114,12 @@ Une fabrique de données peut être associée à une [identité de service manag
 Pour utiliser l’authentification MSI (Managed Service Identity) :
 
 1. [Récupérez l’identité de service de la fabrique de données](data-factory-service-identity.md#retrieve-service-identity) en copiant la valeur « ID d’application de l’identité du service » générée en même temps que votre fabrique.
-2. Accordez l’accès Data Lake Store au service d’identité comme vous le feriez pour un principal de service. Pour obtenir des étapes détaillées, consultez [Authentification service à service : Affecter l’application Azure AD au dossier ou fichier de compte Azure Data Lake Store](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Accordez l’accès Data Lake Store au service d’identité comme vous le feriez pour un principal de service en suivant les remarques ci-dessous.
 
 >[!IMPORTANT]
 > Veillez à accorder l’autorisation appropriée à l’identité de service de la fabrique de données dans Azure Data Lake Store :
->- **En tant que source**, accordez au moins l’autorisation d’accès aux données **Lecture + Exécution** pour lister et copier le contenu d’un dossier, ou l’autorisation **Lecture** pour copier un seul fichier. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
->- **En tant que récepteur**, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), pour permettre la détection par Data Factory de la région de Data Lake Store, attribuez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant :
+>- **Pour la source**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Lecture + Exécution** pour lister et copier les fichiers dans les dossiers/sous-dossiers ou une autorisation **Lecture** pour copier un seul fichier ; et choisissez d’ajouter en tant **qu’entrée d’autorisation d’accès et d’autorisation par défaut**. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
+>- **Pour le récepteur**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Écriture + Exécution** pour créer des éléments enfants dans le dossier, puis choisissez d’ajouter en tant **qu’entrée d’autorisation d’accès et entrée d’autorisation par défaut**. Si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), dans Access Control (IAM), accordez au moins le rôle **Lecteur** pour que Data Factory puisse détecter la région Data Lake Store. Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant.
 
 Dans Azure Data Factory, il n’est pas nécessaire de spécifier de propriétés en dehors des informations générales Data Lake Store du service lié.
 

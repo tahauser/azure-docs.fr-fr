@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 736d286bb7b97e842e73afd362ba70a42d1a9d9d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 62036e8a4e0611958ffacf7f7d7896e6ebde5e16
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Copie de données du service web Amazon Marketplace à l’aide d’Azure Data Factory (bêta)
 
@@ -51,9 +51,9 @@ Les propriétés prises en charge pour le service lié au service web Amazon Mar
 | endpoint | Le point de terminaison du serveur Amazon MWS, (autrement dit, mws.amazonservices.com)  | OUI |
 | marketplaceID | L’ID Amazon Marketplace à partir duquel vous souhaitez récupérer des données. Pour récupérer des données à partir de plusieurs ID Marketplace, séparez-les par une virgule (`,`). (autrement dit, A2EUQ1WTGCTBG2)  | OUI |
 | sellerID | L’ID de vendeur Amazon.  | OUI |
-| mwsAuthToken | Le jeton d’authentification Amazon MWS. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée par le service Data Factory, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie effectuer l’extraction des données lors de la copie. Pour plus d’informations, consultez [Stocker les informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
+| mwsAuthToken | Le jeton d’authentification Amazon MWS. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | accessKeyId | L’ID de la clé d’accès utilisée pour accéder aux données.  | OUI |
-| secretKey | La clé secrète utilisée pour accéder aux données. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie effectuer l’extraction des données lors de la copie. Pour plus d’informations, consultez [Stocker les informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
+| secretKey | La clé secrète utilisée pour accéder aux données. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |

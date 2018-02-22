@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empaqueter et déployer des conteneurs en tant qu’application Service Fabric
 
@@ -34,7 +34,7 @@ Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de g
 > * Déployer et exécuter l’application 
 > * Nettoyer l’application
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 - Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 - L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
@@ -158,7 +158,7 @@ Configurez un point de terminaison HTTP pour que les clients puissent communique
 
 ```
   
-De même, modifiez le manifeste de service pour le service backend. Ouvrez *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* et déclarez une ressource de point de terminaison dans l’élément **ServiceManifest**. Pour ce didacticiel, la valeur par défaut de redis, 6379, est conservée. L’extrait de code suivant est placé sous la balise *ServiceManifest* dans la ressource.
+De même, modifiez le manifeste de service pour le service principal. Ouvrez *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* et déclarez une ressource de point de terminaison dans l’élément **ServiceManifest**. Pour ce didacticiel, la valeur par défaut de redis, 6379, est conservée. L’extrait de code suivant est placé sous la balise *ServiceManifest* dans la ressource.
 
 ```xml
 <Resources>
@@ -170,7 +170,7 @@ De même, modifiez le manifeste de service pour le service backend. Ouvrez *./Te
   </Endpoints>
 </Resources>
 ```
-Fournir **UriScheme** enregistre automatiquement le point de terminaison du conteneur auprès du service Service Fabric Naming pour la détectabilité. Un exemple de fichier ServiceManifest.xml complet pour le service backend est fourni à titre d’exemple à la fin de cet article. 
+Fournir **UriScheme** enregistre automatiquement le point de terminaison du conteneur auprès du service Service Fabric Naming pour la détectabilité. Un exemple de fichier ServiceManifest.xml complet pour le service principal est fourni à titre d’exemple à la fin de cet article. 
 
 ### <a name="map-container-ports-to-a-service"></a>Mapper les ports de conteneur à un service
 Afin d’exposer les conteneurs dans le cluster, nous devons également créer une liaison de port dans le fichier ApplicationManifest.xml. La stratégie **PortBinding** référence les **Endpoints** définis dans les fichiers **ServiceManifest.xml**. Les demandes entrantes vers ces points de terminaison sont mappées aux ports de conteneur qui sont ouverts et limités ici. Dans le fichier **ApplicationManifest.xml**, ajoutez le code suivant pour lier les ports 80 et 6379 aux points de terminaison. Un fichier **ApplicationManifest.xml** complet est disponible à la fin de ce document. 
@@ -187,9 +187,9 @@ Afin d’exposer les conteneurs dans le cluster, nous devons également créer u
 </ContainerHostPolicies>
 ```
 
-### <a name="add-a-dns-name-to-the-backend-service"></a>Ajouter un nom DNS au service backend
+### <a name="add-a-dns-name-to-the-backend-service"></a>Ajouter un nom DNS au service principal
   
-Pour que Service Fabric affecte ce nom DNS au service backend, le nom doit être spécifié dans le fichier **ApplicationManifest.xml**. Ajoutez l’attribut **ServiceDnsName** à l’élément **Service**, comme indiqué : 
+Pour que Service Fabric affecte ce nom DNS au service principal, le nom doit être spécifié dans le fichier **ApplicationManifest.xml**. Ajoutez l’attribut **ServiceDnsName** à l’élément **Service**, comme indiqué : 
   
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
@@ -199,7 +199,7 @@ Pour que Service Fabric affecte ce nom DNS au service backend, le nom doit être
 </Service>
 ```
 
-Le service frontend lit une variable d’environnement pour connaître le nom DNS de l’instance Redis. Cette variable d’environnement est déjà définie dans le fichier Dockerfile qui a été utilisé pour générer l’image Docker. Aucune action n’est nécessaire ici.
+Le service frontal lit une variable d’environnement pour connaître le nom DNS de l’instance Redis. Cette variable d’environnement est déjà définie dans le fichier Dockerfile qui a été utilisé pour générer l’image Docker. Aucune action n’est nécessaire ici.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 À ce stade du didacticiel, le modèle d’une application Service Package est disponible pour le déploiement sur un cluster. Dans le didacticiel suivant, cette application est déployée et exécutée dans un cluster Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
-Pour déployer l’application sur un cluster dans Azure, utilisez votre propre cluster ou celui d’un tiers.
+Pour déployer l’application sur un cluster dans Azure, créez votre propre cluster.
 
-Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe de Service Fabric, et chacun peut y déployer des applications tout en découvrant cette plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
+Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
+
+Pour effectuer des opérations de gestion sur le cluster tiers sécurisé, vous pouvez utiliser Service Fabric Explorer, CLI ou Powershell. Pour utiliser Service Fabric Explorer, vous devez télécharger le fichier PFX sur le site du cluster tiers et importer le certificat dans votre magasin de certificats (Windows ou Mac) ou dans le navigateur lui-même (Ubuntu). Il n’existe aucun mot de passe pour les certificats auto-signés venant cluster tiers. 
+
+Pour effectuer des opérations de gestion avec Powershell ou CLI, vous avez besoin du fichier PFX (Powershell) ou PEM (CLI). Pour convertir le fichier PFX en un fichier PEM, exécutez la commande suivante :  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -230,7 +238,7 @@ Vous pouvez déployer l’application sur le cluster Azure à l’aide de l’in
 Connectez-vous au cluster Service Fabric dans Azure. Remplacez l’espace réservé au point de terminaison par votre propre point de terminaison. Il doit s’agir d’une URL complète semblable à celle présentée ci-dessous.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 Utilisez le script d’installation fourni dans le répertoire **TestContainer** pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
@@ -292,7 +300,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
 </ApplicationManifest>
 ```
 
-### <a name="front-end-servicemanifestxml"></a>ServiceManifest.xml pour service frontend 
+### <a name="front-end-servicemanifestxml"></a>ServiceManifest.xml pour service frontal 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"

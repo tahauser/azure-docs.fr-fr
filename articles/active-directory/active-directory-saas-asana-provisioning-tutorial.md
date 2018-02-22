@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs
 
@@ -38,7 +38,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 ## <a name="assign-users-to-asana"></a>Affecter des utilisateurs à Asana
 
-Azure AD utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’attribution automatique de comptes d’utilisateurs, seuls les utilisateurs affectés à une application dans Azure AD sont synchronisés. 
+Azure AD utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre du provisionnement automatique des comptes utilisateur, seuls les utilisateurs affectés à une application dans Azure AD sont synchronisés. 
 
 Avant de configurer et d’activer le service d’attribution, vous devez déterminer quels utilisateurs d’Azure AD ont besoin d’accéder à votre application Asana. Vous pouvez affecter ces utilisateurs à votre application Asana en suivant ces instructions :
 
@@ -93,7 +93,7 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 12. Sélectionnez **Enregistrer**. 
 
-La synchronisation initiale commence pour les utilisateurs affectés à Asana dans la section **Utilisateurs**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’attribution, qui décrivent toutes les actions effectuées par le service d’attribution sur l’application Asana.
+La synchronisation initiale commence pour les utilisateurs affectés à Asana dans la section **Utilisateurs**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux d’audit décrivent toutes les actions effectuées par le service de provisionnement dans votre application Asana.
 
 Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](active-directory-saas-provisioning-reporting.md).
 

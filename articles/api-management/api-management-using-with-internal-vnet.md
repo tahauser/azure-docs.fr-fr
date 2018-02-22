@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -26,7 +26,7 @@ Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API i
 * Interne
 
 
-Lorsque la Gestion des API est déployée dans un mode réseau virtuel interne, tous les points de terminaison de service (passerelle, portail des développeurs, portail des éditeurs, gestion directe et git) ne sont visibles que dans un réseau virtuel auquel vous contrôlez l’accès. Aucun point de terminaison de service n’est inscrit sur le serveur DNS Public.
+En cas de déploiement de Gestion des API dans un mode réseau virtuel interne, tous les points de terminaison de service (passerelle, portail des développeurs, portail Azure, gestion directe et Git) ne sont visibles que dans un réseau virtuel auquel vous contrôlez l’accès. Aucun point de terminaison de service n’est inscrit sur le serveur DNS Public.
 
 Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios suivants :
 * Rendre les API hébergées dans votre centre de données privé accessibles de l’extérieur en toute sécurité à des tiers à l’aide de connexions site à site ou de connexions Azure VPN ExpressRoute.
@@ -34,7 +34,7 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 * Gérer vos API hébergées dans plusieurs emplacements géographiques à l’aide d’un seul point de terminaison de passerelle. 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -72,14 +72,14 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre routage.
 
 > [!NOTE]
-> Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent la passerelle, le portail des développeurs, le portail des éditeurs, le point de terminaison de la gestion directe, et Git.
+> Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent la passerelle, le portail des développeurs, le portail Azure, le point de terminaison de la gestion directe et Git.
 
 ### <a name="access-on-default-host-names"></a>Accès sur les noms d’hôtes par défaut
 Lorsque vous créez un service Gestion des API, nommé « contoso » par exemple, les points de terminaison de service suivants sont configurés par défaut :
 
    * Passerelle ou proxy : contoso.azure-api.net
 
-   * Portail des éditeurs et portail des développeurs : contoso.portal.azure-api.net
+   * Portail Azure et portail des développeurs : contoso.portal.azure-api.net
 
    * Point de terminaison de gestion directe : contoso.management.azure-api.net
 

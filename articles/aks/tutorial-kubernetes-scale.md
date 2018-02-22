@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Mettre à jour une application dans Azure Container Service (ACS)
 
@@ -38,10 +38,10 @@ Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette pro
 
 Si vous avez créé votre cluster Kubernetes à l’aide des commandes dans le didacticiel précédent, le cluster comporte un nœud. Vous pouvez ajuster le nombre de nœuds manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster.
 
-L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myK8sCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
+L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myAKSCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 Le résultat ressemble à ce qui suit :
@@ -52,7 +52,7 @@ Le résultat ressemble à ce qui suit :
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -70,7 +70,7 @@ Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont ét�
 kubectl get pods
 ```
 
-Output:
+Sortie :
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -90,7 +90,7 @@ Exécutez [kubectl get pods][kubectl-get] pour vérifier que Kubernetes crée le
 kubectl get pods
 ```
 
-Output:
+Sortie :
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -129,7 +129,7 @@ Pour voir l’état de la mise à l’échelle automatique, exécutez la command
 kubectl get hpa
 ```
 
-Output:
+Sortie :
 
 ```
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
@@ -138,7 +138,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 Au bout de quelques minutes, avec une charge minimale sur l’application Azure Vote, le nombre de réplicas de pods descend automatiquement à 3.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé différentes fonctionnalités de mise à l’échelle dans votre cluster Kubernetes. Les tâches traitées ont inclus :
 
