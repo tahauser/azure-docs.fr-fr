@@ -70,7 +70,7 @@ Pour créer l’API :
 1. Cliquez sur **Ajouter l’API**.
 2. Entrez un **Nom de l’API web** (cet exemple utilise « API de démonstration AzureML »).
 3. Pour **URL du service Web**, entrez « `https://ussouthcentral.services.azureml.net` ».
-4. Indiquez un « Suffixe de l’URL de l’API web ». Il constitue la dernière partie de l’URL que les clients vont utiliser pour envoyer des requêtes à l’instance de service (cet exemple utilise « azureml-demo »).
+4. Indiquez un « **Suffixe de l’URL de l’API web ». Il constitue la dernière partie de l’URL que les clients vont utiliser pour envoyer des requêtes à l’instance de service (cet exemple utilise « azureml-demo »).
 5. Pour **Modèle d’URL de l’API Web**, sélectionnez **HTTPS**.
 6. Pour **Produits**, sélectionnez **Starter**.
 7. Cliquez sur **Enregistrer**.

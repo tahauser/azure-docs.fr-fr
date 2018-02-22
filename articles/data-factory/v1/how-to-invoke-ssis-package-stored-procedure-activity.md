@@ -301,7 +301,7 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
 
 ### <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
-2. Exécutez **Get-AzureRmDataFactorySlice** pour obtenir des détails sur toutes les tranches du jeu de données de sortie**, qui est la table de sortie du pipeline.
+2. Exécutez **Get-AzureRmDataFactorySlice** pour obtenir des détails sur toutes les tranches du jeu de données de sortie\**, qui est la table de sortie du pipeline.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
