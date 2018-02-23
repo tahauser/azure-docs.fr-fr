@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
-Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos bases de données.
+Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage**  & et la **protection** des données sensibles dans vos bases de données.
 La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, et ainsi de suite) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
+* Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes, telles que RGPD.
 * Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 * Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
-* Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes, telles que RGPD.
 
 ## <a id="subheading-1"></a>Vue d’ensemble
 Découverte et classification des données introduit un ensemble de services avancés et de nouvelles fonctionnalités SQL qui forment un nouveau paradigme de protection des informations SQL visant à protéger les données, et pas seulement la base de données :
@@ -93,7 +93,9 @@ La classification comprend deux attributs de métadonnées :
 
 ## <a id="subheading-3"></a>Audit de l’accès aux données sensibles
 
-[L’audit Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre la classification de la sensibilité (étiquettes) des données réelles retournées par la requête.
+Un aspect important du paradigme de protection des informations est la possibilité de surveiller l’accès aux données sensibles.
+
+[L’audit Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre las classifications de la sensibilité (étiquettes) des données réelles retournées par la requête.
 
 ![Volet de navigation][11]
 
