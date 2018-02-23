@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Gérer les schémas de client
               href: saas-tenancy-schema-management.md
-            - name: Exécuter des requêtes ad hoc
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Création de rapports inter-clients
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: 'Extraction, transformation et chargement (ETL) pour analyse'
               href: saas-tenancy-tenant-analytics.md
         - name: Base de données mutualisée

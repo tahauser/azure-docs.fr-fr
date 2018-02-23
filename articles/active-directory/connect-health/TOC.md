@@ -11,12 +11,13 @@
 ## [Opérations Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 ## [Résolution des erreurs lors de la synchronisation](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
+## [Conformité avec RGPD et Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Rubriques connexes
-## [Intégration de vos identités locales avec Azure Active Directory](../active-directory-aadconnect.md)
+## [Intégration des identités locales dans Azure Active Directory](../active-directory-aadconnect.md)
 ## [Fédération avec Azure AD Connect](../active-directory-aadconnectfed-whatis.md)
 ## [Guide sur la conception d’identités hybrides](../active-directory-hybrid-identity-design-considerations-overview.md)
 

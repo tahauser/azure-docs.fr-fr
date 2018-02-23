@@ -61,6 +61,7 @@
 # Procédures
 ## [Surveiller une passerelle VPN à l’aide d’Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnostiquer la connectivité locale via une passerelle VPN](network-watcher-diagnose-on-premises-connectivity.md)
+## [Surveiller les connexions réseau](connection-monitor.md)
 ## [Effectuer des tâches de conformité et d’audit sur votre réseau à l’aide de PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Analyser les journaux Application Gateway dans Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Capture de paquet

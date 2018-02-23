@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -40,7 +40,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > [!NOTE]
 > Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation de Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Voici les étapes importantes à suivre pour créer cette solution : 
 
 1. **Sélectionner la colonne de limite**.
@@ -110,7 +110,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Créer des tables de destination dans votre base de données SQL
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données SQL Azure
 1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données SQL Server.
 
 2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
@@ -133,7 +133,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données SQL pour stocker la valeur de filigrane supérieure
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans Azure SQL Database pour stocker la valeur de limite supérieure
 1. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `watermarktable` pour stocker la valeur de filigrane : 
     
     ```sql
@@ -155,7 +155,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Créer une procédure stockée dans la base de données SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Créer une procédure stockée dans Azure SQL Database 
 
 Exécutez la commande suivante pour créer une procédure stockée dans votre base de données SQL. Cette procédure stockée met à jour la valeur de filigrane après chaque exécution du pipeline. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Créer des types de données et des procédures stockées supplémentaires
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Créer des types de données et des procédures stockées supplémentaires dans Azure SQL Database
 Exécutez la requête suivante pour créer deux procédures stockées et deux types de données dans votre base de données SQL. Ils sont utilisés pour fusionner les données des tables source dans les tables de destination.
 
 ```sql

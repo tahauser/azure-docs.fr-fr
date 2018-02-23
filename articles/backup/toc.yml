@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Récupérer des données depuis Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Partages de fichiers Azure
+      items:
+        - name: Sauvegarder des partages de fichiers Azure
+          href: backup-azure-files.md
+        - name: FAQ sur la sauvegarde des partages de fichiers Azure
+          href: backup-azure-files-faq.md
+        - name: Résoudre les problèmes de sauvegarde des partages de fichiers Azure
+          href: troubleshoot-azure-files.md
     - name: Machines virtuelles Azure
       items:
         - name: Préparation de la machine virtuelle

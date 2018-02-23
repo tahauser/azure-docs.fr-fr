@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -29,7 +29,7 @@ Vous pouvez créer dans le portail Azure plusieurs tableaux de bord incluant des
 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -88,7 +88,7 @@ Le panneau **Métriques** vous permet de tracer le graphique d’une métrique c
 
 3. En haut de l’écran, cliquez sur **Afficher le tableau de bord** pour revenir à votre tableau de bord.
 
-4. La Chronologie d'ensemble est désormais épinglée à votre tableau de bord.  Cliquez dessus et faites-la glisser vers la position de votre choix, puis cliquez sur **Personnalisation terminée**, puis sur **Publier les modifications**. 
+4. Le graphique des métriques de la chronologie est désormais épinglé à votre tableau de bord. Cliquez dessus et faites-la glisser vers la position de votre choix, puis cliquez sur **Personnalisation terminée**, puis sur **Publier les modifications**. 
 
     ![Tableau de bord avec des mesures](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
@@ -162,7 +162,7 @@ Azure Application Insights Analytics étant un service distinct, vous devez part
 5. Cliquez sur **Publier les modifications** pour valider les modifications apportées à votre tableau de bord qui comprend désormais une série de graphiques et de visualisations d’Application Insights.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 À présent que vous avez appris à créer des tableaux de bord personnalisés, jetez un coup d’œil au reste de la documentation d’Application Insights, notamment à une étude de cas.
 
 > [!div class="nextstepaction"]

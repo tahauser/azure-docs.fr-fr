@@ -36,15 +36,15 @@
         - name: Préparer Azure
           href: tutorial-prepare-azure.md
         - name: Préparer un Hyper-V local
-          href: tutorial-prepare-on-premises-hyper-v.md
+          href: hyper-v-prepare-on-premises-tutorial.md
         - name: Configurer la récupération d'urgence pour les machines virtuelles Hyper-V
-          href: tutorial-hyper-v-to-azure.md
+          href: hyper-v-azure-tutorial.md
         - name: Configurer la récupération d'urgence pour les machines virtuelles Hyper-V hébergées dans des clouds VMM
-          href: tutorial-hyper-v-vmm-to-azure.md
+          href: hyper-v-vmm-azure-tutorial.md
         - name: Exécuter une simulation de récupération d'urgence
           href: tutorial-dr-drill-azure.md
         - name: Exécuter un basculement et une restauration automatique
-          href: tutorial-hyper-v-to-azure-failover-failback.md
+          href: hyper-v-azure-failover-failback-tutorial.md
     - name: Migrer vers Azure
       items:
         - name: Préparer Azure pour la réplication d’un site local
@@ -64,11 +64,11 @@
         - name: Architecture VMware vers Azure
           href: concepts-vmware-to-azure-architecture.md
         - name: Architecture Hyper-V vers Azure
-          href: concepts-hyper-v-to-azure-architecture.md
+          href: hyper-v-azure-architecture.md
         - name: Architecture de serveur physique vers Azure
           href: concepts-physical-to-azure-architecture.md
         - name: Architecture Hyper-V vers un site secondaire
-          href: concepts-hyper-v-to-secondary-architecture.md
+          href: hyper-v-vmm-architecture.md
     - name: Matrice de prise en charge des exigences
       items:
         - name: Matrice de prise en charge Azure vers Azure
@@ -76,7 +76,7 @@
         - name: Matrice de prise en charge VMware vers Azure
           href: support-matrix-vmware-to-azure.md
         - name: Matrice de prise en charge d’Hyper-V sur Azure
-          href: support-matrix-hyper-v-to-azure.md
+          href: hyper-v-azure-support-matrix.md
         - name: Matrice de prise en charge sur site vers Azure
           href: site-recovery-support-matrix-to-azure.md
         - name: Matrice de prise en charge sur site vers un site secondaire
@@ -97,6 +97,8 @@
           href: azure-to-azure-about-networking.md
         - name: Configurer le mappage réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
           href: azure-to-azure-network-mapping.md
+        - name: Configurer la réplication de mappage réseau de machines virtuelles Hyper-V dans VMM
+          href: hyper-v-vmm-network-mapping.md
         - name: Conserver l’IP pour la récupération d’urgence de machines virtuelles Azure (préversion)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Préparer le mappage réseau pour la réplication de machines virtuelles Hyper-V sur Azure
@@ -104,7 +106,7 @@
         - name: Configurer l’adressage IP pour l’accès à Azure après le basculement
           href: concepts-on-premises-to-azure-networking.md
         - name: Configurer l’adressage IP pour l’accès à un site secondaire après le basculement
-          href: concepts-on-premises-to-on-premises-networking.md
+          href: hyper-v-vmm-networking.md
         - name: Gestion de l’interface réseau pour les scénarios local vers Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Récupération d'urgence
@@ -113,15 +115,15 @@
           href: azure-to-azure-replicate-after-migration.md
         - name: Récupération d’urgence des serveurs physiques vers Azure
           href: tutorial-physical-to-azure.md
-        - name: Réplication de machines virtuelles Hyper-V vers un site secondaire
-          href: tutorial-vmm-to-vmm.md
-        - name: Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire
+        - name: Récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
+          href: hyper-v-vmm-disaster-recovery.md
+        - name: Récupération d’urgence des machines virtuelles VMware et des serveurs physiques vers un site secondaire
           href: tutorial-vmware-to-vmware.md
         - name: Effectuer un exercice de récupération d'urgence vers Azure
           href: site-recovery-test-failover-to-azure.md
-        - name: Exécuter une simulation de récupération d'urgence vers un site secondaire
-          href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Machines virtuelles VMware avec l’architecture multilocataires vers Azure
+        - name: Exécuter une simulation de récupération d’urgence des machines virtuelles Hyper-V vers un site secondaire
+          href: hyper-v-vmm-test-failover.md
+        - name: Récupération d’urgence des machines virtuelles VMware avec la prise en charge mutualisée dans Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Basculement et restauration automatique
       items:
@@ -130,17 +132,15 @@
         - name: Ajouter des Runbooks Azure à des plans de récupération
           href: site-recovery-runbook-automation.md
         - name: Ajouter des scripts VMM à des plans de récupération
-          href: site-recovery-how-to-add-vmmscript.md
+          href: hyper-v-vmm-recovery-script.md
         - name: Effectuer un basculement
           items:
             - name: À propos du basculement
               href: site-recovery-failover.md
-            - name: Exécuter un test de basculement vers un site secondaire
-              href: tutorial-dr-drill-secondary.md
             - name: Exécuter un basculement et une restauration automatique pour les serveurs physiques
               href: physical-to-azure-failover-failback.md
-            - name: Exécuter un basculement et une restauration automatique sur des sites locaux
-              href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: Exécuter un basculement et une restauration automatique des machines virtuelles Hyper-V sur des sites locaux
+              href: hyper-v-vmm-failover-failback.md
         - name: Restaurer la protection des machines après un basculement
           items:
             - name: Protéger de nouveau à partir d’une région secondaire Azure vers une région primaire
@@ -152,7 +152,7 @@
             - name: Restauration automatique de Microsoft Azure vers VMware
               href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Restauration automatique de Microsoft Azure vers Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
+              href: hyper-v-azure-failback.md
         - name: Configurer un serveur cible maître Linux pour la restauration automatique
           href: site-recovery-how-to-install-linux-master-target.md
     - name: Migrer
@@ -182,15 +182,15 @@
           href: null
           items:
             - name: Vue d’ensemble et conditions préalables
-              href: site-recovery-hyper-v-deployment-planner.md
+              href: hyper-v-deployment-planner-overview.md
             - name: Exécuter le Planificateur de déploiement
-              href: site-recovery-hyper-v-deployment-planner-run.md
+              href: hyper-v-deployment-planner-run.md
             - name: Analyser le rapport généré
-              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+              href: hyper-v-deployment-planner-analyze-report.md
             - name: Analyser le rapport d’estimation des coûts
-              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
-        - name: Tests de mise à l’échelle des performances pour la réplication d’Hyper-V entre des sites locaux
-          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
+              href: hyper-v-deployment-planner-cost-estimation.md
+        - name: Tests de mise à l’échelle des performances pour la réplication Hyper-V sur un site secondaire
+          href: hyper-v-vmm-performance-results.md
     - name: Configuration
       items:
         - name: Configurer l’environnement source
@@ -214,7 +214,7 @@
             - name: Exclure les disques de la réplication de VMware vers Azure
               href: site-recovery-exclude-disk.md
             - name: Exclure les disques de la réplication de Hyper-V vers Azure
-              href: site-recovery-hyper-v-exclude-disk.md
+              href: hyper-v-exclude-disk.md
         - name: Activer la réplication
           items:
             - name: Activer la réplication Azure vers Azure
@@ -234,11 +234,11 @@
         - name: "Répliquer des machines virtuelles VMware sur Microsoft\_Azure à l’aide de PowerShell"
           href: site-recovery-vmware-to-azure-powershell.md
         - name: Configurer la réplication Hyper-V vers Azure (sans VMM) à l’aide de PowerShell
-          href: site-recovery-deploy-with-powershell-resource-manager.md
+          href: hyper-v-azure-powershell-resource-manager.md
         - name: Configurer la réplication Hyper-V vers Azure (avec VMM) à l’aide de PowerShell
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: Configurer la réplication Hyper-V vers un site VMM secondaire à l’aide de PowerShell
-          href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
     - name: Charges de travail
       items:
         - name: Active Directory et DNS

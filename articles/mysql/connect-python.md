@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 0daf8b48f9cc767b0e6cf5339eff2e4e371c23fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 057a3bdb9a70c09fdd95cc02cc664db29e6c2f69
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données
-Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL.
+Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL. Pour plus d’informations sur les kits de développement logiciel, reportez-vous à la documentation [Référence SDK pour les bibliothèques Azure MySQL pour Python](/python/api/overview/azure/mysql) et à un [exemple de connecteur MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html).
 
 ## <a name="prerequisites"></a>configuration requise
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
