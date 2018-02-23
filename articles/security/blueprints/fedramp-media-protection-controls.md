@@ -1,6 +1,6 @@
 ---
-title: "Automatisation d’Azure Blueprint pour FedRAMP - Protection des supports"
-description: Applications Web pour FedRAMP - Protection des supports
+title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Protection média"
+description: "Automatisation d’applications web FedRAMP - Protection média"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9cb33abc7ab88aaa54a77308c7863f8128f2e6c7
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-protection-mp"></a>Protection média (MP)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 Revision 4 du service NIST. Pour obtenir des informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rev. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour obtenir des informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rev. 4.
 
 ## <a name="nist-800-53-control-mp-1"></a>NIST 800-53 - Contrôle MP-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de protection des supports qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de protection des supports et des contrôles de protection des supports associés ; et révise et met à jour la stratégie actuelle de protection des supports [Affectation : fréquence définie par l’organisation] ; et les procédures de protection des supports [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-3.a** L’organisation marque les supports du système d’information indiquant les limitations de la distribution, la gestion des mises en garde et les marquages de sécurité applicables (le cas échéant) pour les informations.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-4.b** L’organisation protège le support du système d’information jusqu'à ce que le support soit détruit, ou nettoyé à l’aide de matériel, techniques et procédures approuvés.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-5.c** L’organisation documente les activités associées au transport des supports de système d’information.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-6.a** L’organisation assainit [Affectation : support de système d’information défini par l’organisation] avant la suppression, la sortie du contrôle de l’organisation ou la sortie pour utilisation et réutilisation avec [Affectation : procédures et techniques d’assainissement définies par l’organisation] conformément aux normes et stratégiques de la région et de l’organisation.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-6.b** L’organisation utilise des mécanismes d’assainissement avec la puissance et l’intégrité correspondant à la catégorie de sécurité ou classification des informations.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-6 (1)** L’organisation examine, approuve, suit, documente et vérifie les actions de nettoyage et de destruction de supports.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-6 (2)** L’organisation teste le matériel et les procédures de nettoyage [Affectation : fréquence définie par l’organisation] pour vérifier que l’assainissement prévu est effectué.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **MP-7 (1)** l’organisation interdit l’utilisation d’appareils de stockage portables dans les systèmes d’information sur l’entreprise lorsque ces appareils n’ont aucun propriétaire identifiable.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Déploiement d’un Runbook Worker hybride Windows
 
@@ -50,7 +50,7 @@ Consultez les informations suivantes concernant les [exigences matérielles et l
 
 Effectuez les étapes suivantes pour automatiser l’installation et la configuration du rôle Worker hybride Windows.  
 
-1. Téléchargez le script *New-OnPremiseHybridWorker.ps1* à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) directement depuis l’ordinateur qui exécute le rôle Runbook Worker hybride ou depuis un autre ordinateur dans votre environnement, et copiez-le dans le Worker.  
+1. Téléchargez le script *New-OnPremiseHybridWorker.ps1* à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) directement depuis l’ordinateur qui exécute le rôle Runbook Worker hybride ou depuis un autre ordinateur dans votre environnement, et copiez-le dans le Worker.  
 
     Le script *New-OnPremiseHybridWorker.ps1* requiert les paramètres suivants lors de l’exécution :
 
@@ -76,7 +76,7 @@ Effectuez les étapes suivantes pour automatiser l’installation et la configur
 
 4. Vous êtes invité à accepter d’installer **NuGet** et à vous authentifier avec vos informations d’identification Azure.<br><br> ![Exécution du script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Une fois le script terminé, le panneau Groupes de Workers hybrides affiche le nouveau groupe et le nombre de membres, ou, si le groupe existe déjà, incrémente le nombre de membres.  Vous pouvez sélectionner le groupe dans la liste du panneau **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**.  Le panneau **Workers hybrides** affiche chaque membre du groupe listé.  
+5. Une fois le script terminé, la page Groupes de Workers hybrides affiche le nouveau groupe et le nombre de membres, ou, si le groupe existe déjà, incrémente le nombre de membres.  Vous pouvez sélectionner le groupe dans la liste de la page **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**.  La page **Workers hybrides** affiche chaque membre du groupe listé.  
 
 ### <a name="manual-deployment"></a>Déploiement manuel 
 
@@ -113,13 +113,13 @@ Exécutez ensuite l'applet de commande **Add-HybridRunbookWorker** en utilisant 
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Vous pouvez obtenir les informations requises pour cette applet de commande dans le panneau **Gérer les clés** du portail Azure.  Ouvrez ce panneau en sélectionnant l’option **Clés** sur le panneau **Paramètres** de votre compte Automation.
+Vous pouvez obtenir les informations requises pour cette applet de commande dans la page **Gérer les clés** du portail Azure.  Ouvrez cette page en sélectionnant l’option **Clés** sur la page **Paramètres** de votre compte Automation.
 
 ![Vue d'ensemble des Runbooks Workers hybrides](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** est le nom du groupe de Runbooks Workers hybrides. Si ce groupe existe déjà dans le compte Automation, la machine actuelle est ajoutée à ce dernier.  S'il n'existe pas encore, il est alors ajouté.
-* **EndPoint** est le champ **URL** dans le panneau **Gérer les clés**.
-* **Token** est la **clé d’accès primaire** dans le panneau **Gérer les clés**.  
+* **EndPoint** est le champ **URL** dans la page **Gérer les clés**.
+* **Token** est la **clé d’accès primaire** dans la page **Gérer les clés**.  
 
 Utilisez le commutateur **-Verbose** avec **Add-HybridRunbookWorker** pour recevoir des informations détaillées concernant l’installation.
 
@@ -143,7 +143,7 @@ Le Runbook Worker hybride dépend de l’agent Microsoft Monitoring Agent pour c
 3. Le service Microsoft Monitoring Agent n’est pas en cours d’exécution.  
     Si le service Windows de Microsoft Monitoring Agent n’est pas en cours d’exécution, le Runbook Worker hybride ne peut pas communiquer avec Azure Automation.  Vérifiez que l’agent est en cours d’exécution en entrant la commande suivante dans PowerShell : `get-service healthservice`.  Si le service est arrêté, entrez la commande suivante dans PowerShell pour démarrer le service : `start-service healthservice`.  
 
-4. Dans le journal des événements **Application et journaux des services\gestionnaire des opérations**, vous voyez l’événement 4502 et l’EventMessage contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** avec la description suivante : *le certificat présenté par le service <wsid>.oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL. L’article KB3126513 contient des informations supplémentaires pour la résolution des problèmes de connectivité.*
+4. Dans le journal des événements **Application et journaux des services\gestionnaire des opérations**, vous voyez l’événement 4502 et l’EventMessage contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** avec la description suivante : *le certificat présenté par le service \<wsid\>.oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL. L’article KB3126513 contient des informations supplémentaires pour la résolution des problèmes de connectivité.*
     Une cause possible est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure.  Vérifiez que l’ordinateur dispose d’un accès sortant à *.azure-automation.net sur les ports 443.
 
 Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur écrits dans les journaux des évènements **Application et journal des services\Microsoft SMA\gestionnaire des opérations** et **Application et journal des services\gestionnaire des opérations** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème lors de l’exécution d’opérations normales.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -482,17 +482,32 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ### <a name="section-name-securityclientx509names"></a>Nom de la section : Security/ClientX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
 
 ### <a name="section-name-securityclusterx509names"></a>Nom de la section : Security/ClusterX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
 
 ### <a name="section-name-securityserverx509names"></a>Nom de la section : Security/ServerX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>Nom de la section : Sécurité/ClientCertificateIssuerStores
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, la valeur par défaut est None |Dynamique|Magasins de certificats de l’émetteur X509 pour les certificats de clients ; Nom = clientIssuerCN ; Valeur = liste des magasins séparée par des virgules |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>Nom de la section : Sécurité/ClusterCertificateIssuerStores
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, la valeur par défaut est None |Dynamique|Magasins de certificats de l’émetteur X509 pour les certificats de cluster ; Nom = clusterIssuerCN ; Valeur = liste des magasins séparée par des virgules |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>Nom de la section : Sécurité/ServerCertificateIssuerStores
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, la valeur par défaut est None |Dynamique|Magasins de certificats de l’émetteur X509 pour les certificats de serveurs ; Nom = serverIssuerCN ; Valeur = liste des magasins séparée par des virgules |
 
 ### <a name="section-name-securityclientaccess"></a>Nom de la section : Security/ClientAccess
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -555,35 +570,35 @@ PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
 | StartClusterConfigurationUpgrade |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche StartClusterConfigurationUpgrade sur une partition. |
 | GetUpgradesPendingApproval |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche GetUpgradesPendingApproval sur une partition. |
 | StartApprovedUpgrades |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche StartApprovedUpgrades sur une partition. |
-| Ping |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour les tests ping de clients |
-| Requête |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour les requêtes. |
-| NameExists |Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Configuration de la sécurité pour la vérification de l’existence des URI d’attribution de noms. |
-| EnumerateSubnames |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour l’énumération d’URI d’attribution de noms. |
-| EnumerateProperties |Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Configuration de la sécurité pour l’énumération de propriétés d’attribution de noms. |
-| PropertyReadBatch |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour les opérations de lecture de propriétés d’attribution de noms. |
-| GetServiceDescription |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour la lecture des descriptions de service et les notifications de sondage de longue durée. |
-| ResolveService |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour la résolution de services en fonction de la réclamation. |
-| ResolveNameOwner |Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Configuration de la sécurité pour résoudre le propriétaire de l’URI d’attribution de noms. |
-| ResolvePartition |Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Configuration de la sécurité pour résoudre les services du système. |
-| ServiceNotifications |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour les notifications de service basées sur l’événement. |
-| PrefixResolveService |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour la résolution de préfixe de service en fonction de la réclamation. |
-| GetUpgradeStatus |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
-| GetFabricUpgradeStatus |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau du cluster. |
-| InvokeInfrastructureQuery |Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Configuration de la sécurité pour interroger les tâches d’infrastructure. |
-| Liste |Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images. |
-| ResetPartitionLoad |Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour la charge de réinitialisation d’une unité failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour l’activation ou la désactivation du rapport d’intégrité détaillé sur le placement du service. |
-| GetPartitionDataLossProgress | Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de données. |
-| GetPartitionQuorumLossProgress | Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de quorum. |
-| GetPartitionRestartProgress | Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Récupère l’état d’avancement de l’invocation d’un appel d’API de redémarrage de partition. |
-| GetChaosReport | Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Récupère l’état de Chaos pendant une période donnée. |
-| GetNodeTransitionProgress | Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Configuration de la sécurité pour obtenir l’état d’avancement d’une commande de transition de nœud. |
-| GetClusterConfigurationUpgradeStatus | Chaîne (valeur par défault : "Admin\)|\|User") |Dynamique| Déclenche GetClusterConfigurationUpgradeStatus sur une partition. |
-| GetClusterConfiguration | Chaîne (valeur par défault : "Admin\)|\|User") | Dynamique|Déclenche GetClusterConfiguration sur une partition. |
+| Ping |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour les tests ping de clients |
+| Requête |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour les requêtes. |
+| NameExists |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour la vérification de l’existence des URI d’attribution de noms. |
+| EnumerateSubnames |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour l’énumération d’URI d’attribution de noms. |
+| EnumerateProperties |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour l’énumération de propriétés d’attribution de noms. |
+| PropertyReadBatch |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour les opérations de lecture de propriétés d’attribution de noms. |
+| GetServiceDescription |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la lecture des descriptions de service et les notifications de sondage de longue durée. |
+| ResolveService |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la résolution de services en fonction de la réclamation. |
+| ResolveNameOwner |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour résoudre le propriétaire de l’URI d’attribution de noms. |
+| ResolvePartition |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour résoudre les services du système. |
+| ServiceNotifications |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour les notifications de service basées sur l’événement. |
+| PrefixResolveService |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la résolution de préfixe de service en fonction de la réclamation. |
+| GetUpgradeStatus |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
+| GetFabricUpgradeStatus |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau du cluster. |
+| InvokeInfrastructureQuery |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour interroger les tâches d’infrastructure. |
+| Liste |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images. |
+| ResetPartitionLoad |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la charge de réinitialisation d’une unité failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour l’activation ou la désactivation du rapport d’intégrité détaillé sur le placement du service. |
+| GetPartitionDataLossProgress | Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de données. |
+| GetPartitionQuorumLossProgress | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de quorum. |
+| GetPartitionRestartProgress | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Récupère l’état d’avancement de l’invocation d’un appel d’API de redémarrage de partition. |
+| GetChaosReport | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Récupère l’état de Chaos pendant une période donnée. |
+| GetNodeTransitionProgress | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour obtenir l’état d’avancement d’une commande de transition de nœud. |
+| GetClusterConfigurationUpgradeStatus | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Déclenche GetClusterConfigurationUpgradeStatus sur une partition. |
+| GetClusterConfiguration | Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Déclenche GetClusterConfiguration sur une partition. |
 |CreateComposeDeployment|chaîne, valeur par défaut : L"Admin"| Dynamique|Crée un déploiement compose décrit par les fichiers compose |
 |DeleteComposeDeployment|chaîne, valeur par défaut : L"Admin"| Dynamique|Supprime le déploiement compose |
 |UpgradeComposeDeployment|chaîne, valeur par défaut : L"Admin"| Dynamique|Met à niveau le déploiement compose |
-|ResolveSystemService|chaîne, valeur par défaut : L"Admin\|\|User")|Dynamique| Configuration de la sécurité pour résoudre les services du système |
+|ResolveSystemService|Chaîne, la valeur par défaut est L« Admin\|\|User »|Dynamique| Configuration de la sécurité pour résoudre les services du système |
 |GetUpgradeOrchestrationServiceState|chaîne, valeur par défaut : L"Admin"| Dynamique|Déclenche GetUpgradeOrchestrationServiceState sur une partition |
 |SetUpgradeOrchestrationServiceState|chaîne, valeur par défaut : L"Admin"| Dynamique|Déclenche SetUpgradeOrchestrationServiceState sur une partition |
 
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
 |MaxDataMigrationTimeout |Durée en secondes (valeur par défaut : 600) |Dynamique|Spécifiez la durée en secondes. Délai d’expiration maximum pour les opérations de récupération de migration de données après une mise à niveau de l’infrastructure. |
 |MaxOperationRetryDelay |Durée en secondes (valeur par défaut : 5)|Dynamique| Spécifiez la durée en secondes. Délai maximum des nouvelles tentatives internes lorsque des défaillances sont rencontrées. |
 |ReplicaSetCheckTimeoutRollbackOverride |Durée en secondes (valeur par défaut : 1200) |Dynamique| Spécifiez la durée en secondes. Si ReplicaSetCheckTimeout est défini sur la valeur maximale de DWORD, il est remplacé par la valeur de cette configuration dans le cadre de la restauration. La valeur utilisée pour la restauration par progression n’est pas remplacée. |
-|ImageBuilderJobQueueThrottle |Entier (valeur par défaut : 10) |Dynamique|Limitation du nombre de threads pour la file d’attente de travaux proxy Image Builder sur les demandes d’application. |
-|MaxExponentialOperationRetryDelay|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(30)|Dynamique|Spécifiez la durée en secondes. Délai exponentiel maximum des nouvelles tentatives internes lorsque des défaillances sont rencontrées de façon répétée |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>Nom de la section : DefragmentationEmptyNodeDistributionPolicy
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Mise à l’échelle du cache Azure Redis
-Le Cache Redis Azure offre différents types de cache, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article vous montre comment mettre à l’échelle votre cache dans le portail Azure et à l’aide d’outils tels que Azure PowerShell et Azure CLI.
+Le Cache Redis Azure offre différents types de cache, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
 
 ## <a name="when-to-scale"></a>Quand mettre à l’échelle ?
 Les fonctionnalités de [surveillance](cache-how-to-monitor.md) du Cache Redis Azure permettent de surveiller l’intégrité et les performances de votre cache et de déterminer la nécessité de le mettre à l’échelle. 
@@ -51,7 +51,7 @@ Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivant
   * Vous ne pouvez pas passer d’un cache **Premium** à un cache **Standard** ou **De base**.
   * Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 * Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
-* Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
+* Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez commencer par passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
 * Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** .
  
 Lorsqu’un cache est mis à l’échelle vers un nouveau niveau tarifaire, le statut **Mise à l’échelle** s’affiche sur le panneau **Cache Redis**.
@@ -118,7 +118,7 @@ La liste suivante présente différentes réponses aux questions les plus fréqu
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Puis-je mettre à l’échelle vers, depuis ou au sein d’un cache Premium ?
 * Vous ne pouvez pas passer d’un niveau tarifaire de cache **Premium** à un niveau tarifaire **De base** ou **Standard**.
 * Vous pouvez passer d’un niveau tarifaire de cache **Premium** à un autre.
-* Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez d’abord passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis de **Standard** à **Premium** en une deuxième opération.
+* Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez commencer par passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
 * Si vous avez activé le clustering lorsque vous avez créé votre cache **Premium** , vous pouvez [changer la taille du cluster](cache-how-to-premium-clustering.md#cluster-size). Si votre cache a été créé sans clustering activé, vous ne pouvez pas configurer le clustering à une date ultérieure.
   
   Pour plus d’informations, consultez [Comment configurer le clustering Redis pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md).
@@ -129,7 +129,7 @@ Non, le nom et les clés d’accès de votre cache n’ont pas à être modifié
 ### <a name="how-does-scaling-work"></a>Comment fonctionne la mise à l’échelle ?
 * Lorsqu’un cache **De base** est mis à l’échelle vers une taille différente, il est arrêté et un nouveau cache est approvisionné avec la nouvelle taille définie. Pendant ce temps, le cache n’est pas disponible et toutes les données qu’il contenait sont perdues.
 * Lorsqu’un cache **De base** est mis à l’échelle vers un cache **Standard**, un cache de réplica est approvisionné. Les données sont ensuite copiées du cache principal vers le cache de réplica. Le cache reste disponible pendant le processus de mise à l'échelle.
-* Lorsqu’un cache **Standard** est mis à l’échelle vers une taille différente ou vers un cache **Premium**, l’un des réplicas est arrêté et réapprovisionné avec la nouvelle taille tandis que les données sont transférées. L’autre réplica effectue ensuite un basculement avant d’être réapprovisionné, selon le même processus, durant un basculement de l’un des nœuds du cache.
+* Quand un cache **Standard** est mis à l’échelle vers une taille différente ou vers un cache **Premium**, l’un des réplicas est arrêté et réapprovisionné avec la nouvelle taille tandis que les données sont transférées. L’autre réplica effectue ensuite un basculement avant d’être réapprovisionné, selon le même processus, durant un basculement de l’un des nœuds du cache.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Vais-je perdre mes données de cache durant la mise à l’échelle ?
 * Lors de la mise à l’échelle d’un cache **De base** vers une nouvelle taille, toutes les données sont perdues et le cache n’est plus disponible pendant l’exécution de la mise à l’échelle.
@@ -137,29 +137,29 @@ Non, le nom et les clés d’accès de votre cache n’ont pas à être modifié
 * Lors de la mise à l’échelle d’un cache **Standard** vers une taille ou un niveau supérieur, ou d’un cache **Premium** vers un niveau supérieur, toutes les données sont généralement conservées. Lors de la mise à l’échelle d’un cache **Standard** ou **Premium** vers une plus petite taille, il est possible que des données soient perdues si la quantité de données placées dans le cache est supérieure à la nouvelle taille du cache mis à l’échelle. En cas de pertes de données lors de la descente en puissante, les clés sont supprimées à l'aide de la stratégie d’éviction [allkeys-lru](http://redis.io/topics/lru-cache) . 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Les paramètres personnalisés de mes bases de données sont-ils affectés au cours de la mise à l’échelle ?
-Certains niveaux tarifaires sont associés à des [limites de bases de données](cache-configure.md#databases) différentes. Certains aspects doivent donc être pris en compte lors d’une descente en puissance si vous avez configuré une valeur personnalisée pour le paramètre `databases` lors de la création du cache.
+Si vous avez configuré une valeur personnalisée pour le paramètre `databases` lors de la création du cache, n’oubliez pas que certains niveaux de tarification appliquent des [limites des bases de données](cache-configure.md#databases) différentes. Voici quelques considérations relatives à la mise à l’échelle dans le cadre de ce scénario :
 
 * Lors d’une mise à l’échelle vers un niveau de tarification associé à une limite `databases` plus faible que le niveau de tarification actuel :
   * Si vous utilisez le nombre par défaut de `databases`, c’est-à-dire 16 pour tous les niveaux de tarification, vous ne perdrez aucune donnée.
   * Si vous utilisez un nombre de `databases` personnalisé qui se situe dans les limites du niveau de tarification vers lequel vous effectuez la mise à l’échelle, ce paramètre `databases` sera conservé et vous ne perdrez aucune donnée.
   * Si vous utilisez un nombre de `databases` personnalisé qui dépasse les limites du nouveau niveau de tarification, le paramètre `databases` sera réduit aux limites du nouveau niveau et toutes les données contenues dans les bases de données supprimées seront perdues.
-* Lors d’une mise à l’échelle vers un niveau de tarification associé à une limite `databases` identique ou supérieure à celle du niveau actuel, le paramètre `databases` est conservé et vous ne perdrez aucune donnée.
+* Lors d’une mise à l’échelle vers un niveau de tarification associé à une limite `databases` identique ou supérieure à celle du niveau actuel, le paramètre `databases` est conservé et vous ne perdez aucune donnée.
 
-Notez que, si les caches Standard et Premium ont un contrat SLA proposant une disponibilité de 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
+Si les caches standard et premium ont un contrat SLA garantissant une disponibilité à 99,9 %, il n’existe pas de contrat SLA contre la perte de données.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>Mon cache reste-t-il disponible durant la mise à l’échelle ?
-* Les caches **Standard** et **Premium** restent disponibles pendant l’opération de mise à l’échelle.
-* Les caches **De base** sont hors connexion pendant les opérations de mise à l’échelle à une taille différente, mais ils restent disponibles lors de la mise à l’échelle du niveau **De base** vers le niveau **Standard**.
+* Les caches **Standard** et **Premium** restent disponibles pendant l’opération de mise à l’échelle. Toutefois, des spots de connexion peuvent se produire lors de la mise à l’échelle des caches standard vers des caches premium, ainsi que des caches de base vers des caches standard. Ces spots de connexion sont supposés être petits, et les clients Redis doivent être en mesure de rétablir leur connexion instantanément.
+* Les caches **de base** sont hors connexion pendant les opérations de mise à l’échelle vers une taille différente. Les caches de base restent disponibles lors de la mise à l’échelle du niveau **de base** vers le niveau **standard**, mais peuvent rencontrer un petit spot de connexion. Si un spot de connexion se produit, les clients Redis doivent être en mesure de rétablir leur connexion instantanément.
 
 ### <a name="operations-that-are-not-supported"></a>Quelles sont les opérations qui ne sont pas prises en charge ?
 * Vous ne pouvez pas passer d’un niveau de tarification supérieur à un niveau de tarification inférieur.
   * Vous ne pouvez pas passer d’un cache **Premium** à un cache **Standard** ou **De base**.
   * Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 * Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
-* Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez d’abord passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis de **Standard** à **Premium** en une deuxième opération.
+* Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez passer du niveau **de base** au niveau **standard** en une opération de mise à l’échelle, puis du niveau **standard** au niveau **premium** en une deuxième opération.
 * Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** .
 
-En cas d’échec d’une opération de mise à l’échelle, le service va essayer de rétablir l’opération et le cache reviendra à sa taille d’origine.
+En cas d’échec d’une opération de mise à l’échelle, le service essaie d’annuler l’opération et le cache reviendra à sa taille d’origine.
 
 ### <a name="how-long-does-scaling-take"></a>Quelle est la durée d’une mise à l’échelle ?
 Une mise à l’échelle prend environ 20 minutes, selon la quantité de données dans le cache.

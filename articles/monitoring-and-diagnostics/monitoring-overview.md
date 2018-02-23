@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Surveillance des applications et des ressources Azure
 
@@ -57,8 +57,11 @@ Les services Azure suivants offres de puissantes fonctionnalités de collecte et
 [Service Map](../operations-management-suite/operations-management-suite-service-map.md) fournit un aperçu de votre environnement IaaS en analysant les machines virtuelles avec leurs différents processus et dépendances envers d’autres ordinateurs et processus externes.  Il intègre des événements, des données de performances et des solutions de gestion dans Log Analytics, ce qui vous permet de visualiser ces données dans le contexte de chaque ordinateur et de sa relation avec le reste de votre environnement.  Service Map est similaire à la [mise en correspondance d’applications dans Application Insights](../application-insights/app-insights-app-map.md), mais se concentre sur les composants d’infrastructure prenant en charge vos applications.
 
 ### <a name="network-watcher"></a>Network Watcher
-[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) fournit une surveillance et des diagnostics basés sur un scénario pour différents scénarios réseau dans Azure.  Il stocke des données dans des métriques et des diagnostics Azure en vue d’une analyse approfondie, et collabore avec les [solutions de gestion dans Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) pour vous offrir une surveillance complète de vos ressources réseau.
-
+[Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) fournit une surveillance et des diagnostics basés sur un scénario pour différents scénarios réseau dans Azure.  Il stocke des données dans des métriques et diagnostics Azure à des fins d’analyse plus approfondie, et opère avec les solutions de surveillance réseau suivantes pour analyser les différents aspects de votre réseau :
+* [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) : solution de surveillance réseau basée sur le cloud, qui surveille la connectivité des clouds publics, des centres de données et des environnements locaux
+* [Moniteur ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) : fonctionnalité NPM qui surveille la connectivité et les performances de bout en bout sur les circuits ExpressRoute.
+* Traffic Analytics : solution cloud qui offre une visibilité de l’activité des utilisateurs et des applications sur votre réseau cloud.
+* [DNS Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) : fournit des informations connexes sur les opérations, les performances et la sécurité, en fonction de vos serveurs DNS.
 
 ### <a name="management-solutions"></a>Liste des solutions de gestion
 Les [solutions de gestion](../log-analytics/log-analytics-add-solutions.md) sont des jeux de logique empaquetés qui fournissent des informations détaillées pour une application ou un service spécifique.  Elles s’appuient sur Log Analytics pour stocker et analyser les données de surveillance recueillies.  Microsoft et ses partenaires proposent des solutions de gestion qui fournissent une surveillance pour divers services Azure et tiers. Parmi les solutions de surveillance disponibles figurent [Container Monitoring](../log-analytics/log-analytics-containers.md), qui vous permet de visualiser et de gérer vos hôtes de conteneur, et [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md), qui recueille et affiche des métriques de performances pour les bases de données SQL Azure.

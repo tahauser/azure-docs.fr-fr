@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Surveiller les passerelles VPN à l’aide de la résolution des problèmes Network Watcher
 
@@ -51,9 +51,9 @@ Avant de réaliser ce scénario, vous devez disposer des éléments suivants :
 
 ### <a name="create-the-runbook"></a>Créer le runbook
 
-La première étape de configuration de l’exemple consiste à créer le runbook. Cet exemple utilise un compte d’identification. Pour en savoir plus sur les comptes d’identification, consultez l’article [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-sec-configure-azure-runas-account.md).
+La première étape de configuration de l’exemple consiste à créer le runbook. Cet exemple utilise un compte d’identification. Pour en savoir plus sur les comptes d’identification, consultez l’article [Authentifier des Runbooks avec un compte d’identification Azure](../automation/automation-create-runas-account.md).
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Accédez à Azure Automation dans le [portail Azure](https://portal.azure.com) et cliquez sur **Runbooks**.
 
@@ -65,7 +65,7 @@ Cliquez sur **Ajouter un runbook** pour démarrer le processus de création du r
 
 ![panneau de runbooks][2]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Sous **Création rapide**, cliquez sur **Créer un runbook** pour créer le runbook.
 
@@ -155,7 +155,7 @@ Vous devez créer une planification. Cliquez sur **Associer une planification à
 
 ![Étape 7][7]
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Dans le panneau **Planification**, cliquez sur **Créer une planification**.
 
@@ -177,13 +177,13 @@ Dans le panneau **Nouvelle planification**, renseignez les informations de plani
 
 ![Étape 9][9]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Cliquez sur Enregistrer pour enregistrer la planification dans le runbook.
 
 ![Étape 10][10]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous comprenez comment intégrer la résolution des problèmes Network Watcher à Azure Automation, découvrez comment déclencher des captures de paquets sur des alertes de machine virtuelle en consultant l’article [Create an alert triggered packet capture with Azure Network Watcher (Créer une capture de paquets déclenchée par alerte avec Azure Network Watcher)](network-watcher-alert-triggered-packet-capture.md).
 

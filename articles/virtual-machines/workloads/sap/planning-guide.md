@@ -1635,7 +1635,7 @@ Les ports de communication SAP classiques sont répertoriés dans le tableau ci-
 
 *) nn = Numéro d’instance SAP
 
-**) sid = SAP-System-ID
+\**) sid = SAP-System-ID
 
 Pour plus d’informations sur les ports nécessaires pour les différents produits ou services SAP, consultez <http://scn.sap.com/docs/DOC-17124>.
 Ce document va vous permettre d’ouvrir des ports dédiés sur le périphérique VPN nécessaire pour les scénarios et produits SAP spécifiques.

@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 Cet article explore les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. Vous pouvez utiliser l’explorateur Time Series Insights dans votre navigateur web pour créer des visualisations de vos données.
  
 Azure Time Series Insights est un service entièrement managé d’analyse, de stockage et de visualisation qui simplifie la découverte et l’analyse simultanées de milliards d’événements IoT. Cette solution vous donne une vue globale de vos données, ce qui vous permet de valider rapidement votre solution IoT et d’éviter des temps morts coûteux d’appareils stratégiques. Vous pouvez découvrir des tendances masquées, détecter les anomalies et effectuer des analyses de cause première quasiment en temps réel. L’Explorateur Time Series Insights est actuellement en version préliminaire publique.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de pouvoir utiliser l’Explorateur Time Series Insights, vous devez :
 - Créer un environnement Time Series Insights
@@ -37,7 +37,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
 2. Une fois que vous sélectionnez un environnement, utilisez les configurations **FROM** et **TO** en haut, ou cliquez et faites glisser votre intervalle de temps souhaité.  Cliquez sur la loupe en haut à droite, ou avec le bouton droit sur l’intervalle de temps sélectionné et sélectionnez **Rechercher**.  
 
-3. Vous pouvez également actualiser la disponibilité automatiquement toutes les minutes, en sélectionnant le **Activer automatiquement**.
+3. Vous pouvez également actualiser la disponibilité automatiquement toutes les minutes, en sélectionnant le **Activer automatiquement**.  Notez que le bouton « Activer automatiquement » s’applique uniquement au graphique de disponibilité, pas au contenu de la visualisation principale.
 
 4. Notez que l’icône Azure Cloud vous permet d’accéder à votre environnement dans le portail Azure.
 
@@ -55,12 +55,12 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
       - **Prédicat** : Le prédicat vous permet de filtrer rapidement les événements à l’aide de l’ensemble d’opérandes ci-dessous. Si vous effectuez une recherche en la sélectionnant ou en cliquant dessus, le prédicat est automatiquement mis à jour selon cette recherche.      Les types d’opérandes pris en charge comprennent les suivants :
 
-         |Opération  |Types pris en charge  |Remarques  |
+         |Opération  |Types pris en charge  |Notes  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | Chaîne, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | Chaîne, Bool, Double, DateTime, TimeSpan, NULL        |  Tous les opérandes doivent être du même type ou être la constante NULL.        |
-         |HAS     | String        |  Seuls les littéraux de chaîne constante sont autorisés à droite. Les chaînes vides et NULL ne sont pas autorisés.       |
+         |HAS     | Chaîne        |  Seuls les littéraux de chaîne constante sont autorisés à droite. Les chaînes vides et NULL ne sont pas autorisés.       |
 
       - **Exemples de requêtes**
       
@@ -106,6 +106,6 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
 Vous avez maintenant vu les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
 >[Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

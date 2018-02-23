@@ -1,6 +1,6 @@
 ---
-title: "Azure Blueprint Automation - Services financiers pour les charges de travail réglementées"
-description: "Plan de services financiers pour les charges de travail réglementées"
+title: "Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC"
+description: "Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Azure Blueprint Automation : Plan de services financiers pour les charges de travail réglementées
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-Le plan de services financiers pour les charges de travail réglementées permet de déployer une application web PaaS (platform as a service) sécurisée et conforme, conçue pour gérer les données sensibles dans le cloud. Le plan se compose de scripts automatisés et d’instructions avec une conception et une architecture de référence simples pour simplifier l’adoption des solutions Microsoft Azure. Ce plan est un exemple de solution de bout en bout qui répond aux besoins des organisations de réduire la charge et les coûts liés aux déploiements dans le cloud.
+La solution Blueprint Sécurité et conformité Azure - Charges de travail régulées des services financiers FFIEC permet de déployer une application web PaaS (platform as a service) sécurisée et conforme, conçue pour gérer les données sensibles dans le cloud. Le plan se compose de scripts automatisés et d’instructions avec une conception et une architecture de référence simples pour simplifier l’adoption des solutions Microsoft Azure. Ce plan est un exemple de solution de bout en bout qui répond aux besoins des organisations de réduire la charge et les coûts liés aux déploiements dans le cloud.
 
 Ce plan est conçu pour répondre aux exigences des normes de conformité strictes définies par l’American Institute of Certified Public Accountants comme les normes SOC 1, SOC 2, DSS 3.2 du Payment Card Industry Data Security Standards Council et FFIEC pour la collecte, le stockage et la récupération des données financières sensibles. Il décrit le traitement approprié de ce type de données en déployant une solution qui gère les données financières dans un environnement multiniveau sécurisé et conforme. La solution est déployée comme une solution PaaS Azure de bout en bout. 
 
@@ -52,7 +52,7 @@ L’architecture inclut les composants suivants et utilise les fonctionnalités 
 
 Le plan aborde le cas d’usage suivant.
 
-> Ce scénario décrit un webstore fictif qui a choisi d’héberger les données sensibles dans une solution PaaS Azure dans le cloud. L’exemple de solution décrit la collecte et la gestion des informations utilisateur de base et de certaines données sensibles. Cette tâche s’inspire d’Azure Blueprint Automation : traitement des paiements pour les environnements conformes à la norme PCI DSS, pour le traitement des cartes de paiement. Pour plus d’informations sur le développement de cette tâche, l’article [« Analyse et conseils pour l’implémentation »](https://aka.ms/pciblueprintprocessingoverview) fournit une analyse des environnements conformes à la norme PCI DSS.
+> Ce scénario décrit un webstore fictif qui a choisi d’héberger les données sensibles dans une solution PaaS Azure dans le cloud. L’exemple de solution décrit la collecte et la gestion des informations utilisateur de base et de certaines données sensibles. Ce travail emprunte à la Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS. Pour plus d’informations sur le développement de cette tâche, l’article [« Analyse et conseils pour l’implémentation »](https://aka.ms/pciblueprintprocessingoverview) fournit une analyse des environnements conformes à la norme PCI DSS.
 
 ### <a name="use-case"></a>Cas d’utilisation
 Un petit webstore nommé *Contoso Webstore* s’apprête à déplacer des données financières, dont les informations de paiement des clients, dans le cloud. 
@@ -111,7 +111,7 @@ Edna Benson est réceptionniste et directrice commerciale. Elle est chargée de 
 - Elle peut remplacer les informations financières.
 - Le compte d’Edna ne peut pas afficher les informations financières non filtrées.
 
-> Dans Contoso Webstore, l’utilisateur est connecté automatiquement sous l’utilisateur **Edna** pour tester les fonctionnalités de l’environnement déployé.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - Estimation de la tarification
 
@@ -125,18 +125,18 @@ Cette solution a utilisé les services Azure suivants. Les informations détaill
 >- OMS Log Analytics
 >- Azure Key Vault
 >- Network Security Group
->- Azure SQL DB
+>- Base de données SQL Azure
 >- Azure Load Balancer
 >- Application Insights
 >- Azure Security Center
->- Azure Web App
+>- Application web Azure
 >- Azure Automation
 >- Runbooks Azure Automation
 >- DNS Azure
 >- Réseau virtuel Azure
 >- Machine virtuelle Azure
 >- Groupe de ressources et stratégies Azure
->- Stockage Blob Azure
+>- un stockage Azure Blob
 >- Contrôle d’accès en fonction du rôle (RBAC) Azure Active Directory
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
@@ -172,7 +172,7 @@ Chaque niveau du réseau dispose d’un groupe de sécurité réseau (NSG) dédi
 - Un groupe de sécurité réseau pour le serveur de rebond de gestion (hôte bastion)
 - Un groupe de sécurité réseau pour l’environnement App Service
 
-Chaque groupe de sécurité réseau a ses propres ports et protocoles ouverts pour une utilisation sécurisée et correcte de la solution. Pour plus d’informations, consultez [Guide PCI - Groupes de sécurité réseau](#network-security-groups).
+Chaque groupe de sécurité réseau a ses propres ports et protocoles ouverts pour une utilisation sécurisée et correcte de la solution. 
 
 En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 
@@ -194,7 +194,7 @@ L’architecture protège les données au repos à l’aide du chiffrement, de l
 
 Pour répondre aux exigences du chiffrement des données au repos, l’ensemble du [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise le [chiffrement du service de stockage](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Base de données SQL Azure
 
 L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 
@@ -305,7 +305,7 @@ Le déploiement par défaut est destiné à fournir une base de référence de r
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
-Les composants qui permettent de déployer cette solution sont disponibles dans le [dépôt de code du plan de traitement des paiements][code-repo]. Pour déployer l’architecture de base, vous devez effectuer plusieurs étapes à l’aide de Microsoft PowerShell v5. Pour vous connecter au site web, vous devez fournir un nom de domaine personnalisé (par exemple, contoso.com). Vous pouvez le spécifier à l’aide du commutateur `-customHostName` de l’étape 2. Pour plus d’informations, consultez [Acheter un nom de domaine personnalisé pour Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vous n’avez pas besoin d’un nom de domaine personnalisé pour déployer et exécuter la solution. Toutefois, sans ce nom, vous ne pourrez pas vous connecter au site web à des fins de démonstration.
+Les composants qui permettent de déployer cette solution sont disponibles dans le [dépôt de code de solution Blueprint][code-repo]. Pour déployer l’architecture de base, vous devez effectuer plusieurs étapes à l’aide de Microsoft PowerShell v5. Pour vous connecter au site web, vous devez fournir un nom de domaine personnalisé (par exemple, contoso.com). Vous pouvez le spécifier à l’aide du commutateur `-customHostName` de l’étape 2. Pour plus d’informations, consultez [Acheter un nom de domaine personnalisé pour Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Vous n’avez pas besoin d’un nom de domaine personnalisé pour déployer et exécuter la solution. Toutefois, sans ce nom, vous ne pourrez pas vous connecter au site web à des fins de démonstration.
 
 Les scripts ajoutent des utilisateurs de domaine au locataire Azure AD que vous spécifiez. Microsoft recommande de créer un locataire Azure AD à utiliser à des fins de test.
 
@@ -361,7 +361,7 @@ Microsoft recommande vivement d’utiliser une nouvelle installation de PowerShe
     
 ## <a name="threat-model"></a>Modèle de menace
 
-Diagramme de flux de données et exemple de modèle de menace pour le [modèle de menace du plan de traitement des paiements](https://aka.ms/pciblueprintthreatmodel) Contoso Webstore.
+Diagramme de flux de données et exemple de modèle de menace pour le [modèle de menace de la solution Blueprint](https://aka.ms/pciblueprintthreatmodel) de Contoso Webstore.
 
 ![](images/pci-threat-model.png)
 

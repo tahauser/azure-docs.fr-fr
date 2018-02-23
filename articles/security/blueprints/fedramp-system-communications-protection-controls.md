@@ -1,6 +1,6 @@
 ---
-title: "Automatisation d’Azure Blueprint pour FedRAMP - Protection du système et des communications"
-description: "Applications web pour FedRAMP - Protection du système et des communications"
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Protection du système et des communications"
+description: "Automatisation d’applications web FedRAMP - Protection du système et des communications"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protection du système et des communications (SC)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
 
 ## <a name="nist-800-53-control-sc-1"></a>NIST 800-53 Contrôle SC-1
 
@@ -45,11 +45,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-2** Le système informatique sépare les fonctionnalités utilisateur (notamment les services d’interface utilisateur) des fonctionnalités de gestion du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Azure Blueprint sépare les fonctionnalités utilisateur des fonctionnalités de gestion du système informatique via l’application de contrôles d’accès logique et l’architecture du système. Les fonctionnalités utilisateur sont limitées aux interfaces d’applications web déployées par le client. Les interfaces des fonctionnalités de gestion du système sont distinctes des interfaces utilisateur. La connectivité de gestion s’effectue par le biais d’un hôte bastion sécurisé (jumpbox) situé dans un sous-réseau de gestion avec des règles de groupe de sécurité réseau pour limiter l’accès aux ressources de production tel que nécessaire. |
+| **Client** | Cette solution Blueprint sépare les fonctionnalités utilisateur des fonctionnalités de gestion du système informatique via l’application de contrôles d’accès logique et l’architecture du système. Les fonctionnalités utilisateur sont limitées aux interfaces d’applications web déployées par le client. Les interfaces des fonctionnalités de gestion du système sont distinctes des interfaces utilisateur. La connectivité de gestion s’effectue par le biais d’un hôte bastion sécurisé (jumpbox) situé dans un sous-réseau de gestion avec des règles de groupe de sécurité réseau pour limiter l’accès aux ressources de production tel que nécessaire. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-3** Le système informatique isole les fonctions de sécurité des fonctions non liées à la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint exécutent des systèmes d’exploitation Windows. Windows gère des domaines d’exécution séparés pour chaque processus d’exécution en affectant un espace d’adresse virtuelle privée à chaque processus. En outre, la solution implémente une architecture et des contrôles d’accès conçus pour isoler les fonctionnalités de sécurité lorsque cela est nécessaire. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Windows gère des domaines d’exécution séparés pour chaque processus d’exécution en affectant un espace d’adresse virtuelle privée à chaque processus. En outre, la solution implémente une architecture et des contrôles d’accès conçus pour isoler les fonctionnalités de sécurité lorsque cela est nécessaire. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -73,11 +73,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-4** Le système informatique empêche le transfert d’informations non autorisé et non intentionnel via des ressources système partagées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint exécutent des systèmes d’exploitation Windows. Le système d’exploitation gère les ressources (par ex. mémoire, stockage) de manière à ce que les informations ne soient accessibles que par les utilisateurs et les rôles disposant des autorisations appropriées. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Le système d’exploitation gère les ressources (par ex. mémoire, stockage) de manière à ce que les informations ne soient accessibles que par les utilisateurs et les rôles disposant des autorisations appropriées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie une passerelle Application Gateway qui inclut un pare-feu d’applications web et des fonctionnalités d’équilibrage de charge. Les machines virtuelles déployées prenant en charge le niveau web, le niveau de base de données et Active Directory sont déployées dans un groupe à haute disponibilité évolutif. |
+| **Client** | Cette solution Blueprint déploie une passerelle d’application qui inclut un pare-feu d’applications web et des fonctionnalités d’équilibrage de charge. Les machines virtuelles déployées prenant en charge le niveau web, le niveau de base de données et Active Directory sont déployées dans un groupe à haute disponibilité évolutif. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -101,11 +101,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-6** Le système informatique protège la disponibilité des ressources en affectant [Affectation : ressources définies par l’organisation] par [Sélection (un ou plusieurs choix) ; priorité ; quota ; [Affectation : dispositifs de sécurité définis par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint exécutent des systèmes d’exploitation Windows. Chaque processus Windows fournit les ressources nécessaires pour exécuter un programme. La priorité des ressources est gérée par le système d’exploitation. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Chaque processus Windows fournit les ressources nécessaires pour exécuter un programme. La priorité des ressources est gérée par le système d’exploitation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie une passerelle Application Gateway, un équilibreur de charge, et configure des règles de groupe de sécurité réseau pour contrôler les commutations sur les limites externes et entre les sous-réseaux internes. OMS Log Analytics collecte les journaux de diagnostic et des événements pour la passerelle Application Gateway, l’équilibreur de charge et le groupe de sécurité réseau, pour permettre le monitoring par le client. |
+| **Client** | Cette solution Blueprint déploie une et un équilibreur de charge, et configure des règles de groupe de sécurité réseau pour contrôler les commutations aux limites externes et entre les sous-réseaux internes. OMS Log Analytics collecte les journaux de diagnostic et des événements pour la passerelle Application Gateway, l’équilibreur de charge et le groupe de sécurité réseau, pour permettre le monitoring par le client. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie des ressources dans une architecture où figurent un sous-réseau web, un sous-réseau de base de données, un sous-réseau Active Directory et un sous-réseau de gestion. Des règles de groupe de sécurité réseau appliquées aux différents sous-réseaux permettent de séparer ces derniers logiquement afin de limiter le trafic entre eux au seul trafic nécessaire pour les fonctionnalités système et de gestion (par ex. le trafic externe ne peut pas accéder aux sous-réseaux de base de données, de gestion ou Active Directory). |
+| **Client** | Cette solution Blueprint déploie des ressources dans une architecture où figurent un sous-réseau web, un sous-réseau de base de données, un sous-réseau Active Directory et un sous-réseau de gestion. Des règles de groupe de sécurité réseau appliquées aux différents sous-réseaux permettent de séparer ces derniers logiquement afin de limiter le trafic entre eux au seul trafic nécessaire aux fonctionnalités système et de gestion (par exemple, le trafic externe ne peut pas accéder aux sous-réseaux de base de données, de gestion ou Active Directory). |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie une passerelle Application Gateway pour gérer les connexions externes à une application web déployée par le client. Les connexions externes pour l’accès en gestion sont limitées à un hôte bastion/jumpbox déployé dans un sous-réseau de gestion avec des règles de sécurité réseau appliquées pour restreindre les connexions externes aux adresses IP autorisées. |
+| **Client** | Cette solution Blueprint déploie une passerelle d’application pour gérer les connexions externes à une application web déployée par le client. Les connexions externes pour l’accès en gestion sont limitées à un hôte bastion/jumpbox déployé dans un sous-réseau de gestion avec des règles de sécurité réseau appliquées pour restreindre les connexions externes aux adresses IP autorisées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -157,11 +157,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (3)** L’organisation limite le nombre de connexions réseau externes au système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie deux adresses IP publiques : une adresse associée à la passerelle Application Gateway et une adresse associée à l’hôte bastion/jumpbox de gestion. |
+| **Client** | Cette solution Blueprint déploie deux adresses IP publiques : l’une associée à la passerelle d’application et l’autre adresse associée à l’hôte bastion/jumpbox de gestion. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -171,11 +171,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (4).a** L’organisation implémente une interface de gestion pour chaque service de télécommunication externe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie deux adresses IP publiques : une adresse associée à la passerelle Application Gateway et une adresse associée à l’hôte bastion/jumpbox de gestion. La gestion de ces interfaces est activée via une mise en réseau définie par logiciel. |
+| **Client** | Cette solution Blueprint déploie deux adresses IP publiques : l’une associée à la passerelle d’application et l’autre adresse associée à l’hôte bastion/jumpbox de gestion. La gestion de ces interfaces est activée via une mise en réseau définie par logiciel. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -185,11 +185,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (4).b** L’organisation établit une stratégie de flux du trafic pour chaque interface gérée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie deux adresses IP publiques : une adresse associée à la passerelle Application Gateway et une adresse associée à l’hôte bastion/jumpbox de gestion. La gestion de ces interfaces est activée via une mise en réseau définie par logiciel. |
+| **Client** | Cette solution Blueprint déploie deux adresses IP publiques : l’une associée à la passerelle d’application et l’autre adresse associée à l’hôte bastion/jumpbox de gestion. La gestion de ces interfaces est activée via une mise en réseau définie par logiciel. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -199,11 +199,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (4).c** L’organisation protège la confidentialité et l’intégrité des informations transmises via chaque interface.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | La passerelle d’applications web déployée par ce programme Azure Blueprint est configurée avec un écouteur HTTPS, pour assurer la confidentialité et l’intégrité des sessions de communication. Les connexions Bureau à distance au jumpbox sont également chiffrées pour offrir confidentialité et intégrité. |
+| **Client** | La passerelle d’application web déployée par cette solution Blueprint est configurée avec un écouteur HTTPS, pour assurer la confidentialité et l’intégrité des sessions de communication. Les connexions Bureau à distance au jumpbox sont également chiffrées pour offrir confidentialité et intégrité. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (4).d** L’organisation documente chaque exception à la stratégie de flux du trafic à l’aide d’une requête de mission/métier connexe et la durée de cette requête.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (4).e** L’organisation passe en revue les exceptions à la stratégie de flux du trafic [Affectation : fréquence définie par l’organisation] et supprime les exceptions qui ne sont plus liées à une requête de mission/métier explicite.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les ensembles de règles appliqués aux groupes de sécurité réseau déployés par ce programme Azure Blueprint sont configurés à l’aide d’un schéma « refuser par défaut ». |
+| **Client** | Les ensembles de règles appliqués aux groupes de sécurité réseau déployés par cette solution Blueprint sont configurés à l’aide d’un schéma « refuser par défaut ». |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (7)** Le système informatique, en association avec un appareil distant, empêche l’appareil d’établir simultanément des connexions non distantes avec le système et de communiquer via une autre connexion avec des ressources dans des réseaux externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (10)** L’organisation empêche l’exfiltration non autorisée d’informations via les interfaces gérées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -297,11 +297,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (12)** L’organisation met en œuvre [Affectation : mécanismes de protection de la limite basés sur l’hôte définis par l’organisation] à [Affectation : composants du système d’information définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint sont configurées avec un pare-feu basé sur hôte activé. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint sont configurées avec un pare-feu basé sur un hôte activé. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie des ressources dans une architecture avec un sous-réseau de gestion séparé pour le déploiement client de composants de support et d’outils de sécurité des informations. Les sous-réseaux sont séparés logiquement par des règles de groupe de sécurité réseau. |
+| **Client** | Cette solution Blueprint déploie des ressources dans une architecture avec un sous-réseau de gestion séparé pour le déploiement client de composants de support et d’outils de sécurité des informations. Les sous-réseaux sont séparés logiquement par des règles de groupe de sécurité réseau. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -353,11 +353,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-7 (21)** L’organisation utilise des mécanismes de protection pour séparer [Affectation : composants du système informatique définis par l’organisation] prenant en charge [Affectation : missions et/ou fonctions métier définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie des ressources dans une architecture où figurent un sous-réseau web, un sous-réseau de base de données, un sous-réseau Active Directory et un sous-réseau de gestion. Des règles de groupe de sécurité réseau appliquées aux différents sous-réseaux permettent de séparer ces derniers logiquement afin de limiter le trafic entre eux au seul trafic nécessaire pour les fonctionnalités système et de gestion. |
+| **Client** | Cette solution Blueprint déploie des ressources dans une architecture où figurent un sous-réseau web, un sous-réseau de base de données, un sous-réseau Active Directory et un sous-réseau de gestion. Des règles de groupe de sécurité réseau appliquées aux différents sous-réseaux permettent de séparer ces derniers logiquement afin de limiter le trafic entre eux au seul trafic nécessaire pour les fonctionnalités système et de gestion. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-8** Le système informatique protège [Sélection (un ou plusieurs choix) : la confidentialité ; l’intégrité] des informations transmises.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,11 +381,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-8 (1)** Le système informatique met en œuvre des mécanismes de chiffrement pour [Sélection (un ou plusieurs choix) : empêcher la divulgation non autorisée d’informations ; détecter les modifications apportées aux informations] durant la transmission sauf en cas de protection autre à l’aide de [Affectation : dispositifs de sécurité physiques différents définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint configure des ressources pour communiquer à l’aide des protocoles sécurisés uniquement. Le composant WAF du service Application Gateway est configuré pour accepter les services de communication utilisés en externe avec les protocoles HTTPS/TLS et pour communiquer avec le pool principal uniquement avec les protocoles HTTPS/TLS. SQL Server est configuré pour communiquer uniquement via HTTPS/TLS. Les services Bureau à distance sont configurés pour utiliser des connexions sécurisées. |
+| **Client** | Cette solution Blueprint configure des ressources pour communiquer à l’aide de protocoles sécurisés uniquement. Le composant WAF du service Application Gateway est configuré pour accepter les services de communication utilisés en externe avec les protocoles HTTPS/TLS et pour communiquer avec le pool principal uniquement avec les protocoles HTTPS/TLS. SQL Server est configuré pour communiquer uniquement via HTTPS/TLS. Les services Bureau à distance sont configurés pour utiliser des connexions sécurisées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -409,11 +409,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-12** L’organisation établit et gère des clés de chiffrement pour le chiffrement requis utilisé dans le système informatique conformément aux [Affectation : exigences définies par l’organisation pour la création, la distribution, le stockage, l’accès et la destruction des clés].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie un Azure Key Vault. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Azure Key Vault peut créer des clés à l’aide d’une fonctionnalité de création de clé par module de sécurité matériel (HSM) FIPS 140-2 de niveau 2. |
+| **Client** | Cette solution Blueprint déploie un Azure Key Vault. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Azure Key Vault peut créer des clés à l’aide d’une fonctionnalité de création de clé par module de sécurité matériel (HSM) FIPS 140-2 de niveau 2. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -423,11 +423,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-12 (1)** L’organisation fait en sorte que les informations restent disponibles en cas de perte par les utilisateurs des clés de chiffrement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Azure Key Vault permet de stocker les clés de chiffrement et les secrets utilisés dans ce programme Azure Blueprint. Key Vault simplifie le processus de gestion des clés pour les clés qui chiffrent les données et y accèdent. Les authentificateurs suivants sont stockés dans Key Vault : mot de passe Azure pour déployer le compte, mot de passe administrateur de la machine virtuelle, mot de passe de compte de service SQL Server. |
+| **Client** | Azure Key Vault permet de stocker les clés de chiffrement et les secrets utilisés dans cette solution Blueprint. Key Vault simplifie le processus de gestion des clés pour les clés qui chiffrent les données et y accèdent. Les authentificateurs suivants sont stockés dans Key Vault : mot de passe Azure pour déployer le compte, mot de passe administrateur de la machine virtuelle, mot de passe de compte de service SQL Server. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -437,7 +437,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-12 (2)** L’organisation produit, contrôle et distribue des clés de chiffrement symétriques à l’aide de processus et d’une technologie de gestion des clés [Sélection : conformes à NIST FIPS ; approuvés par NSA].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-12 (3)** L’organisation produit, contrôle et distribue des clés de chiffrement asymétriques à l’aide de [Sélection : processus et technologie de gestion des clés approuvés par NSA ; matériel de saisie prépositionné ou certificats de Classe 3 PKI approuvés ; jetons de sécurité du matériel et certificats de Classe 3 ou de Classe 4 PKI approuvés pour protéger la clé privée de l’utilisateur].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -465,11 +465,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-13** Le système informatique met en œuvre [Affectation : utilisations du chiffrement définies par l’organisation et type de chiffrement requis pour chaque utilisation] conformément aux lois fédérales, décrets présidentiels, directives, stratégies, réglementations et normes applicables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | L’authentification Windows, le Bureau à distance et BitLocker sont utilisés par ce programme Azure Blueprint. Ces composants peuvent être configurés d’après les modules de chiffrement FIPS 140 validés. |
+| **Client** | Cette solution Blueprint utilise l’authentification Windows, le Bureau à distance et BitLocker. Ces composants peuvent être configurés d’après les modules de chiffrement FIPS 140 validés. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Aucun appareil informatique collaboratif n’est déployé dans le cadre de ce programme Azure Blueprint. Remarque : des appareils informatiques collaboratifs physiques existent au sein de l’étendue des systèmes déployés sur Azure. |
+| **Client** | Cette solution Blueprint n’entraîne aucun déploiement d’appareil informatique collaboratif. Remarque : des appareils informatiques collaboratifs physiques existent au sein de l’étendue des systèmes déployés sur Azure. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Aucun appareil informatique collaboratif n’est déployé dans le cadre de ce programme Azure Blueprint. Remarque : des appareils informatiques collaboratifs physiques existent au sein de l’étendue des systèmes déployés sur Azure. |
+| **Client** | Cette solution Blueprint n’entraîne aucun déploiement d’appareil informatique collaboratif. Remarque : des appareils informatiques collaboratifs physiques existent au sein de l’étendue des systèmes déployés sur Azure. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -507,7 +507,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-17** L’organisation émet des certificats de clé publique dans le cadre d’une [Affectation : stratégie de certificat définie par l’organisation] ou obtient des certificats de clé publique auprès d’un fournisseur de servies agréé.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-18.c** L’organisation autorise, surveille et contrôle l’utilisation de code mobile au sein du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -563,11 +563,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-19.a** L’organisation établit des restrictions d’utilisation et des directives d’implémentation pour les technologies de protocole VoIP (voix sur IP) en fonction des dommages potentiels au système informatique en cas d’utilisation malveillante.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Aucune technologie de protocole VoIP n’est déployée dans le cadre de ce programme Azure Blueprint. |
+| **Client** | Cette solution Blueprint n’entraîne aucun déploiement de technologie de protocole VoIP. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -577,11 +577,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-19.b** L’organisation autorise, surveille et contrôle l’utilisation de VoIP au sein du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Aucune technologie de protocole VoIP n’est déployée dans le cadre de ce programme Azure Blueprint. |
+| Client | Cette solution Blueprint n’entraîne aucun déploiement de technologie de protocole VoIP. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -591,7 +591,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-20.a** Le système informatique fournit des artefacts supplémentaires de vérification de l’intégrité et d’authentification de l’origine des données, ainsi que les données de résolution de nom faisant autorité que le système retourne en réponse aux requêtes de résolution de nom/d’adresse externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-20.b** Le système informatique fournit les moyens d’indiquer l’état de sécurité des zones enfants et (si l’enfant prend en charge les services de résolution sécurisés) d’activer la vérification d’une chaîne de confiance entre des domaines parents et enfants, dans le cadre d’un espace de noms hiérarchique et distribué.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-21** Le système informatique demande et effectue l’authentification de l’origine des données et la vérification de l’intégrité des données sur les réponses de résolution de nom/d’adresse que le système reçoit de sources faisant autorité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-22** Les systèmes informatiques qui fournissent collectivement un service de résolution de nom/d’adresse pour une organisation sont tolérants aux pannes et mettent en œuvre une séparation de rôle interne/externe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -647,11 +647,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-23** Le système informatique protège l’authenticité des sessions de communications.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | L’accès à distance aux ressources déployées par ce programme Azure Blueprint, notamment le portail Azure, la connexion Bureau à distance et la passerelle d’applications web, sont sécurisés à l’aide de TLS. TLS fournit l’authenticité des communications au niveau de la session. |
+| **Client** | L’accès à distance aux ressources déployées par cette solution Blueprint, y compris le portail Azure, la connexion Bureau à distance et la passerelle d’application web, est sécurisé par TLS. TLS fournit l’authenticité des communications au niveau de la session. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -661,11 +661,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-23 (1)** Le système informatique invalide les identificateurs de session lors de la déconnexion de l’utilisateur ou autre mode de fin de session.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | L’accès à distance aux ressources déployées par ce programme Azure Blueprint, notamment le portail Azure, la connexion Bureau à distance et la passerelle d’applications web, sont sécurisés à l’aide de TLS. Le portail Azure et les sessions Bureau à distance invalident les identificateurs de session lors de la déconnexion. L’invalidation de session web est appliquée via les règles Azure Application Gateway - Pare-feu d’applications web (WAF). Le pare-feu d’applications web (WAF) applique l’affinité de cookie par session et exécute une expiration de la session après 30 minutes (configurable après le déploiement sur des règles spécifiques à l’organisation) d’inactivité du client. |
+| Client | L’accès à distance aux ressources déployées par cette solution Blueprint, y compris le portail Azure, la connexion Bureau à distance et la passerelle d’application web, est sécurisé par TLS. Le portail Azure et les sessions Bureau à distance invalident les identificateurs de session lors de la déconnexion. L’invalidation de session web est appliquée via les règles Azure Application Gateway - Pare-feu d’applications web (WAF). Le pare-feu d’applications web (WAF) applique l’affinité de cookie par session et exécute une expiration de la session après 30 minutes (configurable après le déploiement sur des règles spécifiques à l’organisation) d’inactivité du client. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -675,7 +675,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-24** Le système informatique échoue en un [Affectation : état connu défini par l’organisation] pour [Affectation : types d’échec définis par l’organisation] préservant [Affectation : informations sur l’état du système définies par l’organisation] en cas d’échec.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 11/23/2017
 
 **SC-28** Le système informatique protège [Sélection (un ou plusieurs choix) : la confidentialité ; l’intégrité] des [Affectation : informations au repos définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -703,11 +703,11 @@ ms.lasthandoff: 11/23/2017
 
 **SC-28 (1)** Le système informatique met en œuvre des mécanismes de chiffrement pour empêcher la divulgation et la modification non autorisées des [Affectation : informations définies par l’organisation] sur [Affectation : composants du système informatique définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint mettent en œuvre le chiffrement de disque pour protéger la confidentialité et l’intégrité des informations au repos. Azure Disk Encryption pour Windows est implémenté à l’aide de la fonctionnalité BitLocker de Windows. SQL Server est configuré pour utiliser Transparent Data Encryption (TDE), qui effectue le chiffrement et le déchiffrement en temps réel des données et fichiers journaux pour protéger les informations au repos. TDE protège les données des accès non autorisés. Le client peut choisir de mettre en œuvre des contrôles au niveau de l’application supplémentaires pour protéger l’intégrité des informations stockées. La confidentialité et l’intégrité de tout stockage blob déployé par ce programme Azure Blueprint sont protégées par le biais du chiffrement du service de stockage Azure. Ce service protège les données au repos des comptes de stockage Azure à l’aide du chiffrement AES 256 bits. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint mettent en œuvre le chiffrement de disque pour protéger la confidentialité et l’intégrité des informations au repos. Azure Disk Encryption pour Windows est implémenté à l’aide de la fonctionnalité BitLocker de Windows. SQL Server est configuré pour utiliser Transparent Data Encryption (TDE), qui effectue le chiffrement et le déchiffrement en temps réel des données et fichiers journaux pour protéger les informations au repos. TDE protège les données des accès non autorisés. Le client peut choisir de mettre en œuvre des contrôles au niveau de l’application supplémentaires pour protéger l’intégrité des informations stockées. La confidentialité et l’intégrité de tout stockage blob déployé par cette solution Blueprint sont protégées par le biais du chiffrement du service de stockage Azure. Ce service protège les données au repos des comptes de stockage Azure à l’aide du chiffrement AES 256 bits. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -717,9 +717,9 @@ ms.lasthandoff: 11/23/2017
 
 **SC-39** Le système informatique conserve un domaine d’exécution distinct pour chaque processus d’exécution.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint exécutent des systèmes d’exploitation Windows. Windows gère des domaines d’exécution séparés pour chaque processus d’exécution en affectant un espace d’adresse virtuelle privée à chaque processus. |
+| **Client** | Les machines virtuelles déployées par cette solution Blueprint exécutent des systèmes d’exploitation Windows. Windows gère des domaines d’exécution séparés pour chaque processus d’exécution en affectant un espace d’adresse virtuelle privée à chaque processus. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |

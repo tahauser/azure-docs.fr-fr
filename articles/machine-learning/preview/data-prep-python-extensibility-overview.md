@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensions Python Data Preparations
 Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions intégrées, Azure Machine Learning Data Preparations offre des possibilités d’extension à plusieurs niveaux. Ce document décrit l’extensibilité via un script Python. 
@@ -101,7 +101,7 @@ Pour installer les packages dans une cible de calcul, vous devez modifier le fic
 ### <a name="windows"></a>Windows 
 Pour rechercher l’emplacement dans Windows, la méthode consiste à trouver l’installation de Python propre à l’application et son répertoire de scripts. L’emplacement par défaut est :  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Exécutez ensuite l’une des commandes suivantes : 
 
@@ -114,7 +114,7 @@ or
 ### <a name="mac"></a>Mac 
 Pour rechercher l’emplacement sur un Mac, la méthode consiste à trouver l’installation de Python propre à l’application et son répertoire de scripts. L’emplacement par défaut est : 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Exécutez ensuite l’une des commandes suivantes : 
 

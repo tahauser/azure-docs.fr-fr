@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
 
@@ -65,11 +65,18 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 ### <a name="cause"></a>Cause :
 
-Ce problème se produit si la clé publique du certificat racine n’est pas téléchargée dans la passerelle VPN Azure. Il peut également se produire si la clé est endommagée ou a expiré.
+Ce problème se produit si l’une des conditions suivantes est vraie :
+
+- L’itinéraire défini par l’utilisateur par défaut sur le sous-réseau de passerelle n’est pas défini correctement.
+- La clé publique du certificat racine n’est pas téléchargée dans la passerelle VPN Azure. 
+- La clé est endommagée ou a expiré.
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, vérifiez l’état du certificat racine dans le portail Azure. Vous pourrez voir si le certificat a été révoqué ou non. S’il n’est pas révoqué, essayez de supprimer le certificat racine et de le télécharger une nouvelle fois. Pour en savoir plus, consultez la section [Créer des certificats](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+Pour résoudre ce problème, effectuez les opérations suivantes :
+
+1. Supprimez l’itinéraire défini par le l’utilisateur sur le sous-réseau de passerelle. Assurez-vous que l’itinéraire défini par l’utilisateur transmet tout le trafic correctement.
+2. Vérifiez l’état du certificat racine dans le portail Azure. Vous pourrez voir si le certificat a été révoqué ou non. S’il n’est pas révoqué, essayez de supprimer le certificat racine et de le télécharger une nouvelle fois. Pour en savoir plus, consultez la section [Créer des certificats](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Erreur du client VPN : une chaîne de certificats a été traitée mais s’est terminée 
 
@@ -181,7 +188,7 @@ Vérifiez que les données du certificat ne contiennent pas de caractères non v
 
 Lorsque vous essayez d’enregistrer les modifications apportées à la passerelle VPN dans le portail Azure, vous recevez le message d’erreur suivant : 
 
-**Échec de l’enregistrement de la passerelle de réseau virtuel &lt;*nom de la passerelle*&gt;. Erreur : le nom de la ressource &lt;*nom du certificat à télécharger*&gt; n’est pas valide**.
+**Échec de l’enregistrement de la passerelle de réseau virtuel &lt;*nom de la passerelle*&gt;. Le nom de la ressource &lt;*nom du certificat à télécharger*&gt; n’est pas valide**.
 
 ### <a name="cause"></a>Cause :
 
@@ -199,7 +206,7 @@ Lorsque vous essayez de télécharger le package de configuration du client VPN,
 
 Cette erreur peut être due à un problème réseau temporaire. Patientez quelques minutes, puis essayez à nouveau de télécharger le package VPN.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Mise à niveau de la passerelle VPN Azure, aucun client P2S ne peut se connecter
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Mise à niveau de la passerelle VPN Azure, aucun client point à site ne peut se connecter
 
 ### <a name="cause"></a>Cause :
 
@@ -207,7 +214,7 @@ Si le certificat a atteint plus de 50 % de sa durée de vie, il est restauré.
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, créez des certificats et redistribuez-les aux clients VPN. 
+Pour résoudre ce problème, redéployez le package point à site sur tous les clients.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Trop de clients VPN sont connectés
 
@@ -234,6 +241,10 @@ Si l’adresse appartient à la classe A --> appliquer la valeur /8
 Si l’adresse appartient à la classe B --> appliquer la valeur /16
 
 Si l’adresse appartient à la classe C --> appliquer la valeur /24
+
+### <a name="solution"></a>Solution
+
+Injecter des itinéraires pour d’autres réseaux dans la table de routage avec la correspondance de préfixe la plus longue ou une métrique inférieure (donc ayant une priorité plus élevée) à celle de la connexion point à site. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>Les clients VPN ne peuvent pas accéder aux partages de fichiers réseau
 
@@ -262,7 +273,7 @@ Supprimez la connexion VPN de point à site, puis réinstallez le client VPN. Da
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Utilisateurs\Nomdel’utilisateur\AppData\Roaming\Microsoft\Network\Connections**, puis exécutez à nouveau le programme d’installation du client VPN.
+Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**, puis exécutez à nouveau le programme d’installation du client VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Le client VPN de point à site ne peut pas résoudre le nom de domaine complet des ressources dans le domaine local
 
@@ -301,7 +312,7 @@ Vérifiez les paramètres du serveur proxy et assurez-vous que le client peut ac
 
 ### <a name="cause"></a>Cause :
 
-Cette erreur se produit si le serveur RADIUS utilisé pour l’authentification du client VPN comporte des paramètres incorrects. 
+Cette erreur se produit si le serveur RADIUS utilisé pour l’authentification du client VPN comporte des paramètres incorrects ou si Azure ne parvient pas à contacter le serveur Radius.
 
 ### <a name="solution"></a>Solution
 
@@ -312,3 +323,45 @@ Assurez-vous que le serveur RADIUS est configuré correctement. Pour plus d’in
 ### <a name="cause"></a>Cause :
 
 Le certificat racine n’a pas été installé. Le certificat racine est installé dans le magasin **Certificats de confiance** du client.
+
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>Erreur du client VPN : la connexion à distance n’a pas été établie car les tunnels VPN essayés ont échoué. (Erreur 800) 
+
+### <a name="cause"></a>Cause :
+
+Le pilote de carte d’interface réseau est obsolète.
+
+### <a name="solution"></a>Solution
+
+Mettre à jour le pilote de carte d’interface réseau :
+
+1. Cliquez sur **Démarrer**, tapez **Gestionnaire de périphériques** et sélectionnez-le dans la liste des résultats. Si vous êtes invité à entrer un mot de passe administrateur ou une confirmation, tapez le mot de passe ou confirmez.
+2. Dans les catégories **Cartes réseau**, recherchez la carte d’interface réseau que vous souhaitez mettre à jour.  
+3. Double-cliquez sur le nom de l’appareil, sélectionnez **Mettre à jour le pilote**, sélectionnez **Rechercher automatiquement un pilote logiciel mis à jour**.
+4. Si Windows ne trouve pas de nouveau pilote, recherchez-en un sur le site Web du fabricant de l’appareil et suivez ses instructions.
+5. Redémarrez l’ordinateur et réessayez de vous connecter.
+
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erreur : « Erreur de téléchargement du fichier. L’URI cible n’est pas spécifiée »
+
+### <a name="cause"></a>Cause :
+
+Le type de passerelle configuré est incorrect.
+
+### <a name="solution"></a>Solution
+
+Le type de passerelle VPN Azure doit être défini sur la valeur VPN, tandis que le type de VPN doit être défini sur la valeur **RouteBased**.
+
+## <a name="vpn-package-installer-doesnt-complete"></a>L’installation du package VPN ne se termine pas
+
+### <a name="cause"></a>Cause :
+
+Ce problème peut être provoqué par des installations précédentes du client VPN. 
+
+### <a name="solution"></a>Solution
+
+Supprimez les anciens fichiers de configuration du client VPN à partir de **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**, puis exécutez à nouveau le programme d’installation du client VPN. 
+
+## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Le client VPN se met en veille prolongée ou en veille après un certain temps
+
+### <a name="solution"></a>Solution
+
+Vérifiez les paramètres de mise en veille et veille prolongée sur l’ordinateur qui exécute le client VPN.

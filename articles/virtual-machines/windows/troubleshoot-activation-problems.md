@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Si vous rencontrez des problèmes lors de l’activation de machines virtuelles Windows Azure créées à partir d’une image personnalisée, vous pouvez utiliser les informations disponibles de ce document pour résoudre le problème. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Présentation des points de terminaison Azure KMS pour l’activation des produits Windows des machines virtuelles Azure
+Azure utilise différents points de terminaison différents pour l’activation de KMS en fonction de la région cloud dans laquelle se trouve la machine virtuelle. Lorsque vous utilisez ce guide de dépannage, utilisez le point de terminaison KMS approprié qui s’applique à votre région.
+
+* Régions de cloud public Azure : kms.core.windows.net:1688
+* Régions de cloud national Azure en Chine : kms.core.chinacloudapi.cn:1688
+* Régions de cloud national Azure en Allemagne : kms.core.cloudapi.de:1688
+* Régions de cloud national Azure aux États-Unis : kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Symptôme
 

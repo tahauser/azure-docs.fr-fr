@@ -4,7 +4,7 @@ description: "Ce didacticiel utilise des ressources créées avec le modèle de 
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Étendre des groupes de disponibilité Always On locaux à Azure
 Les groupes de disponibilité Always On fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.
@@ -43,7 +43,7 @@ Cette section vous indique comment utiliser l’ **Assistant Ajout d’un répli
 
 1. Dans SQL Server Management Studio, développez **Haute disponibilité Always On** > **Groupes de disponibilité** > **[Nom de votre groupe de disponibilité]**.
 2. Cliquez avec le bouton droit sur **Réplicas de disponibilité**, puis sélectionnez **Ajouter un réplica**.
-3. Par défaut, l’ **Assistant Ajout d’un réplica à un groupe de disponibilité** s’affiche. Cliquez sur **Next**.  Si vous avez sélectionné l’option **Ne plus afficher cette page** en bas de la page au précédent démarrage de l’Assistant, cet écran ne s’affiche pas.
+3. Par défaut, l’ **Assistant Ajout d’un réplica à un groupe de disponibilité** s’affiche. Cliquez sur **Suivant**.  Si vous avez sélectionné l’option **Ne plus afficher cette page** en bas de la page au précédent démarrage de l’Assistant, cet écran ne s’affiche pas.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. Vous devrez vous connecter à tous les réplicas secondaires existants. Cliquez sur **Connecter...** en regard de chaque réplica, ou vous pouvez cliquer sur **Connecter tout...** en bas de l’écran. Une fois authentifié, cliquez sur **Suivant** pour accéder à l’écran suivant.
@@ -55,7 +55,7 @@ Cette section vous indique comment utiliser l’ **Assistant Ajout d’un répli
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. Renseignez les champs de la page avec les valeurs qui seront utilisées pour créer la machine virtuelle Azure qui hébergera le réplica.
    
-   | Paramètre | Description |
+   | Paramètre | DESCRIPTION |
    | --- | --- |
    | **Image** |Sélectionnez la combinaison système d’exploitation- SQL Server souhaitée |
    | **Taille de la machine virtuelle** |Sélectionnez la taille de machine virtuelle qui correspond le mieux à vos besoins |
@@ -75,7 +75,7 @@ Cette section vous indique comment utiliser l’ **Assistant Ajout d’un répli
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742865.png)
 11. Cliquez sur **Suivant**.
 12. Sélectionnez la méthode de synchronisation de données à utiliser sur la page **Sélectionner la synchronisation de données initiale** et cliquez sur **Suivant**. Pour la plupart des scénarios, sélectionnez **Synchronisation complète des données**. Pour plus d’informations sur les méthodes de synchronisation de données, voir [Page Sélectionner la synchronisation de données initiale (assistants de groupe de disponibilité AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
-13. Passez en revue les résultats sur la page **Validation** . Corrigez les problèmes et réexécutez la validation si nécessaire. Cliquez sur **Next**.
+13. Passez en revue les résultats sur la page **Validation** . Corrigez les problèmes et réexécutez la validation si nécessaire. Cliquez sur **Suivant**.
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
 14. Vérifiez les paramètres sur la page **Synthèse**, puis cliquez sur **Terminer**.
@@ -89,7 +89,7 @@ Cette section vous indique comment utiliser l’ **Assistant Ajout d’un répli
 ## <a name="create-an-availability-group-listener"></a>Créer un écouteur de groupe de disponibilité
 Après avoir créé le groupe de disponibilité, vous devez créer un écouteur pour que les clients puissent se connecter aux réplicas. Les écouteurs dirigent les connexions entrantes vers le réplica principal ou un réplica secondaire en lecture seule. Pour plus d’informations sur les écouteurs, voir [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](../classic/ps-sql-int-listener.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En plus d’utiliser l’ **Assistant Ajout d’un réplica Azure** pour étendre votre groupe de disponibilité Always On dans Azure, vous pouvez également déplacer entièrement des charges de travail SQL Server vers Azure. Pour commencer, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

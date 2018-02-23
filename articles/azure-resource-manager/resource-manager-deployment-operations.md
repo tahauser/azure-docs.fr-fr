@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Afficher les opérations de déploiement avec Azure Resource Manager
 
 
 Vous pouvez afficher les opérations d’un déploiement via le portail Azure. Il est plus intéressant d’afficher les opérations lorsque vous recevez une erreur lors du déploiement ; cet article porte donc sur l’affichage des opérations ayant échoué. Le portail fournit une interface qui vous permet de rechercher facilement les erreurs et de déterminer des corrections potentielles.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Vous pouvez dépanner votre déploiement en examinant les journaux d'audit ou les opérations de déploiement. Cette rubrique illustre les deux méthodes. Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portail
 Pour afficher les opérations de déploiement, procédez comme suit :
@@ -42,7 +42,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
     ![afficher le déploiement ayant échoué](./media/resource-manager-deployment-operations/view-error.png)
    
     Ce message d’erreur devrait vous suffire pour lancer le dépannage. Toutefois, si vous avez besoin de plus d’informations sur les tâches ayant été effectuées, vous pouvez afficher les opérations, comme indiqué dans les étapes suivantes.
-4. Vous pouvez voir toutes les opérations de déploiement dans le panneau **Déploiement**. Sélectionnez n’importe quelle opération pour afficher plus de détails.
+4. Vous pouvez afficher toutes les opérations de déploiement. Sélectionnez n’importe quelle opération pour afficher plus de détails.
    
     ![afficher des opérations](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
 5. Pour afficher les événements pour le déploiement, sélectionnez **Événements**.
    
     ![visualiser les événements](./media/resource-manager-deployment-operations/view-events.png)
-6. Vous voyez tous les événements du déploiement. Pour voir plus de détails, cliquez sur un des événements. Notez aussi les ID de corrélation. Cette valeur peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
+6. Vous voyez tous les événements du déploiement. Pour voir plus de détails, cliquez sur un des événements. Notez les ID de corrélation. Cette valeur peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement.
    
     ![voir les événements](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -131,7 +131,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Azure CLI
 
 1. Récupérez l’état global d’un déploiement avec la commande **azure group deployment show** .
 
@@ -178,7 +178,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   }
   ```
 
-2. Récupérez des informations sur les opérations de déploiement avec l’opération [Répertorier toutes les opérations de déploiement de modèle](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) . 
+2. Pour obtenir des informations sur les déploiements, voir [Répertorier toutes les opérations de déploiement de modèle](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -212,7 +212,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour en savoir plus sur l’utilisation des journaux d’activité pour surveiller d’autres types d’actions, consultez [Afficher les journaux d’activité pour gérer les ressources Azure](resource-group-audit.md).
 * Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](resource-group-template-deploy.md).

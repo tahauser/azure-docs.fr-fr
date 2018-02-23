@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +42,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+###### <a name="january-29-2018"></a>**29 janvier 2018**
+Le système d’exploitation invité de janvier a été publié pour les familles de système d’exploitation 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GUEST-OS-3.57_201801-01)
+
 ###### <a name="january-4-2018"></a>**4 janvier 2018**
 Le système d’exploitation invité de janvier a été publié pour les familles de système d’exploitation 4 (WA-GUEST-OS-4.50_201801-01) et 5 (WA-GUEST-OS-5.15_201801-01). Il contient des correctifs de sécurité importants.  
 
@@ -92,7 +95,7 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 | --- | --- | --- | --- |
 | WA-GUEST-OS-5.15_201801-01 |4 janvier 2018 |Publication 5.17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |4 janvier 2018 |Publication 5.16 |TBD |
-| WA-GUEST-OS-5.13_201711-01 |14 décembre 2017 |Publication 5.15 |TBD |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 décembre 2017 |4 janvier 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
@@ -117,7 +120,7 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 | --- | --- | --- | --- |
 | WA-GUEST-OS-4.50_201801-01 |4 janvier 2018 |Publication 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |4 janvier 2018 |Publication 4.51 |TBD |
-| WA-GUEST-OS-4.48_201711-01 |14 décembre 2017 |Publication 4.50 |TBD |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 décembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
@@ -140,8 +143,9 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.57_2017801-01 |29 janvier 2018 |Billet 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |4 janvier 2018 |Publication 3.58 |TBD |
-| WA-GUEST-OS-3.55_201711-01 |14 décembre 2017 |Publication 3.57 |TBD |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |
@@ -164,8 +168,9 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.70_201801-01 |29 janvier 2018 |Billet 2.72 |TBD |
 | WA-GUEST-OS-2.69_201712-01 |4 janvier 2018 |Publication 2.71 |TBD |
-| WA-GUEST-OS-2.68_201711-01 |14 décembre 2017 |Publication 2.70 |TBD |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 août 2017 |14 décembre 2017 |TBD |

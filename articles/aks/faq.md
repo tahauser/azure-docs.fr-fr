@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Forum aux questions sur Azure Container Service (AKS)
 
@@ -50,7 +50,15 @@ La mise à l’échelle automatique des nœuds n’est pas prise en charge, mais
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ? 
 
-Le second groupe de ressources est créé automatiquement pour faciliter la suppression de toutes les ressources associées à un déploiement AKS.
+Chaque cluster Azure Container Service est contenu dans deux groupes de ressources. Le premier, créé par vous, contient uniquement la ressource Azure Container Service. Le deuxième, créé automatiquement lors du déploiement, contient toutes les ressources d’infrastructure du cluster, telles que les ordinateurs virtuels et les ressources de mise en réseau et de stockage. Ce groupe de ressources est créé pour faciliter le nettoyage des ressources. 
+
+Le groupe de ressources créé automatiquement a un nom similaire au suivant :
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+Lorsque vous ajoutez des ressources Azure à utiliser avec le cluster Kubernetes, telles que des comptes de stockage ou des adresses IP publiques réservées, ces ressources doivent être créées dans le groupe de ressources créé automatiquement.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault est-il intégré à AKS ? 
 

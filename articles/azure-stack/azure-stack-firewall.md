@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Intégration d’Azure Stack à un pare-feu
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Bien que les pare-feu puissent être utiles en cas d’attaques par déni de service distribué (DDOS), de détection des intrusions et d’inspection du contenu, ils peuvent également constituer un goulot d’étranglement au niveau du débit des services de stockage Azure comme les objets blob, les tables et les files d’attente.
@@ -41,9 +41,9 @@ L’utilisation de NAT pour une adresse IP virtuelle publique présente des inco
 - Pour les scénarios de cloud hybride avec Azure, tenez compte du fait qu’Azure ne prend pas en charge la configuration d’un tunnel VPN vers un point de terminaison à l’aide de NAT.
 
 ### <a name="ssl-decryption"></a>Déchiffrement SSL
-Concernant le déchiffrement SSL, nous vous recommandons pour l’instant de le désactiver sur tout le trafic Azure Stack. Nous vous expliquerons plus tard comment l’activer pour Azure Stack.
+Actuellement, il est recommandé de désactiver le déchiffrement de SSL pour tout le trafic Azure Stack. S’il venait à être pris en charge dans les futures mises à jour, nous fournirions des conseils sur la façon d’activer le déchiffrement SSL pour Azure Stack.
 
-## <a name="edge-firewall-scenario"></a>Scénario de pare-feu de périphérie
+## <a name="edge-firewall-scenario"></a>Scénario de pare-feu de périmètre
 Dans un déploiement de périphérie, Azure Stack est déployé directement derrière le pare-feu ou le routeur de périphérie. Dans ces scénarios, le pare-feu peut se trouver au-dessus de la frontière ou jouer le rôle d’appareil frontière s’il prend en charge ECMP (Equal Cost Multi Path) avec BGP ou le routage statique.
 
 En règle générale, les adresses IP routables publiques sont spécifiées pour le pool d’adresses IP virtuelles publiques à partir du réseau externe au moment du déploiement. Dans un scénario de périphérie, il n’est pas recommandé d’utiliser des adresses IP routables publiques sur un autre réseau pour des raisons de sécurité. Ce scénario permet à un utilisateur de bénéficier d’une expérience cloud auto-contrôlée complète, comme dans un cloud public tel qu’Azure.  
@@ -62,6 +62,6 @@ Dans un déploiement sur un réseau de périmètre ou intranet d’entreprise, A
 ## <a name="learn-more"></a>En savoir plus
 Découvrez plus en détail [les ports et les protocoles utilisés par les points de terminaison Azure Stack](azure-stack-integrate-endpoints.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Exigences relatives à l’infrastructure à clé publique d’Azure Stack](azure-stack-pki-certs.md)
 

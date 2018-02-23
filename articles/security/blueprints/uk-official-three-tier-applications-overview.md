@@ -1,6 +1,6 @@
 ---
-title: "Azure Blueprint Automation - Applications web à trois couches pour la classification UK-OFFICIAL"
-description: "Azure Blueprint Automation - Applications web à trois couches pour la classification UK-OFFICIAL"
+title: "Programme Blueprint Security & Compliance Azure - Automatisation des applications Web à trois niveaux UK-OFFICIAL"
+description: "Programme Blueprint Security & Compliance Azure - Automatisation des applications Web à trois niveaux UK-OFFICIAL"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Azure Blueprint Automation : Applications web à trois couches pour la classification UK-OFFICIAL
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Programme Blueprint Security & Compliance Azure - Automatisation des applications Web à trois niveaux UK-OFFICIAL
 
 ## <a name="overview"></a>Vue d'ensemble
 
  Cet article fournit des conseils, ainsi que des scripts d’automatisation, pour la création d’une architecture web à trois couches Microsoft Azure, adaptée à la gestion de nombreuses charges de travail classées « OFFICIAL » par le gouvernement britannique.
 
- À l’aide d’une approche de type « Infrastructure as Code », le groupe de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (ARM) déploie un environnement qui s’aligne sur les 14 [principes de sécurité cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) du National Cyber Security Centre (NCSC), ainsi que sur les [contrôles de sécurité critiques](https://www.cisecurity.org/critical-controls.cfm) du Center for Internet Security (CIS) au Royaume-Uni.
+ À l’aide d’une approche de type « Infrastructure as Code », le groupe de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) déploie un environnement qui s’aligne sur les 14 [principes de sécurité cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) du National Cyber Security Centre (NCSC), ainsi que sur les [contrôles de sécurité critiques](https://www.cisecurity.org/critical-controls.cfm) du Center for Internet Security (CIS) au Royaume-Uni.
 
  Le NCSC recommande aux clients d’utiliser ses principes de sécurité cloud dans le but d’évaluer les propriétés de sécurité du service, et de mieux comprendre la répartition des responsabilités entre le client et le fournisseur. Nous avons fourni des informations sur chacun de ces principes pour vous aider à comprendre la répartition des responsabilités.
 
- Cette architecture, et les modèles ARM (Azure Resource Manager) correspondants, sont accompagnés du livre blanc de Microsoft concernant le [plan Azure à usage du gouvernement britannique](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Ce livre blanc explique comment chacun des services Azure s’aligne sur les 14 principes de sécurité cloud du NCSC, permettant ainsi aux organisations de répondre plus rapidement à leurs obligations de conformité, en utilisant les services cloud de Microsoft Azure dans le monde entier et au Royaume-Uni.
+ Cette architecture et les modèles Azure Resource Manager correspondants sont accompagnés du livre blanc de Microsoft concernant [les 14 contrôles de sécurité du cloud à l’aide de Microsoft Azure au Royaume-Uni](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Ce livre blanc explique comment chacun des services Azure s’aligne sur les 14 principes de sécurité cloud du NCSC, permettant ainsi aux organisations de répondre plus rapidement à leurs obligations de conformité, en utilisant les services cloud de Microsoft Azure dans le monde entier et au Royaume-Uni.
 
  Ce modèle déploie l’infrastructure de la charge de travail. Le code de l’application, ainsi que les logiciels de prise en charge de couche Métier et de couche Données, doivent être installés et configurés. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukwebappblueprintrepo).
 
@@ -109,12 +109,12 @@ Groupes à haute disponibilité
 - (1) Groupe de machines virtuelles de couche Métier - 2 machines virtuelles
 - (1) Groupe de machines virtuelles de couche Données - 2 machines virtuelles
 
-Load Balancer
+Équilibreur de charge
 - (1) Équilibreur de charge de couche Web
 - (1) Équilibreur de charge de couche Métier
 - (1) Équilibreur de charge de couche Données
 
-Storage
+Stockage
 - (14) Nombre total de comptes de stockage
   - Groupe à haute disponibilité du contrôleur de domaine Active Directory
     - (2) Comptes principaux de stockage localement redondant - 1 pour chaque machine virtuelle  
@@ -195,17 +195,17 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 ### <a name="security"></a>Sécurité
 
-**Sécurité de gestion** : ce plan Azure permet aux administrateurs de se connecter au réseau virtuel de gestion et au serveur de rebond à l’aide du protocole RDP, à partir d’une source approuvée. Le trafic du réseau virtuel de gestion est contrôlé à l’aide des groupes de sécurité réseau. L’accès au port 3389 est limité au trafic provenant d’une plage d’adresses IP approuvée, qui peut accéder au sous-réseau contenant le serveur de rebond.
+**Sécurité de gestion** : ce plan permet aux administrateurs de se connecter au réseau virtuel de gestion et au serveur de rebond à l’aide du protocole RDP, à partir d’une source approuvée. Le trafic du réseau virtuel de gestion est contrôlé à l’aide des groupes de sécurité réseau. L’accès au port 3389 est limité au trafic provenant d’une plage d’adresses IP approuvée, qui peut accéder au sous-réseau contenant le serveur de rebond.
 
 Les clients peuvent également envisager d’utiliser un [modèle administratif de sécurité renforcée](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) pour sécuriser l’environnement lors de la connexion au réseau virtuel de gestion et au serveur de rebond. Pour renforcer la sécurité, il est conseillé aux clients d’utiliser une [station de travail avec accès privilégié](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) et une configuration RDGateway. L’utilisation des appliances virtuelles de réseau et des zones DMZ publiques/privées proposent des améliorations de sécurité supplémentaires.
 
-**Sécurisation du réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont recommandés pour chaque sous-réseau afin de fournir un deuxième niveau de protection contre le trafic qui rentre en contournant une passerelle mal configurée ou désactivée. Exemple : [Modèle ARM pour le déploiement d’un groupe de sécurité réseau](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Sécurisation du réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont recommandés pour chaque sous-réseau afin de fournir un deuxième niveau de protection contre le trafic qui rentre en contournant une passerelle mal configurée ou désactivée. Exemple : [Modèle Resource Manager pour le déploiement d’un groupe de sécurité réseau](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Sécurisation des points de terminaison publics** : la passerelle Internet expose les services d’application aux utilisateurs via Internet. Le trafic qui accède à ces services est sécurisé avec [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), qui fournit un pare-feu d’applications web et une gestion du protocole HTTPS.
 
 **Plages d’adresses IP** : les plages d’adresses IP de l’architecture sont des suggestions. Il est conseillé aux clients de tenir compte de leur environnement et d’utiliser les plages adaptées à celui-ci.
 
-**Connectivité hybride** : les charges de travail cloud sont connectées au centre de données local via un réseau VPN IPSEC qui utilise la passerelle VPN Azure. Les clients doivent vérifier qu’ils utilisent une passerelle VPN appropriée pour se connecter à Azure. Exemple : [Modèle ARM de passerelle VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Les clients qui exécutent des charges de travail stratégiques à grande échelle avec des exigences de Big Data peuvent utiliser une architecture réseau hybride avec [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) pour connecter un réseau privé aux services cloud Microsoft.
+**Connectivité hybride** : les charges de travail cloud sont connectées au centre de données local via un réseau VPN IPSEC qui utilise la passerelle VPN Azure. Les clients doivent vérifier qu’ils utilisent une passerelle VPN appropriée pour se connecter à Azure. Example : [Modèle Resource Manager de passerelle VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Les clients qui exécutent des charges de travail stratégiques à grande échelle avec des exigences de Big Data peuvent utiliser une architecture réseau hybride avec [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) pour connecter un réseau privé aux services cloud Microsoft.
 
 **Séparation des préoccupations** : cette architecture de référence attribue un réseau virtuel à chaque type d’opérations (administratives et commerciales). La séparation des réseaux virtuels et des sous-réseaux permet de gérer le trafic, notamment de restreindre le trafic entrant et sortant, en utilisant des groupes de sécurité réseau entre les segments réseau, et en suivant les bonnes pratiques de la rubrique [Services cloud et sécurité réseau Microsoft](https://docs.microsoft.com/azure/best-practices-network-security).
 
@@ -221,17 +221,17 @@ Les clients peuvent également envisager d’utiliser un [modèle administratif 
 
 Le Crown Commercial Service (l’agence chargée d’améliorer les activités commerciales et d’approvisionnement du gouvernement) a mis à jour le classement G-Cloud des services cloud d’entreprise de Microsoft vers la version 6, classification qui couvre toutes ses offres de catégorie OFFICIAL. Pour obtenir des informations détaillées sur Azure et la classification G-Cloud, consultez le [résumé de l’évaluation de sécurité Azure UK G-Cloud](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Ce plan Azure UK-OFFICIAL s’aligne sur les 14 [principes de sécurité cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) du NCSC qui permettent de garantir qu’un environnement est adapté aux charges de travail de classification UK-OFFICIAL.
+Ce plan s’aligne sur les 14 [principes de sécurité du cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) du NCSC qui permettent de garantir qu’un environnement est adapté aux charges de travail de classification UK-OFFICIAL.
 
 La [matrice de responsabilité des clients](https://aka.ms/blueprintuk-gcrm) (classeur Excel) répertorie les 14 principes de sécurité cloud, et indique, pour chaque principe (ou sous-principe), si sa mise en œuvre est de la responsabilité de Microsoft, du client, ou des deux.
 
-La [matrice de mise en œuvre des principes](https://aka.ms/ukwebappblueprintpim) (classeur Excel) répertorie les14 principes de sécurité cloud, et indique, pour chaque principe (ou sous-principe) qui est de la responsabilité du client selon la Matrice de responsabilités des clients, (1) si Azure Blueprint Automation met en œuvre le principe et (2) une description de la façon dont la mise en œuvre s’aligne avec les exigences du principe. Ce contenu est également disponible [ici](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+La [matrice de mise en œuvre des principes](https://aka.ms/ukwebappblueprintpim) (classeur Excel) répertorie les14 principes de sécurité cloud, et indique, pour chaque principe (ou sous-principe) qui est de la responsabilité du client selon la Matrice de responsabilités des clients, (1) si Blueprint Automation met en œuvre le principe et (2) une description de la façon dont la mise en œuvre s’aligne avec les exigences du principe. Ce contenu est également disponible [ici](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 En outre, le Cloud Security Alliance (CSA) a publié une matrice de contrôle cloud pour aider les clients à évaluer les fournisseurs cloud et à se poser les questions nécessaires avant de passer aux services cloud. En réponse, Microsoft Azure a répondu au questionnaire [CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA) du Cloud Security Alliance, dans lequel est expliqué comment Microsoft aborde les principes suggérés.
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
-Il existe deux méthodes pour déployer cette solution de plan Azure. La première méthode utilise un script PowerShell, alors que la deuxième utilise le portail Azure pour déployer l’architecture de référence. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukwebappblueprintrepo).
+Il existe deux méthodes pour déployer cette automatisation de plan. La première méthode utilise un script PowerShell, alors que la deuxième utilise le portail Azure pour déployer l’architecture de référence. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Clause d'exclusion de responsabilité
 

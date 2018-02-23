@@ -2,23 +2,17 @@
 title: "Azure Site Recovery : Forum Aux Questions | Microsoft Docs"
 description: "Cet article traite des questions fréquemment posées sur Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/18/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
 Cet article contient les questions fréquemment posées sur Microsoft Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -36,7 +30,7 @@ Site Recovery contribue à mettre en œuvre la stratégie de continuité d’act
 
 
 ### <a name="can-i-replicate-azure-vms"></a>Puis-je répliquer des machines virtuelles Azure ?
-Oui, vous pouvez répliquer des machines virtuelles Azure prises en charge entre des régions Azure. [En savoir plus](site-recovery-azure-to-azure.md).
+Oui, vous pouvez répliquer des machines virtuelles Azure prises en charge entre des régions Azure. [Plus d’informations](site-recovery-azure-to-azure.md)
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Quelle est la configuration requise dans Hyper-V pour orchestrer la réplication avec Site Recovery ?
 Ce dont vous avez besoin pour le serveur hôte Hyper-V dépend du scénario de déploiement. Découvrez les prérequis dans :
@@ -74,7 +68,7 @@ Pour protéger les machines virtuelles VMware, vous avez besoin d’un hypervise
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Puis-je gérer la récupération d’urgence pour mes succursales avec Site Recovery ?
 Oui. Lorsque vous utilisez Site Recovery pour coordonner la réplication et le basculement dans vos succursales, vous obtenez une orchestration unifiée et l’affichage de toutes les charges de travail de vos succursales dans un emplacement central. Vous pouvez facilement exécuter les basculements et gérer la récupération d’urgence de toutes les succursales à partir de votre siège social, sans vous rendre dans ces succursales.
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 Pour toute questions relative à la tarification, consultez la FAQ sous [Tarification d'Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Sécurité
@@ -168,8 +162,8 @@ Pour automatiser les processus, vous pouvez utiliser Orchestrator ou Operations 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Si mon hôte local ne répond pas ou est bloqué, puis-je basculer vers un hôte différent ?
 Oui, vous pouvez utiliser la récupération à un autre emplacement pour la restauration automatique vers un hôte différent depuis Azure. Pour plus d’informations sur les options pour les machines virtuelles VMware et Hyper-V, suivez les liens ci-dessous.
 
-* [Pour les machines virtuelles VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Pour les machines virtuelles Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [Pour les machines virtuelles VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Pour les machines virtuelles Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Fournisseurs de services
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Je suis un fournisseur de services. Site Recovery fonctionne-t-il pour les modèles d’infrastructure dédiée ou partagée ?
@@ -198,6 +192,6 @@ Nous prenons en charge Azure Pack et le système Cloud Platform, ainsi que les d
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Prenez-vous en charge les déploiements uniques de serveurs VMM et Azure Pack ?
 Oui, vous pouvez répliquer des machines virtuelles Hyper-V vers Azure, ou entre des sites du fournisseur de service.  Notez que si vous répliquez entre des sites du fournisseur de services, l’intégration de runbooks Azure n’est pas disponible.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Lisez la [Vue d’ensemble de Microsoft Azure Site Recovery](site-recovery-overview.md)
 * En savoir plus sur l’ [architecture de Site Recovery](site-recovery-components.md)  

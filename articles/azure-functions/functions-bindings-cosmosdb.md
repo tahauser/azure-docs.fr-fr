@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Liaisons Azure Cosmos DB pour Azure Functions
 
@@ -745,6 +745,12 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 
 > [!Note]  
 > Lorsque vous spécifier l’ID d’un document existant, il est remplacé par le nouveau document de sortie. 
+
+## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
+
+| Liaison | Informations de référence |
+|---|---|
+| Base de données de documents | [Codes d’erreur DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>étapes suivantes
 

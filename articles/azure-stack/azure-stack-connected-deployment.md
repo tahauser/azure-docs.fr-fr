@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement connecté à Azure pour les systèmes intégrés Azure Stack
-Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-deployment-decisions.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
+Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
 
 Un déploiement connecté de Azure Stack à Azure signifie que vous pouvez sélectionner Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS) comme magasin d’identités. Vous pouvez également choisir entre un modèle de facturation à l’utilisation ou un modèle de facturation selon la capacité. Le déploiement connecté constitue l’option par défaut car il permet aux clients de tirer le meilleur parti de Azure Stack, en particulier pour les scénarios de cloud hybride impliquant à la fois Azure et Azure Stack. 
 
@@ -45,7 +45,7 @@ Lorsque vous utilisez Azure AD comme magasin d’identités, vous avez besoin de
 Choisissez cette option si vous souhaitez utiliser votre propre magasin d’identités, tel que votre instance Active Directory d’entreprise, pour vos comptes d’administrateur de service.  
 
 ## <a name="choose-a-billing-model"></a>Choisir un modèle de facturation
-Vous pouvez choisir un modèle de facturation **à l’utilisation** ou **selon la capacité**. Les déploiements avec modèle de facturation à l’utilisation impliquent l’envoi d’un rapport d’utilisation via une connexion à Azure au moins une fois tous les 30 jours. Par conséquent, si aucune connexion n’est possible, le modèle de facturation selon la capacité est la seule option disponible. 
+Vous pouvez choisir un modèle de facturation **à l’utilisation** ou **selon la capacité**. Les déploiements de modèles de facturation à l’utilisation doivent pouvoir rendre compte de l’utilisation des rapports via une connexion à Azure au moins une fois tous les 30 jours. Par conséquent, le modèle de facturation à l’utilisation est uniquement disponible pour des déploiements connectés.  
 
 ### <a name="pay-as-you-use"></a>Facturation à l’utilisation
 Avec le modèle de facturation à l’utilisation, les ressources utilisées sont facturées sur un abonnement Azure. Vous payez uniquement lorsque vous utilisez les services Azure Stack. Si vous choisissez ce modèle, vous aurez besoin d’un abonnement Azure et de l’ID de compte associé à cet abonnement (par exemple, serviceadmin@contoso.onmicrosoft.com). Les abonnements EA, CSP et CSL sont pris en charge. Le rapport d’utilisation est configuré lors de [l’inscription de Azure Stack](azure-stack-registration.md).

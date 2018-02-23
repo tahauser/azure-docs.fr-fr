@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Montée en puissance d’une application dans Azure
 
 > [!NOTE]
-> Le nouveau niveau **PremiumV2** offre des processeurs plus rapides, un stockage SSD et le double de ratio mémoire-cœur en comparaison des niveaux tarifaires précédents. Pour savoir comment monter en puissance jusqu’au niveau **PremiumV2**, voir [Configurer le niveau PremiumV2 pour App Service](app-service-configure-premium-tier.md).
+> Le nouveau niveau **PremiumV2** offre des processeurs plus rapides, un stockage SSD et le double de ratio mémoire-cœur des niveaux tarifaires précédents. Avec cet avantage de performances, vous pouvez économiser de l’argent en exécutant vos applications sur moins d’instances. Pour savoir comment monter en puissance jusqu’au niveau **PremiumV2**, voir [Configurer le niveau PremiumV2 pour App Service](app-service-configure-premium-tier.md).
 >
 
 Cet article décrit la mise à l’échelle d’une application web dans Azure App Service. Il existe deux workflows de mise à l’échelle : montée en puissance et augmentation de la taille des instances. Cet article décrit le workflow de montée en puissance.
@@ -82,14 +82,9 @@ Si votre application dépend d’autres services, tels qu’Azure SQL Database o
 Pour plus d’informations, par exemple sur les tailles de machine virtuelle pour chaque niveau tarifaire, voir [Tarification App Service](https://azure.microsoft.com/pricing/details/web-sites/).
 Pour un tableau des limites, quotas et contraintes du service, ainsi que des fonctionnalités prises en charge dans chaque niveau, voir [Limites d’App Service](../azure-subscription-service-limits.md#app-service-limits).
 
-> [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](https://azure.microsoft.com/try/app-service/) , qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
-> 
-> 
-
 <a name="Next Steps"></a>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour plus d’informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants :
   
     [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/)

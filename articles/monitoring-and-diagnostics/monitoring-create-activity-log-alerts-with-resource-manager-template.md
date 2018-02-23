@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal d’activité avec un modèle Resource Manager
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) pour configurer les alertes de journal d’activité. À l’aide de modèles, vous pouvez facilement configurer des nombreuses alertes activées selon des conditions de journal d’événements d’activité spécifiques dans le cadre de votre processus de déploiement automatisé.
@@ -82,10 +82,10 @@ Pour créer une alerte de journal d’activité à l’aide d’un modèle Resou
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -100,7 +100,11 @@ Pour créer une alerte de journal d’activité à l’aide d’un modèle Resou
 
 Visitez notre [galerie Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) pour obtenir des exemples de modèle d’alertes du journal d’activité.
 
-## <a name="next-steps"></a>Étapes suivantes
+> [!NOTE]
+
+> Vous pouvez également créer des règles d’alerte de journal d’activité à l’aide de l’expérience utilisateur améliorée dans Surveiller > [Alertes (préversion)](monitoring-overview-unified-alerts.md). Pour plus d’informations sur la façon de les créer, voir [cet article](monitoring-activity-log-alerts-new-experience.md).
+
+## <a name="next-steps"></a>étapes suivantes
 - En savoir plus sur les [alertes](monitoring-overview-alerts.md).
 - En savoir plus sur le guide pratique pour ajouter [des groupes d’actions à l’aide d’un modèle Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - En savoir plus sur le guide pratique pour [créer une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).

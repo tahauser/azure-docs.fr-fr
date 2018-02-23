@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de surveillance externe à Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+Pour une surveillance externe de l’infrastructure Azure Stack, vous devez surveiller logiciels, ordinateurs physiques et commutateurs de réseau physique d’Azure Stack. Chacun de ces composants offre une méthode de récupération des informations d’intégrité et d’alerte  :
 
-Pour une surveillance externe de l’infrastructure Azure Stack, vous devez surveiller logiciels, ordinateurs physiques et commutateurs de réseau physique d’Azure Stack. Chacune de ces parties propose une méthode de récupération des informations d’intégrité et d’alerte.
-
-- Le logiciel Azure Stack offre une API basée sur REST pour récupérer l’intégrité et les alertes. (Avec l’aide des technologies à définition logicielle, telles que les espaces de stockage direct, les alertes et l’intégrité du stockage font partie de la surveillance logicielle.)
+- Le logiciel Azure Stack offre une API basée sur REST pour récupérer l’intégrité et les alertes. Grâce aux technologies à définition logicielle, telles que les espaces de stockage direct, les alertes et l’intégrité du stockage font partie de la surveillance logicielle.
 - Les ordinateurs physiques peuvent rendre disponibles des informations relatives à l’intégrité et aux alertes par le biais des contrôleurs de gestion de la carte de base (BMC).
 - Les périphériques réseau physiques peuvent mettre à disposition les informations relatives à l’intégrité et aux alertes par le biais du protocole SNMP.
 
@@ -48,7 +46,7 @@ Vous pouvez utiliser Operations Manager pour une surveillance externe d’Azure 
 
 Le pack d’administration pour Azure Stack offre les fonctionnalités suivantes :
 
-- Gestion de plusieurs déploiements Azure Stack possible
+- Possibilité de gérer plusieurs déploiements Azure Stack
 - Support pour Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS)
 - Possibilité de récupérer et de fermer des alertes
 - Présence d’un tableau de bord d’intégrité et de capacité
@@ -57,7 +55,7 @@ Le pack d’administration pour Azure Stack offre les fonctionnalités suivantes
 - Ajout possible d’informations personnalisées à une région
 - Prise en charge de la notification et de la création de rapports
 
-Vous pouvez télécharger le Pack d’administration de System Center pour Microsoft Azure Stack et le guide de l’utilisateur associé [ici](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ou directement à partir d’Operations Manager.
+Vous pouvez télécharger le Pack d’administration de System Center pour Microsoft Azure Stack et le [guide de l’utilisateur](https://www.microsoft.com/en-us/download/details.aspx?id=55184) associé ici, ou directement à partir d’Operations Manager.
 
 Pour une solution de création de tickets, vous pouvez intégrer Operations Manager à System Center Service Manager. Le connecteur du produit intégré assure la communication bidirectionnelle qui vous permet de fermer une alerte dans Azure Stack et Operations Manager après la résolution d’une demande de service dans Service Manager.
 

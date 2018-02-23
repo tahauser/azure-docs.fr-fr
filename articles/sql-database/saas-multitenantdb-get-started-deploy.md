@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
-Dans ce didacticiel, vous allez déployer et explorer un exemple d’application de base de données multilocataire SaaS nommée Wingtip Tickets. L’application Wingtip est conçue pour tirer parti des fonctionnalités Azure SQL Database qui simplifient l’implémentation de scénarios SaaS.
+Ce didacticiel montre comment déployer et explorer un exemple d’application SaaS mutualisée nommée Wingtip Tickets. L’application Wingtip Tickets est conçue pour tirer parti des fonctionnalités Azure SQL Database qui simplifient l’implémentation de scénarios SaaS.
 
-Cette implémentation de Wingtips utilise un modèle de base de données multilocataire partitionnée. Le partitionnement est effectué par identificateur du locataire. Les données du locataire sont transmises à une base de données spécifique en fonction des valeurs d’identificateur du locataire. Quel que soit le nombre de locataires contenus dans une base de données, toutes les bases de données sont multilocataires en ce sens que les schémas de table incluent un identificateur du locataire. 
+Cette implémentation de l’application Wingtip Tickets utilise un modèle de base de données mutualisée partitionnée. Le partitionnement est effectué par identificateur du locataire. Les données du locataire sont transmises à une base de données spécifique en fonction des valeurs d’identificateur du locataire. 
 
 Ce modèle de base de données vous permet de stocker un ou plusieurs locataires dans chaque partition ou base de données. Vous pouvez optimiser les coûts en partitionnant chaque base de données entre plusieurs locataires. Vous pouvez également l’isolation en faisant en sorte que chaque base de données ne stocke qu’un seul locataire. Votre choix d’optimisation peut s’appliquer de manière indépendante pour chaque locataire spécifique. Effectuez votre choix lors du premier stockage du locataire, vous pourrez toujours changer d’avis ultérieurement. L’application est conçue pour fonctionner correctement dans les deux cas.
 
 #### <a name="app-deploys-quickly"></a>Déploiement rapide de l’application
 
-La section relative au déploiement qui suit inclut le bouton bleu **Déployer dans Azure**. Lorsque vous appuyez sur le bouton, l’application Wingtip est entièrement déployée en seulement cinq minutes. L’application Wingtip s’exécute dans le cloud Azure et utilise Azure SQL Database. Wingtip est déployée dans votre abonnement Azure. Vous avez un accès complet pour utiliser les composants d’application individuels.
+L’application s’exécute dans le cloud Azure et utilise Azure SQL Database. La section relative au déploiement qui suit inclut le bouton bleu **Déployer dans Azure**. Lors de l’activation du bouton est activé, l’application est entièrement déployée vers votre abonnement Azure dans les cinq minutes. Vous avez un accès complet pour utiliser les composants d’application individuels.
 
 L’application est déployée avec des données pour trois exemples de locataires. Les locataires sont stockés ensemble dans une base de données multilocataire.
 
 N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir du [référentiel GitHub][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Découvrir, dans ce didacticiel, comment
+#### <a name="learn-in-this-tutorial"></a>Dans ce didacticiel, découvrez...
 
 > [!div class="checklist"]
-> - Déployer l’application Wingtip SaaS.
-> - Obtenir le code source de l’application et les scripts de gestion.
-> - Explorer les serveurs et les bases de données qui composent l’application.
-> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue*.
-> - Approvisionner un nouveau locataire.
-> - Surveiller l’activité d’un locataire dans l’application.
+> - Comment déployer l’application SaaS Wingtip Tickets.
+> - Où obtenir le code source de l’application et les scripts de gestion.
+> - Les serveurs et bases de données qui composent l’application.
+> - Comment les clients sont mappés à leurs données grâce au *catalogue*.
+> - Comment approvisionner un nouveau locataire.
+> - Comment surveiller l’activité d’un locataire dans l’application.
 
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 

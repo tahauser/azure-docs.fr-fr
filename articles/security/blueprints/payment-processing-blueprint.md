@@ -1,6 +1,6 @@
 ---
-title: "Plan de traitement des paiements pour les environnements conformes à la norme PCI DSS"
-description: Condition de la norme PCI DSS
+title: "Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS"
+description: "Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint Automation : traitement des paiements pour les environnements conformes à la norme PCI DSS
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Solution Blueprint Sécurité et conformité Azure - Environnements de traitement des paiement conformes à la norme PCI DSS
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -43,7 +43,7 @@ L’architecture de base est constituée des éléments suivants :
 - **Modèles de déploiement**. Dans ce déploiement, des [modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) sont utilisés pour déployer automatiquement les composants de l’architecture dans Microsoft Azure, en spécifiant des paramètres de configuration pendant l’installation.
 - **Scripts de déploiement automatisé**. Ces scripts permettent de déployer la solution de bout en bout. Les scripts sont constitués des éléments suivants :
     - Un script de configuration de l’installation des modules et de configuration de [l’administrateur général](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) est utilisé pour installer et vérifier que les modules PowerShell et rôles d’administrateur général nécessaires sont configurés correctement.
-    - Un script PowerShell d’installation est utilisé pour déployer la solution de bout en bout, qui est fournie sous la forme d’un fichier .zip et d’un fichier .bacpac contenant une application web de démonstration prête à l’emploi, avec un [exemple de base de données SQL](https://github.com/Microsoft/azure-sql-security-sample). content. Le code source de cette solution est disponible dans le [dépôt du code du plan de traitement des paiements][code-repo]. 
+    - Un script PowerShell d’installation est utilisé pour déployer la solution de bout en bout, qui est fournie sous la forme d’un fichier .zip et d’un fichier .bacpac contenant une application web de démonstration prête à l’emploi, avec un [exemple de base de données SQL](https://github.com/Microsoft/azure-sql-security-sample). . Le code source de cette solution est disponible pour réviser le [ référentiel de code de solution Blueprint][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagramme architectural
 
@@ -72,7 +72,7 @@ Des rôles d’utilisateur pour illustrer le cas d’usage et donner une idée d
 
 #### <a name="role-site-and-subscription-admin"></a>Rôle : Administrateur du site et des abonnements
 
-|Item      |Exemple|
+|Item      |exemples|
 |----------|------|
 |Nom d’utilisateur : |`adminXX@contosowebstore.com`|
 | Nom : |`Global Admin Azure PCI Samples`|
@@ -84,7 +84,7 @@ Des rôles d’utilisateur pour illustrer le cas d’usage et donner une idée d
 
 #### <a name="role-sql-administrator"></a>Rôle : Administrateur SQL
 
-|Item      |Exemple|
+|Item      |exemples|
 |----------|------|
 |Nom d’utilisateur : |`sqlAdmin@contosowebstore.com`|
 | Nom : |`SQLADAdministrator PCI Samples`|
@@ -97,7 +97,7 @@ Des rôles d’utilisateur pour illustrer le cas d’usage et donner une idée d
 
 #### <a name="role-clerk"></a>Rôle : Comptable
 
-|Item      |Exemple|
+|Item      |exemples|
 |----------|------|
 |Nom d’utilisateur :| `receptionist_EdnaB@contosowebstore.com`|
 | Nom : |`Edna Benson`|
@@ -111,8 +111,6 @@ Edna Benson est réceptionniste et directrice commerciale. Elle est chargée de 
 - Elle peut modifier les informations client
 - Elle peut modifier le numéro de carte de paiement, la date d’expiration et le code CVV.
 
-> Dans Contoso Webstore, l’utilisateur est connecté automatiquement en tant que l’utilisateur **Edna** pour tester les fonctionnalités de l’environnement déployé.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - Estimation de la tarification
 
 Cette architecture de base et cet exemple d’application web ont un coût mensuel et un coût d’utilisation horaire qui doivent être pris en compte lors du dimensionnement de la solution. Ces coûts peuvent être estimés à l’aide de la [calculatrice de coûts Azure](https://azure.microsoft.com/pricing/calculator/). À compter de septembre 2017, le coût mensuel estimé de cette solution est de 2 500 $, dont 1 000 $ de frais d’utilisation pour ASE v2. Ces coûts varient en fonction de la quantité utilisée et sont susceptibles de changer. Il revient au client de calculer les coûts mensuels estimés au moment du déploiement, afin d’obtenir une estimation plus précise. 
@@ -123,9 +121,9 @@ Cette solution a utilisé les services Azure suivants. Les informations détaill
 >- Azure Active Directory
 >- App Service Environment v2
 >- OMS Log Analytics
->- Azure Key Vault
->- Groupes de sécurité réseau
->- Azure SQL DB
+>- Azure Key Vault
+>- Network Security Group
+>- Base de données SQL Azure
 >- Azure Load Balancer
 >- Application Insights
 >- Azure Security Center
@@ -136,7 +134,7 @@ Cette solution a utilisé les services Azure suivants. Les informations détaill
 >- Réseau virtuel Azure
 >- Machine virtuelle Azure
 >- Groupe de ressources et stratégies Azure
->- Stockage Blob Azure
+>- un stockage Azure Blob
 >- Contrôle d’accès en fonction du rôle (RBAC) Azure Active Directory
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
@@ -191,7 +189,7 @@ L’architecture protège les données au repos à l’aide du chiffrement, de l
 
 Pour répondre aux exigences du chiffrement des données au repos, l’ensemble du [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise le [chiffrement du service de stockage](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Base de données SQL Azure
 
 L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 
@@ -226,7 +224,7 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) est le service cloud et multilocataire de gestion des annuaires et des identités, proposé par Microsoft. Tous les utilisateurs de la solution ont été créés dans Azure Active Directory, y compris ceux qui accèdent à la base de données SQL.
 - L’authentification auprès de l’application est effectuée à l’aide d’Azure AD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise également Azure AD pour authentifier l’application auprès de la base de données SQL Azure. Pour plus d’informations, consultez [Always Encrypted : Protéger les données sensibles dans SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités pouvant affecter les identités de votre organisation et configure les réponses automatiques aux actions suspectes détectées qui sont liées aux identités de votre organisation. Enfin, il examine les incidents suspects et prend les mesures nécessaires pour les résoudre.
-- Le [contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/active-directory/role-based-access-control-configure) permet une gestion précise de l’accès pour Azure. L’accès à l’abonnement est limité à l’administrateur des abonnements, tandis que l’accès à Azure Key Vault est interdit à tous les utilisateurs.
+- Le [contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/active-directory/role-based-access-control-configure) permet une gestion précise de l’accès pour Azure. L’accès à l’abonnement est limité à l’administrateur des abonnements, et l’accès à Azure Key Vault est interdit à tous les utilisateurs.
 
 Pour plus d’informations sur l’utilisation des fonctionnalités de sécurité d’Azure SQL Database, consultez l’exemple [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) (Application de démonstration Contoso Clinic).
    
@@ -286,14 +284,14 @@ Utilisez [Application Insights](https://azure.microsoft.com/services/application
 
 Ces solutions OMS supplémentaires doivent être envisagées et configurées :
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
-- [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+- [Utiliser la solution d’analytique du réseau Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
-- [Change Tracking](/azure/log-analytics/log-analytics-change-tracking?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-- [Key Vault Analytics](/azure/log-analytics/log-analytics-azure-key-vault?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+- [Suivi des modifications](/azure/log-analytics/log-analytics-change-tracking?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+- [Analytique Key Vault](/azure/log-analytics/log-analytics-azure-key-vault?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Service Map](/azure/operations-management-suite/operations-management-suite-service-map)
 - [Security and Audit](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Antimalware](/azure/log-analytics/log-analytics-malware?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-- [Update Management](/azure/operations-management-suite/oms-solution-update-management)
+- [Logiciel anti-programme malveillant](/azure/log-analytics/log-analytics-malware?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+- [Gestion des mises à jour](/azure/operations-management-suite/oms-solution-update-management)
 
 ### <a name="security-center-integration"></a>Intégration Security Center
 
@@ -357,7 +355,7 @@ Il est fortement recommandé d’utiliser une nouvelle installation de PowerShel
     
 ## <a name="threat-model"></a>Modèle de menace
 
-Diagramme de flux de données et exemple de modèle de menace pour le [modèle de menace du plan de traitement des paiements](https://aka.ms/pciblueprintthreatmodel) Contoso Webstore.
+Diagramme de flux de données et exemple de modèle de menace pour le [modèle de menace de la solution Blueprint](https://aka.ms/pciblueprintthreatmodel) de Contoso Webstore.
 
 ![](images/pci-threat-model.png)
 

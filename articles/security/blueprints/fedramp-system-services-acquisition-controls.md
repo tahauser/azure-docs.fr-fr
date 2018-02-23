@@ -1,6 +1,6 @@
 ---
-title: "Automatisation Azure Blueprint pour le programme FedRAMP - Acquisition du système et des services"
-description: "Applications web pour le programme FedRAMP - Acquisition du système et des services"
+title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Acquisition du système et des services"
+description: "Automatisation des applications web pour le programme FedRAMP - Acquisition du système et des services"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Acquisition du système et des services (SA)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’institut NIST (National Institute of Standards and Technology) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-sa-1"></a>NIST 800-53 Contrôle SA-1
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-4 (1)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information fournisse une description des propriétés fonctionnelles des contrôles de sécurité à utiliser.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-4 (2)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information fournisse des informations de conception et d’implémentation concernant les contrôles de sécurité à employer, incluant ce qui suit : [Sélection (un ou plusieurs) : interfaces du système externe liées à la sécurité ; conception de haut niveau ; conception de bas niveau ; schémas de matériel ou de code source ; [Affectation : informations de conception/implémentation définies par l’organisation]] au [Affectation : niveau de détail défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-4 (9)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information identifie tôt dans le cycle de vie de développement de système, les fonctions, ports, protocoles et services destinés à utilisation de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-4 (10)** L’organisation utilise uniquement des produits de technologie de l’information figurant sur la liste des produits certifiés des normes FIPS 201 pour la fonctionnalité de vérification d’identité personnelle implémentée dans les systèmes d’information organisationnels.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-5.b** L’organisation obtient la documentation de l’utilisateur pour le système d’information, un composant du système ou un service du système d’information, décrivant les fonctions/mécanismes de sécurité accessibles à l’utilisateur et comment utiliser efficacement ces fonctions/mécanismes de sécurité ; les méthodes pour l’interaction de l’utilisateur qui permet à celui-ci d’utiliser le système, composant ou service de manière plus sécurisée ; et les responsabilités de l’utilisateur dans le maintien de la sécurité du système, composant ou service.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-5.c** L’organisation documente les tentatives d’obtenir la documentation du système d’information, d’un composant du système ou d’un service du système d’information quand cette documentation est indisponible ou inexistante, et prend [Affectation : mesures définies par l’organisation] en réponse.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-5.d** L’organisation protège la documentation comme requis, conformément à la stratégie de gestion des risques.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-9.a** L’organisation exige que les fournisseurs de services de système d’information externes répondent aux exigences de sécurité des informations organisationnelles et emploient [Affectation : contrôles de sécurité définis par l’organisation] conformément aux lois de l’État fédéral, décrets, directives, stratégies, réglementations, normes et instructions applicables.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-9.c** L’organisation utilise [Affectation : processus, méthodes et techniques définis par l’organisation] pour surveiller en permanence le respect du contrôle de sécurité par les fournisseurs de services externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-9 (1).b** L’organisation garantit que l’acquisition ou la sous-traitance de services de sécurité des informations dédiés est approuvée par [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-9 (5)** L’organisation restreint l’emplacement de [Sélection (un ou plusieurs) : traitement des informations ; informations/données ; services de système d’information] sur [Affectation : emplacements définis par l’organisation] sur la base de [Affectation : exigences ou conditions définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-10.a** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information effectue la gestion de la configuration pendant la phase de [Sélection (un ou plusieurs) : conception ; développement ; implémentation ; exploitation] du système, composant ou service.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-11.e** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information corrige les défauts identifiés durant le test et l’évaluation de la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-11 (2)** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information effectue des analyses des menaces et de la vulnérabilité, ainsi que des tests et une évaluation ultérieurs du système, composant, ou service intégrés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-12** L’organisation protège contre les menaces de la chaîne d’approvisionnement pesant sur le système d’information, un composant du système ou un service du système d’information en utilisant [Affectation : mesures de sécurité définies par l’organisation] comme partie d’un stratégie complète de sécurité des informations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-15.a** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information suive un processus de développement documenté qui aborde explicitement les exigences de sécurité ; identifie les normes et outils utilisés dans le cadre du processus de développement ; documente les options et configurations d’outils spécifiques utilisées dans le cadre du processus de développement ; et documente, gère et garantisse l’intégrité des changements du processus et/ou des outils utilisés dans le cadre du développement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 11/23/2017
 
 **SA-16** L’organisation exige que le développeur du système d’information, d’un composant du système ou d’un service du système d’information fournisse [Affectation : formation définie par l’organisation] sur l’utilisation et l’exploitation correctes des fonctions, contrôles et/ou mécanismes de sécurité implémentés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

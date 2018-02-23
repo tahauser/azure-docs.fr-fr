@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
@@ -63,15 +63,15 @@ Les journaux de la catégorie **OperationalLogs** capturent ce qui se passe dura
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-Nom | Description
+NOM | DESCRIPTION
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi
 EventName | Nom d’opération           
-resourceId | ID de ressource Azure Resource Manager
+ResourceId | ID de ressource Azure Resource Manager
 SubscriptionId | Identifiant d’abonnement
 EventTimeString | Durée de l’opération
 EventProperties | Propriétés de l’opération
-État | État de l’opération
+Statut | État de l’opération
 Appelant | Appelant de l’opération (portail Azure ou client de gestion)
 category | OperationalLogs
 
@@ -91,9 +91,9 @@ Voici un exemple de chaîne JSON du journal des opérations :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour en savoir plus sur Service Bus, consultez les liens suivants :
+Pour en savoir plus sur Service Bus, voir les liens suivants :
 
 * [Introduction à Service Bus](service-bus-messaging-overview.md)
 * [Bien démarrer avec Service Bus](service-bus-dotnet-get-started-with-queues.md)

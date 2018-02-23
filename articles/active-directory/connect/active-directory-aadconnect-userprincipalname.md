@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Remplissage de UserPrincipalName dans Azure AD
 
@@ -67,9 +67,10 @@ La valeur d’attribut UserPrincipalName Azure AD pouvant être définie pour l�
 Lorsqu’un objet utilisateur est synchronisé avec un locataire Azure AD pour la première fois, Azure AD vérifie les éléments suivants dans l’ordre indiqué et définit la valeur d’attribut MailNickName sur le premier trouvé :
 
 - Attribut mailNickName local
-- Préfixe d’attribut mail local
 - Préfixe d’adresse SMTP principale
+- Préfixe d’attribut mail local
 - Préfixe d’ID de connexion de remplacement/attribut UserPrincipalName local
+- Préfixe d’adresse SMTP secondaire
 
 Lorsque les mises à jour d’un objet utilisateur sont synchronisées avec le locataire Azure AD, Azure AD ne met à jour la valeur d’attribut MailNickName qu’en cas de mise à jour de la valeur d’attribut mailNickName locale.
 
@@ -85,12 +86,12 @@ Voici quelques exemples de scénarios, ainsi que la façon dont l’UPN est calc
 
 Objet utilisateur local :
 - mailNickName : &lt;non défini&gt;
-- mail : us1@contoso.com
-- proxyAddresses : {SMTP:us2@contoso.com}
+- proxyAddresses : {SMTP:us1@contoso.com}
+- mail : us2@contoso.com
 - UserPrincipalName : us3@contoso.com`
 
 Synchroniser l’objet utilisateur avec le locataire Azure AD la première fois.
-- Définir l’attribut Azure AD MailNickName Azure AD sur le préfixe d’attribut mail local.
+- Configurez l’attribut MailNickName d’Azure AD sur le préfixe de l’adresse SMTP principale.
 - Définir l’adresse MOERA sur &lt;MailNickName&gt;&#64;&lt;domaine initial&gt;.
 - Définir l’attribut UserPrincipalName Azure AD sur l’adresse MOERA.
 
@@ -103,8 +104,8 @@ Objet utilisateur du locataire Azure AD :
 
 Objet utilisateur local :
 - mailNickName : us4
-- mail : us1@contoso.com
-- proxyAddresses : {SMTP:us2@contoso.com}
+- proxyAddresses : {SMTP:us1@contoso.com}
+- mail : us2@contoso.com
 - UserPrincipalName : us3@contoso.com
 
 Synchroniser la mise à jour de l’attribut mailNickName local avec le locataire Azure AD.
@@ -119,8 +120,8 @@ Objet utilisateur du locataire Azure AD :
 
 Objet utilisateur local :
 - mailNickName : us4
-- mail : us1@contoso.com
-- proxyAddresses : {SMTP:us2@contoso.com}
+- proxyAddresses : {SMTP:us1@contoso.com}
+- mail : us2@contoso.com
 - UserPrincipalName : us5@contoso.com
 
 Synchroniser la mise à jour de l’attribut UserPrincipalName local avec le locataire Azure AD.
@@ -132,12 +133,12 @@ Objet utilisateur du locataire Azure AD :
 - MailNickName : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Scénario 4 : Suffixe UPN non vérifié – mise à jour de l’attribut mail local et de l’adresse SMTP principale
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scénario 4 : Suffixe UPN non vérifié – mise à jour de l’adresse SMTP principale et de l’attribut mail local
 
 Objet utilisateur local :
 - mailNickName : us4
-- mail : us6@contoso.com
-- proxyAddresses : {SMTP:us7@contoso.com}
+- proxyAddresses : {SMTP:us6@contoso.com}
+- mail : us7@contoso.com
 - UserPrincipalName : us5@contoso.com
 
 Synchroniser la mise à jour de l’attribut mail local et de l’adresse SMTP principale avec le locataire Azure AD
@@ -151,8 +152,8 @@ Objet utilisateur du locataire Azure AD :
 
 Objet utilisateur local :
 - mailNickName : us4
-- mail : us6@contoso.com
-- proxyAddresses : {SMTP:us7@contoso.com}
+- proxyAddresses : {SMTP:us6@contoso.com}
+- mail : us7@contoso.com
 - serPrincipalName : us5@verified.contoso.com
 
 Synchroniser la mise à jour de l’attribut UserPrincipalName local avec le locataire Azure AD.

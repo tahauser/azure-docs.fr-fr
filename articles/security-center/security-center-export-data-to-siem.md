@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: aef623f047bd7e14cb5bd17fb2a2c18e3c5d42b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportation de données Azure Security vers SIEM - Configuration du pipeline [Préversion]
 
@@ -40,11 +40,11 @@ Dans cette préversion, nous exposons les [alertes de sécurité](../security-ce
 
 ## <a name="how-to-setup-the-pipeline"></a>Comment configurer le pipeline ? 
 
-### <a name="create-an-event-hub"></a>Créer un hub d’événements 
+### <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements 
 
 Avant de commencer, vous devez [créer un espace de noms Event Hubs](../event-hubs/event-hubs-create.md). Cet espace de noms et cet hub d’événements sont la destination de toutes vos données de monitoring.
 
-### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Acheminer le journal des activités Azure sur Event Hubs
+### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 
 Consultez l’article [Acheminer le journal des activités Azure vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
@@ -61,12 +61,12 @@ Voici quelques exemples de requêtes Splunk que vous pouvez utiliser pour extrai
 | **Description de la requête**                                | **Requête**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Toutes les alertes                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
-| Résumer le nombre d’opérations par leur nom             | **Alerts** index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
+| Résumer le nombre d’opérations par leur nom             | index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
 | Obtenir des informations d’alertes : heure, nom, état, ID et abonnement | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Systèmes SIEM pris en charge](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
-- [Acheminer le journal d’activité vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+- [Diffuser en continu le journal d’activité vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 - [Alertes de sécurité](../security-center/security-center-managing-and-responding-alerts.md)

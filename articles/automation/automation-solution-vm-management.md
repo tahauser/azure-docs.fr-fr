@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solution Start/Stop VMs during off-hours (préversion) dans Azure Automation
 
@@ -129,7 +129,7 @@ Vous ne devez pas activer toutes les planifications, car vous risqueriez de cré
 
 Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (préversion) à votre compte Automation, puis configurer les variables pour personnaliser la solution.
 
-1. Dans le portail Azure, cliquez sur **Nouveau**.<br> ![Portail Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Dans le portail Azure, cliquez sur **Créer une ressource**.<br> ![Portail Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. Dans le volet Place de marché, saisissez un mot clé, tel que **Démarrer** ou **Arrêter/Démarrer**. Au fur et à mesure de la saisie, la liste est filtrée. Vous pouvez également saisir un ou plusieurs des mots clés à partir du nom complet de la solution, puis appuyer sur la touche Entrée.  Sélectionnez **Démarrer/arrêter des machines virtuelles pendant les heures creuses [version préliminaire]** à partir des résultats de recherche.  
 3. Dans le panneau **Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]** de la solution sélectionnée, vérifiez les informations du résumé, puis cliquez sur **Créer**.  
 4. Le volet **Ajouter une solution** s’affiche. Vous êtes invité à configurer la solution pour pouvoir l’importer dans votre abonnement Automation.<br><br> ![Panneau Ajouter une solution de VM Management (Gestion de machines virtuelles)](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

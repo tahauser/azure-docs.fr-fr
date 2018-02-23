@@ -1,6 +1,6 @@
 ---
-title: "Solution FedRAMP Azure Blueprint Automation - Autorisation et évaluation de la sécurité"
-description: "Applications web pour FedRAMP - Autorisation et évaluation de la sécurité"
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Évaluation de la sécurité et autorisation"
+description: "Automatisation d’applications web FedRAMP - Évaluation de la sécurité et autorisation"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Autorisation et évaluation de la sécurité (autorité de certification)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-ca-1"></a>NIST 800-53 Contrôle CA-1
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-2.d** L’organisation fournit les résultats de l’évaluation du contrôle de sécurité à [Affectation : personnes ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-2 (1)** L’organisation emploie des évaluateurs ou des équipes d’évaluation avec [Affectation : niveau d’indépendance défini par l’organisation] pour effectuer des évaluations du contrôle de sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-3.a** L’organisation autorise les connexions du système d’information vers d’autres systèmes d’information par le biais d’accords de sécurité des interconnexions.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Azure Application Gateway et les groupes de sécurité réseau sont déployés pour limiter la connectivité externe aux ressources déployées par cette solution Azure Blueprint. Les ensembles de règles appliqués aux groupes de sécurité réseau sont configurés à l’aide d’un schéma de refus par défaut. |
+| **Client** | Azure Application Gateway et des groupes de sécurité réseau sont déployés pour limiter la connectivité externe aux ressources déployées par cette solution Blueprint. Les ensembles de règles appliqués aux groupes de sécurité réseau sont configurés à l’aide d’un schéma de refus par défaut. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-6.c** L’organisation met à jour l’autorisation de sécurité [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-7.a** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend l’établissement de [Affectation : paramètres définis par l’organisation] à surveiller.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-7.d** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend une surveillance continue de l’état de la sécurité des mesures définies par l’organisation, conformément à la stratégie de surveillance continue de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-7.g** L’organisation élabore une stratégie de surveillance continue et met en œuvre un programme de surveillance continue qui comprend la communication de l’état de la sécurité de l’organisation et du système d’information à [Affectation : personnel ou rôles définis par l’organisation] à chaque [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-9.b** L’organisation présente, pour chaque connexion interne, les caractéristiques de l’interface, les exigences de sécurité et la nature de l’information communiquée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

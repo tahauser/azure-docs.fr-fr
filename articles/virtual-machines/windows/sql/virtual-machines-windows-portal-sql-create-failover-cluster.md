@@ -4,7 +4,7 @@ description: "Cet article explique comment créer une instance de cluster de bas
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -93,7 +93,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
    - Dans le portail Azure, cliquez sur **+** pour ouvrir Azure Marketplace. Recherchez **Groupe à haute disponibilité**.
    - Cliquez sur **Groupe à haute disponibilité**.
-   - Cliquez sur **Create**.
+   - Cliquez sur **Créer**.
    - Dans le panneau **Créer un groupe à haute disponibilité**, définissez les valeurs suivantes :
       - **Nom** : nom du groupe à haute disponibilité.
       - **Abonnement** : votre abonnement Azure.
@@ -117,7 +117,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
       >[!IMPORTANT]
       >Vous ne pouvez pas définir ni modifier un groupe à haute disponibilité après la création d’une machine virtuelle.
 
-   Choisissez une image dans Azure Marketplace. Vous pouvez utiliser une image Marketplace qui inclut Windows Server et SQL Server, ou uniquement Windows Server. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Choisissez une image dans Azure Marketplace. Vous pouvez utiliser une image Marketplace qui inclut Windows Server et SQL Server, ou uniquement Windows Server. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Les images SQL Server officielles dans la galerie Azure incluent une instance SQL Server installée, ainsi que le logiciel d’installation SQL Server et la clé requise.
 
@@ -157,7 +157,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
    Sur chaque machine virtuelle, ouvrez les ports suivants du pare-feu Windows.
 
-   | Objectif | Port TCP | Remarques
+   | Objectif | Port TCP | Notes
    | ------ | ------ | ------
    | SQL Server | 1433 | Port normal pour les instances par défaut de SQL Server. Si vous avez utilisé une image de la galerie, ce port s’ouvre automatiquement.
    | Sonde d’intégrité | 59999 | Tout port TCP ouvert. Dans une étape ultérieure, configurez la [sonde d’intégrité](#probe) de l’équilibrage de charge et le cluster pour qu’ils utilisent ce port.  
@@ -343,7 +343,7 @@ Pour créer l’équilibrage de charge :
 
 1. Cliquez sur **+ Ajouter**. Recherchez **Équilibrage de charge** dans Azure Marketplace. Cliquez sur **Équilibrage de charge**.
 
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 1. Configurez l’équilibrage de charge avec :
 
@@ -478,7 +478,7 @@ Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur 
 >[!NOTE]
 >Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Sur les machines virtuelles Azure, Microsoft Distributed Transaction Coordinator (DTC) n’est pas pris en charge sur les instances de cluster de basculement car le port RPC n’est pas pris en charge par l’équilibrage de charge.
 
 ## <a name="see-also"></a>Voir aussi

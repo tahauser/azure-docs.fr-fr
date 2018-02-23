@@ -4,7 +4,7 @@ description: "Ce didacticiel montre comment créer un groupe de disponibilité A
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -32,13 +32,13 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 Le tableau suivant répertorie les conditions requises que vous devez remplir avant de commencer ce didacticiel :
 
-|  |Prérequis |Description |
+|  |Prérequis |DESCRIPTION |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Deux serveurs SQL Server | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partage de fichiers pour le témoin de cluster |  
@@ -186,7 +186,7 @@ Ensuite, activez la fonctionnalité **Groupes de disponibilité AlwaysOn**. Effe
 
     ![Activation des groupes à haute disponibilité AlwaysOn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. Cliquez sur **Apply**. Cliquez sur **OK** dans la boîte de dialogue contextuelle.
+4. Cliquez sur **Appliquer**. Cliquez sur **OK** dans la boîte de dialogue contextuelle.
 
 5. Redémarrez le service SQL Server.
 
@@ -294,7 +294,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
     ![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur **Suivant**.
+8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de *\\\\\<Premier serveur SQL Server\>\Backup\**. Cliquez sur **Suivant**.
 
    >[!NOTE]
    >La synchronisation complète effectue une sauvegarde complète de la base de données sur la première instance de SQL Server et la restaure sur la deuxième instance. Pour les bases de données volumineuses, une synchronisation complète n’est pas recommandée, car elle peut prendre longtemps. Vous pouvez réduire ce temps en effectuant manuellement une sauvegarde de la base de données et en la restaurant avec `NO RECOVERY`. Si la base de données est déjà restaurée avec `NO RECOVERY` sur le second serveur SQL Server avant de configurer le groupe de disponibilité, choisissez **Join only (Joindre uniquement)**. Si vous souhaitez effectuer la sauvegarde après avoir configuré le groupe de disponibilité, choisissez **Ignorer la synchronisation de données initiale**.
@@ -351,14 +351,14 @@ Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requi
 
    | Paramètre | Champ |
    | --- | --- |
-   | **Nom** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
+   | **Name** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
    | **Type** |Interne |
    | **Réseau virtuel** |Utilisez le nom de votre réseau virtuel Azure. |
    | **Sous-réseau** |Utilisez le nom du sous-réseau auquel appartient la machine virtuelle.  |
-   | **Affectation d’adresses IP** |Statique |
+   | **Affectation d’adresses IP** |statique |
    | **Adresse IP** |Utilisez une adresse disponible du sous-réseau. |
    | **Abonnement** |Utilisez le même abonnement que la machine virtuelle. |
-   | **Emplacement** |Utilisez le même emplacement que la machine virtuelle. |
+   | **Lieu** |Utilisez le même emplacement que la machine virtuelle. |
 
    Le panneau du portail Azure doit ressembler à ceci :
 
@@ -376,9 +376,9 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**. Configurez le pool principal comme suit :
 
-   | Paramètre | Description | Exemple
+   | Paramètre | DESCRIPTION | exemples
    | --- | --- |---
-   | **Nom** | Tapez un nom. | SQLLBBE
+   | **Name** | Tapez un nom. | SQLLBBE
    | **Associé à** | Choisir dans la liste | Groupe à haute disponibilité
    | **Groupe à haute disponibilité** | Utilisez le nom du groupe à haute disponibilité auquel appartiennent vos machines virtuelles SQL Server. | sqlAvailabilitySet |
    | **Machines virtuelles** |Les deux noms des machines virtuelles SQL Server Azure | sqlserver-0, sqlserver-1
@@ -399,12 +399,12 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Configurez la sonde d’intégrité comme suit :
 
-   | Paramètre | Description | Exemple
+   | Paramètre | DESCRIPTION | exemples
    | --- | --- |---
-   | **Nom** | Texte | SQLAlwaysOnEndPointProbe |
+   | **Name** | Texte | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 59999 |
-   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5 |
+   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
    | **Seuil de défaillance sur le plan de l’intégrité** | Nombre d’échecs de sonde consécutifs qui doivent se produire pour qu’une machine virtuelle soit considérée comme défectueuse.  | 2 |
 
 1. Cliquez sur **OK** pour configurer la sonde d’intégrité.
@@ -414,9 +414,9 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 1. Cliquez sur l’équilibrage de charge, sur **Règles d’équilibrage de charge** et sur **+Ajouter**.
 
 1. Configurez les règles d’équilibrage de charge comme suit :
-   | Paramètre | Description | Exemple
+   | Paramètre | DESCRIPTION | exemples
    | --- | --- |---
-   | **Nom** | Texte | SQLAlwaysOnEndPointListener |
+   | **Name** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |
    | **Protocole** | Choisissez TCP. |TCP |
    | **Port** | Utilisez le port de l’instance de SQL Server. | 1433 |
@@ -424,7 +424,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | SQLAlwaysOnEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
    | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |
-   | **Adresse IP flottante (retour serveur direct)** | |Activé |
+   | **Adresse IP flottante (retour serveur direct)** | |activé |
 
    > [!WARNING]
    > Le retour au serveur direct est configuré lors de la création. Cette valeur n’est pas modifiable.
@@ -497,6 +497,6 @@ La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébe
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Add an IP address to an existing load balancer with PowerShell (Ajouter une adresse IP à un équilibrage de charge pour un deuxième groupe de disponibilité)](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise
 Comprendre l’utilisation de l’offre d’instance réservée en utilisant l’ID de réservation dans la [page Réservation](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) et dans le fichier d’utilisation du [portail EA.](https://ea.azure.com) Vous pouvez également consulter l’utilisation de la réservation dans la section récapitulative de l’utilisation du [portail EA](https://ea.azure.com).
@@ -32,12 +32,12 @@ Pour la section suivante, supposez que vous exécutez une machine virtuelle Wind
 |---| --- |
 |ID de réservation |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Quantité |1|
-|SKU | Standard_D1|
+|SKU | D1 standard|
 |Région | eastus |
 
 ## <a name="reservation-application"></a>Application de la réservation
 
-La partie matérielle de la machine virtuelle est traitée, car la machine virtuelle déployée correspond aux attributs de la réservation. Pour savoir quels logiciels Windows ne sont pas couverts par l’offre d’instance réservée, accédez à [Coûts des logiciels Windows dans les instances de machine virtuelle réservées Azure](billing-reserved-instance-windows-software-costs.md).
+La partie matérielle de la machine virtuelle est traitée, car la machine virtuelle déployée correspond aux attributs de la réservation. Pour savoir quels logiciels Windows ne sont pas couverts par l’offre d’instance réservée, accédez à [Coûts des logiciels Windows dans Azure Reserved VM Instances](billing-reserved-instance-windows-software-costs.md).
 
 
 ### <a name="reservation-usage-in-csv"></a>Utilisation de la réservation dans le fichier csv
@@ -56,6 +56,16 @@ L’utilisation de l’offre d’instance réservée s’affiche également dans
 
 1. Vous n’êtes pas facturé pour le composant matériel de la machine virtuelle, car il est couvert par l’offre d’instance réservée. 
 2. Vous êtes facturé pour les logiciels Windows puisque Azure Hybrid Benefit n’est pas utilisé. 
+
+## <a name="next-steps"></a>étapes suivantes
+Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
+
+- [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administrer les instances de machine virtuelle réservées Azure](billing-manage-reserved-vm-instance.md)
+- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](billing-save-compute-costs-reservations.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Coûts des logiciels Windows non inclus dans les instances réservées](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

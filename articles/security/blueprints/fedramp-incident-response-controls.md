@@ -1,6 +1,6 @@
 ---
-title: "Applications Web pour FedRAMP - Réponse aux incidents"
-description: "Applications Web pour FedRAMP - Réponse aux incidents"
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Réponse aux incidents"
+description: "Automatisation d’applications web FedRAMP - Réponse aux incidents"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Réponse aux incidents
 
 > [!NOTE]
-> Ces contrôles sont définis par le service NIS (Network Information Service) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 Revision 4 du service NIST. Pour obtenir des informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rev. 4.
+> Ces contrôles sont définis par le service NIS (Network Information Service) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-ir-1"></a>NIST 800-53 - Contrôle IR-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de réponse aux incidents qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de réponse aux incidents et des contrôles de réponse aux incidents associés ; et révise et met à jour la stratégie actuelle de réponse aux incidents [Affectation : fréquence définie par l’organisation] ; et les procédures de réponse aux incidents [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-2.a** L’organisation fournit une formation de réponse aux incidents aux utilisateurs du système informatique cohérente avec les rôles et responsabilités de réponse aux incidents affectés pendant [Affectation : période définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-2.b** L’organisation fournit une formation de réponse aux incidents aux utilisateurs du système informatique cohérente avec les rôles et responsabilités affectés en cas de changement de système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-2.c** L’organisation fournit une formation de réponse aux incidents aux utilisateurs du système informatique cohérente avec les rôles et responsabilités affectés [Affectation : fréquence définie par l’organisation] par la suite.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-2 (1)** L’organisation incorpore des événements simulés dans la formation de réponse aux incidents afin d’améliorer l’efficacité des réponses du personnel dans des situations de crise.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/23/2017
 
 **3-IR** L’organisation teste la capacité de réponse aux incidents pour le système informatique [Affectation : fréquence définie par l’organisation] à l’aide de [Affectation : tests définis par l’organisation] pour déterminer l’efficacité de réponse aux incidents et documente les résultats.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-3 (2)** L’organisation coordonne le test de réponse aux incidents avec les éléments d’organisation responsables des plans associés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4.a** L’organisation implémente une capacité de gestion des incidents pour les incidents de sécurité qui inclut la préparation, la détection et l’analyse, la relation d’imbrication, l’éradication et la récupération.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4.b** L’organisation coordonne les activités de gestion des incidents avec les activités de planification d’urgence.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4.c** L’organisation incorpore les leçons tirées des activités de gestion des incidents en cours dans les procédures de réponse aux incidents, les formations et les tests, et implémente en conséquence les changements qui en résultent.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4 (1)** L’organisation utilise des mécanismes automatisés pour prendre en charge le processus de gestion des incidents.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4 (2)** L’organisation inclut la reconfiguration dynamique de [Affectation : composants du système informatique définis par l’organisation] dans le cadre de la capacité de réponse aux incidents.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-4 (4)** L’organisation met en corrélation les informations sur les incidents et les réponses individuelles aux incidents pour obtenir un point de vue de l’organisation sur la reconnaissance des incidents et les réponses à ces incidents.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -270,7 +270,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-5** L’organisation suit et documente les incidents de sécurité du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -284,7 +284,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-5 (1)** L’organisation utilise des mécanismes automatisés pour faciliter le suivi des incidents de sécurité ainsi que la collecte et l’analyse des informations sur les incidents.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -298,7 +298,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-6.a** L’organisation demande au personnel de signaler tout incident de sécurité suspect dans la fonctionnalité de réponse aux incidents de l’organisation d’ici [Affectation : période de temps définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -326,7 +326,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-6 (1)** L’organisation utilise les mécanismes automatisés pour faciliter la création de rapports d’incidents de sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -354,7 +354,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-7 (1)** L’organisation utilise des mécanismes automatisés pour augmenter la disponibilité des informations et du support de réponse aux incidents.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -368,7 +368,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-7 (2) .a** L’organisation établit une relation directe et coopérative entre sa capacité de réponse aux incidents et les fournisseurs externes de la capacité de protection du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -382,7 +382,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-7 (2) .b** L’organisation identifie les membres de l’équipe de réponse aux incidents de l’organisation pour les fournisseurs externes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -396,7 +396,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-8.a** L’organisation développe un plan de réponse aux incidents qui fournit à l’organisation une feuille de route pour l’implémentation de sa capacité de réponse aux incidents ; décrit la structure et l’organisation de la capacité de réponse aux incidents ; fournit une approche de haut niveau pour la manière dont la capacité de réponse aux incidents s’adapte à l’organisation générale ; répond aux exigences uniques de l’organisation qui se rapportent à la mission, à la taille, à la structure et aux fonctions ; définit les incidents pouvant être signalés ; fournit des métriques pour mesurer la capacité de réponse aux incidents dans l’organisation ; définit les ressources et le support de gestion nécessaires pour mettre à jour et affiner une capacité de réponse aux incidents ; et est révisé et approuvé par [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -424,7 +424,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-8.c** L’organisation examine le plan de réponses aux incidents [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -452,7 +452,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-8.e** L’organisation distribue des copies du plan de réponse aux incidents à [Affectation : personnel (identifié par nom ou par rôle) et éléments organisationnels de réponse aux incidents définis par l’organisation et les éléments d’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -494,7 +494,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9.b** L’organisation répond aux débordements d’informations en alertant [affectation : personnel ou rôles définis par l’organisation] sur ces débordements à l’aide d’une méthode de communication non associée au débordement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -536,7 +536,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9.e** L’organisation répond aux débordements d’informations en identifiant d’autres systèmes informatiques ou composants du système qui peuvent avoir été contaminés par la suite.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -550,7 +550,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9.f** L’organisation répond aux débordements d’informations en effectuant d’autres [Affectation : actions définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -564,7 +564,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9 (1)** L’organisation affecte à [Affectation : personnel ou rôles définis par l’organisation] la responsabilité de répondre aux débordements d’informations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -578,7 +578,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9 (2)** L’organisation fournit la formation de réponse aux débordements d’informations [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -592,7 +592,7 @@ ms.lasthandoff: 11/23/2017
 
 **IR-9 (3)** L’organisation implémente [Affectation : procédures définies par l’organisation] pour s’assurer que le personnel de l’organisation affecté par les débordements d’informations puisse continuer à effectuer les tâches affectées pendant l’application des actions correctives aux systèmes contaminés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertes de journal dans Azure Monitor - Alerts (préversion)
 Cet article décrit en détail le fonctionnement des règles d’alerte des requêtes Analytics dans Azure Alerts (préversion) et décrit les différences entre les divers types de règles d’alerte de journal.
-Actuellement, Azure Alerts (préversion) prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) écrites dans le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md).
+
+Actuellement, Azure Alerts (préversion) prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) et d’[Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Pour le moment, les alertes de journal Azure Alerts (préversion) ne prennent pas en charge les requêtes portant sur plusieurs espaces de travail ou applications. 
+
+> Actuellement, les alertes de journal dans Azure Alerts (préversion) ne prennent pas en charge les requêtes portant sur plusieurs espaces de travail ou applications.
 
 ## <a name="log-alert-rules"></a>Règles d'alerte de journal
 
@@ -70,7 +72,16 @@ Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet
 
 **Fonction d'agrégation** : détermine le calcul à effectuer et, éventuellement, un champ numérique à agréger.  Par exemple, **count()** renvoie le nombre d’enregistrements dans la requête, et **avg(CounterValue)** renvoie la moyenne du champ CounterValue sur l’intervalle.
 
+> [!NOTE]
+
+> La fonction d’agrégation dans une requête doit être nommée/appelée AggregatedValue et fournir une valeur numérique.
+
+
 **Champ de groupe** : un enregistrement avec une valeur agrégée est créé pour chaque instance de ce champ, et une alerte peut être générée pour chacun.  Par exemple, si vous souhaitez générer une alerte pour chaque ordinateur, vous pourriez utiliser **by Computer**.   
+
+> [!NOTE]
+
+> Pour la mesure de métriques, les règles d’alerte basées sur Application Insights, vous pouvez spécifier le champ de regroupement des données. Pour ce faire, utilisez l’option **Agréger sur** dans la définition de règle.   
 
 **Intervalle** : définit l’intervalle de temps pendant lequel les données sont agrégées.  Par exemple, si vous avez spécifié **5 minutes**, un enregistrement est créé pour chaque instance du champ de groupe agrégé à intervalles de 5 minutes sur la fenêtre de temps spécifiée pour l’alerte.
 
@@ -93,6 +104,6 @@ Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 d
 
 
 ## <a name="next-steps"></a>étapes suivantes
-* [Consulter une présentation d’Azure Alerts (préversion)](monitoring-overview-unified-alerts.md) 
+* [Consulter une présentation d’Azure Alerts (préversion)](monitoring-overview-unified-alerts.md)
 * En savoir plus sur l’[utilisation d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md)
 * En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md).    

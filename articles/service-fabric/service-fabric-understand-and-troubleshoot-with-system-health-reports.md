@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -638,6 +638,21 @@ D’autres appels d’API qui peuvent être bloqués se trouvent dans l’interf
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)** : cet avertissement indique un problème dans le processus de génération. Pour en savoir plus, consultez [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). Cela peut être dû à une configuration incorrecte de l’adresse du réplicateur. Pour plus d’informations, consultez [Configuration des services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md) et [Spécifier des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md). Il peut également s’agir d’un problème sur le nœud distant.
 
+### <a name="replicator-system-health-reports"></a>Rapports d’intégrité du système sur le réplicateur
+**File d’attente de réplication complète :**
+**System.Replicator** indique un avertissement lorsque la file d’attente de réplication est pleine. Sur le réplica principal, la file d’attente de réplication se remplit généralement en raison de la lenteur d’un ou de plusieurs réplicas secondaires à accuser réception des opérations. Sur le rôle secondaire, cela se produit habituellement lorsque le service prend trop de temps pour appliquer les opérations. L’avertissement est effacé une fois que la file d’attente n’est plus pleine.
+
+* **SourceId**: System.Replicator
+* **Property** : **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus** en fonction du rôle du réplica.
+* **Étapes suivantes** : si le rapport se trouve sur le réplica principal, vérifiez la connexion entre les nœuds dans le cluster. Si toutes les connexions sont intègres, il se peut qu’il y ait au moins un réplica secondaire lent avec une latence de disque élevée pour appliquer les opérations. Si le rapport se trouve sur le réplica secondaire, vérifiez dans un premier temps l’utilisation du disque et les performances sur le nœud, puis la connexion sortante à partir du nœud lent vers le réplica principal.
+
+**RemoteReplicatorConnectionStatus :**
+**System.Replicator** sur le réplica principal signale un avertissement lorsque la connexion à un duplicateur secondaire (distant) n’est pas intègre. L’adresse du duplicateur distant figure dans le message du rapport, ce qui permet de détecter facilement si une configuration incorrecte a été transmise ou s’il y a des problèmes réseau entre les duplicateurs.
+
+* **SourceId**: System.Replicator
+* **Property**: **RemoteReplicatorConnectionStatus**
+* **Étapes suivantes** : vérifiez le message d’erreur et assurez-vous que l’adresse du duplicateur distant est configuré correctement (par exemple, si le duplicateur distant est ouvert avec l’adresse d’écoute « localhost », il n'est pas accessible depuis l’extérieur). Si l’adresse semble correcte, vérifiez la connexion entre le nœud principal et l’adresse distante pour rechercher d’éventuels problèmes de réseau.
+
 ### <a name="replication-queue-full"></a>File d’attente de réplication complète
 **System.Replicator** indique un avertissement lorsque la file d’attente de réplication est pleine. Sur le réplica principal, la file d’attente de réplication se remplit généralement en raison de la lenteur d’un ou de plusieurs réplicas secondaires à accuser réception des opérations. Sur le rôle secondaire, cela se produit habituellement lorsque le service prend trop de temps pour appliquer les opérations. L’avertissement est effacé une fois que la file d’attente n’est plus pleine.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting indique une erreur en cas d’échec du téléchargement du package d’application.
 
 * **SourceId**: System.Hosting
-* **Property** : **Download :** *RolloutVersion*.
+* **Property**: **Download:***RolloutVersion*.
 * **Étapes suivantes**: rechercher la raison de l’échec du téléchargement sur le nœud.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Rapports d’intégrité du système sur le package de service déployé
@@ -764,7 +779,7 @@ System.Hosting consigne la valeur OK si l’activation du package de service su
 System.Hosting indique la valeur OK pour chaque package de code en cas de réussite de l’activation. En cas d’échec de l’activation, il indique un avertissement conformément à la configuration. Si l’activation de **CodePackage** échoue, ou s’il se termine avec une erreur supérieure à la valeur **CodePackageHealthErrorThreshold** configurée, System.Hosting indique une erreur. Si un package de service contient plusieurs packages de code, un rapport d’activation est généré pour chacun d’entre eux.
 
 * **SourceId**: System.Hosting
-* **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée sous la forme**CodePackageActivation:***CodePackageName* : *SetupEntryPoint/EntryPoint*. Par exemple, **CodePackageActivation:Code:SetupEntryPoint**.
+* **Property** : utilise le préfixe **CodePackageActivation** et contient le nom du package de code et le point d’entrée sous la forme **CodePackageActivation:***CodePackageName* : *SetupEntryPoint/EntryPoint*. Par exemple, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Inscription du type de service
 System.Hosting indique la valeur OK si le type de service a été inscrit correctement. Il indique une erreur si l’inscription n’a pas été effectuée à temps, conformément à la configuration via **ServiceTypeRegistrationTimeout**. Si le runtime est fermé, le type de service n’est pas inscrit à partir du nœud et Hosting signale un avertissement.
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting indique une erreur en cas d’échec du téléchargement du package de service.
 
 * **SourceId**: System.Hosting
-* **Property** : **Download :** *RolloutVersion*.
+* **Property**: **Download:***RolloutVersion*.
 * **Étapes suivantes**: rechercher la raison de l’échec du téléchargement sur le nœud.
 
 ### <a name="upgrade-validation"></a>Validation de mise à niveau

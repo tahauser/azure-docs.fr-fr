@@ -1,6 +1,6 @@
 ---
-title: "Solution FedRAMP Azure Blueprint Automation - Vue d’ensemble"
-description: "Vue d’ensemble de FedRAMP"
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Vue d’ensemble"
+description: "Automatisation d’applications web FedRAMP - Vue d’ensemble"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 505a2fdc90abfcdd269b5e30537ea338b8c3774b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 968f9013dcf438ccb3a97f0bbc291b1c58a392ea
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="fedramp-overview"></a>Vue d’ensemble de FedRAMP
 
-[FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) est un programme déployé à l’échelle de l’administration américaine, visant à rationaliser l’approche en matière d’évaluation de la sécurité, d’autorisation et de surveillance continue des services et produits cloud. FedRAMP définit un processus d’évaluation de la sécurité basé sur un ensemble standardisé de spécifications dérivées des contrôles de sécurité fournis dans la publication [National Institute of Standards and Technology (NIST) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final).
+[FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) est un programme déployé à l’échelle de l’administration américaine, visant à rationaliser l’approche en matière d’évaluation de la sécurité, d’autorisation et de surveillance continue des services et produits cloud. FedRAMP définit un processus d’évaluation de la sécurité basé sur un ensemble standardisé de spécifications dérivées des contrôles de sécurité fournis dans la publication [National Institute of standards and Technology (NIST) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final).
 
-Parcourez les familles de contrôles ci-dessous pour voir comment cette solution Blueprint Automation s’aligne sur les spécifications des contrôles.
+Parcourez les familles de contrôles ci-dessous pour voir comment cette solution Blueprint d’automatisation de la sécurité et de la conformité s’aligne sur les exigences de contrôles.
 
 | | |
 |---|---|

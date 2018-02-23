@@ -1,6 +1,6 @@
 ---
-title: "Automatisation d’Azure Blueprint pour FedRAMP - Gestion de la configuration"
-description: Applications web pour FedRAMP - Gestion de la configuration
+title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Gestion de la configuration"
+description: "Automatisation d’applications web FedRAMP - Gestion de la configuration"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Gestion de la configuration (CM)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-cm-1"></a>NIST 800-53 Contrôle CM-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les modèles Azure Resource Manager et les ressources associées composant ce programme Azure Blueprint représentent, pour l’architecture déployée, une ligne de base de type « configuration en tant que code ». La solution est fournie par le biais de GitHub, qui peut être utilisé pour le contrôle de configuration. La solution inclut une base Configuration d’état souhaité (DSC) pour chaque machine virtuelle déployée. |
+| **Client** | Les modèles Azure Resource Manager et les ressources associées composant ce programme Blueprint représentent, pour l’architecture déployée, une ligne de base de type « configuration en tant que code ». La solution est fournie par le biais de GitHub, qui peut être utilisé pour le contrôle de configuration. La solution inclut une base Configuration d’état souhaité (DSC) pour chaque machine virtuelle déployée. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-2 (1).c** L’organisation passe en revue et met à jour la configuration de base du système informatique dans le cadre des installations et des mises à niveau des composants du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les modèles Azure Resource Manager et les ressources associées composant ce programme Azure Blueprint représentent, pour l’architecture déployée, une ligne de base de type « configuration en tant que code ». La solution est fournie par le biais de GitHub, qui peut être utilisé pour le contrôle de configuration. Un script d’automatisation est disponible dans le portail Azure pour toutes les ressources déployées. Il fournit une représentation toujours à jour de ces ressources.  |
+| **Client** | Les modèles Azure Resource Manager et les ressources associées composant ce programme Blueprint représentent, pour l’architecture déployée, une ligne de base de type « configuration en tant que code ». La solution est fournie par le biais de GitHub, qui peut être utilisé pour le contrôle de configuration. Un script d’automatisation est disponible dans le portail Azure pour toutes les ressources déployées. Il fournit une représentation toujours à jour de ces ressources.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-2 (7).a** L’organisation dote les [Affectation : systèmes informatiques, composants systèmes ou appareils définis par l’organisation] de [Affectation : configurations définies par l’organisation] pour les individus voyageant vers des emplacements considérés par l’organisation comme étant exposés à des risques significatifs.
 
-**Responsabilités :** `Not Applicable`
+**Responsabilités :** `Not Applicable`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-2 (7).b** L’organisation applique des [Affectation : dispositifs de sécurité définis par l’organisation] aux appareils lorsque les employés reviennent de leurs déplacements.
 
-**Responsabilités :** `Not Applicable`
+**Responsabilités :** `Not Applicable`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.a** L’organisation détermine les types de modifications apportées au système informatique qui sont contrôlés par la configuration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.c** L’organisation documente les décisions liées à la modification de la configuration associées au système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3.d** L’organisation met en œuvre les modifications contrôlées par la configuration approuvées pour le système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3 (1).a** L’organisation utilise des mécanismes automatiques pour documenter les modifications du système informatique proposées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-3 (1).c** L’organisation utilise des mécanismes automatiques pour surligner les modifications du système informatique proposées qui n’ont pas été approuvées ou refusées pendant [Affectation : durée définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les privilèges de compte Azure Active Directory sont implémentés à l’aide du contrôle d’accès en fonction du rôle, via l’assignation de rôles aux utilisateurs. Ceci permet de contrôler de façon stricte les utilisateurs pouvant afficher et contrôler les ressources déployées. Les privilèges de compte Active Directory sont implémentés à l’aide du contrôle d’accès en fonction du rôle, via l’assignation des utilisateurs à des groupes de sécurité. Ces groupes de sécurité contrôlent les actions que les utilisateurs peuvent effectuer concernant la configuration du système d’exploitation. Le client peut développer ces schémas basés sur le rôle pour répondre aux besoins de sa mission. |
+| **Client** | Les privilèges de compte Azure Active Directory sont implémentés à l’aide du contrôle d’accès en fonction du rôle, via l’assignation de rôles aux utilisateurs. Ceci permet de contrôler de façon stricte les utilisateurs pouvant afficher et contrôler les ressources déployées. Les privilèges de compte Active Directory sont implémentés à l’aide du contrôle d’accès en fonction du rôle, via l’assignation des utilisateurs à des groupes de sécurité. Ces groupes de sécurité contrôlent les actions que les utilisateurs peuvent effectuer concernant la configuration du système d’exploitation. Ces schémas basés sur les rôles peuvent être étendus par le client pour répondre aux besoins des missions. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles déployées par ce programme Azure Blueprint mettent en œuvre Windows AppLocker pour spécifier quels utilisateurs peuvent installer et/ou exécuter des applications spécifiques. De plus, toutes les mises à niveau du système d’exploitation Windows bénéficient d’une signature numérique. |
+| **Client** | Les machines virtuelles déployées par ce programme Blueprint mettent en œuvre Windows AppLocker pour spécifier quels utilisateurs peuvent installer et/ou exécuter des applications spécifiques. De plus, toutes les mises à niveau du système d’exploitation Windows bénéficient d’une signature numérique. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -479,7 +479,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-5 (5).b** L’organisation passe en revue et réévalue les privilèges [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -493,11 +493,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-6.a** L’organisation établit et documente les paramètres de configuration des produits informatiques utilisés au sein du système informatique avec [Affectation : listes de contrôle de configuration de la sécurité définies par l’organisation] qui reflètent le mode le plus restrictif cohérent avec les exigences opérationnelles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint inclut une base Configuration d’état souhaité (DSC) pour chaque machine virtuelle déployée. Ces scripts PowerShell déclaratifs définissent et configurent les ressources auxquelles ils sont appliqués. La base DSC incluse pour les ressources déployées par cette solution peut être étendue par le client pour répondre à des besoins métier. |
+| **Client** | Ce programme Blueprint inclut une ligne de base Configuration d’état souhaité (DSC) pour chaque machine virtuelle déployée. Ces scripts PowerShell déclaratifs définissent et configurent les ressources auxquelles ils sont appliqués. La base DSC incluse pour les ressources déployées par cette solution peut être étendue par le client pour répondre à des besoins métier. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -507,11 +507,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-6.b** L’organisation met en œuvre les paramètres de la configuration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint inclut une base Configuration d’état souhaité (DSC) pour chaque machine virtuelle déployée. La base est automatiquement appliquée aux machines virtuelles durant le déploiement à l’aide de l’extension de machine virtuelle de script personnalisé. |
+| **Client** | Ce programme Blueprint inclut une ligne de base Configuration d’état souhaité (DSC) pour chaque machine virtuelle déployée. La base est automatiquement appliquée aux machines virtuelles durant le déploiement à l’aide de l’extension de machine virtuelle de script personnalisé. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie Automation DSC. Automation DSC aligne les configurations des ordinateurs avec une configuration spécifique définie par l’organisation. |
+| **Client** | Ce programme Blueprint déploie Automation DSC. Automation DSC aligne les configurations des ordinateurs avec une configuration spécifique définie par l’organisation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie Azure Automation DSC. Automation DSC aligne les configurations des ordinateurs avec une configuration spécifique définie par l’organisation et surveilles les modifications en continu. |
+| **Client** | Ce programme Blueprint déploie Azure Automation DSC. Automation DSC aligne les configurations des ordinateurs avec une configuration spécifique définie par l’organisation et surveilles les modifications en continu. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -563,11 +563,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-6 (2)** L’organisation utilise [Affectation : dispositifs de sécurité définis par l’organisation] pour répondre aux modifications non autorisées de [Affectation : paramètres de configuration définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie Azure Automation DSC. Automation DSC, qui fait partie d’Operations Management Suite (OMS) d’Azure, peut être configuré pour générer une alerte ou pour résoudre les configurations erronées détectées. |
+| **Client** | Ce programme Blueprint déploie Azure Automation DSC. Automation DSC, qui fait partie d’Operations Management Suite (OMS) d’Azure, peut être configuré pour générer une alerte ou pour résoudre les configurations erronées détectées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les ressources déployées par ce programme Azure Blueprint sont configurées pour fournir les fonctionnalités essentielles à leur objectif d’utilisation principal. Une base Configuration d’état souhaité (DSC) est incluse pour chaque machine virtuelle déployée. Ces scripts PowerShell déclaratifs définissent et configurent les ressources auxquelles ils sont appliqués. La base DSC incluse pour les ressources déployées par cette solution peut être étendue par le client pour limiter davantage les fonctionnalités afin de répondre à des besoins métier. |
+| **Client** | Les ressources déployées par ce programme Blueprint sont configurées pour fournir les fonctionnalités essentielles à leur objectif d’utilisation principal. Une base Configuration d’état souhaité (DSC) est incluse pour chaque machine virtuelle déployée. Ces scripts PowerShell déclaratifs définissent et configurent les ressources auxquelles ils sont appliqués. La base DSC incluse pour les ressources déployées par cette solution peut être étendue par le client pour limiter davantage les fonctionnalités afin de répondre à des besoins métier. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -591,11 +591,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7.b** L’organisation interdit ou restreint l’utilisation des fonctions, ports, protocoles et/ou services suivants : [Affectation : fonctions, ports, protocoles et/ou services interdits ou restreints définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie Azure Application Gateway et des groupes de sécurité réseau pour restreindre l’utilisation des ports et protocoles uniquement à ceux nécessaires. La configuration d’Application Gateway, des groupes de sécurité réseau et des bases DSC pour les machines virtuelles peut être affinée par le client pour restreindre l’utilisation de fonctions, ports, protocoles et services afin de proposer uniquement les fonctionnalités requises. |
+| **Client** | Ce programme Blueprint déploie Azure Application Gateway et des groupes de sécurité réseau pour restreindre l’utilisation des ports et protocoles uniquement à ceux nécessaires. La configuration d’Application Gateway, des groupes de sécurité réseau et des bases DSC pour les machines virtuelles peut être affinée par le client pour restreindre l’utilisation de fonctions, ports, protocoles et services afin de proposer uniquement les fonctionnalités requises. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -605,7 +605,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (1).a** L’organisation passe en revue le système informatique [Affectation : fréquence définie par l’organisation] pour identifier les fonctions, ports, protocoles et services non nécessaires et/ou non sécurisés.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (1).b** L’organisation désactive [Affectation : fonctions, ports, protocoles et services définis par l’organisation au sein du système informatique considérés comme non nécessaires et/ou non sécurisés].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-7 (5).b** L’organisation utilise une stratégie tout refuser, autoriser par exception pour autoriser l’exécution de logiciels autorisés sur le système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -689,11 +689,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-8.a** L’organisation développe et documente un inventaire des composants du système informatique qui reflète de manière précise le système informatique actuel ; inclut tous les composants dans la limite d’autorisation du système informatique ; a le niveau de granularité considéré nécessaire pour le suivi et la création de rapports ; et inclut [Affectation : informations définies par l’organisation considérées nécessaires pour obtenir une connaissance efficace des composants du système informatique].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Azure Resource Manager fournit une liste toujours à jour des ressources déployées et peut être personnalisé pour baliser et regrouper des ressources à des fins de gestion d’inventaire. Les ressources déployées par cette solution sont dotées d’une étiquette de ressource spécifique qui peut être associée aux limites du système. |
+| **Client** | Ce programme Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Azure Resource Manager fournit une liste toujours à jour des ressources déployées et peut être personnalisé pour baliser et regrouper des ressources à des fins de gestion d’inventaire. Les ressources déployées par cette solution sont dotées d’une étiquette de ressource spécifique qui peut être associée aux limites du système. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Azure Resource Manager fournit une liste toujours à jour des ressources déployées qui est disponible dans le portail Azure. |
+| **Client** | Ce programme Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Azure Resource Manager fournit une liste toujours à jour des ressources déployées qui est disponible dans le portail Azure. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Le panneau des ressources dans le portail Azure répertorie toutes les ressources déployées, et fournit un inventaire toujours à jour au fur et à mesure que des ressources sont déployées et supprimées. |
+| **Client** | Ce programme Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Le panneau des ressources dans le portail Azure répertorie toutes les ressources déployées, et fournit un inventaire toujours à jour au fur et à mesure que des ressources sont déployées et supprimées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Le panneau des ressources dans le portail Azure répertorie toutes les ressources déployées, et fournit un inventaire toujours à jour au fur et à mesure que des ressources sont déployées et supprimées. |
+| **Client** | Ce programme Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Le panneau des ressources dans le portail Azure répertorie toutes les ressources déployées, et fournit un inventaire toujours à jour au fur et à mesure que des ressources sont déployées et supprimées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -759,7 +759,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-8 (3).b** L’organisation effectue les actions suivantes lorsque des composants non autorisés sont détectés : [Sélection (un ou plusieurs choix) : désactive l’accès au réseau pour ces composants ; isole les composants ; avertit [Affectation : personnel ou rôles définis par l’organisation]].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -773,11 +773,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-8 (4)** L’organisation inclut dans l’inventaire des composants du système informatique, une méthode permettant d’identifier par [Sélection (un ou plusieurs choix) : nom ; titre ; rôle], les individus responsables de la gestion de ces composants.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Les étiquettes de ressource Azure sont des paires clé / valeur qui peuvent être utilisées pour classer les ressources à des fins de comptabilité et/ou de gestion. |
+| **Client** | Ce programme Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Les étiquettes de ressource Azure sont des paires clé / valeur qui peuvent être utilisées pour classer les ressources à des fins de comptabilité et/ou de gestion. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Azure Resource Manager fournit une liste toujours à jour des ressources déployées. Les ressources déployées par cette solution sont dotées d’une étiquette de ressource spécifique qui peut être associée aux limites du système. |
+| **Client** | Ce programme Blueprint déploie toutes les ressources dans un groupe de ressources Azure Resource Manager. Azure Resource Manager fournit une liste toujours à jour des ressources déployées. Les ressources déployées par cette solution sont dotées d’une étiquette de ressource spécifique qui peut être associée aux limites du système. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -801,7 +801,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-9.a** L’organisation développe, documente et met en œuvre un plan de gestion de la configuration pour le système informatique qui traite des rôles, des responsabilités, des processus et des procédures de gestion de la configuration.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -857,11 +857,11 @@ ms.lasthandoff: 11/23/2017
 
 **CM-10.a** L’organisation utilise des logiciels et la documentation associée conformément aux contrats et lois sur le copyright.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les licences Windows et SQL Server sont incluses pour les ressources déployées par ce programme Azure Blueprint. Il s’agit d’une fonctionnalité intégrée à Azure. Les organisations disposant d’accords de licence logicielle existants peuvent envisager de déployer des modèles de licence différents. |
+| **Client** | Les licences Windows et SQL Server sont incluses pour les ressources déployées par ce programme Blueprint. Il s’agit d’une fonctionnalité intégrée à Azure. Les organisations disposant d’accords de licence logicielle existants peuvent envisager de déployer des modèles de licence différents. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les licences Windows et SQL Server sont incluses pour les ressources déployées par ce programme Azure Blueprint. L’utilisateur n’a pas besoin d’effectuer le suivi séparé de l’utilisation des licences. |
+| **Client** | Les licences Windows et SQL Server sont incluses pour les ressources déployées par ce programme Blueprint. L’utilisateur n’a pas besoin d’effectuer le suivi séparé de l’utilisation des licences. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Aucune fonctionnalité de partage de fichiers pair à pair n’est déployée par ce programme Azure Blueprint. |
+| **Client** | Aucune fonctionnalité de partage de fichiers pair à pair n’est déployée par ce programme Blueprint. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -941,7 +941,7 @@ ms.lasthandoff: 11/23/2017
 
 **CM-11.c** L’organisation surveille la conformité à la stratégie [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
