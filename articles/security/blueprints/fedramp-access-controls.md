@@ -1,6 +1,6 @@
 ---
-title: "Solution FedRAMP Azure Blueprint Automation - Contrôle d’accès"
-description: "Applications web pour FedRAMP - Contrôle d’accès"
+title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Contrôle d’accès"
+description: "Automatisation d’applications web FedRAMP - Contrôle d’accès"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Contrôle d’accès (autorité de certification)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-ac-1"></a>NIST 800-53 Contrôle AC-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint s’appuie sur et implémente les types de compte système suivants : les utilisateurs Azure Active Directory (utilisés pour déployer la solution et gérer l’accès aux ressources Azure), les utilisateurs des systèmes d’exploitation Windows (gérés par Active Directory) et le compte de service Microsoft SQL Server. |
+| **Client** | Ce programme Blueprint s’appuie sur les types de compte système suivants et les implémente : comptes d’utilisateur Azure Active Directory (utilisés pour déployer la solution et gérer l’accès aux ressources Azure), comptes d’utilisateur des systèmes d’exploitation Windows (gérés par Active Directory) et comptes de service Microsoft SQL Server. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2.c** L’organisation établit les conditions d’appartenance aux rôles et aux groupes.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2.d** L’organisation spécifie les utilisateurs autorisés du système d’information, l’appartenance aux groupes et aux rôles, ainsi que les autorisations d’accès (p. ex., les privilèges) et d’autres attributs (au besoin) pour chaque compte.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller l’utilisation des comptes du système d’information. |
+| **Client** | Ce programme Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller l’utilisation des comptes du système d’information. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2.k** L’organisation établit un processus de réémission des informations d’identification pour les comptes partagés ou de groupe (si déployés) lorsque des personnes sont retirées du groupe.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller l’utilisation des comptes du système d’information. OMS peut être configuré pour envoyer des alertes lorsqu’une activité atypique est suspectée ou que d’autres événements prédéfinis se produisent. |
+| **Client** | Ce programme Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller l’utilisation des comptes du système d’information. OMS peut être configuré pour envoyer des alertes lorsqu’une activité atypique est suspectée ou que d’autres événements prédéfinis se produisent. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -213,11 +213,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2 (2)** Le système d’information [Sélection : supprime; désactive] automatiquement les comptes temporaires et d’urgence après [Affectation : période définie par l’organisation pour chaque type de compte].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint ne déploie pas de comptes temporaires ou d’urgence. S’ils ne sont pas désactivés manuellement, le contrôleur de domaine déployé désactive automatiquement tous les comptes inactifs après 35 jours. |
+| **Client** | Ce programme Blueprint ne déploie pas de comptes temporaires ou d’urgence. S’ils ne sont pas désactivés manuellement, le contrôleur de domaine déployé désactive automatiquement tous les comptes inactifs après 35 jours. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Le contrôleur de domaine déployé par cette solution Azure Blueprint est configuré pour désactiver tous les comptes utilisateurs après 35 jours d’inactivité. |
+| **Client** | Le contrôleur de domaine déployé par ce programme Blueprint est configuré pour désactiver tous les comptes d’utilisateur après 35 jours d’inactivité. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente les types de compte système suivants : utilisateurs Azure Active Directory, utilisateurs de systèmes d’exploitation Windows, compte de service SQL Server. Les actions de gestion de compte Azure Active Directory génèrent un événement dans le journal des activités Azure ; les actions de gestion de compte au niveau du système d’exploitation génèrent un événement dans le journal du système. Ces journaux sont collectés par Log Analytics et stockés dans le dépôt OMS. OMS peut être configuré pour envoyer des alertes lorsque des événements prédéfinis se produisent.  |
+| **Client** | Ce programme Blueprint implémente les types de compte système suivants : comptes d’utilisateur Azure Active Directory, comptes d’utilisateur de systèmes d’exploitation Windows, comptes de service SQL Server. Les actions de gestion de compte Azure Active Directory génèrent un événement dans le journal des activités Azure ; les actions de gestion de compte au niveau du système d’exploitation génèrent un événement dans le journal du système. Ces journaux sont collectés par Log Analytics et stockés dans le dépôt OMS. OMS peut être configuré pour envoyer des alertes lorsque des événements prédéfinis se produisent.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2 (5)** L’organisation requiert une déconnexion des utilisateurs après [Affectation : période d’inactivité définie par l’organisation ou description des conditions de la déconnexion].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -269,11 +269,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2 (7).a** L’organisation établit et administre des comptes utilisateurs privilégiés conformément à un système d’accès basé sur des rôles qui organise l’accès et les privilèges autorisés du système d’information en fonction des rôles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente les types de compte système suivants : utilisateurs Azure Active Directory, utilisateurs de systèmes d’exploitation Windows, compte de service SQL Server. Les privilèges de compte Azure Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des rôles ; les privilèges de compte Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des groupes de sécurité. Ces schémas basés sur les rôles peuvent être étendus par le client pour répondre aux besoins des missions. |
+| **Client** | Ce programme Blueprint implémente les types de compte système suivants : comptes d’utilisateur Azure Active Directory, comptes d’utilisateur de systèmes d’exploitation Windows, comptes de service SQL Server. Les privilèges de compte Azure Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des rôles ; les privilèges de compte Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des groupes de sécurité. Ces schémas basés sur les rôles peuvent être étendus par le client pour répondre aux besoins des missions. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le tableau de bord Identité et accès de la solution Security and Audit de Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller l’utilisation des comptes du système d’information. Cette solution peut être interrogée pour créer un rapport sur les attributions de rôles dotés de privilèges. |
+| **Client** | Ce programme Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller l’utilisation des comptes du système d’information. Cette solution peut être interrogée pour créer un rapport sur les attributions de rôles dotés de privilèges. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2 (7).c** L’organisation effectue des [Affectation : actions définies par l’organisation] lorsque les attributions de rôles dotés de privilèges ne sont plus appropriées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par cette solution Azure Blueprint. |
+| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par ce programme Blueprint. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par cette solution Azure Blueprint. |
+| **Client** | Aucun compte partagé/de groupe n’est activé sur les ressources déployées par ce programme Blueprint. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -339,11 +339,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2 (11)** Le système d’information applique [Affectation : circonstances et/ou conditions d’utilisation définies par l’organisation] aux [Affectation : comptes du système d’information définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe peut être établie dans Active Directory et configurée pour implémenter des restrictions d’heure ou d’autres conditions d’utilisation de compte. |
+| **Client** | Ce programme Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe peut être établie dans Active Directory et configurée pour implémenter des restrictions d’heure ou d’autres conditions d’utilisation de compte. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller les tentatives d’accès aux ressources déployées. |
+| **Client** | Ce programme Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller les tentatives d’accès aux ressources déployées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -367,11 +367,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-2 (12).b** L’organisation crée des rapports sur l’utilisation atypique des comptes du système d’information pour [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller les tentatives d’accès aux ressources déployées. Cette solution peut être configurée pour envoyer des alertes en cas de suspicion d’activité atypique ou d’autres événements prédéfinis. |
+| **Client** | Ce programme Blueprint implémente le tableau de bord Identité et accès de la solution de sécurité et d’audit Microsoft Operations Management Suite. Ce tableau de bord permet aux gestionnaires de comptes de surveiller les tentatives d’accès aux ressources déployées. Cette solution peut être configurée pour envoyer des alertes en cas de suspicion d’activité atypique ou d’autres événements prédéfinis. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce programme Azure Blueprint utilise des autorisations d’accès logique à l’aide du contrôle d’accès en fonction du rôle appliqué par Azure Active Directory en assignant des rôles aux utilisateurs, par Active Directory en assignant les utilisateurs à des groupes de sécurité et par les contrôles de niveau système d’exploitation Windows. Les rôles Active Directory Azure assignés aux utilisateurs ou groupes permettent de contrôler l’accès logique aux ressources dans Azure au niveau de la ressource, du groupe ou de l’abonnement. Les groupes de sécurité Active Directory contrôlent l’accès logique aux fonctions et ressources de niveau système d’exploitation. |
+| **Client** | Ce programme Blueprint utilise des autorisations d’accès logique à l’aide du contrôle d’accès en fonction du rôle appliqué par Azure Active Directory en assignant des rôles aux utilisateurs, par Active Directory en assignant les utilisateurs à des groupes de sécurité et par les contrôles de niveau système d’exploitation Windows. Les rôles Active Directory Azure assignés aux utilisateurs ou groupes permettent de contrôler l’accès logique aux ressources dans Azure au niveau de la ressource, du groupe ou de l’abonnement. Les groupes de sécurité Active Directory contrôlent l’accès logique aux fonctions et ressources de niveau système d’exploitation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -409,11 +409,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-4** Le système d’information applique les autorisations approuvées pour contrôler le flux des informations au sein du système et entre les systèmes interconnectés en fonction des [Affectation : stratégies de contrôle du flux des informations définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint impose des restrictions au flux d’informations via des groupes de sécurité réseau appliqués aux sous-réseaux dans lesquels les ressources sont déployées, à Application Gateway et à l’équilibreur de charge. Les groupes de sécurité réseau veillent à ce que le flux d’informations soit contrôlé entre les ressources en fonction des règles approuvées. Application Gateway et l’équilibreur de charge acheminent dynamiquement le trafic vers des ressources spécifiques en fonction des rôles approuvés. |
+| **Client** | Ce programme Blueprint impose des restrictions au flux d’informations via des groupes de sécurité réseau appliqués aux sous-réseaux dans lesquels les ressources sont déployées, à Application Gateway et à l’équilibreur de charge. Les groupes de sécurité réseau veillent à ce que le flux d’informations soit contrôlé entre les ressources en fonction des règles approuvées. Application Gateway et l’équilibreur de charge acheminent dynamiquement le trafic vers des ressources spécifiques en fonction des rôles approuvés. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -451,7 +451,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-5.a** L’organisation sépare les [Affectation : tâches des individus définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente un contrôle d’accès en fonction du rôle qui peut être configuré pour séparer les tâches en fonction des exigences de l’organisation. Les privilèges de compte Azure Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des rôles ; les privilèges de compte Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des groupes de sécurité. |
+| **Client** | Ce programme Blueprint implémente un contrôle d’accès en fonction du rôle qui peut être configuré pour séparer les tâches en fonction des exigences de l’organisation. Les privilèges de compte Azure Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des rôles ; les privilèges de compte Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des groupes de sécurité. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le contrôle d’accès en fonction du rôles pour limiter les utilisateurs aux seuls privilèges explicitement attribués. Les privilèges de compte Azure Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des rôles ; les privilèges de compte Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des groupes de sécurité.  |
+| **Client** | Ce programme Blueprint implémente le contrôle d’accès en fonction du rôle pour limiter les utilisateurs aux seuls privilèges explicitement attribués. Les privilèges de compte Azure Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des rôles ; les privilèges de compte Active Directory sont implémentés en utilisant le contrôle d’accès en fonction du rôle en assignant les utilisateurs à des groupes de sécurité.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -591,11 +591,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-6 (8)** Le système d’information empêche l’exécution des [Affectation : logiciels définis par l’organisation] à des niveaux de privilèges supérieurs à ceux des utilisateurs exécutant le logiciel.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le contrôle d’accès en fonction du rôles pour limiter les utilisateurs aux seuls privilèges explicitement attribués. Les protections au niveau du système d’exploitation de la machine virtuelle ne permettent pas aux logiciels de s’exécuter à un niveau de privilèges supérieur à celui des utilisateurs exécutant le logiciel. |
+| **Client** | Ce programme Blueprint implémente le contrôle d’accès en fonction du rôle pour limiter les utilisateurs aux seuls privilèges explicitement attribués. Les protections au niveau du système d’exploitation de la machine virtuelle ne permettent pas aux logiciels de s’exécuter à un niveau de privilèges supérieur à celui des utilisateurs exécutant le logiciel. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -605,11 +605,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-6 (9)** Le système d’information effectue un audit de l’exécution des fonctions privilégiées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le service Log Analytics dans OMS. Les machines virtuelles et les comptes de stockage de diagnostic Azure déployés sont connectés à Log Analytics, garantissant ainsi l’audit de l’exécution des fonctions privilégiées. |
+| **Client** | Ce programme Blueprint implémente le service Log Analytics dans OMS. Les machines virtuelles et les comptes de stockage de diagnostic Azure déployés sont connectés à Log Analytics, garantissant ainsi l’audit de l’exécution des fonctions privilégiées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le contrôle d’accès en fonction du rôles pour limiter les utilisateurs aux seuls privilèges explicitement attribués.  |
+| **Client** | Ce programme Blueprint implémente le contrôle d’accès en fonction du rôle pour limiter les utilisateurs aux seuls privilèges explicitement attribués.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Le portail Azure limite les tentatives de connexion non valides consécutives des utilisateurs. Une stratégie de groupe est appliquée au niveau du système d’exploitation pour toutes les machines virtuelles déployées par cette solution Azure Blueprint. La stratégie limite les tentatives de connexion non valides consécutives par les utilisateurs à un maximum de 3 dans un délai de 15 minutes. |
+| **Client** | Le portail Azure limite les tentatives de connexion non valides consécutives des utilisateurs. Une stratégie de groupe est appliquée au niveau du système d’exploitation pour toutes les machines virtuelles déployées par ce programme Blueprint. La stratégie limite les tentatives de connexion non valides consécutives par les utilisateurs à un maximum de 3 dans un délai de 15 minutes. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Le portail Azure verrouille les comptes après des tentatives de connexion non valides consécutives des utilisateurs. Une stratégie de groupe est appliquée au niveau du système d’exploitation pour toutes les machines virtuelles déployées par cette solution Azure Blueprint. La stratégie verrouille les comptes durant 3 heures après 3 tentatives de connexion non valides consécutives des utilisateurs. |
+| **Client** | Le portail Azure verrouille les comptes après des tentatives de connexion non valides consécutives des utilisateurs. Une stratégie de groupe est appliquée au niveau du système d’exploitation pour toutes les machines virtuelles déployées par ce programme Blueprint. La stratégie verrouille les comptes durant 3 heures après 3 tentatives de connexion non valides consécutives des utilisateurs. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente une notification d’utilisation du système qui est affichée aux utilisateurs avant la connexion. Remarque : la solution Azure Blueprint implémente un exemple de notification d’utilisation du système. Le client doit modifier ce texte pour répondre aux exigences de l’organisation et/ou de l’organisme de réglementation. |
+| **Client** | Ce programme Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente une notification d’utilisation du système qui est affichée aux utilisateurs avant la connexion. Remarque : ce programme Blueprint implémente un exemple de notification d’utilisation du système. Le client doit modifier ce texte pour répondre aux exigences de l’organisation et/ou de l’organisme de réglementation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -689,11 +689,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-8.b** Le système d’information continue d’afficher le message ou la bannière de notification à l’écran jusqu’à ce que les utilisateurs acceptent les conditions d’utilisation et prennent des mesures explicites pour se connecter ou accéder au système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente une notification d’utilisation du système qui est affichée aux utilisateurs avant leur connexion. L’utilisateur doit accepter la notification pour se connecter. |
+| **Client** | Ce programme Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente une notification d’utilisation du système qui est affichée aux utilisateurs avant leur connexion. L’utilisateur doit accepter la notification pour se connecter. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -717,11 +717,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-10** Le système d’information limite le nombre de sessions simultanées pour chaque [Affectation : compte défini par l’organisation et/ou type de compte] à [Affectation : nombre défini par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Une stratégie de système d’exploitation est implémentée pour les machines virtuelles déployées par cette solution Azure Blueprint. La stratégie implémente des limitations de sessions simultanées (2 sessions). |
+| **Client** | Une stratégie de système d’exploitation est implémentée pour les machines virtuelles déployées par ce programme Blueprint. La stratégie implémente des limitations de sessions simultanées (2 sessions). |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente un verrouillage d’inactivité pour les sessions de protocole RDP (Remote Desktop Protocol). Les utilisateurs peuvent déclencher manuellement le verrouillage. |
+| **Client** | Ce programme Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente un verrouillage d’inactivité pour les sessions de protocole RDP (Remote Desktop Protocol). Les utilisateurs peuvent déclencher manuellement le verrouillage. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente un verrouillage d’inactivité pour les sessions de protocole RDP (Remote Desktop Protocol). Les utilisateurs doivent se réauthentifier pour déverrouiller la session.  |
+| **Client** | Ce programme Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente un verrouillage d’inactivité pour les sessions de protocole RDP (Remote Desktop Protocol). Les utilisateurs doivent se réauthentifier pour déverrouiller la session.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -759,11 +759,11 @@ ms.lasthandoff: 11/23/2017
 
 **CA-11 (1)** Le système d’information dissimule, via le verrouillage de session, les informations précédemment visibles à l’écran avec une image visible publiquement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente un verrouillage d’inactivité pour les sessions de protocole RDP (Remote Desktop Protocol). Le verrouillage de session masque les informations précédemment visibles. |
+| **Client** | Ce programme Blueprint déploie un contrôleur de domaine auquel toutes les machines virtuelles déployées sont jointes. Une stratégie de groupe implémente un verrouillage d’inactivité pour les sessions de protocole RDP (Remote Desktop Protocol). Le verrouillage de session masque les informations précédemment visibles. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | La configuration de l’hôte de session de Bureau à distance pour les machines virtuelles Windows déployées par cette solution Azure Blueprint peut être paramétrée pour répondre aux exigences d’arrêt de session de l’organisation. |
+| **Client** | La configuration de l’hôte de session de Bureau à distance pour les machines virtuelles Windows déployées par ce programme Blueprint peut être paramétrée pour répondre aux exigences d’arrêt de session de l’organisation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -787,11 +787,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-12 (1).a** Le système d’information fournit une fonctionnalité de déconnexion des sessions de communications initiées par l’utilisateur lorsque l’authentification est utilisée pour accéder aux [Affectation : ressources d’informations définies par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Le portail Azure et les systèmes d’exploitation de machines virtuelles déployés par cette solution Azure Blueprint permettent d’initier une déconnexion. |
+| **Client** | Le portail Azure et les systèmes d’exploitation de machines virtuelles déployés par ce programme Blueprint permettent d’initier une déconnexion. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Le portail Azure et les systèmes d’exploitation de machines virtuelles déployés par cette solution Azure Blueprint permettent d’initier une déconnexion. Le processus de déconnexion indique aux utilisateurs que la session a été arrêtée. |
+| **Client** | Le portail Azure et les systèmes d’exploitation de machines virtuelles déployés par ce programme Blueprint permettent d’initier une déconnexion. Le processus de déconnexion indique aux utilisateurs que la session a été arrêtée. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -829,7 +829,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-14.b** L’organisation détaille et justifie les actions des utilisateurs ne nécessitant pas d’identification ou d’authentification dans la conformité du plan de sécurité du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint offre un accès à distance au système d’information via le portail Azure, via une connexion Bureau à distance via un serveur de rebond, et via une application web implémentée par le client. Les accès via le portail Azure et les sessions Bureau à distance sont audités et peuvent être surveillés via OMS. Le cas échéant, le client doit mettre en place des contrôles d’accès à distance à l’application web. |
+| **Client** | Ce programme Blueprint offre un accès à distance au système d’information via le portail Azure, via une connexion Bureau à distance passant par un serveur de rebond, et via une application web implémentée par le client. Les accès via le portail Azure et les sessions Bureau à distance sont audités et peuvent être surveillés via OMS. Le cas échéant, le client doit mettre en place des contrôles d’accès à distance à l’application web. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | L’accès à distance aux ressources déployées par cette solution Azure Blueprint, y compris le portail Azure, la connexion à distance aux postes de travail et la passerelle d’application web, est sécurisé par TLS. |
+| **Client** | L’accès à distance aux ressources déployées par ce programme Blueprint, y compris le portail Azure, la connexion Bureau à distance et la passerelle d’application web, est sécurisé par TLS. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -903,7 +903,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | L’accès à distance à l’application web notionnelle déployée par cette solution Azure Blueprint se fait via une passerelle d’application. L’accès à distance à toutes les autres ressources se fait par un serveur de rebond. Il n’existe aucun autre point de terminaison accessible publiquement. |
+| **Client** | L’accès à distance à l’application web notionnelle déployée par ce programme Blueprint se fait via une passerelle d’application. L’accès à distance à toutes les autres ressources se fait par un serveur de rebond. Il n’existe aucun autre point de terminaison accessible publiquement. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -913,7 +913,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-17 (4).a** L’organisation autorise uniquement l’exécution de commandes privilégiées et l’accès à des informations relatives à la sécurité via un accès à distance dans le cadre de [Affectation : besoins définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -941,11 +941,11 @@ ms.lasthandoff: 11/23/2017
 
 **AC-17 (9)** L’organisation offre la capacité de déconnecter ou de désactiver rapidement l’accès à distance au système d’information dans un délai de [Affectation : période définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint offre un accès à distance au système d’information via le portail Azure, via une connexion Bureau à distance passant par un serveur de rebond, et via une application web. Si un compte Azure Active Directory est désactivé ou supprimé, l’accès au portail Azure est immédiatement déconnecté. De même, si un compte au niveau du système d’exploitation d’une machine virtuelle est désactivé ou supprimé, l’accès au Bureau à distance passant par le serveur de rebond est immédiatement déconnecté. Les clients doivent implémenter la déconnexion d’accès à distance pour l’application web. |
+| **Client** | Ce programme Blueprint offre un accès à distance au système d’information via le portail Azure, via une connexion Bureau à distance passant par un serveur de rebond, et via une application web. Si un compte Azure Active Directory est désactivé ou supprimé, l’accès au portail Azure est immédiatement déconnecté. De même, si un compte au niveau du système d’exploitation d’une machine virtuelle est désactivé ou supprimé, l’accès au Bureau à distance passant par le serveur de rebond est immédiatement déconnecté. Les clients doivent implémenter la déconnexion d’accès à distance pour l’application web. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -983,7 +983,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-18 (1)** Le système d’information protège l’accès sans fil au système par authentification des [Sélection (un ou plusieurs) : utilisateurs ; dispositifs] et chiffrement.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -1025,7 +1025,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-18 (5)** L’organisation sélectionne les antennes radio et étalonne les niveaux de puissance de transmission pour réduire la probabilité que les signaux utilisables puissent être reçus en dehors des limites contrôlées par l’organisation.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -1053,7 +1053,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-19.b** L’organisation autorise la connexion des appareils mobiles aux systèmes d’information de l’organisation.
 
-**Responsabilités :** `Not Applicable`
+**Responsabilités :** `Not Applicable`
 
 |||
 |---|---|
@@ -1067,7 +1067,7 @@ ms.lasthandoff: 11/23/2017
 
 **CA-19 (5)** L’organisation utilise un [Sélection : chiffrement du dispositif complet ; chiffrement du conteneur] pour protéger la confidentialité et l’intégrité des informations sur ses [Affectation : appareils mobiles définis par l’organisation].
 
-**Responsabilités :** `Not Applicable`
+**Responsabilités :** `Not Applicable`
 
 |||
 |---|---|
@@ -1123,7 +1123,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-20 (2)** L’organisation [Sélection : restreint ; interdit] l’utilisation d’appareils de stockage portables contrôlés par l’organisation par des personnes autorisées sur des systèmes d’information externes.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -1137,7 +1137,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-21.a** L’organisation facilite le partage d’informations en permettant aux utilisateurs autorisés de déterminer si les autorisations d’accès attribuées au partenaire de partage correspondent aux restrictions d’accès aux informations pour [Affectation : circonstances de partage de l’information définies par l’organisation lorsque la discrétion de l’utilisateur est requise].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -1193,7 +1193,7 @@ ms.lasthandoff: 11/23/2017
 
 **AC-22.c** L’organisation examine les informations proposées avant de les afficher dans le système d’information accessible publiquement, pour vérifier l’absence de toute information non publique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

@@ -3,7 +3,7 @@
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Prise en main](iot-hub-get-started.md)
+# [Démarrer](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)
@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.JS](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Prise en main des représentations d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-twin-how-to-configure.md)
+#### [Back end Python/appareil Python](iot-hub-python-python-twin-how-to-configure.md)
 ### Utiliser des travaux d’appareils pour mettre à jour le microprogramme des appareils
 #### [Serveur principal Node/appareil Node](iot-hub-node-node-firmware-update.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-firmware-update.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-firmware-update.md)
+#### [Back end Python/appareil Python](iot-hub-python-python-firmware-update.md)
 ### Planifier et diffuser des travaux
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Serveur principal Java/appareil Java](iot-hub-java-java-schedule-jobs.md)
+#### [Back end Python/appareil Python](iot-hub-python-python-schedule-jobs.md)
 
 ## gérer
 ### Créer un hub IoT 

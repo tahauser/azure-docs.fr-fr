@@ -2,23 +2,20 @@
 title: "Vérifier les métriques de débit et de latence d’un compte de stockage dans le portail Azure | Microsoft Docs"
 description: "Découvrez comment vérifier les métriques de débit et de latence d’un compte de stockage dans le portail."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Vérifier les métriques de débit et de latence d’un compte de stockage
 
@@ -68,7 +65,7 @@ Les [dimensions](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fst
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et cliquez sur Supprimer.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cette quatrième partie, vous avez appris à afficher des métriques pour l’exemple de solution. Vous avez notamment vu comment :
 

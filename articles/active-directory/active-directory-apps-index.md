@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -53,7 +53,7 @@ L’authentification unique permet aux utilisateurs d’accéder à différentes
 | Guide des articles |  |
 |:---:| --- |
 | Introduction à la fédération et à d’autres types d’authentification |[Authentification unique avec Azure AD](active-directory-appssoaccess-whatis.md) |
-| Des milliers d’applications SaaS pré-intégrées à Azure AD avec des étapes de configuration de l’authentification unique simplifiées |[Prise en main de la galerie d’applications Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Liste complète des applications pré-intégrées qui prennent en charge la fédération](http://aka.ms/aadfederatedapps)<br /><br />[Comment ajouter votre application à la galerie d’applications Azure AD](active-directory-app-gallery-listing.md) |
+| Des milliers d’applications SaaS pré-intégrées à Azure AD avec des étapes de configuration de l’authentification unique simplifiées |[Prise en main de la galerie d’applications Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Liste complète des applications pré-intégrées qui prennent en charge la fédération](active-directory-saas-tutorial-list.md)<br /><br />[Comment ajouter votre application à la galerie d’applications Azure AD](active-directory-app-gallery-listing.md) |
 | Plus de 150 didacticiels d’application sur la configuration de l’authentification unique pour les applications telles que [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), et bien plus encore |[Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Comment configurer et personnaliser manuellement votre configuration de l’authentification unique |[Configuration de l'authentification unique fédérée pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Comment personnaliser les revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md) |
 | Guide de dépannage pour les applications fédérées qui utilisent le protocole SAML |[Dépannage de l’authentification unique basée sur SAML](active-directory-saml-debugging.md) |

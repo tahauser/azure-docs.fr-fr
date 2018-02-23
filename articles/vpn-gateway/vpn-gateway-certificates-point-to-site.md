@@ -1,10 +1,10 @@
 ---
 title: "Générer et exporter des certificats pour les connexions de point à site : PowerShell : Azure | Microsoft Docs"
-description: "Cet article décrit les étapes permettant de créer un certificat racine auto-signé, d’exporter la clé publique et de générer des certificats clients avec PowerShell sous Windows 10."
+description: "Créez un certificat racine auto-signé, exportez la clé publique et générez des certificats clients avec PowerShell sous Windows 10 ou Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell sur Windows 10
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell sous Windows 10 ou Windows Server 2016
 
-Les connexions de point à site utilisent des certificats pour l’authentification. Cet article vous explique comment créer un certificat racine auto-signé et générer des certificats clients à l’aide de PowerShell sur Windows 10. Si vous recherchez des étapes de la configuration de point à site, telles que le chargement des certificats racines, sélectionnez l’un des articles « Configuration d’une connexion point à site à un réseau virtuel » dans la liste suivante :
+Les connexions de point à site utilisent des certificats pour l’authentification. Cet article explique comment créer un certificat racine auto-signé et générer des certificats clients à l’aide de PowerShell sous Windows 10 ou Windows Server 2016. Si vous recherchez des étapes de la configuration de point à site, telles que le chargement des certificats racines, sélectionnez l’un des articles « Configuration d’une connexion point à site à un réseau virtuel » dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Création de certificat auto-signés - PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Les connexions de point à site utilisent des certificats pour l’authentificat
 > 
 
 
-Vous devez suivre les étapes de cet article sur un ordinateur exécutant Windows 10. Les cmdlets PowerShell que vous utilisez pour générer des certificats font partie du système d’exploitation Windows 10 et ne fonctionnent pas sur d’autres versions de Windows. L’ordinateur Windows 10 est nécessaire uniquement pour générer les certificats. Une fois les certificats générés, vous pouvez les charger ou les installer sur n’importe quel système d’exploitation client pris en charge. 
+Vous devez suivre les étapes de cet article sur un ordinateur exécutant Windows 10 ou Windows Server 2016. Les applets de commande PowerShell que vous utilisez pour générer des certificats font partie du système d’exploitation et ne fonctionnent pas sur d’autres versions de Windows. L’ordinateur Windows 10 ou Windows Server 2016 est nécessaire uniquement pour générer les certificats. Une fois les certificats générés, vous pouvez les charger ou les installer sur n’importe quel système d’exploitation client pris en charge. 
 
-Si vous n’avez pas accès à un ordinateur Windows 10, vous pouvez utiliser [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pour générer des certificats. Les certificats générés à l’aide de l’une de ces deux méthodes peuvent être installés sur n’importe quel système d’exploitation client [pris en charge](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
+Si vous n’avez pas accès à un ordinateur Windows 10 ou Windows Server 2016, vous pouvez utiliser [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pour générer des certificats. Les certificats générés à l’aide de l’une de ces deux méthodes peuvent être installés sur n’importe quel système d’exploitation client [pris en charge](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ## <a name="rootcert"></a>Créer un certificat racine auto-signé
 
 Utilisez la cmdlet New-SelfSignedCertificate pour créer un certificat racine auto-signé. Pour obtenir des informations sur des paramètres supplémentaires, consultez [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Sur un ordinateur sous Windows 10, ouvrez une console Windows PowerShell avec élévation de privilèges.
+1. Sur un ordinateur sous Windows 10 ou Windows Server 2016, ouvrez une console Windows PowerShell avec élévation de privilèges.
 2. Utilisez l’exemple suivant pour créer le certificat racine auto-signé. L’exemple suivant crée un certificat racine auto-signé nommé « P2SRootCert », automatiquement installé dans « Certificates-Current User\Personal\Certificates ». Vous pouvez afficher le certificat en ouvrant *certmgr.msc* ou *Gérer les certificats utilisateur*.
 
   ```powershell
@@ -131,9 +131,11 @@ Si vous créez des certificats clients supplémentaires ou que vous n’utilisez
 
 Pour installer un certificat client, consultez [Installer un certificat client pour des connexions point à site](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Poursuivez votre configuration point à site.
 
 * Pour connaître les étapes du modèle de déploiement **Resource Manager**, consultez [Configurer P2S à l’aide de l’authentification par certificat Azure native](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Pour connaître les étapes du modèle de déploiement **Classic**, consultez la page [Configurer une connexion VPN de point à site à un réseau virtuel (Classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+Pour plus d’informations sur la résolution des problèmes liés aux connexions point à site, voir [Résolution des problèmes de connexion de point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

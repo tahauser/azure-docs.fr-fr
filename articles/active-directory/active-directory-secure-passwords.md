@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Une approche à plusieurs niveaux de la sécurité des mots de passe dans Azure AD
 
 Cet article décrit les meilleures pratiques que vous pouvez suivre en tant qu’utilisateur ou administrateur pour protéger vos comptes Azure Active Directory (Azure AD) ou votre compte Microsoft.
 
  > [!NOTE]
- > **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+ > **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
  >
  > Les administrateurs Azure AD peuvent réinitialiser les mots de passe utilisateur à l’aide des instructions de l’article [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
  >
@@ -46,7 +46,7 @@ Azure AD et le système de comptes Microsoft utilisent des approches validées p
 * Mots de passe interdits dynamiquement
 * Verrouillage de mot de passe intelligent
 
-Pour plus d’informations sur la gestion des mots de passe en fonction de la recherche en cours, consultez le livre blanc [Password Guidance](http://aka.ms/passwordguidance) (Conseils en matière de mots de passe).
+Pour plus d’informations sur la gestion des mots de passe en fonction de la recherche en cours, consultez le livre blanc [Password Guidance](https://aka.ms/passwordguidance) (Conseils en matière de mots de passe).
 
 ### <a name="dynamically-banned-passwords"></a>Mots de passe interdits dynamiquement
 
@@ -80,7 +80,7 @@ Pour plus d’informations sur la réinitialisation de mot de passe dans Azure A
   >Si vous êtes administrateur Azure AD, vous souhaiterez peut-être utiliser [Windows Hello](https://www.microsoft.com/windows/windows-hello) pour éviter que vos utilisateurs créent des mots de passe classiques.
   >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
 * [Principes de base de la gestion des identités Azure](fundamentals-identity.md)

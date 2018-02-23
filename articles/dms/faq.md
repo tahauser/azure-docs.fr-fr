@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sur l’utilisation d’Azure Database Migration Service
 Cet article répertorie les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service, ainsi que les réponses associées.
@@ -81,6 +81,9 @@ Vous pouvez effectuer quelques opérations pour accélérer la migration de votr
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Comment faire pour configurer un réseau virtuel Microsoft Azure ?
 Même si plusieurs didacticiels Microsoft peuvent vous présenter le processus de configuration d’un réseau virtuel Microsoft Azure, la documentation officielle est disponible dans l’article [Réseau virtuel Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. Pourquoi Azure Database Migration Service est-il arrêté ou indisponible ?
+Si l’utilisateur arrête de manière explicite Azure Database Migration Service (DMS) ou si le service est inactif pendant une période de 24 heures, le service est dans un état arrêté ou de pause automatique. Dans tous les cas, le service est indisponible et dans un état arrêté.  Pour reprendre les migrations actives, redémarrez le service.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>Q. Où peut-on donner son avis sur Azure Database Migration Service ?
 Nous attendons vos remarques ! Veuillez soumettre vos avis et suggestions concernant Azure Database Migration Service via User Voice, [ici](https://feedback.azure.com/forums/906100-azure-database-migration-service).

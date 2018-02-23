@@ -4,7 +4,7 @@ description: "Cette rubrique décrit comment Azure configure le stockage pour le
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 Lorsque vous configurez une image de machine virtuelle SQL Server dans Azure, le portail permet d’automatiser la configuration de votre stockage. Cela inclut l’attachement du stockage à la machine virtuelle, ce qui permet à SQL Server d’y accéder et le configure de façon à l’optimiser en fonction de vos besoins spécifiques.
@@ -27,7 +27,7 @@ Cette rubrique explique comment Azure configure le stockage pour vos machines vi
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour utiliser les paramètres de configuration automatisée du stockage, votre machine virtuelle doit répondre aux conditions suivantes :
 
 * Configurée avec une [image de galerie SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo);
@@ -117,8 +117,8 @@ Azure utilise les paramètres suivants pour créer le pool de stockage sur les m
 | Tailles du disque |1 To chacun |
 | Cache |Lire |
 | Taille d'allocation |Taille d'unité d'allocation NTFS = 64 Ko |
-| Initialisation instantanée des fichiers |Activé |
-| Verrouillage des pages en mémoire |Activé |
+| Initialisation instantanée des fichiers |activé |
+| Verrouillage des pages en mémoire |activé |
 | Récupérer |Récupération simple (sans résilience) |
 | Nombre de colonnes |Nombre de disques de données<sup>1</sup> |
 | Emplacement de TempDB |Stocké sur les disques de données<sup>2</sup> |
@@ -130,7 +130,7 @@ Azure utilise les paramètres suivants pour créer le pool de stockage sur les m
 ## <a name="workload-optimization-settings"></a>Paramètres d’optimisation de la charge de travail
 Le tableau suivant décrit les trois options de type de charge de travail disponibles, ainsi que leurs optimisations :
 
-| Type de charge de travail | Description | Optimisations |
+| Type de charge de travail | DESCRIPTION | Optimisations |
 | --- | --- | --- |
 | **Généralités** |Paramètre par défaut qui prend en charge la plupart des charges de travail |Aucun |
 | **Traitement transactionnel** |Optimise le stockage pour les charges de travail OLTP de base de données traditionnelles |Indicateur de trace 1117<br/>Indicateur de trace 1118 |
@@ -141,5 +141,5 @@ Le tableau suivant décrit les trois options de type de charge de travail dispon
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).

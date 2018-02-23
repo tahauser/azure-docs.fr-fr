@@ -1,6 +1,6 @@
 ---
-title: "Automatisation de schéma Azure pour le programme FedRAMP - Protection physique et environnementale"
-description: Applications web pour programme le FedRAMP - Protection physique et environnementale
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Protection physique et environnementale"
+description: "Automatisation d’applications web FedRAMP - Protection physique et environnementale"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Protection physique et environnementale (PE)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’institut NIST (National Institute of Standards and Technology) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-pe-1"></a>NIST 800-53 - Contrôle PE-1
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-2.b** L’organisation émet des informations d’identification d’autorisation pour l’accès à l’installation.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-2.c** L’organisation passe en revue la liste d’accès détaillant les accès autorisés de personnes à l’installation [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-2.d** L’organisation supprime les personnes de la liste d’accès à l’installation lorsque l’accès n’est plus requis.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-3.a** L’organisation impose des autorisations d’accès physique aux [Affectation : points d’entrée/sortie définis par l’organisation pour l’installation où le système d’information réside] en vérifiant les autorisations d’accès individuelles avant d’accorder l’accès à l’installation ; et en contrôlant des entrées/sorties au niveau de l’installation en utilisant [Sélection (un ou plusieurs) : [Affectation : systèmes/appareils de contrôle d’accès définis par l’organisation] ; gardes].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **3 c-PE** L’organisation met en place des [Affectation : mesures de sécurité définies par l’organisation] pour contrôler l’accès aux zones à l’intérieur de l’installation officiellement désignées comme accessibles au public.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-3.e** L’organisation sécurise les clés, combinaisons et autres dispositifs d’accès physique.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-3.g** L’organisation change les combinaisons et les clés [Affectation : fréquence définie par l’organisation] et/ou quand des clés sont égarées, des combinaisons compromises ou des personnes transférées ou arrêtées.  
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-3 (1)** L’organisation impose des autorisations d’accès physique au système d’information en plus des contrôles d’accès physique à l’installation dans [Affectation : espaces physiques définis par l’organisation contenant un ou plusieurs composants du système d’information].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-4** L’organisation contrôle l’accès physique aux [Affectation : lignes de distribution et de transmission du système d’information définies par l’organisation] au sein des installations de l’organisation à l’aide de [Affectation : mesures de sécurité définies par l’organisation].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **5-PE** L’organisation contrôle l’accès physique aux périphériques de sortie du système d’information pour empêcher des personnes non autorisées d’accéder à ces sorties.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-6.b** L’organisation analyse les journaux d’accès physique [Affectation : fréquence définie par l’organisation] et en cas l’occurrence de [Affectation : événements définis par l’organisation ou indications potentielles d’événements].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-6.c** L’organisation coordonne les résultats des analyses et investigations avec la capacité de réponse aux incidents de l’organisation. 
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-6 (4)** L’organisation surveille l’accès physique au système d’information en plus des accès physiques à l’installation dans [Affectation : espaces physiques définis par l’organisation contenant un ou plusieurs composants du système d’information].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-8.a** L’organisation conserve les enregistrements des accès des visiteurs à l’installation dans laquelle réside de système d’information pendant [Affectation : période définie par l’organisation].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-8.c** L’organisation examine les enregistrements des accès des visiteurs [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-9** L’organisation protège l’équipement et le câblage d’alimentation du système d’information contre les dommages et destructions.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-10.a** L’organisation offre la possibilité de couper l’alimentation du système d’information et de composants de celui-ci en cas d’urgence.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-10.b** L’organisation place des interrupteurs ou dispositifs d’arrêt d’urgence dans [Affectation : emplacement défini par l’organisation, par système d’information ou composant système] afin de faciliter un accès aisé et sécurisé du personnel.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-11** L’organisation fournit un onduleur à court terme pour faciliter [Sélection (un ou plusieurs) : un arrêt ordonné du système d’information ; une transition du système d’information vers une alimentation secondaire à long terme] en cas de perte de la source d’alimentation principale.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-12** L’organisation utilise et gère un éclairage de secours automatique pour le système d’information, qui s’active en cas de panne ou de coupure d’alimentation, et qui couvre les issues de secours et voies d’évacuation à l’intérieur de l’installation.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-13** L’organisation utilise et entretient des dispositifs/systèmes de détection et d’extinction d’incendie pour le système d’information, qui sont alimentés par une source d’énergie indépendante.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-13 (2)** L’organisation utilise des dispositifs/systèmes d’extinction pour le système d’information, qui informent automatiquement les [Affectation : personnel ou rôles définis par l’organisation] et [Affectation : intervenants d’urgence définis par l’organisation] en cas de déclenchement.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-13 (3)** L’organisation utilise un dispositif d’extinction automatique pour le système d’information lorsque l’installation n’est pas pourvue en personnel de façon permanente.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-15** L’organisation protège le système d’information contre les dégâts résultant de fuites d’eau en fournissant des vannes de fermeture ou d’isolation accessibles, en parfait état de fonctionnement et connues du personnel clé.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-15 (1)** L’organisation utilise des mécanismes automatisés pour détecter la présence d’eau à proximité du système d’information, qui alertent [Affectation : personnel ou rôles définis par l’organisation].
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 11/23/2017
 
 **PE-18** L’organisation positionne les composants du système d’informations au sein de l’installation afin de minimiser les dommages potentiels occasionnés par [Affectation : dangers physiques et environnementaux définis par l’organisation] ainsi que la possibilité d’accès non autorisé.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|

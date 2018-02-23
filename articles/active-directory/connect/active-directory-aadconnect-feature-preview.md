@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Plus de détails sur les fonctionnalités de la version préliminaire
 Cette rubrique décrit l’utilisation des fonctionnalités disponibles dans la version préliminaire.
@@ -26,7 +26,7 @@ Cette rubrique décrit l’utilisation des fonctionnalités disponibles dans la 
 ## <a name="group-writeback"></a>Écriture différée de groupe
 L’option pour l’écriture différée de groupe dans les fonctionnalités facultatives permet l’écriture différée de **groupes dans Office 365** vers une forêt avec Exchange installé. Il s’agit d’un nouveau type de groupe qui est toujours contrôlé dans le cloud. Si Exchange est installé sur site, vous pouvez réécrire ces groupes en local afin que les utilisateurs disposant d’une boîte aux lettres Exchange locale puissent envoyer et recevoir des e-mails de la part de ces groupes.
 
-Vous trouverez [ici](http://aka.ms/O365g)d’autres informations sur les groupes Office 365 et la façon de les utiliser.
+Vous trouverez [ici](https://aka.ms/O365g)d’autres informations sur les groupes Office 365 et la façon de les utiliser.
 
 Un groupe Office 365 est représenté comme un groupe de distribution dans les versions locales d’AD DS. Votre serveur Exchange local doit être au niveau de la mise à jour cumulative 8 d’Exchange 2013 (publiée en mars 2015) ou d’Exchange 2016 pour pouvoir reconnaître ce nouveau type de groupe.
 

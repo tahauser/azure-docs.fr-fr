@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -36,7 +36,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Dans une solution d’intégration de données, le chargement incrémentiel de données après des chargements de données initiaux est un scénario largement utilisé. Dans certains cas, les données modifiées pendant une période dans votre magasin de données source peuvent être facilement découpées (par exemple, LastModifyTime, CreationTime). Dans certains cas, il n’existe pas de manière explicite pour identifier les données delta depuis le dernier traitement des données. La technologie Change Tracking prise en charge par les magasins de données tels qu’Azure SQL Database et SQL Server peut être utilisée pour identifier les données delta.  Ce didacticiel explique comment utiliser Azure Data Factory version 2 pour utiliser la technologie Change Tracking SQL afin de charger de façon incrémentielle des données delta d’Azure SQL Database dans le stockage blob Azure.  Pour des informations plus concrètes sur la technologie Change Tracking SQL, consultez [Change Tracking dans SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Workflow de bout en bout
@@ -151,6 +151,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
+1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 2. Vous voyez un nouvel onglet pour configurer le pipeline. Vous voyez également le pipeline dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le pipeline en **IncrementalCopyPipeline**.
 
     ![Nom du pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Développez **SQL Database** dans la boîte à outils **Activités** et glissez-déposez l’activité **Recherche** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupLastChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications utilisée dans la dernière opération de copie qui est stockée dans la table **table_store_ChangeTracking_version**.
+3. Développez **Général** dans la boîte à outils **Activités**, puis faites glisser et déposez une activité **Recherche** sur la surface du concepteur de pipeline. Définissez le nom de l’activité sur **LookupLastChangeTrackingVersionActivity**. Cette activité permet d’obtenir la version de suivi des modifications utilisée dans la dernière opération de copie qui est stockée dans la table **table_store_ChangeTracking_version**.
 
     ![Activité de recherche - nom](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Basculez vers **Paramètres** dans la fenêtre **Propriétés**, puis sélectionnez **ChangeTrackingDataset** pour le champ **Jeu de données source**. 
@@ -408,12 +409,13 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
     ![Activité de procédure stockée - Compte SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Basculez vers l’onglet **Procédure stockée**, et procédez comme suit : 
 
-    1. Entrez **Update_ChangeTracking_Version** pour **Nom de la procédure stockée**.  
-    2. Dans la section **Paramètres de procédure stockée**, utilisez le bouton **+ Nouveau** pour ajouter les deux paramètres suivants :
+    1. Pour **Nom de la procédure stockée**, sélectionnez **Update_ChangeTracking_Version**.  
+    2. Sélectionnez **Import parameter** (Paramètre d’importation). 
+    3. Dans la section **Paramètres de procédure stockée**, spécifiez les valeurs suivantes pour les paramètres : 
 
         | NOM | type | Valeur | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Chaîne | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Activité de procédure stockée - Paramètres](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>**. 
 
     ![Bouton de validation](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publier**. Patientez jusqu’à ce que le message **Publication réussie** s’affiche. 
+16.  Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche. 
 
         ![Bouton Publier](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Exécuter le pipeline de copie incrémentielle
-Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**. 
+1. Cliquez sur **Déclencher** dans la barre d’outils du pipeline, puis cliquez sur **Déclencher maintenant**. 
 
-![Menu Déclencher maintenant](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Menu Déclencher maintenant](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. Dans la fenêtre **Pipeline Run** (Exécution du pipeline), sélectionnez **Terminer**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Surveiller le pipeline de copie incrémentielle
 1. Cliquez sur l’onglet **Surveiller** sur la gauche. Vous voyez l’exécution du pipeline dans la liste et son état. Pour actualiser la liste, cliquez sur **Actualiser**. Les liens dans la colonne **Actions** vous permettent de visualiser les exécutions d’activités associées à l’exécution du pipeline et de réexécuter le pipeline. 

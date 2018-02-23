@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 210731ce2e792452650b7a92cfc542c78a0e8014
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Traiter les e-mails et les pièces jointes à l’aide d’une application logique
 
@@ -71,7 +71,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
    | **Réplication** | Stockage localement redondant (LRS) | Ce paramètre spécifie comment vos données sont copiées, stockées, gérées et synchronisées. Voir [Réplication](../storage/common/storage-introduction.md#replication). | 
    | **Transfert sécurisé requis** | Désactivé | Ce paramètre spécifie la sécurité requise pour les demandes de connexions. Voir [Exiger un transfert sécurisé dans Stockage Azure](../storage/common/storage-require-secure-transfer.md). | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
-   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel peuvent ne pas être disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. | 
+   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. | 
    | **Lieu** | Est des États-Unis 2 | Région dans laquelle stocker les informations sur votre compte de stockage. | 
    | **Configurer des réseaux virtuels** | Désactivé | Pour ce didacticiel, maintenez le paramètre **Désactivé**. | 
    |||| 
@@ -209,7 +209,7 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
    ![Créer une application logique](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 
-2. Sous **Créer une application logique**, indiquez les informations suivantes sur votre application logique comme affiché et décrit. Lorsque c’est fait, cliquez sur **Épingler au tableau de bord** > **Créer**.
+2. Sous **Créer une application logique**, indiquez les informations suivantes sur votre application logique comme illustré et décrit. Lorsque c’est fait, cliquez sur **Épingler au tableau de bord** > **Créer**.
 
    ![Spécifier les informations de l’application logique](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
@@ -232,7 +232,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
 1. Dans le concepteur, entrez « à l’arrivée de l’e-mail » dans la zone de recherche. Sélectionnez ce déclencheur pour votre fournisseur de messagerie : **<*votre-fournisseur-de-messagerie*> - à l’arrivée d’un nouvel e-mail**, par exemple :
 
-   ![Sélectionner ce déclencheur pour le fournisseur de messagerie : « À l’arrivée d’un nouvel e-mail »](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Sélectionner ce déclencheur pour le fournisseur de messagerie : « À la réception d’un e-mail »](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook. 
    * Pour les comptes Microsoft personnels, sélectionnez Outlook.com. 
@@ -243,7 +243,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
    1. Spécifiez le dossier, un intervalle et une fréquence de vérification des e-mails.
 
-      ![Spécifier un dossier, un intervalle et une fréquence de vérification des e-mails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
+      ![Spécifier le dossier, l’intervalle et la fréquence de vérification des e-mails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
       | Paramètre | Valeur | DESCRIPTION | 
       | ------- | ----- | ----------- | 
@@ -263,7 +263,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
 4. Pour masquer les informations du déclencheur pour le moment, cliquez dans sa barre de titre.
 
-   ![Réduire la forme pour masquer les détails](./media/tutorial-process-email-attachments-workflow/collapse-trigger-shape.png)
+   ![Réduire la forme pour masquer les informations](./media/tutorial-process-email-attachments-workflow/collapse-trigger-shape.png)
 
 5. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
@@ -279,7 +279,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
 2. Renommez la condition en utilisant une meilleure description.
 
-   1. Dans la barre de titre de la condition, choisissez le bouton **points de suspension** (**...**) > **Renommer**.
+   1. Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** (**...**) > **Renommer**.
 
       Par exemple, si le navigateur est défini sur l’affichage étroit :
 
@@ -625,7 +625,7 @@ Testez votre application logique, qui ressemble désormais à l’exemple suivan
    ![Notification par e-mail envoyée par l’application logique](./media/tutorial-process-email-attachments-workflow/email-notification.png)
 
    Si vous ne recevez aucun e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. 
-   Il se peut que le filtre de courrier indésirable redirige ces types de courrier. 
+   Il se peut que le filtre de courrier indésirable redirige ces types d’e-mails. 
    Sinon, si vous ne savez pas si votre application logique s’est correctement exécutée, consultez [Dépanner votre application logique](../logic-apps/logic-apps-diagnosing-failures.md).
 
 Félicitations ! Vous avez maintenant créé et exécuté une application logique qui automatise les tâches dans différents services Azure et appelle un code personnalisé.

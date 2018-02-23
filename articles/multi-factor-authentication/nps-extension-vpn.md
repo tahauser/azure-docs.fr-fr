@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -84,7 +84,7 @@ Lorsque l’extension NPS pour Azure est intégrée au serveur NPS, un flux d’
 
 8. L’utilisateur a accès au port virtuel sur le serveur VPN et établit un tunnel VPN chiffré.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Cette section détaille les prérequis à respecter avant de pouvoir intégrer MFA à la passerelle des services Bureau à distance. Avant de commencer, les éléments suivants doivent être en place :
 
 * Infrastructure VPN
@@ -376,7 +376,7 @@ Pour utiliser le script, fournissez l’extension avec vos informations d’iden
 
 1. Exécutez Windows PowerShell en tant qu’administrateur.
 
-2. À l’invite de commandes PowerShell, indiquez **cd c:\Program Files\Microsoft\AzureMfa\Config** et sélectionnez Entrée.
+2. À l’invite de commandes PowerShell, indiquez **cd "c:\Program Files\Microsoft\AzureMfa\Config"** et sélectionnez Entrée.
 
 3. À l’invite de commande suivante, entrez **.\AzureMfsNpsExtnConfigSetup.ps1** et sélectionnez Entrée. Le script vérifie si le module PowerShell Azure AD est installé. Si ce n’est pas le cas, le script installe le module pour vous.
  

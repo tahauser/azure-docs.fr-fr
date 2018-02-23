@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation
 
@@ -56,6 +56,16 @@ Filtrez sur des informations supplémentaires et tapez votre ID de réservation.
 3. La ligne Instances réservées-Machine virtuelle de base dans Sous-catégorie du compteur représente la ligne du coût 0 dollars US dans la section du relevé. Le coût d’exécution de cette machine virtuelle est déjà payé par la réservation.
 4. Il s’agit de l’Id du compteur de la réservation. Le coût de ce compteur est de 0 dollars US. Toute machine virtuelle bénéficiant d’une offre d’instance réservée affiche cet ID de compteur dans le fichier csv afin de renseigner sur le coût. 
 5. Standard_DS1_v2 est une machine virtuelle à processeur virtuel qui est déployée sans Azure Hybrid Benefit. Par conséquent, ce compteur couvre les frais supplémentaires des logiciels Windows. Consultez [Coûts des logiciels Windows dans les instances de machine virtuelle réservées Azure](billing-reserved-instance-windows-software-costs.md) pour trouver le compteur correspondant à la machine virtuelle série D 1 cœur. Si Azure Hybrid Benefit est utilisé, ce coût supplémentaire n’est pas appliqué. 
+
+## <a name="next-steps"></a>étapes suivantes
+Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
+
+- [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administrer les instances de machine virtuelle réservées Azure](billing-manage-reserved-vm-instance.md)
+- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](billing-save-compute-costs-reservations.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Coûts des logiciels Windows non inclus dans les instances réservées](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

@@ -4,7 +4,7 @@ description: "Fournit une procédure et des scripts PowerShell pour la création
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)
 
@@ -195,7 +195,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Une fois que vous vous êtes connecté à la machine à l’aide du Bureau à distance, configurez SQL Server en vous basant sur les instructions de la [procédure de configuration de la connectivité SQL Server dans une machine virtuelle Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous trouverez des instructions supplémentaires sur l’approvisionnement des machines virtuelles avec PowerShell dans la [documentation sur les machines virtuelles](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

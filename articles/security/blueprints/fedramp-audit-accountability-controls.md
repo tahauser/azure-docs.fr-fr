@@ -1,6 +1,6 @@
 ---
-title: "Solution FedRAMP Azure Blueprint Automation - Audit et responsabilité"
-description: "Applications web pour FedRAMP - Audit et responsabilité"
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Audit et responsabilité"
+description: "Automatisation d’applications web FedRAMP - Audit et responsabilité"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Audit et responsabilité (AU)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-au-1"></a>NIST 800-53 Contrôle AU-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | La fonctionnalité d’audit de cette solution Azure Blueprint est fournie par Azure Monitor et le service Log Analytics dans OMS. Azure Monitor fournit des journaux d’audit détaillés sur l’activité associée aux ressources déployées. Ces journaux ainsi que les journaux de système d’exploitation sont collectés par Log Analytics et stockés dans le dépôt OMS. Log Analytics met en corrélation les données d’audit des ressources déployées par cette solution et peut être étendu à l’application web déployée par le client. |
+| **Client** | La fonctionnalité d’audit de cette solution Blueprint est fournie par Azure Monitor et le service Log Analytics dans OMS. Azure Monitor fournit des journaux d’audit détaillés sur l’activité associée aux ressources déployées. Ces journaux ainsi que les journaux de système d’exploitation sont collectés par Log Analytics et stockés dans le dépôt OMS. Log Analytics met en corrélation les données d’audit des ressources déployées par cette solution et peut être étendu à l’application web déployée par le client. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les événements audités par cette solution Azure Blueprint incluent des informations suffisantes pour déterminer à quel moment se produisent les événements, la source de l’événement et les conséquences de l’événement. Ils offrent également des informations détaillées utiles pour l’examen des incidents de sécurité. |
+| Client | Les événements audités par cette solution Blueprint incluent des informations suffisantes pour déterminer à quel moment se produisent les événements, la source de ceux-ci et leurs conséquences. Ils offrent également des informations détaillées utiles pour l’examen d’incidents de sécurité. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -87,11 +87,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-2.d** L’organisation détermine que les événements suivants doivent être audités au sein du système d’information : [Affectation : événements audités définis par l’organisation (le sous-ensemble d’événements auditables défini à l’alinéa AU-2), ainsi que la fréquence de (ou la situation nécessitant) l’audit de chaque événement identifié].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les événements audités par cette solution Azure Blueprint incluent ceux audités par les journaux d’activité Azure pour les ressources déployées, les journaux de niveau système d’exploitation, les journaux Active Directory et les journaux SQL Server. Les clients peuvent sélectionner d’autres événements à auditer selon les besoins de leur mission. |
+| Client | Les événements audités par cette solution Blueprint sont ceux audités par les journaux d’activité Azure pour les ressources déployées, les journaux de niveau système d’exploitation, les journaux Active Directory et les journaux SQL Server. Les clients peuvent sélectionner d’autres événements à auditer selon les besoins de leur mission. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/23/2017
 
 **AU-2 (3)** L’organisation révise et met à jour les événements audités [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint s’appuie sur les fonctionnalités d’audit intégrées d’Azure, Windows Server et SQL Server. Ces solutions d’audit capturent les enregistrements d’audit avec un niveau de détail suffisant pour satisfaire aux exigences de ce contrôle. |
+| **Client** | Cette solution Blueprint s’appuie sur les fonctionnalités d’audit intégrées d’Azure, de Windows Server et de SQL Server. Ces solutions d’audit capturent les enregistrements d’audit avec un niveau de détail suffisant pour satisfaire aux exigences de ce contrôle. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les événements de journal d’activité Azure utilisent un schéma détaillé qui contient les champs de plus de 20 types d’informations d’audit. En plus du journal d’activité, cette solution Azure Blueprint déploie la solution Log Analytics dans OMS qui prend en charge un ensemble diversifié de sources de données, y compris des journaux Windows, des journaux Linux, des journaux de diagnostic Azure et les journaux des clients.  |
+| **Client** | Les événements de journal d’activité Azure utilisent un schéma détaillé qui contient les champs de plus de 20 types d’informations d’audit. En plus du journal d’activité, cette solution Blueprint déploie la solution Log Analytics dans OMS qui prend en charge un ensemble diversifié de sources de données, dont des journaux Windows, des journaux Linux, des journaux Azure Diagnostics et des journaux de clients.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -143,11 +143,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-3 (2)** Le système d’information fournit une gestion et une configuration centralisées du contenu à capturer dans les enregistrements d’audit générés par [Affectation : composants de système d’information définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Toutes les machines virtuelles déployées par cette solution Azure Blueprint sont jointes au domaine Active Directory déployé. Toutes les machines virtuelles jointes au domaine implémentent une stratégie de groupe qui peut être configurée pour gérer de manière centralisée la configuration du système d’audit au niveau du système d’exploitation. |
+| **Client** | Toutes les machines virtuelles déployées par cette solution Blueprint sont jointes au domaine Active Directory déployé. Toutes les machines virtuelles jointes au domaine implémentent une stratégie de groupe qui peut être configurée pour gérer de manière centralisée la configuration du système d’audit au niveau du système d’exploitation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint alloue une capacité de stockage suffisante pour conserver les enregistrements d’audit pendant 1 an. Tous les enregistrements d’audit sont collectés par Log Analytics qui est configuré pour une rétention de 1 an. |
+| **Client** | Cette solution Blueprint alloue une capacité de stockage suffisante pour conserver les enregistrements d’audit pendant 1 an. Tous les enregistrements d’audit sont collectés par Log Analytics qui est configuré pour une rétention de 1 an. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **AU-5.a** Le système d’information envoie une alerte à [Affectation : personnel ou rôles définis par l’organisation] en cas d’échec du processus d’audit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,11 +185,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-5.b** Le système d’information effectue les actions supplémentaires suivantes : [Affectation : actions définies à effectuer par l’organisation (par exemple, arrêter le système d’information, remplacer les enregistrements d’audit les plus anciens, arrêter la génération des enregistrements d’audit)].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Tous les enregistrements d’audit générés par les ressources déployées par cette solution Azure Blueprint sont collectés par Log Analytics et conservés pendant une période de 1 an. L’allocation de mémoire pour ce stockage des enregistrements d’audit est allouée dynamiquement afin de garantir une capacité suffisante. |
+| **Client** | Tous les enregistrements d’audit générés par les ressources déployées par cette solution Blueprint sont collectés par Log Analytics et conservés pendant une période d’un an. L’allocation de mémoire pour ce stockage des enregistrements d’audit est allouée dynamiquement afin de garantir une capacité suffisante. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Tous les enregistrements d’audit générés par les ressources déployées par cette solution Azure Blueprint sont collectés par Log Analytics et conservés pendant une période de 1 an. L’allocation de mémoire pour ce stockage des enregistrements d’audit est allouée dynamiquement afin de garantir une capacité suffisante. |
+| **Client** | Tous les enregistrements d’audit générés par les ressources déployées par cette solution Blueprint sont collectés par Log Analytics et conservés pendant une période d’un an. L’allocation de mémoire pour ce stockage des enregistrements d’audit est allouée dynamiquement afin de garantir une capacité suffisante. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **AU-6.a** L’organisation révise et analyse les enregistrements d’audit des systèmes d’information [Affectation : fréquence définie par l’organisation] en cas d’occurrence de [Affectation : activité inhabituelle ou inappropriée définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **AU-6 (1)** L’organisation utilise des mécanismes automatisés pour intégrer les processus de révision, d’analyse et de rapports d’audit afin de prendre en charge des processus organisationnels, d’enquêter sur les activités suspectes et d’y apporter une réponse.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente la solution Log Analytics dans OMS pour centraliser les données d’audit sur les ressources déployées, en prenant en charge la connaissance de la situation à l’échelle de l’organisation. Les clients peuvent choisir d’intégrer Log Analytics avec d’autres systèmes. |
+| **Client** | Cette solution Blueprint implémente la solution Log Analytics dans OMS pour centraliser les données d’audit sur les ressources déployées, en prenant en charge la connaissance de la situation à l’échelle de l’organisation. Les clients peuvent choisir d’intégrer Log Analytics avec d’autres systèmes. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint déploie la solution de sécurité et d’audit d’OMS. Cette solution fournit une vue complète de l’état de la sécurité. Le tableau de bord de sécurité et d’audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées, y compris les données de journal et de vulnérabilité issues de l’évaluation des correctifs et de la base de référence. |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Cette solution fournit une vue complète de l’état de sécurité. Le tableau de bord de sécurité et d’audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées, y compris les données de journal et de vulnérabilité issues de l’évaluation des correctifs et de la base de référence. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/23/2017
 
 **AU-6 (6)** L’organisation met en corrélation les informations des enregistrements d’audit avec les informations obtenues suite à la surveillance de l’accès physique pour améliorer la probabilité d’identifier toute activité suspecte, inappropriée, inhabituelle ou malveillante.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les machines virtuelles Windows déployées par cette solution Azure Blueprint implémentent des autorisations au niveau du système d’exploitation qui limitent les actions qu’un utilisateur peut effectuer en relation avec les informations d’audit. Dans Azure, les utilisateurs ou groupes d’utilisateurs peuvent être affectés à des rôles (par exemple, propriétaire, collaborateur, lecteur ou rôle personnalisé) pour limiter les actions disponibles par rapport aux ressources ou solutions déployées, notamment Log Analytics.  |
+| Client | Les machines virtuelles Windows déployées par cette solution Blueprint implémentent des autorisations au niveau du système d’exploitation, qui limitent les actions qu’un utilisateur peut effectuer en relation avec les informations d’audit. Dans Azure, les utilisateurs ou groupes d’utilisateurs peuvent être affectés à des rôles (par exemple, propriétaire, collaborateur, lecteur ou rôle personnalisé) pour limiter les actions disponibles par rapport aux ressources ou solutions déployées, notamment Log Analytics.  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -353,11 +353,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-7.a** Le système d’information fournit des fonctionnalités de réduction de l’audit et de génération de rapports qui prennent en charge les exigences à la demande en matière de révision, d’analyse et de rapports, ainsi que des investigations effectuées après des faits relatifs à des incidents de sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente la solution Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. |
+| **Client** | Cette solution Blueprint implémente la solution Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -367,11 +367,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-7.b** Le système d’information fournit une fonction de réduction des audits et de génération de rapports qui ne modifie pas le contenu d’origine ou le tri chronologique des enregistrements d’audit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente la solution Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Le contenu et le tri chronologique des temps d’audit ne sont pas modifiés lorsqu’ils sont collectés par Log Analytics. |
+| **Client** | Cette solution Blueprint implémente la solution Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Le contenu et le tri chronologique des temps d’audit ne sont pas modifiés lorsqu’ils sont collectés par Log Analytics. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente la solution Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Log Analytics intègre un puissant langage de requête destiné à extraire les données stockées dans le référentiel. |
+| **Client** | Cette solution Blueprint implémente la solution Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Log Analytics intègre un puissant langage de requête destiné à extraire les données stockées dans le référentiel. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -395,11 +395,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-8.a** Le système d’information utilise l’horloge du système interne pour générer les horodatages des enregistrements d’audit.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les ressources déployées par cette solution Azure Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. |
+| **Client** | Les ressources déployées par cette solution Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les ressources déployées par cette solution Azure Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. Les horodateurs sont enregistrés au format UTC. |
+| **Client** | Les ressources déployées par cette solution Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. Les horodateurs sont enregistrés au format UTC. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -423,11 +423,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-8 (1).a** Le système d’information compare les horloges internes du système d’information [Affectation : fréquence définie par l’organisation] avec [Affectation : source de temps de référence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les ressources déployées par cette solution Azure Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. Les horloges de système interne sont configurées de façon à se synchroniser avec une source de temps faisant autorité. |
+| **Client** | Les ressources déployées par cette solution Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. Les horloges de système interne sont configurées de façon à se synchroniser avec une source de temps faisant autorité. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les ressources déployées par cette solution Azure Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. Les horloges de système interne sont configurées de façon à se synchroniser avec une source de temps faisant autorité. |
+| **Client** | Les ressources déployées par cette solution Blueprint utilisent l’horloge du système interne pour générer les horodatages des enregistrements d’audit. Les horloges de système interne sont configurées de façon à se synchroniser avec une source de temps faisant autorité. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les contrôles d’accès logiques sont utilisés pour protéger les outils et les informations d’audit au sein de cette solution Azure Blueprint contre tout accès, modification et suppression non autorisés. Azure Active Directory applique l’accès logique approuvé à l’aide des appartenances aux groupes basées sur les rôles. La possibilité d’afficher des informations d’audit et d’utiliser les outils d’audit peut être limitée aux utilisateurs qui demandent ces autorisations. |
+| **Client** | Les contrôles d’accès logiques sont utilisés pour protéger les outils et les informations d’audit au sein de cette solution Blueprint contre tout accès, modification et suppression non autorisés. Azure Active Directory applique l’accès logique approuvé à l’aide des appartenances aux groupes basées sur les rôles. La possibilité d’afficher des informations d’audit et d’utiliser les outils d’audit peut être limitée aux utilisateurs qui demandent ces autorisations. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le service Log Analytics dans OMS. Les machines virtuelles déployées et les comptes de stockage de diagnostics Azure sont des sources connectées à Log Analytics et conservées séparément de leur origine. Les données sont collectées par OMS en quasi temps réel. |
+| Client | Cette solution Blueprint implémente le service Log Analytics dans OMS. Les machines virtuelles déployées et les comptes de stockage de diagnostics Azure sont des sources connectées à Log Analytics et conservées séparément de leur origine. Les données sont collectées par OMS en quasi temps réel. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le service Log Analytics dans OMS. Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. |
+| **Client** | Cette solution Blueprint implémente le service Log Analytics dans OMS. Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -493,11 +493,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-9 (4)** L’organisation autorise l’accès à la gestion de la fonctionnalité d’audit uniquement à [Affectation : sous-ensemble défini par l’organisation d’utilisateurs disposant de privilèges].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les contrôles d’accès logiques sont utilisés pour protéger les outils et les informations d’audit au sein de cette solution Azure Blueprint contre tout accès, modification et suppression non autorisés. Azure Active Directory applique l’accès logique approuvé à l’aide des appartenances aux groupes basées sur les rôles. La possibilité d’afficher des informations d’audit et d’utiliser les outils d’audit peut être limitée aux utilisateurs qui demandent ces autorisations.
+| **Client** | Les contrôles d’accès logiques sont utilisés pour protéger les outils et les informations d’audit au sein de cette solution Blueprint contre tout accès, modification et suppression non autorisés. Azure Active Directory applique l’accès logique approuvé à l’aide des appartenances aux groupes basées sur les rôles. La possibilité d’afficher des informations d’audit et d’utiliser les outils d’audit peut être limitée aux utilisateurs qui demandent ces autorisations.
  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
@@ -508,11 +508,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-10** Le système d’information assure une protection contre le fait qu’une personne (ou un processus agissant pour le compte d’une personne) nie avoir exécuté [Affectation : actions définies par l’organisation à couvrir par la non-répudiation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | La fonctionnalité d’audit de cette solution Azure Blueprint est fournie par Azure Monitor et le service Log Analytics dans OMS. Azure Monitor fournit des journaux d’audit détaillés sur l’activité associée aux ressources déployées. Ces journaux ainsi que les journaux de système d’exploitation sont collectés par Log Analytics et stockés dans le dépôt OMS. Ces journaux contiennent des enregistrements détaillés des événements relatifs au système d’information et peuvent vous protéger contre la non-répudiation. En outre, l’accès aux données de journal est limité à l’aide du contrôle d’accès en fonction du rôle pour empêcher la modification ou la suppression non autorisée des données de journaux. |
+| **Client** | La fonctionnalité d’audit de cette solution Blueprint est fournie par Azure Monitor et le service Log Analytics dans OMS. Azure Monitor fournit des journaux d’audit détaillés sur l’activité associée aux ressources déployées. Ces journaux ainsi que les journaux de système d’exploitation sont collectés par Log Analytics et stockés dans le dépôt OMS. Ces journaux contiennent des enregistrements détaillés des événements relatifs au système d’information et peuvent vous protéger contre la non-répudiation. En outre, l’accès aux données de journal est limité à l’aide du contrôle d’accès en fonction du rôle pour empêcher la modification ou la suppression non autorisée des données de journaux. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -522,11 +522,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-11** L’organisation conserve les enregistrements d’audit pendant [Affectation : période cohérente avec la stratégie de rétention des enregistrements définie par l’organisation] pour prendre en charge les investigations qui ont eu lieu après des faits relatifs à des incidents de sécurité, ainsi que pour répondre aux exigences de rétention des informations réglementaires et organisationnelles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le service Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Une fois collectées, les données sont conservées pendant un an par configuration Log Analytics. |
+| **Client** | Cette solution Blueprint implémente le service Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Une fois collectées, les données sont conservées pendant un an par configuration Log Analytics. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Les événements audités par cette solution Azure Blueprint incluent ceux audités par les journaux d’activité Azure pour les ressources déployées, les journaux de niveau système d’exploitation, les journaux Active Directory et les journaux SQL Server. Les clients peuvent sélectionner d’autres événements à auditer selon les besoins de leur mission. |
+| Client | Les événements audités par cette solution Blueprint sont ceux audités par les journaux d’activité Azure pour les ressources déployées, les journaux de niveau système d’exploitation, les journaux Active Directory et les journaux SQL Server. Les clients peuvent sélectionner d’autres événements à auditer selon les besoins de leur mission. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | L’accès aux fonctions d’audit est limité à l’aide du contrôle d’accès en fonction du rôle dans Azure et au niveau du système d’exploitation de la machine virtuelle. La configuration des événements sélectionnés pour l’audit par les ressources déployées par cette solution Azure Blueprint peut être effectuée par des utilisateurs disposant de l’autorisation appropriée basée sur des rôles. |
+| **Client** | L’accès aux fonctions d’audit est limité à l’aide du contrôle d’accès en fonction du rôle dans Azure et au niveau du système d’exploitation de la machine virtuelle. La configuration des événements sélectionnés pour l’audit par les ressources déployées par cette solution Blueprint peut être effectuée par des utilisateurs disposant de l’autorisation appropriée basée sur des rôles. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -564,11 +564,11 @@ ms.lasthandoff: 11/23/2017
 
 **AU-12.c** Le système d’information génère des enregistrements d’audit pour les événements définis à l’alinéa AU-2.d. avec le contenu défini à l’alinéa AU-3.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Les événements audités par cette solution Azure Blueprint incluent ceux audités par les journaux d’activité Azure pour les ressources déployées, les journaux de niveau système d’exploitation, les journaux Active Directory et les journaux SQL Server. Les clients peuvent sélectionner d’autres événements à auditer selon les besoins de leur mission. |
+| Client | Les événements audités par cette solution Blueprint sont ceux audités par les journaux d’activité Azure pour les ressources déployées, les journaux de niveau système d’exploitation, les journaux Active Directory et les journaux SQL Server. Les clients peuvent sélectionner d’autres événements à auditer selon les besoins de leur mission. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Cette solution Azure Blueprint implémente le service Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Les horodatages d’enregistrements d’audit ne sont pas altérés. Par conséquent, la piste d’audit est corrélée au temps. |
+| **Client** | Cette solution Blueprint implémente le service Log Analytics dans OMS. Log Analytics assure des services de surveillance pour OMS en collectant les données de ressources gérées et en les regroupant dans un dépôt central. Les horodatages d’enregistrements d’audit ne sont pas altérés. Par conséquent, la piste d’audit est corrélée au temps. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -592,9 +592,9 @@ ms.lasthandoff: 11/23/2017
 
 **AU-12 (3)** Le système d’information offre la possibilité à [Affectation : rôles ou personnes définis par l’organisation] de modifier l’audit à exécuter sur [Affectation : composants de système d’information définis par l’organisation] en fonction de [Affectation : critères d’événements sélectionnables définis par l’organisation] dans un délai de [Affectation : seuils horaires définis par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | L’accès aux fonctions d’audit est limité à l’aide du contrôle d’accès en fonction du rôle dans Azure et au niveau du système d’exploitation de la machine virtuelle. La configuration des événements sélectionnés pour l’audit par les ressources déployées par cette solution Azure Blueprint peut être effectuée par des utilisateurs disposant de l’autorisation appropriée basée sur des rôles. |
+| **Client** | L’accès aux fonctions d’audit est limité à l’aide du contrôle d’accès en fonction du rôle dans Azure et au niveau du système d’exploitation de la machine virtuelle. La configuration des événements sélectionnés pour l’audit par les ressources déployées par cette solution Blueprint peut être effectuée par des utilisateurs disposant de l’autorisation appropriée basée sur des rôles. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |

@@ -25,9 +25,13 @@
   items:
     - name: Structure de définition Azure Policy
       href: policy-definition.md
-- name: Référence
+- name: Procédures
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Créer des stratégies avec l’API REST
+      href: policy-insights.md
+- name: Informations de référence
+  items:
+    - name: Azure CLI
       href: /cli/azure/policy
     - name: "Azure\_PowerShell"
       href: '/powershell/module/azurerm.resources/#policies'
@@ -35,7 +39,7 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'

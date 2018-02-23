@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: c87e62ad82470f2d159da13f02a1f97b629e7fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ Lorsqu’un serveur Azure MFA maître est hors connexion, les serveurs subordon
 
 Assurez-vous que le serveur que vous utilisez pour l’authentification multifacteur Azure répond aux exigences suivantes :
 
-| Configuration requise du serveur Azure Multi-Factor Authentication | Description |
+| Configuration requise du serveur Azure Multi-Factor Authentication | DESCRIPTION |
 |:--- |:--- |
 | Matériel |<li>200 Mo d’espace disque</li><li>Processeur compatible x32 ou x64</li><li>1 Go de RAM ou plus</li> |
 | Logiciel |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, toutes les éditions</li><li>Windows 8, toutes les éditions</li><li>Windows 7, toutes les éditions</li><li>Windows Vista, toutes les éditions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou version ultérieure si vous installez le kit de développement logiciel du portail de l’utilisateur ou du service web</li> |
@@ -94,7 +94,7 @@ Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et q
 Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentication (MFA) à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Sélectionnez **Active Directory** > **Serveur MFA**.
+2. Sélectionnez **Azure Active Directory** > **Serveur MFA**.
 3. Sélectionnez **Paramètres du serveur**.
 4. Cliquez sur **Télécharger** et suivez les instructions de la page de téléchargement pour enregistrer le programme d’installation. 
 

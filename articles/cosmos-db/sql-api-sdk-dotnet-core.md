@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Démarrer**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -58,6 +58,14 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 > [!NOTE] 
 > Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Régression corrigée où FeedOptions.MaxItemCount = -1 levait une exception System.ArithmeticException : taille de la page est négative.
+* Nouvelle fonction ToString() ajoutée à QueryMetrics.
+* Statistiques de partition exposées sur la lecture des collections.
+* Propriété PartitionKey ajoutée à ChangeFeedOptions.
+* Correctifs de bogues mineurs.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 février 2018 |--- |
 | [1.7.1](#1.7.1) |16 novembre 2017 |--- |
 | [1.7.0](#1.7.0) |10 novembre 2017 |--- |
 | [1.6.0](#1.6.0) |17 octobre 2017 |--- |

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Créer un registre Azure Container Registry à l’aide de PowerShell
 
@@ -21,7 +21,7 @@ Azure Container Registry est un service de registre de conteneurs Docker géré 
 
 Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -57,13 +57,13 @@ Avant d’extraire et de transmettre des images conteneur, vous devez vous conne
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Utilisez ensuite la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/) pour vous connecter à l’instance ACR.
+Utilisez ensuite la commande [docker login][docker-login] pour vous connecter à l’instance ACR.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-Après son exécution, la commande retourne le message « Connexion réussie ».
+Une fois l’opération terminée, la commande renvoie `Login Succeeded`. Vous pouvez également voir un avertissement de sécurité vous recommandant l’utilisation du paramètre `--password-stdin`. Même si son utilisation n’est pas le sujet de cet article, nous vous recommandons de suivre cette meilleure pratique. Pour plus d’informations, consultez la référence de la commande [docker login][docker-login].
 
 ## <a name="push-image-to-acr"></a>Envoyer une image dans l’ACR
 
@@ -79,13 +79,13 @@ L’image doit être étiquetée avec le nom du serveur de connexion ACR. Exécu
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Étiquetez l’image en utilisant la commande [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Remplacez la valeur *acrLoginServer* par le nom du serveur de connexion de votre instance ACR.
+Marquez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez la valeur *acrLoginServer* par le nom du serveur de connexion de votre instance ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Enfin, utilisez la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/) pour envoyer les images à l’instance ACR. Remplacez la valeur *acrLoginServer* par le nom du serveur de connexion de votre instance ACR.
+Enfin, utilisez la commande [docker push][docker-push] pour envoyer les images à l’instance ACR. Remplacez la valeur *acrLoginServer* par le nom du serveur de connexion de votre instance ACR.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container
 
 > [!div class="nextstepaction"]
 > [Didacticiel Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

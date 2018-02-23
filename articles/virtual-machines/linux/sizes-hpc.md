@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: a235261dc477ab29dc17fe1e680e4e91ae2f4ede
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tailles de machine virtuelle de calcul haute performance
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="rdma-capable-instances"></a>Instances prenant en charge RDMA
-Un sous-ensemble d’instances nécessitant beaucoup de ressources système (H16r, H16mr, A8 et A9) offre une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Cette interface s’ajoute à l’interface réseau Azure standard disponible pour d’autres tailles de machine virtuelle. 
+Un sous-ensemble d’instances nécessitant beaucoup de ressources système (H16r, H16mr, NC24r, A8 et A9) offre une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Cette interface s’ajoute à l’interface réseau Azure standard disponible pour d’autres tailles de machine virtuelle. 
   
-Cette interface permet aux instances prenant en charge RDMA de communiquer sur un réseau InfiniBand, opérant à des vitesses FDR pour les machines virtuelles H16r et H16mr, et à des vitesses QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances des applications MPI (Message Passing Interface) exécutées sous Intel MPI 5.x ou version ultérieure.
+Cette interface permet aux instances prenant en charge RDMA de communiquer sur un réseau InfiniBand, opérant à des vitesses FDR pour les machines virtuelles H16r, H16mr, et NC24r, et à des vitesses QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances des applications MPI (Message Passing Interface) exécutées sous Intel MPI 5.x uniquement. Les versions ultérieures (2017, 2018) de la bibliothèque Runtime MPI Intel ne sont pas compatibles avec les pilotes RDMA Azure.
 
 Déployez les machines virtuelles prenant en charge RDMA dans le même groupe à haute disponibilité (si vous utilisez le modèle de déploiement Azure Resource Manager) ou le même service cloud (si vous utilisez le modèle de déploiement Classic). La configuration requise supplémentaire pour que les machines virtuelles Linux prenant en charge RDMA puissent accéder au réseau RDMA Azure est indiquée ci-après.
 
@@ -76,7 +76,7 @@ Une configuration supplémentaire du système est nécessaire pour exécuter des
 - [GPU](../windows/sizes-gpu.md)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour commencer à déployer et à utiliser des tailles nécessitant beaucoup de ressources système avec RDMA sur Linux, consultez [Configurer un cluster RDMA Linux pour exécuter des applications MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

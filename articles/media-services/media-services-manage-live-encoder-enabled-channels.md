@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 ## <a name="overview"></a>Vue d'ensemble
@@ -55,19 +55,19 @@ Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'ut
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
-* **Démarrage en cours**. Le canal est en cours de démarrage. Aucune facturation ne survient dans cet état. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
+* **Démarrage en cours**. Le canal est en cours de démarrage. Aucune facturation ne survient dans cet état. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
 * **Exécution en cours**. Le canal est capable de traiter des flux dynamiques. Il facture désormais l'utilisation. Vous devez arrêter le canal pour empêcher toute facturation supplémentaire. 
 * **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
-* **Suppression en cours**. Le canal est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
+* **Suppression en cours**. Le canal est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
 
 Le tableau suivant montre comment les états du canal sont mappés au mode de facturation. 
 
 | État du canal | Indicateurs de l’interface utilisateur du portail | Existe-t-il une facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d'exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
-| Arrêté |Arrêté |Non |
+| Arrêté |Arrêté |Non  |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Fermeture automatique des canaux inutilisés
 Depuis le 25 janvier 2016, Media Services a déployé une mise à jour qui ferme automatiquement un canal (avec encodage en temps réel activé) s’il reste non utilisé pendant une longue période. Cela s'applique aux canaux qui n’ont aucun programme actif et qui ont été laissés à l’état d’exécution sans un flux de contribution d’entrée pendant une période prolongée.
@@ -83,7 +83,7 @@ Le diagramme suivant représente un flux de travail de diffusion en continu dyna
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
 > [!NOTE]
-> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Contactez amslived à Microsoft.com si vous avez besoin d’exécuter un canal pour de longues périodes. N’oubliez pas qu’il existe un impact sur la facturation pour l’encodage en temps réel et que laisser un canal d’encodage en temps réel dans l’état « Actif » occasionne des frais de facturation horaires.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires. 
+> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Contactez amslived@microsoft.com si vous avez besoin d’exécuter un canal pour de longues périodes. N’oubliez pas qu’il existe un impact sur la facturation pour l’encodage en temps réel et que laisser un canal d’encodage en temps réel dans l’état « Actif » occasionne des frais de facturation horaires.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires. 
 > 
 > 
 
@@ -105,11 +105,11 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 6. Publiez la ressource associée au programme.   
    
     >[!NOTE]
-    >Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Le point de terminaison à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**. 
+    >Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Le point de terminaison à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**. 
     
 7. Démarrez le programme dès que vous êtes prêt à lancer le streaming et l’archivage.
 8. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-9. Arrêtez le programme chaque fois que vous voulez arrêter le streaming et l’archivage de l’événement.
+9. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 10. Supprimez le programme (et éventuellement la ressource).   
 
 > [!NOTE]
@@ -192,7 +192,7 @@ Considérations :
 
 Identique au flux [RTMP à débit binaire unique](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
-#### <a name="other-considerations"></a>Autres considérations
+#### <a name="other-considerations"></a>Autres points à considérer
 * Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 * La résolution maximale pour le flux vidéo entrant est définie sur 1920x1080. Si le flux vidéo est entrelacé, elle est définie au plus sur 60 champs par seconde. S’il est progressif, elle est définie sur 30 images/seconde.
 
@@ -262,7 +262,7 @@ Jusqu’à 8 jeux de flux audio peuvent être spécifiés si l’entrée du can
 ### <a id="preset"></a>Présélection du système
 Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** (par défaut).
 
-Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived à l’adresse Microsoft.com.
+Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived@microsoft.com.
 
 **Default720p** encode la vidéo dans les 7 couches suivantes.
 
@@ -290,7 +290,7 @@ Si le paramètre Encodage en temps réel du canal est activé, vous possédez un
 
 Ci-après figurent les propriétés que vous pouvez définir pour la signalisation des annonces : 
 
-### <a name="duration"></a>Durée
+### <a name="duration"></a>Duration
 Durée (en secondes) de la pause publicitaire. Pour que la pause publicitaire commence, ce doit être une valeur positive différente de zéro. Si une pause publicitaire est en cours et que la durée est définie sur zéro avec la propriété ID de file d’attente correspondant à la pause publicitaire en cours, alors cette pause est annulée.
 
 ### <a name="cueid"></a>ID de file d’attente
@@ -306,7 +306,7 @@ L’encodeur dynamique dans le canal peut être informé de basculer vers une im
 
 L’encodeur dynamique peut être configuré pour basculer vers une image d’ardoise et masquer le signal vidéo entrant dans certaines situations, par exemple, pendant une pause publicitaire. Si une telle ardoise n’est pas configurée, la vidéo d’entrée n’est pas masquée pendant cette annonce publicitaire.
 
-### <a name="duration"></a>Durée
+### <a name="duration"></a>Duration
 Durée (en secondes) de l’affichage de l’ardoise. Pour que l’affichage de l’ardoise commence, ce doit être une valeur positive différente de zéro. Si une ardoise est en cours d’affichage et que la durée zéro est spécifiée, cette ardoise en cours va se terminer.
 
 ### <a name="insert-slate-on-ad-marker"></a>Insérer une ardoise dans le marqueur de publicité
@@ -339,7 +339,7 @@ Un canal prend en charge jusqu’à trois programmes exécutés simultanément,
 
 Vous ne devez pas réutiliser de programmes existants pour de nouveaux événements. Au lieu de cela, créez et démarrez un nouveau programme pour chaque événement, tel que décrit dans la section Programmation d’applications de streaming en direct.
 
-Démarrez le programme dès que vous êtes prêt à lancer le streaming et l’archivage. Arrêtez le programme chaque fois que vous voulez arrêter le streaming et l’archivage de l’événement. 
+Démarrez le programme dès que vous êtes prêt à lancer le streaming et l’archivage. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement. 
 
 Pour supprimer du contenu archivé, arrêtez et supprimez le programme, puis supprimez l’élément multimédia associé. Un élément multimédia ne peut pas être supprimé s’il est utilisé par un programme ; le programme doit d’abord être supprimé. 
 
@@ -364,9 +364,9 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>ou<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
-| Arrêté |Arrêté |Non |
+| Arrêté |Arrêté |Non  |
 
 > [!NOTE]
 > Actuellement, la moyenne de démarrage du canal est d'environ 2 minutes, mais parfois peut prendre jusqu'à 20 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
@@ -381,7 +381,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 * Par défaut, vous pouvez seulement ajouter 5 canaux à votre compte Media Services. Il s’agit d’un quota conditionnel sur tous les nouveaux comptes. Pour plus d’informations, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 * Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 * Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution** . Pour plus d’informations, reportez-vous à [cette](media-services-manage-live-encoder-enabled-channels.md#states) section.
-* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 * Assurez-vous que le point de terminaison à partir duquel vous souhaitez diffuser du contenu se trouve dans l’état **En cours d’exécution**.
 * Seul RTP est pris en charge pour la saisie multilingue lors de la saisie de pistes multilingues et l'encodage en temps réel. Vous pouvez définir jusqu'à 8 flux audio en entrée à l'aide de MPEG-2 TS via RTP. La réception de plusieurs pistes audio avec RTMP ou Smooth Streaming n'est actuellement pas prise en charge. Il n’existe aucune limitation en cas d’encodage live avec des [encodeurs live locaux](media-services-live-streaming-with-onprem-encoders.md), car tout le contenu envoyé au système AMS passe par un canal sans traitement supplémentaire.
 * La valeur d'encodage prédéfinie utilise la notion de « fréquence d’images max » de 30 i/s. Par conséquent, si l'entrée est 60 i/s/59,97i, les images d’entrée sont réduites/désentrelacées à 30/29,97 i/s. Si l'entrée est 50 i/s/50i, les images d’entrée sont réduites/désentrelacées à 25 i/s. Si l'entrée est 25 i/s, la sortie reste à 25 i/s.

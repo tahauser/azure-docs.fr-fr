@@ -17,6 +17,7 @@
 ### [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Mettre à niveau à partir d’une version antérieure](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Effectuer l’installation à l’aide d’une base de données ADSync existante](active-directory-aadconnect-existing-database.md)
+### [Effectuer l’installation à l’aide d’autorisations administrateur déléguées SQL](active-directory-aadconnect-sql-delegation.md)
 
 # Procédures
 ## Planifier et concevoir
@@ -51,7 +52,8 @@
 
 
 ## Gérer la synchronisation d’Azure AD Connect
-### [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+### [Conformité avec RGPD et Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronisation du mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Compte de service Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Assistant d’installation](active-directory-aadconnectsync-installation-wizard.md)
@@ -81,6 +83,7 @@
 ### [Connectivité](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Résolution des erreurs lors de la synchronisation](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objet non synchronisé](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Synchronisation d’objets à l’aide de la tâche de résolution des problèmes](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Synchronisation du mot de passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [Erreur de LargeObject provoquée par userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Comment récupérer depuis la limite de 10 Go de base de données locale](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

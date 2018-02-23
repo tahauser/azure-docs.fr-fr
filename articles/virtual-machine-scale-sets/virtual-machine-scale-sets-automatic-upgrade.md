@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Mises à niveau automatiques du système d’exploitation dans des groupes de machines virtuelles identiques Azure
 
@@ -40,9 +40,7 @@ La fonctionnalité de mise à niveau automatique du système d’exploitation pr
 Dans la préversion, les limitations et restrictions suivantes s’appliquent :
 
 - Les mises à niveau automatiques du système d’exploitation prennent uniquement en charge [quatre références SKU du système d’exploitation](#supported-os-images). La fonctionnalité est fournie sans contrat de niveau de service (SLA) ni garanties. Nous vous recommandons de ne pas utiliser la préversion des mises à jour automatiques pour des charges de travail critiques dans votre environnement de production.
-- La prise en charge des groupes identiques dans les clusters Service Fabric sera bientôt disponible.
 - Le chiffrement de disque Azure Disk Encryption (actuellement en préversion) n’est **pas** pris en charge avec les mises à niveau automatiques du système d’exploitation dans les groupes de machines virtuelles identiques.
-- L’utilisation du portail sera bientôt possible.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Inscription pour utiliser la fonctionnalité de mise à niveau automatique du système d’exploitation
@@ -58,17 +56,23 @@ Il faut environ 10 minutes pour que l’inscription affiche l’état *Inscrit*
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Nous vous recommandons d’utiliser des sondes d’intégrité dans vos applications. Pour inscrire la fonctionnalité du fournisseur avec les sondes d’intégrité, utilisez [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature), comme suit :
+> [!NOTE]
+> Les clusters Service Fabric ont leurs propres critères de contrôle d’intégrité d’application, mais des groupes identiques sans Service Fabric utilisent la sonde d’intégrité de l’équilibreur de charge pour surveiller l’intégrité de l’application. Pour inscrire la fonctionnalité du fournisseur avec les sondes d’intégrité, utilisez [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature), comme suit :
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Là aussi, il faut environ 10 minutes pour que l’inscription affiche l’état *Inscrit*. Vous pouvez vérifier l’état actuel de l’inscription avec [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Une fois que le fournisseur est affiché comme inscrit, vérifiez que le fournisseur *Microsoft.Network* est inscrit à l’aide de la commande [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider), comme suit :
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Utilisation du portail
+Lorsque vous suivez la procédure d’inscription ci-dessus, vous pouvez accéder au [portail Azure](https://aka.ms/managed-compute) pour activer les mises à niveau automatiques du système d’exploitation sur vos groupes identiques et voir la progression des mises à niveau :
 
-Là aussi, il faut environ 10 minutes pour que l’inscription affiche l’état *Inscrit*. Vous pouvez vérifier l’état actuel de l’inscription avec [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Une fois que le fournisseur est affiché comme inscrit, vérifiez que le fournisseur *Microsoft.Network* est inscrit à l’aide de la commande [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider), comme suit :
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Images de système d’exploitation prises en charge
@@ -85,7 +89,10 @@ Les références SKU suivantes sont prises en charge (d’autres le seront ulté
 
 
 
-## <a name="application-health"></a>Intégrité de l’application
+## <a name="application-health-without-service-fabric"></a>Intégrité de l’application sans Service Fabric
+> [!NOTE]
+> Cette section s’applique uniquement aux groupes identiques sans Service Fabric. Service Fabric a ses propres critères d’intégrité de l’application. Lors de l’utilisation de mises à niveau automatiques du système d’exploitation avec Service Fabric, la nouvelle image du système d’exploitation est déployée, un domaine de mise à jour après l’autre, pour maintenir la haute disponibilité des services en cours d’exécution dans Service Fabric. Pour plus d’informations sur les caractéristiques de durabilité des clusters Service Fabric, voir [cette documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Durant une mise à niveau du système d’exploitation, les instances de machine virtuelle dans un groupe identique sont mises à niveau par lot. La mise à niveau doit se poursuivre uniquement si l’application du client est intègre sur les instances de machine virtuelle mises à niveau. Nous recommandons que l’application envoie des signaux d’intégrité au moteur de mise à niveau du système d’exploitation pour le groupe identique. Par défaut, pendant les mises à niveau du système d’exploitation, la plateforme vérifie l’état d’alimentation des machines virtuelles et l’état de provisionnement des extensions pour déterminer l’intégrité d’une instance de machine virtuelle après sa mise à niveau. Lors de la mise à niveau du système d’exploitation d’une instance de machine virtuelle, le disque du système d’exploitation sur l’instance de machine virtuelle est remplacé par un nouveau disque basé sur la dernière version de l’image. Après la mise à niveau du système d’exploitation, les extensions configurées sont exécutées sur ces machines virtuelles. L’application est considérée comme intègre uniquement quand toutes les extensions sur une machine virtuelle ont été correctement provisionnées. 
 
 Un groupe identique peut éventuellement être configuré avec des sondes d’intégrité d’application pour fournir à la plateforme des informations précises sur l’état actuel de l’application. Les sondes d’intégrité d’application sont des sondes d’équilibreur de charge personnalisées qui sont utilisées comme signal d’intégrité. L’application exécutée sur une instance de machine virtuelle d’un groupe identique peut répondre à des demandes HTTP ou TCP externes en indiquant si elle est intègre. Pour plus d’informations sur le fonctionnement des sondes d’équilibreur de charge personnalisées, consultez [Comprendre les sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md). L’utilisation d’une sonde d’intégrité d’application n’est pas obligatoire pour les mises à niveau automatiques du système d’exploitation, mais cela est fortement recommandé.
@@ -234,5 +241,5 @@ Vous pouvez utiliser le modèle suivant pour déployer un groupe identique qui u
 </a>
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir d’autres exemples d’utilisation des mises à niveau automatiques du système d’exploitation avec des groupes identiques, consultez le [dépôt GitHub des fonctionnalités en préversion](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

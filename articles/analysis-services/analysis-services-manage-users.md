@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/active-directory-administer.md) dans le même abonnement.
@@ -80,7 +80,7 @@ Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent e
   
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  

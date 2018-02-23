@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Paramètres de mise à niveau d'application
 Cet article décrit les différents paramètres qui s’appliquent pendant la mise à niveau d’une application Azure Service Fabric. Les paramètres incluent le nom et la version de l’application. Ils permettent de contrôler les délais d’attente et les vérifications d’intégrité appliqués au cours de la mise à niveau et de spécifier les stratégies à appliquer quand une mise à niveau échoue.
 
 <br>
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 | --- | --- |
 | ApplicationName |Nom de l'application en cours de mise à niveau. Exemples : fabric:/VisualObjects, fabric:/ClusterMonitor |
 | TargetApplicationTypeVersion |Version du type d'application ciblée par la mise à niveau. |
@@ -45,21 +45,21 @@ Les critères d'évaluation d'intégrité sont facultatifs. Si les critères d�
 
 <br>
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 | --- | --- |
 | ConsiderWarningAsError |La valeur par défaut est False. Traiter les événements d’avertissement d’intégrité de l’application comme des erreurs pendant l’évaluation de l’intégrité de l’application au cours de la mise à niveau. Par défaut, Service Fabric ne considère pas les événements d’avertissement d’intégrité comme des échecs (erreurs) ; la mise à niveau peut donc continuer même si des événements d’avertissement se produisent. |
-| MaxPercentUnhealthyDeployedApplications |La valeur par défaut et recommandée est 0. Nombre maximal d’applications déployées (voir la [section Intégrité](service-fabric-health-introduction.md)) pouvant être défectueuses avant que l’application ne soit considérée comme défectueuse et que sa mise à niveau échoue. Ce paramètre définit l’intégrité de l’application sur le nœud et vous aide à détecter les problèmes lors de la mise à niveau. En général, les réplicas de l’application font l’objet d’un équilibrage de la charge sur l’autre nœud, ce qui rend l’application intègre et permet de poursuivre la mise à niveau. En spécifiant une intégrité MaxPercentUnhealthyDeployedApplications stricte, Service Fabric peut détecter rapidement un problème avec le package d’application et provoquer un échec de la mise à niveau. |
+| MaxPercentUnhealthyDeployedApplications |La valeur par défaut et recommandée est 0. Nombre maximal d’applications déployées (voir la [section Intégrité](service-fabric-health-introduction.md)) pouvant être défectueuses avant que l’application ne soit considérée comme défectueuse et que sa mise à niveau échoue. Ce paramètre définit l’intégrité de l’application sur le nœud et vous aide à détecter les problèmes lors de la mise à niveau. En général, les réplicas de l’application font l’objet d’un équilibrage de la charge sur l’autre nœud, ce qui rend l’application intègre et permet de poursuivre la mise à niveau. En spécifiant une intégrité MaxPercentUnhealthyDeployedApplications stricte, Service Fabric peut détecter rapidement un problème avec le package d’application et provoquer une mise à niveau Fail-fast. |
 | MaxPercentUnhealthyServices |La valeur par défaut et recommandée est 0. Nombre maximal de services dans l’instance d’application pouvant être défectueux avant que l’application ne soit considérée comme défectueuse et que sa mise à niveau échoue. |
 | MaxPercentUnhealthyPartitionsPerService |La valeur par défaut et recommandée est 0. Nombre maximal de partitions dans un service pouvant être défectueuses avant que le service ne soit considéré comme défectueux. |
 | MaxPercentUnhealthyReplicasPerPartition |La valeur par défaut et recommandée est 0. Nombre maximal de réplicas dans une partition pouvant être défectueux avant que la partition ne soit considérée comme défectueuse. |
-| UpgradeReplicaSetCheckTimeout |**Service sans état**: dans un même domaine de mise à niveau, Service Fabric tente de s’assurer que des instances supplémentaires du service sont disponibles. Si le nombre d’instances cibles est supérieur à un, Service Fabric attend que plusieurs instances soient disponibles, jusqu’à ce que la valeur de délai maximal soit atteinte. Ce délai est spécifié à l’aide de la propriété UpgradeReplicaSetCheckTimeout. Si le délai expire, Service Fabric poursuit la mise à niveau, quel que soit le nombre d’instances de service. Si le nombre d'instances cibles est un, Service Fabric n'attend pas et procède immédiatement à la mise à niveau. **Service avec état**: dans un même domaine de mise à niveau, Service Fabric tente de s’assurer que le jeu de réplicas a un quorum. Service Fabric attend qu’un quorum soit disponible, jusqu’à ce que soit atteinte la valeur de délai maximal (spécifiée par la propriété UpgradeReplicaSetCheckTimeout). Si le délai expire, Service Fabric poursuit la mise à niveau, indépendamment du quorum. Ce paramètre est défini sur « never » (infini) pour une restauration par progression et sur 900 secondes pour une restauration. |
+| UpgradeReplicaSetCheckTimeout |<p>**Service sans état**: dans un même domaine de mise à niveau, Service Fabric tente de s’assurer que des instances supplémentaires du service sont disponibles. Si le nombre d’instances cibles est supérieur à un, Service Fabric attend que plusieurs instances soient disponibles, jusqu’à ce que la valeur de délai maximal soit atteinte. Ce délai est spécifié à l’aide de la propriété UpgradeReplicaSetCheckTimeout. Si le délai expire, Service Fabric poursuit la mise à niveau, quel que soit le nombre d’instances de service. Si le nombre d'instances cibles est un, Service Fabric n'attend pas et procède immédiatement à la mise à niveau.</p><p>**Service avec état**: dans un même domaine de mise à niveau, Service Fabric tente de s’assurer que le jeu de réplicas a un quorum. Service Fabric attend qu’un quorum soit disponible, jusqu’à ce que soit atteinte la valeur de délai maximal (spécifiée par la propriété UpgradeReplicaSetCheckTimeout). Si le délai expire, Service Fabric poursuit la mise à niveau, indépendamment du quorum. Ce paramètre est défini sur « never » (infini) pour une restauration par progression, et sur 1 200 secondes pour une restauration.</p> |
 | ForceRestart |Si vous mettez à jour un package de configuration ou de données sans mettre à jour le code de service, le service n’est redémarré que si la propriété ForceRestart est définie sur true. Quand la mise à jour est terminée, Service Fabric indique au service qu'un nouveau package de configuration ou de données est disponible. Le service est chargé d'appliquer les modifications. Si nécessaire, le service peut redémarrer automatiquement. |
 
 <br>
 <br>
 Les critères MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService et MaxPercentUnhealthyReplicasPerPartition peuvent être spécifiés par type de service pour une instance d’application. La configuration de ces paramètres par service permet à une application de contenir différents types de services avec des stratégies d’évaluation différentes. Par exemple, pour une instance d’application donnée, un type de service de passerelle sans état et un type de service de moteur avec état peuvent avoir des valeurs MaxPercentUnhealthyPartitionsPerService différentes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.

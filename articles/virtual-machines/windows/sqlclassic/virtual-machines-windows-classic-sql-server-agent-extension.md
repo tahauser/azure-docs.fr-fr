@@ -4,7 +4,7 @@ description: "Cette rubrique indique comment gérer l’extension Agent SQL Serv
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f48adec11096cfcf7a51aedd316a7b7d3f047568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent (Classic)
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](../sql/virtual-machines-windows-sql-server-agent-extension.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
 > * [Classique](../classic/sql-server-agent-extension.md)
 > 
 >
@@ -37,13 +37,13 @@ L’extension Agent IaaS SQL Server (SQLIaaSAgent) s’exécute sur les machines
 ## <a name="supported-services"></a>Services pris en charge
 L’extension Agent IaaS SQL Server prend en charge les tâches d’administration suivantes :
 
-| Fonction d’administration | Description |
+| Fonction d’administration | DESCRIPTION |
 | --- | --- |
 | **Sauvegarde automatisée SQL** |Automatise la planification des sauvegardes de toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (Classic)](../classic/sql-automated-backup.md). |
 | **Mise à jour corrective automatisée SQL** |Configure une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Classic)](../classic/sql-automated-patching.md). |
 | **Intégration du coffre de clés Azure** |Permet d’installer et de configurer automatiquement Azure Key Vault sur votre machine virtuelle SQL Server. Pour plus d’informations, consultez [Configurer Azure Key Vault Integration (Intégration du coffre de clés Azure) pour SQL Server sur des machines virtuelles Azure (Classic)](../classic/ps-sql-keyvault.md). |
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votre machine virtuelle :
 
 ### <a name="operating-system"></a>Système d’exploitation :
@@ -83,7 +83,7 @@ Si vous mettez à jour l’extension de l’agent IaaS SQL vers la dernière ver
 > 
 > 
 
-## <a name="status"></a>État
+## <a name="status"></a>Statut
 Pour vérifier que l’extension est installée, un moyen consiste à afficher l’état de l’agent dans le portail Azure. Sélectionnez une machine virtuelle répertoriée dans le panneau des machines virtuelles, puis cliquez sur **Extensions**. L’extension **SQLIaaSAgent** doit s’afficher.
 
 ![Extension Agent IaaS SQL Server dans le portail Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)

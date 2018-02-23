@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/18/2018
 ms.author: larryfr
-ms.openlocfilehash: 6191d81d6b55f5ffe943f800be542d7ea4614eaf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 639adb2fdc5a7d76c11397b5027199626a0a4016
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Démarrer avec Apache Kafka sur HDInsight
 
@@ -226,10 +226,12 @@ Dans ce document, vous avez appris les bases de l’utilisation d’Apache Kafka
 
 * [Analyser les journaux Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Répliquer des données entre des clusters Kafka](apache-kafka-mirroring.md)
-* [Kafka Producer and Consumer API with HDInsight (API Kafka Producer and Consumer avec HDInsight)](apache-kafka-producer-consumer-api.md)
-* [Kafka Streams API with HDInsight (API Kafka Streams avec HDInsight)](apache-kafka-streams-api.md)
+* [API de producteur et de consommateur Kafka avec HDInsight](apache-kafka-producer-consumer-api.md)
+* [API de flux Kafka avec HDInsight](apache-kafka-streams-api.md)
 * [Utiliser le streaming Apache Spark (DStream) avec Kafka sur HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Utiliser Apache Spark Structured Streaming avec Kafka sur HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Use Apache Spark Structured Streaming to move data from Kafka on HDInsight to Cosmos DB (Utiliser Apache Spark Structured Streaming pour déplacer des données de Kafka sur HDInsight vers Cosmos DB)](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Utiliser Apache Spark Structured Streaming pour déplacer des données de Kafka sur HDInsight vers Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md) (Utilisation d’Apache Storm avec Kafka sur HDInsight)
 * [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md) (Se connecter à Kafka via un réseau virtuel Azure)
+* [Utiliser Kafka avec Azure Container Service](apache-kafka-azure-container-services.md)
+* [Utiliser Kafka avec les applications de fonction Azure](apache-kafka-azure-functions.md)

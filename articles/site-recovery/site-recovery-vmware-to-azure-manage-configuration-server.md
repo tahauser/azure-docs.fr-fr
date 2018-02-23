@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Gérer le serveur de configuration
 
@@ -72,6 +72,22 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
+
+Vous exécutez des correctifs cumulatifs pour mettre à jour le serveur de configuration. Les mises à jour peuvent être appliquées jusqu’aux versions N-4. Par exemple : 
+
+- Si vous exécutez la version 9.7, 9.8, 9.9 ou 9.10, vous pouvez mettre à niveau directement vers la version 9.11.
+- Si vous exécutez la version 9.6 ou une version antérieure, et souhaitez mettre à niveau vers la version 9.11, vous devez tout d’abord mettre à niveau vers la version 9.7 avant la version 9.11.
+
+Des liens vers des correctifs cumulatifs pour la mise à niveau de toutes les versions du serveur de configuration sont disponibles dans la [page wiki relative aux mises à jour](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Mettez à niveau le serveur comme suit :
+
+1. Téléchargez le fichier du programme d’installation des mises à jour sur le serveur de configuration.
+2. Double-cliquez pour exécuter le programme d’installation.
+3. Le programme d’installation détecte la version actuelle en cours d’exécution sur la machine.
+4. Cliquez sur **OK** pour confirmer, puis exécutez la mise à niveau. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Supprimer un serveur de configuration ou annuler son inscription
 

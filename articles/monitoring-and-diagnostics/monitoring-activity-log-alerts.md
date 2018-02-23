@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Créer des alertes de journal d’activité
 
 ## <a name="overview"></a>Vue d'ensemble
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte. Il s’agit de ressources Azure, et peuvent donc être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Cet article décrit comment utiliser le portail Azure pour configurer une alerte sur les événements de journal d’activité.
+
+> [!NOTE]
+
+>  Les [Alertes (préversion)](monitoring-overview-unified-alerts.md) offrent actuellement une expérience améliorée de création et de gestion des journaux d’activité.  [Plus d’informations](monitoring-activity-log-alerts-new-experience.md)
 
 En général, vous créez des alertes du journal d’activité pour recevoir des notifications lorsque :
 
@@ -43,15 +47,13 @@ Vous pouvez configurer une alerte de journal d’activité en fonction de n’im
 - **État** : l’état de l’événement, généralement « Démarré », « Échoué » ou « Réussi ».
 - **Événement lancé par** : également appelé l’« appelant ». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
 
->[!NOTE]
->Vous devez spécifier au moins deux des critères précédents dans votre alerte. Le critère de catégorie est obligatoire. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
->
->
+> [!NOTE]
+> Lorsque la catégorie est « administration », vous devez spécifier au moins l’un des critères précédents dans votre alerte. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
 
 Lorsqu’une alerte du journal d’activité devient active, elle utilise un groupe d’actions pour générer des actions ou des notifications. Un groupe d’actions est un jeu réutilisable de destinataires de notifications, telles que des adresses de messagerie, des URL webhook ou des numéros de téléphone SMS. Les destinataires peuvent être référencés à partir de plusieurs alertes pour centraliser et regrouper vos canaux de notification. Lorsque vous définissez votre alerte de journal d’activité, vous avez deux options. Vous pouvez :
 
-* utiliser un groupe d’actions existant dans votre alerte de journal d’activité. 
-* créer un nouveau groupe d’action. 
+* utiliser un groupe d’actions existant dans votre alerte de journal d’activité.
+* créer un nouveau groupe d’action.
 
 Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions dans le portail Azure](monitoring-action-groups.md).
 
@@ -121,7 +123,7 @@ Une fois l’alerte créée, elle apparaît dans la section Alertes du panneau S
 * la supprimer
 * la désactiver ou l’activer si vous voulez arrêter temporairement ou reprendre la réception de notifications pour l’alerte.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Obtenir une [vue d’ensemble des alertes](monitoring-overview-alerts.md).
 - En savoir plus sur la [limitation du débit des notifications](monitoring-alerts-rate-limiting.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](monitoring-activity-log-alerts-webhook.md).

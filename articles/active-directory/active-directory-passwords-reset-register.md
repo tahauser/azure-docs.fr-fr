@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user;seohack1
-ms.openlocfilehash: ffdffc0c471970e5a7e7a0bb291658cefe99ed71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbb82e125381a4307ed742294f880600612ffc52
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>S’inscrire à la réinitialisation de mot de passe en libre-service
 
@@ -31,7 +31,7 @@ En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Inscrire ou confirmer les données d’authentification avec SSPR
 
-1. Ouvrez le navigateur web de votre appareil et accédez à la [page d’inscription à la réinitialisation de mot de passe](http://aka.ms/ssprsetup).
+1. Ouvrez le navigateur web de votre appareil et accédez à la [page d’inscription à la réinitialisation de mot de passe](https://aka.ms/ssprsetup).
 2. Entrez le nom d’utilisateur et le mot de passe que vous a fournis votre administrateur.
 3. Selon la façon dont votre service informatique a effectué la configuration, une ou plusieurs des options suivantes peuvent être configurées et vérifiées par vous. Si vous avez autorisé votre administrateur à utiliser vos informations, il peut remplir certaines informations pour vous.
     * **Téléphone de bureau** : seul votre administrateur peut définir cette option.
@@ -56,13 +56,13 @@ Vos administrateurs peuvent vous demander de confirmer vos méthodes d’authent
 | --- | --- | --- |
 | J’obtiens une page « Veuillez contacter votre administrateur » après avoir entré mon identifiant utilisateur. | Contactez votre administrateur. <br> <br> Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br> <br> Contactez votre service informatique pour une aide supplémentaire. | Ce message s’affiche parce que votre service informatique gère votre mot de passe dans votre environnement local et ne vous autorise pas à réinitialiser votre mot de passe à partir du lien **Votre compte n’est pas accessible**. <br> <br> Pour réinitialiser votre mot de passe, contactez votre service informatique directement. Indiquez-lui que vous voulez réinitialiser votre mot de passe pour qu’il active cette fonctionnalité pour vous.|
 | J'obtiens une erreur « Votre compte n'est pas activé pour la réinitialisation de mot de passe » après avoir entré mon identifiant utilisateur. | Votre compte n’est pas activé pour la réinitialisation du mot de passe. <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre entreprise à partir du lien **Vous ne pouvez pas accéder à votre compte** ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur**. Un e-mail est envoyé au service informatique de votre entreprise. Il lui indique que vous voulez réinitialiser votre mot de passe afin qu’elle active cette fonctionnalité pour vous. |
-| J'obtiens une erreur « Impossible de vérifier votre compte » après avoir entré mon identifiant utilisateur. | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à la [page d’inscription à la réinitialisation du mot de passe](http://aka.ms/ssprsetup) une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur** afin d’envoyer un e-mail au service informatique de votre entreprise. |
+| J'obtiens une erreur « Impossible de vérifier votre compte » après avoir entré mon identifiant utilisateur. | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à la [page d’inscription à la réinitialisation du mot de passe](https://aka.ms/ssprsetup) une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur** afin d’envoyer un e-mail au service informatique de votre entreprise. |
 
 ## <a name="next-steps"></a>étapes suivantes
 
 * [Changer votre mot de passe avec la réinitialisation de mot de passe en libre-service](active-directory-passwords-update-your-own-password.md)
-* [Page relative à l’inscription à la réinitialisation de mot de passe](http://aka.ms/ssprsetup)
-* [Portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/)
+* [Page relative à l’inscription à la réinitialisation de mot de passe](https://aka.ms/ssprsetup)
+* [Portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/)
 * [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Page Inscription à la réinitialisation de mot de passe, montrant les méthodes inscrites et le bouton Terminer"

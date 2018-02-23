@@ -4,7 +4,7 @@ description: "Fournit des meilleures pratiques pour choisir le bon modèle de ta
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
@@ -49,7 +49,7 @@ Si votre charge de travail de production n’est pas légère, utilisez l’une 
 | Édition SQL Server | Charge de travail |
 |-----|-----|
 | Web | Petits sites web |
-| Standard | Charges de travail faibles ou moyennes |
+| standard | Charges de travail faibles ou moyennes |
 | Entreprise | Charges de travail volumineuses ou critiques|
 
 Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux manières : par un *paiement à l’utilisation* ou par la méthode *BYOL (apportez votre propre licence)*.
@@ -91,7 +91,7 @@ L’apport de votre propre licence SQL par le biais de Licence Mobility est reco
 
 Pour utiliser la méthode BYOL avec une machine virtuelle SQL Server, vous devez posséder une licence SQL Server Standard ou Enterprise ainsi que [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), qui est une option obligatoire pour certains programmes de [licence en volume](https://www.microsoft.com/en-us/download/details.aspx?id=10585), et une option facultative pour d’autres.  Le niveau de tarification fourni par les programmes de licence en volume varie selon le type de contrat et la quantité et/ou l’engagement vis-à-vis de SQL Server. Mais en règle générale, l’apport de votre propre licence pour les charges de travail continues présente les avantages suivants :
 
-| Avantages de la méthode BYOL | Description |
+| Avantages de la méthode BYOL | DESCRIPTION |
 |-----|-----|
 | **Réduction des coûts** | L’apport de votre propre licence SQL Server est plus économique que le paiement à l’utilisation si une charge de travail doit exécuter en permanence SQL Server Standard ou Enterprise pendant *plus de 10 mois*. |
 | **Économies sur le long terme** | En moyenne, l’achat ou le renouvellement d’une licence SQL Server coûte *30 % moins cher par an* pendant les trois premières années. En outre, après 3 ans, vous n’avez plus besoin de renouveler la licence. Il ne vous reste qu’à payer Software Assurance. À ce stade, l’opération revient *200 % moins cher*. |
@@ -143,7 +143,7 @@ Pour les autres flux de travail, envisagez l’arrêt et le redémarrage automat
 > [!IMPORTANT]
 > L’arrêt et la libération de votre machine virtuelle constituent la seule façon d’éviter des frais. Le simple arrêt ou l’utilisation des options d’alimentation pour arrêter la machine virtuelle entraînent toujours des frais d’utilisation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour obtenir une assistance globale sur la tarification Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](../../../billing/billing-getting-started.md).
 

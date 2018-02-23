@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Déclencheurs et actions pour les workflows d’application logique
 
-Toutes les applications logiques commencent par un déclencheur suivi d’actions. Cette rubrique décrit les types de déclencheurs et d’actions que vous pouvez utiliser pour créer des intégrations de système et automatiser les workflows ou processus métier en générant des applications logiques. 
+Toutes les applications logiques commencent par un déclencheur suivi d’actions. Cet article décrit les types de déclencheurs et d’actions que vous pouvez utiliser pour créer des intégrations de système et automatiser les flux de travail ou processus métier en générant des applications logiques. 
   
 ## <a name="triggers-overview"></a>Vue d’ensemble des déclencheurs 
 
@@ -51,7 +51,7 @@ Tous les déclencheurs contiennent ces éléments de niveau supérieur :
 
 Chaque type de déclencheur a une interface différente et des *entrées* différentes qui définissent son comportement. 
 
-| Type de déclencheur | Description | 
+| Type de déclencheur | DESCRIPTION | 
 | ------------ | ----------- | 
 | **Périodicité** | Se déclenche selon une planification définie. Vous pouvez définir une date et une heure ultérieures pour déclencher ce déclencheur. Selon la fréquence, vous pouvez également spécifier des heures et des jours d’exécution du workflow. | 
 | **Requête**  | Transforme votre application logique en un point de terminaison que vous pouvez appeler, également connu en tant que déclencheur « manuel ». | 
@@ -111,15 +111,15 @@ Voici la définition de ce déclencheur :
 }
 ```
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| frequency | Oui | String | L’unité de temps pour la fréquence à laquelle le déclencheur se déclenche. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
-| interval | Oui | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>Voici les intervalles minimum et maximum : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
-| timeZone | Non | String | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
-| startTime | Non | String | Spécifiez la date et l’heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, alors spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique). Ou, spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
-| weekDays | Non | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Lundi », « Mardi », « Mercredi », « Jeudi », « Vendredi », « Samedi » et « Dimanche » | 
-| hours | Non | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
-| minutes | Non | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » comme marque de minute et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
+| frequency | OUI | Chaîne | L’unité de temps pour la fréquence à laquelle le déclencheur se déclenche. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
+| interval | OUI | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>Voici les intervalles minimum et maximum : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
+| timeZone | Non  | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
+| startTime | Non  | Chaîne | Spécifiez la date et l’heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, alors spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique). Ou, spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
+| weekDays | Non  | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Lundi », « Mardi », « Mercredi », « Jeudi », « Vendredi », « Samedi » et « Dimanche » | 
+| hours | Non  | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
+| minutes | Non  | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » comme marque de minute et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
 |||||| 
 
 Par exemple, ce déclencheur de périodicité spécifie que votre application logique s’exécute toutes les semaines chaque lundi à 10h30, 12h30 et 14h30 heure standard du Pacifique, et il ne commence pas avant le 9 septembre 2017 à 14h :
@@ -178,9 +178,9 @@ Ce déclencheur joue un rôle de point de terminaison que vous pouvez utiliser p
 
 Ce déclencheur dispose d’une propriété facultative appelée *schema* :
   
-| Nom de l'élément | Requis | Type | Description |
+| Nom de l'élément | Obligatoire | type | DESCRIPTION |
 | ------------ | -------- | ---- | ----------- |
-| schema | Non | Object | Schéma JSON qui valide la requête entrante. Utile pour aider les étapes de workflow suivantes à déterminer les propriétés auxquelles faire référence. | 
+| schema | Non  | Object | Schéma JSON qui valide la requête entrante. Utile pour aider les étapes de workflow suivantes à déterminer les propriétés auxquelles faire référence. | 
 ||||| 
 
 Pour appeler ce point de terminaison, vous devez appeler l’API *listCallbackUrl*. Consultez [API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows).
@@ -189,24 +189,24 @@ Pour appeler ce point de terminaison, vous devez appeler l’API *listCallbackUr
 
 Les déclencheurs HTTP interrogent un point de terminaison spécifique et vérifient la réponse pour déterminer si le workflow doit être exécuté. Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP :  
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| method | Oui | String | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
-| URI | Oui| String | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | Non | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
+| method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
+| URI | OUI| Chaîne | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
 ||||| 
  
 Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Le déclencheur reconnaît ces propriétés :  
   
-| Réponse | Requis | Description | 
+| response | Obligatoire | DESCRIPTION | 
 | -------- | -------- | ----------- |  
-| Code d’état | Oui | Le code d’état 200 (« OK ») entraîne une exécution. Les autres codes d’état ne déclenchent pas d’exécution. | 
-| En-tête Retry-after | Non | Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison. | 
-| En-tête Location | Non | URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée. | 
+| Code d’état | OUI | Le code d’état 200 (« OK ») entraîne une exécution. Les autres codes d’état ne déclenchent pas d’exécution. | 
+| En-tête Retry-after | Non  | Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison. | 
+| En-tête Location | Non  | URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée. | 
 |||| 
 
 Voici quelques exemples de comportements pour les différents types de requêtes :
@@ -222,7 +222,7 @@ Voici quelques exemples de comportements pour les différents types de requêtes
 
 Voici les sorties de déclencheur HTTP : 
   
-| Nom de l'élément | Type | Description |
+| Nom de l'élément | type | DESCRIPTION |
 | ------------ | ---- | ----------- |
 | headers | Object | En-têtes de la réponse HTTP | 
 | body | Object | Corps de la réponse HTTP | 
@@ -230,7 +230,7 @@ Voici les sorties de déclencheur HTTP :
 
 ## <a name="api-connection-trigger"></a>Déclencheur ApiConnection  
 
-Le déclencheur ApiConnection présente des fonctionnalités de base similaires à celles du déclencheur HTTP. Cependant, les paramètres d’identification de l’action sont différents. Voici un exemple :  
+Le déclencheur ApiConnection présente des fonctionnalités de base similaires à celles du déclencheur HTTP. Cependant, les paramètres d’identification de l’action sont différents. Voici un exemple :   
   
 ```json
 "myDailyReportTrigger": {
@@ -252,33 +252,35 @@ Le déclencheur ApiConnection présente des fonctionnalités de base similaires 
 }
 ```
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| host | Oui | Object | Passerelle hébergée et ID de l’application d’API | 
-| method | Oui | String | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | Non | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). | 
+| host | OUI | Object | Passerelle hébergée et ID de l’application d’API | 
+| method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
 Pour l’objet `host`, voici les propriétés :  
   
-| Nom de l'élément | Requis | Description | 
+| Nom de l'élément | Obligatoire | DESCRIPTION | 
 | ------------ | -------- | ----------- | 
-| api runtimeUrl | Oui | Point de terminaison de l’API gérée | 
+| api runtimeUrl | OUI | Point de terminaison de l’API gérée | 
 | connection name |  | Nom de la connexion API gérée utilisée par le workflow. Doit faire référence à un paramètre nommé `$connection`. |
 |||| 
 
 Voici les sorties d’un déclencheur APIConnection :
   
-| Nom de l'élément | Type | Description |
+| Nom de l'élément | type | DESCRIPTION |
 | ------------ | ---- | ----------- |
 | headers | Object | En-têtes de la réponse HTTP | 
 | body | Object | Corps de la réponse HTTP | 
 |||| 
-  
+
+Apprenez-en davantage sur la [tarification des déclencheurs de connexion d’API](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## <a name="httpwebhook-trigger"></a>Déclencheur HTTPWebhook  
 
 Le déclencheur HTTPWebhook fournit un point de terminaison de la même manière que le déclencheur de requête, mais le déclencheur HTTPWebhook appelle également une URL spécifique à des fins d’inscription et de désinscription. Un déclencheur HTTPWebhook peut se présenter comme dans cet exemple :  
@@ -316,10 +318,10 @@ Le déclencheur HTTPWebhook fournit un point de terminaison de la même manière
 
 La plupart de ces sections sont facultatives, et le comportement du déclencheur HTTPWebhook varie selon les sections que vous renseignez ou omettez. Voici les propriétés du déclencheur HTTPWebhook :
   
-| Nom de l'élément | Requis | Description | 
+| Nom de l'élément | Obligatoire | DESCRIPTION | 
 | ------------ | -------- | ----------- |  
-| subscribe | Non | Spécifie la requête sortante à appeler lorsque le déclencheur est créé et effectue l’inscription initiale. | 
-| unsubscribe | Non | Spécifie la requête sortante à appeler lorsque le déclencheur est supprimé. | 
+| subscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est créé et effectue l’inscription initiale. | 
+| unsubscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est supprimé. | 
 |||| 
 
 Vous pouvez spécifier les limites d’une action webhook de la même manière que les [limites asynchrones HTTP](#asynchronous-limits). Voici plus d’informations sur les actions `subscribe` et `unsubscribe` :
@@ -338,7 +340,7 @@ Vous pouvez spécifier les limites d’une action webhook de la même manière q
 
 Voici les sorties du déclencheur HTTPWebhook et le contenu de la requête entrante :
   
-| Nom de l'élément | Type | Description |
+| Nom de l'élément | type | DESCRIPTION |
 | ------------ | ---- | ----------- |
 | headers | Object | En-têtes de la réponse HTTP | 
 | body | Object | Corps de la réponse HTTP | 
@@ -346,7 +348,7 @@ Voici les sorties du déclencheur HTTPWebhook et le contenu de la requête entra
 
 ## <a name="conditions"></a>Conditions  
 
-Pour n’importe quel déclencheur, vous pouvez utiliser une ou plusieurs conditions pour déterminer si le workflow doit s’exécuter ou non. Par exemple :  
+Pour n’importe quel déclencheur, vous pouvez utiliser une ou plusieurs conditions pour déterminer si le workflow doit s’exécuter ou non. Par exemple :   
 
 ```json
 "myDailyReportTrigger": {
@@ -374,7 +376,7 @@ Dans ce cas, le rapport se déclenche uniquement lorsque le paramètre `sendRepo
 ```  
   
 > [!NOTE]  
-> Lorsqu’une expression fait référence au code d’état du déclencheur de quelque façon, le comportement par défaut, qui est « trigger only on 200 » « OK », est remplacé. Par exemple, si vous souhaitez que le déclenchement soit effectué avec le code d’état 200 et le code d’état 201, vous devez inclure la condition `@or(equals(triggers().code, 200),equals(triggers().code,201))`.
+> Quand une expression fait référence au code d’état du déclencheur de quelque façon, le comportement par défaut, qui est « trigger only on 200 » « OK », est remplacé. Par exemple, si vous souhaitez que le déclenchement soit effectué avec le code d’état 200 et le code d’état 201, vous devez inclure la condition `@or(equals(triggers().code, 200),equals(triggers().code,201))`.
   
 ## <a name="start-multiple-runs-for-a-request"></a>Démarrer plusieurs exécutions pour une requête
 
@@ -460,7 +462,7 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 
 ### <a name="standard-actions"></a>Actions standard  
 
-| Type d’action | Description | 
+| Type d’action | DESCRIPTION | 
 | ----------- | ----------- | 
 | **HTTP** | Appelle un point de terminaison web HTTP. | 
 | **ApiConnection**  | Fonctionne comme l’action HTTP, mais utilise des [API gérées par Microsoft](https://docs.microsoft.com/azure/connectors/apis-list). | 
@@ -478,7 +480,7 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 
 ### <a name="collection-actions"></a>Actions de collection
 
-| Type d’action | Description | 
+| Type d’action | DESCRIPTION | 
 | ----------- | ----------- | 
 | **Condition** | Évalue une expression et en fonction du résultat, exécute la branche correspondante. | 
 | **Portée** | À utiliser pour le regroupement logique des autres actions. | 
@@ -488,7 +490,7 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 
 ## <a name="http-action"></a>Action HTTP  
 
-Les actions HTTP appellent un point de terminaison spécifique et vérifient la réponse pour déterminer si le workflow doit s’exécuter. Par exemple :
+Les actions HTTP appellent un point de terminaison spécifique et vérifient la réponse pour déterminer si le workflow doit s’exécuter. Par exemple : 
   
 ```json
 "myLatestNewsAction": {
@@ -502,16 +504,16 @@ Les actions HTTP appellent un point de terminaison spécifique et vérifient la 
 
 Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP : 
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| method | Oui | String | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
-| URI | Oui| String | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Non | String | Définit l’ensemble de comportements spéciaux à substituer. | 
-| authentication | Non | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
+| method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
+| URI | OUI| Chaîne | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
+| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
 ||||| 
 
 Cet exemple d’action HTTP tente à nouveau de récupérer les dernières actualités deux fois en cas d’échec temporaire, pour un total de 3 exécutions, avec un délai de 30 secondes entre chaque tentative :
@@ -531,13 +533,13 @@ Cet exemple d’action HTTP tente à nouveau de récupérer les dernières actua
 }
 ```
 
-L’intervalle avant nouvelle tentative est spécifié au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle présente une valeur par défaut (et minimale) de 20 secondes, tandis que la valeur maximale est d’une heure. Le nombre de nouvelles tentatives par défaut (et maximal) est de 4. Si la définition de stratégie de nouvelle tentative n’est pas spécifiée, une stratégie `fixed` est utilisée avec les valeurs d’intervalle et de nombre de nouvelles tentatives par défaut. Pour désactiver la stratégie de nouvelle tentative, définissez son type sur `None`.
+L’intervalle avant nouvelle tentative est spécifié au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle présente une valeur par défaut (et minimale) de 20 secondes, tandis que la valeur maximale est d’une heure. Le nombre de nouvelles tentatives par défaut (et maximal) est de 4. Si vous ne spécifiez pas la définition de stratégie de nouvelle tentative, une stratégie `fixed` est utilisée avec les valeurs par défaut d’intervalle et de nombre de nouvelles tentatives. Pour désactiver la stratégie de nouvelle tentative, définissez son type sur `None`.
 
 ### <a name="asynchronous-patterns"></a>Modèles asynchrones
 
 Par défaut, toutes les actions basées sur HTTP prennent en charge le modèle d’opération asynchrone standard. Par conséquent, si le serveur distant indique que la requête est acceptée pour traitement avec une réponse « 202 ACCEPTED », le moteur Logic Apps continue à interroger l’URL spécifiée dans l’en-tête Location de la réponse jusqu’à atteindre un état terminal c’est-à-dire une réponse autre que 202.
   
-Pour désactiver le comportement asynchrone décrit précédemment, définissez `operationOptions` et `DisableAsyncPattern` dans les entrées de l’action. Dans ce cas, la sortie de l’action est basée sur la réponse 202 initiale du serveur. Par exemple :
+Pour désactiver le comportement asynchrone décrit précédemment, définissez `operationOptions` et `DisableAsyncPattern` dans les entrées de l’action. Dans ce cas, la sortie de l’action est basée sur la réponse 202 initiale du serveur. Par exemple : 
   
 ```json
 "invokeLongRunningOperationAction": {
@@ -594,17 +596,17 @@ Voici un exemple d’action APIConnection :
 }
 ```
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| host | Oui | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
-| method | Oui | String | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
-| path | Oui | String | Chemin de l’opération d’API | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Non | String | Définit l’ensemble de comportements spéciaux à substituer. | 
-| authentication | Non | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| host | OUI | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
+| method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
+| chemin d’accès | OUI | Chaîne | Chemin de l’opération d’API | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
+| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="apiconnection-webhook-action"></a>Action APIConnection webhook
@@ -638,16 +640,16 @@ L’action APIConnectionWebhook fait référence à un connecteur géré par Mic
 }
 ```
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| host | Oui | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
-| path | Oui | String | Chemin de l’opération d’API | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
-| retryPolicy | Non | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Non | String | Définit l’ensemble de comportements spéciaux à substituer. | 
-| authentication | Non | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| host | OUI | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
+| chemin d’accès | OUI | Chaîne | Chemin de l’opération d’API | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
+| retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
+| Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Action de réponse  
@@ -706,13 +708,13 @@ Cette action vous permet de représenter et d’appeler une [fonction Azure](../
     "runAfter": {}
 }
 ```
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- |  
-| function id | Oui | String | ID de ressource de la fonction Azure que vous souhaitez appeler. | 
-| method | Non | String | Méthode HTTP utilisée pour appeler la fonction. Si elle n’est pas spécifiée, « POST » est la méthode par défaut. | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
+| function id | OUI | Chaîne | ID de ressource de la fonction Azure que vous souhaitez appeler. | 
+| method | Non  | Chaîne | Méthode HTTP utilisée pour appeler la fonction. Si elle n’est pas spécifiée, « POST » est la méthode par défaut. | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
 |||||
 
 Lorsque vous enregistrez votre application logique, Azure Logic Apps effectue des contrôles de la fonction référencée :
@@ -756,13 +758,13 @@ Pour attendre jusqu’à un moment spécifique, vous pouvez utiliser cet exemple
 > [!NOTE]  
 > La durée d’attente peut être spécifiée soit à l’aide de l’objet `until`, soit à l’aide de l’objet `interval`, mais pas les deux.
   
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
-| until | Non | Object | Durée d’attente basée sur un point dans le temps | 
-| until timestamp | Oui | String | Point dans le temps au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) où l’attente expire | 
-| interval | Non | Object | Durée d’attente basée sur l’unité et le nombre d’intervalles | 
-| interval unit | Oui | String | Unité de temps. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
-| interval count | Oui | Entier  | Nombre entier positif représentant le nombre d’unités d’intervalle utilisées pour la durée d’attente | 
+| until | Non  | Object | Durée d’attente basée sur un point dans le temps | 
+| until timestamp | OUI | Chaîne | Point dans le temps au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) où l’attente expire | 
+| interval | Non  | Object | Durée d’attente basée sur l’unité et le nombre d’intervalles | 
+| interval unit | OUI | Chaîne | Unité de temps. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
+| interval count | OUI | Entier  | Nombre entier positif représentant le nombre d’unités d’intervalle utilisées pour la durée d’attente | 
 ||||| 
 
 ## <a name="workflow-action"></a>Action workflow   
@@ -795,13 +797,13 @@ Les sorties de cette action sont basées sur ce que vous avez défini pour l’a
 }
 ```
 
-| Nom de l'élément | Requis | Type | Description | 
+| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- |  
-| host id | Oui | String| ID de ressource du workflow que vous souhaitez appeler | 
-| host triggerName | Oui | String | Nom du déclencheur que vous souhaitez appeler | 
-| queries | Non | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
-| headers | Non | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | Non | Object | Représente la charge utile envoyée au point de terminaison. | 
+| host id | OUI | Chaîne| ID de ressource du workflow que vous souhaitez appeler | 
+| host triggerName | OUI | Chaîne | Nom du déclencheur que vous souhaitez appeler | 
+| queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
+| headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
 |||||   
 
 ## <a name="compose-action"></a>Action compose
@@ -839,10 +841,10 @@ Par exemple, pour convertir un tableau de nombres en tableau d’objets, vous po
 }
 ```
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| from | Oui | Tableau | Tableau source |
-| select | Oui | Quelconque | Projection appliquée à chaque élément du tableau source |
+| from | OUI | Tableau | Tableau source |
+| select | OUI | Quelconque | Projection appliquée à chaque élément du tableau source |
 ||||| 
 
 La sortie de l’action `select` est un tableau qui a la même cardinalité que le tableau d’entrée. Chaque élément est transformé comme défini par la propriété `select`. Si l’entrée est un tableau vide, la sortie est également un tableau vide.
@@ -866,10 +868,10 @@ La sortie de l’action `query` est un tableau qui contient les éléments du ta
 > [!NOTE]
 > Si aucune valeur ne remplit la condition `where`, le résultat est un tableau vide.
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| from | Oui | Tableau | Tableau source |
-| où | Oui | String | Condition appliquée à chaque élément du tableau source |
+| from | OUI | Tableau | Tableau source |
+| where | OUI | Chaîne | Condition appliquée à chaque élément du tableau source |
 ||||| 
 
 ## <a name="table-action"></a>Action table
@@ -903,7 +905,7 @@ Et que vous définissiez une action table comme dans l’exemple suivant :
 
 Le résultat de cet exemple ressemble à ce tableau HTML : 
 
-<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>pommes</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
+<table><thead><tr><th>id</th><th>Nom</th></tr></thead><tbody><tr><td>0</td><td>pommes</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
 
 Afin de personnaliser ce tableau, vous pouvez spécifier explicitement les colonnes, par exemple :
 
@@ -929,15 +931,15 @@ Afin de personnaliser ce tableau, vous pouvez spécifier explicitement les colon
 
 Le résultat de cet exemple ressemble à ce tableau HTML : 
 
-<table><thead><tr><th>ID produit</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>
+<table><thead><tr><th>ID produit</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| from | Oui | Tableau | Tableau source. Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau vide. | 
-| format | Oui | String | Le format de table que vous souhaitez, **CSV** ou **HTML** | 
-| colonnes | Non | Tableau | Les colonnes de table que vous souhaitez. À utiliser pour remplacer la forme du tableau par défaut. | 
-| column header | Non | String | En-tête de colonne | 
-| column value | Oui | String | Valeur de colonne | 
+| from | OUI | Tableau | Tableau source. Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau vide. | 
+| format | OUI | Chaîne | Le format de table que vous souhaitez, **CSV** ou **HTML** | 
+| colonnes | Non  | Tableau | Les colonnes de table que vous souhaitez. À utiliser pour remplacer la forme du tableau par défaut. | 
+| column header | Non  | Chaîne | En-tête de colonne | 
+| column value | OUI | Chaîne | Valeur de colonne | 
 ||||| 
 
 ## <a name="terminate-action"></a>Action terminate
@@ -959,12 +961,12 @@ Par exemple, pour arrêter une exécution avec l’état « Échec », vous pou
 }
 ```
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| runStatus | Oui | String | État de l’exécution cible, `Failed` ou `Cancelled` |
-| runError | Non | Object | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
-| runError code | Non | String | Code d’erreur de l’exécution |
-| runError message | Non | String | Message d’erreur de l’exécution |
+| runStatus | OUI | Chaîne | État de l’exécution cible, `Failed` ou `Cancelled` |
+| runError | Non  | Object | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
+| runError code | Non  | Chaîne | Code d’erreur de l’exécution |
+| runError message | Non  | Chaîne | Message d’erreur de l’exécution |
 ||||| 
 
 ## <a name="collection-actions-overview"></a>Vue d’ensemble des actions de collection
@@ -1005,11 +1007,11 @@ Cette action vous permet d’évaluer une condition et d’exécuter une branche
 }
 ``` 
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| actions | Oui | Object | Actions internes à exécuter quand `expression` prend la valeur `true` | 
-| expression | Oui | String | Expression à évaluer. |
-| else | Non | Object | Actions internes à exécuter quand `expression` prend la valeur `false` |
+| actions | OUI | Object | Actions internes à exécuter quand `expression` prend la valeur `true` | 
+| expression | OUI | Chaîne | Expression à évaluer. |
+| else | Non  | Object | Actions internes à exécuter quand `expression` prend la valeur `false` |
 ||||| 
 
 Si la condition est évaluée avec succès, elle est marquée comme `Succeeded` (Réussite). Les actions dans les objets `actions` ou `else` sont évaluées sur : 
@@ -1047,9 +1049,9 @@ Cette action vous permet de logiquement regrouper les actions d’un workflow.
 }
 ```
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- |  
-| actions | Oui | Object | Actions internes à exécuter dans l’étendue |
+| actions | OUI | Object | Actions internes à exécuter dans l’étendue |
 ||||| 
 
 ## <a name="foreach-action"></a>Action foreach
@@ -1083,11 +1085,11 @@ Cette action en boucle effectue une itération dans un tableau et exécute des a
 }
 ```
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| actions | Oui | Object | Actions internes à exécuter dans la boucle | 
-| foreach | Oui | String | Tableau dans lequel effectuer l’itération | 
-| operationOptions | Non | String | Spécifie les options de l’opération pour personnaliser le comportement. Prend actuellement en charge uniquement `Sequential` pour les itérations exécutées de manière séquentielle où le comportement par défaut est parallèle. |
+| actions | OUI | Object | Actions internes à exécuter dans la boucle | 
+| foreach | OUI | Chaîne | Tableau dans lequel effectuer l’itération | 
+| operationOptions | Non  | Chaîne | Spécifie les options de l’opération pour personnaliser le comportement. Prend actuellement en charge uniquement `Sequential` pour les itérations exécutées de manière séquentielle où le comportement par défaut est parallèle. |
 ||||| 
 
 ## <a name="until-action"></a>Action until
@@ -1116,16 +1118,16 @@ Cette action en boucle exécute des actions internes jusqu’à ce qu’une cond
 }
 ```
 
-| Nom | Requis | Type | Description | 
+| NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
-| actions | Oui | Object | Actions internes à exécuter dans la boucle | 
-| expression | Oui | String | Expression à évaluer après chaque itération. | 
-| limit | Oui | Object | Les limites de la boucle. Doit définir au moins une limite. | 
-| count | Non | Entier  | La limite du nombre d’itérations à effectuer | 
-| timeout | Non | String | La limite de délai d’expiration au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie la durée pendant laquelle la boucle doit s’exécuter |
+| actions | OUI | Object | Actions internes à exécuter dans la boucle | 
+| expression | OUI | Chaîne | Expression à évaluer après chaque itération. | 
+| limit | OUI | Object | Les limites de la boucle. Doit définir au moins une limite. | 
+| count | Non  | Entier  | La limite du nombre d’itérations à effectuer | 
+| timeout | Non  | Chaîne | La limite de délai d’expiration au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie la durée pendant laquelle la boucle doit s’exécuter |
 ||||| 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md)
 * [API REST de workflow](https://docs.microsoft.com/rest/api/logic/workflows)

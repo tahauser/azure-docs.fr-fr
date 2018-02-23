@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 11a9d03e62c674c4311c74f78e4cb2e709940941
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 596a38371925e9489a5d0dc0bd56a28ad97e80da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Télécharger un fichier de disque dur virtuel dans le compte de stockage d’un laboratoire avec AzCopy
 
@@ -38,7 +38,7 @@ Les étapes suivantes vous guident lors du téléchargement d’un fichier de di
 
 1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 

@@ -17,7 +17,6 @@
 #### [Autorisations sur azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Procédure pas à pas pour la solution de surveillance à distance](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connexion de votre Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [Connexion de votre MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Utiliser C
 ###### [Données simulés](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Utiliser des capteurs réels](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Données simulés](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Utiliser des capteurs réels](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implémenter la mise à jour du microprogramme](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Connexion de votre MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Procédures
 #### Connecter un appareil simulé
@@ -99,5 +99,7 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [FAQ sur la surveillance à distance](iot-suite-faq-rm-v2.md)
 ## [FAQ sur la fabrique connectée](iot-suite-faq-cf.md)
+## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Parcours d’apprentissage IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

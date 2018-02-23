@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Que sont les groupes de machines virtuelles identiques ?](virtual-machine-scale-sets-overview.md)
 
 # Prise en main
@@ -30,6 +30,9 @@
 #### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications dans les groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
 ### [Utiliser des disques de données avec des groupes identiques](virtual-machine-scale-sets-attached-disks.md)
+### Chiffrer des disques dans des groupes identiques
+#### [Utiliser PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Travailler avec des groupes identiques de grande taille](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertir un modèle de groupe identique pour utiliser un disque géré](virtual-machine-scale-sets-convert-template-to-md.md)
 

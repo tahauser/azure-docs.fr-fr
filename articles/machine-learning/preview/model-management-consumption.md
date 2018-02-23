@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Utilisation de services web
 Après avoir déployé un modèle en tant que service web en temps réel, vous pouvez lui envoyer des données et obtenir les prédictions de diverses plateformes et applications. Le service web en temps réel expose une API REST pour obtenir les prédictions. Vous pouvez envoyer des données au service web dans un format à une ou plusieurs lignes pour obtenir une ou plusieurs prédictions à la fois.
 
-Avec le [service web Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), une application externe communique de manière synchrone avec un modèle prédictif en adressant un appel HTTP POST à l’URL du service. Pour appeler un service web, l’application cliente doit spécifier la clé d’API qui est créée au moment où vous déployez une prédiction et placer les données de la demande dans le corps de la demande POST.
+Avec le [service web Azure Machine Learning](model-management-service-deploy.md), une application externe communique de manière synchrone avec un modèle prédictif en adressant un appel HTTP POST à l’URL du service. Pour appeler un service web, l’application cliente doit spécifier la clé d’API qui est créée au moment où vous déployez une prédiction et placer les données de la demande dans le corps de la demande POST.
 
 Notez que les clés d’API sont disponibles uniquement dans le mode de déploiement de cluster. Les services web locaux n’ont pas de clés.
 
@@ -29,7 +29,7 @@ Les services web Azure Machine Learning peuvent être déployés sur des cluster
 L’interface CLI et l’API d’Azure Machine Learning proposent des commandes pratiques qui permettent de créer et de gérer des environnements Compute pour les déploiements de services à l’aide de l’option ```az ml env```. 
 
 ## <a name="list-deployed-services-and-images"></a>Afficher la liste des services et des images déployés
-Vous pouvez afficher la liste des services et des images Docker actuellement déployés en utilisant la commande CLI ```az ml service list realtime -o table```. Notez que cette commande fonctionne toujours dans le contexte de l’environnement Compute actif et n’affiche pas les services déployés dans un environnement qui n’est pas défini comme étant actif. Pour définir l’environnement, utilisez ```az ml env set```. 
+Vous pouvez afficher la liste des services et des images Docker actuellement déployés en utilisant la commande CLI ```az ml service list realtime -o table```. Remarque : cette commande fonctionne toujours dans le contexte de l’environnement Compute actuel. Il n’affiche pas les services déployés dans un environnement qui n’est pas défini comme environnement actuel. Pour définir l’environnement, utilisez ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Obtenir des informations sur le service
 Une fois que le service web a été déployé avec succès, servez-vous de la commande suivante pour obtenir l’URL du service et les autres détails pour appeler le point de terminaison du service. 
@@ -40,7 +40,7 @@ az ml service usage realtime -i <service name>
 
 Cette commande imprime l’URL du service, les en-têtes de demande nécessaires, l’URL Swagger et les exemples de données en vue d’appeler le service si le schéma d’API du service a été fourni au moment du déploiement.
 
-Vous pouvez tester le service directement à partir de l’interface CLI sans composer de requête HTTP, en entrant l’exemple de commande CLI avec les données d’entrée :
+Vous pouvez tester le service directement à partir de l’interface CLI sans composer de requête HTTP, en entrant l’exemple de commande CLI avec les données d’entrée :
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"

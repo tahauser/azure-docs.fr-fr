@@ -36,8 +36,11 @@
 #### [Gérer les éléments multimédias de plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas et limitations](media-services-quotas-and-limitations.md)
 ## [Configurer Postman](media-rest-apis-with-postman.md)
-### [Environment](postman-environment.md)
-### [Collection](postman-collection.md)
+### Streaming à la demande
+#### [Environment](postman-environment.md)
+#### [Collection](postman-collection.md)
+### Vidéo en flux continu
+#### [Collection](postman-live-streaming-collection.md)
 ## Téléchargement de contenu
 ### Charger des fichiers dans un compte
 #### [Portail Azure](media-services-portal-upload-files.md)

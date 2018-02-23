@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Interface de ligne de commande Azure Service Fabric
 
@@ -20,7 +20,7 @@ L’interface de ligne de commande Azure Service Fabric est un utilitaire de lig
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant l’installation, vérifiez que Python et pip sont installés dans votre environnement. Pour plus d’informations, consultez la [documentation de démarrage rapide de pip](https://pip.pypa.io/en/latest/quickstart/) et la [documentation d’installation officielle de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -107,6 +107,19 @@ Si l’installation sur le sous-système Windows de Linux échoue en signalant 
 ```bash
 sudo pip3 install sfctl
 ```
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+
+Exécutez les commandes suivantes pour installer l’interface CLI Service Fabric sur Red Hat :
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+Pour tester l’installation, vous pouvez utiliser les étapes indiquées dans la section **Sous-systèmes Windows et Ubuntu pour Linux**.
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -248,7 +261,7 @@ pip uninstall sfctl
 pip install sfctl
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Déployer une application avec l’interface de ligne de commande Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Prise en main de Service Fabric sur Linux](service-fabric-get-started-linux.md)

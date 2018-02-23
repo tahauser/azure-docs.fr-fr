@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/16/2018
+ms.author: carlrab
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Création d’une base de données SQL Azure à l’aide du portail Azure
 
@@ -38,7 +38,7 @@ Une base de données SQL Azure est créée avec un ensemble défini de [ressourc
 
 Suivez ces étapes pour créer une base de données SQL contenant les exemples de données Adventure Works LT.
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
 2. Dans la page **Nouveau**, sélectionnez **Bases de données**, puis **Créer** sous **SQL Database** dans **cette même** page.
 
@@ -81,10 +81,10 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis – Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Pour ce démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **100 DTU (S3)** et **400** Go de stockage.
+7. Pour ce démarrage rapide, sélectionnez le niveau de service **Standard** et utilisez le curseur pour sélectionner **10 DTU (S0)** et **1** Go de stockage.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -93,7 +93,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis – Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
@@ -138,17 +138,13 @@ Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de
 
 Maintenant que vous avez créé un exemple de base de données dans Azure, nous allons utiliser l’outil de requête intégré au portail Azure pour vérifier que vous pouvez vous connecter à la base de données et demander des données.
 
-1. Sur la page SQL Database de votre base de données, recherchez **Explorateur de données (préversion)** dans le menu de gauche et cliquez dessus.
+1. Sur la page SQL Database de votre base de données, cliquez sur **Éditeur de requêtes (version préliminaire)** dans le menu de gauche, puis sur **Connexion**.
 
-   ![rechercher un éditeur de requête](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![se connecter](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Cliquez sur **Connexion**, vérifiez les informations de connexion puis cliquez sur **OK** pour vous connecter à l’aide de l’authentification du serveur SQL, avec la connexion d’administrateur du serveur et le mot de passe que vous avez créés plus tôt.
+2. Sélectionnez l’authentification SQL Server, fournissez les informations de connexion requises, puis cliquez sur **OK** pour vous connecter.
 
-   ![se connecter](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Cliquez sur **OK** pour vous connecter.
-
-4. Après vous être authentifié en tant qu’**Administrateur du serveur**, saisissez la requête suivante dans le volet de l’éditeur de requête.
+3. Après vous être authentifié en tant qu’**Administrateur du serveur**, saisissez la requête suivante dans le volet de l’éditeur de requête.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Maintenant que vous avez créé un exemple de base de données dans Azure, nous 
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Cliquez sur **Exécuter**, puis passez en revue les résultats de la requête dans le volet **Résultats**.
+4. Cliquez sur **Exécuter**, puis passez en revue les résultats de la requête dans le volet **Résultats**.
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Fermez la page **Explorateur de données**, cliquez sur **OK** pour ignorer vos modifications non enregistrées.
+5. Fermez la page **Explorateur de données**, cliquez sur **OK** pour ignorer vos modifications non enregistrées.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

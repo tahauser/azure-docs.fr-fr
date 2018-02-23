@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -45,7 +45,7 @@ Les sessions assurent un démultiplexage simultané de flux de messages entrelac
 
 ![][1]
 
-Un destinataire [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) est créé par le client qui accepte une session. Le client appelle [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. Dans le modèle de rappel réactif, il inscrit un gestionnaire de sessions, comme décrit dans la suite de cet article.
+Un destinataire [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) est créé par le client qui accepte une session. Le client appelle [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. Dans le modèle de rappel réactif, il inscrit un gestionnaire de sessions.
 
 Lorsque l’objet [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) est accepté et détenu par un client, ce dernier maintient un verrouillage exclusif sur tous les messages présentant la valeur [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) de cette session dans la file d’attente ou dans l’abonnement, ainsi que sur tous les messages dotés de cette valeur **SessionId** qui continuent d’arriver pendant toute la durée de la session.
 
@@ -72,6 +72,8 @@ La fonction d’état de session active une annotation définie par l’applicat
 Du point de vue de Service Bus, l’état d’une session de messagerie est un objet binaire opaque qui peut contenir une taille de données équivalant à un message, autrement dit 256 Ko pour Service Bus Standard et 1 Mo dans le cas de Service Bus Premium. L’état de traitement relatif à une session peut être stocké dans l’état de session, ou l’état de session peut pointer vers un emplacement de stockage ou un enregistrement de base de données contenant cette information.
 
 Les API de gestion de l’état de session, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) et [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), sont disponibles dans l’objet [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) des API C# et Java. Une session pour laquelle aucun état de session n’a été précédemment défini renvoie une référence **null** pour **GetState**. L’annulation de l’état de session précédemment défini s’effectue à l’aide de [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Notez que l’état de session reste tant qu’il n’est pas libéré (retour de la valeur **Null** ), même si tous les messages dans une session donnée sont consommés.
 
 Toutes les sessions existantes dans une file d’attente ou un abonnement peuvent être énumérées à l’aide de la méthode **SessionBrowser** de l’API Java et au moyen de [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) sur [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) et [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) dans le client .NET.
 

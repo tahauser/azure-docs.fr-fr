@@ -4,7 +4,7 @@ description: "Découvrez comment ajouter, modifier ou supprimer un sous-réseau 
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,98 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
+ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
-Découvrez comment ajouter, modifier ou supprimer un sous-réseau de réseau virtuel. 
-
-Si vous n’êtes pas familiarisé avec les réseaux virtuels, nous vous recommandons de lire [Vue d’ensemble des réseaux virtuels Azure](virtual-networks-overview.md) et [Créer, modifier ou supprimer un réseau virtuel](virtual-network-manage-network.md) avant d’ajouter, modifier ou supprimer un sous-réseau. Toutes les ressources Azure déployées dans un réseau virtuel sont déployées dans un sous-réseau au sein d’un réseau virtuel. Plusieurs sous-réseaux sont généralement créés au sein d’un réseau virtuel pour :
-- **Filtrer le trafic entre sous-réseaux**. Vous pouvez appliquer des groupes de sécurité réseau à des sous-réseaux pour filtrer le trafic réseau entrant et sortant de toutes les ressources (telles que des machines virtuelles) dans le réseau virtuel. Pour en savoir plus sur la création d’un groupe de sécurité réseau, consultez [Créer des groupes de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md).
-- **Contrôler le routage entre les sous-réseaux**. Azure crée des itinéraires par défaut de façon à ce que le trafic soit automatiquement routé entre les sous-réseaux. Vous pouvez substituer les itinéraires Azure par défaut en créant des itinéraires définis par l’utilisateur. Pour en savoir plus sur les itinéraires définis par l’utilisateur, consultez [Créer des itinéraires définis par l’utilisateur](virtual-network-create-udr-arm-ps.md). 
-
-Cet article explique comment ajouter, modifier et supprimer un sous-réseau de réseau virtuel créé à l’aide du modèle de déploiement Azure Resource Manager.
+Découvrez comment ajouter, modifier ou supprimer un sous-réseau de réseau virtuel. Si vous n’êtes pas familiarisé avec les réseaux virtuels, nous vous recommandons de lire [Vue d’ensemble des réseaux virtuels Azure](virtual-networks-overview.md) et [Créer, modifier ou supprimer un réseau virtuel](virtual-network-manage-network.md) avant d’ajouter, modifier ou supprimer un sous-réseau. Toutes les ressources Azure déployées dans un réseau virtuel sont déployées dans un sous-réseau au sein d’un réseau virtuel.
  
-## <a name="before"></a>Avant de commencer
+## <a name="before-you-begin"></a>Avant de commencer
 
-Avant d’aborder les tâches décrites dans cet article, préparez-vous comme suit :
+Avant de suivre les étapes décrites dans les sections de cet article, accomplissez les tâches suivantes :
 
-- Si vous ignorez tout de l’utilisation de réseaux virtuels, nous vous recommandons de consulter l’exercice proposé dans [Créer votre premier réseau virtuel Azure](quick-create-portal.md). Cet exercice peut vous aider à vous familiariser avec les réseaux virtuels.
-- Pour en savoir plus sur les limites des réseaux virtuels, consultez [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Connectez-vous au portail Azure, à l’outil en ligne de commande Azure (Azure CLI) ou à Azure PowerShell en utilisant votre compte Azure. Si vous n’avez pas encore de compte Azure, inscrivez-vous pour bénéficier d’un [compte d’essai gratuit](https://azure.microsoft.com/free).
-- Si vous prévoyez d’utiliser des commandes PowerShell pour accomplir les tâches décrites dans cet article, vous devez d’abord [installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que les applets de commande Azure PowerShell de la version la plus récente sont installées. Pour obtenir de l’aide concernant les commandes PowerShell utilisées dans les exemples, entrez `get-help <command> -full`.
-- Si vous prévoyez d’utiliser des commandes Azure CLI pour accomplir les tâches décrites dans cet article, vous devez soit :
-    - [Installer et configurer Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Vérifiez que la version la plus récente d’Azure CLI est installée.
-    - Utiliser Azure Cloud Shell. Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Pour utiliser Cloud Shell, cliquez sur l’icône Cloud Shell (**> _**) en haut du portail Azure. 
+- Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
+- Si vous utilisez le portail, accédez au site https://portal.azure.com et connectez-vous à travers votre compte Azure.
+- Si vous utilisez des commandes PowerShell pour effectuer les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/powershell) ou en exécutant PowerShell sur votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel nécessite le module Azure PowerShell version 5.2.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) pour effectuer les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant l’interface CLI sur votre ordinateur. Ce didacticiel nécessite Azure CLI version 2.0.26 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
-  Pour obtenir de l’aide concernant les commandes d’Azure CLI, entrez `az <command> --help`.
+## <a name="add-a-subnet"></a>Ajouter un sous-réseau
 
-## <a name="create-subnet"></a>Ajouter un sous-réseau
-
-Pour ajouter un sous-réseau :
-
-1. Ouvrez une session sur le [portail Azure](https://portal.azure.com) en utilisant un compte disposant (au minimum) des autorisations associées au rôle Contributeur de réseaux pour votre abonnement. Pour en savoir plus sur l’attribution de rôles et d’autorisations à des comptes, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Dans la zone de recherche du portail, entrez **réseaux virtuels**. Dans les résultats de recherche, cliquez sur **Réseaux virtuels**.
-3. Dans le panneau **Réseaux virtuels**, cliquez sur le réseau virtuel auquel vous souhaitez ajouter un sous-réseau.
-4. Dans le panneau Réseau virtuel, cliquez sur **Sous-réseaux**.
-5. Cliquez sur **+Sous-réseau**.
-6. Dans le panneau **Ajouter un sous-réseau**, entrez des valeurs pour les paramètres suivants :
+1. Dans la zone de recherche située en haut du portail, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la.
+2. Dans la liste des réseaux virtuels, sélectionnez le réseau auquel vous souhaitez ajouter un sous-réseau.
+3. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
+4. Sélectionnez **+Sous-réseau**.
+5. Entrez des valeurs pour les paramètres suivants :
     - **Nom** : le nom doit être unique au sein du réseau virtuel.
-    - **Plage d’adresses** : la plage doit être unique dans l’espace d’adressage du réseau virtuel. La plage ne peut pas chevaucher d’autres plages d’adresses de sous-réseau au sein du réseau virtuel. L’espace d’adressage doit être spécifié en utilisant la notation de routage CIDR (Classless InterDomain Routing). Par exemple, dans un réseau virtuel avec l’espace d’adressage 10.0.0.0/16, vous pouvez définir l’espace d’adressage de sous-réseau 10.0.0.0/24. La plus petite plage que vous puissiez spécifier est /29. Celle-ci fournit huit adresses IP pour le sous-réseau. Azure réserve la première et la dernière adresses dans chaque sous-réseau pour la conformité du protocole. Trois adresses supplémentaires sont réservées à l’usage du service Azure. Par conséquent, définir un sous-réseau avec une plage d’adresses /29 produit trois adresses IP utilisables dans le sous-réseau. Si vous envisagez de connecter un réseau virtuel à une passerelle VPN, vous devez créer un sous-réseau de passerelle. Pour en savoir plus, voir [Sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Vous pouvez modifier la plage d’adresses après l’ajout du sous-réseau sous certaines conditions. Pour savoir comment changer une plage d’adresses de sous-réseau, consultez [Changer les paramètres de sous-réseau](#change-subnet) dans cet article.
-    - **Groupe de sécurité réseau** : vous pouvez éventuellement associer un groupe de sécurité réseau existant au sous-réseau pour contrôler le filtrage du trafic réseau entrant et sortant du sous-réseau. Le groupe de sécurité réseau doit exister dans le même abonnement et au même emplacement que le réseau virtuel. Il doit également être créé à l’aide du modèle de déploiement Resource Manager. Pour en savoir plus sur la création d’un groupe de sécurité réseau, consultez [Groupes de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md).
-    - **Table de routage** : vous pouvez éventuellement associer une table de routage existante au sous-réseau pour contrôler le routage du trafic réseau vers d’autres réseaux. La table de routage doit exister dans le même abonnement et au même emplacement que le réseau virtuel. Elle doit également être créée à l’aide du modèle de déploiement Resource Manager. Pour en savoir plus sur la création de tables de routage, consultez [Itinéraires définis par l’utilisateur](virtual-network-create-udr-arm-ps.md).
+    - **Plage d’adresses** : la plage doit être unique dans l’espace d’adressage du réseau virtuel. La plage ne peut pas chevaucher d’autres plages d’adresses de sous-réseau au sein du réseau virtuel. L’espace d’adressage doit être spécifié en utilisant la notation de routage CIDR (Classless InterDomain Routing). Par exemple, dans un réseau virtuel avec l’espace d’adressage 10.0.0.0/16, vous pouvez définir l’espace d’adressage de sous-réseau 10.0.0.0/24. La plus petite plage que vous puissiez spécifier est /29. Celle-ci fournit huit adresses IP pour le sous-réseau. Azure réserve la première et la dernière adresses dans chaque sous-réseau pour la conformité du protocole. Trois adresses supplémentaires sont réservées à l’usage du service Azure. Par conséquent, définir un sous-réseau avec une plage d’adresses /29 produit trois adresses IP utilisables dans le sous-réseau. Si vous envisagez de connecter un réseau virtuel à une passerelle VPN, vous devez créer un sous-réseau de passerelle. Pour en savoir plus, voir [Sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Vous pouvez modifier la plage d’adresses après l’ajout du sous-réseau sous certaines conditions. Pour savoir comment modifier une plage d’adresses de sous-réseau, consultez [Modifier les paramètres de sous-réseau](#change-subnet-settings).
+    - **Groupe de sécurité réseau** : vous pouvez associer un groupe de sécurité réseau existant au sous-réseau pour filtrer le trafic réseau entrant et sortant du sous-réseau, ou n’associer aucun groupe. Le groupe de sécurité réseau doit exister dans le même abonnement et au même emplacement que le réseau virtuel. Découvrez-en plus sur les [groupes de sécurité réseau](security-overview.md) et la [création d’un groupe de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md).
+    - **Table de routage** : vous pouvez associer une table de routage existante à un sous-réseau pour contrôler le routage du trafic réseau vers d’autres réseaux, ou n’associer aucune table. La table de routage doit exister dans le même abonnement et au même emplacement que le réseau virtuel. Découvrez-en plus sur le [routage Azure](virtual-networks-udr-overview.md) et la [ création d’une table de routage](create-user-defined-route-portal.md).
+    - **Points de terminaison de service :** un sous-réseau peut avoir plusieurs ou aucun point de terminaison de service activé pour celui-ci. Pour activer un point de terminaison de service pour un service spécifique, sélectionnez le ou les services pour lesquels vous souhaitez activer des points de terminaison de service dans la liste **Services**. Pour supprimer un point de terminaison de service, désélectionnez le service dont vous souhaitez supprimer le point de terminaison de service. Pour en savoir plus sur les points de terminaison de service, consultez [Vue d’ensemble des points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md). Après avoir activé un point de terminaison de service pour un service spécifique, vous devez également activer l’accès réseau du sous-réseau pour une ressource créée avec le service. Par exemple, si vous activez le point de terminaison de service *Microsoft.Storage*, vous devez également activer l’accès réseau à tous les comptes de stockage Azure auxquels vous souhaitez accorder l’accès réseau. Pour plus d’informations sur l’activation de l’accès réseau à des sous-réseaux pour lesquels un point de terminaison de service est activé, consultez la documentation relative au service particulier pour lequel vous avez activé le point de terminaison de service.
+6. Pour ajouter le sous-réseau au réseau virtuel que vous avez sélectionné, cliquez sur **OK**.
+
+**Commandes**
+
+- Azure CLI : [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- PowerShell : [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
+
+## <a name="change-subnet-settings"></a>Modifier les paramètres de sous-réseau
+
+1. Dans la zone de recherche située en haut du portail, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la.
+2. Dans la liste des réseaux virtuels, sélectionnez le réseau qui contient le sous-réseau dont vous souhaitez modifier les paramètres.
+3. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
+4. Dans la liste des sous-réseaux, sélectionnez le sous-réseau dont vous souhaitez modifier les paramètres. Vous pouvez modifier les paramètres suivants :
+
+    - **Plage d’adresses :** si aucune ressource n’a été déployée dans le sous-réseau, vous pouvez modifier la plage d’adresses. Si des ressources existent déjà dans le sous-réseau, vous devez soit déplacer les ressources vers un autre sous-réseau, soit les supprimer d’abord du sous-réseau. La procédure à suivre pour supprimer ou déplacer une ressource varie en fonction de celle-ci. Pour savoir comment supprimer ou déplacer des ressources dans des sous-réseaux, lisez la documentation relative à chaque type de ressource que vous souhaitez supprimer ou déplacer. Consultez les contraintes pour la **plage d’adresses** à l’étape 5 de la section [Ajouter un sous-réseau](#add-a-subnet).
     - **Utilisateurs** : vous pouvez contrôler l’accès au sous-réseau en utilisant des rôles intégrés ou vos propres rôles personnalisés. Pour en savoir plus sur l’attribution de rôles et d’utilisateurs pour l’accès au sous-réseau, consultez [Utiliser l’attribution de rôles pour gérer l’accès à vos ressources Azure](../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
-7. Pour ajouter le sous-réseau au réseau virtuel que vous avez sélectionné, cliquez sur **OK**.
+    - Pour plus d’informations sur la modification d’un **groupe de sécurité réseau**, d’une **table de routage**, d’**utilisateurs** et de **points de terminaison de service**, reportez-vous à l’étape 5 de la section [Ajouter un sous-réseau](#add-a-subnet).
+5. Sélectionnez **Enregistrer**.
 
 **Commandes**
 
-|Outil|Commande|
-|---|---|
-|Azure CLI|[az network vnet subnet create](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI : [az network vnet subnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- PowerShell : [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
-## <a name="change-subnet"></a>Changer les paramètres de sous-réseau
+## <a name="delete-a-subnet"></a>Supprimer un sous-réseau
 
-Vous pouvez changer des groupes de sécurité réseau, des tables de routage et l’accès utilisateur à un sous-réseau en gérant les ressources dans un sous-réseau. Pour en savoir plus sur ces paramètres, dans [Ajouter un sous-réseau](#create-subnet), consultez l’étape 6. Si vous voulez changer l’espace d’adressage d’un sous-réseau, vous devez d’abord supprimer toutes les ressources dans le sous-réseau. La procédure à suivre pour supprimer une ressource varient en fonction de celle-ci. Pour savoir comment supprimer des ressources dans des sous-réseaux, lisez la documentation relative à chaque type de ressource que vous souhaitez supprimer. Pour changer la plage d’adresses d’un sous-réseau :
+Vous pouvez supprimer un sous-réseau uniquement si aucune ressource ne s’y trouve. S’il existe des ressources dans le sous-réseau, vous devez les supprimer avant de pouvoir supprimer le sous-réseau. La procédure à suivre pour supprimer une ressource varient en fonction de celle-ci. Pour savoir comment supprimer des ressources dans des sous-réseaux, lisez la documentation relative à chaque type de ressource que vous souhaitez supprimer.
 
-1. Connectez-vous au [portail](https://portal.azure.com) en utilisant un compte disposant (au minimum) des autorisations affectées au rôle Contributeur de réseaux dans votre abonnement. Pour en savoir plus sur l’attribution de rôles et d’autorisations à des comptes, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Dans la zone de recherche du portail, entrez **réseaux virtuels**. Dans les résultats de recherche, cliquez sur **Réseaux virtuels**.
-3. Dans le panneau **Réseaux virtuels**, cliquez sur le réseau virtuel pour lequel vous souhaitez changer une plage d’adresses de sous-réseau.
-4. Cliquez sur le sous-réseau pour lequel vous voulez changer la plage d’adresses.
-5. Dans le panneau du sous-réseau, dans la zone **Plage d’adresses**, entrez la nouvelle plage d’adresses. La plage doit être unique dans l’espace d’adressage du réseau virtuel. La plage ne peut pas chevaucher d’autres plages d’adresses de sous-réseau au sein du réseau virtuel. L’espace d’adressage doit être spécifié à l’aide de la notation CIDR. Par exemple, dans un réseau virtuel avec l’espace d’adressage 10.0.0.0/16, vous pouvez définir l’espace d’adressage de sous-réseau 10.0.0.0/24. La plus petite plage que vous puissiez spécifier est /29. Celle-ci fournit huit adresses IP pour le sous-réseau. Azure réserve la première et la dernière adresses dans chaque sous-réseau pour la conformité du protocole. Trois adresses supplémentaires sont réservées à l’usage du service Azure. Par conséquent, un sous-réseau avec une plage d’adresses /29 compte trois adresses IP utilisables. Si vous envisagez de connecter un réseau virtuel à une passerelle VPN, vous devez créer un sous-réseau de passerelle. Pour en savoir plus, voir [Sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Vous pouvez modifier la plage d’adresses après la création du sous-réseau sous certaines conditions. Pour savoir comment changer une plage d’adresses de sous-réseau, consultez [Changer les paramètres de sous-réseau](#change-subnet) dans cet article.
-6. Cliquez sur **Enregistrer**.
+1. Dans la zone de recherche située en haut du portail, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la.
+2. Dans la liste des réseaux virtuels, sélectionnez le réseau qui contient le sous-réseau à supprimer.
+3. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
+4. Dans la liste des sous-réseaux, sélectionnez **...** à droite du sous-réseau à supprimer.
+5. Sélectionnez **Supprimer**, puis cliquez sur **Oui**.
 
 **Commandes**
 
-|Outil|Commande|
-|---|---|
-|Azure CLI|[az network vnet subnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Azure CLI : [az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- PowerShell : [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
+## <a name="permissions"></a>Autorisations
 
-## <a name="delete-subnet"></a>Supprimer un sous-réseau
+Pour effectuer des tâches sur des sous-réseaux, votre compte doit posséder le rôle de [contributeur de réseaux](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées qui sont répertoriées dans le tableau suivant :
 
-Vous pouvez supprimer un sous-réseau uniquement si aucune ressource ne s’y trouve. S’il existe des ressources dans le sous-réseau, vous devez les supprimer avant de pouvoir supprimer le sous-réseau. La procédure à suivre pour supprimer une ressource varient en fonction de celle-ci. Pour savoir comment supprimer des ressources dans des sous-réseaux, lisez la documentation relative à chaque type de ressource que vous souhaitez supprimer. Pour supprimer un sous-réseau :
-
-1. Ouvrez une session sur le [portail Azure](https://portal.azure.com) en utilisant un compte disposant (au minimum) des autorisations associées au rôle Contributeur de réseaux pour votre abonnement. Pour en savoir plus sur l’attribution de rôles et d’autorisations à des comptes, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Dans la zone de recherche du portail, entrez **réseaux virtuels**. Dans les résultats de la recherche, cliquez sur **Réseaux virtuels**.
-3. Dans le panneau **Réseaux virtuels**, cliquez sur le réseau virtuel duquel vous voulez supprimer un sous-réseau.
-4. Dans le panneau du réseau virtuel, sous **PARAMÈTRES**, cliquez sur **Sous-réseaux**.
-5. Dans la liste des sous-réseaux qui s’affiche dans le panneau des sous-réseaux, cliquez avec le bouton droit sur le sous-réseau que vous souhaitez supprimer. Cliquez ensuite sur **Supprimer**, puis sur **Oui** pour supprimer le sous-réseau.
-
-**Commandes**
-
-|Outil|Commande|
-|---|---|
-|Azure CLI|[az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Pour créer une machine virtuelle dans un sous-réseau, consultez [Créer un réseau virtuel et de déployer des machines virtuelles dans le sous-réseau](quick-create-portal.md#create-virtual-machines).
+|Opération                                                                |   Nom d’opération                               |
+|-----------------------------------------------------------------------  |   -------------------------------------------  |
+|Microsoft.Network/virtualNetworks/subnets/read                           |   Obtenir un sous-réseau de réseau virtuel                   |
+|Microsoft.Network/virtualNetworks/subnets/write                          |   Créer ou mettre à jour un sous-réseau de réseau virtuel      |
+|Microsoft.Network/virtualNetworks/subnets/delete                         |   Supprimer un sous-réseau de réseau virtuel                |
+|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Joindre un réseau virtuel                         |
+|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Joindre un service à un sous-réseau                     |
+|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Obtenir des machines virtuelles de sous-réseau de réseau virtuel  |

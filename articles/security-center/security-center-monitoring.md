@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
 Cet article a pour but de vous aider à utiliser les fonctionnalités de surveillance d’Azure Security Center, afin de contrôler la conformité aux stratégies.
@@ -87,6 +87,13 @@ Pour afficher des informations détaillées sur les recommandations, cliquez sur
 > [!NOTE]
 > Les recommandations de sécurité ci-dessus sont les mêmes que celles figurant dans l’option **Recommandations**. Pour plus d’informations sur la résolution des recommandations, consultez l’article [Implémentation des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md). Cela s’applique non seulement aux machines virtuelles et aux ordinateurs, mais aussi à toutes les ressources qui sont disponibles dans la vignette **Intégrité des ressources**.
 >
+
+#### <a name="unmonitored-vms"></a>Machines virtuelles non surveillées
+Une machine virtuelle n’est pas surveillée par Security Center si elle n’exécute pas l’extension Microsoft Monitoring Agent. Un agent local peut être déjà installé sur une machine virtuelle, par exemple l’agent direct OMS ou l’agent SCOM. Les machines virtuelles sur lesquelles sont installés ces agents sont considérées comme non surveillées, car ces agents ne sont pas entièrement pris en charge par Security Center. Pour tirer pleinement parti de toutes les fonctionnalités de Security Center, vous devez utiliser l’extension Microsoft Monitoring Agent.
+
+Vous pouvez installer l’extension sur la machine virtuelle non surveillée en plus de l’agent local déjà installé. Configurez les deux agents de la même manière en les connectant au même espace de travail. Ainsi, Security Center pourra interagir avec l’extension Microsoft Monitoring Agent et collecter des données.  Consultez la section [Activer l’extension de machine virtuelle](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) pour obtenir des instructions sur la façon d’installer l’extension Microsoft Monitoring Agent.
+
+Consultez la section [Problèmes d’intégrité de l’agent de surveillance](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) pour en savoir plus sur la raison pour laquelle Security Center ne peut pas surveiller correctement les machines virtuelles et ordinateurs initialisés pour l’approvisionnement automatique.
 
 #### <a name="vms--computers-section"></a>Section Machines virtuelles et ordinateurs
 La section Machines virtuelles et ordinateurs vous fournit une vue d’ensemble de toutes les recommandations relatives aux machines virtuelles et à l’ordinateur. Chaque colonne représente un ensemble de recommandations, comme illustré dans la capture d’écran suivante :

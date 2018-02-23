@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -66,14 +66,11 @@ Pour découvrir tous les exemples de modèles Azure Policy, consultez [Modèles 
 
 ## <a name="mode"></a>Mode
 
-Nous vous recommandons de définir `mode` sur `all` ; ainsi, une attribution de stratégie évalue la totalité des groupes de ressources et des types. Vous pouvez voir un exemple de définition de stratégie qui applique des balises à un groupe de ressources à la page [Autoriser une image de machine virtuelle personnalisée à partir d’un groupe de ressources](scripts/allow-custom-vm-image.md).
+Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
+* `all` : évaluer les groupes de ressources et tous les types de ressources 
+* `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
-Quand vous le définissez sur **all**, les groupes de ressources et tous les types de ressource sont évalués pour la stratégie. Le portail utilise **all** pour toutes les stratégies. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre `mode` et le définir sur **all**.
-
-Toutes les définitions de stratégie créées à l’aide du portail utilisent un mode `all` ; cependant, si vous souhaitez utiliser PowerShell ou Azure CLI, vous devez spécifier le paramètre `mode` et le définir sur `all`.
-
-Si vous définissez le mode sur `indexed`, l’attribution de stratégie est évaluée uniquement sur les types de ressources qui prennent en charge les balises et l’emplacement.
-
+Nous vous recommandons de définir **mode** sur `all`. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre **mode** et le définir sur `all`. 
 
 ## <a name="parameters"></a>parameters
 
@@ -265,6 +262,7 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 | Microsoft.Compute/virtualMachines/imageVersion | Définissez la version de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Définissez l’URI du disque dur virtuel. |
 | Microsoft.Compute/virtualMachines/sku.name | Définissez la taille de la machine virtuelle. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Définit l’ID du groupe à haute disponibilité de la machine virtuelle. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Définissez si le service chiffre les données lorsqu’elles sont stockées dans le service de stockage de fichiers. |
 | Microsoft.Storage/storageAccounts/sku.name | Définissez le nom de la référence SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Indiquez que seul le trafic https est autorisé vers le service de stockage. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Vérifiez si le point de terminaison du service de réseau virtuel est activé. |
 
 ## <a name="initiatives"></a>Initiatives
 

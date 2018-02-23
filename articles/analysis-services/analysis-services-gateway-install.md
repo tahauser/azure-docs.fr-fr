@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 9ba36c4cf932cab2e449b12a307639184feab049
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 **Configuration minimale requise :**
 
 * .NET Framework 4.5
@@ -69,14 +69,14 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
 
 1.  Sélectionnez **Inscrivez une nouvelle passerelle sur cet ordinateur**.
 
-    ![S’inscrire](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Register ](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Saisissez un nom et une clé de récupération pour votre passerelle. Par défaut, la passerelle utilise la région par défaut de votre abonnement. Si vous souhaitez choisir une autre région, sélectionnez **Changer la région**.
 
     > [!IMPORTANT]
     > Enregistrez votre clé de récupération dans un endroit sûr. La clé de récupération est requise en cas de prise en charge, migration ou restauration d’une passerelle. 
 
-   ![S’inscrire](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Register ](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Créer une ressource de passerelle Azure
@@ -117,6 +117,6 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations de dépannage, veillez à consulter la page [Passerelle de données locale](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Gérer Analysis Services](analysis-services-manage.md)   
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)

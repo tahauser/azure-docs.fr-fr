@@ -1,6 +1,6 @@
 ---
-title: "Automatisation d’Azure Blueprint pour FedRAMP - Planification"
-description: Applications Web pour FedRAMP - Planification
+title: "Programme Blueprint Security & Compliance Azure - Automatisation d’applications web FedRAMP - Planification"
+description: "Automatisation d’applications web FedRAMP - Planification"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="planning-pl"></a>Planification (PL)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-pl-1"></a>NIST 800-53 Contrôle PL-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de planification de la sécurité qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de planification de la sécurité et des contrôles de planification de la sécurité associés ; et révise et met à jour la stratégie actuelle de planification de la sécurité [Affectation : fréquence définie par l’organisation] ; et les procédures de planification de la sécurité [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-2.a** L’organisation développe un plan de sécurité pour le système informatique qui est cohérent avec l’architecture d’entreprise de l’organisation ; définit explicitement les limites d’autorisation pour le système ; décrit le contexte opérationnel du système informatique en termes de missions et de processus métier ; fournit la catégorisation de sécurité du système informatique, notamment le raisonnement associé ; décrit l’environnement opérationnel du système informatique et les relations avec ou les connexions à d’autres systèmes informatiques ; fournit une présentation des exigences de sécurité pour le système ; identifie les superpositions pertinentes, le cas échéant ; décrit les contrôles de sécurité en place ou planifiés pour répondre à ces exigences, notamment une logique pour des décisions adaptées ; et est vérifié et approuvé par le responsable autorisé ou le représentant désigné avant la mise en œuvre du plan.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-2.c** L’organisation vérifie le plan de sécurité système pour le système informatique [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-2.d** L’organisation met à jour le plan pour qu’il s’adapte aux modifications apportées au système informatique ou à l’environnement d’exploitation, ou pour répondre aux problèmes identifiés durant la mise en œuvre du plan ou les évaluations de contrôle de la sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-4.a** L’organisation établit et rend accessibles aux individus nécessitant l’accès au système informatique, les règles décrivant leurs responsabilités et le comportement attendu de leur part concernant les informations et l’utilisation du système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-4.b** L’organisation reçoit un accusé de réception signé desdits individus, indiquant qu’ils ont lu, compris et qu’ils acceptent de respecter les règles de comportement, avant de leur autoriser l’accès aux informations et au système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-4.d** L’organisation demande à ce que les individus ayant signé une version antérieure des règles de comportement lisent et signent à nouveau toute version révisée/mise à jour des règles de comportement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **PL-8.a** L’organisation développe une architecture de sécurité des informations pour le système informatique qui décrit la philosophie, les exigences et l’approche globales concernant la protection de la confidentialité, l’intégrité et la disponibilité des informations organisationnelles ; décrit comment l’architecture de sécurité des informations est intégrée à l’architecture d’entreprise et complète celle-ci ; et décrit les hypothèses et les dépendances vis à vis de services externes de la sécurité des informations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

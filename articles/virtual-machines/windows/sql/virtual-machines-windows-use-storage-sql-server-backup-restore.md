@@ -4,7 +4,7 @@ description: "Découvrez comment sauvegarder SQL Server avec Azure Storage. Expl
 services: virtual-machines-windows
 documentationcenter: 
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server
 ## <a name="overview"></a>Vue d'ensemble
@@ -46,7 +46,7 @@ Les deux sections suivantes présentent le service de stockage d’objets blob A
 ## <a name="azure-blob-storage-service-components"></a>Composants du service BLOB Azure
 Les composants Azure suivants sont utilisés pour les sauvegardes sur le service de stockage d’objets blob Azure.
 
-| Composant | Description |
+| Composant | DESCRIPTION |
 | --- | --- |
 | **Compte de stockage** |le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Conteneur** |Un conteneur fournit un regroupement contenant un nombre illimité d’objets blob. Pour écrire une sauvegarde SQL Server sur un service BLOB Azure, au moins un conteneur racine doit être créé. |
@@ -55,7 +55,7 @@ Les composants Azure suivants sont utilisés pour les sauvegardes sur le service
 ## <a name="sql-server-components"></a>Composants SQL Server
 Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le service de stockage d’objets blob Azure.
 
-| Composant | Description |
+| Composant | DESCRIPTION |
 | --- | --- |
 | **URL** |une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. L’URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l’objet blob n’existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Voici un exemple d’URL que vous pouvez spécifier dans la commande BACKUP : **http[s]://[comptestockage].blob.core.windows.net/[conteneur]/[NOMFICHIER.bak]**. HTTPS n’est pas requis, mais recommandé. |
 | **Informations d'identification** |les informations requises pour se connecter au service BLOB Azure et pour s'y authentifier sont stockées sous la forme d'informations d'identification.  Vous devez créer des informations d'identification SQL Server afin que ce dernier écrive les sauvegardes sur un service BLOB Azure ou les restaure depuis celui-ci. Pour plus d’informations, consultez [Informations d’identification SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
@@ -65,7 +65,7 @@ Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le se
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 1. Création d’un compte Azure si vous n’en avez pas encore. Si vous évaluez Azure, envisagez l’ [essai gratuit](https://azure.microsoft.com/free/).
 2. Consultez ensuite un des didacticiels suivants pour créer un compte de stockage et effectuez une restauration.
    

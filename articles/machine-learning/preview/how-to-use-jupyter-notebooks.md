@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Comment utiliser un bloc-notes Jupyter dans Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench prend en charge une expérimentation de science des données interactive par le biais de son intégration au bloc-notes Jupyter. Cet article décrit comment tirer parti de cette fonctionnalité pour augmenter la vitesse et la qualité de votre expérimentation de science des données interactive.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 - [Installer et créer Azure Machine Learning](quickstart-installation.md).
 - Se familiariser avec le [bloc-notes Jupyter](http://jupyter.org/), étant donné que cet article n’a pas vocation à expliquer comment utiliser Jupyter.
 
@@ -42,15 +42,15 @@ Vous pouvez accéder à de nombreux noyaux différents dans Azure Machine Learni
 >Consultez [Configurer une exécution](experimentation-service-configuration.md) pour plus d’informations sur les configurations d’exécutions et les cibles de calcul.
 
 ### <a name="kernel-naming-convention"></a>convention de nommage de noyau
-Les noyaux sont généralement nommés selon le format « \<nom du projet> \<nom de la configuration d’exécution> ». Par exemple, si vous avez une configuration d’exécution nommée _docker-python_ dans un projet nommé _myIris_, vous pouvez trouver un noyau nommé « myIris docker-python » dans la liste des noyaux quand vous ouvrez un bloc-notes Jupyter.
-
+Azure Machine Learning Workbench génère des noyaux Jupyter personnalisés.  Ceux-ci sont nommés « \<nom du projet> \<nom de la configuration d’exécution> ». Par exemple, si vous avez une configuration d’exécution nommée _docker-python_ dans un projet nommé _myIris_, Azure ML rend disponible un noyau nommé « myIris docker-python ».  Vous définissez le noyau en cours d’exécution dans le sous-menu « Modifier le noyau » du menu « Noyau » du bloc-notes Jupyter. Le nom du noyau en cours d’exécution apparaît tout à fait à droite de la barre de menus.
+ 
 Actuellement, Workbench prend en charge les types suivants de noyaux.
 
 ### <a name="local-python-kernel"></a>Noyau Python local
 Ce noyau Python prend en charge l’exécution sur l’ordinateur local. Il est intégré à la prise en charge de l’historique des exécutions d’Azure Machine Learning. Le nom du noyau est généralement « my_project_name local ».
 
 >[!NOTE]
->N’utilisez pas le noyau « Python 3 ». Il s’agit d’un noyau autonome fourni par Jupyter par défaut. Il n’est pas intégré avec les fonctionnalités d’Azure Machine Learning.
+>N’utilisez pas le noyau « Python 3 ». Il s’agit d’un noyau autonome fourni par Jupyter par défaut. Il n’est pas intégré avec les fonctionnalités d’Azure Machine Learning. Par exemple, les fonctions magiques Jupyter _% azureml_ retournent des erreurs « introuvable ». 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Noyau Python dans Docker (local ou distant)
 Ce noyau Python s’exécute dans un conteneur Docker sur votre ordinateur local ou dans une machine virtuelle Linux distante. Le nom du noyau est généralement « my_project docker ». Le champ `Framework` du fichier `docker.runconfig` associé a la valeur `Python`.

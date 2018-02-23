@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Contrôler le trafic à l’aide d’une application logique planifiée
 
@@ -57,7 +57,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Créer une application logique](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
-2. Sous **Créer une application logique**, indiquez les informations suivantes sur votre application logique comme affiché et décrit. Lorsque c’est fait, cliquez sur **Épingler au tableau de bord** > **Créer**.
+2. Sous **Créer une application logique**, indiquez les informations suivantes sur votre application logique comme illustré et décrit. Lorsque c’est fait, cliquez sur **Épingler au tableau de bord** > **Créer**.
 
    ![Spécifier les informations de l’application logique](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
@@ -65,8 +65,8 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
    | ------- | ----- | ----------- | 
    | **Name** | LA-TravelTime | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
-   | **Groupe de ressources** | LA-TravelTime-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes | 
-   | **Lieu** | Est des États-Unis 2 | Région dans laquelle stocker les informations sur votre application logique. | 
+   | **Groupe de ressources** | LA-TravelTime-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
+   | **Lieu** | Est des États-Unis 2 | Région dans laquelle stocker les informations sur votre application logique | 
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
    |||| 
 
@@ -109,7 +109,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 5. Pour masquer les informations du déclencheur pour le moment, cliquez dans la barre de titre de la forme.
 
-   ![Réduire la forme pour masquer les détails](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
+   ![Réduire la forme pour masquer les informations](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
 
 6. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
 
@@ -148,7 +148,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | **Unité de distance** | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet article utilise l’unité suivante : « mile ».  | 
    | **Mode de déplacement** | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez ce mode : « Conduite ». | 
    | **Date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
-   | **Type de date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
+   | **Type de date et d’heure** | Aucun | S’applique au mode transit uniquement. | 
    |||| 
 
    Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](https://msdn.microsoft.com/library/ff701717.aspx).
@@ -316,7 +316,7 @@ Mais si la durée du trajet actuel dépasse la limite que vous avez définie, vo
 
 ![E-mail envoyé indiquant la durée du trajet](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
 
-Si vous ne recevez aucun e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types de courrier. Sinon, si vous ne savez pas si votre application logique s’est correctement exécutée, consultez [Dépanner votre application logique](../logic-apps/logic-apps-diagnosing-failures.md).
+Si vous ne recevez aucun e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types d’e-mails. Sinon, si vous ne savez pas si votre application logique s’est correctement exécutée, consultez [Dépanner votre application logique](../logic-apps/logic-apps-diagnosing-failures.md).
 
 Félicitations ! Vous venez de créer et d’exécuter une application logique périodique basée sur une planification. 
 

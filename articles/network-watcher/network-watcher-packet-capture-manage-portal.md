@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail
 
@@ -61,7 +61,10 @@ Accédez au [Portail Azure](https://portal.azure.com) et cliquez sur **Mise en r
 La page de vue d’ensemble affiche la liste de toutes les captures de paquets existantes, quel que soit leur état.
 
 > [!NOTE]
-> La capture de paquets nécessite une connexion au compte de stockage sur le port 443.
+> La capture de paquets requiert la connectivité suivante.
+> * Connectivité sortante au compte de stockage sur le port 443.
+> * Connectivité entrante et sortante à 169.254.169.254
+> * Connectivité entrante et sortante à 168.63.129.16
 
 ![Écran Vue d’ensemble des captures de paquets][1]
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -172,7 +172,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
   }
   ```
 
-  Pour obtenir un exemple complet, voir [Déclencheur - exemple C#](#trigger---c-example).
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -680,7 +680,7 @@ public static void Run(
 }
 ```
 
-Pour obtenir un exemple complet, voir [Sortie - exemple C#](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
 
 Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes).
 
@@ -720,6 +720,14 @@ Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` da
 Si vous lisez des objets blob de texte, vous pouvez lier à un type `string`. Ce type est recommandé uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`.
 
 Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.bindings.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
+
+| Liaison |  Informations de référence |
+|---|---|
+| Blob | [Codes d’erreur du service BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Objet blob, Table, File d’attente |  [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Objet blob, Table, File d’attente |  [Résolution des problèmes](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>étapes suivantes
 

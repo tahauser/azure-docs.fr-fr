@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -65,9 +65,9 @@ Application Insights collecte des informations sur les performances pour les dif
     ![Détails de l’opération](media/app-insights-tutorial-performance/operation-details.png)
 
     > [!NOTE]
-    Activez [l’expérience de la version préliminaire](app-insights-previews.md) « Unified details: E2E Transaction Diagnostics » pour voir tous les requêtes, dépendances, exceptions, traces, événements, etc. connexes à la télémétrie côté serveur dans un affichage unique en plein écran. 
+    Activez [l’expérience de la préversion](app-insights-previews.md) « Unified details: E2E Transaction Diagnostics » pour voir tous les événements, requêtes, dépendances, exceptions, traces, etc. connexes à la télémétrie côté serveur dans un affichage unique en plein écran. 
 
-    Avec la version d’évaluation activée, vous pouvez voir le temps passé dans les appels de dépendance, ainsi que les échecs ou les exceptions dans une expérience unifiée. Pour les transactions entre composants, le diagramme de Gantt, ainsi que le volet de détails peuvent vous aider à diagnostiquer rapidement le composant, la dépendance ou l’exception d’une cause-racine. Vous pouvez développer la section inférieure pour visualiser la séquence horaire de toutes les traces ou événements collectés pour l’opération du composant sélectionné. [En savoir plus sur la nouvelle expérience](app-insights-transaction-diagnostics.md)  
+    Avec la préversion activée, vous pouvez voir le temps passé dans les appels de dépendance, ainsi que les échecs ou les exceptions dans une expérience unifiée. Pour les transactions entre composants, le diagramme de Gantt, ainsi que le volet de détails peuvent vous aider à diagnostiquer rapidement le composant, la dépendance ou l’exception d’une cause racine. Vous pouvez développer la section inférieure pour visualiser la séquence horaire de toutes les traces ou tous les événements collectés pour l’opération du composant sélectionné. [En savoir plus sur la nouvelle expérience](app-insights-transaction-diagnostics.md)  
 
     ![Diagnostics de transaction](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
 

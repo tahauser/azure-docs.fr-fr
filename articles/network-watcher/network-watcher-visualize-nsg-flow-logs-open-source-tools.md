@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 
@@ -46,7 +46,7 @@ En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons génér
 1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation sur le [site web d’Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
 1. Téléchargez le package binaire approprié pour votre système :
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons génér
 
 1. Vérifiez qu’Elasticsearch est en cours d’exécution avec la commande :
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Une réponse similaire à celle ci-dessous devrait s’afficher :
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Pour plus d’informations sur l’installation d’Elasticsearch, reportez-vous
 
 1. Exécutez les commandes suivantes pour installer Logstash :
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Ensuite, nous devons configurer Logstash pour accéder aux journaux de flux et les analyser. Créez un fichier logstash.conf à l’aide de :
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Pour plus d’informations sur l’installation de Logstash, reportez-vous à la
 
 Ce plug-in Logstash vous permet d’accéder directement aux journaux de flux à partir de leur compte de stockage désigné. Pour installer ce plug-in, exécutez la commande suivante à partir du répertoire d’installation par défaut de Logstash (dans ce cas, /usr/share/logstash/bin) :
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Pour démarrer Logstash, exécutez la commande :
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,14 +178,14 @@ Pour plus d’informations sur ce plug-in, reportez-vous à la documentation [ic
 
 1. Exécutez les commandes suivantes pour installer Kibana :
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Pour exécuter Kibana, exécutez les commandes ci-dessous :
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
@@ -241,7 +241,7 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 
 En combinant les journaux des flux de groupe de sécurité réseau avec la Suite Elastic, nous bénéficions d’une solution puissante et personnalisable permettant de visualiser le trafic de notre réseau. Ces tableaux de bord vous permettent d’obtenir et de partager rapidement des analyses sur le trafic de votre réseau, mais aussi de filtrer et d’examiner toute anomalie potentielle. Grâce à Kibana, vous pouvez adapter ces tableaux de bord et créer des visualisations spécifiques pour répondre à tous vos besoins en matière de sécurité, d’audit et de conformité.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualiser les journaux de flux NSG avec Power BI)
 

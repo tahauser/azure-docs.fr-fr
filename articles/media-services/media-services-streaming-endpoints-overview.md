@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Vue d’ensemble des points de terminaison de streaming 
 
@@ -42,7 +42,7 @@ Cette rubrique donne une vue d’ensemble des fonctionnalités principales offer
 
 À compter de la version publiée en janvier 2017 de Media Services, il existe deux types de streaming : **Standard** et **Premium**. Ces types font partie de la version de la version « 2.0 » du point de terminaison de streaming.
 
-Type|Description
+type|DESCRIPTION
 ---|---
 **Standard**|Il s’agit de l’option par défaut, prévue pour fonctionner dans la majorité des scénarios.<br/>Avec cette option, vous obtenez un contrat de niveau de service limité/fixe. Les 15 premiers jours après le démarrage du point de terminaison sont gratuits.<br/>Si vous créez plusieurs points de terminaison de streaming, seul le premier est gratuit pendant les 15 premiers jours. Les autres sont facturés dès que vous les démarrez. <br/>Notez que la version d’évaluation gratuite s’applique uniquement aux comptes Media Services nouvellement créés et aux points de terminaison de streaming par défaut. Les points de terminaison de streaming existants et ceux créés en plus ne comprennent pas la période d’évaluation gratuite, qu’ils soient mis à niveau vers la version 2.0 ou créés directement en tant que version 2.0.
 **Premium**|Cette option convient aux scénarios professionnels qui nécessitent plus de mise à l’échelle ou de contrôle.<br/>Contrat de niveau de service variable basé sur la capacité d’unité de streaming Premium (SU) achetée et les points de terminaison de streaming en service dans un environnement isolé et n’étant pas en concurrence pour les ressources.
@@ -65,35 +65,35 @@ Si votre point de terminaison de streaming **version « 1.0 »** continu a 1 o
 
 ### <a name="versions"></a>Versions
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Facturation|Contrat SLA| 
+|type|StreamingEndpointVersion|ScaleUnits|CDN|Facturation|Contrat SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Classique|1.0|0|N/D|Gratuit|N/D|
-|Point de terminaison de streaming Standard|2.0|0|Oui|Payant|Oui|
-|Unités de streaming Premium|1.0|>0|Oui|Payant|Oui|
-|Unités de streaming Premium|2.0|>0|Oui|Payant|Oui|
+|Point de terminaison de streaming Standard|2.0|0|OUI|Payant|OUI|
+|Unités de streaming Premium|1.0|>0|OUI|Payant|OUI|
+|Unités de streaming Premium|2.0|>0|OUI|Payant|OUI|
 
 ### <a name="features"></a>Caractéristiques
 
-Fonctionnalité|Standard|Premium
+Fonctionnalité|standard|Premium
 ---|---|---
-Gratuit les 15 premiers jours| Oui |Non
-Débit |Jusqu'à 600 Mbits/s lorsqu’Azure CDN n’est pas utilisé. Mis à l’échelle avec CDN.|200 Mbits/s par unité de streaming (SU). Mis à l’échelle avec CDN.
+Gratuit les 15 premiers jours| OUI |Non 
+Throughput |Jusqu'à 600 Mbits/s lorsqu’Azure CDN n’est pas utilisé. Mis à l’échelle avec CDN.|200 Mbits/s par unité de streaming (SU). Mis à l’échelle avec CDN.
 Contrat SLA | 99.9|99,9 (200 Mbits/s par SU).
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
 La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
-Chiffrement dynamique|Oui|Oui
-l’empaquetage dynamique|Oui|Oui
-Mettre à l'échelle|Mise à l’échelle automatique vers le débit cible.|Unités de diffusion en continu supplémentaires
-Hôte de filtrage d’IP/G20/personnalisé|Oui|Oui
-Téléchargement progressif|Oui|Oui
-Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.<br/>Si vous pensez que vos besoins dépassent ce qu’offre l’abonnement Standard. Contactez-nous (amsstreaming arobase microsoft.com) si vous prévoyez un public dépassant les 50 000 utilisateurs.
+Chiffrement dynamique|OUI|OUI
+l’empaquetage dynamique|OUI|OUI
+Scale|Mise à l’échelle automatique vers le débit cible.|Unités de diffusion en continu supplémentaires
+Hôte de filtrage d’IP/G20/personnalisé|OUI|OUI
+Téléchargement progressif|OUI|OUI
+Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.<br/>Si vous pensez que vos besoins dépassent ce qu’offre l’abonnement Standard. Contactez-nous (amsstreaming@microsoft.com) si vous prévoyez une taille d’audience simultanée supérieure à 50 000 utilisateurs.
 
 
 ## <a name="migration-between-types"></a>Migration entre les types
 
 À partir | À | Action
 ---|---|---
-Classique|Standard|Abonnement nécessaire
+Classique|standard|Abonnement nécessaire
 Classique|Premium| Échelle (unités de diffusion en continu supplémentaires)
 Standard/Premium|Classique|Non disponible (si la version du point de terminaison de streaming est 1.0. Il est possible de passer en mode classique en définissant ScaleUnits sur « 0 »)
 Standard (avec/sans CDN)|Premium avec les mêmes configurations|Autorisé dans l’état **démarré**. (via le portail Azure)
@@ -104,7 +104,7 @@ Version 1.0 avec SU > = 1 avec CDN|Standard/Premium avec aucun CDN|Autorisé dan
 Version 1.0 avec SU > = 1 avec CDN|Standard, avec/sans CDN|Autorisé dans l’état **arrêté**. Non autorisé en état **démarré**. Le CDN version 1.0 sera supprimé et le nouveau créé et démarré.
 Version 1.0 avec SU > = 1 avec CDN|Premium avec/sans CDN|Autorisé dans l’état **arrêté**. Non autorisé en état **démarré**. Le CDN classique sera supprimé et le nouveau créé et démarré.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

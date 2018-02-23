@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées 
 Les instances de machine virtuelle réservées vous permettent de payer à l’avance la capacité de calcul pendant un an ou trois ans et d’obtenir une remise sur les machines virtuelles que vous utilisez. Avec cet engagement initial d’une durée de 1 an ou de 3 ans, les coûts de vos machines virtuelles sont considérablement réduits, jusqu’à 72 % par rapport au tarif du paiement à l’utilisation. Cette offre d’instances de machine virtuelle réservées représente une remise sur facturation et n’a pas d’incidence sur l’état d’exécution des machines virtuelles.
@@ -58,7 +58,16 @@ Les réservations sont disponibles pour la plupart des tailles de machine virtue
 - Quota insuffisant : une instance de machine virtuelle réservée qui s’étend sur un seul abonnement doit avoir le quota de processeurs virtuels disponibles dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a une limite de quota de 10 processeurs virtuels pour la famille de la série D, vous ne pouvez pas acheter d’instance de machine virtuelle réservée pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, prenons un abonnement avec un quota de 10 processeurs virtuels pour la famille de la série D. Si cet abonnement a deux instances de standard_D1 déployées, vous pouvez acheter une instance de machine virtuelle réservée pour 10 instances standard_D1 dans cet abonnement. 
 - Restrictions de capacité : dans de rares cas, Azure limite l’achat de nouvelles réservations pour certaines tailles de machine virtuelle, en raison d’une faible capacité dans une région.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Commencer à économiser sur vos machines virtuelles en achetant une [instance de machine virtuelle réservée](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
+
+- [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administrer les instances de machine virtuelle réservées Azure](billing-manage-reserved-vm-instance.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Coûts des logiciels Windows non inclus dans les instances réservées](billing-reserved-instance-windows-software-costs.md)
 
 Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

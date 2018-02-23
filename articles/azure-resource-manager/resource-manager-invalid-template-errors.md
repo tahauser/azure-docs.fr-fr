@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement.
 
-### <a name="solution-4---circular-dependency-detected"></a>Solution 4 - dépendance circulaire détectée
+### <a name="solution-4---too-many-target-resource-groups"></a>Solution 4 : trop de groupes de ressources cibles
+
+Si vous spécifiez plus de cinq groupes de ressources cibles dans un déploiement unique, vous recevez cette erreur. Songez à consolider le nombre de groupes de ressources dans votre déploiement, ou à déployer certains modèles en tant que déploiements distincts. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Solution 5 : dépendance circulaire détectée
 
 Vous recevez cette erreur lorsque des ressources dépendant les unes des autres empêchent le déploiement de démarrer. À cause de l’effet combiné d’interdépendances, plusieurs ressources attendent d’autres ressources qui sont elles aussi en attente. Par exemple, la ressource 1 dépend de la ressource 3, la ressource 2 de la ressource 1 et la ressource 3 de la ressource 2. Vous pouvez généralement résoudre ce problème en supprimant les dépendances inutiles.

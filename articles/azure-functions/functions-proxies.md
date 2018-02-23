@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -50,13 +50,13 @@ La fonctionnalité Azure Functions Proxies vous permet de modifier les demandes 
 
 Par défaut, la demande du serveur principal est initialisée comme une copie de la demande d’origine. Outre la définition de l’URL du serveur principal, vous pouvez apporter des modifications à la méthode HTTP, aux en-têtes et aux paramètres de chaîne de requête. Les valeurs modifiées peuvent faire référence aux [paramètres de l’application] et aux [paramètres de la demande client d’origine].
 
-Il n’est actuellement pas possible de modifier les demandes du serveur principal via un portail. Pour savoir comment appliquer cette fonctionnalité avec un fichier *proxies.json*, consultez la section [Définition d’un objet requestOverrides].
+Les demandes de serveur principal peuvent être modifiées dans le portail en développant la section *remplacement de la requête* de la page de détails du proxy. 
 
 ### <a name="modify-response"></a>Modification de la réponse
 
 Par défaut, la réponse client est initialisée comme une copie de la réponse du serveur principal. Vous pouvez apporter des modifications au code d’état, au motif, aux en-têtes et au corps. Les valeurs modifiées peuvent faire référence aux [paramètres de l’application], aux [paramètres de la demande client d’origine] et aux [paramètres de la réponse du serveur principal].
 
-Il n’est actuellement pas possible de modifier les réponses. Pour savoir comment appliquer cette fonctionnalité avec un fichier *proxies.json*, consultez la section [Définition d’un objet responseOverrides].
+Les demandes de serveur principal peuvent être modifiées dans le portail en développant la section *remplacement de la réponse* de la page de détails du proxy. 
 
 ## <a name="using-variables"></a>Utilisation de variables
 
@@ -65,7 +65,11 @@ La configuration d’un proxy ne doit pas nécessairement être statique. Vous p
 ### <a name="reference-localhost"></a>Fonctions locales de référence
 Vous pouvez utiliser `localhost` pour faire référence à une fonction au sein de la même application de fonction directement, sans demande proxy en aller-retour.
 
-`"backendurl": "localhost/api/httptriggerC#1"` fait référence à une fonction HTTP locale à l’itinéraire `/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` fait référence à une fonction HTTP locale à l’itinéraire `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>Si votre fonction utilise des niveaux d’autorisation de *fonction, administrateur ou système*, vous devez fournir le code et l’ID client, conformément à l’URL d’origine de la fonction. Dans ce cas, la référence doit ressembler à : `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Référencement des paramètres de la demande
 
@@ -114,7 +118,7 @@ Désactivez les traces en ajoutant `"debug":false` à tout proxy de votre instan
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 
-Les serveurs proxy que vous configurez sont stockés dans un fichier *proxies.json* situé à la racine d’un répertoire de Function App. Vous pouvez modifier manuellement ce fichier et le déployer dans le cadre de votre application lors de l’utilisation de l’une des [méthodes de déploiement](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) prises en charge par Functions. La fonctionnalité Azure Functions Proxies doit être [activée](#enable) pour permettre le traitement du fichier. 
+Les serveurs proxy que vous configurez sont stockés dans un fichier *proxies.json* situé à la racine d’un répertoire de Function App. Vous pouvez modifier manuellement ce fichier et le déployer dans le cadre de votre application lors de l’utilisation de l’une des [méthodes de déploiement](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) prises en charge par Functions. 
 
 > [!TIP] 
 > Si vous n’avez pas configuré l’une des méthodes de déploiement, vous pouvez également utiliser le fichier *proxies.json* dans le portail. Accédez à votre Function App et sélectionnez **Fonctionnalités de la plateforme**, puis **Éditeur App Service**. Cela vous permettra d’afficher l’ensemble de la structure de fichiers de votre Function App et d’y apporter des modifications.
@@ -229,16 +233,6 @@ Voici un exemple de configuration :
 ```
 > [!NOTE] 
 > Dans cet exemple, le corps de la réponse est défini directement. Aucune propriété `backendUri` n’est nécessaire. Cet exemple illustre comment utiliser les Proxys Azure Functions pour simuler des API.
-
-## <a name="enable"></a>Activation d’Azure Functions Proxies
-
-Les proxys sont désormais activés par défaut ! Si vous utilisiez une ancienne version de la préversion des proxys, et des proxys désactivés, vous devez activer manuellement les proxys une fois dans l’ordre, pour qu’ils s’exécutent.
-
-1. Ouvrez le [portail Azure] et accédez à votre Function App.
-2. Sélectionnez **Paramètres Function App**.
-3. Réglez **Activer les proxys Azure Functions (préversion)** sur **Activé**.
-
-Vous pouvez également revenir ici pour mettre à jour le runtime proxy lorsque de nouvelles fonctionnalités sont disponibles.
 
 [portail Azure]: https://portal.azure.com
 [déclencheurs HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

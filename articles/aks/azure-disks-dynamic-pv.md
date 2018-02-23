@@ -8,13 +8,13 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: aa89cf9fe4e2cd5b63017558e89401de86effdc9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Volumes persistants avec les disques Azure - Approvisionnement dynamique
+# <a name="persistent-volumes-with-azure-disks"></a>Volumes persistants avec les disques Azure
 
 Un volume persistant représente un élément de stockage provisionné pour une utilisation dans un cluster Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods, et être provisionné de façon statique ou dynamique. Ce document détaille l’approvisionnement dynamique d’un disque Azure comme volume persistant Kubernetes dans un cluster AKS. 
 

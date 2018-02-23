@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Mettre à l’échelle un cluster Service Fabric
 
 Ce didacticiel constitue la deuxième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce didacticiel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Lire le nombre de nœuds de cluster
@@ -39,7 +39,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -85,7 +85,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour PowerShell, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande ``.
+Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour PowerShell, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Montée en charge
 
@@ -95,7 +95,7 @@ Lorsque vous augmentez le nombre d’instances (scale out), vous ajoutez des ins
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Ce code définit la capacité avec la valeur 6.
@@ -120,11 +120,11 @@ Pour diminuer le nombre d’instances (scale in), il suffit de diminuer la valeu
 Lorsque vous diminuez le nombre d’instances d’un groupe de machines virtuelles identiques, celui-ci supprime (dans la plupart des cas) l’instance de machine virtuelle qui a été créée en dernier. Par conséquent, vous devez rechercher le nœud Service Fabric correspondant qui a été créé en dernier. Pour le trouver, il vous suffit de regarder la valeur de propriété `NodeInstanceId` la plus élevée parmi les nœuds Service Fabric. Les exemples de code ci-dessous trient les résultats par instance de nœud et retournent les informations sur l’instance dont la valeur ID est la plus élevée. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 Le cluster Service Fabric doit être informé de la suppression de ce nœud. Pour cela, trois étapes sont nécessaires :
@@ -146,8 +146,9 @@ Une fois ces trois étapes effectuées, vous pouvez supprimer le nœud du groupe
 Le bloc de code suivant obtient le dernier nœud créé, le désactive, l’arrête et le supprime du cluster.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-Dans le code **sfctl** ci-dessous, la commande suivante permet d’obtenir le nom du nœud (**node-name**) et l’ID de l’instance du nœud (**node-instance-id**) du dernier nœud créé :`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+Dans le code **sfctl** ci-dessous, la commande suivante permet d’obtenir le nom du dernier nœud créé (**node-name**) :`sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -219,10 +220,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > Utilisez les requêtes **sfctl** suivantes pour vérifier l’état de chaque étape.
 >
 > **Vérifier l’état de la désactivation**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **Vérifier l’état de l’arrêt**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
@@ -248,9 +249,9 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Lire le nombre de nœuds de cluster

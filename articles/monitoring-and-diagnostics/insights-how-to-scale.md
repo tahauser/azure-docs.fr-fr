@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Mise à l'échelle manuelle ou automatique du nombre d’instances
 Dans le [portail Azure](https://portal.azure.com/), vous pouvez définir manuellement le nombre d'instances de votre service, ou définir les paramètres pour qu'il soit automatiquement mis à l'échelle en fonction de la demande. On parle alors généralement *d’extension* ou de *réduction des instances*.
@@ -30,7 +30,7 @@ Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser égal
 ## <a name="scaling-manually"></a>Mise à l'échelle manuelle
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis accédez à la ressource que vous souhaitez mettre à l'échelle, telle qu'un **plan App Service**.
 2. Cliquez sur **Paramètres > Monter en charge (plan App Service).**
-3. Un historique des mises à l'échelle automatiques du service est affiché en haut du panneau **Mise à l'échelle**.
+3. Un historique des mises à l’échelle automatiques du service est affiché en haut du panneau **Mise à l’échelle**, sous l’onglet **Historique des exécutions**.
    
     ![Volet Scale](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser égal
    > Seules les actions effectuées par mise à l'échelle automatique seront affichées dans ce graphique. Si vous modifiez manuellement le nombre d'instances, cette modification n'apparaîtra pas dans ce graphique.
    > 
    > 
-4. Vous pouvez modifier manuellement le nombre d’ **instances** à l’aide du curseur.
+4. Vous pouvez ajuster manuellement le nombre des **Instances** sous l’onglet **Configurer**.
 5. Cliquez sur la commande **Enregistrer** pour augmenter ou diminuer presque immédiatement le nombre d'instances.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Mise à l'échelle en fonction d’une mesure prédéfinie
@@ -115,7 +115,7 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 11. Assurez-vous de créer une règle relative à l’extension et à la réduction des instances, sinon le nombre d’instances ne fera qu’augmenter (ou diminuer) sur ce profil.
 12. Puis, cliquez sur **Enregistrer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Réceptions de notifications d'alerte](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.

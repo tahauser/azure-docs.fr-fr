@@ -6,17 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un grand environnement VMware
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
 Cet article décrit comment évaluer un grand nombre de machines virtuelles locales avec [Azure Migrate](migrate-overview.md). Azure Migrate évalue les machines dans le but de vérifier qu’elles peuvent être migrées vers Azure. Le service fournit des estimations quant à la taille des machines et au coût de leur exécution dans Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 - **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte vCenter** : vous avez besoin d’un compte en lecture seule pour accéder à vCenter Server. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
@@ -84,13 +84,13 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
    Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Vérifiez que le hachage généré correspond aux paramètres suivants.
  
-    Pour OVA version 1.0.8.49 :
+    Pour OVA version 1.0.8.49
 
     **Algorithme** | **Valeur de hachage**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Pour OVA version 1.0.8.40 :
 
@@ -131,7 +131,7 @@ Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) p
 
 Le tableau ci-dessous répertorie également les résultats d’évaluation qui sont impactés si les données d’un compteur particulier ne sont pas collectées.
 
-|Compteur                                  |Niveau    |Niveau par appareil  |Évaluation de l'impact                               |
+|Compteur                                  |Level    |Niveau par appareil  |Évaluation de l'impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
 |cpu.usage.average                        | 1       |N/D                |Taille de machine virtuelle recommandée et coût                    |
 |mem.usage.average                        | 1       |N/D                |Taille de machine virtuelle recommandée et coût                    |

@@ -1,6 +1,6 @@
 ---
-title: "Administrer les instances de machine virtuelle réservées Azure | Microsoft Docs"
-description: "Découvrez comment modifier l’étendue de l’abonnement et gérer l’accès des instances de machine virtuelle réservées Azure."
+title: "Gérer Azure Reserved Virtual Machine Instances | Microsoft Docs"
+description: "Découvrez comment modifier l’étendue de l’abonnement et gérer l’accès à Azure Reserved VM Instances."
 services: billing
 documentationcenter: 
 author: vikramdesai01
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Administrer les instances de machine virtuelle réservées Azure
 
@@ -75,6 +75,16 @@ Pour déléguer la gestion de l’accès à une réservation :
 5.  Sélectionnez **Ajouter** > **Rôle** > **Propriétaire** (ou un rôle différent si vous souhaitez accorder un accès limité). 
 6. Entrez l’adresse e-mail de l’utilisateur à ajouter en tant que propriétaire. 
 7. Sélectionnez l’utilisateur, puis **Enregistrer**.
+
+## <a name="next-steps"></a>étapes suivantes
+Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
+
+- [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](billing-save-compute-costs-reservations.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Coûts des logiciels Windows non inclus dans les instances réservées](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -40,7 +40,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > [!NOTE]
 > Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation de Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Voici les étapes importantes à suivre pour créer cette solution : 
 
 1. **Sélectionner la colonne de limite**.
@@ -135,7 +135,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données SQL pour stocker la valeur de filigrane supérieure
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans Azure SQL Database pour stocker la valeur de limite supérieure
 1. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `watermarktable` pour stocker la valeur de filigrane : 
     
     ```sql
@@ -157,7 +157,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Créer une procédure stockée dans la base de données SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Créer une procédure stockée dans Azure SQL Database 
 
 Exécutez la commande suivante pour créer une procédure stockée dans votre base de données SQL. Cette procédure stockée met à jour la valeur de filigrane après chaque exécution du pipeline. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Créer des types de données et des procédures stockées supplémentaires
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Créer des types de données et des procédures stockées supplémentaires dans Azure SQL Database
 Exécutez la requête suivante pour créer deux procédures stockées et deux types de données dans votre base de données SQL. Ils sont utilisés pour fusionner les données des tables source dans les tables de destination.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
+1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
     3. Sélectionnez **Objet** pour le **type** de paramètre.
 
     ![Paramètres du pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Glissez-déposez l’activité **ForEach** de la boîte à outils **Activités** vers la surface du concepteur de pipeline. Dans l’onglet **Général** de la fenêtre **Propriétés**, entrez **IterateSQLTables**. 
+4. Dans la boîte à outils **Activités**, développez **Iteration & Conditionals** (Itération et conditions), puis faites glisser et déposez l’activité **ForEach** sur la surface du concepteur de pipeline. Dans l’onglet **Général** de la fenêtre **Propriétés**, entrez **IterateSQLTables**. 
 
     ![Activité ForEach : nom](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Passez dans l’onglet **Paramètres** de la fenêtre **Propriétés**, puis entrez `@pipeline().parameters.tableList` dans le champ **Éléments**. L’activité ForEach parcourt une liste de tables et effectue l’opération de copie incrémentielle. 
@@ -431,7 +432,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 6. Sélectionnez l’activité **ForEach** dans le pipeline si elle n’est pas déjà sélectionnée. Cliquez sur le bouton **Modifier (icône Crayon)**.
 
     ![Activité ForEach : modification](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Glissez-déposez l’activité **Recherche** à partir de la boîte à outils **Activités**, puis entrez **LookupOldWaterMarkActivity** dans le champ **Nom**.
+7. Dans la boîte à outils **Activités**, développez **Général** puis faites glisser et déposez l’activité **Recherche** sur la surface du concepteur de pipeline. Ensuite, saisissez **LookupOldWaterMarkActivity** dans **Nom**.
 
     ![Première activité de recherche : nom](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Passez dans l’onglet **Paramètres** de la fenêtre **Propriétés**, puis procédez comme suit : 
@@ -497,8 +498,9 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
     ![Activité de procédure stockée - Compte SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Basculez vers l’onglet **Procédure stockée**, et procédez comme suit :
 
-    1. Entrez `sp_write_watermark` dans le champ **Nom de la procédure stockée**. 
-    2. Ajoutez les paramètres suivants à l’aide du bouton **Nouveau** : 
+    1. Pour **Nom de la procédure stockée**, sélectionnez `sp_write_watermark`. 
+    2. Sélectionnez **Import parameter** (Paramètre d’importation). 
+    3. Indiquez les valeurs suivantes pour les paramètres : 
 
         | NOM | type | Valeur | 
         | ---- | ---- | ----- |

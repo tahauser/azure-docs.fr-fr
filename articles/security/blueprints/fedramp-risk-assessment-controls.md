@@ -1,6 +1,6 @@
 ---
-title: "Automatisation Azure Blueprint pour FedRAMP - Évaluation des risques"
-description: "Applications Web pour FedRAMP - Évaluation des risques"
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Évaluation des risques"
+description: "Automatisation d’applications web FedRAMP - Évaluation des risques"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Évaluation des risques (RA)
 
 > [!NOTE]
-> Ces contrôles sont définis par le NIST et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 Revision 4 du service NIST. Pour obtenir des informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rev. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-ra-1"></a>NIST 800-53 - Contrôle RA-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie d’évaluation des risques qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie d’évaluation des risques et des contrôles d’évaluation des risques associés ; et révise et met à jour la stratégie actuelle d’évaluation des risques [Affectation : fréquence définie par l’organisation] ; et les procédures d’évaluation des risques [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-2.b** L’organisation documente les résultats de la catégorisation de sécurité (y compris le raisonnement associé) dans le plan de sécurité du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-3.a** L’organisation procède à une évaluation des risques, incluant la probabilité et l’ampleur des dommages, liés à l’accès, l’utilisation, la divulgation, la perturbation, la modification ou la destruction du système d’informations et des informations qu’il traite, stocke ou transmet.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-3.c** L’organisation examine les résultats de l’évaluation des risques [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-3.e** L’organisation met à jour l’évaluation des risques [Affectation : fréquence définie par l’organisation] ou les modifications importantes apportées au système d’information ou à l’environnement de fonctionnement (y compris l’identification des nouvelles menaces et vulnérabilités) ou les autres conditions pouvant avoir un impact sur l’état de sécurité du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,11 +157,11 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5.a** L’organisation analyse les vulnérabilités dans le système d’information et les applications hébergées [Affectation : fréquence définie par l’organisation et/ou de façon aléatoire conformément au processus défini par l’organisation] et le moment où de nouvelles vulnérabilités pouvant potentiellement affecter le système/les applications sont identifiées et signalées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce plan Azure Blueprint déploie la solution OMS Security and Audit. Cette solution fournit une vue complète de l’état de la sécurité. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Baseline Assessment (Évaluation de la ligne de base) regroupe un ensemble de clés de Registre, de paramètres de stratégie d’audit et de paramètres de stratégie de sécurité, ainsi que les valeurs recommandées par Microsoft pour ces paramètres. Update Assessment (Évaluation de la mise à jour) évalue l’état des mises à jour disponibles sur toutes les machines virtuelles déployées. |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Cette solution fournit une vue complète de l’état de sécurité. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Baseline Assessment (Évaluation de la ligne de base) regroupe un ensemble de clés de Registre, de paramètres de stratégie d’audit et de paramètres de stratégie de sécurité, ainsi que les valeurs recommandées par Microsoft pour ces paramètres. Update Assessment (Évaluation de la mise à jour) évalue l’état des mises à jour disponibles sur toutes les machines virtuelles déployées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce plan Azure Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Un niveau de gravité est attribué aux problèmes identifiés. Des ID CCE (Common Configuration Enumeration) sont fournis pour les règles Baseline Assessment (Évaluation de la ligne de base).  |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Un niveau de gravité est attribué aux problèmes identifiés. Des ID CCE (Common Configuration Enumeration) sont fournis pour les règles Baseline Assessment (Évaluation de la ligne de base).  |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5.d** L’organisation corrige les vulnérabilités légitimes [Affectation : temps de réponse définis par l’organisation] conformément à une évaluation des risques organisationnels.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5.e** L’organisation partage les informations obtenues via le processus d’analyse des vulnérabilités et les évaluations du contrôle de sécurité avec [Affectation : personnel ou rôles définis par l’organisation] pour permettre l’élimination de vulnérabilités similaires dans d’autres systèmes d’information (par exemple, des anomalies ou des faiblesses systémiques).
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce plan Azure Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Les critères d’évaluation de ces solutions sont mis à jour automatiquement. |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Les critères d’évaluation de ces solutions sont mis à jour automatiquement. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -241,11 +241,11 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5 (2)** L’organisation met à jour les vulnérabilités du système d’information analysées [Sélection (au moins une) : [Affectation : fréquence définie par l’organisation] ; avant une nouvelle analyse ; au moment où de nouvelles vulnérabilités sont identifiées et signalées].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce plan Azure Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Les critères d’évaluation de ces solutions sont mis à jour automatiquement. |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Les critères d’évaluation de ces solutions sont mis à jour automatiquement. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -255,11 +255,11 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5 (3)** L’organisation utilise des procédures d’analyse des vulnérabilités capables d’identifier l’étendue et la profondeur de couverture (c’est-à-dire, les composants du système d’information analysés et les vulnérabilités contrôlées).
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Ce plan Azure Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Update assessment (Évaluation des mises à jour) procède à l’évaluation sur les machines virtuelles Windows et Linux. Baseline Assessment (Évaluation de la ligne de base) procède à l’évaluation des machines virtuelles Windows à l’aide d’une ligne de base développée par Microsoft basée sur les meilleures pratiques du secteur. |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Dans la solution, deux domaines de sécurité, Update Assessment (Évaluation de la mise à jour) et Baseline Assessment (Évaluation de la ligne de base), sont disponibles. Update assessment (Évaluation des mises à jour) procède à l’évaluation sur les machines virtuelles Windows et Linux. Baseline Assessment (Évaluation de la ligne de base) procède à l’évaluation des machines virtuelles Windows à l’aide d’une ligne de base développée par Microsoft basée sur les meilleures pratiques du secteur. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -283,11 +283,11 @@ ms.lasthandoff: 11/23/2017
 
 **5-RA (5)** Le système d’information met en œuvre une autorisation d’accès privilégié à [Affectation : composants du système d’information identifiés par l’organisation] pour les [Affectation : activités d’analyse des vulnérabilités définies par l’organisation] sélectionnées.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
-| **Client** | Le service Microsoft Monitoring Agent, qui est configuré sur les machines virtuelles déployées par ce plan Azure Blueprint, est configuré comme un service automatique avec les privilèges nécessaires pour les activités d’évaluation. |
+| Client | Le service Microsoft Monitoring Agent, qui est configuré sur les machines virtuelles déployées par cette solution Blueprint, est configuré comme un service automatique avec les privilèges nécessaires pour les activités d’évaluation. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5 (6)** L’organisation utilise des mécanismes automatisés pour comparer les résultats des analyses de vulnérabilité au fil du temps et déterminer les tendances des vulnérabilités du système d’information.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 11/23/2017
 
 **RA-5 (8)** L’organisation examine les journaux d’audit historiques pour déterminer si une vulnérabilité identifiée dans le système d’information a été exploitée précédemment.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Client** | Ce plan Azure Blueprint déploie la solution OMS Security and Audit. Cette solution fournit une vue complète de l’état de sécurité. Le tableau de bord Security and Audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées. |
+| **Client** | Cette solution Blueprint déploie la solution OMS Security and Audit. Cette solution fournit une vue complète de l’état de sécurité. Le tableau de bord Security and Audit fournit un aperçu général de l’état de sécurité des ressources déployées à l’aide des données disponibles sur les solutions OMS déployées. |
 | **Fournisseur (Microsoft Azure)** | Non applicable |

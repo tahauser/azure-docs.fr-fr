@@ -3,21 +3,23 @@ title: "Vidéo indexée, application SQL SaaS Azure | Microsoft Docs"
 description: "Cet article indexe plusieurs points de temps dans notre vidéo de 81 minutes sur la conception de l’application de location de bases de données SaaS, depuis la conférence Ignite qui s’est tenue le 11 octobre 2017. Vous pouvez directement à la partie qui vous intéresse. Au moins 3 modèles sont décrits. Fonctionnalités Azure qui simplifient le développement et la gestion sont décrites."
 ms.custom: 
 ms.date: 12/06/2017
-ms.prod: sql-server
+ms.prod: 
+ms.service: sql-database
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
 ms.workload: Inactive
-ms.openlocfilehash: db47d1dd0a6114ebca0715da179cc0629b26781a
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 5e8d5467e676ee178b77c02e387bdfd2c54e6071
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
@@ -307,7 +309,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Premier article du didacticiel][saas-how-welcome-wingtip-app-679t]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agrégation et collection d’événements avec EventFlow
 
@@ -43,6 +43,9 @@ Une fois tous les packages installés, l’étape suivante consiste à configure
 
 ## <a name="configure-and-enable-log-collection"></a>Configurer et activer la collecte de journaux
 Le pipeline EventFlow chargé d’envoyer les journaux est créé à partir d’une spécification stockée dans un fichier de configuration. Le package `Microsoft.Diagnostics.EventFlow.ServiceFabric` installe un fichier de configuration EventFlow de démarrage dans le dossier de solution `PackageRoot\Config`, nommé `eventFlowConfig.json`. Ce fichier de configuration doit être modifié pour capturer les données à partir de la classe `EventSource` du service par défaut et toutes les autres entrées que vous voulez configurer, puis envoyer les données à l’emplacement approprié.
+
+>[!NOTE]
+>Si votre fichier de projet est au format Visual Studio 2017, le fichier `eventFlowConfig.json` n’est pas ajouté automatiquement. Pour corriger cela, créez le fichier dans le dossier `Config` et définissez l’action de génération `Copy if newer`. 
 
 Voici un exemple d’*eventFlowConfig.json* basé sur les packages NuGet mentionnés ci-dessus :
 ```json
@@ -150,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Démarrez votre service et observez la fenêtre de sortie Débogage de Visual Studio. Une fois le service démarré, vous devez commencer à voir des preuves qu’il envoie des enregistrements à la sortie que vous avez configurée. Accédez à votre plateforme d’analyse et de visualisation des événements et vérifiez que les journaux ont commencé à s’afficher (cela peut prendre quelques minutes).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analyse et visualisation d’événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -484,7 +484,13 @@ Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison 
 
 Le schéma de fichier *function.json* est disponible à l’adresse [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="handling-binding-errors"></a>Gestion des erreurs de liaison
+
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+
+Pour obtenir des liens vers toutes les rubriques d’erreur pertinentes pour les divers services pris en charge par Azure Functions, voir la section [Codes d’erreur de liaison](functions-bindings-error-pages.md#binding-error-codes) de la rubrique de présentation [Gestion des erreurs dans Azure Functions](functions-bindings-error-pages.md).  
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur une liaison spécifique, consultez les articles suivants :
 

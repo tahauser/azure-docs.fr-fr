@@ -1,6 +1,6 @@
 ---
 title: "Tâches courantes de gestion de service cloud | Microsoft Docs"
-description: "Découvrez comment gérer des services cloud dans le portail Azure. Ces exemples utilisent le portail Azure."
+description: "Découvrez comment gérer Azure Cloud Services dans le portail Azure. Ces exemples utilisent le portail Azure."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,52 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e60bf5c82e68d49abaa44d80ac9fafba2d8265da
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-manage-cloud-services"></a>Gestion des services cloud
-Dans la zone **Services cloud** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d’étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
+# <a name="manage-cloud-services-in-the-azure-portal"></a>Gérer Azure Cloud Services dans le portail Azure
+Dans la zone **Services cloud** du portail Azure, vous pouvez :
 
-Vous trouverez plus d’informations sur la mise à l’échelle de votre service cloud [ici](cloud-services-how-to-scale-portal.md).
+* Mettre à jour d’un rôle de service ou un déploiement.
+* Promouvoir un déploiement intermédiaire en production.
+* Lier des ressources à votre service cloud afin de pouvoir visualiser ensemble les dépendances de ressources et l’échelle des ressources.
+* Supprimez ou service cloud ou un déploiement.
 
-## <a name="how-to-update-a-cloud-service-role-or-deployment"></a>Mise à jour d’un rôle ou d’un déploiement de service cloud
+Pour plus d’informations sur la mise à l’échelle votre service cloud, voir [Configurer la mise à l’échelle automatique pour un service cloud dans le portail](cloud-services-how-to-scale-portal.md).
+
+## <a name="update-a-cloud-service-role-or-deployment"></a>Mettre à jour rôle de service cloud ou un déploiement
 Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le panneau de service cloud. Vous pouvez mettre à jour un ou plusieurs rôles. Pour effectuer la mise à jour, vous pouvez charger un nouveau package de service ou un nouveau fichier de configuration de service.
 
 1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud à mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
-2. Dans le panneau, cliquez sur le bouton **Update** .
 
-    ![Bouton Update](./media/cloud-services-how-to-manage-portal/update-button.png)
+2. Sur le panneau, sélectionnez **Mettre à jour**.
+
+    ![Bouton Mettre à jour](./media/cloud-services-how-to-manage-portal/update-button.png)
 
 3. Mettez à jour le déploiement avec un nouveau fichier de package de service (.cspkg) et un fichier de configuration de service (.cscfg).
 
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. **éventuellement** à jour l'étiquette de déploiement et le compte de stockage.
-5. Si l’un des rôles ne comporte qu’une seule instance, sélectionnez **Déployer même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
+4. Si vous le souhaitez, mettez à jour le compte de stockage et de l’étiquette du déploiement.
 
-    Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Avec deux instances de rôle, une machine virtuelle traite les demandes du client pendant que l'autre est mise à jour.
+5. Si l’un des rôles ne comporte qu’une seule instance, activez la case à cocher **Déployer même si un ou plusieurs rôles contiennent une seule instance** pour permettre la mise à niveau.
 
-6. Cochez la case **Démarrer le déploiement** pour appliquer la mise à jour après le téléchargement du package.
-7. Cliquez sur **OK** pour démarrer la mise à jour du service.
+    Azure ne peut 99,95 % de disponibilité du service pendant la mise à jour d’un service cloud que si chaque rôle dispose d’au moins deux instances (machines virtuelles). Avec deux instances de rôle, une machine virtuelle traite les demandes du client pendant que l'autre est mise à jour.
 
-## <a name="how-to-swap-deployments-to-promote-a-staged-deployment-to-production"></a>Inversion de déploiements pour faire passer un déploiement intermédiaire en production
+6. Activez la case à cocher **Démarrer le déploiement** pour appliquer la mise à jour une fois le chargement du package.
+
+7. Sélectionnez **OK** pour démarrer la mise à jour du service.
+
+## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Permuter des déploiements pour promouvoir un déploiement intermédiaire en production
 Lorsque vous décidez de déployer une nouvelle version d'un service cloud, créez un déploiement intermédiaire et testez la nouvelle version dans l'environnement intermédiaire de votre service cloud. Utilisez **Swap** pour inverser les URL qui permettent d'accéder aux deux déploiements et de faire passer une nouvelle version en production.
 
 Vous pouvez inverser les déploiements à partir de la page **Cloud Services** ou du tableau de bord.
 
 1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud à mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
-2. Dans le panneau, cliquez sur le bouton **Swap** .
 
-    ![Inverser les services cloud](./media/cloud-services-how-to-manage-portal/swap-button.png)
+2. Sur le panneau, sélectionnez **Permuter**.
 
-3. L'invite de confirmation suivante s'affiche.
+    ![Bouton Permuter les services cloud](./media/cloud-services-how-to-manage-portal/swap-button.png)
+
+3. L’invite de confirmation suivante s’ouvre :
 
     ![Inverser les services cloud](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
-4. Une fois les informations de déploiement vérifiées, cliquez sur **OK** pour inverser les déploiements.
+4. Après avoir vérifié les informations de déploiement, sélectionnez **OK** pour permuter les déploiements.
 
     L'inversion des déploiements se fait rapidement, car la seule chose qui change est l'adresse IP virtuelle (VIP) des déploiements.
 
@@ -73,15 +82,15 @@ Il existe deux conditions préalables principales pour qu’un échange de dépl
 
 - Si vous souhaitez utiliser une adresse IP statique pour votre emplacement de production, vous devez en réserver une pour votre emplacement intermédiaire également. Sinon, l’échange échoue.
 
-- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances dans le volet d’aperçu du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) dans Windows PowerShell.
+- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances sur le panneau **Aperçu** du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) dans Windows PowerShell.
 
-Notez que les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent entraîner l’échec du déploiement. Pour plus d’informations, consultez [Résoudre les problèmes de déploiement de service cloud](cloud-services-troubleshoot-deployment-problems.md).
+Notez que les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent également entraîner l’échec du déploiement. Pour plus d’informations, consultez [Résoudre les problèmes de déploiement de service cloud](cloud-services-troubleshoot-deployment-problems.md).
 
 **Un échange implique-t-il un temps d’arrêt pour mon application ? Comment dois-je le gérer ?**
 
-Comme décrit dans la dernière section, un échange de déploiements est généralement rapide puisqu’il s’agit simplement d’une modification de configuration d’Azure Load Balancer. Toutefois, dans certains cas, il peut prendre au moins dix secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
+Comme décrit dans la section précédente, une permutation de déploiements est généralement rapide, car s’agit simplement d’une modification de configuration dans Azure Load Balancer. Dans certains cas, elle peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
 
-## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Suppression de déploiements et d’un service cloud
+## <a name="delete-deployments-and-a-cloud-service"></a>Supprimer des déploiements et un service cloud
 Avant de pouvoir supprimer un service cloud, vous devez supprimer tous les déploiements existants.
 
 Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploiement intermédiaire une fois que vous êtes certain que votre déploiement de production se comporte comme vous le souhaitez. Vous êtes facturé pour les coûts de calcul des instances de rôle déployées qui ont été arrêtées.
@@ -89,25 +98,27 @@ Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploieme
 Utiliser la procédure suivante pour supprimer un déploiement ou un service cloud.
 
 1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud à supprimer. Cette étape ouvre le panneau d'instance de service cloud.
-2. Dans le panneau, cliquez sur le bouton **Delete** .
 
-    ![Inverser les services cloud](./media/cloud-services-how-to-manage-portal/delete-button.png)
+2. Sur le panneau, sélectionnez **Supprimer**.
 
-3. Vous pouvez supprimer tout le service cloud en cochant **Service cloud et ses déploiements**, ou bien choisir le **déploiement de production** ou le **déploiement intermédiaire**.
+    ![Bouton Supprimer des services cloud](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-    ![Inverser les services cloud](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+3. Pour supprimer tout le service cloud, activez la service cloud **Service cloud et ses déploiements**. Vous pouvez également activer la case à cocher **Déploiement de production** ou **Déploiement intermédiaire** case à cocher.
 
-4. Cliquez sur le bouton **Delete** en bas de la page.
-5. Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
+    ![Suppression de services cloud](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+
+4. Sélectionnez **Supprimer** en bas.
+
+5. Pour supprimer le service cloud, sélectionnez **Supprimer le service cloud**. Ensuite, à l’invite de confirmation, sélectionnez **Oui**.
 
 > [!NOTE]
-> Lorsqu’un service cloud est supprimé et que la surveillance détaillée est configurée, vous devez supprimer manuellement les données de votre compte de stockage. Pour plus d'informations sur les tables de mesures, consultez [cet](cloud-services-how-to-monitor.md) article.
+> Quand un service cloud est supprimé et que la surveillance détaillée est configurée, vous devez supprimer manuellement les données de votre compte de stockage. Pour savoir où trouver les tables de métriques, voir [Introduction à la surveillance des services cloud](cloud-services-how-to-monitor.md).
 
 
-## <a name="how-to-find-more-information-about-failed-deployments"></a>Comment trouver plus d’informations sur les déploiements échoués
-Le panneau **d’aperçu** possède une barre d’état en haut. Lorsque vous cliquez sur la barre, un nouveau panneau s’ouvre et affiche toutes les informations d’erreur. Si le déploiement ne contient pas d’erreurs, le panneau informations est vide.
+## <a name="find-more-information-about-failed-deployments"></a>Trouver des informations supplémentaires sur les déploiements ayant échoué
+Le panneau **d’aperçu** possède une barre d’état en haut. Lorsque vous sélectionnez la barre, un nouveau panneau s’ouvre et affiche toutes les informations d’erreur. Si le déploiement ne contient pas d’erreur, le panneau d’informations est vide.
 
-![Inverser les services cloud](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Vue d’ensemble des services cloud](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 

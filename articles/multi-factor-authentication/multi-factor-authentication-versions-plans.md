@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 67456fa865a7bc1057194d577cd79ce6378a7ac9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?
 
@@ -67,6 +67,9 @@ Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles da
 | Mémoriser MFA pour les appareils fiables |● |● |● |
 | SDK MFA | | |● (Déprécié) | 
 | MFA pour les applications locales | | |● |
+
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Comment activer Azure Multi-Factor Authentication pour les administrateurs Azure AD
+Les utilisateurs avec le rôle d’administrateur général dans les locataires Azure AD peuvent activer la vérification en deux étapes pour leurs comptes d’administrateurs généraux Azure AD sans coût supplémentaire. Si vous utilisez un compte Microsoft, vous pouvez vous inscrire pour l’authentification multifacteur à [cette adresse](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Si vous n’utilisez pas de comptes Microsoft, activez l’authentification multifacteur pour les administrateurs généraux à [cette adresse](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?
 Si vous souhaitez bénéficier de toutes les fonctionnalités offertes par Azure Multi-Factor Authentication, plusieurs options s’offrent à vous :

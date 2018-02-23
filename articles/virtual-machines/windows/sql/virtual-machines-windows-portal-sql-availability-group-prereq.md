@@ -4,7 +4,7 @@ description: "Ce didacticiel montre comment configurer les conditions préalable
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure
 
@@ -41,7 +41,7 @@ Ce didacticiel suppose que vous avez des notions de base sur les groupes de disp
 Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](http://portal.azure.com).
 2. Cliquez sur  **+**  pour créer un nouvel objet dans le portail.
 
    ![Nouvel objet](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -50,7 +50,7 @@ Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratui
 
    ![Groupe de ressources](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Cliquez sur **Groupe de ressources**.
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 6. Dans le panneau **Groupe de ressources**, sous **Nom du groupe de ressources**, nommez le groupe de ressources. Par exemple, tapez **sql-ha-rg**.
 7. Si vous avez plusieurs abonnements Azure, vérifiez qu’il s’agit bien de celui dans lequel vous souhaitez créer le groupe de disponibilité.
 8. Sélectionnez un emplacement. L’emplacement est la région Azure où vous souhaitez créer le groupe de disponibilité. Pour ce didacticiel, nous allons générer toutes les ressources dans un même emplacement Azure.
@@ -82,19 +82,19 @@ Pour créer le réseau virtuel :
 
    | **Champ** | Valeur |
    | --- | --- |
-   | **Nom** |autoHAVNET |
+   | **Name** |autoHAVNET |
    | **Espace d’adressage** |10.33.0.0/24 |
    | **Nom du sous-réseau** |Admin |
    | **Plage d’adresses de sous-réseau** |10.33.0.0/29 |
    | **Abonnement** |Spécifiez l’abonnement à utiliser. Le champ **Abonnement** est vide si vous n'avez qu'un seul abonnement. |
    | **Groupe de ressources** |Choisissez **Utiliser existant** et sélectionnez le nom du groupe de ressources. |
-   | **Emplacement** |Spécifiez l’emplacement Azure. |
+   | **Lieu** |Spécifiez l’emplacement Azure. |
 
    Votre espace d’adressage et votre plage d’adresses de sous-réseau peuvent être différents de ceux indiqués dans ce tableau. En fonction de votre abonnement, le portail suggère un espace d’adressage disponible et la plage d’adresses de sous-réseau correspondante. Si vous ne disposez pas d’un espace d’adressage suffisant, utilisez un autre abonnement.
 
    L’exemple utilise le nom de sous-réseau **Admin**. Ce sous-réseau est destiné aux contrôleurs de domaine.
 
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 
    ![Configurer le réseau virtuel](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/06-configurevirtualnetwork.png)
 
@@ -130,7 +130,7 @@ Le tableau suivant récapitule les paramètres de configuration du réseau :
 | **Plage d’adresses de sous-réseau** |Cette valeur dépend des plages d’adresses disponibles dans votre abonnement. 10.0.1.0/24 est une valeur courante. |
 | **Abonnement** |Spécifiez l’abonnement à utiliser. |
 | **Groupe de ressources** |**SQL-HA-RG** |
-| **Emplacement** |Spécifiez le même emplacement que celui choisi pour le groupe de ressources. |
+| **Lieu** |Spécifiez le même emplacement que celui choisi pour le groupe de ressources. |
 
 ## <a name="create-availability-sets"></a>Créer des groupes à haute disponibilité
 
@@ -147,7 +147,7 @@ Configurez deux groupes à haute disponibilité en vous basant sur les paramètr
 | **Name** |adavailabilityset |sqlavailabilityset |
 | **Groupe de ressources** |SQL-HA-RG |SQL-HA-RG |
 | **Domaines d'erreur** |3 |3 |
-| **Domaines de mise à jour** |5 |3 |
+| **Domaines de mise à jour** |5. |3 |
 
 Après avoir créé les groupes à haute disponibilité, revenez au groupe de ressources dans le Portail Azure.
 
@@ -175,13 +175,13 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 
 | **Champ** | Valeur |
 | --- | --- |
-| **Nom** |Premier contrôleur de domaine : *ad-primary-dc*.</br>Second contrôleur de domaine *ad-secondary-dc*. |
+| **Name** |Premier contrôleur de domaine : *ad-primary-dc*.</br>Second contrôleur de domaine *ad-secondary-dc*. |
 | **Type de disque de machine virtuelle** |SSD |
 | **Nom d'utilisateur** |DomainAdmin |
 | **Mot de passe** |Contoso!0000 |
 | **Abonnement** |*Votre abonnement* |
 | **Groupe de ressources** |SQL-HA-RG |
-| **Emplacement** |*Votre emplacement* |
+| **Lieu** |*Votre emplacement* |
 | **Taille** |DS1_V2 |
 | **Stockage** | **Utiliser des disques gérés** - **Oui** |
 | **Réseau virtuel** |autoHAVNET |
@@ -189,7 +189,7 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 | **Adresse IP publique** |*Même nom que la machine virtuelle* |
 | **Groupe de sécurité réseau** |*Même nom que la machine virtuelle* |
 | **Groupe à haute disponibilité** |adavailabilityset </br>**Domaines d'erreur** : 2</br>**Domaines de mise à jour** : 2|
-| **Diagnostics** |Activé |
+| **Diagnostics** |activé |
 | **Compte de stockage de diagnostics** |*Créé automatiquement* |
 
    >[!IMPORTANT]
@@ -261,7 +261,7 @@ Après avoir créé le premier contrôleur de domaine et activé DNS sur le prem
 
 3. Cliquez sur **Personnalisé** et saisissez l’adresse IP privée du contrôleur de domaine principal.
 
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configuration du second contrôleur de domaine
 Une fois le contrôleur de domaine principal redémarré, vous pouvez configurer le second contrôleur de domaine. Cette étape facultative intervient pour les scénarios de haute disponibilité. Suivez ces étapes pour configurer le second contrôleur de domaine :
@@ -493,6 +493,6 @@ La méthode d’ouverture des ports dépend de la solution de pare-feu que vous 
 
 Répétez ces étapes sur la seconde machine virtuelle SQL Server.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)

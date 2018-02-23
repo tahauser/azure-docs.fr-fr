@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites et configuration de Logic Apps
 
-Cette rubrique décrit les limites actuelles et les détails de la configuration d’Azure Logic Apps.
+Cette rubrique décrit les limites et les détails de configuration actuels d’Azure Logic Apps.
 
 ## <a name="limits"></a>limites
 
@@ -66,7 +66,7 @@ Ces limites s’appliquent à une seule exécution de l’application logique.
 | Intervalle de périodicité maximal | 500 jours | 
 ||| 
 
-Pour dépasser les limites de durée d’exécution ou de rétention du stockage dans votre flux de traitement normal, [contactez-nous](mailto://logicappsemail@microsoft.com) afin que nous puissions répondre à vos besoins.
+Pour pouvoir dépasser les limites de durée d’exécution ou de rétention du stockage dans votre flux de traitement normal, [contactez l’équipe de produit](mailto://logicappsemail@microsoft.com) afin de bénéficier d’une assistance adaptée à vos besoins.
 
 ### <a name="looping-and-debatching-limits"></a>Limites de bouclage et de décomposition
 
@@ -82,18 +82,18 @@ Ces limites s’appliquent à une seule exécution de l’application logique.
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-Ces limites s’appliquent à une seule instance d’application logique.
+Ces limites s’appliquent à une seule ressource d’application logique.
 
 | NOM | Limite | Notes | 
 | ----- | ----- | ----- | 
-| Exécutions d’actions par tranche de 5 minutes | 100 000 |<p>La limite peut être augmentée jusqu’à 300 000, via l’exécution d’une application logique en mode `High Througput`. Pour ce faire, définissez la propriété `operationOptions` sous `runtimeConfiguration` de la ressource du workflow sur `OptimizedForHighThroughput`. <p>Notez que le mode de débit élevé est en version préliminaire. Par ailleurs, une charge de travail peut être distribuée entre plusieurs applications, au besoin. | 
+| Exécutions d’actions par tranche de 5 minutes | 100 000 |<p>La limite peut être augmentée à 300 000 en exécutant une application logique en mode `High Througput`. Le mode Débit élevé peut être configuré en définissant la propriété `operationOptions` sous la configuration `runtimeConfiguration` de la ressource de flux de travail sur `OptimizedForHighThroughput`. <p>Notez que le mode Débit élevé est en préversion. Par ailleurs, une charge de travail peut être distribuée entre plusieurs applications, au besoin. | 
 | Appels sortants simultanés des actions | ~2,500 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
 | Point de terminaison du runtime : appels entrants simultanés |~1,000 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
 | Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
 | Point de terminaison du runtime : appels d’invocation toutes les cinq minutes| 45,000 |Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
 |||| 
 
-Pour dépasser ces limites dans le cadre d’un traitement normal, ou pour exécuter un test de charge qui risque de les dépasser, [contactez-nous](mailto://logicappsemail@microsoft.com) afin que nous puissions répondre à vos besoins.
+Pour dépasser ces limites dans le cadre d’un traitement normal, ou exécuter un test de charge susceptible de les dépasser, [contactez l’équipe de produit](mailto://logicappsemail@microsoft.com) afin de bénéficier d’une assistance adaptée à vos besoins.
 
 ### <a name="logic-app-definition-limits"></a>Limites de la définition d’application logique
 

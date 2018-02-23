@@ -1,6 +1,6 @@
 ---
 title: "Coûts des logiciels Windows dans les instances de machine virtuelle réservées Azure | Microsoft Docs"
-description: "Découvrez quels compteurs sont utilisés pour les logiciels Windows des machines virtuelles Windows pouvant profiter de l’offre d’instance réservée."
+description: "Découvrez les compteurs de logiciels Windows qui ne sont pas inclus dans les coûts d’instance de machine virtuelle réservée."
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Coûts des logiciels Windows non inclus dans les instances réservées
 
-Si vous n’utilisez pas Azure Hybrid Use Benefit sur votre machine virtuelle d’instance réservée, vous êtes facturé pour les compteurs de logiciels Windows répertoriés dans le tableau suivant :
+Si vous n’utilisez pas Azure Hybrid Use Benefit sur votre machine virtuelle d’instance réservée, vous êtes facturé pour les compteurs de logiciels Windows répertoriés dans la section suivante.
+
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Compteurs de logiciels Windows non inclus dans le coût des instances réservées
 
 | ID du compteur | Nom du compteur dans le fichier d’utilisation | Utilisé par la machine virtuelle |
 | ------- | ------------------------| --- |
@@ -48,3 +50,13 @@ Si vous n’utilisez pas Azure Hybrid Use Benefit sur votre machine virtuelle d�
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Réservation-Windows Server (96 cœurs) | Tout sauf la série B |
 
 Vous pouvez obtenir le coût de chacun de ces compteurs via l’API Azure RateCard. Pour en savoir plus sur la façon de se procurer les tarifs d’un compteur Azure, consultez [Obtenir des informations sur les prix et les métadonnées des ressources utilisées dans un abonnement Azure](https://msdn.microsoft.com/library/azure/mt219004).
+
+## <a name="next-steps"></a>étapes suivantes
+Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
+
+- [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Administrer les instances de machine virtuelle réservées Azure](billing-manage-reserved-vm-instance.md)
+- [Réaliser des économies sur les machines virtuelles avec les instances de machine virtuelle réservées](billing-save-compute-costs-reservations.md)
+- [Comprendre comment la remise de l’offre d’instance de machine virtuelle réservée est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée sur votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation de l’offre d’instance réservée pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md)

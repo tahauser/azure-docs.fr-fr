@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identité du service administré (MSI) pour les ressources Azure
 
@@ -87,12 +87,12 @@ Les services suivants prennent en charge l’authentification Azure AD et ont é
 
 | de diffusion en continu | ID de ressource | Statut | Date | Attribuer l’accès |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | Disponible | Septembre 2017 | [Portail Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[interface de ligne de commande Azure](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net/ | Disponible | Septembre 2017 | |
-| Azure Data Lake | https://datalake.azure.net/ | Disponible | Septembre 2017 | |
-| Azure SQL | https://database.windows.net/ | Disponible | Octobre 2017 | |
-| Hubs d'événements Azure | https://eventhubs.azure.net/ | Disponible | Décembre 2017 | |
-| Azure Service Bus | https://servicebus.azure.net/ | Disponible | Décembre 2017 | |
+| Azure Resource Manager | https://management.azure.com | Disponible | Septembre 2017 | [Portail Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[interface de ligne de commande Azure](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net | Disponible | Septembre 2017 | |
+| Azure Data Lake | https://datalake.azure.net | Disponible | Septembre 2017 | |
+| Azure SQL | https://database.windows.net | Disponible | Octobre 2017 | |
+| Hubs d'événements Azure | https://eventhubs.azure.net | Disponible | Décembre 2017 | |
+| Azure Service Bus | https://servicebus.azure.net | Disponible | Décembre 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Combien coûte l’identité du service administré ?
 

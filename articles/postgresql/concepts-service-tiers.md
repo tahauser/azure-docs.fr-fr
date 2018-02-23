@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Options et performances de Base de données Azure pour PostgreSQL : comprendre les éléments disponibles dans chaque niveau tarifaire
 Quand vous créez un serveur Azure Database pour le serveur PostgreSQL, vous choisissez entre trois options principales pour configurer les ressources allouées pour ce serveur. Ces choix ont un impact sur les performances et la mise à l’échelle du serveur.
@@ -37,7 +37,7 @@ Le tableau suivant fournit des exemples de niveaux tarifaires adaptés à diffé
 | Niveau tarifaire | Charges de travail cibles |
 | :----------- | :----------------|
 | De base | Idéal pour les petites charges de travail qui requièrent une capacité de calcul et de stockage évolutive sans garantie d’E/S par seconde. Exemple : serveurs utilisés pour le développement ou le test ou pour des applications à petite échelle rarement utilisées. |
-| Standard | Le meilleur choix pour les applications cloud nécessitant une garantie d’E/S par seconde avec un débit élevé. Exemples : applications web ou applications d’analyse. |
+| standard | Le meilleur choix pour les applications cloud nécessitant une garantie d’E/S par seconde avec un débit élevé. Exemples : applications web ou applications d’analyse. |
 | Premium | Idéal pour les charges de travail nécessitant une latence faible pour les transactions et les E/S. Assure la meilleure prise en charge possible d’un grand nombre d’utilisateurs simultanés. S’applique aux bases de données qui prennent en charge les applications critiques.<br />Le niveau tarifaire Premium n’est pas disponible en préversion. |
 
 Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de travail a besoin d’une garantie d’E/S par seconde. Si c’est le cas, utilisez le niveau tarifaire Standard.
@@ -46,8 +46,8 @@ Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de t
 | :------------------------ | :-------- | :----------- |
 | Nombre maximal d’unités de calcul | 100 | 800 | 
 | Volume total de stockage maximal | 1 To | 1 To | 
-| Garantie d’E/S par seconde de stockage | N/A  | Oui | 
-| E/S par seconde de stockage maximales | N/A  | 3 000 | 
+| Garantie d’E/S par seconde de stockage | N/A | OUI | 
+| E/S par seconde de stockage maximales | N/A | 3 000 | 
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 
 
 Pendant la phase de préversion, vous ne pouvez pas changer le niveau tarifaire une fois que le serveur est créé. Ultérieurement, il sera possible de faire passer un serveur d’un niveau tarifaire à l’autre.
@@ -65,7 +65,7 @@ Les unités de calcul sont une mesure de débit de traitement processeur garanti
 | **Niveau de performances** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Nombre maximal d’unités de calcul | 50 | 100 |
-| Taille du stockage inclus | 50 Go | 50 Go |
+| Taille du stockage inclus | 50 Go | 50 Go |
 | Taille maximale de stockage du serveur\* | 1 To | 1 To |
 
 ### <a name="standard-pricing-tier-performance-levels"></a>Niveaux de performances du niveau tarifaire Standard :
@@ -80,8 +80,8 @@ Les unités de calcul sont une mesure de débit de traitement processeur garanti
 
 \*La taille maximale de stockage du serveur fait référence à la taille maximale de stockage approvisionnée pour votre serveur.
 
-## <a name="storage"></a>Storage 
-La configuration du stockage définit la quantité de stockage disponible pour un serveur Azure Database pour PostgreSQL. Le stockage utilisé par le service inclut les fichiers de base de données, les journaux de transaction et les journaux du serveur PostgreSQL. Lors de la sélection de la configuration du stockage, prenez en compte la taille du stockage nécessaire pour héberger vos bases de données et les besoins en performances (E/S par seconde).
+## <a name="storage"></a>Stockage 
+La configuration du stockage définit la quantité de stockage disponible pour un serveur Azure Database pour PostgreSQL. Le stockage utilisé par le service inclut les fichiers de base de données, les fichiers temporaires, les journaux de transaction et les journaux du serveur PostgreSQL. Lors de la sélection de la configuration du stockage, prenez en compte la taille du stockage nécessaire pour héberger vos bases de données et les besoins en performances (E/S par seconde).
 
 Un minimum de capacité de stockage est inclus avec chaque niveau tarifaire, indiqué dans le tableau précédent par « Taille du stockage inclus ». Une capacité de stockage supplémentaire peut être ajoutée lors de la création du serveur, par incréments de 125 Go, jusqu’au stockage maximal autorisé. La capacité de stockage supplémentaire peut être configurée indépendamment de la configuration des unités de calcul. Le prix change en fonction de la quantité de stockage sélectionnée.
 
@@ -101,6 +101,6 @@ En réalité, un changement du niveau de performances d’un serveur crée une c
 
 La durée de la totalité du processus de mise à l’échelle dépend de la taille et du niveau tarifaire du serveur avant et après le changement. Par exemple, le changement des unités de calcul au sein du niveau tarifaire Standard ne demande normalement que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour plus d’informations sur les unités de calcul, voir [Présentation des unités de calcul](concepts-compute-unit-and-storage.md)
 - Découvrir comment [Surveiller et mettre à l’échelle un seul serveur PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md)

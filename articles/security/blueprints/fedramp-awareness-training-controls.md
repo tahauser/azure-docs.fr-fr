@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure Blueprint Automation - Reconnaissance et formation
-description: Applications Web pour FedRAMP - Reconnaissance et formation
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Sensibilisation et formation"
+description: "Automatisation d’applications web FedRAMP - Sensibilisation et formation"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="awareness-and-training-at"></a>Reconnaissance et formation
 
 > [!NOTE]
-> Ces contrôles sont définis par le NIST et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 Revision 4 du service NIST. Pour obtenir des informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rev. 4.
+> Ces contrôles sont définis par le NIST et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-at-1"></a>NIST 800-53 Control AT-1
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-2.a** L'organisation fournit une formation de base de sensibilisation à la sécurité aux utilisateurs du système informatique (y compris les gestionnaires, les cadres supérieurs et les sous-traitants) dans le cadre de la formation initiale proposée aux nouveaux utilisateurs.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-2.b** L'organisation fournit une formation de base de sensibilisation à la sécurité aux utilisateurs du système informatique (y compris les gestionnaires, les cadres supérieurs et les sous-traitants) lorsque des modifications apportées au système informatique l'exigent.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-2 (2)** L'organisation inclut une formation de sensibilisation à la sécurité permettant d'identifier et de signaler les indicateurs potentiels d'une menace interne.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-3.b** L'organisation fournit une formation sur la sécurité basée sur les rôles au personnel ayant des rôles et des responsabilités de sécurité lorsque des modifications apportées au système informatique l'exigent.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-3.c** L’organisation fournit une formation de sur la sécurité basée sur les rôles au personnel ayant des rôles et des responsabilités de sécurité [Affectation : fréquence définie par l’organisation] par la suite.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-3 (3)** L'organisation propose des exercices pratiques de formation à la sécurité qui renforcent les objectifs de formation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-3 (4)** L'organisation fournit à son personnel une formation sur [Affectation : indicateurs de code malveillant définis par l'organisation] pour identifier les communications suspectes et les comportements anormaux dans les systèmes informatiques organisationnels.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **AT-4.b** L'organisation conserve les enregistrements individuels de formation pendant [Affectation : période définie par l'organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

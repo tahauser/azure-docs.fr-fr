@@ -1,4 +1,4 @@
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Introduction
       href: storage-files-introduction.md
@@ -198,6 +198,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Résoudre les problèmes de l’Explorateur de stockage
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Accessibilité de l’Explorateur Stockage Azure
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Packages NuGet
       items:
         - name: Bibliothèque cliente Azure Storage pour .NET

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics sur la plateforme Media Services
 ## <a name="overview"></a>Vue d'ensemble
@@ -50,6 +50,8 @@ La synthèse d’une vidéo peut vous aider à créer des synthèses de longues 
 Avec Azure Media OCR (reconnaissance optique de caractères), vous pouvez convertir le contenu texte de fichiers vidéo en un texte numérique modifiable et pouvant faire l’objet d’une recherche. Vous pouvez ensuite automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia.
 ### <a name="scalable-face-redaction"></a>Rédaction de face évolutive
 Azure Media Redactor est un processeur multimédia Media Analytics qui offre la rédaction de face évolutive dans le cloud. La rédaction de face vous permet de modifier votre vidéo afin de flouter les visages des individus sélectionnés. Vous souhaitez peut-être utiliser le service de rédaction de face dans les médias d’actualité ou lorsque la sécurité publique est impliquée. Quelques minutes de séquences vidéo contenant plusieurs visages peuvent nécessiter des heures de traitement manuel, mais avec ce service, le processus de rédaction de face ne nécessite que quelques étapes simples. Pour plus d'informations, consultez l’article [Éditer les visages avec Azure Media Analytique](media-services-face-redaction.md).
+### <a name="content-moderation"></a>Modération du contenu
+Azure Content Moderator vous permet d’utiliser une modération assistée par ordinateur pour vos vidéos. Par exemple, vous souhaiterez peut-être détecter du contenu potentiellement osé et réservé aux adultes dans des vidéos et demander à vos équipes humaines en charge de la modération d’en examiner le contenu. La modération manuelle des vidéos pour détecter du contenu indésirable est une tâche fastidieuse et coûteuse. Ce service et les outils de révision associés vous permettent de combiner la modération assistée par ordinateur avec des capacités humaines pour obtenir des résultats optimaux efficacement et à moindre coût. Pour plus d’informations, voir l’article [Traiter vos vidéos avec Azure Content Moderator](media-services-content-moderation.md).
 
 ## <a name="common-scenarios"></a>Scénarios courants
 Media Analytics peut aider les organisations et entreprises à mieux exploiter et cibler leurs contenus vidéo et à améliorer la gestion des gros volumes de contenus vidéo. Voici quelques exemples de scénario :
@@ -69,6 +71,7 @@ Cette section répertorie tous les processeurs multimédia Media Analytics et mo
 * Détecteur de mouvement Azure Media
 * Miniatures vidéo Azure Media
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 La fonction suivante sélectionne un des noms MP spécifiés et retourne un objet MP.
@@ -123,11 +126,6 @@ Réponse :
 ## <a name="demos"></a>Démonstrations
 Consultez les [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Étapes suivantes
-Consultez les parcours d’apprentissage de Media Services.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Consultez [l’Annonce concernant Media Services Analytics](https://azure.micros
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>étapes suivantes
+Consultez les parcours d’apprentissage de Media Services.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

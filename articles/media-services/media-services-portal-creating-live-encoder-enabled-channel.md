@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux multidébit avec le portail Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Ce didacticiel vous guide tout au long des étapes de création d’un **canal**
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
 > [!NOTE]
-> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 > 
 > 
 
@@ -70,15 +70,15 @@ Dans ce didacticiel, le portail Azure est utilisé pour effectuer les tâches su
 5. Lire votre contenu.
 6. Nettoyage.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-* Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. 
+* Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. 
   Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-portal-create-account.md).
 * Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire unique.
 
-## <a name="create-a-channel"></a>Créer un CANAL
+## <a name="create-a-channel"></a>Créer un canal
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez Media Services, puis cliquez sur le nom de votre compte Media Services.
 2. Sélectionnez **Vidéo en flux continu**.
 3. Sélectionnez **Création personnalisée**. Cette option vous permet de créer un canal activé pour l’encodage live.
@@ -148,7 +148,7 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 Une fois que le flux transite dans le canal, vous pouvez commencer l’événement de diffusion en continu en créant une ressource, un programme et un localisateur de diffusion en continu. Le flux est alors archivé et mis à la disposition des observateurs via le point de terminaison de diffusion en continu. 
 
 >[!NOTE]
->Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+>Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 Il existe deux façons de démarrer un événement : 
 
@@ -190,10 +190,10 @@ Même après l’arrêt et la suppression de l’événement, les utilisateurs p
 
 Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **Éléments multimédias**.
 
-![ressources](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Éléments multimédias](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considérations
-* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
+* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 * Assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
 
 ## <a name="next-step"></a>Étape suivante

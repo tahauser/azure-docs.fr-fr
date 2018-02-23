@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Procédures
   items:
+    - name: Recevoir des événements sur un point de terminaison HTTP
+      href: receive-events.md
     - name: Diffuser des données en continu sur l’entrepôt de données à partir d’Event Hubs
       href: event-grid-event-hubs-integration.md
     - name: Envoyer des notifications concernant les événements IoT Hub

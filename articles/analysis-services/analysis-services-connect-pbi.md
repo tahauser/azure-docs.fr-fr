@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
@@ -38,7 +38,9 @@ Une fois que vous avez créé un serveur dans Azure avant d’y déployer un mod
 
 3. Dans **Base de données**, si vous connaissez le nom de la base de données de modèle tabulaire ou de la perspective à laquelle vous souhaitez vous connecter, collez-le ici. Sinon, vous pouvez laisser ce champ vide et sélectionner une base de données ou une perspective ultérieurement.
 
-4. Laissez l’option par défaut **Connexion active** sélectionnée, puis appuyez sur **Se connecter**. Les connexions d’importation ne sont pas prises en charge actuellement.
+4. Sélectionnez une option de connexion, puis appuyez sur **Connexion**. 
+
+    Les deux options **Connexion directe** et **Importation** sont prises en charge. Toutefois, nous recommandons d’utiliser des connexions directes, car le mode d’importation présente des limitations. Plus particulièrement, les performances du serveur pourraient être affectées lors de l’importation. De même, si le modèle doit être actualisé dans le service Power BI, le paramètre **Autoriser l’accès à partir de Power BI** s’applique uniquement lors de la sélection de **Connexion directe**.
 
 5. Entrez vos informations d’identification si elles vous sont demandées. 
 

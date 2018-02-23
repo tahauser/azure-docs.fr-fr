@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage chaud, froid et archive
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-Le stockage Azure offre trois niveaux de stockage d’objets blob afin que vous puissiez stocker vos données de manière plus économique en fonction de leur utilisation. Le **niveau de stockage chaud** Azure est optimisé pour le stockage des données souvent sollicitées. Le **niveau de stockage à froid** Azure est optimisé pour le stockage des données rarement sollicitées et stockées depuis au moins 30 jours. Le **niveau de stockage archive**  Azure est optimisé pour le stockage des données rarement sollicitées et stockées depuis au moins 180 jours, sous des conditions de latence flexibles (selon l’ordre des heures). Le niveau de stockage archive est uniquement disponible au niveau de l’objet blob et non au niveau du compte de stockage. Les données du niveau de stockage froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours une durabilité élevée, ainsi qu’un temps d’accès et des caractéristiques de débit similaires à ceux des données chaudes. Concernant les données froides, un contrat SLA de disponibilité légèrement inférieure et des coûts d’accès supérieurs comparés aux données chaudes sont des compromis acceptables pour des coûts de stockage plus faibles. Le stockage archive est hors connexion et offre les coûts de stockage les plus bas, mais également les coûts d’accès les plus élevés.
+Le stockage Azure offre trois niveaux de stockage d’objets blob afin que vous puissiez stocker vos données de manière plus économique en fonction de leur utilisation. Le **niveau de stockage chaud** Azure est optimisé pour le stockage des données souvent sollicitées. Le **niveau de stockage à froid** Azure est optimisé pour le stockage des données rarement sollicitées et stockées depuis au moins 30 jours. Le **niveau de stockage archive**  Azure est optimisé pour le stockage des données rarement sollicitées et stockées depuis au moins 180 jours, sous des conditions de latence flexibles (selon l’ordre des heures). Le niveau de stockage archive est uniquement disponible au niveau de l’objet blob et non au niveau du compte de stockage. Les données du niveau de stockage froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours une durabilité élevée, ainsi qu’un temps d’accès et des caractéristiques de débit similaires à ceux des données chaudes. Concernant les données froides, un contrat SLA de disponibilité légèrement inférieure et des coûts d’accès supérieurs comparés aux données chaudes sont des compromis acceptables pour des coûts de stockage plus faibles. Le stockage archive est hors connexion et offre les coûts de stockage les plus bas, mais également les coûts d’accès les plus élevés. Seuls les niveaux de stockage chaud et froid (pas archive) peuvent être définis au niveau du compte. Les trois niveaux peuvent être définis au niveau objet.
 
 Aujourd’hui, les données stockées dans le cloud connaissent une croissance exponentielle. Pour gérer les coûts liés à vos besoins de stockage en pleine expansion, il est utile d’organiser vos données selon des attributs tels que la fréquence d’accès et la période de rétention prévue pour optimiser les coûts. Les données stockées dans le cloud peuvent être différentes en termes de mode de génération, de traitement et d’accès tout au long de leur durée de vie. Certaines données sont activement sollicitées et modifiées tout au long de leur durée de vie. Certaines sont fréquemment sollicitées au début de leur durée de vie, puis les accès se raréfient considérablement à mesure qu’elles deviennent plus anciennes. D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées.
 
@@ -59,7 +59,7 @@ Lorsqu’un objet blob est dans un stockage archive, il est hors connexion et ne
 
 Voici quelques exemples de scénarios d’utilisation pour le niveau de stockage archive :
 
-* Sauvegarde à long terme, archivage et récupération d’urgence de jeux de données
+* Sauvegarde à long terme, sauvegarde secondaire et jeux de données d’archivage
 * Données d’origine (brutes) qui doivent être conservées, même après leur traitement sous un format final exploitable (*Par exemple*, des fichiers multimédias bruts après transcodage dans d’autres formats)
 * Données de conformité et d’archivage qui doivent être stockées à long terme et qui sont très rarement sollicitées (*Par exemple*, séquences vidéo de sécurité, anciens clichés de radiographie ou d’IRM pour des organismes de santé ou enregistrements audio et transcriptions d’appels de clients pour des services financiers)
 
@@ -83,7 +83,7 @@ Lorsqu’un objet blob est déplacé vers un niveau plus froid (chaud -> froid, 
 
 Si vous passez le niveau du compte de chaud à froid, vous sera facturé pour les opérations d’écriture (par 10 000) pour tous les objets blobs ne disposant pas d’un niveau configuré dans les comptes GPv2 uniquement. Ceci n’est pas facturé dans les comptes de stockage d’objets blob. Vous serez facturé pour les opérations d’écriture (par 10,000) et l’extraction de données (par Go) si vous passez votre compte de stockage d’objets blob ou GPv2 de froid à chaud. Des frais de suppression anticipée peut également s’appliquer pour tout objet blob déplacé hors du niveau froid ou archive.
 
-### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Suppression anticipée froid et archive (effective le 1 février 2018)
+### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Suppression anticipée dans les niveaux froid et archive (à partir du 1er mars 2018)
 
 En plus des frais par Go et par mois, chaque objet blob déplacé dans le niveau froid (comptes GPv2 uniquement) est sujet à une période de suppression anticipée froide de 30 jours, et chaque objet blob déplacé dans le niveau archive est sujet à une période de suppression anticipée d’archive de 180 jours. Ces charges sont calculées au prorata. Par exemple, si un objet blob est déplacé en archive puis supprimé ou déplacé vers le niveau chaud après 45 jours, il vous sera facturé des frais de suppression anticipé équivalent à 135 (180 moins 45) jours de stockage de cet objet blob en archive.
 
@@ -177,7 +177,7 @@ Chaque objet blob est toujours facturé en fonction du niveau indiqué par la pr
 
 **Comment puis-je déterminer si je vais faire l’objet de frais de suppression anticipée lors de la suppression ou du déplacement d’un objet blob en dehors du niveau froid ou archive ?**
 
-Tout objet blob supprimé ou déplacé en dehors du niveau froid (comptes GPv2 uniquement) ou archive respectivement avant 30 jours et 180 jours fera l’objet de frais de suppression anticipée calculés au prorata (effectif le 1 février 2018). Vous pouvez déterminer combien de temps un objet blob est resté au niveau froid ou archive en vérifiant la propriété d’objet blob **Access Tier Change Time** qui date le dernier changement de niveau. Voir la section [Suppression anticipée froid et archive](#cool-and-archive-early-deletion) pour plus de détails.
+Tout objet blob supprimé ou déplacé en dehors du niveau froid (comptes GPv2 uniquement) ou archive respectivement avant 30 jours et 180 jours fera l’objet de frais de suppression anticipée calculés au prorata (effectif le 1er mars 2018). Vous pouvez déterminer combien de temps un objet blob est resté au niveau froid ou archive en vérifiant la propriété d’objet blob **Access Tier Change Time** qui date le dernier changement de niveau. Voir la section [Suppression anticipée froid et archive](#cool-and-archive-early-deletion) pour plus de détails.
 
 **Quels outils et kits de développement Azure prennent en charge la hiérarchisation au niveau de l’objet blob et le stockage archive ?**
 

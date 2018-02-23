@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 4aca25f74d3e22911ab5059a8cdec45f189dc8cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Vue d’ensemble d’Azure Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de conteneurs et de microservices évolutifs et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications natives au cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. Service Fabric représente la plateforme de nouvelle génération pour la création et la gestion de ces applications d’entreprise de niveau 1 à l’échelle du cloud et exécutées dans des conteneurs.
@@ -49,7 +49,7 @@ Service Fabric peut être exécuté partout. Vous pouvez créer des clusters pou
 
 ![Plateforme Service Fabric][Image1]
 
-Pour le développement Windows, le Kit de développement logiciel (SDK) .NET Service Fabric est intégré à Visual Studio et à PowerShell. Consultez la page [Préparer un environnement de développement sous Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md). Pour le développement Linux, le Kit SDK Java Service Fabric est intégré à Eclipse, et Yeoman permet de générer des modèles pour des applications Java, .NET Core et conteneurs. Consultez la page [Préparer un environnement de développement sous Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md).
+Pour le développement Windows, le Kit de développement logiciel (SDK) .NET Service Fabric est intégré à Visual Studio et à PowerShell. Consultez la page [Préparer un environnement de développement sous Windows](service-fabric-get-started.md). Pour le développement Linux, le Kit SDK Java Service Fabric est intégré à Eclipse, et Yeoman permet de générer des modèles pour des applications Java, .NET Core et conteneurs. Consultez la page [Préparer un environnement de développement sous Linux](service-fabric-get-started.md).
 
 Pour en savoir plus sur la création de clusters, consultez la page [Créer un cluster sous Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour Azure, Créer un cluster [par l’intermédiaire du Portail Azure](service-fabric-cluster-creation-via-portal.md).
 
@@ -86,7 +86,7 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 * Observer l’équilibreur de ressources orchestrer la redistribution des applications au sein du cluster. Service Fabric récupère après des défaillances et optimise la distribution de la charge en fonction des ressources disponibles.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour plus d'informations :
   * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
   * [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)

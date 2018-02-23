@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/31/2018
 ms.author: mimig
-ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -41,6 +41,10 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism and TableQueryContinuationTokenLimitInKb to TableRequestOptions
+* Résolution des bogues
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Version en disponibilité générale
 
@@ -62,7 +66,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 | [1.0.0](#1.0.0) |15 novembre 2017|--- |
 | [0.9.0 - préversion](#0.9.0-preview) |11 novembre 2017 |--- |
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si vous obtenez l’erreur 
 

@@ -1,6 +1,6 @@
 ---
-title: "Automatisation d’Azure Blueprint pour FedRAMP - Maintenance"
-description: Applications web pour FedRAMP - Maintenance
+title: "Solution Blueprint Sécurité et conformité Azure - Automatisation d’applications web FedRAMP - Maintenance"
+description: "Automatisation d’applications web FedRAMP - Maintenance"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Maintenance (MA)
 
 > [!NOTE]
-> Ces contrôles sont définis par l’Institut national des normes et de la technologie (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication NIST 800-53 Rév. 4.
+> Ces contrôles sont définis par le National Institute of Standards and Technology (NIST) et le ministère américain du commerce dans le cadre de la publication spéciale 800-53 révision 4 du service NIST. Pour plus d’informations sur les procédures de test et des instructions pour chaque contrôle, reportez-vous à la publication 800-53 rév. 4 du NIST.
 
 ## <a name="nist-800-53-control-ma-1"></a>NIST 800-53 Contrôle MA-1
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-1** L’organisation développe, documente et diffuse à [Affectation : personnel ou rôles de l’organisation] une stratégie de maintenance du système qui traite l’objectif, l’étendue, les rôles, les responsabilités, l’engagement de gestion, la coordination au sein des entités organisationnelles et la conformité ; les procédures visant à faciliter l’implémentation de la stratégie de maintenance du système et des contrôles de maintenance du système associés ; et révise et met à jour la stratégie actuelle de maintenance du système [Affectation : fréquence définie par l’organisation] ; et les procédures de maintenance du système [Affectation : fréquence définie par l’organisation].
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-2.a** L’organisation planifie, exécute, documente et vérifie les enregistrements de maintenance et les réparations des composants du système informatique conformément aux spécifications du fabricant ou du fournisseur et/ou aux exigences organisationnelles.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-2.b** L’organisation approuve et surveille toutes les activités de maintenance, qu’elles soient exécutées sur site ou à distance et que l’équipement soit inspecté sur site ou déplacé vers un autre emplacement.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-2.c** L’organisation requiert que [Affectation : personnel ou rôles définis par l’organisation] approuvent de manière explicite le retrait du système informatique ou de composants du système du site de l’organisation à des fins de maintenance ou de réparations hors site.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-2.e** L’organisation vérifie tous les contrôles de sécurité potentiellement affectés pour vérifier que les contrôles fonctionnent toujours correctement suite à des actions de maintenance ou de réparation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-2.f** L’organisation inclut [Affectation : informations relatives à la maintenance définies par l’organisation] dans les enregistrements de maintenance de l’organisation.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-2 (2).a** L’organisation utilise des mécanismes automatiques pour planifier, exécuter et documenter la maintenance et les réparations.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-3** L’organisation approuve, contrôle et surveille les outils de maintenance du système informatique.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-3 (1)** L’organisation inspecte les outils de maintenance apportés sur un site par le personnel en charge de la maintenance pour détecter toute modification incorrecte ou non autorisée.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-3 (2)** L’organisation vérifie les supports contenant les programmes de diagnostic et de test pour détecter tout code malveillant avant que les supports ne soient utilisés dans le système informatique.
 
-**Responsabilités :** `Azure Only`
+**Responsabilités :** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4.a** L’organisation approuve et surveille les activités de diagnostic et de maintenance non locales.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4.b** L’organisation autorise l’utilisation d’outils de diagnostic et de maintenance non locale tant qu’ils sont conformes à la stratégie de l’organisation et documentés dans le plan de sécurité pour le système informatique.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4.c** L’organisation utilise des authentificateurs forts lors des sessions de diagnostic et de maintenance non locale.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4.d** L’organisation établit des enregistrements pour les activités de diagnostic et de maintenance non locale.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4.e** L’organisation met fin à la session et aux connexions réseau une fois la maintenance non locale terminée.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-4 (2)** L’organisation documente dans le plan de sécurité pour le système informatique, les stratégies et les procédures pour l’établissement et l’utilisation de connexions à des fins de diagnostic et de maintenance non locale.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-5.b** L’organisation s’assure que tout personnel non accompagné effectuant la maintenance du système informatique dispose des autorisations d’accès requises.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-5 (1).a** L’organisation implémente des procédures pour l’utilisation de personnel en charge de la maintenance ne disposant pas des autorisations de sécurité appropriées ou dont les membres ne sont pas des citoyens américains, incluant les exigences suivantes, le personnel en charge de la maintenance ne disposant pas des autorisations nécessaires, ou d’approbations d’accès formelles est accompagné et supervisé durant les activités de maintenance et de diagnostic sur le système informatique par du personnel de l’organisation approuvé disposant d’autorisations d’accès appropriées, et qualifié sur le plan technique; avant le début des activités de maintenance ou de diagnostic par du personnel ne disposant pas des autorisations d’accès nécessaires ou d’approbations d’accès formelles, tous les composants de stockage d’informations volatiles dans le système informatique sont assainis et tous les supports de stockage non volatile sont retirés ou physiquement déconnectés du système et placés en sécurité.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 11/23/2017
 
 **MA-5 (1).b** L’organisation développe et implémente des protocoles de sécurité alternatifs au cas où un composant du système informatique ne peut pas être assaini, retiré ou déconnecté du système.
 
-**Responsabilités :** `Customer Only`
+**Responsabilités :** `Customer Only`
 
 |||
 |---|---|

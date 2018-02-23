@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analyser vos éléments multimédia à l’aide du portail Azure
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Azure Media Services Analytics est un ensemble de composants de reconnaissance vocale et de vision qui répondent aux besoins des entreprises en termes de conformité, de sécurité et de portée mondiale, et qui aident les organisations et les entreprises à extraire des informations exploitables de leurs fichiers vidéo. Pour une présentation plus détaillée d’Azure Media Services Analytics, consultez [cette](media-services-analytics-overview.md) rubrique. 
 
-Cette rubrique explique comment traiter vos éléments multimédia avec des processeurs multimédia Media Analytics à l’aide du portail Azure. Les processeurs multimédia Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous pouvez télécharger ce dernier progressivement. Si un processeur multimédia a produit un fichier JSON, vous pouvez télécharger ce dernier à partir d’Azure Blob Storage. 
+Cette rubrique explique comment traiter vos éléments multimédia avec des processeurs multimédia Media Analytics à l’aide du portail Azure. Les processeurs multimédia Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous téléchargez celui-ci progressivement. Si un processeur multimédia a produit un fichier JSON, vous téléchargez celui-ci à partir du Stockage Blob Azure. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Sélectionner une ressource que vous souhaitez analyser
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
@@ -45,7 +45,7 @@ Cette rubrique explique comment traiter vos éléments multimédia avec des proc
 5. Appuyez sur **Créer** pour démarrer un travail.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-Le processeur multimédia **Azure Media Indexer** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Cette section donne des informations sur les options que vous pouvez spécifier pour ce processeur multimédia.
+Le processeur multimédia **Azure Media Indexer** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Cette section fournit des détails sur les options que vous spécifiez pour ce processeur multimédia.
 
 ![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -74,7 +74,7 @@ Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-po
 Nom convivial qui vous permet d’identifier le contenu en sortie. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse est un processeur multimédia qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d’un contenu de caméra à la première personne (first-person camera) ou d’action.  Pour plus d’informations, consultez [cette](media-services-hyperlapse-content.md) rubrique. Cette section donne des informations sur les options que vous pouvez spécifier pour ce processeur multimédia.
+Azure Media Hyperlapse est un processeur multimédia qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d’un contenu de caméra à la première personne (first-person camera) ou d’action.  Pour plus d’informations, consultez [cette rubrique](media-services-hyperlapse-content.md) . Cette section fournit des détails sur les options que vous spécifiez pour ce processeur multimédia.
 
 ![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,11 +135,21 @@ Nom convivial qui vous permet d’identifier le travail. [Cet](media-services-po
 ### <a name="output-file"></a>Fichier de sortie
 Nom convivial qui vous permet d’identifier le contenu en sortie. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Ce processeur vous aide à détecter du contenu osé ou pour adultes dans les vidéos. Le processeur détecte automatiquement des captures et images clés dans la vidéo. Il évalue les images clés pour déterminer si elles comprennent du contenu osé ou pour adultes, et suggère de les examiner en fonction des seuils par défaut. Pour des informations détaillées et des exemples, voir [Utiliser Azure Media Content Moderator pour modérer des vidéos](media-services-content-moderation.md)
+
+![Modérer des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Version 
+Utiliser « 2.0 ».
+
+### <a name="mode"></a>Mode
+La version 2.0 ignore le paramètre `Mode`.
+
+## <a name="next-steps"></a>étapes suivantes
 Afficher les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
