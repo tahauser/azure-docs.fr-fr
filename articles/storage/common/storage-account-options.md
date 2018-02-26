@@ -9,15 +9,15 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Stockage Azure fournit trois options de compte distinctes, avec différentes tarifications et fonctionnalités prises en charge. Tenez compte de ces différences avant de créer un compte de stockage afin de déterminer l’option qui convient le mieux à vos applications. Les trois options de compte de stockage sont les suivantes :
 
 * Comptes **Usage général v2 (GPv2)** 
@@ -125,7 +125,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Dans le menu Hub, sélectionnez **Nouveau** > **Données et stockage** > **Compte de stockage**.
+2. Dans le menu Hub, sélectionnez **Créer une ressource** > **Données et stockage** > **Compte de stockage**.
 
 3. Entrez un nom pour votre compte de stockage.
 
@@ -159,7 +159,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
+2. Pour accéder à votre compte de stockage, sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
 3. Dans la section Paramètres, cliquez sur **Configuration**.
 
@@ -173,7 +173,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
+2. Pour accéder à votre compte de stockage, sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
 3. Dans le panneau Paramètres, cliquez sur **Configuration** pour afficher et/ou modifier la configuration du compte.
 
@@ -185,7 +185,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez Toutes les ressources, puis votre compte de stockage et enfin sélectionnez votre objet blob.
+2. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez **Toutes les ressources**, puis votre compte de stockage et enfin sélectionnez votre objet blob.
 
 3. Dans le panneau des propriétés de l’objet blob, cliquez sur le menu déroulant **Niveau d’accès** pour sélectionner niveau de stockage **Chaud**, **Froid**, ou **Archive**.
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Créer des comptes en préversion Azure Machine Learning et installer Azure Machine Learning Workbench
 Azure Machine Learning Services (préversion) est une solution d’analytique avancée et de science des données de bout en bout intégrée. Cette solution permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -37,7 +37,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-azure-machine-learning-accounts"></a>Créer des comptes Azure Machine Learning
 Utilisez le portail Azure pour approvisionner les comptes Azure Machine Learning : 
-1. Cliquez sur le bouton **Nouveau** (+) dans le coin supérieur gauche du portail.
+1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail.
 
 2. Tapez **Machine Learning** dans la barre de recherche. Sélectionnez le résultat de la recherche intitulé **Machine Learning Experimentation (preview)** (Expérimentation Machine Learning préversion.  Cliquez sur l’étoile pour ajouter cette sélection aux favoris dans le portail Azure.
 

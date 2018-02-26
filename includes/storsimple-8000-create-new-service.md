@@ -5,7 +5,7 @@
 
 1. Utilisez les informations d’identification de votre compte Microsoft pour vous connecter au [portail Azure](https://portal.azure.com/).
 
-2. Dans le portail Azure, cliquez sur **+**, puis sur la place de marché, cliquez sur **Afficher tout**.
+2. Dans le portail Azure, cliquez sur **Créer une ressource**, puis, dans la Place de marché, cliquez sur **Afficher tout**.
 
     ![Créer StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

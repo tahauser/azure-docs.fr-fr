@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Comment analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous effectuez les tâches suivantes à l’aide des [ bibl
 > * Rechercher l’index
 > * Afficher la configuration de l’indexeur dans le portail
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free/). 
 
@@ -121,7 +121,7 @@ L’exercice suivant suppose l’absence de serveur ou de base de données exist
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/). 
 
-2. Cliquez sur **Nouveau** > **Base de données SQL** pour créer une base de données, un serveur et un groupe de ressources. Vous pouvez utiliser les valeurs par défaut et le niveau de tarification le moins élevé. Un des avantages lié à la création d’un serveur est de pouvoir spécifier un nom d’utilisateur administrateur et le mot de passe nécessaire pour la création et le chargement des tables lors d’une étape ultérieure.
+2. Cliquez sur **Créer une ressource** > **Base de données SQL** pour créer une base de données, un serveur et un groupe de ressources. Vous pouvez utiliser les valeurs par défaut et le niveau de tarification le moins élevé. Un des avantages lié à la création d’un serveur est de pouvoir spécifier un nom d’utilisateur administrateur et le mot de passe nécessaire pour la création et le chargement des tables lors d’une étape ultérieure.
 
    ![Nouvelle page de base de données](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 07b864c72696fbcfc0119b978e2ab9a51307291a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a17897dc76b47f3fb7b6eb5076160faf6c5ae9c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -40,7 +40,7 @@ Pour effectuer ce démarrage rapide :
 
 Dans cette section, l’interface utilisateur du portail vous permet d’ajouter une liaison de sortie de stockage de file d’attente à la fonction que vous avez créée précédemment. Cette liaison permettra d’écrire un minimum de code pour créer un message dans une file d’attente. Vous n’êtes pas obligé d’écrire du code pour des tâches telles que l’ouverture d’une connexion de stockage, la création d’une file d’attente ou l’obtention d’une référence à une file d’attente. La liaison de sortie de file d’attente et le runtime Azure Functions se chargent de ces tâches.
 
-1. Dans le portail Azure, ouvrez la page d’application de fonction correspondant à l’application de fonction que vous avez créée dans [Créer votre première fonction à l’aide du Portail Azure](functions-create-first-azure-function.md). Pour ce faire, sélectionnez **Plus de services > Applications de fonction**, puis sélectionnez votre application de fonction.
+1. Dans le portail Azure, ouvrez la page d’application de fonction correspondant à l’application de fonction que vous avez créée dans [Créer votre première fonction à l’aide du Portail Azure](functions-create-first-azure-function.md). Pour ce faire, sélectionnez **Tous les services > Applications de fonction**, puis sélectionnez votre application de fonction.
 
 2. Sélectionnez la fonction que vous avez créée dans ce démarrage rapide précédent.
 

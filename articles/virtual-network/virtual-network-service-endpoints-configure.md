@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurer des points de terminaison de service de réseau virtuel
 
@@ -62,8 +62,8 @@ Pendant la version préliminaire, la fonctionnalité de points de terminaison de
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/).
 Connectez-vous à votre compte Azure. Si vous n’en avez pas, vous pouvez demander un essai gratuit. Le compte doit avoir les [autorisations](#provisioning) nécessaires pour créer un réseau virtuel et un point de terminaison de service.
-2. Cliquez sur +Nouveau > Mise en réseau > Réseau Virtuel > +Ajouter.
-3. Dans « Créer un réseau virtuel », entrez les valeurs suivantes, puis cliquez sur Créer :
+2. Cliquez sur **Créer une ressource** > **Mise en réseau** > **Réseau virtuel** > **+Ajouter**.
+3. Dans « Créer un réseau virtuel », entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
 Paramètre | Valeur
 ------- | -----

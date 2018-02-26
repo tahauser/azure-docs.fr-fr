@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Découvrez comment utiliser le portail Azure pour créer des comptes Azure Data Lake Analytics, définir des travaux dans [U-SQL](data-lake-analytics-u-sql-get-started.md) et envoyer des travaux au service Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
-Avant de commencer ce didacticiel, vous devez disposer d’un **abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+Avant de commencer ce didacticiel, vous devez disposer d’un **abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-analytics-account"></a>Créer un compte Data Lake Analytics
 
 À présent, vous allez créer un compte Data Lake Analytics et un compte Data Lake Store simultanément.  Cette étape est simple et ne prend qu’environ 60 secondes.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Nouveau** >  **Données + analyse** > **Data Lake Analytics**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Cliquez sur **Créer une ressource** >  **Données + Analytique**  > **Data Lake Analytics**.
 3. Sélectionnez des valeurs pour les éléments suivants :
    * **Nom** : donnez un nom à votre compte Data Lake Analytics (utilisez uniquement des lettres minuscules et des chiffres).
    * **Abonnement**: choisissez l’abonnement Azure utilisé pour le compte Analytics.
@@ -42,7 +42,7 @@ Avant de commencer ce didacticiel, vous devez disposer d’un **abonnement Azure
    * **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics.
    * **Data Lake Store** : suivez les instructions pour créer un compte Data Lake Store ou sélectionnez un compte existant. 
 4. Si vous le souhaitez, sélectionnez un niveau tarifaire pour votre compte Data Lake Analytics.
-5. Cliquez sur **Create**. 
+5. Cliquez sur **Créer**. 
 
 
 ## <a name="your-first-u-sql-script"></a>Votre premier script U-SQL

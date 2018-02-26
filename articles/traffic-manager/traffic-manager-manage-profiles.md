@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestion d’un profil Azure Traffic Manager
 
@@ -31,14 +31,14 @@ Vous pouvez créer un profil Traffic Manager à l’aide du portail Azure. Aprè
 ### <a name="to-create-a-traffic-manager-profile"></a>Pour créer un profil Traffic Manager
 
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/). 
-2. Dans le menu **Hub**, cliquez sur **Nouveau** > **Mise en réseau** > **Afficher tout**, cliquez sur le profil **Traffic Manager** pour ouvrir le panneau **Créer un profil Traffic Manager**, puis cliquez sur **Créer**.
-3. Dans le panneau **Créer un profil Traffic Manager**, procédez comme suit :
+2. Cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
+4. Dans **Créer un profil Traffic Manager**, procédez comme suit :
     1. Sous **Nom**, entrez un nom pour votre profil. Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS <name>, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.
     2. Sous **Méthode de routage**, sélectionnez la méthode de routage **Priorité**.
     3. Sous **Abonnement**, sélectionnez l’abonnement pour lequel vous souhaitez créer ce profil.
     4. Sous **Groupe de ressources**, créez un groupe de ressources où placer ce profil.
     5. Sous **Emplacement du groupe de ressources**, sélectionnez l’emplacement du groupe de ressources. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.
-    6. Cliquez sur **Create**.
+    6. Cliquez sur **Créer**.
     7. Lorsque le déploiement global de votre profil Traffic Manager est terminé, il est répertorié comme l’une des ressources dans le groupe de ressources respectif.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Désactiver, activer ou supprimer un profil
@@ -51,23 +51,25 @@ Vous pouvez désactiver un profil existant afin que Traffic Manager ne renvoie p
 2. Le trafic n’est alors plus dirigé vers les points de terminaison via les paramètres du profil Traffic Manager.
 3. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier et cliquez sur le profil Traffic Manager dans les résultats affichés.
-3. Dans le panneau du **profil Traffic Manager**, cliquez sur **Vue d’ensemble**, dans le panneau Vue d’ensemble, cliquez sur **Désactiver**, puis confirmez pour désactiver le profil Traffic Manager.
+3. Cliquez sur **Vue d’ensemble** > **Désactiver**.
+4. Confirmez pour désactiver le profil Traffic Manager.
 
 ### <a name="to-enable-a-profile"></a>Activation d’un profil
 
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier et cliquez sur le profil Traffic Manager dans les résultats affichés.
-3. Dans le panneau du **profil Traffic Manager**, cliquez sur **Vue d’ensemble**, puis dans le panneau Vue d’ensemble, cliquez sur **Activer**.
-5. Si vous utilisez un nom de domaine personnalisé, créez un enregistrement de ressource CNAME sur votre serveur DNS Internet qui pointe sur le nom de domaine de votre profil Traffic Manager.
-6. Le trafic est de nouveau dirigé vers les points de terminaison.
+3. Cliquez sur **Vue d’ensemble** > **Activer**.
+1. Si vous utilisez un nom de domaine personnalisé, créez un enregistrement de ressource CNAME sur votre serveur DNS Internet qui pointe sur le nom de domaine de votre profil Traffic Manager.
+2. Le trafic est de nouveau dirigé vers les points de terminaison.
 
 ### <a name="to-delete-a-profile"></a>Suppression d’un profil
 
 1. Assurez-vous que l’enregistrement de ressource DNS sur votre serveur DNS Internet n’utilise plus un enregistrement de ressource CNAME pointant vers le nom de domaine de votre profil Traffic Manager.
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier et cliquez sur le profil Traffic Manager dans les résultats affichés.
-3. Dans le panneau du **profil Traffic Manager**, cliquez sur **Vue d’ensemble**, dans le panneau Vue d’ensemble, cliquez sur **Supprimer**, puis confirmez pour supprimer le profil Traffic Manager.
+3. Cliquez sur **Vue d’ensemble** > **Supprimer**.
+4. Confirmez pour supprimer le profil Traffic Manager.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Ajout d’un point de terminaison](traffic-manager-endpoints.md)
 * [Configurer la méthode de routage en fonction de la priorité](traffic-manager-configure-priority-routing-method.md)

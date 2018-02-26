@@ -2,23 +2,19 @@
 title: "Rendre les données d’application hautement disponibles dans Azure | Microsoft Docs"
 description: "Utiliser le stockage géoredondant avec accès en lecture pour rendre vos données d’application hautement disponibles"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Rendre vos données d’application hautement disponibles avec Stockage Azure
 
@@ -64,7 +60,7 @@ Le compte de stockage Azure fournit un espace de noms unique pour stocker les ob
 
 Suivez ces étapes pour créer un compte de stockage géographiquement redondant avec accès en lecture :
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Sélectionnez le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
 2. Sélectionnez **Stockage** dans la page **Nouveau**, puis sélectionnez **Compte de stockage - blob, fichier, table, file d’attente** sous **Sélection**.
 3. Remplissez le formulaire de compte de stockage avec les informations suivantes, comme indiqué dans l’image ci-après et sélectionnez **Créer** :

@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Stratégie de sécurité avec la stratégie Azure
           href: security-center-azure-policy.md
-    - name: Surveiller l’intégrité de la sécurité
-      href: security-center-monitoring.md
-    - name: Identité et accès
-      href: security-center-identity-access.md
     - name: Implémenter les recommandations en matière de sécurité
       href: security-center-recommendations.md
-    - name: Sécurité des calculs
-      href: security-center-virtual-machine-recommendations.md
+    - name: Surveiller l’intégrité de la sécurité
+      href: security-center-monitoring.md
       items:
-        - name: Apply disk encryption
-          href: security-center-apply-disk-encryption.md
-        - name: Appliquer des mises à jour système
-          href: security-center-apply-system-updates.md
-        - name: Activer le chiffrement pour le compte Azure Storage
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Activer l’agent de machine virtuelle
-          href: security-center-enable-vm-agent.md
-        - name: Installer Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Redémarrer après l’application des mises à jour système
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Corriger les configurations de sécurité
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Mettre à jour la version du système d’exploitation
-          href: security-center-update-os-version.md
-        - name: Évaluation des vulnérabilités non installée
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Sécurité du réseau
-      href: security-center-network-recommendations.md
-      items:
-        - name: Ajouter un pare-feu de nouvelle génération
-          href: security-center-add-next-generation-firewall.md
-        - name: Activer des groupes de sécurité réseau
-          href: security-center-enable-network-security-groups.md
-        - name: Restreindre l’accès via un point de terminaison accessible sur Internet
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Acheminer le trafic uniquement via un pare-feu de nouvelle génération
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Sécurité des données et de stockage
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: Activer l’audit et la détection des menaces sur les bases de données SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Activer l’audit et la détection des menaces sur les serveurs SQL
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Activer le chiffrement transparent des données
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Sécurité des applications
-      href: security-center-application-recommendations.md
-      items:
-        - name: Ajouter un pare-feu d’applications web
-          href: security-center-add-web-application-firewall.md
-        - name: Finaliser la protection des applications
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Protections cloud
+        - name: Sécurité des calculs
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Apply disk encryption
+              href: security-center-apply-disk-encryption.md
+            - name: Appliquer des mises à jour système
+              href: security-center-apply-system-updates.md
+            - name: Activer le chiffrement pour le compte Azure Storage
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: Activer l’agent de machine virtuelle
+              href: security-center-enable-vm-agent.md
+            - name: Installer Endpoint Protection
+              href: security-center-install-endpoint-protection.md
+            - name: Redémarrer après l’application des mises à jour système
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Corriger les configurations de sécurité
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: Mettre à jour la version du système d’exploitation
+              href: security-center-update-os-version.md
+            - name: Évaluation des vulnérabilités non installée
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Sécurité du réseau
+          href: security-center-network-recommendations.md
+          items:
+            - name: Ajouter un pare-feu de nouvelle génération
+              href: security-center-add-next-generation-firewall.md
+            - name: Activer des groupes de sécurité réseau
+              href: security-center-enable-network-security-groups.md
+            - name: Restreindre l’accès via un point de terminaison accessible sur Internet
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Acheminer le trafic uniquement via un pare-feu de nouvelle génération
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Sécurité des données et de stockage
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: Activer l’audit et la détection des menaces sur les bases de données SQL
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: Activer l’audit et la détection des menaces sur les serveurs SQL
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Activer le chiffrement transparent des données
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Sécurité des applications
+          href: security-center-application-recommendations.md
+          items:
+            - name: Ajouter un pare-feu d’applications web
+              href: security-center-add-web-application-firewall.md
+            - name: Finaliser la protection des applications
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Identité et accès
+          href: security-center-identity-access.md
+    - name: Appliquer les protections cloud
       items:
         - name: Accès juste à temps
           href: security-center-just-in-time.md
@@ -136,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Investigation
           href: security-center-investigation.md
-    - name: Automatiser et orchestrer
+    - name: Automatiser les flux de travail de sécurité
       items:
         - name: Playbooks Logic Apps
           href: security-center-playbooks.md

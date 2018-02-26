@@ -1,4 +1,4 @@
-1. Cliquez sur le bouton **Nouveau** en haut à gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**. 
+1. Cliquez sur **Créer une ressource** dans le coin supérieur gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**. 
 
     ![Créer une application de fonction sur le Portail Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 

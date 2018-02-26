@@ -1,60 +1,61 @@
 ---
-title: "Exemple de script Azure CLI - Ajout d’une application dans Batch | Microsoft Docs"
-description: "Exemple de script Azure CLI - Ajout d’une application dans Batch"
+title: "Exemple de script Azure CLI - Ajout d’une application dans Batch | Microsoft Docs"
+description: "Exemple de script Azure CLI - Ajout d’une application dans Batch"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: 348e94e745350173196aeb64df3a814a05dd9144
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Ajout d’applications dans Azure Batch avec Azure CLI
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemple CLI : Ajout d’une application à un compte Azure Batch
 
-Ce script explique comment configurer une application à utiliser avec une tâche ou un pool Azure Batch. Pour configurer cette application, placez votre fichier exécutable et toutes ses éventuelles dépendances dans un fichier .zip. Dans cet exemple, le fichier .zip est appelé « my-application-exe.zip ».
+Ce script explique comment ajouter une application à utiliser avec une tâche ou un pool Azure Batch. Pour configurer une application à ajouter à votre compte Batch, placez votre fichier exécutable et toutes ses éventuelles dépendances dans un fichier .zip. 
 
-## <a name="prerequisites"></a>Composants requis
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Installez Azure CLI en suivant les instructions fournies dans le [Guide d’installation d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), si ce n’est déjà fait.
-- Créez un compte Azure si vous n’en avez pas. Pour un exemple de script qui crée un compte, voir [Créer un compte Batch avec Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Exemple de script
+## <a name="example-script"></a>Exemple de script
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
-## <a name="clean-up-application"></a>Supprimer l’application
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
-Une fois l’exemple de script ci-dessus exécuté, lancez les commandes suivantes pour supprimer l’application et tous les packages associés qui ont été chargés.
+Exécutez la commande suivante pour supprimer le groupe de ressources et toutes les ressources qui lui sont associées.
 
-```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer une application et charger un package d’application.
-Chaque commande de la table renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes.
+Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Crée une application.  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Met à jour les propriétés d’une application.  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Ajoute un package d’application à l’application spécifiée.  |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crée le compte Batch. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
+| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Crée une application.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Ajoute un package d’application à l’application spécifiée.  |
+| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Met à jour les propriétés d’une application.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts CLI Batch dans la [documentation relative à la CLI Azure Batch](../batch-cli-samples.md).

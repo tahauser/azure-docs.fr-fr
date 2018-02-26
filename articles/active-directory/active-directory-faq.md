@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -29,7 +29,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory 
 ## <a name="access-azure-and-azure-active-directory"></a>Accédez à Azure et à Azure Active Directory
 **Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure ?**
 
-**R :** Pour accéder au portail Azure, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
+**R :** Pour accéder au portail Azure, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [https://aka.ms/accessAAD](https://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
 
 Pour plus d'informations, consultez les pages suivantes :
 

@@ -197,7 +197,7 @@
           items:
             - name: Environnement source pour VMware vers Azure
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: "Déployer le serveur de configuration pour\_VMware et les serveurs physiques"
+            - name: "Déployer le serveur de configuration pour la récupération d’urgence de\_VMware"
               href: how-to-deploy-configuration-server.md
             - name: Environnement source pour serveur physique vers Azure
               href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
       items:
         - name: Gérer des serveurs de processus dans Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: Gérer le serveur de configuration
+        - name: "Gérer le serveur de configuration pour la récupération d’urgence de\_VMware"
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: Gérer le serveur de configuration pour la récupération d’urgence de la machine physique
+          href: physical-manage-configuration-server.md
         - name: Gérer des serveurs vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Gérer une architecture mutualisée avec CSP

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Déployer
 
@@ -27,8 +27,8 @@ Dans cette leçon, vous allez configurer les propriétés de déploiement en sp�
   
 Durée estimée pour suivre cette leçon : **5 minutes**  
   
-## <a name="prerequisites"></a>Conditions préalables  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+## <a name="prerequisites"></a>configuration requise  
+Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Vous devez disposer des [autorisations d’administrateur](../analysis-services-server-admins.md) sur le serveur Analysis Services distant afin pouvoir procéder au déploiement.  
@@ -67,6 +67,9 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
 3. Si le déploiement se termine sans erreurs, cliquez sur **Fermer**.  
   
+
+Cette leçon décrit la méthode la plus courante et la plus simple de déploiement d’un modèle tabulaire à partir de SSDT. Les options de déploiement avancé telles que l’Assistant Déploiement ou l’automatisation avec XMLA et AMO procurent une flexibilité et une cohérence supérieures, et prennent en charge des déploiements planifiés. Pour plus d’informations, consultez la section [Déploiement de solutions de modèle tabulaire](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Conclusion  
 Félicitations ! Vous venez de terminer la création et le déploiement de votre premier modèle tabulaire Analysis Services. Ce didacticiel vous a guidé dans les tâches les plus courantes associées à la création d’un modèle tabulaire. Maintenant que votre modèle Internet Sales Adventure Works est déployé, vous pouvez utiliser SQL Server Management Studio pour le gérer, ainsi que pour créer des scripts de processus et un plan de sauvegarde. Les utilisateurs peuvent désormais se connecter au modèle à l’aide d’une application cliente de création de rapports telle que Microsoft Excel ou Power BI.  
 

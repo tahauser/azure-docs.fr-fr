@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -34,7 +34,7 @@ Pour créer un espace de travail, vous devez :
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Définition du nombre d’espaces de travail nécessaires
 Un espace de travail est une ressource Azure et un conteneur dans lequel les données sont collectées, agrégées, analysées et présentées dans le portail Azure.
 
-Vous pouvez disposer de plusieurs espaces de travail par abonnement Azure et vous pouvez avoir accès à plus d’un espace de travail. La réduction du nombre d’espaces de travail vous permet d’interroger et de mettre en corrélation la plupart des données, car il n’est pas possible d’exécuter des requêtes dans plusieurs espaces de travail. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
+Vous pouvez disposer de plusieurs espaces de travail par abonnement Azure et vous pouvez avoir accès à plus d’un espace de travail. Auparavant, on ne pouvait analyser les données que dans l’espace de travail actif, ce qui limitait la capacité à interroger plusieurs espaces de travail définis dans l’abonnement. Il est maintenant possible [d’interroger plusieurs espaces de travail](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), et ainsi d’obtenir une vue d’ensemble des données du système. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
 
 Aujourd'hui, un espace de travail fournit :
 
@@ -61,11 +61,11 @@ Vous pouvez afficher des détails sur votre espace de travail dans le portail Az
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Affichage des informations de l’espace de travail dans le portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le portail Azure, cliquez sur **Plus de services** en bas à gauche.  Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
-    ![Hub Azure](./media/log-analytics-manage-access/hub.png)  
-3. Dans le panneau d’abonnements de Log Analytics, sélectionnez un espace de travail.
-4. Le panneau Espace de travail affiche des détails sur l’espace de travail et des liens vers des informations supplémentaires.  
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Cliquez sur **Tous les services**.  Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
+    ![Capture d’écran montrant le menu de gauche Azure](./media/log-analytics-manage-access/hub.png)  
+3. Dans la page d’abonnements de Log Analytics, sélectionnez un espace de travail.
+4. La page de l’espace de travail affiche des détails sur l’espace de travail et des liens vers des informations supplémentaires.  
     ![détails sur l’espace de travail](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -83,8 +83,8 @@ Le tableau suivant résume l’accès qui peut être défini à l’aide de chaq
 
 |                          | Portail Log Analytics | Portail Azure | API (y compris PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Rôles d’utilisateur Log Analytics | Oui                  | Non           | Non                         |
-| Accès en fonction du rôle Azure  | Oui                  | Oui          | Oui                        |
+| Rôles d’utilisateur Log Analytics | OUI                  | Non            | Non                          |
+| Accès en fonction du rôle Azure  | OUI                  | OUI          | OUI                        |
 
 > [!NOTE]
 > Log Analytics est déplacé pour utiliser l’accès en fonction du rôle Azure en tant que modèle d’autorisation, à la place des rôles d’utilisateur Log Analytics.
@@ -95,7 +95,7 @@ Les rôles d’utilisateur Log Analytics hérités contrôlent uniquement l’ac
 
 Les activités suivantes nécessitent également des autorisations Azure :
 
-| Action                                                          | Autorisations Azure nécessaires | Remarques |
+| Action                                                          | Autorisations Azure nécessaires | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
 | Ajout et suppression de solutions de gestion                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Modification du niveau tarifaire                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -114,7 +114,7 @@ Les membres du rôle *Lecteur Log Analytics* peuvent effectuer les opérations s
 - Visualisation et recherche de toutes les données d’analyse 
 - Visualisation des paramètres d’analyse, notamment la configuration des diagnostics Azure sur toutes les ressources Azure
 
-| Type    | Autorisation | Description |
+| type    | Autorisation | DESCRIPTION |
 | ------- | ---------- | ----------- |
 | Action | `*/read`   | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v2 |
@@ -136,7 +136,7 @@ Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérati
 > [!NOTE] 
 > La possibilité d’ajouter une extension de machine virtuelle à une machine virtuelle vous offre un contrôle total sur une machine virtuelle.
 
-| Autorisation | Description |
+| Autorisation | DESCRIPTION |
 | ---------- | ----------- |
 | `*/read`     | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | `Microsoft.Automation/automationAccounts/*` | Possibilité de créer et configurer les comptes Azure Automation, et notamment d’ajouter et modifier des runbooks |
@@ -164,15 +164,15 @@ Si vous disposez au moins de l’autorisation en lecture Azure sur l’espace de
 Lorsque vous ouvrez le portail OMS, vous passez aux rôles d’utilisateur Log Analytics hérités. Si vous ne disposez pas d’une affectation de rôle dans le portail Log Analytics, le service [vérifie les autorisations Azure dont vous disposez sur l’espace de travail](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Votre affectation de rôle dans le portail OMS est déterminée en utilisant les éléments suivants :
 
-| Conditions                                                   | Rôle d’utilisateur Log Analytics affecté | Remarques |
+| Conditions                                                   | Rôle d’utilisateur Log Analytics affecté | Notes |
 |--------------------------------------------------------------|----------------------------------|-------|
 | Votre compte appartient à un rôle d’utilisateur Log Analytics hérité     | Rôle d’utilisateur Log Analytics spécifié | |
 | Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisations Azure complètes pour l’espace de travail (`*`autorisation <sup>1</sup>) | Administrateur ||
-| Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisations Azure complètes pour l’espace de travail (`*`autorisation <sup>1</sup>) <br> *non-actions* de `Microsoft.Authorization/*/Delete` et `Microsoft.Authorization/*/Write` | Collaborateur ||
+| Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisations Azure complètes pour l’espace de travail (`*`autorisation <sup>1</sup>) <br> *non-actions* de `Microsoft.Authorization/*/Delete` et `Microsoft.Authorization/*/Write` | Contributeur ||
 | Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisation d’accès en lecture Azure | Lecture seule ||
 | Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Les autorisations Azure ne sont pas comprises | Lecture seule ||
 | Pour les abonnements gérés par le fournisseur de solutions Cloud (CSP) <br> Le compte auquel vous êtes connecté est dans l’instance Azure Active Directory associée à l’espace de travail | Administrateur | En général, il s’agit du client d’un fournisseur de solutions Cloud |
-| Pour les abonnements gérés par le fournisseur de solutions Cloud (CSP) <br> Le compte auquel vous êtes connecté n’est pas dans l’instance Azure Active Directory associée à l’espace de travail | Collaborateur | En général, il s’agit du fournisseur de solutions Cloud |
+| Pour les abonnements gérés par le fournisseur de solutions Cloud (CSP) <br> Le compte auquel vous êtes connecté n’est pas dans l’instance Azure Active Directory associée à l’espace de travail | Contributeur | En général, il s’agit du fournisseur de solutions Cloud |
 
 <sup>1</sup> Pour plus d’informations sur les définitions de rôles, reportez-vous à [Autorisations Azure](../active-directory/role-based-access-control-custom-roles.md). Lors de l’évaluation des rôles, une action de `*` n’est pas équivalente à `Microsoft.OperationalInsights/workspaces/*`.
 
@@ -270,8 +270,8 @@ Tous les espaces de travail créés après le 26 septembre 2016 doivent être 
 7. Si nécessaire, vous pouvez modifier les valeurs correspondant aux éléments suivants :
    * Abonnement
    * Groupe de ressources
-   * Emplacement
-   * Niveau tarifaire   
+   * Lieu
+   * Niveau tarifaire  
      ![modifier des valeurs](./media/log-analytics-manage-access/manage-access-link-azure05.png)
 8. Cliquez sur **OK**. L’espace de travail est maintenant lié à votre compte Azure.
 
@@ -292,6 +292,6 @@ Vous pouvez modifier l’organisation Azure Active Directory d’un espace de tr
 3. Entrez les informations d’identité de l’administrateur de votre domaine Azure Active Directory. Ensuite, une confirmation indiquant que votre espace de travail est lié à votre domaine Azure Active Directory s’affiche.  
     ![confirmation d’espace de travail lié](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Comprendre l’utilisation de données](log-analytics-usage.md) pour apprendre à analyser le volume de données collectées par les solutions et envoyées par les ordinateurs.
 * [Ajouter des solutions de gestion Log Analytics à partir d’Azure Marketplace](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.

@@ -16,15 +16,17 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Intégrer une application de fonction à un compte de stockage Azure
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Créer une application de fonction se connectant à un compte de stockage Azure
 
-Cet exemple de script crée une application de fonction et un compte de stockage.
+Cet exemple de script Azure Functions crée une application de fonction et connecte la fonction à un compte de stockage Azure. Le paramètre de l’application créée contenant la connexion peut être utilisé avec une [liaison ou un déclencheur de stockage](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +36,7 @@ Si vous utilisez l’interface de ligne de commande en local, veillez à exécut
 
 ## <a name="sample-script"></a>Exemple de script
 
-Cet exemple crée une application de fonction Azure et ajoute la chaîne de connexion de stockage à un paramètre d’application.
+Cet exemple crée une Function App Azure et ajoute la chaîne de connexion de stockage à un paramètre d’application.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
@@ -49,15 +51,15 @@ Une fois l’exemple de script exécuté, exécutez la commande suivante pour su
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Connectez-vous à Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Connectez-vous à Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources avec un emplacement. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Créez un compte de stockage. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Crée une application de fonction. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Crée une Function App. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Nettoyer |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

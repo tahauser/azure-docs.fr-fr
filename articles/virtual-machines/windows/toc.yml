@@ -33,15 +33,17 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sauvegarder les machines virtuelles
       href: tutorial-backup-vms.md
-    - name: 10 - Surveiller et mettre à jour les machines virtuelles
+    - name: 10 - Gouverner les machines virtuelles
+      href: tutorial-govern-resources.md
+    - name: 11 - Surveiller et mettre à jour les machines virtuelles
       href: tutorial-monitoring.md
-    - name: 11 – Gérer la sécurité des machines virtuelles
+    - name: 12 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
-    - name: 12 – CI/CD Team Services
+    - name: 13 - CI/CD Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - Installer une pile SQL\IIS\.NET
+    - name: 14 - Installer une pile SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 14 - Sécuriser un serveur web avec SSL
+    - name: 15 - Serveur web sécurisé avec SSL
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:

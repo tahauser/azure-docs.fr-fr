@@ -16,15 +16,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9b6b9df01f0e56cac3fe45bd0ef8290ca1587a1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Démarrage rapide : créer votre premier flux de travail d’application logique (portail Azure)
 
-Ce guide de démarrage rapide explique comment créer votre premier flux de travail automatisé avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Dans cet article, vous créez une application logique qui vérifie régulièrement le flux RSS d’un site web et recherche de nouveaux éléments. Si de nouveaux éléments existent, l’application logique envoie un e-mail pour chacun d’eux. Lorsque vous avez terminé, votre application logique ressemble à ce flux de travail à un niveau élevé :
+Ce guide de démarrage rapide explique comment créer votre premier flux de travail automatisé avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Dans cet article, vous créez une application logique qui vérifie régulièrement le flux RSS d’un site web et recherche de nouveaux éléments. Si de nouveaux éléments existent, l’application logique envoie un e-mail pour chacun d’eux. Lorsque vous avez terminé, votre application logique ressemble au flux de travail suivant à un niveau élevé :
 
 ![Vue d’ensemble - Exemple d’application logique](./media/quickstart-create-first-logic-app-workflow/overview.png)
 
@@ -38,7 +38,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique 
 
-1. Dans le menu principal d’Azure, choisissez **Nouveau** > **Intégration d’entreprise** > **Application logique**.
+1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Enterprise Integration** > **Application logique**.
 
    ![Créer une application logique](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -83,11 +83,11 @@ Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-ap
 
 3. Pour masquer les informations du déclencheur pour le moment, cliquez dans sa barre de titre.
 
-   ![Réduire la forme pour masquer les détails](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
+   ![Réduire la forme pour masquer les informations](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
 4. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
 
-Votre application logique est à présent en ligne mais elle ne fait rien d’autre que vérifier le flux RSS. Par conséquent, ajoutez une action qui réagit à l’activation du déclencheur.
+Votre application logique est à présent en ligne mais elle ne fait rien d’autre que vérifier le flux RSS. Par conséquent, ajoutez une action qui répond à l’activation du déclencheur.
 
 ## <a name="send-email-with-an-action"></a>Envoyer un e-mail à l’aide d’une action
 
@@ -162,7 +162,7 @@ Par exemple, voici un exemple d’e-mail envoyé par cette application logique :
 
 ![E-mail envoyé en raison d’un nouvel élément dans le flux RSS](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Si vous ne recevez aucun e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types de courrier. 
+Si vous ne recevez pas d’e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types de courrier. 
 
 Félicitations ! Vous venez de créer et d’exécuter votre première application logique.
 

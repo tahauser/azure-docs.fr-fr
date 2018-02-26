@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
 
@@ -41,7 +41,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 ## <a name="open-the-log-search-portal"></a>Ouvrir le portail Recherche dans les journaux 
 Commencez par ouvrir le portail Recherche dans les journaux.   
 
-1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis la vignette **Recherche dans les journaux**.<br> ![Bouton Recherche dans les journaux](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 Vous avez peut-être noté la présence de la bannière en haut de votre page de ressource Log Analytics du portail vous invitant à effectuer une mise à niveau.<br> ![Avis de mise à niveau Log Analytics dans le portail Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
@@ -82,7 +82,7 @@ Event | where (EventLevelName == "Error")
 Syslog | where (SeverityLevel == "err")
 ```
 
-![Filtre](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
+![Filtrer](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
 Ajoutez des propriétés au volet de filtre en sélectionnant **Ajouter aux filtres** dans le menu de propriété sur l’un des enregistrements.
 
@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Graphique en courbes](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à créer des recherches de base dans les journaux en vue d’analyser les données de performances et d’événements.  Passez au didacticiel suivant pour apprendre à visualiser les données en créant un tableau de bord.
 
 > [!div class="nextstepaction"]

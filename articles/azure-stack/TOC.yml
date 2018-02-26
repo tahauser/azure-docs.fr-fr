@@ -57,8 +57,12 @@
         - name: Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack
           href: azure-stack-pki-certs.md
           items:
-            - name: Obtenir des certificats d’infrastructure à clé publique pour le déploiement Azure Stack
+            - name: Obtenir des certificats PKI Azure Stack
               href: azure-stack-get-pki-certs.md
+            - name: Préparer des certificats PKI Azure Stack
+              href: prepare-pki-certs.md
+            - name: Valider des certificats PKI Azure Stack
+              href: validate-pki-certs.md
         - name: Intégration des identités
           href: azure-stack-integrate-identity.md
         - name: Inscrire Azure Stack
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: Identité
           items:
+            - name: Vue d’ensemble de l’identité
+              href: azure-stack-identity-overview.md
+            - name: Architecture d’identités
+              href: azure-stack-identity-architecture.md
             - name: Gérer RBAC
               href: azure-stack-manage-permissions.md
             - name: Ajouter des utilisateurs pour Azure AD
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Feuille de route Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Forum MSDN Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Commentaires sur la documentation Azure Stack
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informations sur la tarification
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Formation et certification
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

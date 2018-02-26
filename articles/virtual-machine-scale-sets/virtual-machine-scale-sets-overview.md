@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Toutes les machines virtuelles étant configurées de la même façon, les groupes identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun pré-approvisionnement de machine virtuelle n’est nécessaire). Ainsi, il est plus facile de créer des services à grande échelle pour le Big Compute, les données volumineuses et les charges de travail en conteneurs.
@@ -33,7 +33,7 @@ Regardez ces vidéos pour en savoir plus sur les groupes identiques :
 * [Jeux de mise à l’échelle de machine virtuelle, avec Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Création et gestion des groupes identiques
-Vous pouvez créer un groupe identique sur le [Portail Azure](https://portal.azure.com) en sélectionnant **Nouveau** et en tapant **identique** dans la barre de recherche. **Groupe de machines virtuelles identiques** apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. Vous pouvez également configurer les règles de mise à l’échelle automatique de base en fonction de l’utilisation du processeur. Pour gérer votre groupe identique, vous pouvez utiliser le portail Azure, les [cmdlets Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou Azure CLI 2.0.
+Vous pouvez créer un groupe identique sur le [Portail Azure](https://portal.azure.com) en sélectionnant **Créer une ressource** et en tapant **identique** dans la barre de recherche. **Groupe de machines virtuelles identiques** apparaîtra dans les résultats. À partir de là, vous pourrez renseigner les champs obligatoires pour personnaliser et déployer votre groupe identique. Vous pouvez également configurer les règles de mise à l’échelle automatique de base en fonction de l’utilisation du processeur. Pour gérer votre groupe identique, vous pouvez utiliser le portail Azure, les [cmdlets Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) ou Azure CLI 2.0.
 
 Les groupes identiques peuvent être déployés dans des [zones de disponibilité](virtual-machine-scale-sets-use-availability-zones.md).
 

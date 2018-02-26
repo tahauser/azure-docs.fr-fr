@@ -9,15 +9,19 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Créer une fonction déployée à partir de Visual Studio Team Services dans Azure
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Créer une application de fonction et déployer le code de fonction à partir de Visual Studio Team Services
 
-Cette rubrique vous explique comment utiliser Azure Functions pour créer une application de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/) à l’aide du [plan de consommation](../functions-scale.md#consumption-plan). L’application de fonction, qui est un conteneur pour vos fonctions, est déployée en continu à partir d’un référentiel de Visual Studio Team Services (VSTS). Dans le cadre de cette rubrique, vous avez besoin des éléments suivants :
+Cette rubrique vous explique comment utiliser Azure Functions pour créer une application de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/) à l’aide du [plan de consommation](../functions-scale.md#consumption-plan). L’application de fonction, qui est un conteneur pour vos fonctions, est déployée en continu à partir d’un référentiel de Visual Studio Team Services (VSTS). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+Dans le cadre de cette rubrique, vous avez besoin des éléments suivants :
 
 * Un référentiel VSTS contenant votre projet d’application de fonction et pour lequel vous disposez des autorisations d’administration nécessaires
 * Un [jeton d’accès personnel (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) permettant d’accéder à votre référentiel VSTS

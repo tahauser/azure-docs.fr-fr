@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Répondre aux événements avec les alertes Log Analytics
-Les alertes identifient des informations importantes dans votre référentiel Log Analytics.  Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](log-analytics-tutorial-dashboards.md).   
+Les alertes identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](log-analytics-tutorial-dashboards.md).   
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Création d'une règle d'alerte
@@ -39,16 +39,16 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 
 Les alertes sont créées par des règles dédiées qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers.  Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée.  Par exemple, les alertes peuvent servir à vous avertir que l’utilisation moyenne du processeur dépasse un certain seuil ou qu’un événement est généré pour cause de non exécution d’un service Windows spécifique ou du démon Linux.   Si les résultats de la recherche répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive. 
 
-Dans l’exemple suivant, nous allons créer une règle d’alerte de mesure de métrique qui va créer une alerte pour chaque objet ordinateur de la requête dont la valeur dépasse un seuil de 90 %.
+Dans l’exemple suivant, vous allez créer une règle d’alerte de mesure de métrique qui va générer une alerte pour chaque objet ordinateur de la requête dont la valeur dépasse un seuil de 90 %.
 
-1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Lancez le portail OMS en sélectionnant Portail OMS puis, dans la page **Vue d’ensemble**, sélectionnez **Recherche dans les journaux**.  
 3. Sélectionnez **Favoris** dans la partie supérieure du portail puis, dans le volet **Recherches enregistrées** à droite, sélectionnez la requête *Machines virtuelles Azure - Utilisation des processeurs*.  
 4. Cliquez sur **Alerte** en haut de la page pour ouvrir l’écran **Ajouter une règle d’alerte**.  
 5. Configurez la règle d’alerte avec les informations suivantes :  
    a. Attribuez un **Nom** à votre alerte, en l’occurrence *VM processor utilization exceeded >90*  
    b. Dans **Fenêtre de temps**, spécifiez l’intervalle de temps de la requête, soit *30*.  La requête retourne uniquement les enregistrements qui ont été créés dans cette plage précédant son exécution.  
-   c. **Fréquence des alertes** spécifie la fréquence d’exécution de la requête.  Pour cet exemple, spécifiez *5* minutes pour permettre une exécution dans la fenêtre de temps que nous avons spécifiée.  
+   c. **Fréquence des alertes** spécifie la fréquence d’exécution de la requête.  Pour cet exemple, spécifiez *5* minutes pour permettre une exécution dans la fenêtre de temps que nous avons spécifiée.  
    d. Sélectionnez **Mesure de métriques**, entrez la valeur *90* pour **Valeur d’agrégat**, puis la valeur *3* pour **Déclencher l’alerte selon**   
    e. Sous **Actions**, désactivez E-mail de notification.
 6. Cliquez sur **Enregistrer** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Exemple de règle d’alerte](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
@@ -67,7 +67,7 @@ Les actions par e-mail envoient un message électronique contenant les détails 
 5. Ajoutez l’adresse du ou des destinataires de l’e-mail dans le champ **Destinataires**.  Si vous spécifiez plusieurs adresses, séparez-les par un point-virgule (;).
 6. Cliquez sur **Enregistrer** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Règle d’alerte avec notification par e-mail](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez découvert en quoi les règles d’alerte permettaient d’identifier et de répondre à un stade précoce à un problème déterminé quand elles exécutent des recherches dans les journaux à intervalles réguliers et qu’elles correspondent à des critères particuliers.  
 
 Suivez ce lien pour examiner des exemples de scripts Log Analytics prédéfinis.  

@@ -6,7 +6,7 @@ Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager 
 >
 
 1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
-2. Cliquez sur **Nouveau**. Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez sur cet élément pour ouvrir la page **Réseau virtuel**.
+2. Cliquez sur **Créer une ressource**. Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez sur cet élément pour ouvrir la page **Réseau virtuel**.
 3. En bas de la page Réseau virtuel, à partir de la liste **Sélectionner un modèle de déploiement**, choisissez **Gestionnaire des ressources** puis cliquez sur **Créer**. La page Créer un réseau virtuel s’ouvre.
 
     ![Page Créer un réseau virtuel](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Page Créer un réseau virtuel")

@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: f427b23ca4b48da79759584bdcc98c1002c054c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 Azure Database pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment créer en quelques minutes un serveur Azure Database pour MySQL à l’aide du portail Azure.  
@@ -24,12 +24,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Ouvrez votre navigateur Web, puis accédez au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Créer un serveur de base de données Azure pour MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Création d’un serveur Azure Database pour MySQL
 Vous créez un serveur Azure Database pour MySQL avec un ensemble défini de [ressources de calcul et de stockage](./concepts-compute-unit-and-storage.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md).
 
 Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes ci-après :
 
-1. Cliquez sur le bouton (+) **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail.
 
 2. Sélectionnez **Bases de données** > **Azure Database pour MySQL**. Vous pouvez également taper **MySQL** dans la zone de recherche pour localiser le service.
 
@@ -45,9 +45,9 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
     Connexion d’administrateur serveur | myadmin | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
     Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
-    Emplacement | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou d’autres applications Azure.
+    Lieu | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou d’autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques).
-    Niveau tarifaire  | **De base**, **50 unités de calcul**, **50 Go** | Choisissez le niveau de service et celui des performances de votre nouvelle base de données. Sélectionnez le **niveau De base** dans l’onglet figurant dans la partie supérieure. Sélectionnez l’extrémité gauche du curseur **Unités de calcul** pour reconfigurer la valeur sur le plus petit nombre d’unités disponible pour ce guide de démarrage rapide. Sélectionnez **OK** pour enregistrer la sélection du niveau tarifaire. Pour plus d’informations, consultez la capture d’écran suivante.
+    Niveau tarifaire | **De base**, **50 unités de calcul**, **50 Go** | Choisissez le niveau de service et celui des performances de votre nouvelle base de données. Sélectionnez le **niveau De base** dans l’onglet figurant dans la partie supérieure. Sélectionnez l’extrémité gauche du curseur **Unités de calcul** pour reconfigurer la valeur sur le plus petit nombre d’unités disponible pour ce guide de démarrage rapide. Sélectionnez **OK** pour enregistrer la sélection du niveau tarifaire. Pour plus d’informations, consultez la capture d’écran suivante.
     Épingler au tableau de bord | Vérification | Facilite le suivi de votre serveur sur la première page du tableau de bord de votre portail Azure.
 
     > [!IMPORTANT]
@@ -122,7 +122,7 @@ Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysq
     mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
     ```
 
-    Paramètre mysql |Valeur suggérée|Description
+    Paramètre mysql |Valeur suggérée|DESCRIPTION
     ---|---|---
     --host | *Nom du serveur* | Spécifiez la valeur de nom de serveur utilisée lorsque vous avez créé la base de données Azure pour MySQL. Le serveur que nous utilisons dans notre exemple est **myserver4demo.mysql.database.azure.com**. Utilisez le nom de domaine complet (**\*.mysql.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     --user | *Nom de connexion d’administrateur du serveur* |Le nom d’utilisateur de connexion d’administrateur du serveur fourni lorsque vous avez créé le serveur Azure Database pour MySQL. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
@@ -229,7 +229,7 @@ Pour supprimer uniquement le serveur que vous venez de créer, procédez comme s
 
 3.  Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez votre nom de serveur dans la zone, **myserver4demo** dans notre exemple. Sélectionnez **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Concevoir votre première base de données Azure pour MySQL](./tutorial-design-database-using-portal.md)

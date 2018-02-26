@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 462038d21ea061e7cff8322ab4ce12f45844dca7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Assurez-vous que vous respectez la configuration requise décrite dans l’artic
 Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **+ NOUVEAU** en haut à gauche, sur **Données et analyse**, puis sur **Data Factory**. 
+2. Cliquez sur **Créer une ressource** en haut à gauche, cliquez sur **Données + analyse**, puis sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. Dans le panneau **Nouvelle fabrique de données** :

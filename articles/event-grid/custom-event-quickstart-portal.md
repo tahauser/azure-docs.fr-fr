@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements personnalisés avec le portail Azure et Event Grid
 
@@ -43,7 +43,7 @@ Les rubriques Event Grid sont des ressources Azure et doivent être placées dan
 
 Une rubrique fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. 
 
-1. Pour créer une rubrique dans votre groupe de ressources, sélectionnez **More services** et recherchez *Event Grid*. Sélectionnez **Rubriques Event Grid** dans les options disponibles.
+1. Pour créer une rubrique dans votre groupe de ressources, sélectionnez **Tous les services** et recherchez *Event Grid*. Sélectionnez **Rubriques Event Grid** dans les options disponibles.
 
    ![Créer une rubrique Event Grid](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Avant de nous abonner à la rubrique, nous allons créer le point de terminaison
 
 Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. 
 
-1. Pour créer un abonnement Event Grid, sélectionnez de nouveau **More Services** puis recherchez *Event Grid*. Sélectionnez **Abonnements Event Grid** dans les options disponibles.
+1. Pour créer un abonnement Event Grid, sélectionnez de nouveau **Tous les Services** puis recherchez *Event Grid*. Sélectionnez **Abonnements Event Grid** dans les options disponibles.
 
    ![Créer un abonnement Event Grid](./media/custom-event-quickstart-portal/create-subscription.png)
 
@@ -106,7 +106,7 @@ CURL est un utilitaire qui effectue des requêtes HTTP. Dans cet article, utilis
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Accédez à l’URL du point de terminaison que vous avez créée précédemment. Ou cliquez sur Actualiser dans le navigateur ouvert. L’événement que vous venez d’envoyer apparaît.
+Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Accédez à l’URL du point de terminaison créée précédemment. Ou cliquez sur Actualiser dans le navigateur ouvert. L’événement que vous venez d’envoyer apparaît.
 
 ```json
 [{

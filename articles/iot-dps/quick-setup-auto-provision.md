@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure
 
@@ -31,7 +31,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
 2. Sélectionnez **Internet des objets** et **IoT Hub**, puis cliquez sur le bouton **Créer**. 
 
@@ -44,9 +44,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Créer une instance du service d’approvisionnement d’appareil IoT Hub
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
-2. *Faites des recherches sur la Place de marché* concernant le **service d’approvisionnement d’appareil**. Sélectionnez le **service d’approvisionnement d’appareil IoT** et cliquez sur le bouton **Créer**. 
+2. *Faites des recherches sur la Place de marché* concernant le **service d’approvisionnement d’appareil**. Sélectionnez le **Service IoT Hub Device Provisioning** et cliquez sur le bouton **Créer**. 
 
 3. **Nommez** votre instance de service d’approvisionnement d’appareil. Sélectionnez l’abonnement à utiliser pour cette instance et nommez un groupe de ressources existant ou nouveau. Sélectionnez l’emplacement. Lorsque vous avez terminé, cliquez sur **Créer**.
 
@@ -76,7 +76,7 @@ Les autres démarrages rapides de cette collection reposent sur ce démarrage ra
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre service d’approvisionnement d’appareil. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 2. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce démarrage rapide, vous avez déployé un IoT Hub et une instance de service d’approvisionnement d’appareil, puis vous avez lié les deux ressources. Pour savoir comment utiliser cette configuration pour approvisionner un appareil simulé, référez-vous au démarrage rapide relatif à la création d’appareil simulé.
 

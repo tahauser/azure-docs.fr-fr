@@ -231,7 +231,15 @@
         - name: Analyse de mise en réseau
           href: log-analytics-azure-networking-analytics.md
         - name: Network Performance Monitor
-          href: log-analytics-network-performance-monitor.md
+          items:
+            - name: Vue d’ensemble de la solution
+              href: log-analytics-network-performance-monitor.md
+            - name: Analyseur de performances
+              href: log-analytics-network-performance-monitor-performance-monitor.md
+            - name: Point de terminaison de service
+              href: log-analytics-network-performance-monitor-service-endpoint.md
+            - name: ExpressRoute
+              href: log-analytics-network-performance-monitor-expressroute.md
         - name: "Office\_365"
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Contrôle d’intégrité de SCOM

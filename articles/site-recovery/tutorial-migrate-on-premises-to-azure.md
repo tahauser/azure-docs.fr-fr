@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -45,7 +45,7 @@ Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en cha
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
-2. Cliquez sur **Nouveau** > **Surveillance + gestion** > **Sauvegarde et Site Recovery**.
+2. Cliquez sur **Créer une ressource** > **Surveillance + gestion** > **Backup and Site Recovery**.
 3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
 5. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -72,7 +72,7 @@ Sélectionnez les éléments à répliquer et l’emplacement de la réplication
 
 - [Configurez](tutorial-vmware-to-azure.md#set-up-the-source-environment) l’environnement source pour les machines virtuelles VMware.
 - [Configurez](tutorial-physical-to-azure.md#set-up-the-source-environment) l’environnement source pour les serveurs physiques.
-- [Configurez](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) l’environnement source pour les machines virtuelles Hyper-V.
+- [Configurez](hyper-v-azure-tutorial.md#set-up-the-source-environment) l’environnement source pour les machines virtuelles Hyper-V.
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
 
@@ -86,14 +86,14 @@ Sélectionnez et vérifiez les ressources cibles.
 
 - [Configurez une stratégie de réplication](tutorial-vmware-to-azure.md#create-a-replication-policy) pour les machines virtuelles VMware.
 - [Configurez une stratégie de réplication](tutorial-physical-to-azure.md#create-a-replication-policy) pour les serveurs physiques.
-- [Configurez une stratégie de réplication](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) pour les machines virtuelles Hyper-V.
+- [Configurez une stratégie de réplication](hyper-v-azure-tutorial.md#set-up-a-replication-policy) pour les machines virtuelles Hyper-V.
 
 
 ## <a name="enable-replication"></a>Activer la réplication
 
 - [Activez la réplication](tutorial-vmware-to-azure.md#enable-replication) pour les machines virtuelles VMware.
 - [Activez la réplication](tutorial-physical-to-azure.md#enable-replication) des serveurs physiques.
-- [Activez la réplication](tutorial-hyper-v-to-azure.md#enable-replication) des machines virtuelles Hyper-V.
+- [Activez la réplication](hyper-v-azure-tutorial.md#enable-replication) des machines virtuelles Hyper-V.
 
 
 ## <a name="run-a-test-migration"></a>Exécuter un test de migration
@@ -108,7 +108,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le point de récupération le plus récent.
 3. Le paramètre de clé de chiffrement ne s’applique pas à ce scénario.
-4. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tenter d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tenter d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 5. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
 6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration, interrompt la réplication pour la machine virtuelle et arrête la facturation Site Recovery pour la machine virtuelle.
 

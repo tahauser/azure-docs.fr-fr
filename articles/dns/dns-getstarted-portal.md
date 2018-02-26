@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Prise en main d’Azure DNS à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
-> * [portail Azure](dns-getstarted-portal.md)
+> * [Portail Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
@@ -35,7 +35,7 @@ Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particu
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
 1. Connectez-vous au portail Azure.
-2. Dans le menu Hub, cliquez sur **Nouveau > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir la page **Créer une zone DNS**.
+2. Dans le menu Hub, cliquez sur **Créer une ressource > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir la page **Créer une zone DNS**.
 
     ![Zone DNS](./media/dns-getstarted-portal/openzone650.png)
 
@@ -47,7 +47,7 @@ Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particu
    |**Name**|contoso.com|Nom de la zone DNS|
    |**Abonnement**|[Votre abonnement]|Sélectionnez un abonnement pour y créer la zone DNS.|
    |**Groupe de ressources**|**Créer :** contosoDNSRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Emplacement**|Ouest des États-Unis||
+   |**Lieu**|États-Unis de l’Ouest||
 
 > [!NOTE]
 > Le groupe de ressources fait référence à l’emplacement du groupe de ressources et n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
@@ -96,7 +96,7 @@ Pour supprimer toutes les ressources créées dans cet article, procédez comme 
 1. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Cliquez sur **Supprimer**, tapez *MyResourceGroup* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dns-overview.md).
 

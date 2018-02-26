@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 247c2155943d651c3be7791571522b652cf63483
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
-Ce didacticiel montre comment configurer le cloud pour l’approvisionnement d’appareils automatique à l’aide du service IoT Hub Device Provisioning. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment configurer le cloud pour l’approvisionnement d’appareils automatique à l’aide du service IoT Hub Device Provisioning. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour créer un service IoT Hub Device Provisioning et obtenir l’étendue de l’ID
@@ -38,7 +38,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 Suivez ces étapes pour créer une instance du service Device Provisioning.
 
-1. Dans le coin supérieur gauche du portail Azure, cliquez sur **Nouveau**.
+1. En haut à gauche du portail Azure, cliquez sur **Créer une ressource**.
 2. Dans la zone de recherche, tapez **device provisioning**. 
 3. Cliquez sur **Service IoT Hub Device Provisioning**.
 4. Remplissez le formulaire **Service IoT Hub Device Provisioning** avec les informations suivantes :
@@ -48,7 +48,7 @@ Suivez ces étapes pour créer une instance du service Device Provisioning.
    | **Name** | Tout nom unique | -- | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
    | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
-   | **Emplacement** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |   
+   | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |   
 
    ![Saisie des informations de base sur votre service DPS dans le portail](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
@@ -74,7 +74,7 @@ L’étape suivante consiste à lier le service Device Provisioning et le hub Io
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Définir la stratégie d’allocation sur le service Device Provisioning
 
-La stratégie d’allocation est un paramètre du service IoT Hub Device Provisioning qui détermine la façon dont les appareils sont assignés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
+La stratégie d’allocation est un paramètre du service IoT Hub Device Provisioning qui détermine la façon dont les appareils sont assignés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
 
 1. **Latence la plus faible** : les appareils sont configurés pour un hub IoT en fonction du hub ayant la plus faible latence sur l’appareil.
 2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés sont susceptibles d’avoir des appareils approvisionnés dans des proportions égales. Il s’agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
@@ -91,9 +91,9 @@ Les autres didacticiels de cette collection reposent sur ce didacticiel. Si vous
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre instance du service IoT Hub Device Provisioning. Dans la partie supérieure de la page **Toutes les ressources**, cliquez sur **Supprimer**.  
 2. À partir du menu de gauche dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre hub IoT. Dans la partie supérieure de la page **Toutes les ressources**, cliquez sur **Supprimer**.
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour créer un service IoT Hub Device Provisioning et obtenir l’étendue de l’ID

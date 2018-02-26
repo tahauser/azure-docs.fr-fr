@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Qu’est-ce que Stream Analytics ?](stream-analytics-introduction.md)
 ## [Comparer Storm et Stream Analytics](stream-analytics-comparison-storm.md)
 
@@ -62,6 +62,7 @@
 ### [Considérations relatives à l’organisation des événements](stream-analytics-out-of-order-and-late-events.md)
 ### [Limites du lecteur Event Hub](stream-analytics-event-hub-consumer-groups.md)
 ### [Journaux de diagnostics](stream-analytics-job-diagnostic-logs.md)
+### [Obtenir des événements incorrectement formés](stream-analytics-malformed-events.md)
 
 ## Automatisation
 ### [Utiliser le kit de développement logiciel (SDK) .NET de gestion](stream-analytics-dotnet-management-sdk.md)

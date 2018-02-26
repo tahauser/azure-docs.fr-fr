@@ -4,24 +4,27 @@ description: "Ce didacticiel montre comment créer une machine virtuelle Windows
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 9af08fd46314ff102eff95e0832f7ce96bc161d6
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: a9976810a67d47d92d6b04cd33c83fb35bf3d466
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Créer une machine virtuelle Windows SQL Server avec Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server avec Azure PowerShell
 
 Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle SQL Server avec Azure PowerShell.
+
+> [!TIP]
+> Ce démarrage rapide vous présente les étapes de mise en service et de connexion rapide d’une machine virtuelle SQL. Pour plus d’informations sur les autres options Azure PowerShell pour la création de machines virtuelles SQL, consultez le [guide de mise en service des machines virtuelles SQL Server avec Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -170,15 +173,15 @@ Vous êtes désormais connecté localement à SQL Server. Si vous souhaitez vous
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez pas besoin que la machine virtuelle s’exécute en permanence, vous pouvez éviter les frais inutiles en l’arrêtant lorsque vous ne vous en servez pas. La commande suivante arrête la machine virtuelle, tout en la laissant disponible pour une utilisation future.
+Si vous n’avez pas besoin que la machine virtuelle fonctionne en permanence, vous pouvez éviter les dépenses inutiles en l’arrêtant lorsque vous ne vous en servez pas. La commande suivante arrête la machine virtuelle, tout en la laissant disponible pour une utilisation future.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Vous pouvez également supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzureRmResourceGroup**. Cette opération supprime aussi la machine virtuelle de façon définitive ; il convient donc d’utiliser cette commande avec précaution.
+Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzureRmResourceGroup**. Cette commande supprime la machine virtuelle de façon définitive, donc utilisez-la avec précaution.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce démarrage rapide, vous avez créé une machine virtuelle SQL Server 2017 à l’aide d’Azure PowerShell. Pour en savoir plus sur la façon de migrer vos données vers la nouvelle instance SQL Server, consultez l’article suivant.
 
