@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure
 
@@ -28,7 +28,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
 2. Sélectionnez **Mise en réseau**, puis **Groupe de sécurité réseau**.
 
@@ -42,7 +42,7 @@ Un événement décrivant la création du groupe de sécurité réseau a été a
 
 1. Cliquez sur le bouton **Analyse** situé dans la liste de navigation de gauche. Il permet d’ouvrir la section Journal d’activité. Cette section contient l’historique de toutes les actions exécutées par les utilisateurs sur les ressources dans votre abonnement. Vous pouvez filtrer cet historique à l’aide de plusieurs propriétés, telles que le **groupe de ressources**, **l’intervalle de temps** et la **catégorie**.
 
-2. Dans la section **Journal d’activité**, cliquez sur la liste déroulante **Groupe de ressources** et sélectionnez **myResourceGroup**. Dans la liste déroulante **Timespan** (Intervalle de temps), sélectionnez **Last 1 hour** (Dernière heure). Cliquez sur **Apply**.
+2. Dans la section **Journal d’activité**, cliquez sur la liste déroulante **Groupe de ressources** et sélectionnez **myResourceGroup**. Dans la liste déroulante **Timespan** (Intervalle de temps), sélectionnez **Last 1 hour** (Dernière heure). Cliquez sur **Appliquer**.
 
     ![Filtrer le journal d’activité](./media/monitor-quick-audit-notify-action-in-subscription/browse-activity-log.png)
 
@@ -93,7 +93,7 @@ Pour tester l’alerte, répétez les étapes de la section précédente sur la 
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et le groupe de sécurité réseau. Pour ce faire, tapez le nom du groupe de ressources que vous avez créé dans la zone de recherche en haut du portail et cliquez sur le nom du groupe de ressources. Dans la section qui s’affiche, cliquez sur le bouton **Supprimer un groupe de ressources**, tapez le nom du groupe de ressources, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez effectué une opération pour générer un événement de journal d’activité et vous avez créé une alerte de journal d’activité pour être averti si cette opération se produit de nouveau à l’avenir. Vous avez ensuite testé l’alerte en réexécutant cette opération. Dans Azure, les événements de journal d’activité des 90 derniers jours sont disponibles. Si vous souhaitez conserver des événements pendant plus de 90 jours, essayez d’archiver les données de votre journal d’activité de la même façon que vos autres données de surveillance.
 

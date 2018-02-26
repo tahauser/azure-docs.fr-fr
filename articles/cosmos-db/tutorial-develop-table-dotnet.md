@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB : développer avec l’API Table dans .NET
 
@@ -55,7 +55,7 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 - Disponibilité de 99,99 % dans une région unique, possibilité d’ajouter d’autres régions pour augmenter la disponibilité et [contrats SLA complets à la pointe du secteur](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sur la disponibilité générale
 - Possibilité de travailler avec le Kit de développement logiciel (SDK) .NET Stockage Azure existant et aucune modification du code de votre application requise
 
-Ce didacticiel décrit l’API Table d’Azure Cosmos DB utilisant le Kit de développement logiciel (SDK) .NET. Vous pouvez télécharger le [Kit de développement logiciel (SDK) d’Azure Storage Preview](https://aka.ms/tableapinuget) depuis NuGet.
+Ce didacticiel décrit l’API Table d’Azure Cosmos DB utilisant le Kit de développement logiciel (SDK) .NET. Vous pouvez télécharger le [SDK de l’API .NET Table Azure Cosmos DB](https://aka.ms/tableapinuget) à partir de NuGet.
 
 Pour en savoir plus sur les tâches de stockage Table Azure complexes, consultez :
 

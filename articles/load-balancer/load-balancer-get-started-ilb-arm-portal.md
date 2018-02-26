@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5274ec13ec2d04194e2dd4c8ec93be0f78329b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Créer un équilibreur de charge interne dans le portail Azure
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Pour créer un équilibreur de charge interne à partir du portail Azure, suivez les étapes ci-dessous.
 
 1. Ouvrez un navigateur, accédez au [portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
-2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Nouveau** > **Réseau** > **Équilibreur de charge**.
+2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibrage de charge**.
 3. Dans le panneau **Créer un équilibreur de charge**, tapez le **nom** de votre équilibreur de charge.
 4. Sous **Type**, cliquez sur **Interne**.
 5. Cliquez sur **Réseau virtuel**, puis sélectionnez le réseau virtuel dans lequel vous souhaitez créer l’équilibreur de charge.

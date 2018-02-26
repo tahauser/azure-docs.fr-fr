@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser l’API TelemetryClient pour instrumenter et surveiller man
 
 Terminez les tâches suivantes pour configurer la surveillance d’une application ou d’un service.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [obtenez-en un gratuitement][azure-free-offer]. Si votre organisation possède déjà un abonnement Azure, un administrateur peut suivre [ces instructions][add-aad-user] pour vous y ajouter.
 
@@ -47,7 +47,7 @@ Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [o
 
 
 1. Connectez-vous au [portail Azure][portal].
-2. Sélectionnez **Nouveau** > **Outils développeur** > **Application Insights**. La ressource inclut un point de terminaison permettant de recevoir les données de télémétrie, le stockage pour ces données, les rapports et tableaux de bord enregistrés, la configuration des règles et des alertes, etc.
+2. Sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights**. La ressource inclut un point de terminaison permettant de recevoir les données de télémétrie, le stockage pour ces données, les rapports et tableaux de bord enregistrés, la configuration des règles et des alertes, etc.
 
   ![Création d’une ressource Application Insights dans Azure](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
@@ -208,7 +208,7 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Navigation et tableaux de bord dans le portail Application Insights](app-insights-dashboards.md)
 * [Écrire des requêtes Analytics via vos données de télémétrie](app-insights-analytics-tour.md)

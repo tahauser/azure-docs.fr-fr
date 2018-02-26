@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
 Les services Azure Machine Learning (version préliminaire) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -127,7 +127,7 @@ Utilisez le déploiement _en mode local_ pour effectuer une exécution dans des 
 Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteur Docker doit être exécuté localement pour que vous puissiez effectuer les étapes suivantes d’opérationnalisation du modèle. Vous pouvez utiliser l’indicateur `-h` à la fin d’une commande pour obtenir de l’aide sur celle-ci.
 
 >[!NOTE]
->Si vous n’avez pas de moteur Docker en local, vous pouvez toujours poursuivre en créant un cluster dans Azure à des fins de déploiement. Veillez simplement à supprimer le cluster après le didacticiel afin de ne pas subir de frais permanents.
+>Si vous n’avez pas de moteur Docker en local, vous pouvez toujours poursuivre en créant un cluster dans Azure à des fins de déploiement. Veillez simplement à supprimer le cluster après le didacticiel afin de ne peut subir de frais permanents.
 
 1. Ouvrez l’interface de ligne de commande (CLI).
    Dans l’application Azure Machine Learning Workbench, dans le menu **Fichier**, sélectionnez **Ouvrir une invite de commande**.
@@ -198,7 +198,7 @@ Vous êtes maintenant prêt à créer le service web en temps réel.
    * `-n` : le nom de l’application, qui doit être en minuscules uniquement.
    * `-f` : le nom du fichier de script de notation.
    * `--model-file` : le fichier de modèle. Dans ce cas, il s’agit du fichier pickle model.pkl.
-   * `-r` : le type de modèle. Dans ce cas, il s’agit d’un modèle Python.
+   * `-r` : le runtime du modèle. Dans ce cas, il s’agit d’un modèle Python. Les runtimes valides sont `python` et `spark-py`.
    * `--collect-model-data true` : active la collecte de données.
    * `-c`: chemin d’accès au fichier de dépendances Conda où les packages supplémentaires sont spécifiés.
 
@@ -261,7 +261,7 @@ Vous êtes maintenant prêt à exécuter le service web.
 
 Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez un enregistrement JSON encodé contenant un tableau de quatre nombres aléatoires :
 
-1. Le service web inclut des exemples de données. Lors de l’exécution en mode local, vous pouvez appeler la commande **az ml service usage realtime**. Cet appel récupère un exemple de commande d’exécution que vous pouvez utiliser pour tester le service. L’appel récupère également l’URL de notation que vous pouvez utiliser pour intégrer le service à votre propre application personnalisée :
+1. Le service web inclut des exemples de données. Lors de l’exécution en mode local, vous pouvez appeler la commande **az ml service usage realtime**. Cet appel récupère un exemple de commande d’exécution qui vous pouvez utiliser pour tester le service. L’appel récupère également l’URL de notation que vous pouvez utiliser pour intégrer le service à votre propre application personnalisée :
 
    ```azurecli
    az ml service usage realtime -i <web service ID>
@@ -285,7 +285,7 @@ Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Recherchez vos comptes de stockage. Pour ce faire, sélectionnez **Plus de services**.
+2. Recherchez vos comptes de stockage. Pour ce faire, sélectionnez **Tous les services**.
 
 3. Dans la zone de recherche, entrez **Comptes de stockage**, puis sélectionnez **Entrée**.
 

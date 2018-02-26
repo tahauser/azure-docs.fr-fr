@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -161,7 +161,7 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 
 Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
 
-1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Plus de services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
+1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Tous les services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
 2. Entrez un nom pour votre compte de stockage.
 3. Définissez le champ **Type de compte** sur **StorageV2 (usage général v2)**.
 4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (préversion ZRS)**, **Stockage géo-redondant (GRS)** ou **Stockage géo-redondant avec accès en lecture (RA-GRS)**.

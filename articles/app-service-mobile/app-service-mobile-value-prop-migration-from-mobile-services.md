@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"></a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
 ## <a name="overview"></a>Vue d'ensemble
@@ -28,7 +28,7 @@ Votre service Mobile Service existant est sécurisé et restera pris en charge. 
 * Nouvelles fonctionnalités d'hôte, y compris les tâches web, les enregistrements CName personnalisés et une meilleure analyse
 * Intégration avec Traffic Manager
 * Connectivité à vos ressources locales et réseaux privés virtuels à l'aide de VNet outre les connexions hybrides
-* Surveillance, alertes et dépannage de votre application à l’aide de NewRelic ou d’AppInsights
+* Surveillance, alertes et dépannage de votre application à l’aide d’AppInsights
 * Plus riche éventail de ressources de calcul sous-jacentes et de tarification
 * Fonctionnalités intégrées de mise à l'échelle automatique, d'équilibrage de la charge et d'analyse des performances
 * Fonctionnalités intégrées intermédiaires, de sauvegarde, de restauration et de test en production
@@ -54,7 +54,7 @@ Aujourd'hui, avec Mobile Services, vous pouvez déjà utiliser des connexions hy
 Avec Mobile Services, toutes les instances de votre code de backend s'exécutaient sur de petites machines virtuelles. *Azure App Service* vous permet de sélectionner la taille des machines virtuelles à partir d'un ensemble d'options beaucoup plus complet. Vous pouvez également augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n’importe quelle charge cliente entrante, en fonction de diverses mesures de performances.
 
 ## <a name="be-in-the-know"></a>Restez dans la connaissance
-Réagissez en temps réel aux problèmes avec la surveillance et les alertes qui vous informent automatiquement vous et votre équipe. Intégrez les fonctionnalités avancées de surveillance et d'analyse d'application de New Relic et AppInsights pour vous donner une vision des performances de votre application mobile. Avec *Azure App Service*, vous pouvez maintenant configurer des alertes basées sur diverses mesures de performances, par programmation ou via le portail Azure.
+Réagissez en temps réel aux problèmes avec la surveillance et les alertes qui vous informent automatiquement vous et votre équipe. Intégrez les fonctionnalités avancées de surveillance et d’analyse d’application d’AppInsights pour vous donner une vision des performances de votre application mobile. Avec *Azure App Service*, vous pouvez maintenant configurer des alertes basées sur diverses mesures de performances, par programmation ou via le portail Azure.
 
 ## <a name="keep-your-assets-safe"></a>Protégez vos actifs
 Sauvegardez automatiquement votre backend et votre base de données. Votre code et vos données sont protégés contre une éventuelle catastrophe et peuvent être restaurées facilement, ce qui vous permet de gérer votre entreprise en toute confiance.

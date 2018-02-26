@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
 Ce démarrage rapide vous guide tout au long de la connexion de l’instance App Center de votre application à Application Insights. Avec Application Insights, vous pouvez interroger, segmenter, filtrer et analyser vos données de télémétrie avec davantage d’outils puissants que ceux disponibles à partir du service [Analytics](https://docs.microsoft.com/mobile-center/analytics/) d’App Center.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
@@ -66,18 +66,18 @@ Pour vous assurer que vos événements personnalisés sont reçus, accédez à l
 Dès que votre application envoie des événements personnalisés et que ces derniers sont reçus par App Center, vous devez créer une ressource Application Insights de type App Center dans le Portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Nouveau** > **Surveillance + gestion** > **Application Insights**.
+2. Sélectionnez **Créer une ressource** > **Surveillance + gestion** > **Application Insights**.
 
     ![Ajout d’une ressource Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
 
     Une boîte de configuration s’affiche. Utilisez le tableau ci-dessous pour remplir les champs d’entrée.
 
-    | Paramètres        |  Valeur           | Description  |
+    | Paramètres        |  Valeur           | DESCRIPTION  |
    | ------------- |:-------------|:-----|
    | **Name**      | Une valeur globale unique, comme « myApp-iOS » | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application App Center | Type de l’application que vous analysez |
    | **Groupe de ressources**     | Un nouveau groupe de ressources, ou un groupe de ressources existant à partir du menu | Groupe de ressources dans lequel créer la ressource Application Insights |
-   | **Emplacement** | Un emplacement à partir du menu | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
+   | **Lieu** | Un emplacement à partir du menu | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 3. Cliquez sur **Créer**.
 
@@ -164,7 +164,7 @@ Pour supprimer la ressource Application Insights :
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis choisissez le groupe de ressources dans lequel votre ressource Application Insights a été créée.
 2. Ouvrez la ressource Application Insights à supprimer. Ensuite, cliquez sur **Supprimer** dans le menu supérieur de la ressource, puis confirmez l’opération. Cette opération supprime définitivement la copie des données qui ont été exportées vers Application Insights.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Comprendre comment les clients utilisent votre application](app-insights-usage-overview.md)

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 > Lorsque vous créez un compte Batch, vous devez généralement choisir le mode **Service Batch** par défaut. Les pools sont alloués en arrière-plan dans des abonnements gérés par Azure. Dans l’autre mode d’**abonnement utilisateur**, qui n’est plus recommandé pour la plupart des scénarios, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement pendant la création d’un pool. Pour créer un compte Batch dans le mode abonnement utilisateur, vous devez également inscrire votre abonnement auprès d’Azure Batch et associer le compte avec une Azure Key Vault.
 
 1. Connectez-vous au [portail Azure][azure_portal].
-2. Cliquez sur **Nouveau**et recherchez le **Service Batch** sur la Place de marché.
+2. Cliquez sur **Créer une ressource** et recherchez le **Service Batch** sur la Place de marché.
 
     ![Batch dans Marketplace][marketplace_portal]
 3. Sélectionnez **Service Batch**, cliquez sur **créer**, puis saisissez les paramètres du **Nouveau compte Batch**. Consultez les informations suivantes :

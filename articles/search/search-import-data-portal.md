@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importer des données dans Azure Search à l’aide du portail
 Le portail Azure propose, sur le tableau de bord Azure Search, un Assistant **Importer des données** qui vous permet de charger des données dans un index. 
@@ -49,7 +49,7 @@ L’Assistant Importation de données prend en charge les sources de données su
 Un jeu de données aplati est requis. Vous pouvez uniquement effectuer vos importations à partir d’une seule table, vue de base de données ou structure de données équivalente. Vous devez créer cette structure de données avant d’exécuter l’Assistant.
 
 ## <a name="connect-to-your-data"></a>Se connecter aux données
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le tableau de bord du service. Vous pouvez cliquer sur **Plus de services** dans la barre d’index pour afficher les « services de recherche » existants dans l’abonnement actuel. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le tableau de bord du service. Vous pouvez cliquer sur **Tous les services** dans la barre d’index pour afficher les « services de recherche » existants dans l’abonnement actuel. 
 2. Cliquez sur **Importer des données** dans la barre de commandes pour ouvrir le panneau d’importation des données.  
 3. Cliquez sur **Se connecter à vos données** pour spécifier une définition de source de données utilisée par un indexeur. Pour les sources de données au sein de l’abonnement, l’Assistant est généralement en mesure de détecter et lire les informations de connexion, ce qui limite les exigences de configuration globale.
 

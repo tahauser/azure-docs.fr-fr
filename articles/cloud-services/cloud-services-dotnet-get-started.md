@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -45,7 +45,7 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 * télécharger des fichiers et les stocker dans le service Blob Azure ;
 * utiliser le service de File d'attente Azure pour la communication entre tiers.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
 Vous pouvez exécuter l’application localement sans abonnement Azure, mais il vous en faut un pour déployer l’application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -116,7 +116,7 @@ Pour exécuter l'application dans le cloud, procédez comme suit :
 Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 
 1. Dans votre navigateur, ouvrez le [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Nouveau > Compute > Service cloud**.
+2. Cliquez sur **Créer une ressource > Calculer > Service cloud**.
 
 3. Dans la zone de saisie du nom DNS, entrez un préfixe d’URL pour le service cloud.
 
@@ -126,7 +126,7 @@ Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 5. Choisissez la région dans laquelle vous souhaitez déployer l'application.
 
     Ce champ indique le centre de données dans lequel votre service cloud sera hébergé. Pour une application de production, vous devriez choisir la région la plus proche de vos clients. Pour ce didacticiel, choisissez la région la plus proche de vous.
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 
     Dans l’image suivante, un service cloud est créé avec l’URL CSvccontosoads.cloudapp.net.
 
@@ -135,7 +135,7 @@ Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 ### <a name="create-an-azure-sql-database"></a>Création d’une base de données SQL Azure
 Lorsque l'application s'exécute dans le cloud, elle utilise une base de données basée sur le cloud.
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau > Bases de données > SQL Database**.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource > Bases de données > SQL Database**.
 2. Dans la zone **Nom de la base de données** , entrez *contosoads*
 3. Dans le **Groupe de ressources**, cliquez sur **Use existing** (Utiliser existant) et sélectionnez le groupe de ressources utilisé pour le service cloud.
 4. Dans l’image suivante, cliquez sur **Serveur - Configurer les paramètres requis** et sur **Créer un serveur**.
@@ -155,14 +155,14 @@ Lorsque l'application s'exécute dans le cloud, elle utilise une base de donnée
 9. Cliquez sur **Sélectionner** pour le nouveau serveur.
 
     ![Nouveau serveur SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Cliquez sur **Create**.
+10. Cliquez sur **Créer**.
 
-### <a name="create-an-azure-storage-account"></a>Création d'un compte de stockage Azure
+### <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 Un compte de stockage Azure fournit des ressources pour stocker les données de file d'attente et d'objet blob dans le cloud.
 
 Dans une application réelle, on crée généralement des comptes distincts pour les données d'application et les données de journalisation, et des comptes distincts pour les données de test et les données de production. Pour ce didacticiel, vous allez utiliser un seul compte.
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau > Stockage > Compte de stockage - blob, fichier, table, file d’attente**.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource > Stockage > Compte de stockage - blob, fichier, table, file d’attente**.
 2. Dans la zone **Nom** , entrez un préfixe d’URL.
 
     Ce préfixe, associé au texte visible sous la zone, sera l'URL unique de votre compte de stockage. Si le préfixe que vous entrez est déjà utilisé, vous devez en choisir un autre.
@@ -178,7 +178,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
     Lorsque le service cloud et le compte de stockage se trouvent dans des centres de données différents (différentes régions), la latence augmente et la bande passante en dehors du centre de données vous est facturée, alors qu'elle est gratuite dans un centre de données.
 
     Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-7. Cliquez sur **Create**.
+7. Cliquez sur **Créer**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -213,7 +213,7 @@ Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deploy
     ![Chaînes de connexion](./media/cloud-services-dotnet-get-started/connstrings.png)
 3. Dans le fichier de transformation *Web.Release.config*, supprimez `{connectionstring}` et collez à la place la chaîne de connexion ADO.NET du portail Azure.
 4. Dans la chaîne de connexion que vous avez collée dans le fichier de transformation *Web.Release.config*, remplacez `{your_password_here}` par le mot de passe que vous avez créé pour la nouvelle base de données SQL.
-5. Enregistrez le fichier.  
+5. Enregistrez le fichier .  
 6. Sélectionnez et copiez la chaîne de connexion (sans les guillemets) pour l'utiliser dans les étapes suivantes de configuration du projet de rôle de travail.
 7. Dans **l’Explorateur de solutions**, sous **Rôles** dans le projet de service cloud, cliquez avec le bouton droit sur **ContosoAdsWorker**, puis sélectionnez **Propriétés**.
 
@@ -740,7 +740,7 @@ Ce code lit la base de données pour obtenir l'URL de l'image, convertit l'image
 >
 >
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Voici quelques erreurs courantes et leur solution en cas de problème lorsque vous suivez les instructions de ce didacticiel.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -760,7 +760,7 @@ Pour que le projet utilise la version complète de l'émulateur, cliquez avec le
 
 Pour exécuter l'application avec l'émulateur complet, vous devez ouvrir Visual Studio avec les privilèges d'administrateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 L'application Contoso Ads est intentionnellement simple pour un didacticiel de prise en main. Par exemple, elle n’implémente pas [l’injection de dépendances](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ni les [modèles de référentiel et d’élément de travail](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), elle [n’utilise pas d’interface pour la connexion](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), ni les [migrations Code First EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) pour gérer les changements de modèles de données ou la [résilience des connexions EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) pour gérer les erreurs réseau temporaires, etc.
 
 Voici quelques exemples d'applications de service cloud qui montrent des pratiques d'encodage réelles, de la plus simple à la plus complexe :

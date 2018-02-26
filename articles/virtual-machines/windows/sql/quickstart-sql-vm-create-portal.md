@@ -1,10 +1,10 @@
 ---
-title: "Créer une machine virtuelle Windows SQL Server dans le portail Azure | Microsoft Docs"
+title: "Créer une machine virtuelle Windows SQL Server dans le portail | Microsoft Docs"
 description: "Ce didacticiel montre comment créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle SQL Server dans le portail Azure.
 
+> [!TIP]
+> Ce démarrage rapide vous explique les étapes pour mettre en service et connecter rapidement une machine virtuelle SQL. Pour plus d’informations sur les autres options de mise en service des machines virtuelles SQL, consultez le [guide de mise en service des machines virtuelles Windows SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
+
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a id="select"></a> Sélectionner une image de machine virtuelle SQL Server
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte.
 
-1. Dans le portail Azure, cliquez sur **Nouveau**. Le portail ouvre la fenêtre **Nouveau**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource**. 
 
 1. Dans le champ de recherche, tapez **SQL Server 2017 Developer on Windows Server 2016**, puis appuyez sur ENTRÉE.
 
@@ -111,7 +114,7 @@ Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **N
    > [!TIP]
    > Si vous n’avez pas SQL Server Management Studio, vous pouvez le télécharger [ici](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez l’adresse IP publique de votre machine virtuelle. Ajoutez ensuite une virgule, puis ajoutez le port personnalisé, **1401**, que nous avons spécifié lors de la configuration de la nouvelle machine virtuelle. Par exemple, `11.22.33.444,1401`.
+1. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, modifiez la valeur **Nom du serveur**. Entrez l’adresse IP publique de votre machine virtuelle. Ajoutez ensuite une virgule, puis ajoutez le port personnalisé, **1401**, que nous avons spécifié lors de la configuration de la nouvelle machine virtuelle. Par exemple : `11.22.33.444,1401`.
 
 1. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 
@@ -137,7 +140,7 @@ L’accès à la machine permet de modifier directement les paramètres SQL Serv
 
 Si vous n’avez pas besoin que votre machine virtuelle SQL s’exécute en permanence, vous pouvez éviter les frais inutiles en l’arrêtant lorsque vous ne vous en servez pas. Vous pouvez également supprimer définitivement toutes les ressources associées à la machine virtuelle en effaçant son groupe de ressources dans le portail. Cette opération supprime aussi la machine virtuelle de façon définitive ; il convient donc d’utiliser cette commande avec précaution. Pour plus d’informations, consultez [Gérer les ressources Azure sur le portail](../../../azure-resource-manager/resource-group-portal.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle SQL Server 2017 dans le portail Azure. Pour en savoir plus sur la façon de migrer vos données vers le nouveau SQL Server, consultez l’article suivant.
 

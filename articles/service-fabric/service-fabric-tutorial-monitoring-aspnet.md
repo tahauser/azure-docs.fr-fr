@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
 Ce didacticiel est la quatrième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -38,7 +38,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurer la surveillance et les diagnostics pour l’application
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="set-up-an-application-insights-resource"></a>Configurer une ressource Application Insights
-Application Insights est la plateforme de gestion des performances des applications pour Azure et la plateforme recommandée par Service Fabric pour la surveillance et les diagnostics d’applications. Pour créer une ressource Application Insights, accédez au [portail Azure](https://portal.azure.com). Cliquez sur **Nouveau** dans le menu de navigation gauche pour ouvrir la Place de marché Azure. Cliquez sur **Surveillance et gestion**, puis sur **Application Insights**.
+Application Insights est la plateforme de gestion des performances des applications pour Azure et la plateforme recommandée par Service Fabric pour la surveillance et les diagnostics d’applications. Pour créer une ressource Application Insights, accédez au [portail Azure](https://portal.azure.com). Cliquez sur **Créer une ressource** dans le menu de navigation gauche pour ouvrir la Place de marché Azure. Cliquez sur **Surveillance et gestion**, puis sur **Application Insights**.
 
 ![Créer une ressource AI](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -224,8 +224,8 @@ Une fois ces modifications effectuées, **démarrez** l’application pour qu’
 
 ![événements personnalisés](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+## <a name="next-steps"></a>étapes suivantes
+Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Configurer Application Insights pour votre application
 > * Collecter les données de télémétrie de réponse pour effectuer le suivi de la communication basée sur HTTP entre les services

@@ -5,11 +5,11 @@ title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9f2b958d4a5d7869999d0cbaccaeed69672d6b0b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8179149046ac8f1240dd547edc0442d0543f4be0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -593,7 +593,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Intelligence artificielle + Services cognitifs</h3>
+                                    <h3>IA + Machine Learning</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
@@ -849,7 +849,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Données + Analytique</h3>
+                                    <h3>Analyse</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1160,7 +1160,7 @@ ms.lasthandoff: 02/22/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Surveillance et gestion</h3>
+                                    <h3>Outils de gestion</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -2308,7 +2308,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Données + Analytique</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2541,8 +2541,8 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">Intelligence artificielle + Services cognitifs</a>
-                        <ul id="cognitive" class="cardsA">
+                        <a href="#ai">IA + Machine Learning</a>
+                        <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Intelligence artificielle</h2>
                             </li>
@@ -3486,7 +3486,7 @@ ms.lasthandoff: 02/22/2018
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Surveillance et gestion</a>
+                        <a href="#mgmt">Outils de gestion</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">

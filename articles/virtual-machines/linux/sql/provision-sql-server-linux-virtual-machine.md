@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
 
@@ -33,17 +33,17 @@ Ce didacticiel présente les procédures suivantes :
 * [Modifier le mot de passe d’administrateur](#password)
 * [Configurer des connexions à distance](#remote)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
 ## <a id="create"></a> Créer une machine virtuelle Linux dans laquelle est installée SQL Server
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-1. Dans le volet gauche, cliquez sur **Nouveau**.
+1. Dans le volet de gauche, cliquez sur **Créer une ressource**.
 
-1. Dans le volet **Nouveau**, cliquez sur **Compute** (Calcul).
+1. Dans le panneau **Créer une ressource**, cliquez sur **Calcul**.
 
 1. Cliquez sur **See all** (Afficher tout) à côté du titre **Recommandés**.
 
@@ -174,7 +174,7 @@ Ce didacticiel vous a montré comment créer une machine virtuelle Linux Red Hat
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous disposez d’une machine virtuelle SQL Server 2017  dans Azure, vous pouvez vous connecter en local avec **sqlcmd** pour exécuter des requêtes Transact-SQL.
 

@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
 Cet article rassemble les nombreuses meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
@@ -29,14 +29,8 @@ Si vous êtes novice avec Azure SQL Data Warehouse, ne laissez pas cet article v
 Pour le chargement des instructions, consultez [Guidance for loading data](guidance-for-loading-data.md) (Conseils relatifs au chargement des données).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Réduire les coûts avec les opérations de suspension et de mise à l’échelle
-Une fonctionnalité clé de SQL Data Warehouse est la possibilité de suspension lorsque vous ne l’utilisez pas, ce qui permet d’arrêter la facturation des ressources de calcul.  Une autre fonctionnalité clé est la possibilité de mettre à l’échelle les ressources.  La suspension et la mise à l’échelle peuvent s’effectuer via le portail Azure ou des commandes PowerShell.  Familiarisez-vous avec ces fonctionnalités car ces dernières peuvent réduire considérablement le coût de votre entrepôt de données lorsqu’il n’est pas utilisé.  Si vous souhaitez que votre entrepôt de données soit toujours accessible, vous souhaiterez peut-être le réduire à la taille minimale, DW100, au lieu de le suspendre.
+Pour plus d’informations sur la réduction des coûts à l’aide de la suspension et de la mise à l’échelle, consultez la section [Gérer le calcul](sql-data-warehouse-manage-compute-overview.md). 
 
-Voir aussi [Interrompre des ressources de calcul][Pause compute resources], [Reprendre des ressources de calcul][Resume compute resources], [Mettre à l’échelle des ressources de calcul].
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Vider les transactions avant la suspension ou la mise à l’échelle
-Lorsque vous suspendez ou mettez à l’échelle de votre SQL Data Warehouse, en arrière-plan, vos requêtes sont annulées lorsque vous lancez la requête de suspension de mise à l’échelle.  L’annulation d’une simple requête SELECT est une opération rapide et n’a quasiment aucun impact sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre instance.  Toutefois, les requêtes transactionnelles, qui modifient vos données ou la structure des données, ne pourront peut-être pas s’arrêter rapidement.  **Par définition, les requêtes transactionnelles doivent être terminées dans leur intégralité ou annuler leurs modifications.**  L’annulation du travail effectué par une requête transactionnelle peut être aussi longue, voire plus, que la modification originale appliquée par la requête.  Par exemple, si vous annulez une requête qui supprimait des lignes et était en cours d’exécution depuis une heure, le système mettra peut-être une heure à insérer à nouveau les lignes supprimées.  Si vous exécutez une suspension ou une mise à l’échelle pendant que les transactions sont en cours, votre suspension ou mise à l’échelle peut sembler très longue, car la suspension et la mise à l’échelle doivent attendre la fin de la restauration avant de se lancer.
-
-Voir aussi [Transactions][Understanding transactions], [Optimisation des transactions][Optimizing transactions]
 
 ## <a name="maintain-statistics"></a>Mettre à jour les statistiques
 Contrairement à SQL Server, qui détecte et crée ou met à jour les statistiques automatiquement dans les colonnes, SQL Data Warehouse nécessite une maintenance manuelle des statistiques.  Nous envisageons de changer ce comportement à l’avenir, mais en attendant, mettez à jour vos statistiques afin de garantir l’optimisation des plans SQL Data Warehouse.  Les plans créés par l’optimiseur sont aussi bons que les statistiques disponibles.  **La création de statistiques échantillonnées est un bon moyen de se familiariser avec la notion de statistiques.**  Il est également important de mettre à jour les statistiques car des modifications significatives affectent vos données.  Une méthode plus classique serait peut-être de mettre à jour vos statistiques tous les jours ou après chaque charge.  Lorsque vous créez et mettez des statistiques à jour, vous devez toujours faire un compromis entre les performances et les coûts. Si vous trouvez que la mise à jour de toutes vos statistiques est trop longue, vous souhaiterez peut-être sélectionner les colonnes qui possèdent des statistiques ou celles nécessitant une mise à jour fréquente.  Par exemple, vous pouvez mettre à jour des colonnes de date, où de nouvelles valeurs peuvent être ajoutées de façon quotidienne. **Vous bénéficierez de performances optimales en lançant des statistiques sur les colonnes impliquées dans les jointures, celles utilisées dans la clause WHERE et celles figurant dans GROUP BY.**
@@ -138,7 +132,7 @@ Enfin, utilisez la page des [commentaires relatifs à Azure SQL Data Warehouse][
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Mettre à l’échelle des ressources de calcul]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

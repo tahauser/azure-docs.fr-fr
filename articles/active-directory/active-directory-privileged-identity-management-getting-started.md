@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 11b5d1bc4e931ad902b623fe55e62097ae40d8ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Commencer à utiliser Azure AD Privileged Identity Management
 
@@ -33,7 +33,7 @@ Avant d'utiliser Azure AD Privileged Identity Management, vous devez ajouter l'a
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre répertoire.
 2. Si votre organisation possède plusieurs répertoires, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du portail Azure. Sélectionnez l’annuaire dans lequel vous souhaitez utiliser PIM.
-3. Sélectionnez **Plus de services** et utilisez la zone de texte Filtre pour rechercher **Azure AD Privileged Identity Management**.
+3. Sélectionnez **Tous les services** et utilisez la zone de texte Filtre pour rechercher **Azure AD Privileged Identity Management**.
 4. Cochez **Épingler au tableau de bord**, puis cliquez sur **Créer**. L’application Privileged Identity Management s’ouvre.
 
 Si vous êtes la première personne à utiliser Azure AD Privileged Identity Management dans votre annuaire, les rôles **Administrateur de sécurité** et **Administrateur de rôle privilégié** vous sont automatiquement attribués pour cet annuaire. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles d’annuaire Azure AD d’utilisateurs. En outre, vous pouvez choisir d’exécuter [l’Assistant Sécurité.](active-directory-privileged-identity-management-security-wizard.md) qui vous guide tout au long du processus de découverte et d’attribution.
@@ -51,7 +51,7 @@ Une fois Azure AD Privileged Identity Management configuré, le panneau de navig
 - **Rôles d’annuaire Azure AD**, situé sous la section Gérer du menu de navigation gauche, affiche le tableau de bord utilisé par les administrateurs de rôle privilégié pour gérer les attributions de rôle, changer les paramètres d’activation de rôle, démarrer des révisions d’accès, etc. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire).
 - Les **rôles de ressources Azure (préversion)** situés sous la section Gérer du menu de navigation gauche affichent la liste de ressources d’abonnement pour lesquelles vous avez des attributions de rôles. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 La [vue d’ensemble Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclut plus de détails sur la manière de gérer un accès administrateur dans votre organisation.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

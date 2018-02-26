@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 Log Analytics inclut des informations sur la quantité de données collectées, les systèmes qui envoient les données et les différents types de données envoyées.  Utilisez le tableau de bord **Utilisation de Log Analytics** pour voir la quantité de données envoyées au service Log Analytics. Le tableau de bord affiche la quantité de données collectées par chaque solution et la quantité de données que vos ordinateurs envoient.
@@ -44,13 +44,17 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
 ![tableau de bord utilisation](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Utilisation des données d’utilisation
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![Portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez un espace de travail.
-4. Sélectionnez **Utilisation de Log Analytics** à partir de la liste dans le volet gauche.
-5. Dans le tableau de bord **Utilisation de Log Analytics**, cliquez sur **Heure : 24 dernières heures** pour modifier l’intervalle de temps.<br><br> ![Intervalle de temps](./media/log-analytics-usage/time.png)<br><br>
-6. Affichez les panneaux de catégorie d’utilisation qui montrent les domaines qui vous intéressent. Choisissez un panneau, puis cliquez dessus pour afficher plus de détails dans [Recherche de journal](log-analytics-log-searches.md).<br><br> ![Exemple de panneau d’utilisation des données](./media/log-analytics-usage/blade.png)<br><br>
-7. Dans le tableau de bord Recherche de journal, passez en revue les résultats renvoyés par la recherche.<br><br> ![exemple de recherche de journal d’utilisation](./media/log-analytics-usage/usage-log-search.png)
+1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement Azure.
+2. Cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
+    ![Hub Azure](./media/log-analytics-usage/hub.png)
+3. Le tableau de bord **Log Analytics** affiche la liste de vos espaces de travail. Sélectionnez un espace de travail.
+4. Dans le tableau de bord *Espace de travail*, cliquez sur **Utilisation de Log Analytics**.
+5. Dans le tableau de bord **Utilisation de Log Analytics**, cliquez sur **Heure : 24 dernières heures** pour modifier l’intervalle de temps.  
+    ![Intervalle de temps](./media/log-analytics-usage/time.png)
+6. Affichez les panneaux de catégorie d’utilisation qui montrent les domaines qui vous intéressent. Choisissez un panneau, puis cliquez dessus pour afficher plus de détails dans [Recherche de journal](log-analytics-log-searches.md).  
+    ![Exemple de panneau d’utilisation des données](./media/log-analytics-usage/blade.png)
+7. Dans le tableau de bord Recherche de journal, passez en revue les résultats renvoyés par la recherche.  
+    ![exemple de recherche de journal d’utilisation](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Créer une alerte lorsque la collection de données est plus volumineuse que prévu
 Cette section décrit la création d’une alerte si :

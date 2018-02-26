@@ -23,6 +23,7 @@
 ### [Se connecter en local - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Se connecter en local - dédié](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # Prise en main
 ## [Créer votre premier réseau virtuel](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [Gérer la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Déterminer le saut suivant routage](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Vérifier le flux IP pour une machine virtuelle](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Vue d’ensemble de la surveillance réseau](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Exemples de scripts
 ### [interface de ligne de commande Azure](cli-samples.md)

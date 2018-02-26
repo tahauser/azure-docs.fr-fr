@@ -1,0 +1,1 @@
+L’application de fonction créée par ce script utilise la version 1.x du [runtime Azure Functions](..\articles\azure-functions\functions-versions.md). Pour savoir comment mettre à niveau vers la version 2.x, qui est une préversion, consultez [Cibler une version à l’aide d’Azure CLI](..\articles\azure-functions\set-runtime-version.md#target-a-version-using-azure-cli). 

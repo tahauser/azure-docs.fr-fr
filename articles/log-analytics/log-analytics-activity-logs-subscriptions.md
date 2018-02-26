@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Collecter les journaux d’activité Azure de différents abonnements dans Log Analytics
 
@@ -25,7 +25,7 @@ Cet article décrit une méthode permettant de collecter les journaux d’activi
 
 Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans la [solution de journal d’activité Azure](../log-analytics/log-analytics-activity.md) pour collecter les journaux d’activité Azure.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 La stratégie utilisée dans ce scénario consiste à ce que le journal d’activité Azure envoie les événements à un [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), d’où une [application logique](../logic-apps/logic-apps-overview.md) les envoie à son tour vers votre espace de travail Log Analytics. 
 
@@ -53,7 +53,7 @@ Voici la configuration requise pour les ressources Azure utilisées dans ce scé
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. Dans le portail Azure, sélectionnez **Nouveau**> **Internet des objets** > **Event Hubs**.
+1. Dns le portail Azure, sélectionnez **Créer une ressource** > **Internet des objets** > **Event Hubs**.
 
    ![Nouvel Event Hub dans la Place de marché](media/log-analytics-activity-logs-subscriptions/marketplace-new-event-hub.png)
 

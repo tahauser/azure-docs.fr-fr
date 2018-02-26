@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -61,7 +61,7 @@ De nombreux clients estiment qu’une campagne par courrier électronique inclua
 Nombre de nos clients choisissent d’héberger une page web et de créer une entrée DNS racine, comme https://passwords.contoso.com. Ils remplissent cette page avec des liens vers les informations suivantes :
 
 * [Portail de réinitialisation de mot de passe Azure AD : https://aka.ms/sspr](https://aka.ms/sspr)
-* [Portail d’inscription à la réinitialisation de mot de passe Azure AD : http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portail d’inscription à la réinitialisation de mot de passe Azure AD : https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Portail de modification de mot de passe Azure AD : https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Autres informations spécifiques à l’organisation
 

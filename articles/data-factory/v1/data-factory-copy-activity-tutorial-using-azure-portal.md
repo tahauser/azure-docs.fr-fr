@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Didacticiel : Utiliser le portail Azure pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Voici les étapes à effectuer dans le cadre de ce didacticiel :
 
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
 
-1. Une fois connecté au [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans le menu de gauche, sur **Données + Analytique**, puis sur **Data Factory**. 
+1. Une fois connecté au [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** dans le menu de gauche, sur **Données + Analytique**, puis sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. Dans le panneau **Nouvelle fabrique de données** :

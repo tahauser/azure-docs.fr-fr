@@ -13,18 +13,18 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2049de0adfd4be164cda69ca85782c528aeaf55c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Créer une fonction Azure Functions qui se connecte à une base de données Azure Cosmos DB
 
-Cet exemple de script crée une application de fonction Azure et se connecte à une base de données Azure Cosmos DB.
+Cet exemple de script Azure Functions crée une application de fonction et connecte la fonction à une base de données Azure Cosmos DB. Le paramètre de l’application créée contenant la connexion peut être utilisé avec une [liaison ou un déclencheur Azure Cosmos DB](..\functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,13 +34,9 @@ Si vous utilisez l’interface de ligne de commande en local, veillez à exécut
 
 ## <a name="sample-script"></a>Exemple de script
 
-Cet exemple crée une application de fonction Azure et ajoute un point de terminaison et une clé d’accès Cosmos DB aux paramètres d’application.
+Cet exemple crée une Function App Azure et ajoute un point de terminaison et une clé d’accès Cosmos DB aux paramètres d’application.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
-
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement
-
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -48,16 +44,16 @@ Une fois l’exemple de script exécuté, la commande suivante permet de supprim
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Connectez-vous à Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Connectez-vous à Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources avec un emplacement. |
 | [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Créez un compte de stockage. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Crée une application de fonction. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Crée une Function App. |
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Créer la base de données cosmosdb |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Nettoyer |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

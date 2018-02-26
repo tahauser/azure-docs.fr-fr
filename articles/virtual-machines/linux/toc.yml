@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Linux
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -33,21 +33,23 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sauvegarder les machines virtuelles
       href: tutorial-backup-vms.md
-    - name: 10 - Surveiller et mettre à jour les machines virtuelles
+    - name: 10 - Gouverner les machines virtuelles
+      href: tutorial-govern-resources.md
+    - name: 11 - Surveiller et mettre à jour les machines virtuelles
       href: tutorial-monitoring.md
-    - name: 11 – Gérer la sécurité des machines virtuelles
+    - name: 12 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
-    - name: 12 - Déployer Jenkins
+    - name: 13 - Déployer Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13 - CI/CD avec Team Services
+    - name: 14 - CI/CD avec Team Services
       href: tutorial-build-deploy-jenkins.md
-    - name: 14a - Créer une pile LAMP
+    - name: 15a - Créer une pile LAMP
       href: tutorial-lamp-stack.md
-    - name: 14b - Créer une pile LEMP
+    - name: 15b - Créer une pile LEMP
       href: tutorial-lemp-stack.md
-    - name: 14c - Créer une pile MEAN
+    - name: 15c - Créer une pile MEAN
       href: tutorial-mean-stack.md
-    - name: 15 - Serveur web sécurisé avec SSL
+    - name: 16 - Sécuriser un serveur web avec SSL
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
@@ -191,7 +193,7 @@
               href: update-infrastructure-redhat.md
         - name: Agent de machine virtuelle Azure
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: agent-user-guide.md
             - name: Mise à jour de l’agent
               href: update-agent.md
@@ -300,7 +302,7 @@
       items:
         - name: Cloud Foundry
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: cloudfoundry-get-started.md
             - name: Déployer votre première application
               href: cloudfoundry-deploy-your-first-app.md

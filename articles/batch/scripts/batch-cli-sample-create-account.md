@@ -1,73 +1,60 @@
 ---
-title: "Exemple de script Azure CLI - Créer un compte Batch | Microsoft Docs"
-description: "Exemple de script Azure CLI - Créer un compte Batch"
+title: "Exemple de script Azure CLI - Créer un compte Batch - Service Batch | Microsoft Docs"
+description: "Exemple de script Azure CLI - Créer un compte Batch dans le mode de service Batch"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Créer un compte Batch avec Azure CLI
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemple CLI : Créer un compte Batch dans le mode de service Batch
 
-Ce script crée un compte Azure Batch et indique de quelle manière les différentes propriétés du compte peuvent être interrogées et mises à jour.
+Ce script crée un compte Azure Batch dans le mode de service Batch et indique de quelle manière les différentes propriétés du compte peuvent être interrogées et mises à jour. Lorsque vous créez un compte Batch dans le mode de service Batch par défaut, ses nœuds de calcul sont attribués en interne par le service Batch. Les nœuds de calcul alloués sont soumis à un quota de processeur virtuel (principal) distinct, et le compte peut être authentifié via les informations d’identification de la clé partagée ou par un jeton Azure Active Directory.
 
-## <a name="prerequisites"></a>Composants requis
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Installez Azure CLI en suivant les instructions fournies dans le [Guide d’installation d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), si ce n’est déjà fait.
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="batch-account-sample-script"></a>Exemple de script de compte Batch
+## <a name="example-script"></a>Exemple de script
 
-Lorsque vous créez un compte Batch, ses nœuds de calcul sont par défaut attribués en interne par le service Batch. Les nœuds de calcul alloués seront soumis à un quota principal distinct, et le compte pourra être authentifié via les informations d’identification de la clé partagée ou par un jeton Azure Active Directory.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>Compte Batch utilisant un exemple de script d’abonnement
-
-Vous pouvez également demande à Azure Batch de créer ses propres de calcul dans votre abonnement Azure.
-Les comptes qui allouent des nœuds de calcul à votre abonnement doivent être authentifiés via un jeton Azure Active Directory ; les nœuds de calcul alloués seront comptabilités dans votre quota d’abonnement. Pour créer un compte dans ce mode, vous devez indiquer une référence Key Vault lors de cette opération.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
-Une fois que vous avez exécuté les exemples de scripts ci-dessus, lancez la commande suivante pour supprimer le groupe de ressources et toutes les ressources associées (y compris les comptes Batch et de stockage Azure, ainsi que les coffres de clés Azure).
+Exécutez la commande suivante pour supprimer le groupe de ressources et toutes les ressources qui lui sont associées.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer un groupe de ressources, un compte Batch et toutes les ressources associées. Chaque commande de la table renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Crée le compte Batch.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Met à jour les propriétés du compte Batch.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Récupère les détails relatifs au compte Batch spécifié.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Récupère les clés d’accès du compte Batch spécifié.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Crée un coffre de clés. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Met à jour la stratégie de sécurité du coffre de clés spécifié. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crée le compte Batch. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Met à jour les propriétés du compte Batch.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Récupère les détails relatifs au compte Batch spécifié.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Récupère les clés d’accès du compte Batch spécifié.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts CLI Batch dans la [documentation relative à la CLI Azure Batch](../batch-cli-samples.md).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).

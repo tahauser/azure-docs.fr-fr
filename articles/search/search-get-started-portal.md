@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Créer, interroger et filtrer un index Recherche Azure dans le portail
 
@@ -36,17 +36,17 @@ Cette présentation dénuée de code est destinée à vous familiariser avec les
 
 Vous pouvez également commencer en vous aidant d’une [introduction à la programmation basée sur le code du service Recherche Azure dans .NET](search-howto-dotnet-sdk.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Ce didacticiel repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md). 
 
 Si vous ne voulez pas effectuer une mise en service immédiatement, vous pouvez visionner une démonstration de 6 minutes de la procédure décrite dans ce didacticiel. Pour cela, accédez à la [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138), à partir de la 3e minute environ.
 
 ## <a name="find-your-service"></a>Recherche de votre service
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur le tableau de bord des services de votre service Azure Search. Si vous n’avez pas épinglé la vignette du service à votre tableau de bord, vous pouvez trouver votre service en procédant comme suit : 
    
-   * Dans la barre de lancement, cliquez sur **Autres services** au bas du volet de navigation gauche.
+   * Dans la barre de lancement, cliquez sur **Tous les services** dans le volet de navigation de gauche.
    * Dans la zone de recherche, tapez *recherche* pour obtenir la liste des services de recherche associés à votre abonnement. Votre service doit apparaître dans la liste. 
 
 ## <a name="check-for-space"></a>Vérifier l’espace disponible
@@ -211,7 +211,7 @@ La recherche géographique est prise en charge par le biais du [type de données
 
 + La recherche géographique est utile si votre application de recherche dispose d’une fonctionnalité « rechercher à proximité » ou qu’elle utilise la navigation dans les cartes. Toutefois, cette fonction de recherche n’est pas disponible en texte intégral. Si vos utilisateurs ont besoin de rechercher des villes ou des pays par leur nom, ajoutez des champs contenant les noms de ville ou de pays, en plus des coordonnées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 + Modifiez certains des objets que vous venez de créer. Après avoir exécuté une fois l’assistant, vous pouvez revenir en arrière et afficher ou modifier des composants individuels : l’index, l’indexeur ou la source de données. Certaines modifications, telles que le type de données du champ, ne sont pas autorisées dans l’index, mais la plupart des paramètres et des propriétés sont modifiables.
 

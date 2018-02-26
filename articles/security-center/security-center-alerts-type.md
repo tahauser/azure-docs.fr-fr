@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
 Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Désactivation et suppression des fichiers de journaux IIS** : cette alerte indique que des fichiers de journaux IIS ont été désactivés ou supprimés, ce qui est souvent utilisé par des attaquants pour essayer de couvrir leurs traces.
 * **Suppression de fichier suspecte** : cette alerte indique une suppression suspecte de fichiers, ce qui peut être utilisé par un attaquant pour supprimer des preuves de binaires malveillants.
 * **Tous les clichés instantanés de fichiers ont été supprimés** : cette alerte indique que les clichés instantanés ont été supprimés.
-* **Un fichier d’historique a été effacé** : cette alerte indique que le fichier journal de l’historique de commandes a été effacé, ce qui peut être utilisé par un attaquant pour couvrir ses traces.
 * **Commandes suspectes de nettoyage de fichier** : cette alerte indique une combinaison de commandes systeminfo utilisée pour effectuer une activité de nettoyage automatique après compromission.  Alors que *systeminfo.exe* est un outil Windows légitime, une exécution deux fois de suite, suivie d’une commande de suppression comme survenue ici est rare.
 * **Création de compte suspecte** : cette alerte indique qu’un compte a été créé avec une proche ressemblance avec un compte de privilège Administrateur intégré. Cette technique peut être utilisée par des pirates pour créer un compte non autorisé sans être détecté.
-* **Activité de connexion suspecte** : cette alerte indique une activité de connexion inhabituelle, pouvant indiquer une attaque par force brute de Server Message Block (SMB). Si la ressource concernée agit comme un serveur IIS, cette alerte peut être due à une configuration d’authentification IIS spécifique légitime.
 * **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est généralement associée à un ransowmare, mais elle peut aussi être légitime.
 * **Méthode de persistance du registre Windows** : cette alerte indique une tentative de conservation d’un fichier exécutable dans le registre Windows. Les logiciels malveillants utilisent souvent cette technique pour survivre à un démarrage.
-* **Le pare-feu Windows a été désactivé** : cette alerte indique que le pare-feu Windows a été désactivé.
 * **Nouvelle règle de pare-feu suspecte** : cette alerte indique qu’une règle de pare-feu a été ajoutée via *netsh.exe* pour autoriser un trafic à partir d’un fichier exécutable situé dans un emplacement suspect.
-* **Un nouvel utilisateur a été ajouté au groupe d’administrateurs** : cette alerte indique qu’un nouvel utilisateur a été ajouté au groupe d’administrateurs local.
-* **Un nouveau service a été créé** : cette alerte indique qu’un nouveau service a été créé.
 * **Exécutions suspectes XCOPY**: cette alerte indique une série d’exécutions de XCOPY pouvant signaler la compromission d’une de vos machines et son utilisation pour propager des logiciels malveillants.
 * **Suppression de notice légale affichée aux utilisateurs lors de la connexion** : cette alerte indique une modification de la clé de registre qui contrôle l’affichage d’une notice légale aux utilisateurs quand ils se connectent. Il s’agit d’une activité courante utilisée par des attaquants après avoir compromis un hôte.
 * **Détection d’une combinaison anormale de caractères minuscules et majuscules en ligne de commande** : cette alerte indique l’utilisation d’une combinaison de majuscules et minuscules en ligne de commande, une technique utilisée par des attaquants pirates pour passer outre la règle de la fonction de hachage ou le respect de la casse de la machine.
@@ -123,15 +118,10 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Modifications suspectes de Set-ExecutionPolicy et de WinRM** : cette alerte indique des modifications de configuration, associées à l’utilisation de la webshell malveillante ChinaChopper.
 * **Désactivation de services essentiels** : cette alerte indique l’utilisation de la commande « net.exe stop » pour arrêter des services essentiels tels que SharedAccess ou le Centre de sécurité Windows.
 * **Utilisation suspecte de la bascule -s de FTP** : cette alerte indique l’utilisation de la bascule de FTP «-s », qui peut être utilisé par un logiciel malveillant pour se connecter à un serveur FTP et télécharger des fichiers binaires malveillants supplémentaires.
-* **Préparation pour une exfiltration de document via une porte dérobée IIS** : cette alerte indique que les documents sont en train d’être collectés et préparés pour une exfiltration.
 * **Exécution suspecte de la commande VBScript.Encode**: cette alerte indique l’exécution de la commande *VBScript.Encode*, qui encode des scripts en un texte illisible, rendant le code difficilement vérifiable par les utilisateurs.
 * **Allocation d’objet HTTP VBScript**  : cette alerte indique la création d’un fichier VBScript à l’aide d’une invite de commandes, pouvant être utilisé pour télécharger des fichiers malveillants.
 * **Attaque de touches rémanentes** : cette alerte indique qu’un attaquant est peut-être en train de compromettre un binaire d’accessibilité (par exemple les touches rémanentes, le clavier visuel, le narrateur) afin de fournir un accès par une porte dérobée.
 * **Indicateurs de ransomware Petya** : cette alerte indique que des techniques associées au ramsomware Petya ont été observées.
-* **Un module de noyau a été chargé** : cette alerte indique qu’un module de noyau a été chargé.
-* **Un module de noyau a été déchargé** : cette alerte indique qu’un module de noyau a été déchargé.
-* **Connexion anormale à une machine** : cette alerte indique qu’un utilisateur s’est connecté à partir d’une adresse IP inhabituelle.
-* **Un fichier a été téléchargé et exécuté** : cette alerte indique un fichier a été téléchargé sur la machine, s’est vu octroyé les privilèges d’exécution, et a été exécuté.
 * **Tentative de désactivation AMSI** : cette alerte indique une tentative de désactivation de l’interface d’analyse de logiciels anti-programme malveillant (AMSI), qui désactiverait la détection de logiciels anti-programme malveillant.
 * **Indicateurs de ransomware** : cette alerte indique une activité suspecte généralement associée aux ransomware par écran de verrouillage et chiffrement.
 * **Fichiers de sortie et collection de traces suspects** : cette alerte indique qu’une trace (d’une activité réseau par exemple) a été collectée et sortie vers un type de fichier inhabituel.
@@ -145,14 +135,8 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Construction de script dynamique PS**: cette alerte indique la construction dynamique d’un script PowerShell. Les attaquants utilisent cette technique pour générer un script progressivement afin d’échapper aux systèmes IDS.
 * **Indicateurs Metaploit** : cette alerte indique une activité associée à l’infrastructure Metasploit, qui fournit une gamme d’outils et de fonctionnalités à un attaquant.
 * **Activité de compte suspecte** : cette alerte indique une tentative de connexion à une machine à l’aide d’un compte récemment compromis.
-* **Accès suspect possible à des tâches de planification** : cette alerte indique l’exécution d’une tâche cron, pouvant être utilisée par des attaquants pour exécuter des logiciels malveillants selon une planification.
-* **Accès suspect possible d’un fichier d’historique de commandes** : cette alerte indique un accès anormal à un fichier d’historique de commandes.
 * **Création d’un compte** : cette alerte indique la création d’un nouveau compte sur la machine.
-* **Modification du paramètre de l’interpréteur de commandes** : cette alerte indique l’accès à un fichier de profil Bash, qui pourrait être la preuve qu’un attaquant tente d’exécuter des programmes malveillants selon une planification.
-* **Séquence suspecte d’échec de tentatives sudo** : cette alerte indique une séquence de commandes sudo non réussies, souvent observée dans des tentatives par force brute visant à élever les privilèges par des utilisateurs non autorisés.
-* **Séquence suspecte de tentatives sudo réussies** : cette alerte indique une séquence de commandes sudo non réussies, suivies par une commande sudo réussie, souvent observé dans des tentatives par force brute visant à élever les privilèges par des utilisateurs non autorisés.
-* **Un nouvel utilisateur a été ajouté au groupe sudoers** : cette alerte indique l’ajout d’un utilisateur au groupe sudoers, ce qui permet à ses membres d’exécuter des commandes avec des privilèges élevés.
-* **Ouverture de session réseau avec des informations d’identification en texte clair** : cette alerte indique l’observation d’une ouverture de session réseau dans laquelle le mot de passe a été envoyé sur le réseau au format texte clair. Cela est courant pour les ouvertures de session à partir d’un script ASP utilisant ADVAPI ou lorsqu’un utilisateur ouvre une session sur IIS à l’aide du mode d’authentification de base IIS. L’authentification de base n’est pas recommandée, sauf si elle est incluse dans une couche de chiffrement telle que SSL (par exemple en utilisant uniquement des connexions HTTPS).
+
 
 ### <a name="crash-analysis"></a>Analyse des incidents
 
@@ -206,6 +190,8 @@ Si des informations supplémentaires sont disponibles, elles s’affichent dans 
 - Événements d’effacement de journal
 - Appareil Plug-and-Play branché à partir d’un appareil inconnu
 - Alertes non actionnables
+- Création d’un compte
+- Fichier décodé à l’aide de l’outil certutil 
 
 ![Alerte d’accès inhabituel](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

@@ -1,6 +1,6 @@
-1. Connectez-vous au [portail Azure].
+1. Connectez-vous au [Portail Azure].
 
-2. Cliquez sur **Nouveau**.
+2. Cliquez sur **Créer une ressource**.
 
 3. Dans la zone de recherche, entrez **Mobile Apps**.
 
@@ -16,4 +16,4 @@
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/

@@ -42,7 +42,7 @@
 #### [Utilisation d’Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Mise à l’échelle verticale dans un groupe de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Mises à niveau automatiques des systèmes d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Mises à jour pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modifier un groupe identique](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Groupes de machines virtuelles identiques et configuration d’état souhaité](virtual-machine-scale-sets-dsc.md)
 ### [Mise en réseau pour les groupes identiques](virtual-machine-scale-sets-networking.md)
 ### [Convertir un modèle en disques gérés](virtual-machine-scale-sets-convert-template-to-md.md)

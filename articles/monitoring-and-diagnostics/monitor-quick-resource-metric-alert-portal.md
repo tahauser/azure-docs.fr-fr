@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recevoir une notification quand une valeur de métrique remplit une condition
 
@@ -26,15 +26,15 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Créer une application logique
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
-2. Recherchez et sélectionnez **Application logique**. Créez un groupe de ressources sous le nom **myResourceGroup** en utilisant l’emplacement par défaut. Cliquez sur le bouton **Créer** .
+2. Recherchez et sélectionnez **Application logique**. Cliquez sur le bouton **Créer** .
 
-3. Entrez les informations sur l’application logique et cochez l’option **Épingler au tableau de bord**. Lorsque vous avez terminé, cliquez sur **Créer**.
+3. Entrez les informations d’application logique indiquées dans l’image suivante.  Utilisez l’emplacement par défaut. Sélectionnez l’option **Épingler au tableau de bord**.  Lorsque vous avez terminé, cliquez sur **Créer**. 
 
     ![Saisie d’informations de base sur votre application logique dans le portail](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 12. Cliquez sur **Enregistrer**.
 
+13. Les actions d’exécution de l’application logique peuvent prendre jusqu’à 5 minutes.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Afficher les métriques de votre application logique
 
 1. Cliquez sur l’option **Moniteur** dans le volet de navigation gauche.
@@ -71,7 +73,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 4. Modifiez la valeur **Intervalle de temps** du graphique pour afficher les données de la dernière heure.
 
-5. Un graphique indiquant le nombre total d’exécutions que votre application logique a démarrées au cours de la dernière heure doit maintenant s’afficher.
+5. Un graphique indiquant le nombre total d’exécutions que votre application logique a démarrées au cours de la dernière heure doit maintenant s’afficher. Si rien ne s’affiche, assurez-vous d’avoir patienté au moins 5 minutes après l’étape ci-dessus. Ensuite, actualisez votre navigateur. 
 
     ![Affichage d’un graphique de métriques pour la ressource d’application logique](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
@@ -108,7 +110,7 @@ Les autres guides de démarrage rapide de cette collection sont la prolongation 
 
 5. Dans le volet, cliquez sur l’application logique que vous avez créée dans ce guide de démarrage rapide dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à créer une alerte de métrique pour vos ressources. Pour plus d’informations sur les alertes de métriques, consultez notre présentation sur les alertes.
 

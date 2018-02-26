@@ -1,6 +1,6 @@
 ---
-title: "Créer une instance Gestion des API Azure | Microsoft Docs"
-description: "Suivez les étapes de ce didacticiel pour créer une instance Gestion des API Azure."
+title: "Créer une instance de la Gestion des API Azure | Microsoft Docs"
+description: "Suivez les étapes de ce didacticiel pour créer une instance de la Gestion des API Azure."
 services: api-management
 documentationcenter: 
 author: juliako
@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Créer une instance du service Gestion des API Azure
 
@@ -34,7 +34,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Créer un service
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Nouveau** > **Intégration Entreprise** > **Gestion des API**.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Créer une nouvelle ressource** > **Intégration Entreprise** > **Gestion des API**.
 
     Vous pouvez également choisir **Nouveau**, entrer `API management` dans la zone de recherche, puis appuyer sur Entrée. Cliquez sur **Créer**.
 
@@ -47,7 +47,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
     |**Name**|Nom unique pour votre service Gestion des API.| Vous ne pourrez plus changer ce nom. Le nom du service sert à générer un nom de domaine par défaut sous la forme *{nom}.azure-api.net.* Si vous souhaitez utiliser un nom de domaine personnalisé, consultez [Configurer un domaine personnalisé](configure-custom-domain.md). <br/> Le nom du service est utilisé pour faire référence au service et la ressource Azure correspondante.|
     |**Abonnement**|Votre abonnement | Abonnement sous lequel cette nouvelle instance de service sera créée. Vous pouvez sélectionner l’abonnement parmi les différents abonnements Azure auxquels vous avez accès.|
     |**Groupe de ressources**|*apimResourceGroup*|Vous pouvez sélectionner une ressource nouvelle ou existante. Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies. En savoir plus [ici](../azure-resource-manager/resource-group-overview.md#resource-groups).|
-    |**Emplacement**|*Ouest des États-Unis*|Sélectionnez la région géographique proche de chez vous. Seules les régions du service Gestion des API disponibles s’affichent dans la liste déroulante. |
+    |**Lieu**|*Ouest des États-Unis*|Sélectionnez la région géographique proche de chez vous. Seules les régions du service Gestion des API disponibles s’affichent dans la liste déroulante. |
     |**Nom de l’organisation**|Nom de votre organisation.|Ce nom est utilisé à plusieurs endroits, notamment dans le titre du portail des développeurs et comme expéditeur des e-mails de notification.|
     |**E-mail de l’administrateur**|*admin@org.com*|Indiquez l’adresse e-mail à laquelle toutes les notifications de la **Gestion des API** seront envoyées.|
     |**Niveau tarifaire**|*Developer*|Définissez le niveau **Développeur** pour évaluer le service. Ce niveau n’est pas destiné à la production. Pour en savoir plus sur la mise à l’échelle des niveaux du service Gestion des API, consultez [Mettre à niveau et mettre à l’échelle](upgrade-and-scale.md).|
@@ -70,7 +70,7 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressource
 
 ![cleanup](./media/get-started-create-service-instance/cleanup.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Importer et publier votre première API](import-and-publish.md)

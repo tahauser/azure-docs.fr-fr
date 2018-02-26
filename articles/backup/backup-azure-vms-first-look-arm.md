@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Sauvegarde de machines virtuelles Azure dans des coffres Recovery Services
 
@@ -50,9 +50,9 @@ Votre point de départ varie selon le nombre de machines virtuelles que vous sou
 La procédure ci-après vous guide dans la configuration du travail de sauvegarde à partir du panneau de gestion des machines virtuelles du portail Azure. Les étapes suivantes s’appliquent uniquement aux machines virtuelles dans le portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Dans le Menu hub, cliquez sur **Autres services** et, dans la boîte de dialogue Filtrer, tapez **Machines virtuelles**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez apparaître le service Machines virtuelles, sélectionnez-le.
+2. Dans le Menu hub, cliquez sur **Tous les services** et, dans la boîte de dialogue Filtrer, tapez **Machines virtuelles**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez apparaître le service Machines virtuelles, sélectionnez-le.
 
-  ![Clic sur Autres services dans le Menu hub pour ouvrir une boîte de dialogue de texte et y taper Machines virtuelles](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Capture d’écran montrant comment accéder aux machines virtuelles à partir de Tous les services](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   La liste des machines virtuelles de l’abonnement apparaît.
 
@@ -131,7 +131,7 @@ Un archivage de Recovery Services est une entité qui stocke l’ensemble des sa
 Pour créer un archivage de Recovery Services :
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
-2. Dans le Menu hub, cliquez sur **Autres services** et, dans la boîte de dialogue Filtrer, tapez **Recovery Services**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez la ressource Archivages de Recovery Services apparaître dans la liste, cliquez dessus.
+2. Dans le Menu hub, cliquez sur **Tous les services** et, dans la boîte de dialogue Filtrer, tapez **Recovery Services**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez la ressource Archivages de Recovery Services apparaître dans la liste, cliquez dessus.
 
     ![Créer un coffre Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Pour modifier le paramètre de réplication du stockage :
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Sélectionner l’objectif d’une sauvegarde, définir la stratégie et définir les éléments à protéger
 Avant d’enregistrer une machine virtuelle dans un coffre, lancez le processus de découverte pour vérifier que les nouvelles machines virtuelles ajoutées à l’abonnement sont bien identifiées. Le processus interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement ainsi que des informations supplémentaires, comme le nom du service cloud et la région. Dans le portail Azure, l’objectif fait référence à ce que vous allez placer dans l’archivage de Recovery Services. La stratégie permet de planifier la fréquence et l’heure de la création des points de récupération. Elle inclut également la durée de rétention de ces derniers.
 
-1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape 2. Dans le cas contraire, dans le Menu hub, cliquez sur **Autres services**, puis dans la liste des ressources, tapez **Recovery Services** et cliquez sur **Archivages de Recovery Services**.
+1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape 2. Sinon, cliquez sur **Tous les services**. Tapez **Recovery Services** et cliquez sur **Coffres Recovery Services**.
 
     ![Créer un coffre Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

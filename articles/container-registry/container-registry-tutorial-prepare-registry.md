@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Préparer un registre de conteneurs Azure géorépliqué
 
@@ -45,9 +45,9 @@ Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer cha
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Connectez-vous au [portail Azure](http://portal.azure.com).
+Connectez-vous au [Portail Azure](http://portal.azure.com).
 
-Sélectionnez **Nouveau** > **Conteneurs** > **Azure Container Registry**.
+Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Registry**.
 
 ![Création d’un registre de conteneur dans le portail Azure][tut-portal-01]
 
@@ -154,7 +154,7 @@ Tout d’abord, obtenez l’URL du serveur de connexion du registre à l’aide 
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Output:
+Sortie :
 
 ```bash
 AcrLoginServer
@@ -198,7 +198,7 @@ Utilisez la commande `docker images` pour voir l’image générée :
 docker images
 ```
 
-Output:
+Sortie :
 
 ```bash
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
@@ -216,7 +216,7 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Comme vous avez configuré votre registre pour la géoréplication, votre image est automatiquement répliquée dans les deux régions *Ouest des États-Unis* et *Est des États-Unis* avec cette simple commande `docker push`.
 
-Output:
+Sortie :
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
@@ -230,7 +230,7 @@ a75caa09eb1f: Pushed
 v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez créé un registre de conteneurs géorépliqué privé, généré une image conteneur, puis envoyé cette image à votre registre. En suivant les étapes de ce didacticiel, vous avez :
 

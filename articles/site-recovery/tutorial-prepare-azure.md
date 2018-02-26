@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
@@ -60,8 +60,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 
 ## <a name="create-a-vault"></a>création d'un coffre
 
-1. Dans le menu Portail Azure, cliquez sur **Nouveau** > **Surveillance et gestion** >
-   **Backup and Site Recovery**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Surveillance + gestion** > **Backup and Site Recovery**.
 2. Dans **Nom**, indiquez un nom convivial permettant d’identifier le coffre. Pour ce didacticiel, nous utilisons **ContosoVMVault**.
 3. Sélectionnez le groupe de ressources existant nommé **contosoRG**.
 4. Spécifiez la région Azure **Europe de l’Ouest** que nous utilisons dans cette série de didacticiels.
@@ -75,8 +74,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 
 Quand les machines virtuelles Azure sont créées à partir du stockage après le basculement, elles sont jointes à ce réseau.
 
-1. Dans le menu [Portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Mise en réseau** >
-   **Réseau virtuel**
+1. Dans le[portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Laissez **Resource Manager** sélectionné comme modèle de déploiement. Resource Manager est le modèle de déploiement préféré.
    - Spécifiez un nom de réseau. Le nom doit être unique au sein du groupe de ressources Azure. Nous utilisons le nom **ContosoASRnet**.
    - Utilisez le groupe de ressources existant **contosoRG**.
