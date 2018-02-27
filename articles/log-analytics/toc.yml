@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: Transition à partir du langage hérité
           href: log-analytics-log-search-transition.md
-        - name: Recherches d’un espace de travail à un autre
+        - name: Recherches inter-ressources
           href: log-analytics-cross-workspace-search.md
         - name: Agir à partir des résultats de recherche
           href: log-analytics-log-search-takeaction.md
