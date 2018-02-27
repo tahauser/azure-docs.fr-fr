@@ -89,8 +89,8 @@ Vous pouvez utiliser le Stockage Blob pour héberger vos fichiers de données.
    * End Station Name & ID [Nom et ID de la station d’arrivée]
    * Bike ID [ID de vélo]
    * User Type (Casual = 24-Hour or 72-Hour Pass user; Member = Annual or Monthly Member) [Type d’utilisateur (Occasionnel = utilisateur avec carte 24 ou 72 heures ; Membre = adhésion annuelle ou mensuelle)]
-   * Zip Code [Code postal] (si l’utilisateur est membre)
-   * Gender [Sexe] (indiqué par le membre)
+   * Zip Code [Code postal] \(si l’utilisateur est membre)
+   * Gender [Sexe] \(indiqué par le membre)
 
 ## <a name="create-a-new-project"></a>Création d'un projet
 1. Lancez **Azure Machine Learning Workbench** à partir de votre menu Démarrer ou du lanceur.
