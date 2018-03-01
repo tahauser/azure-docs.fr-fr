@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Effectuer une surveillance avancée à l’aide de la solution de surveillance à distance
 
@@ -24,7 +24,7 @@ Ce didacticiel montre les fonctionnalités du tableau de bord de la solution de 
 
 Dans ce didacticiel, vous utilisez deux appareils Contoso simulés pour apprendre à surveiller vos appareils à partir du tableau de bord des solutions préconfigurées. En tant qu’opérateur de Contoso, vous devez surveiller la position et le comportement de vos camions sur la route.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Filtrage des appareils dans le tableau de bord
@@ -33,7 +33,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Affichage des alarmes à partir de vos appareils
 > * Affichage des KPI du système
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -99,7 +99,7 @@ La page **Tableau de bord** affiche les KPI du système :
 
 Vous pouvez utiliser le filtre des **KPI du système** pour ajuster la période d’agrégation des KPI. Par défaut, le panneau affiche les KPI agrégés pendant la dernière heure écoulée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment utiliser la page **Tableau de bord** pour filtrer et surveiller les camions simulés approvisionnés dans votre solution de surveillance à distance :
 

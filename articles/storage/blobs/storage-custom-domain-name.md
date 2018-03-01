@@ -2,23 +2,17 @@
 title: "Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob Azure | Microsoft Docs"
 description: Utilisez le portail Azure pour mapper votre propre nom canonique (CNAME) au point de terminaison de stockage Blob dans un compte de stockage Azure.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob
 
@@ -116,7 +110,7 @@ Pour supprimer le paramètre de domaine personnalisé, effectuez la procédure s
 
 Une fois le domaine personnalisé supprimé, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 Utilisez la commande d’interface de ligne de commande [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `--custom-domain` afin de supprimer une inscription de domaine personnalisé.
 
@@ -160,6 +154,6 @@ Utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershe
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Mapper un domaine personnalisé à un point de terminaison Azure CDN (Content Delivery Network)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)

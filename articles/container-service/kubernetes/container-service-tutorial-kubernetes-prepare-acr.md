@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ea2574a64c5ae5c10680ad0da7e06ffe12cc72cb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f2520c79d5d5b1dcf13147b64bd98df78e6e2f37
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -70,7 +70,7 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Sortie :
+Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -99,7 +99,7 @@ Une fois l’image marquée, exécutez [docker images] (https://docs.docker.com/
 docker images
 ```
 
-Sortie :
+Output:
 
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -129,7 +129,7 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Sortie :
+Output:
 
 ```azurecli
 Result
@@ -143,7 +143,7 @@ Puis, pour afficher les balises d’une image spécifique, utilisez la commande 
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Sortie :
+Output:
 
 ```azurecli
 Result

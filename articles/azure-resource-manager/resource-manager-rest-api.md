@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="resource-manager-rest-apis"></a>API REST Resource Manager
 > [!div class="op_single_selector"]
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 La réponse JSON longue pour cette requête a été omise afin d’améliorer la lisibilité de cette documentation. La réponse contient des informations sur le déploiement basé sur un modèle que vous avez créé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour en savoir plus sur la gestion des opérations REST asynchrones, consultez [Suivre les opérations asynchrones Azure](resource-manager-async-operations.md).
