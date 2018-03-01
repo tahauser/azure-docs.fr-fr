@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3577b06bfb23457c17099902a7ac9fb8eb6e3087
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimisation des requêtes Hive dans Azure HDInsight
 
@@ -113,7 +113,7 @@ Lorsque la table partitionnée est créée, vous pouvez créer un partitionnemen
 Pour plus d’informations, consultez [Tables partitionnées](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>Utilisation du format ORCFile
-Hive prend en charge différents formats de fichier. Par exemple :
+Hive prend en charge différents formats de fichier. Par exemple : 
 
 * **Texte**: il s’agit du format de fichier par défaut, qui fonctionne avec la plupart des scénarios
 * **Avro**: fonctionne correctement avec les scénarios d’interopérabilité
@@ -137,7 +137,7 @@ Pour activer le format ORC, vous devez commencer par créer une table avec la cl
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple :
+Ensuite, vous devez insérer des données dans la table ORC à partir de la table de mise en lots. Par exemple : 
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -177,7 +177,7 @@ Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple 
 * **Optimisation des jointures** : une optimisation de la planification de l’exécution des requêtes Hive pour améliorer l’efficacité des jointures et réduire le besoin d’indicateurs utilisateur. Pour plus d’informations, consultez la page [Optimisation des jointures](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Augmentez les raccords de réduction**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris plusieurs méthodes d’optimisation courantes des requêtes. Pour en savoir plus, consultez les articles suivants :
 
 * [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)

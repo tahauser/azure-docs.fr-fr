@@ -3,8 +3,8 @@ title: "Architecture du Kit de développement Microsoft Azure Stack | Microsoft 
 description: "Affichez l’architecture du Kit de développement Microsoft Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
 ms.service: azure-stack
@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: b754ff5b5a82ac284eb59ff9b9d30a581f3d3af5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architecture du Kit de développement Microsoft Azure Stack
 
-*S’applique à : Kit de développement Azure Stack*
+*S’applique au Kit de développement Azure Stack*
 
 Le Kit de développement Azure Stack est un déploiement à nœud unique d’Azure Stack. Tous les composants sont installés sur des machines virtuelles exécutées sur un ordinateur hôte unique. 
 
@@ -34,7 +35,7 @@ Le schéma suivant illustre l’architecture logique du Kit de développement Az
 ## <a name="virtual-machine-roles"></a>Rôles de machine virtuelle
 Le Kit de développement Azure Stack offre des services à l’aide des machines virtuelles suivantes sur l’ordinateur hôte :
 
-| Nom | Description |
+| NOM | DESCRIPTION |
 | ----- | ----- |
 | **AzS-ACS01** | Services de stockage Azure Stack.|
 | **AzS-ADFS01** | Services de fédération Active Directory (ADFS).  |
@@ -51,7 +52,7 @@ Le Kit de développement Azure Stack offre des services à l’aide des machines
 | **AzS-XRP01** | Contrôleur de gestion d’infrastructure pour Microsoft Azure Stack, notamment les fournisseurs de ressources Calcul, Réseau et Stockage.|
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déployer Azure Stack](azure-stack-deploy.md)
 
 [Test des premiers scénarios](azure-stack-first-scenarios.md)

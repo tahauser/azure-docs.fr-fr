@@ -2,23 +2,17 @@
 title: "Utilisation du stockage d’objets blob Azure à partir de Java | Microsoft Docs"
 description: "Stockez des données non structurées dans le cloud avec Azure Blob Storage (stockage d’objets)."
 services: storage
-documentationcenter: java
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 91ef09916dbb587305572ea640fb4408ea9aebb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b243aa7a4e9aa3028259258292d1271867d28f4
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>Utilisation du stockage d'objets blob à partir de Java
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -74,7 +68,7 @@ String storageConnectionString =
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
-## <a name="create-a-container"></a>Créer un conteneur
+## <a name="create-a-container"></a>Créez un conteneur.
 Un objet **CloudBlobClient** vous permet d’obtenir les objets de référence des conteneurs et objets blob. Le code suivant crée un objet **CloudBlobClient** .
 
 > [!NOTE]
@@ -153,7 +147,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Création d’une liste d’objets blob dans un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 Pour créer une liste d'objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur comme pour le téléchargement d'un objet blob. Vous pouvez utiliser la méthode **listBlobs** du conteneur avec une boucle **for**. Le code suivant génère l'URI de chaque objet blob d'un conteneur sur la console.
 
 ```java
@@ -186,7 +180,7 @@ Par exemple, vous pouvez avoir un conteneur nommé « photos », dans lequel v
 
 Vous pouvez également transmettre les paramètres à la méthode **listBlobs** avec le paramètre **useFlatBlobListing** défini sur true. Cela permet de renvoyer chaque objet blob, indépendamment du répertoire. Pour plus d’informations, consultez la section **CloudBlobContainer.listBlobs** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
 
-## <a name="download-a-blob"></a>Téléchargement d’un objet blob
+## <a name="download-a-blob"></a>Télécharger un objet blob
 Pour télécharger des objets blob, procédez comme pour le chargement d'un objet blob afin d'obtenir une référence d'objet blob. Dans l'exemple de chargement, vous avez appelé la méthode upload sur l'objet blob. Dans l'exemple suivant, appelez la méthode download pour transférer les contenus d'objets blob vers un objet de flux tel que **FileOutputStream** pouvant être utilisé pour rendre l'objet blob persistant dans un fichier local.
 
 ```java
@@ -218,7 +212,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="delete-a-blob"></a>Supprimer un objet blob
+## <a name="delete-a-blob"></a>Supprimer un objet blob
 Pour supprimer un objet blob, obtenez une référence d'objet blob et appelez la méthode **deleteIfExists**.
 
 ```java
@@ -271,7 +265,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 
 * [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -60,7 +60,7 @@ Nous vous recommandons de vous connecter au point de terminaison privilégié un
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS>`
+        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
@@ -69,7 +69,7 @@ Nous vous recommandons de vous connecter au point de terminaison privilégié un
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01`
+        Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
@@ -129,7 +129,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
       ````PowerShell
         $cred = Get-Credential
 
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS>`
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
@@ -138,7 +138,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
       ````PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01`
+       $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Préparer une application pour Azure Container Service (ACS)
 
@@ -87,7 +87,7 @@ Exécutez la commande [docker ps][docker-ps] pour voir les conteneurs en cours d
 docker ps
 ```
 
-Sortie :
+Output:
 
 ```
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES

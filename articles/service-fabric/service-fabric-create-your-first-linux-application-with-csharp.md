@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/27/2018
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
    sudo apt install nodejs-legacy
    ```
 
-   Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
+   Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
    ```bash
    sudo yum install nodejs
    sudo yum install npm

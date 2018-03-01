@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: beacf34ae0cf7cfd55b63a862d3dabce99248939
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-application-upgrades"></a>Résoudre les problèmes de mise à niveau d'application
 Cet article aborde certains des problèmes courants relatifs à la mise à niveau d’une application Azure Service Fabric et la manière de les résoudre.
@@ -213,7 +213,7 @@ Un échec de mise à niveau ne peut pas se produire avant *HealthCheckWaitDurati
 
 La durée de mise à niveau d’un domaine de mise à niveau est limitée par *UpgradeDomainTimeout*.  Si les paramètres *HealthCheckRetryTimeout* et *HealthCheckStableDuration* sont tous les deux non nuls et que l’intégrité de l’application ne cesse d’alterner, la mise à niveau finit par expirer sur *UpgradeDomainTimeout*. *UpgradeDomainTimeout* commence le compte à rebours au démarrage de la mise à niveau pour le domaine de mise à niveau actuel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.

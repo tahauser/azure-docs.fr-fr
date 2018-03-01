@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: sutalasi
-ms.openlocfilehash: a5d0eb5b8cd5ba49a602d7000291270af31fb222
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0a567f31bf1991d4c2a95468d2abc31c51a878f3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Gérer la stratégie de réplication pour VMware dans Azure
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/22/2017
 ![Modifier les paramètres de la stratégie de réplication](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Modifiez les paramètres selon vos besoins.
-4. Cliquez sur **Save**. L’enregistrement de la stratégie devrait prendre entre deux et cinq minutes en fonction du nombre de machines virtuelles utilisant la stratégie de réplication.
+4. Cliquez sur **Enregistrer**. L’enregistrement de la stratégie devrait prendre entre deux et cinq minutes en fonction du nombre de machines virtuelles utilisant la stratégie de réplication.
 
 ![Enregistrer la stratégie de réplication](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 

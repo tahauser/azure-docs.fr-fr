@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Présentation de Reliable Services
 Azure Service Fabric simplifie l’écriture et la gestion de Reliable Services avec et sans état. Cette rubrique couvre :
@@ -113,7 +113,7 @@ Si l’un des éléments suivants correspond aux besoins de votre service d’ap
 * Votre application doit conserver l’historique des modifications pour ses unités d’état.
 * Vous souhaitez développer ou utiliser des fournisseurs d’état personnalisé développés par une tierce partie.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Utilisation avancée de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Modèle de programmation Reliable Actors](service-fabric-reliable-actors-introduction.md)
