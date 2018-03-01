@@ -83,9 +83,9 @@
 
 ## [interface de ligne de commande Azure](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.JS](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.JS](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Service Batch](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [Événement de fin de tâche](batch-task-complete-event.md)
 ### [Événement d’échec de tâches](batch-task-fail-event.md)
 ## [Variables d’environnement de nœud de calcul Azure Batch](batch-compute-node-environment-variables.md)
-### [modèle Azure Resource Manager](/templates/microsoft.batch/batchaccounts)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [Solutions HPC dans Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Tarification](https://azure.microsoft.com/pricing/details/batch/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+## [modèle Azure Resource Manager](/azure/templates/microsoft.batch/batchaccounts)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=batch)

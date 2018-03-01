@@ -4,17 +4,17 @@ description: "Ce document décrit la procédure et les concepts relatifs à l’
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Utilisation de services web
 Après avoir déployé un modèle en tant que service web en temps réel, vous pouvez lui envoyer des données et obtenir les prédictions de diverses plateformes et applications. Le service web en temps réel expose une API REST pour obtenir les prédictions. Vous pouvez envoyer des données au service web dans un format à une ou plusieurs lignes pour obtenir une ou plusieurs prédictions à la fois.
@@ -35,7 +35,7 @@ Vous pouvez afficher la liste des services et des images Docker actuellement dé
 Une fois que le service web a été déployé avec succès, servez-vous de la commande suivante pour obtenir l’URL du service et les autres détails pour appeler le point de terminaison du service. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Cette commande imprime l’URL du service, les en-têtes de demande nécessaires, l’URL Swagger et les exemples de données en vue d’appeler le service si le schéma d’API du service a été fourni au moment du déploiement.
@@ -43,7 +43,7 @@ Cette commande imprime l’URL du service, les en-têtes de demande nécessaires
 Vous pouvez tester le service directement à partir de l’interface CLI sans composer de requête HTTP, en entrant l’exemple de commande CLI avec les données d’entrée :
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Obtenir la clé d’API du service

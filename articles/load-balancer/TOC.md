@@ -1,3 +1,5 @@
+# [Documentation Équilibreur de charge](index.md)
+
 # Vue d'ensemble
 ## [Qu’est-ce que l’équilibrage de charge ?](load-balancer-overview.md)
 ## [Qu’est-ce qu’un équilibreur de charge standard ?](load-balancer-standard-overview.md)
@@ -54,7 +56,7 @@
 #### [Configuration de l’équilibreur de charge public (Classic Cloud)](load-balancer-get-started-internet-classic-cloud.md)
 #### [Configuration de l’équilibreur de charge public (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [Azure PowerShell](/powershell/module/azurerm.network)
 ## [Interface CLI Azure](/cli/azure/network/lb)

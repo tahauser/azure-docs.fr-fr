@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Détecter les problèmes à l’aide de règles de seuil
 
@@ -24,7 +24,7 @@ Ce didacticiel montre les fonctionnalités du moteur de règles dans la solution
 
 Contoso a une règle qui génère une alerte critique lorsque la pression signalée par un appareil de **refroidissement** dépasse 250 psi. En tant qu’opérateur, vous souhaitez identifier les appareils de **refroidissement** avec des capteurs défectueux en recherchant des pics de pression initiale. Pour identifier ces appareils, vous créez une règle qui génère un avertissement lorsque la pression dépasse 150 psi.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Afficher les règles dans votre solution
@@ -32,7 +32,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Modifier une règle existante
 > * Supprimer une règle
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -66,13 +66,13 @@ Utilisez les valeurs suivantes pour créer la règle :
 
 | Paramètre          | Valeur                                 |
 | ---------------- | ------------------------------------- |
-| Nom             | Avertissement de refroidissement                       |
+| NOM             | Avertissement de refroidissement                       |
 | Source           | Groupe d’appareils de **refroidissement**             |
 | Champ déclencheur    | pressure                              |
 | Opérateur du déclencheur | Supérieur à                          |
 | Valeur de déclenchement    | 150                                   |
 | Niveau de gravité   | Avertissement                               |
-| Description      | Pression de refroidissement supérieure à 150 psi |
+| DESCRIPTION      | Pression de refroidissement supérieure à 150 psi |
 
 Pour enregistrer la nouvelle règle, choisissez **Appliquer**.
 
@@ -98,7 +98,7 @@ Pour supprimer définitivement une règle, sélectionnez-la dans la liste des r�
 
 Vous pouvez supprimer plusieurs règles en même temps. Pour cela, vous devez sélectionner plusieurs règles dans la liste.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

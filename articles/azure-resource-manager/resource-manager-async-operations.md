@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Suivre les opérations asynchrones Azure
 Certaines opérations REST Azure s'exécuteront de façon asynchrone car l’opération ne peut pas être effectuée rapidement. Cette rubrique explique comment effectuer le suivi de l’état des opérations asynchrones via les valeurs retournées dans la réponse.  
@@ -81,7 +81,7 @@ Seule la valeur `status` est renvoyée pour toutes les réponses. L’objet d’
 
 Les opérations qui créent, mettent à jour ou suppriment (PUT, PATCH, DELETE) une ressource retournent généralement une valeur `provisioningState`. Lorsqu’une opération est terminée, une des trois valeurs suivantes est retournée : 
 
-* Réussi
+* Succeeded
 * Échec
 * Canceled
 
@@ -191,8 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Si la demande est toujours en cours d’exécution, vous recevez un code d’état 202. Si la demande est terminée, vous recevez un code d’état 200, et le corps de la réponse contient les propriétés du compte de stockage qui a été créé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d'informations sur chaque opération REST, consultez la [documentation de l'API REST](/rest/api/).
-* Pour plus d’informations sur la gestion des ressources via l'API REST Resource Manager, consultez la rubrique [Utilisation de l'API REST Resource Manager](resource-manager-rest-api.md).
 * Pour plus d’informations sur le déploiement de modèles via l'API REST de Resource Manager, consultez [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](resource-group-template-deploy-rest.md).

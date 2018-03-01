@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
 
@@ -237,7 +237,7 @@ Si l’un de vos workflows utilise une application C#, validez ces applications 
 | Interface utilisateur de Storm |L’interface utilisateur Storm est disponible à l’adresse https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio pour créer, déployer et gérer des topologies C# ou hybrides |Visual Studio permet de créer, déployer et gérer les topologies C# (SCP.NET) et hybrides sur Storm sous Linux sur HDInsight. Il ne peut être utilisé qu’avec des clusters créés après le 28/10/2016. |
 
-## <a name="hbase"></a>HBase
+## <a name="hbase"></a>hbase
 
 Sur les clusters Linux, le parent ZNode pour HBase est `/hbase-unsecure`. Définissez cette valeur dans la configuration de toutes les applications clientes Java qui utilisent une API Java HBase native.
 

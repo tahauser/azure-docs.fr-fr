@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery
 
@@ -66,7 +66,7 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Classique | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Gestionnaire de ressources | Microsoft.Storage/storageAccounts/read |
+| Stockage | Gestionnaire de ressources | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Classique | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -75,10 +75,10 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 
 Envisagez d’utiliser les [rôles intégrés](../active-directory/role-based-access-built-in-roles.md) « Collaborateur de machine virtuelle » et « Collaborateur de machine virtuelle classique » pour les modèles de déploiement Resource Manager et classiques, respectivement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md): découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Interface de ligne de commande Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
+  * [interface de ligne de commande Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Résolution des problèmes de contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-troubleshooting.md): obtenez des suggestions pour résoudre les problèmes courants.

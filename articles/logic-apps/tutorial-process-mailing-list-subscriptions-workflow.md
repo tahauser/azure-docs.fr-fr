@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 26ef6f69ef2f2d50628f4d0b021159526c9a04a7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gérer les requêtes de liste de diffusion avec une application logique
 
@@ -47,7 +47,7 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
 
 * Un compte MailChimp. Créez une liste nommée « test-members-ML » dans laquelle votre application logique peut ajouter des adresses e-mail pour les membres approuvés. Si vous n’avez pas de compte, [ouvrez un compte gratuit](https://login.mailchimp.com/signup/) et découvrez [comment créer une liste](https://us17.admin.mailchimp.com/lists/#). 
 
-* Un compte de messagerie avec Office 365 Outlook ou Outlook.com, qui prend en charge des flux de travail d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont les mêmes, mais l’affichage de l’interface utilisateur peut être légèrement différent.
+* Un compte de messagerie avec Office 365 Outlook ou Outlook.com, qui prend en charge des flux de travail d’approbation. Office 365 Outlook est utilisé dans cet article. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -55,7 +55,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
-1. Dans le menu principal d’Azure, choisissez **Nouveau** > **Intégration d’entreprise** > **Application logique**.
+1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Enterprise Integration** > **Application logique**.
 
    ![Créer une application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 
@@ -65,11 +65,11 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    | Paramètre | Valeur | DESCRIPTION | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-MailingList | Nom de votre application logique | 
-   | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure | 
-   | **Groupe de ressources** | LA-MailingList-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes | 
+   | **Name** | LA-MailingList | Nom de l’application logique. | 
+   | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
+   | **Groupe de ressources** | LA-MailingList-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
    | **Lieu** | Est des États-Unis 2 | Région dans laquelle stocker les informations sur votre application logique | 
-   | **Log Analytics** | Off | Maintenez le paramètre **Désactivé** pour la journalisation des diagnostics. | 
+   | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
    |||| 
 
 3. Une fois qu’Azure a déployé votre application, le Concepteur d’applications logiques s’ouvre et affiche une page contenant une vidéo de présentation et des modèles d’applications logiques courantes. Sous **Modèles**, choisissez **Application logique vide**.
@@ -99,8 +99,8 @@ Chaque application logique doit démarrer avec un déclencheur, qui s’active l
       | Paramètre | Valeur | DESCRIPTION | 
       | ------- | ----- | ----------- | 
       | **Folder** | Inbox | Dossier de messagerie à surveiller | 
-      | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications | 
-      | **Fréquence** | Hour | Unité de temps de chaque intervalle entre les vérifications  | 
+      | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
+      | **Fréquence** | Hour | Unité de temps de chaque intervalle entre les vérifications.  | 
       |  |  |  | 
 
    2. Choisissez **Afficher les options avancées**. Dans le champ **Filtre Objet**, entrez ce texte que le déclencheur recherchera dans l’objet de l’e-mail : ```subscribe-test-members-ML```
@@ -137,7 +137,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    Pour l’instant, ignorez la liste de contenu dynamique ou la liste de paramètres incluse qui s’affiche lorsque vous cliquez à l’intérieur de zones de modification spécifiques. 
    Cette liste vous permet de sélectionner des paramètres issus des actions précédentes que vous pouvez utiliser en tant qu’entrées dans votre flux de travail. 
-   La largeur de votre navigateur détermine la liste qui s’affiche. 
+   La largeur de la fenêtre du navigateur détermine la liste qui s’affiche. 
  
 4. Enregistrez votre application logique.
 
@@ -316,7 +316,7 @@ Félicitations, vous venez de créer et d’exécuter une application logique qu
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu Azure principal, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 
-![« Présentation » > « Supprimer un groupe de ressources »](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
+![« Vue d’ensemble » > « Supprimer un groupe de ressources »](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

@@ -1,6 +1,6 @@
 - name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Base de données Azure pour PostgreSQL
       href: overview.md
@@ -58,9 +58,7 @@
     - name: Ressources
       items:
         - name: Niveaux de tarification
-          href: concepts-service-tiers.md
-        - name: Unités de calcul
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: limites
           href: concepts-limits.md
     - name: Accès aux données et sécurité
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Configuration du chiffrement SSL
           href: concepts-ssl-connection-security.md
+    - name: Continuité de l’activité
+      items:
+        - name: Vue d'ensemble
+          href: concepts-business-continuity.md
+        - name: Sauvegarde et restauration
+          href: concepts-backup.md
     - name: Surveiller
       href: concepts-monitoring.md
     - name: Développement
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Procédures
   items:
-    - name: Règles de pare-feu
+    - name: Créer des utilisateurs
+      href: howto-create-users.md
+    - name: Gérer le pare-feu
       items:
         - name: Portail Azure
           href: howto-manage-firewall-using-portal.md

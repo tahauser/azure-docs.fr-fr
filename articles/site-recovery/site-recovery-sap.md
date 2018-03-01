@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 1ee472498bdefc4eeb9863670e5480326b5ba6d8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b6ab734186f23d51d60e51bd0946329d5209097b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide de Site Recovery
 
@@ -40,7 +40,7 @@ Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes�
 * [Effectuer un test de basculement vers Azure](azure-to-azure-walkthrough-test-failover.md)
 * [Procéder à un basculement vers Azure](site-recovery-failover.md)
 * [Répliquer un contrôleur de domaine](site-recovery-active-directory.md)
-* [Répliquer SQL Server](site-recovery-sql.md)
+* [Réplication de SQL Server](site-recovery-sql.md)
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez utiliser Site Recovery pour implémenter une solution de récupération d’urgence dans les scénarios décrits ici.
@@ -115,6 +115,6 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur la création d’une solution de récupération d’urgence pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver : Création d’une solution de récupération d’urgence avec Azure Site Recovery](http://aka.ms/asr-sap). Ce livre blanc présente les recommandations émises pour les diverses architectures SAP, il répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de récupération d’urgence.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

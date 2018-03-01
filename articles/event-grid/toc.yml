@@ -1,4 +1,4 @@
-- name: Event Grid
+- name: Documentation Event Grid
   href: index.yml
 - name: Vue d'ensemble
   items:
@@ -7,6 +7,7 @@
     - name: Comparer les services de messagerie
       href: compare-messaging-services.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Itinéraire d’événements de stockage Blob - Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json

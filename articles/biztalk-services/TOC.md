@@ -1,4 +1,6 @@
-# Vue d’ensemble
+# [Documentation BizTalk Services](index.md)
+
+# Vue d'ensemble
 ## [Éditions](biztalk-editions-feature-chart.md)
 
 # Prise en main
@@ -19,7 +21,7 @@
 ### [Contrôle d’accès](biztalk-issuer-name-issuer-key.md)
 ## [Résolution des problèmes](biztalk-troubleshoot-using-ops-logs.md)
 ## Connexions hybrides
-### [Vue d'ensemble](integration-hybrid-connection-overview.md)
+### [Vue d’ensemble](integration-hybrid-connection-overview.md)
 ### [Créer et gérer](integration-hybrid-connection-create-manage.md)
 
 # Ressources
@@ -29,5 +31,5 @@
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Notes de publication](biztalk-release-notes.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

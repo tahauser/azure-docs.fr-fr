@@ -1,3 +1,5 @@
+- name: Terraform sur la Documentation Azure
+  href: index.yml
 - name: Vue d'ensemble
   items:
     - name: À propos de Terraform sur Azure
@@ -29,7 +31,7 @@
   items:
     - name: Modèles de configuration
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Référence
+- name: Informations de référence
   items:
     - name: Registre du module Azure
       href: 'https://registry.terraform.io/modules/Azure'

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight
 
@@ -31,7 +31,7 @@ Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec 
 
 Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5.
 
@@ -49,7 +49,7 @@ Hive et Pig permettent de transmettre des données vers des applications externe
 
 ## <a name="net-on-hdinsight"></a>.NET sur HDInsight
 
-* Clusters __HDInsight sous Linux__ avec [Mono (https://mono-project.com)](https://mono-project.com) pour exécuter des applications .NET. La version 4.2.1 de Mono est incluse dans la version 3.5 de HDInsight.
+* Clusters __HDInsight sous Linux__ avec [Mono (https://mono-project.com)](https://mono-project.com) pour exécuter des applications .NET. La version 4.2.1 de Mono est incluse dans la version 3.6 de HDInsight.
 
     Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -222,7 +222,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 1. Utilisez l’une des méthodes suivantes pour vous connecter à votre cluster HDInsight :
 
-    * Si vous utilisez un cluster HDInsight __sous Linux__, utilisez SSH. Par exemple, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Pour plus d’informations, consultez la rubrique [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
+    * Si vous utilisez un cluster HDInsight __sous Linux__, utilisez SSH. Par exemple : `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Pour plus d’informations, consultez la rubrique [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
     
     * Si vous utilisez un cluster HDInsight __sous Windows__, [utilisez le Bureau à distance pour vous connecter au cluster.](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 
@@ -260,7 +260,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce document, vous avez appris à utiliser une application .NET Framework à partir de Hive et Pig sur HDInsight. Si vous souhaitez apprendre à utiliser Python avec Hive et Pig, consultez la page [Utilisation de Python avec Hive et Pig dans HDInsight](python-udf-hdinsight.md).
 

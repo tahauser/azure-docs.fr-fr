@@ -1,3 +1,5 @@
+# [Documentation DevTest Labs](index.md)
+
 # Vue d'ensemble
 ## [À propos d’Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
@@ -65,7 +67,7 @@
 ## Intégration avec CI/CD
 ### [Intégrer des laboratoires dans votre pipeline VSTS CI/CD](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Référence
+# Informations de référence
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Créer ou modifier des laboratoires automatiquement](devtest-lab-use-arm-and-powershell-for-lab-resources.md)

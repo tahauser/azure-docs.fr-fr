@@ -43,6 +43,8 @@
               href: azure-stack-compute-overview.md
             - name: Considérations relatives à la machine virtuelle
               href: azure-stack-vm-considerations.md
+            - name: Tailles de machine virtuelle
+              href: azure-stack-vm-sizes.md
             - name: Gérer les disques de machine virtuelle
               href: azure-stack-manage-vm-disks.md
         - name: Stockage

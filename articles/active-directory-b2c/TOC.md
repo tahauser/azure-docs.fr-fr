@@ -1,3 +1,5 @@
+# [Documentation d’Azure AD B2C](index.md)
+
 # [Vue d’ensemble](active-directory-b2c-overview.md)
 
 # Prise en main
@@ -63,7 +65,7 @@
 # Identity Experience Framework (Infrastructure d’expérience d’identité)
 ## [Stratégies personnalisées](active-directory-b2c-overview-custom.md)
 ## Guides
-### [Bien démarrer](active-directory-b2c-get-started-custom.md)
+### [Prise en main](active-directory-b2c-get-started-custom.md)
 ### Configurer les fournisseurs OIDC et OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Compte Microsoft](active-directory-b2c-custom-setup-msa-idp.md)

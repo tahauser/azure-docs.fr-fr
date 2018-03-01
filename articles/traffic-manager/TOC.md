@@ -1,3 +1,5 @@
+# [Documentation Traffic Manager](index.md)
+
 # Vue d'ensemble
 ## [Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 ## [Méthodes de routage](traffic-manager-routing-methods.md)
@@ -31,10 +33,10 @@
 ## Résolution des problèmes
 ### [Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
-## [Interface de ligne de commande Azure](/cli/azure/network/traffic-manager)
+## [interface de ligne de commande Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
@@ -54,5 +56,5 @@
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Limites du service](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=traffic-manager)
-## [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Contrat SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

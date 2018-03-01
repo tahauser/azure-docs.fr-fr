@@ -7,8 +7,10 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Configurer l’approvisionnement automatique
+    - name: Configurer l’approvisionnement automatique - Portail
       href: quick-setup-auto-provision.md
+    - name: Configurer l’approvisionnement automatique - Modèle
+      href: quick-setup-auto-provision-rm.md
     - name: Créer un appareil simulé
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Annuler la mise en service des appareils
       href: how-to-unprovision-devices.md
+    - name: Effectuer une preuve de possession sur les certificats d’autorité de certification X.509
+      href: how-to-verify-certificates.md
     - name: Utiliser un HSM avec le Kit de développement logiciel (SDK)
       href: use-hsm-with-sdk.md
     - name: Contrôler l’accès à un service d’approvisionnement
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Utiliser les outils du Kit de développement logiciel (SDK) pour le développement
       href: how-to-use-sdk-tools.md
+    - name: Connexion à MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Informations de référence
   items:
     - name: REST

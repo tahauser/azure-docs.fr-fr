@@ -1,4 +1,6 @@
-# Vue d’ensemble
+# [Documentation Notification Hubs](index.md)
+
+# Vue d'ensemble
 ## [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 # Prise en main
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -42,7 +44,7 @@
 #### [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
-## Gérer
+## gérer
 ### [Inscriptions](notification-hubs-push-notification-registration-management.md)
 ### [Authentification basée sur les jetons APNS](notification-hubs-push-notification-http2-token-authentification.md)
 
@@ -59,7 +61,7 @@
 ## Résolution des problèmes
 ### [Instructions relatives au diagnostic](notification-hubs-push-notification-fixer.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
 ## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
@@ -71,5 +73,5 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/notification-hubs/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=notification-hubs)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

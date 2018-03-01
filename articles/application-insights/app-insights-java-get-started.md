@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -70,12 +70,12 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>2.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?* Actualisez les dépendances de votre projet.
 
 #### <a name="if-youre-using-gradle"></a>Si vous utilisez Gradle...
@@ -90,19 +90,19 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'2.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
   * Actualisez les dépendances de votre projet.
 
 #### <a name="otherwise-"></a>Sinon...
 Ajouter manuellement le Kit de développement logiciel :
 
-1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://aka.ms/aijavasdk).
+1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Décompressez les fichiers binaires du fichier zip et ajoutez-les à votre projet.
 
 ### <a name="questions"></a>Questions...
@@ -112,7 +112,7 @@ Ajouter manuellement le Kit de développement logiciel :
   * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre ce composant si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
 
-  * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://aka.ms/qqkaq6) et remplacez les anciens Kits.
+  * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) et remplacez les anciens Kits.
   * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Ajouter un fichier .xml Application Insights
@@ -379,7 +379,7 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Surveillance des appels de dépendance](app-insights-java-agent.md)
 * [Surveillance des compteurs de performances Unix](app-insights-java-collectd.md)
 * Ajoutez [la surveillance à vos pages web](app-insights-javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.

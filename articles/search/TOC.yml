@@ -1,10 +1,11 @@
 - name: Documentation Recherche Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "En savoir plus sur Recherche\_Azure"
       href: search-what-is-azure-search.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer un service
       href: search-create-service-portal.md

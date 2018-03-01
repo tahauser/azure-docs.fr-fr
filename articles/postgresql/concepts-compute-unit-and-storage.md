@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Présentation des unités de calcul dans Azure Database pour PostgreSQL
 Cette rubrique explique les concepts des unités de calcul et ce qui se passe quand votre charge de travail atteint le niveau maximum d’unités de calcul.
@@ -42,5 +42,5 @@ Si votre charge de travail atteint les limites maximales pour les unités de cal
 
 Si votre charge de travail atteint les limites maximales du nombre de connexions, des erreurs explicites sont déclenchées. Pour plus d’informations sur les limites des ressources, consultez [Limitations dans Azure Database pour PostgreSQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les niveaux tarifaires, consultez [Niveaux tarifaires d’Azure Database pour PostgreSQL](./concepts-service-tiers.md).

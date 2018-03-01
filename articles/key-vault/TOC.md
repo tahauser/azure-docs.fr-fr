@@ -1,6 +1,8 @@
+# [Documentation Key Vault](index.md)
+
 # Vue d'ensemble
 ## [Présentation de Key Vault](key-vault-whatis.md)
-## [Présentation du service](https://azure.microsoft.com/services/key-vault/)
+## [Vue d’ensemble du service](https://azure.microsoft.com/services/key-vault/)
 
 # Prise en main
 ## [Prise en main de Key Vault](key-vault-get-started.md)
@@ -23,7 +25,7 @@
 #### [Clés de compte de stockage](key-vault-ovw-storage-keys.md)
 #### [Limitation](key-vault-ovw-throttling.md)
 
-## Gérer
+## gérer
 ### [Journalisation d’Azure Key Vault](key-vault-logging.md)
 ### [Accès derrière des pare-feu](key-vault-access-behind-firewall.md)
 ### [Disponibilité et redondance](key-vault-disaster-recovery-guidance.md)
@@ -37,10 +39,10 @@
 ## Automatisation
 ### [Azure Automation](automation-manage-key-vault.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
-## [Interface de ligne de commande Azure](/cli/azure/keyvault)
+## [interface de ligne de commande Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

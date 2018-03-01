@@ -1,10 +1,11 @@
-- name: Applications managées Azure
+- name: Documentation Azure Managed Applications
   href: index.yml
 - name: Vue d'ensemble
   items:
     - name: À propos des applications managées
       href: overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer une application gérée
       href: managed-apps-quickstart-cli.md
@@ -30,7 +31,7 @@
       href: update-managed-resources.md
     - name: Utiliser le portail pour publier
       href: publish-portal.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/managedapp

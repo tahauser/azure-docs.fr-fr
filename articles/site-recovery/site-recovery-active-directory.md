@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
 
@@ -80,7 +80,7 @@ La plupart des applications nécessitent la présence d’un contrôleur de doma
     ![Réseau de test Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom, et en utilisant l’adresse IP fournie dans les paramètres **Calcul et réseau** de la machine virtuelle. Si aucun sous-réseau du même nom n’est disponible dans le réseau virtuel Azure fourni pour le test de basculement, la machine virtuelle de test est créée dans le sous-réseau en première position dans l’ordre alphabétique. 
+    > Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom, et en utilisant l’adresse IP fournie dans les paramètres **Calcul et réseau** de la machine virtuelle. Si aucun sous-réseau du même nom n’est disponible dans le réseau virtuel Azure fourni pour le test de basculement, la machine virtuelle de test est créée dans le sous-réseau en première position dans l’ordre alphabétique.
     >
     > Si l’adresse IP cible fait partie du sous-réseau sélectionné, Site Recovery tente de créer la machine virtuelle pour le test de basculement à l’aide de l’adresse IP cible. Si l’adresse IP cible ne fait pas partie du sous-réseau sélectionné, la machine virtuelle pour le test de basculement est créée à l’aide de l’adresse IP disponible suivante dans le sous-réseau sélectionné.
     >
@@ -110,7 +110,7 @@ Depuis la publication de Windows Server 2012, [les dispositifs de protection su
 
 Quand **VM-GenerationID** est réinitialisé, la valeur **InvocationID** de la base de données AD DS l’est également. En outre, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, voir [Présentation de la virtualisation d’Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) et [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualisation DFSR sécurisée).
 
-Un basculement vers Azure peut entraîner une réinitialisation de **VM-GenerationID**. La réinitialisation de **VM-GenerationID** déclenche ses dispositifs de protection supplémentaires au démarrage de la machine virtuelle du contrôleur de domaine dans Azure. Cela peut *retarder sensiblement* le moment où il est possible de se connecter à la machine virtuelle du contrôleur de domaine. 
+Un basculement vers Azure peut entraîner une réinitialisation de **VM-GenerationID**. La réinitialisation de **VM-GenerationID** déclenche ses dispositifs de protection supplémentaires au démarrage de la machine virtuelle du contrôleur de domaine dans Azure. Cela peut *retarder sensiblement* le moment où il est possible de se connecter à la machine virtuelle du contrôleur de domaine.
 
 Étant donné que ce contrôleur de domaine n’est utilisé que pour le test de basculement, aucun dispositif de protection de la virtualisation n’est nécessaire. Pour vous assurer que la valeur **VM-GenerationID** pour la machine virtuelle du contrôleur de domaine ne change pas, vous pouvez modifier la valeur de DWORD suivante en **4** dans le contrôleur de domaine local :
 
@@ -165,20 +165,20 @@ Si des dispositifs de protection de la virtualisation sont déclenchés après u
 Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de domaine fonctionne correctement. Autrement, effectuez les tâches suivantes :
 
 1. Effectuez une restauration faisant autorité du contrôleur de domaine. Gardez à l’esprit les informations suivantes :
-    * Bien que nous ne recommandions pas une [réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous utilisez une telle réplication, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Utilisation de la clé de Registre BurFlags pour réinitialiser le service de réplication de fichiers](https://support.microsoft.com/kb/290762). 
-    
+    * Bien que nous ne recommandions pas une [réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous utilisez une telle réplication, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Utilisation de la clé de Registre BurFlags pour réinitialiser le service de réplication de fichiers](https://support.microsoft.com/kb/290762).
+
         Pour plus d’informations sur BurFlags, voir le billet de blog concernant [D2 et D4](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Si vous utilisez une réplication DFSR, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Comment faire pour forcer une synchronisation faisant autorité et ne faisant pas autorité pour SYSVOL de réplication DFSR (comme « D4/D2 » pour FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Si vous utilisez une réplication DFSR, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Comment faire pour forcer une synchronisation faisant autorité et ne faisant pas autorité pour SYSVOL de réplication DFSR (comme « D4/D2 » pour FRS)](https://support.microsoft.com/kb/2218556).
+
         Vous pouvez également utiliser les fonctions PowerShell. Pour plus d’informations, voir [Fonctions PowerShell de restauration faisant autorité/ne faisant pas autorisé pour DFSR-SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Contournez l’obligation de synchronisation initiale en définissant la clé de Registre suivante sur **0** dans le contrôleur de domaine local. Si la valeur DWORD n’existe pas, vous pouvez la créer sous le nœud **Paramètres**. 
+2. Contournez l’obligation de synchronisation initiale en définissant la clé de Registre suivante sur **0** dans le contrôleur de domaine local. Si la valeur DWORD n’existe pas, vous pouvez la créer sous le nœud **Paramètres**.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Pour plus d’informations, voir [Résoudre les problèmes liés à l’ID d’événement DNS 4013 : le serveur DNS n’a pas pu charger les zones DNS intégrées d’Active Directory](https://support.microsoft.com/kb/2001093).
 
-3. Désactivez l’exigence qu’un serveur de catalogue global soit disponible pour valider la connexion de l’utilisateur. Pour ce faire, dans le contrôleur de domaine local, définissez la clé de Registre suivante sur **1**. Si la valeur DWORD n’existe pas, vous pouvez la créer sous le nœud **Lsa**. 
+3. Désactivez l’exigence qu’un serveur de catalogue global soit disponible pour valider la connexion de l’utilisateur. Pour ce faire, dans le contrôleur de domaine local, définissez la clé de Registre suivante sur **1**. Si la valeur DWORD n’existe pas, vous pouvez la créer sous le nœud **Lsa**.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

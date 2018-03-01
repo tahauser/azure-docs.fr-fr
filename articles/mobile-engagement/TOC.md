@@ -1,3 +1,5 @@
+# [Documentation Mobile Engagement](index.md)
+
 # [Vue d'ensemble](mobile-engagement-overview.md)
 ## [Comparaison avec les services associés](mobile-engagement-comparison.md)
 ## [Présentation des fonctionnalités](mobile-engagement-key-features.md)
@@ -114,7 +116,7 @@
 ### [Informations de la demande de service](mobile-engagement-troubleshooting-guide-sr-info.md)
 ### [Limites/limitations de service](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
-# Référence
+# Informations de référence
 ## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 
 

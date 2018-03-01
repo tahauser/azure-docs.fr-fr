@@ -1,3 +1,5 @@
+# [Documentation IoT Suite](index.md)
+
 # Vue d'ensemble
 ## [Concepts d’architecture IoT](iot-suite-what-is-azure-iot.md)
 ## [Comparer les options d’Azure IoT](iot-suite-options.md)

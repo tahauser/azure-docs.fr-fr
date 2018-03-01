@@ -17,12 +17,12 @@
   items:
     - name: 1- Examiner l’utilisation et les coûts
       href: tutorial-review-usage.md
-    - name: 2 - Contrôler l'accès aux données
-      href: tutorial-user-access.md
-    - name: 3 - prévoir les dépenses
+    - name: 2 - Prévoir les dépenses
       href: tutorial-forecast-spending.md
-    - name: 4 - Gérer les coûts
+    - name: 3 - Gérez les coûts
       href: tutorial-manage-costs.md
+    - name: 4 - Contrôler l’accès aux données
+      href: tutorial-user-access.md
 - name: Concepts
   items:
     - name: Compréhension des rapports sur les coûts
