@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
-Dans cette tâche, vous allez définir la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans :
+Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
 
 * [Déterminer les besoins métier](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Déterminer les exigences de synchronisation de répertoire](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 * [Déterminer les exigences d’authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Définir une stratégie de besoins métier
-La première tâche concerne la détermination des besoins métier de l’entreprise.  Cette opération peut être très étendue et vous risquez de vous éloigner des objectifs si vous n’êtes pas prudent.  Au début, faites simple, mais n’oubliez pas de prévoir une conception qui prend en charge et facilite les modifications ultérieures.  Qu’il s’agisse d’une conception simple ou très complexe, Azure Active Directory est la plateforme Microsoft Identity qui prend en charge Office 365, Microsoft Online Services et les applications cloud.
+La première tâche concerne la détermination des besoins métier de l’entreprise.  Cette opération peut être très étendue et vous risquez de vous éloigner des objectifs si vous n’êtes pas prudent.  Commencez par faire simple, mais prévoyez systématiquement une conception qui prendra en charge et facilitera les modifications ultérieures.  Qu’il s’agisse d’une conception simple ou très complexe, Azure Active Directory est la plateforme Microsoft Identity qui prend en charge Office 365, Microsoft Online Services et les applications cloud.
 
 ## <a name="define-an-integration-strategy"></a>Définir une stratégie d’intégration
 Microsoft possède trois scénarios principaux d’intégration : identités cloud, identités synchronisées et identités fédérées.  Vous devez prévoir d’adopter l’une de ces stratégies d’intégration.  La stratégie que vous choisissez peut varier et les éléments à considérer à l’heure d’en choisir une peuvent inclure le type d’expérience utilisateur que vous souhaitez proposer, le fait de disposer de l’infrastructure existante déjà en place et la rentabilité.  
@@ -39,24 +39,24 @@ Microsoft possède trois scénarios principaux d’intégration : identités cl
 Les scénarios définis dans la figure ci-dessus sont les suivants :
 
 * **Identités cloud**: ce sont des identités qui existent uniquement dans le cloud.  Dans le cas d’Azure AD, elles résideraient en particulier dans votre répertoire Azure AD.
-* **Synchronisée**: ce sont des identités qui existent en local et dans le cloud.  À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe.  Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures.  Cela est dû à l’intervalle de synchronisation.
+* **Synchronisée**: ce sont des identités qui existent en local et dans le cloud.  À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe.  L’utilisation de l’option Synchronisée présente un inconvénient : si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à trois heures.  Cela est dû à l’intervalle de synchronisation.
 * **Fédérée**: ces identités existent à la fois en local et dans le cloud.  À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  
 
 > [!NOTE]
-> Pour plus d’informations sur les options de synchronisation, consultez la rubrique [Intégration de vos identités locales à Azure Active Directory](connect/active-directory-aadconnect.md).
+> Pour plus d’informations sur les options de synchronisation, consultez l’article [Intégration de vos identités locales avec Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
-Le tableau suivant vous aidera à déterminer les avantages et inconvénients de chacune des stratégies suivantes :
+Le tableau ci-après vous aide à déterminer les avantages et inconvénients de chacune des stratégies suivantes :
 
 | Stratégie | Avantages | Inconvénients |
 | --- | --- | --- |
-| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer localement - Aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs devront se connecter lorsqu’ils accèdent aux charges de travail dans le cloud  <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
-| **Synchronisée** |Le mot de passe local permettra l’authentification sur les répertoires locaux et cloud  <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
-| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur termine une mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué,<br> Prise en charge des scénarios avancés qui ne peuvent pas être effectués avec l’option Synchronisée |Étapes supplémentaires pour installer et configurer <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut requérir du matériel supplémentaire pour installer le serveur de fédération. Un logiciel supplémentaire est requis si vous utilisez AD FS <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
+| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer localement - Aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
+| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
+| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
 ### <a name="client-experience"></a>Expérience client
-La stratégie que vous utilisez détermine l’expérience de connexion utilisateur.  Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion.  Notez que tous les fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
+La stratégie que vous utilisez détermine l’expérience de connexion utilisateur.  Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion.  Certains fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
 
 **Applications réseau jointes à un domaine et privées**:
 
@@ -77,9 +77,9 @@ La stratégie que vous utilisez détermine l’expérience de connexion utilisat
 | Exchange ActiveSync |Demander les informations d’identification |Authentification unique pour Lync, informations d’identification demandées pour Exchange |
 | Applications mobiles |Demander les informations d’identification |Demander les informations d’identification |
 
-Si vous avez déterminé lors de la tâche 1 que vous avez un IdP tiers ou que vous allez en utiliser un pour fournir une fédération avec Azure AD, vous devez connaître les fonctionnalités prises en charge suivantes :
+Si vous avez déterminé lors de la tâche 1 que vous recourez ou allez recourir à un fournisseur d’identité tiers pour assurer une fédération avec Azure AD, vous devez connaître les fonctionnalités prises en charge suivantes :
 
-* N’importe quel fournisseur SAML 2.0 compatible avec le profil SP-Lite peut prendre en charge l’authentification auprès d’Azure AD et des applications associées
+* Tout fournisseur SAML 2.0 compatible avec le profil SP-Lite peut prendre en charge l’authentification auprès d’Azure AD et des applications associées
 * Prend en charge l’authentification passive, qui facilite l’authentification OWA, SPO, etc.
 * Les clients Exchange Online peuvent être pris en charge avec le profil client amélioré (ECP) SAML 2.0
 
@@ -87,10 +87,10 @@ Vous devez également avoir conscience des fonctionnalités qui ne seront pas di
 
 * Sans prise en charge de WS-Trust/WS-Federation, tous les autres clients actifs s’interrompent.
   * Cela signifie aucun client Lync, client OneDrive, abonnement Office ou Office Mobile antérieur à Office 2016.
-* La transition d’Office à l’authentification passive permettra la prise en charge de fournisseurs d’identité SAML 2.0 purs, mais cette prise en charge s’effectuera toujours client par client.
+* La transition d’Office vers l’authentification passive permet la prise en charge de fournisseurs d’identité SAML 2.0 purs, mais cette prise en charge s’effectuera toujours client par client.
 
 > [!NOTE]
-> Pour consulter la liste la plus à jour, lisez l’article http://aka.ms/ssoproviders.
+> Pour consulter la dernière liste disponible, lisez l’article http://aka.ms/ssoproviders.
 > 
 > 
 
@@ -108,7 +108,7 @@ Au fil des années, plusieurs outils de synchronisation ont existé et ont été
 ### <a name="supported-topologies"></a>Topologies prises en charge
 Lorsque vous définissez une stratégie de synchronisation, la topologie qui est utilisée doit être déterminée. Selon les informations qui ont été déterminées à l’étape 2, vous pouvez déterminer la topologie adaptée à utiliser. La forêt unique, topologie Azure AD unique, est la plus courante et se compose d’une forêt Active Directory unique et d’une seule instance d’Azure AD.  Ces éléments seront utilisés dans la majorité des scénarios et constituent la topologie attendue lors de l’utilisation de l’installation Express Azure AD Connect comme indiqué dans la figure ci-dessous.
 
-![](./media/hybrid-id-design-considerations/single-forest.png) Scénario de forêt unique Il est très courant pour les grandes et même pour les petites entreprises de posséder plusieurs forêts, comme illustré à la Figure 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) Scénario de forêt unique Les grandes entreprises, et même les petites, disposent couramment de plusieurs forêts, comme illustré à la figure 5.
 
 > [!NOTE]
 > Pour plus d’informations sur les différentes topologies locales et Azure AD avec la synchronisation Azure AD Connect, consultez l’article [Topologies pour Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -141,7 +141,7 @@ Si la partie ci-dessus n’est pas vraie et que vous avez plus d’un compte act
 
 **Scénario Azure AD de plusieurs forêts multiples**
 
-Il est recommandé de disposer seulement d’un répertoire unique dans Azure AD pour une organisation, mais une relation 1 à 1 reste possible entre un serveur de synchronisation Azure AD Connect et un répertoire Azure AD.  Pour chaque instance d’Azure AD, vous aurez besoin d’une installation d’Azure AD Connect.  En outre, par conception, Azure AD est isolé et les utilisateurs dans une instance d’Azure AD ne seront pas en mesure de voir les utilisateurs dans une autre instance.
+Il est recommandé de disposer seulement d’un répertoire unique dans Azure AD pour une organisation, mais une relation 1 à 1 reste possible entre un serveur de synchronisation Azure AD Connect et un répertoire Azure AD.  Pour chaque instance d’Azure AD, vous devez disposer d’une installation d’Azure AD Connect.  En outre, par conception, Azure AD est isolé et les utilisateurs dans une instance d’Azure AD ne seront pas en mesure de voir les utilisateurs dans une autre instance.
 
 Il est possible et pris en charge de connecter une instance locale d’Active Directory à plusieurs répertoires Azure AD, comme illustré dans la figure ci-dessous :
 
@@ -159,7 +159,7 @@ Pour ce faire, les éléments suivants doivent se vérifier :
   * Écriture différée des groupes avec la configuration par défaut
   * Écriture différée des appareils
 
-Sachez que les éléments suivants ne sont pas pris en charge et ne doivent pas être choisis comme une implémentation :
+Les éléments ci-après ne sont pas pris en charge et ne doivent pas être choisis en guise d’implémentation :
 
 * La connexion de plusieurs serveurs de synchronisation Azure AD Connect au même répertoire Azure AD n’est pas prise en charge, même s’ils sont configurés pour synchroniser un ensemble d’objets mutuellement exclusifs.
 * La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge. 
@@ -173,7 +173,7 @@ Sachez que les éléments suivants ne sont pas pris en charge et ne doivent pas 
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Définir la stratégie d’authentification multifacteur
-Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser.  Azure Multi-Factor Authentication existe en deux versions différentes.  L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure.  En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie.  Utilisez le tableau ci-dessous pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
+Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser.  Azure Multi-Factor Authentication existe en deux versions distinctes.  L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure.  En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie.  Utilisez le tableau ci-après pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
 
 Options de conception multifacteur :
 
@@ -201,7 +201,7 @@ Même si vous avez opté pour une solution pour votre stratégie, vous devez tou
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Fournisseur d’authentification multi facteurs
-Multi-Factor Authentication est disponible par défaut pour les administrateurs généraux ayant un locataire Azure Active Directory. Toutefois, si vous souhaitez étendre l’authentification multifacteur à tous vos utilisateurs et/ou souhaitez que vos administrateurs généraux puissent tirer pleinement parti de certaines fonctionnalités telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports, vous devez acheter et configurer un fournisseur Multi-Factor Authentication.
+L’authentification multifacteur est disponible par défaut pour les administrateurs généraux disposant d’un locataire Azure Active Directory. Toutefois, si vous souhaitez étendre l’authentification multifacteur à tous vos utilisateurs et/ou souhaitez que vos administrateurs généraux puissent tirer pleinement parti de certaines fonctionnalités telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports, vous devez acheter et configurer un fournisseur Multi-Factor Authentication.
 
 > [!NOTE]
 > Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -43,6 +43,10 @@ Examinez le fichier installer.log pour déterminer la cause de l’échec de l�
 > [!Note]  
 > L’installation de l’agent échoue si votre machine est configurée pour utiliser le service Microsoft Update et que celui-ci n’est pas en cours d’exécution.
 
+<a id="agent-installation-on-DC"></a>**L’installation de l’agent échoue sur le contrôleur de domaine Active Directory** si vous essayez d’installer l’agent de synchronisation sur un contrôleur de domaine Active Directory où le propriétaire du rôle contrôleur de domaine principal est sur Windows Server 2008 R2 ou un système d’exploitation antérieur, l’agent de synchronisation peut échouer.
+
+Pour résoudre cela, transférez le rôle de contrôleur de domaine principal à un autre contrôleur de domaine avec Windows Server 2012 R2 ou une version plus récente, puis synchronisez.
+
 <a id="agent-installation-websitename-failure"></a>**L’installation de l’agent échoue avec l’erreur : « L’Assistant Agent de synchronisation de stockage s’est terminé prématurément »**  
 Ce problème peut se produire si le nom par défaut du site web IIS est changé. Pour contourner ce problème, renommez le site web par défaut IIS en « Site web par défaut » et réessayez l’installation. Ce problème sera résolu dans une mise à jour ultérieure de l’agent. 
 
@@ -51,6 +55,8 @@ Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de s
 1. Connectez-vous au serveur que vous souhaitez inscrire.
 2. Ouvrez l’Explorateur de fichiers, puis accédez au répertoire d’installation de l’agent de synchronisation de stockage (l’emplacement par défaut est C:\Program Files\Azure\StorageSyncAgent). 
 3. Exécutez ServerRegistration.exe, puis effectuez l’Assistant pour inscrire le serveur auprès d’un service de synchronisation de stockage.
+
+
 
 <a id="server-already-registered"></a>**L’inscription du serveur affiche le message suivant pendant l’installation de l’agent Azure File Sync : « Ce serveur est déjà inscrit ».** 
 
@@ -95,9 +101,7 @@ Pour créer un point de terminaison cloud, votre compte d’utilisateur doit dis
 
 Les rôles intégrés suivants ont les autorisations Microsoft nécessaires :  
 * Propriétaire
-* Administrateur de l'accès utilisateur
-
-Pour déterminer si votre rôle de compte d’utilisateur a les autorisations nécessaires :  
+* Administrateur de l'accès utilisateur Pour déterminer si votre rôle de compte d’utilisateur a les autorisations nécessaires :  
 1. Dans le portail Azure, sélectionnez **Groupes de ressources**.
 2. Sélectionnez le groupe de ressources dans lequel se trouve le compte de stockage, puis sélectionnez **Contrôle d’accès (IAM)**.
 3. Sélectionnez le **rôle** (par exemple, Propriétaire ou Contributeur) pour votre compte d’utilisateur.
@@ -105,11 +109,24 @@ Pour déterminer si votre rôle de compte d’utilisateur a les autorisations n�
     * **Attribution de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
     * **Définition de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
 
-<a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur a échoué avec l’erreur : « MgmtServerJobFailed » (code d’erreur :-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur a échoué avec l’erreur : « MgmtServerJobFailed » (code d’erreur :-2134375898)**                                                                                                                    
 Ce problème se produit si le chemin du point de terminaison de serveur se trouve sur le volume système et que la hiérarchisation cloud est activée. La hiérarchisation cloud n’est pas prise en charge sur le volume système. Pour créer un point de terminaison de serveur sur le volume système, désactivez la hiérarchisation cloud quand vous créez le point de terminaison de serveur.
 
 <a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue avec cette erreur : « MgmtServerJobExpired »**                
 Ce problème se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Impossible d’ouvrir la page de propriétés du point de terminaison serveur ou de mettre à jour de la stratégie de hiérarchisation du cloud**
+
+Ce problème peut se produire si une opération de gestion sur le point de terminaison serveur échoue. Si la page de propriétés de point de terminaison serveur ne s’ouvre pas dans le portail Azure, la mise à jour du point de terminaison serveur à l’aide des commandes PowerShell à partir du serveur peut résoudre ce problème. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Synchronisation
 <a id="afs-change-detection"></a>**Après avoir créé un fichier directement dans mon partage de fichiers Azure sur SMB ou par le biais du portail, combien de temps faut-il pour synchroniser le fichier sur les serveurs du groupe de synchronisation ?**  

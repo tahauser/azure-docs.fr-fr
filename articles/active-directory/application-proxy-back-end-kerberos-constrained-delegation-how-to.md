@@ -3,7 +3,7 @@ title: "Résolution des problèmes de configuration de délégation Kerberos con
 description: "Résolvez les problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application
 
@@ -33,11 +34,11 @@ Cet article repose sur les hypothèses suivantes :
 
 -   L’application cible publiée est basée sur IIS et l’implémentation de Kerberos de Microsoft.
 
--   Les hôtes de serveur et d’application se trouvent dans un même domaine Active Directory. Vous trouverez des informations détaillées sur les scénarios inter-domaines et inter-forêts dans le [livre blanc sur KCD](http://aka.ms/KCDPaper).
+-   Les hôtes de serveur et d’application se trouvent dans un même domaine Active Directory. Vous trouverez des informations détaillées sur les scénarios inter-domaines et inter-forêts dans le [livre blanc sur KCD](https://aka.ms/KCDPaper).
 
 -   L’application concernée est publiée dans un client Azure pour lequel la pré-authentification est activée. Les utilisateurs doivent s’authentifier sur Azure par le biais de l’authentification basée sur les formulaires. Les scénarios d’authentification cliente complète ne sont pas couverts par cet article. Ils seront ajoutés ultérieurement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Le proxy d’application Azure peut être déployé sur de nombreux types d’environnement ou d’infrastructure. Les architectures varient naturellement d’une organisation à l’autre. Les causes les plus courantes de problèmes liés à KCD ne portent pas sur les environnements eux-mêmes, mais plutôt sur de simples erreurs de configuration ou des négligences d’ordre général.
 
@@ -51,7 +52,7 @@ Consultez notamment la section sur la configuration de KCD sur 2012 R2. En effe
 
 -   Dans la mesure du possible, vous devez éviter de placer des appareils IPS/IDS actifs entre les hôtes de connecteur et les contrôleurs de domaine. En effet, ceux-ci sont parfois trop intrusifs et interfèrent avec le trafic RPC de base.
 
-Il est recommandé de tester la délégation dans les scénarios les plus simples. Plus vous introduisez de variables, plus augmentez le nombre d’éléments à prendre en compte. Par exemple, en limitant vos tests à un seul connecteur, vous gagnerez un temps précieux. Vous pourrez ajouter d’autres connecteurs une fois les problèmes résolus.
+Vous devez tester la délégation dans les scénarios les plus simples. Plus vous introduisez de variables, plus augmentez le nombre d’éléments à prendre en compte. Par exemple, en limitant vos tests à un seul connecteur, vous gagnerez un temps précieux. Vous pourrez ajouter d’autres connecteurs une fois les problèmes résolus.
 
 Certains facteurs environnementaux peuvent également contribuer à un problème. Dans la mesure du possible, essayez de réduire l’architecture au strict minimum pour les tests. Par exemple, les listes ACL de pare-feu internes ne sont pas toujours bien configurées. Ainsi, si cela est possible, autorisez tout le trafic issu d’un connecteur à transiter directement vers les contrôleurs de domaine et l’application principale. 
 
@@ -79,7 +80,7 @@ Si vous en arrivez là, vous avez certainement affaire à un problème majeur. C
 
 **Pré-authentification du client** : l’utilisateur externe s’authentifiant sur Azure par le biais d’un navigateur.
 
-L’authentification SSO KDC ne peut fonctionner que si la pré-authentification sur Azure est possible. Cette possibilité doit être testée et tout problème doit être résolu en premier lieu. L’étape de pré-authentification n’a aucun lien avec KCD ou l’application publiée. Il doit être relativement simple de corriger les éventuelles incohérences en effectuant un contrôle de validité pour vérifier que le compte concerné existe dans Azure et qu’il n’est pas désactivé ou bloqué. Le message d’erreur dans le navigateur est généralement suffisamment descriptif pour permettre l’identification de la cause. Vous pouvez également consulter nos autres documents sur la résolution des problèmes en cas de doute.
+L’authentification SSO KDC ne peut fonctionner que si la pré-authentification sur Azure est possible. Vous devez vérifier ce point et résoudre les problèmes éventuels. L’étape de pré-authentification n’a aucun lien avec KCD ou l’application publiée. Il doit être relativement simple de corriger les éventuelles incohérences en effectuant un contrôle de validité pour vérifier que le compte concerné existe dans Azure et qu’il n’est pas désactivé ou bloqué. Le message d’erreur dans le navigateur est généralement suffisamment descriptif pour permettre l’identification de la cause. Vous pouvez également consulter nos autres documents sur la résolution des problèmes en cas de doute.
 
 **Service de délégation** : le connecteur de proxy Azure qui obtient un ticket de service Kerberos à partir d’un centre de distribution Kerberos (KDC, Kerberos Distribution Center) pour le compte d’utilisateurs.
 
@@ -103,9 +104,9 @@ Les entrées correspondantes du journal des événements apparaîtront comme év
 
 -   Vérifiez si une stratégie de domaine est appliquée pour limiter la [taille maximale des jetons Kerberos émis](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/) car cela empêche le connecteur d’obtenir un jeton si la taille est excessive
 
-Pour obtenir d’autres informations de base sur les problèmes rencontrés, l’étape suivante consisterait à assurer un suivi réseau capturant les échanges entre l’hôte de connecteur et un KDC du domaine. Pour plus de détails, consultez [le document sur la résolution approfondie des problèmes](https://aka.ms/proxytshootpaper).
+Pour obtenir d’autres informations de base sur les problèmes rencontrés, l’étape suivante consisterait à assurer un suivi réseau capturant les échanges entre l’hôte de connecteur et un KDC du domaine. Pour plus d’informations, consultez le [document sur la résolution approfondie des problèmes](https://aka.ms/proxytshootpaper).
 
-Si la création de tickets semble correcte, un événement doit figurer dans les journaux, indiquant que l’authentification a échoué en raison du renvoi d’une erreur 401 par l’application. Cela indique généralement que l’application cible rejette votre ticket. Dans ce cas, passez à l’étape suivante.
+Si la création de tickets semble correcte, un événement doit figurer dans les journaux, indiquant que l’authentification a échoué en raison du renvoi d’une erreur 401 par l’application. Cela indique généralement que l’application cible rejette votre ticket. Dans ce cas, passez à l’étape suivante :
 
 **Application cible** : le consommateur du ticket Kerberos fourni par le connecteur
 
@@ -125,7 +126,7 @@ Si la création de tickets semble correcte, un événement doit figurer dans les
 
 2.  Supprimez temporairement NTLM de la liste de fournisseurs sur le site IIS, et accédez à l’application directement à partir d’Internet Explorer sur l’hôte de connecteur. NTLM ne figurant plus dans la liste des fournisseurs, vous devez être en mesure d’accéder à l’application uniquement à l’aide de Kerberos. Si l’accès échoue, cela indique un problème avec la configuration de l’application. L’authentification Kerberos ne fonctionne donc pas.
 
-Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentification de l’application dans IIS pour vous assurer que Negotiate apparaît tout en haut avec NTLM juste en dessous. (Ne pas négocier : kerberos ou Négotier : PKU2U). Continuez uniquement si Kerberos est fonctionnel.
+Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentification de l’application dans IIS pour vous assurer que Negotiate apparaît tout en haut avec NTLM juste en dessous. (Non-Negotiate : Kerberos ou Negotiate : PKU2U). Continuez uniquement si Kerberos est fonctionnel.
 
    ![Fournisseurs d’authentification Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -147,11 +148,21 @@ Si Kerberos n’est pas disponible, vérifiez les paramètres d’authentificati
 
 -   Vérifiez que le SPN défini par rapport aux paramètres de l’application dans le portail est le même que celui configuré pour le compte AD cible utilisé par le pool d’applications de l’application
 
-   ![Configuration du SPN dans le Portail Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+   ![Configuration du SPN dans le portail Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
 -   Accédez à IIS et sélectionnez l’option **Éditeur de configuration** pour l’application. Puis, accédez à **system.webServer/security/authentication/windowsAuthentication** pour vous assurer que **UseAppPoolCredentials** a la valeur **True**
 
    ![Option de configuration IIS - informations d’identification des pools d’applications](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+Après la redéfinition de cette valeur sur **Vrai**, tous les tickets Kerberos mis en cache doivent être supprimés du serveur principal. Vous pouvez effectuer cette opération en exécutant la commande suivante :
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Pour plus d’informations, consultez l’article [Purge the Kerberos client ticket cache for all sessions (Purger le cache des tickets de client Kerberos pour toutes les sessions)](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 Garder le mode noyau activé s’avère utile pour améliorer les performances des opérations Kerberos. Cependant, dans ce cas, le ticket pour le service demandé sera déchiffré à l’aide du compte d’ordinateur. On parle également de système local. Ainsi, en cas de définition sur true, KCD est arrêté lorsque l’application est hébergée sur plusieurs serveurs au sein d’une batterie de serveurs.
 

@@ -1,7 +1,7 @@
 ---
 title: FAQ sur IoT Azure Suite | Microsoft Docs
 description: "Forum Aux Questions (FAQ) relatives à IoT Suite"
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Forum Aux Questions (FAQ) relatives à IoT Suite
 
-Voir aussi les [questions fréquentes (FAQ)](iot-suite-faq-cf.md) spécifiques sur l’usine connectée.
+Consultez également les [questions fréquentes sur la solution préconfigurée d’usine connectée](iot-suite-faq-cf.md) et les [questions fréquentes sur la surveillance à distance](iot-suite-faq-rm-v2.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Où trouver le code source des solutions préconfigurées ?
 
@@ -33,17 +33,6 @@ Le code source est stocké dans les référentiels GitHub suivants :
 * [Solution préconfigurée de surveillance à distance (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Solution préconfigurée de maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solution préconfigurée d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
-
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Combien coûte l’approvisionnement de la nouvelle solution de surveillance à distance ?
-
-La nouvelle solution préconfigurée offre deux options de déploiement :
-
-* Une option *de base* conçue pour les développeurs à la recherche d’un coût de développement moindre ou de clients souhaitant créer une démonstration ou une preuve de concept.
-* Une option *standard* conçue pour les entreprises souhaitant déployer une infrastructure prête à l’emploi dans un environnement de production.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Comment maintenir des coûts faibles pendant le développement de ma solution ?
-
-En plus des deux déploiements différenciés, la nouvelle solution de surveillance à distance dispose d’un paramètre pour activer ou désactiver tous les appareils simulés à la demande. La désactivation de la simulation réduit les données ingérées par la solution et, par conséquent, le coût global.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>La nouvelle architecture de microservices est-elle disponible pour tous les trois solutions préconfigurées ?
 
@@ -57,18 +46,14 @@ Ces deux dernières années, l’architecture cloud a considérablement évolué
 
 Oui, la nouvelle solution de surveillance à distance est disponible dans les mêmes zones géographiques.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Quelle est la différence entre les options de déploiement de base et standard ? Comment choisir entre les deux options de déploiement ?
-
-Chaque option de déploiement répond à des besoins différents. Le déploiement de base est conçu pour la prise en main et le développement d’une preuve de concept et de petits projets pilotes. Il fournit une architecture simplifiée avec le minimum de ressources nécessaires et à moindre coût. Le déploiement standard est conçu pour créer et personnaliser une solution prête à l’emploi dans un environnement de production et fournit les éléments nécessaires à cette fin. Pour la fiabilité et l’échelle, les microservices d’application sont générés en tant que conteneurs Docker et déployées à l’aide d’un orchestrateur (Kubernetes par défaut). L’orchestrateur est responsable du déploiement, de la mise à l’échelle et de la gestion de l’application. Vous devez choisir une option en fonction de vos besoins actuels. Vous pouvez utiliser l’une, l’autre ou une combinaison des deux selon la phase du projet.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Puis-je continuer à tirer parti de mes investissements existants dans Azure IoT Suite ?
-
-Oui. Toute solution qui existe aujourd'hui continue à fonctionner dans votre abonnement Azure et le code source reste disponible dans GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Quelle est la différence entre la suppression d’un groupe de ressources dans le portail Azure et un clic sur l’option supprimer d’une solution préconfigurée dans azureiotsuite.com ?
 
 * Si vous supprimez la solution préconfigurée dans [azureiotsuite.com](https://www.azureiotsuite.com/), vous supprimez toutes les ressources qui ont été approvisionnées lors de la création de la solution préconfigurée. Si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
 * Si vous supprimez le groupe de ressources sur le [portail Azure](https://portal.azure.com), vous supprimez uniquement les ressources de ce groupe de ressources. Vous devez également supprimer l’application Azure Active Directory associée à la solution préconfigurée.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Puis-je continuer à tirer parti de mes investissements existants dans Azure IoT Suite ?
+
+Oui. Toute solution qui existe aujourd'hui continue à fonctionner dans votre abonnement Azure et le code source reste disponible dans GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Combien d’instances d’IoT Hub puis-je configurer dans un abonnement ?
 
@@ -77,10 +62,6 @@ Par défaut, vous pouvez approvisionner [10 instances IoT Hub par abonnement](
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Combien d’instances d’Azure Cosmos DB puis-je configurer dans un abonnement ?
 
 Cinquante. Vous pouvez créer un [ticket de support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que 50 instances de Cosmos DB par abonnement.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Comment configurer un mappage dynamique sur le tableau de bord ?
-
-Pour plus d’informations, consultez [Upgrade map key to see devices on a dynamic map (Mettre à niveau une clé de mappage pour voir les appareils sur un mappage dynamique)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Combien d’API Bing Maps gratuites puis-je configurer dans un abonnement ?
 
@@ -105,6 +86,7 @@ Consultez le billet de blog d’Eric Golpe, [Procédure pas à pas pour la suppr
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 
+* [Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-explore.md)
 * [Présentation de la solution préconfigurée de maintenance prédictive](iot-suite-predictive-overview.md)
 * [Présentation de la solution préconfigurée d’usine connectée](iot-suite-connected-factory-overview.md)
 * [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)

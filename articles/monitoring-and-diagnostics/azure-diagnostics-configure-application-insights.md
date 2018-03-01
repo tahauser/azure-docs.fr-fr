@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
 Les services cloud, les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric utilisent l’extension Azure Diagnostics pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Azure Diagnostics 1.5 ou version ultérieure.
@@ -67,7 +67,7 @@ Exemple de configuration d’un récepteur pour Application Insights :
 
 - L’élément **ApplicationInsights** spécifie la clé d’instrumentation de la ressource Application Insights où les données des diagnostics Azure sont envoyées.
     - Si vous ne disposez pas d’une ressource Application Insights, consultez [Créer une ressource Application Insights](../application-insights/app-insights-create-new-resource.md) pour plus d’informations sur la création d’une ressource et l’obtention de la clé d’instrumentation.
-    - Si vous développez un service cloud avec le kit SDK Azure 2.8 et ultérieur, cette clé d’instrumentation est automatiquement renseignée. La valeur est basée sur le paramètre de configuration de service **APPINSIGHTS_INSTRUMENTATIONKEY** lors de l’empaquetage du projet de service cloud. Consultez [Utiliser Application Insights avec les diagnostics Azure pour résoudre les problèmes de service cloud](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+    - Si vous développez un service cloud avec le kit SDK Azure 2.8 et ultérieur, cette clé d’instrumentation est automatiquement renseignée. La valeur est basée sur le paramètre de configuration de service **APPINSIGHTS_INSTRUMENTATIONKEY** lors de l’empaquetage du projet de service cloud. Consultez [Application Insights pour Microsoft Azure Cloud Services](../application-insights/app-insights-cloudservices.md).
 
 - L’élément **Channels** contient au moins un élément **Channel**.
     - L’attribut *name* fait référence uniquement à ce canal.
@@ -75,7 +75,7 @@ Exemple de configuration d’un récepteur pour Application Insights :
         - Détaillé
         - Information
         - Avertissement
-        - Erreur
+        - Error
         - Critique
 
 Un canal fonctionne comme un filtre et vous permet de sélectionner les niveaux de consignation spécifiques à envoyer au récepteur cible. Par exemple, vous pouvez collecter des journaux détaillés et les envoyer vers le stockage, mais envoyer uniquement les erreurs vers le récepteur.
@@ -213,7 +213,7 @@ Dans la configuration précédente, les lignes ci-dessous ont les significations
 }
 ```
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 
 - **Les canaux consignent uniquement le type et non les compteurs de performances.** Si vous spécifiez un canal comprenant un élément compteur de performances, il est ignoré.
 - **Le niveau de consignation d’un canal ne peut pas dépasser le niveau de consignation de ce qui est collecté par les diagnostics Azure.** Par exemple, vous ne pouvez pas collecter les erreurs de consignation des applications dans l’élément Journaux et tenter d’envoyer des journaux détaillés vers le journal de suivi Application Insight. L'attribut *scheduledTransferLogLevelFilter* doit toujours collecter au moins autant de journaux que ceux que vous essayez d'envoyer à un récepteur.

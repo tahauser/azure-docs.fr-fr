@@ -4,7 +4,7 @@ description: "Marquez un sous-réseau en tant que point de terminaison de servic
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/20/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -127,9 +128,6 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
 
-- À l’heure actuelle, une application web Azure dans un sous-réseau dont les **points de terminaison de service** sont activés ne fonctionne pas encore comme prévu. Nous travaillons à activer cette fonctionnalité sous peu.
-    - Tant que cette fonctionnalité n’est pas entièrement implémentée, nous vous recommandons de déplacer votre application web vers un autre sous-réseau qui ne dispose pas de points de terminaison de service activés pour SQL.
-
 - Dans le pare-feu pour votre base de données SQL Database, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge la base de données SQL Database.
 
 - Chaque serveur Azure SQL Database peut avoir jusqu’à 128 entrées ACL pour un réseau virtuel donné.
@@ -142,6 +140,12 @@ Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel prése
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
     - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
     - En local via [ExpressRoute][expressroute-indexmd-744v]
+
+#### <a name="considerations-when-using-service-endpoints"></a>Considérations en cas d’utilisation des points de terminaison de service
+Lorsque vous utilisez des points de terminaison de service pour Azure SQL Database, passez en revue les considérations suivantes :
+
+- **Une sortie vers les adresses IP publiques Azure SQL Database est requise** : des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Vous pouvez pour ce faire utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) NSG pour Azure SQL Database.
+- **Azure SQL Database pour PostgreSQL et MySQL ne sont pas pris en charge** : les points de terminaison de service ne sont pas pris en charge pour Azure Database pour PostgreSQL ou MySQL. L’activation des points de terminaison de service pour la base de données SQL interrompra la connectivité à ces services. Nous avons une atténuation pour cela ; veuillez contacter *dmalik@microsoft.com*.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -170,6 +174,8 @@ L’éditeur de requêtes Azure SQL Database est déployé sur des machines virt
 #### <a name="table-auditing"></a>Audit de table
 Il existe actuellement deux façons d’activer l’audit sur votre instance SQL Database. L’audit de table échoue une fois que vous avez activé des points de terminaison de service sur votre instance Azure SQL Server. Pour contourner le problème, vous pouvez utiliser un audit d’objets blob.
 
+#### <a name="impact-on-data-sync"></a>Impact sur la synchronisation de données
+SQLDB Azure dispose de la fonctionnalité de synchronisation de données qui se connecte à vos bases de données à l’aide d’adresses IP Azure. Lorsque vous utilisez des points de terminaison de service, il est probable que vous comptiez désactiver l’accès **Autoriser tous les services Azure** à votre serveur logique. Cela arrêtera la fonctionnalité de synchronisation de données.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure
 
@@ -177,7 +183,7 @@ Le stockage Azure a implémenté la même fonctionnalité qui vous permet de lim
 Si vous choisissez d’utiliser cette fonctionnalité avec un compte de stockage utilisé par une instance SQL Azure Server, vous risquez de rencontrer les problèmes. Vous trouverez ci-dessous une liste détaillée des fonctionnalités Azure SQLDB affectées par ce problème.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue.
+PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Il existe une atténuation des risques pour cet objet ; veuillez contacter *dmalik@microsoft.com* pour plus d’informations.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Audit d’objets blob Azure SQLDB
 L’audit d’objets blob transfère des journaux d’audit à votre propre compte de stockage. Si ce compte de stockage utilise la fonctionnalité de points de terminaison de service VENT, la connectivité entre Azure SQLDB et le compte de stockage sera interrompue.

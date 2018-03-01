@@ -15,7 +15,7 @@ Les disques durs virtuels et les machines virtuelles sont deux ressources disti
 
 La première étape de la récupération de votre machine virtuelle consiste à supprimer la ressource de machine virtuelle. En supprimant la machine virtuelle, vous ne vous séparez pas des disques durs virtuels de votre compte de stockage. Une fois la machine virtuelle supprimée, vous pouvez associer le disque dur virtuel à une autre machine virtuelle afin de réparer et de corriger les erreurs. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 2. Dans le menu de gauche, cliquez sur **Machines virtuelles (classiques)**.
 3. Sélectionnez la machine virtuelle défaillante, cliquez sur **Disques**, puis identifiez le nom du disque dur virtuel. 
 4. Sélectionnez le disque dur virtuel du système d’exploitation et vérifiez son **Emplacement** pour identifier le compte de stockage dans lequel il se trouve. Dans l’exemple suivant, la chaîne précédant « .blob.core.windows.net » correspond au nom du compte de stockage.
@@ -48,7 +48,7 @@ Une fois le disque dur virtuel existant monté, vous pouvez exécuter les procé
 ## <a name="unmount-and-detach-the-original-virtual-hard-disk"></a>Démonter et dissocier le disque dur virtuel d’origine
 Une fois les erreurs résolues, démontez et détachez le disque dur virtuel existant de votre machine virtuelle de dépannage. Vous ne pouvez pas utiliser votre disque dur virtuel avec une autre machine virtuelle avant la libération du bail associant le disque dur virtuel à la machine virtuelle de dépannage.  
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles (classiques)**.
 3. Recherchez la machine virtuelle de récupération. Sélectionnez Disques, faites un clic droit sur le disque, puis sélectionnez **Détacher**.
 
@@ -57,6 +57,6 @@ Une fois les erreurs résolues, démontez et détachez le disque dur virtuel exi
 Pour créer une machine virtuelle à partir de votre disque dur virtuel d’origine, utilisez le [portail Azure](https://portal.azure.com).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. En haut à gauche du portail, sélectionnez **Nouveau** > **Calcul** > **Machine virtuelle** > **Depuis la galerie**.
+2. Dans le coin supérieur gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle** > **À partir de la galerie**.
 3. Dans la section **Choisir une image**, sélectionnez **Mes disques**, puis le disque dur virtuel d’origine. Vérifiez les informations d’emplacement. Il s’agit de la région dans laquelle vous devez déployer la machine virtuelle. Cliquez sur Suivant.
 4. Dans la section **Configuration de la machine virtuelle**, entrez le nom de la machine virtuelle et sélectionnez une taille.

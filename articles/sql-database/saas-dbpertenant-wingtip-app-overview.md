@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Présentation d’un exemple d’application SaaS mutualisée SQL Database
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec SQL Database
 
-L’application *SaaS Wingtip* est un exemple d’application mutualisée qui présente les avantages uniques de SQL Database. L’application utilise une base de donnée par locataire, un modèle d’application SaaS, pour traiter plusieurs locataires. L’application est conçue pour présenter les fonctionnalités d’Azure SQL Database qui activent des scénarios Saas, dont quelques modèles de gestion et de conception SaaS. Pour que vous soyez rapidement opérationnel, l’application SaaS Wingtip se déploie en moins de cinq minutes.
+L’application *Wingtip SaaS* est un exemple d’application mutualisée. L’application utilise une base de données par locataire, le modèle d’application SaaS, pour traiter plusieurs locataires. L’application présente les fonctionnalités d’Azure SQL Database qui activent des scénarios SaaS, à l’aide de plusieurs modèles de gestion et de conception SaaS. Pour que vous soyez rapidement opérationnel, l’application SaaS Wingtip se déploie en moins de cinq minutes.
 
-Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
+Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Avant de commencer, consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) pour télécharger et débloquer les scripts de gestion Wingtip Tickets.
 
 ## <a name="application-architecture"></a>Architecture de l'application
 
@@ -40,7 +40,7 @@ Lorsque vous suivez les didacticiels et utilisez l’application, il est importa
 Après avoir déployé l’application, explorez les didacticiels suivants qui se basent sur le déploiement initial. Ces didacticiels explorent des modèles SaaS courants qui tirent parti des fonctionnalités intégrées de SQL Database, de SQL Data Warehouse et d’autres services Azure. Les didacticiels incluent des scripts PowerShell, avec des explications détaillées qui simplifient considérablement la compréhension et l’implémentation des mêmes modèles de gestion SaaS dans vos applications.
 
 
-| Didacticiel | Description |
+| Didacticiel | DESCRIPTION |
 |:--|:--|
 | [Instructions et conseils pour l’exemple d’application de base de données SQL Azure mutualisée SaaS](saas-tenancy-wingtip-app-guidance-tips.md) | **COMMENCEZ ICI** Téléchargez et exécutez les scripts PowerShell permettant de préparer des parties de l’application. |
 |[Déployer et explorer l’application SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Déployez et explorez l’application SaaS Wingtip dans votre abonnement Azure. |
@@ -48,13 +48,13 @@ Après avoir déployé l’application, explorez les didacticiels suivants qui s
 |[Surveiller et gérer les performances](saas-dbpertenant-performance-monitoring.md)| Découvrez comment utiliser les fonctionnalités de surveillance de SQL Database, et définir des alertes qui se déclenchent en cas de dépassement des seuils de performances. |
 |[Surveiller avec Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) | Apprenez à utiliser [Log Analytics](../log-analytics/log-analytics-overview.md) pour surveiller de grandes quantités de ressources dans plusieurs pools. |
 |[Restaurer un client unique](saas-dbpertenant-restore-single-tenant.md)| Découvrez comment restaurer une base de données client à un point antérieur dans le temps. Les étapes permettant de restaurer une base de données parallèle, en laissant la base de données client en ligne, sont également incluses. |
-|[Gérer les schémas de client](saas-tenancy-schema-management.md)| Découvrez comment mettre à jour un schéma et des données de référence sur tous les clients SaaS Wingtip. |
-|[Exécuter une analyse ad hoc](saas-tenancy-adhoc-analytics.md) | Créez une base de données analytique ad hoc, puis exécutez des requêtes distribuées en temps réel sur tous les clients.  |
-|[Exécuter une analyse des clients](saas-tenancy-tenant-analytics.md) | Extrayez les données client dans une base de données analytique ou un entrepôt de données pour l’exécution de requêtes analytiques en mode hors connexion. |
+|[Gérer le schéma de base de données client](saas-tenancy-schema-management.md)| Découvrez comment mettre à jour un schéma et des données de référence sur toutes les bases de données de locataire. |
+|[Exécuter des requêtes distribuées entre locataires](saas-tenancy-cross-tenant-reporting.md) | Créez une base de données analytique ad hoc, puis exécutez des requêtes distribuées en temps réel sur tous les clients.  |
+|[Exécuter l’analytique sur les données client extraites](saas-tenancy-tenant-analytics.md) | Extrayez les données client dans une base de données analytique ou un entrepôt de données pour les requêtes analytiques en mode hors connexion. |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-- [Instructions et conseils pour l’exemple d’application de base de données SQL Azure mutualisée SaaS](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Conseils généraux et astuces relatifs au déploiement et à l’utilisation de l’exemple d’application SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Déployer l’application SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)

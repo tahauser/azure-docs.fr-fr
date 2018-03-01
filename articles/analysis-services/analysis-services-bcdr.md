@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 554c5e6e3e3cfa2742ef27a3c1510176184b6bd0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ed2bb2fe159db146ee520fc600c8b11f2dd4f761
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analysis-services-high-availability"></a>Haute disponibilité Analysis Services
 Cet article décrit la garantie d’une haute disponibilité pour les serveurs Azure Analysis Services. 
@@ -29,13 +29,14 @@ Bien que le fait soit rare, un centre de données Azure peut subir une panne. En
 
 * Déployer des modèles sur des serveurs redondants dans d’autres régions. Cette méthode requiert le traitement des données sur votre serveur principal et sur les serveurs redondants en parallèle, garantissant ainsi la synchronisation de tous les serveurs.
 
-* Sauvegardez les bases de données à partir de votre serveur principal et restaurez-les sur des serveurs redondants. Par exemple, vous pouvez automatiser les sauvegardes nocturnes vers le stockage Azure et procéder à la restauration vers d’autres serveurs redondants dans d’autres régions. 
+* [Sauvegardez](analysis-services-backup.md) les bases de données à partir de votre serveur principal et restaurez-les sur des serveurs redondants. Par exemple, vous pouvez automatiser les sauvegardes nocturnes vers le stockage Azure et procéder à la restauration vers d’autres serveurs redondants dans d’autres régions. 
 
 Dans les deux cas, si votre serveur principal subit une panne, vous devez modifier les chaînes de connexion des clients de rapport afin de vous connecter au serveur dans un autre centre de données régional. Cette modification doit être envisagée en dernier recours et uniquement en cas de panne très grave du centre de données régional. Il est plus probable qu’une panne du centre de données hébergeant votre serveur principal réapparaisse en ligne avant que vous ne puissiez mettre à jour les connexions sur tous les clients. 
 
-
+Pour éviter de devoir modifier les chaînes de connexion sur les clients de création de rapports, vous pouvez créer un [alias](analysis-services-server-alias.md) de serveur pour votre serveur principal. Si le serveur principal tombe en panne, vous pouvez modifier l’alias pour qu’il pointe vers un serveur redondant dans une autre région. Vous pouvez automatiser un alias à un nom de serveur en codant un contrôle d’intégrité de point de terminaison sur le serveur principal. Si le contrôle d’intégrité échoue, le même point de terminaison peut diriger vers un serveur redondant dans une autre région. 
 
 ## <a name="related-information"></a>Informations connexes
 [Sauvegarde et restauration](analysis-services-backup.md)   
-[Gérer Azure Analysis Services](analysis-services-manage.md) 
+[Gérer Analysis Services](analysis-services-manage.md)   
+[Alias de noms de serveurs](analysis-services-server-alias.md) 
 

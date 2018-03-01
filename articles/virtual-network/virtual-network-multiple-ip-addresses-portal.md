@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: d264bd47d76db8015a64f09248c57c94572e2693
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure
 
@@ -35,7 +35,7 @@ Si vous souhaitez créer une machine virtuelle avec plusieurs adresses IP ou un
 
 ## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
-Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario) de cet article, mais ce n’est pas une condition obligatoire.
+Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario), mais ce n’est pas une condition obligatoire.
 
 ### <a name="coreadd"></a>Étapes de base
 
@@ -43,7 +43,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau 
 2. Dans le portail, cliquez sur **Plus de services**, puis saisissez *Machines virtuelles* dans la zone de filtre et cliquez sur **Machines virtuelles**.
 3. Dans le panneau **Machines virtuelles**, cliquez sur la machine virtuelle à laquelle ajouter des adresses IP. Dans le panneau qui s’affiche, cliquez sur **Interfaces réseau** et sélectionnez l’interface réseau à laquelle ajouter les adresses IP. Dans l’exemple illustré dans l’image suivante, la carte réseau nommée *myNIC* associée à la machine virtuelle *myVM* est sélectionnée :
 
-    ![Interface réseau](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
+    ![interface réseau](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
 4. Dans le panneau affichant la carte réseau que vous avez sélectionnée, cliquez sur **Configurations IP**.
 
@@ -54,14 +54,14 @@ Effectuez les étapes décrites dans l’une des sections qui suivent, selon le 
 Procédez comme suit pour ajouter une nouvelle adresse IP privée :
 
 1. Suivez les étapes de la section [Étapes de base](#coreadd) du présent article.
-2. Cliquez sur **Ajouter**. Dans le panneau **Ajouter une configuration IP** qui s’affiche, créez une configuration IP appelée *IPConfig-4*, en lui associant l’adresse *10.0.0.7* à titre d’adresse IP privée *statique*, puis cliquez sur **OK**.
+2. Cliquez sur **Add**. Dans le panneau **Ajouter une configuration IP** qui s’affiche, créez une configuration IP appelée *IPConfig-4*, en lui associant l’adresse *10.0.0.7* à titre d’adresse IP privée *statique*, puis cliquez sur **OK**.
 
     > [!NOTE]
-    > Lorsque vous ajoutez une adresse IP statique, vous devez spécifier une adresse valide, non utilisée, sur le sous-réseau auquel la carte réseau est connectée. Si l’adresse IP que vous sélectionnez n’est pas disponible, le portail lui associe une croix et vous devez en choisir une autre.
+    > Lorsque vous ajoutez une adresse IP statique, vous devez spécifier une adresse valide, non utilisée, sur le sous-réseau auquel la carte réseau est connectée. Si l’adresse IP que vous sélectionnez n’est pas disponible, le portail affiche une croix et vous devez en choisir une autre.
 
 3. Lorsque vous cliquez sur OK, le panneau se ferme et la liste des nouvelles configurations IP s’affiche. Cliquez sur **OK** pour fermer le panneau **Ajouter une configuration IP**.
 4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP.
-5. Ajoutez les adresses IP privées dans le système d’exploitation de la machine virtuelle en suivant les étapes relatives à ce système décrites dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) du présent article.
+5. Ajoutez les adresses IP privées pour le système d’exploitation de la machine virtuelle en suivant les étapes dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article.
 
 ### <a name="add-a-public-ip-address"></a>Ajouter une adresse IP publique
 
@@ -76,7 +76,7 @@ Vous ajoutez une adresse IP publique en associant une ressource d’adresse IP
 Une adresse IP publique correspond à un paramètre de configuration d’une ressource d’adresse IP publique. Si vous disposez d’une ressource d’adresse IP publique qui n’est pas actuellement associée à une configuration IP, effectuez cette opération en ignorant la procédure ci-après, et appliquez les étapes décrites dans l’une des sections qui suivent, le cas échéant. Si aucune ressource d’adresse IP publique n’est disponible, procédez comme suit pour en créer une :
 
 1. Accédez au portail Azure en saisissant l’adresse https://portal.azure.com. Connectez-vous, si nécessaire.
-3. Dans le portail, cliquez sur **Nouveau** > **Mise en réseau** > **Adresse IP publique**.
+3. Dans le portail, cliquez sur **Créer une ressource** > **Mise en réseau** > **Adresse IP publique**.
 4. Dans le panneau **Créer une adresse IP publique** qui s’affiche, indiquez un nom dans le champ **Nom**, sélectionnez une valeur dans les champs **Affectation d’adresses IP**, **Abonnement**, **Groupe de ressources** et **Emplacement**, puis cliquez sur **Créer**, comme indiqué dans l’image suivante :
 
     ![Créer une ressource d’adresse IP publique](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
@@ -86,13 +86,13 @@ Une adresse IP publique correspond à un paramètre de configuration d’une re
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Associer la ressource d’adresse IP publique à une nouvelle configuration IP
 
 1. Suivez les étapes de la section [Étapes de base](#coreadd) du présent article.
-2. Cliquez sur **Ajouter**. Dans le panneau **Ajouter une configuration IP** qui s’affiche, créez une configuration IP nommée *IPConfig-4*. Activez la case à cocher **Adresse IP publique** et choisissez une ressource d’adresse IP publique disponible dans le panneau **Choisir une adresse IP publique** qui s’affiche.
+2. Cliquez sur **Add**. Dans le panneau **Ajouter une configuration IP** qui s’affiche, créez une configuration IP nommée *IPConfig-4*. Activez la case à cocher **Adresse IP publique** et choisissez une ressource d’adresse IP publique disponible dans le panneau **Choisir une adresse IP publique** qui s’affiche.
 
     Une fois que vous avez sélectionné la ressource d’adresse IP publique, cliquez sur **OK**. Le panneau se ferme. Le cas échéant, vous pouvez créer une adresse IP publique en suivant la procédure de la section [Créer une ressource d’adresse IP publique](#create-public-ip) du présent article. 
 
 3. Passez en revue la nouvelle configuration IP. Même si aucune adresse IP privée n’a été explicitement affectée, une adresse de ce type a été automatiquement affectée à la configuration IP, car toutes les configurations IP doivent avoir une adresse IP privée.
 4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP.
-5. Ajoutez l’adresse IP privée dans le système d’exploitation de la machine virtuelle en suivant les étapes relatives à ce système décrites dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) du présent article. N’ajoutez pas l’adresse IP publique dans le système d’exploitation.
+5. Ajoutez l’adresse IP privée dans le système d’exploitation de la machine virtuelle en suivant les étapes relatives à ce système décrites dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) du présent article. N’ajoutez pas l’adresse IP publique au système d’exploitation.
 
 #### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>Associer la ressource d’adresse IP publique à une configuration IP existante
 
@@ -100,7 +100,7 @@ Une adresse IP publique correspond à un paramètre de configuration d’une re
 2. Cliquez sur la configuration IP à laquelle vous souhaitez ajouter la ressource d’adresse IP publique.
 3. Dans le panneau IPConfig qui s’affiche, cliquez sur **Adresse IP**.
 4. Dans le panneau **Choisir une adresse IP publique** qui apparaît, sélectionnez une adresse IP publique.
-5. Cliquez sur **Enregistrer** : les panneaux se ferment. Le cas échéant, vous pouvez créer une adresse IP publique en suivant la procédure de la section [Créer une ressource d’adresse IP publique](#create-public-ip) du présent article.
+5. Cliquez sur **Enregistrer**. Les panneaux se ferment. Le cas échéant, vous pouvez créer une adresse IP publique en suivant la procédure de la section [Créer une ressource d’adresse IP publique](#create-public-ip) du présent article.
 3. Passez en revue la nouvelle configuration IP.
 4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP. N’ajoutez pas l’adresse IP publique dans le système d’exploitation.
 

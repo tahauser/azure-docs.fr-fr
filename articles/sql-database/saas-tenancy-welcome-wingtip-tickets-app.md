@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Application SaaS Wingtip Tickets
 
-La même application *Wingtip Tickets* est implémentée dans chacun des trois exemples. L’application est une simple application SaaS de réservation et de liste d’événements ciblant les lieux de petite taille (cinémas, clubs, etc.). Chaque lieu correspond à un locataire de l’application et dispose de ses propres données : détails sur le lieu, listes d’événements, clients, commandes de tickets, etc.  L’application, ainsi que les scripts de gestion et les didacticiels, présentent un scénario SaaS de bout en bout. Celui-ci inclut le provisionnement des locataires, le monitoring et la gestion des performances, la gestion des schémas et les rapports et analytiques entre locataires.
+La même application *Wingtip Tickets* SaaS est implémentée dans chacun des trois exemples. L’application est une simple application SaaS de réservation et de liste d’événements ciblant les lieux de petite taille (cinémas, clubs, etc.). Chaque lieu correspond à un locataire de l’application et dispose de ses propres données : détails sur le lieu, listes d’événements, clients, commandes de tickets, etc.  L’application, ainsi que les scripts de gestion et les didacticiels, présentent un scénario SaaS de bout en bout. Celui-ci inclut le provisionnement des locataires, le monitoring et la gestion des performances, la gestion des schémas et les rapports et analytiques entre locataires.
 
-## <a name="three-saas-application-patterns"></a>3 modèles d’application SaaS
+## <a name="three-saas-application-and-tenancy-patterns"></a>3 modèles d’application SaaS et de clients
 
-Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture mutualisée de base de données sur Azure SQL Database.  La première utilise une application à locataire unique avec une base de données mono-locataire isolée. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
+Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture mutualisée de base de données sur Azure SQL Database.  Le premier utilise une application autonome par client avec sa propre base de données. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
 
 ![Trois modèles d’architecture mutualisée][image-three-tenancy-patterns]
 
- Chaque exemple inclut des scripts et didacticiels qui explorent plusieurs modèles de conception et de gestion que vous pouvez utiliser dans votre propre application.  Chaque exemple se déploie en moins de cinq minutes.  Les trois exemples peuvent être déployés côte à côte. Vous pouvez alors comparer les différences de conception et de gestion.
+ Chaque exemple inclut le code de l’application, et des scripts et didacticiels qui explorent plusieurs modèles de conception et de gestion.  Chaque exemple se déploie en moins de cinq minutes.  Les trois exemples peuvent être déployés côte à côte. Vous pouvez alors comparer les différences de conception et de gestion.
 
-## <a name="standalone-application-pattern"></a>Modèle d’application autonome
+## <a name="standalone-application-per-tenant-pattern"></a>Modèle d’application autonome par client
 
-Le modèle d’application autonome utilise une application à locataire unique avec une base de données mono-locataire pour chaque locataire. Chaque application du locataire est déployée dans un groupe de ressources Azure distinct. Ce dernier peut se trouver dans l’abonnement du fournisseur de services ou dans celui du locataire qui est alors géré par le fournisseur au nom du locataire. Ce modèle fournit l’isolation des locataires la plus grande, mais il est généralement le plus onéreux, car il n’existe aucune possibilité de partager des ressources entre plusieurs locataires.
+Le modèle d’application autonome par client utilise une application à locataire unique avec une base de données pour chaque locataire. Chaque application du locataire, base de données comprise, est déployée dans un groupe de ressources Azure distinct. Le groupe de ressources peut être déployé dans l’abonnement du fournisseur de services ou dans celui du locataire qui est alors géré par le fournisseur au nom du locataire. Le modèle d’application autonome par client fournit l’isolation des locataires la plus grande, mais il est généralement le plus onéreux, car il n’existe aucune possibilité de partager des ressources entre plusieurs locataires.  Ce modèle convient parfaitement aux applications qui peuvent être plus complexes et qui sont déployées sur de plus petits nombres de clients.  Avec les déploiements autonomes, l’application peut être personnalisée pour chaque client plus facilement que dans d’autres modèles.  
 
 Consultez les [didacticiels][docs-tutorials-for-wingtip-sa] et le code sur GitHub  [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
@@ -47,13 +47,13 @@ Consultez les [didacticiels][docs-tutorials-for-wingtip-dpt] et le code sur GitH
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Modèle de base de données multi-locataire partitionnée
 
-Les bases de données multi-locataires sont efficaces pour les fournisseurs de services qui veulent un coût inférieur par locataire et n’ont besoin d’une forte isolation des locataires. Ce modèle permet la compression de gros volumes de locataires dans une seule base de données, et ainsi de réduire le coût par locataire. Une échelle presque infinie est possible en partitionnant les locataires entre plusieurs bases de données.  Une base de données de catalogue mappe à nouveau les locataires aux bases de données.  
+Les bases de données multi-locataires sont efficaces pour les fournisseurs de services qui veulent un coût inférieur par locataire et n’ont besoin d’une forte isolation des locataires. Ce modèle permet la compression de gros volumes de locataires dans une seule base de données, et ainsi de réduire le coût par locataire. Une échelle presque infinie est possible en partitionnant les locataires entre plusieurs bases de données. Une base de données de catalogue mappe à nouveau les locataires aux bases de données.  
 
-Ce modèle autorise également un modèle hybride dans lequel vous pouvez optimiser les coûts avec plusieurs locataires dans une base de données, ou optimiser l’isolation avec un seul locataire dans sa propre base de données. Le choix peut être effectué locataire par locataire, soit lorsque le locataire est provisionné, soit ultérieurement, sans aucun impact sur l’application.
+Ce modèle autorise également un modèle *hybride* dans lequel vous pouvez optimiser les coûts avec plusieurs locataires dans une base de données, ou optimiser l’isolation avec un seul locataire dans sa propre base de données. Le choix peut être effectué locataire par locataire, soit lorsque le locataire est provisionné, soit ultérieurement, sans aucun impact sur l’application.  Ce modèle peut être utilisé efficacement lorsque des groupes de clients doivent être traités différemment. Par exemple, les clients à bas coût peuvent avoir des bases de données partagées, tandis que les clients premium peuvent être affectés à leurs propres bases de données. 
 
 Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 #### <a name="conceptual-descriptions"></a>Descriptions conceptuelles
 
@@ -61,7 +61,7 @@ Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHu
 
 #### <a name="tutorials-and-code"></a>Didacticiels et code
 
-- Application autonome :
+- Application autonome par client :
     - [Didacticiels pour une application autonome][docs-tutorials-for-wingtip-sa].
     - [Code pour une application autonome, sur GitHub][github-code-for-wingtip-sa].
 

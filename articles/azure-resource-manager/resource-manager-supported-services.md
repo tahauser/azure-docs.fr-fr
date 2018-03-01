@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Fournisseurs et types de ressources
 
@@ -138,7 +138,7 @@ West US
 ...
 ```
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Azure CLI
 Pour afficher tous les fournisseurs de ressources dans Azure et l’état de l’inscription de votre abonnement, utilisez :
 
 ```azurecli
@@ -263,9 +263,9 @@ L’inscription d’un fournisseur de ressources configure votre abonnement pour
 
 Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
-Pour afficher des informations pour un fournisseur de ressources particulier, sélectionnez **Autres services**.
+Pour visualiser des informations concernant un fournisseur de ressources spécifique, sélectionnez **Tous les services**.
 
-![sélectionner d’autres services](./media/resource-manager-supported-services/more-services.png)
+![sélectionner Tous les services](./media/resource-manager-supported-services/more-services.png)
 
 Recherchez **Explorateur de ressources** et sélectionnez-le dans les options disponibles.
 
@@ -287,7 +287,7 @@ La version de l'API correspond à une version des opérations de l'API REST publ
 
 ![afficher les versions d’API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 * Pour afficher les opérations pour un fournisseur de ressources, consultez [API REST Azure](/rest/api/).

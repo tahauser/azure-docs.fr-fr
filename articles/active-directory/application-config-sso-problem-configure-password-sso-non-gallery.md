@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie
 
@@ -33,19 +33,19 @@ Deux options s’offrent à vous pour capturer des champs de connexion dans vos 
 
 -   La capture de champs de connexion manuelle
 
-La **capture de champs de connexion automatique** fonctionne avec la plupart des pages de connexion HTML, si celles-ci utilisent des **ID DIV connus pour les champs de saisie du nom d’utilisateur et du mot de passe**. Voici comment se déroule ce processus : le code HTML de la page est récupéré pour rechercher des ID DIV qui répondent à certains critères, puis ces métadonnées sont enregistrées pour cette application de façon que nous puissions y réutiliser les mots de passe plus tard.
+La **capture de champs de connexion automatique** fonctionne avec la plupart des pages de connexion HTML, si celles-ci utilisent des **ID DIV connus pour les champs de saisie du nom d’utilisateur et du mot de passe**. Ce processus décompose le code HTML de la page pour y rechercher des ID DIV qui répondent à certains critères, puis enregistre ces métadonnées pour cette application à des fins de réutilisation ultérieure des mots de passe.
 
-La **capture de champs de connexion manuelle** peut être utilisée quand le fournisseur **de l’application n’a pas ajouté de libellé** aux champs de saisie utilisés pour la connexion. La capture de champs de connexion manuelle peut également être utile lorsque le **fournisseur affiche plusieurs champs** qui ne peuvent pas être détectés automatiquement. Azure AD peut stocker les données de tous les champs de la page de connexion, sous réserve que vous nous donniez l’emplacement de chacun sur la page.
+La **capture de champs de connexion manuelle** est utilisable quand le **fournisseur de l’application n’a pas libellé** les champs d’entrée utilisés pour la connexion. La capture de champs de connexion manuelle peut également se révéler utile lorsque le **fournisseur affiche plusieurs champs** non détectables automatiquement. Azure AD peut stocker les données de tous les champs de la page de connexion, sous réserve que vous nous indiquiez l’emplacement de chacun d’eux sur la page.
 
-En règle générale, **si la capture de champs de connexion automatique ne fonctionne pas, nous vous suggérons toujours d’essayer l’option manuelle.**
+En règle générale, **si la capture de champs de connexion automatique ne fonctionne pas, essayez l’option manuelle**.
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Comment capturer automatiquement les champs de connexion d’une application
 
 Pour configurer **l’authentification unique avec mot de passe** d’une application à l’aide de la **capture de champs de connexion automatique**, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’administrateur général** ou en tant que **coadministrateur**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -61,21 +61,21 @@ Pour configurer **l’authentification unique avec mot de passe** d’une applic
 
 8.  Sélectionnez le mode **Authentification par mot de passe.**
 
-9.  Entrez **l’URL de connexion**. Il s’agit de l’URL où les utilisateurs entrent leur nom d’utilisateur et mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
+9.  Spécifiez **l’URL de connexion**, autrement dit l’URL au niveau de laquelle les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
 
 10. Cliquez sur le bouton **Enregistrer** .
 
-11. Une fois cela effectué, nous décomposons automatiquement cette URL pour afficher les zones de saisie du mot de passe et du nom d’utilisateur. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet accès.
+11. Une fois cette opération effectuée, cette URL est automatiquement décomposée pour afficher les zones de saisie du nom d’utilisateur et du mot de passe. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet d’accès.
 
 ## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Comment capturer manuellement les champs de connexion d’une application
 
-Pour capturer manuellement les champs de connexion, l’extension de navigateur du volet d’accès doit être installée et **ne doit pas s’exécuter en mode inPrivate, incognito ou privé.** Pour installer l’extension de navigateur, suivez les étapes de la section [Comment installer l’extension de navigateur du volet d’accès](#i-cannot-manually-detect-sign-in-fields-for-my-application).
+Pour que vous puissiez capturer manuellement les champs de connexion, l’extension de navigateur du volet d’accès doit être installée et **ne doit pas s’exécuter en mode inPrivate, incognito ou privé**. Pour installer l’extension de navigateur, suivez les étapes de la section [Comment installer l’extension de navigateur du volet d’accès](#i-cannot-manually-detect-sign-in-fields-for-my-application).
 
 Pour configurer **l’authentification unique avec mot de passe** d’une application à l’aide de la **capture de champs de connexion manuelle**, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’administrateur général** ou en tant que **coadministrateur**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
@@ -91,11 +91,11 @@ Pour configurer **l’authentification unique avec mot de passe** d’une applic
 
 8.  Sélectionnez le mode **Authentification par mot de passe.**
 
-9.  Entrez **l’URL de connexion**. Il s’agit de l’URL où les utilisateurs entrent leur nom d’utilisateur et mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
+9.  Spécifiez **l’URL de connexion**, autrement dit l’URL au niveau de laquelle les utilisateurs entrent leur nom d’utilisateur et leur mot de passe pour se connecter. **Vérifiez que les champs de connexion sont visibles dans l’URL que vous fournissez**.
 
 10. Cliquez sur le bouton **Enregistrer** .
 
-11. Une fois cela effectué, nous décomposons automatiquement cette URL pour afficher les zones de saisie du mot de passe et du nom d’utilisateur. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet accès. Si l’opération échoue, vous pouvez **modifier le mode de connexion pour qu’il utilise la capture de champs de connexion manuelle** en continuant à l’étape 12.
+11. Une fois cette opération effectuée, cette URL est automatiquement décomposée pour afficher les zones de saisie du nom d’utilisateur et du mot de passe. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet d’accès. Si l’opération échoue, vous pouvez **modifier le mode de connexion pour qu’il utilise la capture de champs de connexion manuelle** en poursuivant à l’étape 12.
 
 12. Cliquez sur **Configurer les paramètres d’authentification unique par mot de passe de** &lt;nom de l’application&gt;.
 
@@ -103,7 +103,7 @@ Pour configurer **l’authentification unique avec mot de passe** d’une applic
 
 14. Cliquez sur **OK**.
 
-15. Cliquez sur **Save**.
+15. Cliquez sur **Enregistrer**.
 
 16. Suivez les instructions à l’écran pour utiliser le volet d’accès.
 
@@ -113,7 +113,7 @@ Vous obtenez cette erreur en cas d’échec de la détection automatique des cha
 
 ## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Une erreur « Impossible d’enregistrer la configuration de l’authentification unique » s’affiche
 
-Bien que cela soit rare, il peut arriver que la mise à jour de la configuration de l’authentification unique échoue. Pour résoudre ce problème, essayez d’enregistrer à nouveau la configuration de l’authentification unique.
+Bien que cela soit rare, il peut arriver que la mise à jour de la configuration de l’authentification unique échoue. Pour résoudre ce problème, essayez d’enregistrer de nouveau la configuration de l’authentification unique.
 
 Si le problème persiste, ouvrez une demande de support et fournissez les informations collectées dans les sections [Comment afficher les détails d’une notification du portail](#i-cannot-manually-detect-sign-in-fields-for-my-application) et [Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique](#how-to-get-help-by-sending-notification-details-to-a-support-engineer).
 
@@ -139,9 +139,9 @@ Si vous rencontrez l’un de ces problèmes, vérifiez les points suivants :
 
 -   Tentez une nouvelle fois d’exécuter le processus de capture manuelle en veillant à ce que les marqueurs rouges soient sur les champs appropriés.
 
--   Si le processus de capture manuelle semble bloqué ou si la page de connexion ne réagit pas (cas 3 ci-dessus), tentez une nouvelle fois d’exécuter le processus de capture manuelle. Mais cette fois, à la fin du processus, appuyez sur le bouton **F12** pour ouvrir la console de développement de votre navigateur. Ouvrez la **console** et saisissez **window.location=”&lt;entrez l’url de connexion que vous avez spécifiée lors de la configuration de l’application&gt;”**, puis appuyez sur **Entrée**. Cette manipulation permet de forcer une redirection de page qui termine le processus de capture et stocke les fichiers qui ont été capturés.
+-   Si le processus de capture manuelle semble bloqué ou que la page de connexion ne réagit pas (cas 3 ci-dessus), tentez de réexécuter le processus de capture manuelle. Mais cette fois, à la fin du processus, appuyez sur le bouton **F12** pour ouvrir la console de développement de votre navigateur. Ouvrez la **console** et saisissez **window.location=”&lt;entrez l’URL de connexion que vous avez spécifiée lors de la configuration de l’application&gt;”**, puis appuyez sur **Entrée**. Cette manipulation force une redirection de page qui met fin au processus de capture et stocke les champs qui ont été capturés.
 
-Si aucune de ces approches ne fonctionne pour vous, nous pouvons vous aider. Ouvrez une demande de support et fournissez des informations sur les méthodes utilisées pour résoudre le problème, ainsi que les informations collectées dans les sections [Comment afficher les détails d’une notification du portail](#i-cannot-manually-detect-sign-in-fields-for-my-application) et [Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (le cas échéant).
+Si aucune de ces approches ne fonctionne pour vous, le support technique peut vous aider. Ouvrez une demande de support et fournissez des informations sur les méthodes utilisées pour résoudre le problème, ainsi que les informations collectées dans les sections [Comment afficher les détails d’une notification du portail](#i-cannot-manually-detect-sign-in-fields-for-my-application) et [Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (le cas échéant).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
 
@@ -179,7 +179,7 @@ Vous pouvez afficher les détails d’une notification provenant du portail en s
   >
   >
 
-3.  Le volet **Détails de la notification** apparaît.
+3.  Le volet **Détails de la notification** s’affiche.
 
 4.  Utilisez ces informations pour en savoir plus sur le problème.
 
@@ -189,7 +189,7 @@ Vous pouvez afficher les détails d’une notification provenant du portail en s
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
 
-Il est très important que vous partagiez **tous les détails ci-dessous** avec un ingénieur du support technique si vous avez besoin d’aide, car celui-ci peut vous permettre de résoudre rapidement le problème. Vous pouvez facilement le faire en **prenant une capture d’écran** ou en cliquant sur **l’icône d’erreur de copie** située à droite de la zone de texte **Erreur de copie**.
+Il est très important que vous partagiez **tous les détails ci-dessous** avec un ingénieur du support technique si vous avez besoin d’aide, car celui-ci peut vous permettre de résoudre rapidement le problème. Vous pouvez **effectuer une capture d’écran** ou cliquer sur **l’icône d’erreur de copie** située à droite de la zone de texte **Erreur de copie**.
 
 ## <a name="notification-details-explained"></a>Explication des détails de la notification
 
@@ -205,11 +205,11 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple : **L’URL interne entrée est déjà utilisée par une autre application**
 
--   **ID de notification** : ID unique de la notification
+-   **ID de notification** : ID unique de la notification
 
     -   Exemple : **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID de demande client** : ID de la demande spécifique faite par votre navigateur
+-   **ID de demande client** : ID de la demande spécifique effectuée par votre navigateur
 
     -   Exemple : **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -217,7 +217,7 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple : **2017-03-23T19:50:43.7583681Z**
 
--   **ID de transaction interne** : ID interne nous permettant de rechercher l’erreur dans nos systèmes
+-   **ID de transaction interne** : ID interne permettant de rechercher l’erreur dans nos systèmes
 
     -   Exemple : **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -225,11 +225,11 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple : **tperkins@f128.info**
 
--   **ID de locataire** : ID unique du locataire dont l’utilisateur qui a effectué l’opération était membre
+-   **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
     -   Exemple : **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID de l’objet utilisateur** : ID unique de l’utilisateur qui a effectué l’opération
+-   **ID de l’objet utilisateur** : ID unique de l’utilisateur ayant effectué l’opération
 
     -   Exemple : **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -243,7 +243,7 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple *: **Échec**
 
--   **ID de l’objet** : **(peut être vide)** ID de l’objet sur lequel l’opération a été effectuée
+-   **ID de l’objet** : **(peut être vide)** ID de l’objet sur lequel l’opération a été effectuée
 
     -   Exemple : **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -255,6 +255,6 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple : ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 

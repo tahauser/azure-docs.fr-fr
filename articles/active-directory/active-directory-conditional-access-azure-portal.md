@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
-La sécurité est une priorité pour les organisations qui utilisent le cloud. L’un des aspects clés de la sécurité en matière de gestion des ressources du cloud est l’identité et l’accès. Dans les environnements mobiles et cloud, les utilisateurs peuvent accéder aux ressources de votre organisation en utilisant différents appareils et applications, n’importe où. Il en suffit donc plus de contrôler les personnes autorisées à accéder à une ressource. Pour maintenir l’équilibre entre sécurité et productivité, les professionnels de l’informatique doivent aussi prendre en compte les moyens d’accès à une ressource dans leur choix de contrôle d’accès. L’accès conditionnel Azure AD vous permet de satisfaire cette exigence. L’accès conditionnel est une fonctionnalité d’Azure Active Directory qui vous permet d’appliquer des contrôles sur l’accès aux applications dans votre environnement en fonction de conditions spécifiques depuis un emplacement central. 
+La sécurité est une priorité pour les organisations qui utilisent le cloud. L’un des aspects clés de la sécurité en matière de gestion des ressources du cloud est l’identité et l’accès. Dans les environnements mobiles et cloud, les utilisateurs peuvent accéder aux ressources de votre organisation en utilisant différents appareils et applications, n’importe où. Il en suffit donc plus de contrôler les personnes autorisées à accéder à une ressource. Afin de maîtriser l’équilibre entre sécurité et productivité, les professionnels de l’informatique doivent aussi prendre en compte les moyens d’accès à une ressource dans leur décision du contrôle d’accès. L’accès conditionnel Azure AD vous permet de satisfaire cette exigence. L’accès conditionnel est une fonctionnalité d’Azure Active Directory qui vous permet d’appliquer des contrôles sur l’accès aux applications dans votre environnement en fonction de conditions spécifiques depuis un emplacement central. 
 
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/81.png)
@@ -51,7 +51,7 @@ Voici quelques problèmes d’accès courants que l’accès conditionnel peut v
 
 - **[Gestion des appareils](active-directory-conditional-access-conditions.md#device-platforms)** : dans Azure AD, les utilisateurs peuvent accéder aux applications cloud à partir d’un large éventail d’appareils, y compris des appareils mobiles et personnels. Comment faire pour que les tentatives d’accès soient uniquement effectuées par des utilisateurs se servant des appareils gérés par votre service informatique ? Comment faire pour empêcher certains types d’appareils d’accéder aux applications cloud dans votre environnement ? 
 
-- **[Application cliente](active-directory-conditional-access-conditions.md#client-apps)** : aujourd'hui, vous pouvez accéder à de nombreuses applications de cloud en utilisant différents types d’applications comme les applications web, les applications mobiles ou les applications de bureau. Que faire lorsqu’une tentative d’accès est effectuée avec un type d’application cliente provoquant des problèmes connus ? Comment faire pour exiger qu’un appareil géré par votre service informatique soit utilisé pour certains types d’applications ? 
+- **[Application cliente](active-directory-conditional-access-conditions.md#client-apps)** : aujourd'hui, vous pouvez accéder à de nombreuses applications de cloud en utilisant différents types d’applications comme les applications sur le Web, les applications mobiles ou les applications de bureau. Que faire lorsqu’une tentative d’accès est effectuée avec un type d’application cliente provoquant des problèmes connus ? Comment faire pour exiger qu’un appareil géré par votre service informatique soit utilisé pour certains types d’applications ? 
 
 Ces questions et les réponses associées représentent des scénarios d’accès courants pour l’accès conditionnel Azure AD. L’accès conditionnel est une fonctionnalité d’Azure Active Directory qui permet de gérer les scénarios d’accès en utilisant une approche basée sur des stratégies.
 
@@ -81,6 +81,34 @@ Avec l’accès conditionnel Azure AD, vous pouvez contrôler la façon dont les
 
 L’un des avantages de l’utilisation d’une approche basée sur des stratégies pour protéger l’accès aux applications cloud est que vous pouvez commencer à définir les critères des stratégies de votre environnement à l’aide de la structure décrite dans cet article, sans vous préoccuper de la mise en œuvre technique. 
 
+## <a name="what-you-need-to-know"></a>Bon à savoir
+
+### <a name="general-requirements-for-using-conditional-access"></a>Exigences générales pour utiliser l’accès conditionnel
+
+Vous pouvez utiliser l’accès conditionnel Azure AD pour protéger les applications cloud quand une tentative d’authentification provient de :
+
+- Un navigateur web
+
+- Une application cliente qui utilise l’authentification moderne
+
+- Exchange ActiveSync
+
+Pour plus d'informations, consultez les [applications clientes](active-directory-conditional-access-conditions.md#client-apps).
+
+Certaines [applications cloud](active-directory-conditional-access-conditions.md#cloud-apps) prennent également en charge des protocoles d’authentification hérités. C’est le cas, par exemple, de SharePoint Online et Exchange Online. Quand une application cliente peut utiliser un protocole d’authentification hérité pour accéder à une application cloud, Azure AD ne peut pas appliquer de stratégie d’accès conditionnel sur cette tentative d’accès. Pour empêcher une application cliente de contourner la mise en œuvre des stratégies, vous devez vérifier s’il est possible d’activer uniquement l’authentification moderne sur les applications cloud concernées.
+
+Voici des exemples d’applications clientes auxquelles l’accès conditionnel ne s’applique pas :
+
+- Office 2010 et versions antérieures
+
+- Office 2013 quand l’authentification moderne n’est pas activée
+
+Pour plus d’informations, consultez [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md).
+
+
+### <a name="license-requirements-for-using-conditional-access"></a>Conditions requises de licences pour utiliser l’accès conditionnel
+
+L’utilisation de l’accès conditionnel requiert une licence Azure AD Premium / Enterprise Mobility + Security. Pour rechercher la licence appropriée à vos exigences, consultez [Options de tarification Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
 
 
 ## <a name="next-steps"></a>étapes suivantes

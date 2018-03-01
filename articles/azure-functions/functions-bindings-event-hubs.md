@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -49,7 +49,7 @@ Quand votre fonction est activée pour la première fois, il n'existe qu’une s
 
 * **Ajouter 1 instance de fonction supplémentaire** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 reçoit plus de messages qu'elle ne peut traiter, et une nouvelle instance Function_1 est créée. Event Hubs détecte qu'une nouvelle instance EPH tente de lire des messages. Event Hubs démarre l'équilibrage de charge des partitions sur les instances EPH, par exemple, les partitions 0-4 sont affectées à Function_0 et les partitions 5 à 9 sont affectées à Function_1. 
 
-* **Ajouter N autres instances de fonction** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 et Function_1 reçoivent plus de messages qu'elles ne peuvent traiter. Une nouvelle mise à l'échelle sera effectuée pour Function_2...N, où N est supérieur aux partitions du hub d'événements. Event Hubs équilibrera les partitions entre les instances Function_0...9.
+* **Ajouter N autres instances de fonction** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 et Function_1 reçoivent plus de messages qu'elles ne peuvent traiter. Une nouvelle mise à l’échelle sera effectuée pour Function_2...N, où N est supérieur aux partitions du hub d’événements. Event Hubs équilibrera les partitions entre les instances Function_0...9.
 
 La logique actuelle de mise à l'échelle d'Azure Functions est unique car N est supérieur au nombre de partitions. Cela permet de s'assurer qu'il y a toujours des instances EPH disponibles pour verrouiller rapidement les partitions à mesure qu'elles deviennent disponibles à partir d'autres instances. Les utilisateurs ne sont facturés que pour les ressources utilisées lors de l'exécution de l'instance de la fonction. Ils ne sont pas facturés pour ce surprovisionnement.
 
@@ -405,6 +405,12 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 Dans C# et Script C#, envoyez des messages en utilisant un paramètre de méthode comme `out string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<string>` ou `IAsyncCollector<string>` à la place de `out string`.
 
 Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.bindings.<name>`. `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
+
+| Liaison | Informations de référence |
+|---|---|
+| Event Hub | [Guide des opérations](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>étapes suivantes
 

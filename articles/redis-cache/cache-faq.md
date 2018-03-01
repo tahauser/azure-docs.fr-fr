@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Forum aux questions sur le Cache Redis Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour Cache Redis Azure.
@@ -119,36 +119,36 @@ Voici quelques considérations relatives au choix d’une offre de Cache :
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Performance du Cache Redis Azure
-Le tableau suivant présente les valeurs maximales de bande passante observées lors de tests exécutés sur différentes tailles de caches Standard et Premium à l’aide de `redis-benchmark.exe` à partir d’une machine virtuelle IaaS sur le point de terminaison du Cache Redis Azure. 
+Le tableau suivant présente les valeurs maximales de bande passante observées lors de tests exécutés sur différentes tailles de caches Standard et Premium à l’aide de `redis-benchmark.exe` à partir d’une machine virtuelle IaaS sur le point de terminaison du Cache Redis Azure. Pour le débit SSL, redis-benchmark est utilisé avec le stunnel pour se connecter au point de terminaison du cache Redis Azure.
 
 >[!NOTE] 
 >Ces valeurs ne sont pas garanties et il n’y a pas de contrat SLA pour ces chiffres, mais ils sont à peu près normaux. Vous devez tester la charge de votre application pour déterminer la taille de cache adaptée.
->
+>Ces chiffres peuvent changer au fur et à mesure que nous publions des résultats plus récents.
 >
 
 De ce tableau, nous pouvons tirer les conclusions suivantes :
 
-* Le débit des caches de taille identique est plus élevé dans le niveau Premium que dans le niveau Standard. Par exemple, pour un cache de 6 Go, le débit de P1 est de 180 000 demandes par seconde (RPS), contre 49 000 dans le cas de C3.
+* Le débit des caches de taille identique est plus élevé dans le niveau Premium que dans le niveau Standard. Par exemple, pour un cache de 6 Go, le débit de P1 est de 180 000 demandes par seconde (RPS), contre 100 000 dans le cas de C3.
 * Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 400 000 *10 = 4 millions de demandes par seconde.
 * Pour les tailles de clé supérieures, le débit du niveau Premium est plus élevé que celui du niveau Standard.
 
-| Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de la valeur 1 Ko |
-| --- | --- | --- | --- | --- |
-| **Tailles de cache Standard** | | |**Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS)** |
-| C0 |250 Mo |Partagé |5 / 0,625 |600 |
-| C1 |1 Go |1 |100 / 12,5 |12 200 |
-| C2 |2,5 Go |2 |200 / 25 |24 000 |
-| C3 |6 Go |4 |400 / 50 |49 000 |
-| C4 |13 Go |2 |500 / 62,5 |61 000 |
-| C5 |26 Go |4 |1 000 / 125 |115 000 |
-| C6 |53 Go |8 |2 000 / 250 |150 000 |
-| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | **Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS), par partition** |
-| P1 |6 Go |2 |1 500 / 187,5 |180 000 |
-| P2 |13 Go |4 |3 000 / 375 |360 000 |
-| P3 |26 Go |4 |3 000 / 375 |360 000 |
-| P4 |53 Go |8 |6 000 / 750 |400 000 |
+| Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de la valeur 1 Ko | Taille de la valeur 1 Ko |
+| --- | --- | --- | --- | --- | --- |
+| **Tailles de cache Standard** | | |**Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS) hors SSL** |**Demandes par seconde (RPS) SSL** |
+| C0 |250 Mo |Partagé |100 / 12,5 |15 000 |7 500 |
+| C1 |1 Go |1 |500 / 62,5 |38 000 |20 720 |
+| C2 |2,5 Go |2 |500 / 62,5 |41 000 |37 000 |
+| C3 |6 Go |4 |1 000 / 125 |100 000 |90 000 |
+| C4 |13 Go |2 |500 / 62,5 |60 000 |55 000 |
+| C5 |26 Go |4 |1 000 / 125 |102 000 |93 000 |
+| C6 |53 Go |8 |2 000 / 250 |126 000 |120 000 |
+| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | **Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS) hors SSL, par partition** |**Demandes par seconde (RPS) SSL, par partition** |
+| P1 |6 Go |2 |1 500 / 187,5 |180 000 |172 000 |
+| P2 |13 Go |4 |3 000 / 375 |350 000 |341 000 |
+| P3 |26 Go |4 |3 000 / 375 |350 000 |341 000 |
+| P4 |53 Go |8 |6 000 / 750 |400 000 |373 000 |
 
-Pour obtenir des instructions sur le téléchargement des outils Redis comme `redis-benchmark.exe`, consultez la section [Comment exécuter des commandes Redis ?](#cache-commands) .
+Pour obtenir des instructions sur la configuration du stunnel ou le téléchargement des outils Redis comme `redis-benchmark.exe`, consultez la section [Comment exécuter des commandes Redis ?](#cache-commands).
 
 <a name="cache-region"></a>
 

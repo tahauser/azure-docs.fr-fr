@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -78,7 +78,7 @@ Par défaut, seuls les attributs cloud de téléphone professionnel et de télé
 
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées et exige.
 
-Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, tout en ayant la possibilité de l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas le renseigner dans le répertoire. Les utilisateurs doivent ensuite renseigner leur attribut **Téléphone d’authentification** par le biais du [portail d’inscription à la réinitialisation du mot de passe](http://aka.ms/ssprsetup). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs.
+Si les utilisateurs ne souhaitent pas que leur numéro de téléphone mobile soit visible dans le répertoire, tout en ayant la possibilité de l’utiliser pour la réinitialisation du mot de passe, les administrateurs ne doivent pas le renseigner dans le répertoire. Les utilisateurs doivent ensuite renseigner leur attribut **Téléphone d’authentification** par le biais du [portail d’inscription à la réinitialisation du mot de passe](https://aka.ms/ssprsetup). Les administrateurs peuvent consulter ces informations dans le profil de l’utilisateur, mais elles ne sont pas publiées ailleurs.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Nombre de méthodes d’authentification requises
 
@@ -180,7 +180,7 @@ Pour activer cette option, un utilisateur pouvant demander la réinitialisation 
 * Applications fédérées
 * Applications personnalisées en utilisant Azure AD
 
-Quand l’obligation d’inscription est désactivée, les utilisateurs peuvent inscrire manuellement leurs informations de contact. Ils peuvent visiter [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) ou sélectionner le lien **Réinitialiser mon mot de passe** sous l’onglet **Profil** dans le Panneau d’accès.
+Quand l’obligation d’inscription est désactivée, les utilisateurs peuvent inscrire manuellement leurs informations de contact. Ils peuvent visiter le site [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) ou sélectionner le lien **Réinitialiser mon mot de passe** sous l’onglet **Profil** dans le Panneau d’accès.
 
 > [!NOTE]
 > Les utilisateurs peuvent ignorer le portail d’inscription à la réinitialisation du mot de passe en sélectionnant **Annuler** ou en fermant la fenêtre. Dans ce cas, tant qu’ils ne procèdent pas à leur inscription, ils sont invités à s’inscrire chaque fois qu’ils se connectent.

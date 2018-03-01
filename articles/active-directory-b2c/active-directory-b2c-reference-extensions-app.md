@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: parja
-ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C : application Extensions
 
@@ -31,7 +31,7 @@ Lors de la création d’un annuaire Azure AD B2C, une application appelée `b2c
 
 Pour vérifier que l’application b2c-extensions-app est présente :
 
-1. Dans votre locataire Azure AD B2C, cliquez sur **Autres services** dans le menu de navigation de gauche.
+1. Dans votre locataire Azure AD B2C, cliquez sur **Tous les services** dans le menu de navigation de gauche.
 1. Recherchez et ouvrez **Inscriptions des applications**.
 1. Recherchez une application dont le nom commence par **b2c-extensions-app**
 

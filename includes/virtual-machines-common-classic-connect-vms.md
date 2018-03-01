@@ -12,11 +12,11 @@ Les réseaux virtuels sont la méthode recommandée pour connecter des machines 
 Pour connecter des machines virtuelles dans un réseau virtuel :
 
 1. Créer le réseau virtuel dans le [portail Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) et spécifiez « déploiement classique ».
-2. Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le Portail Azure, cliquez sur **Nouveau > Compute > Service cloud** pour chaque service cloud.
+2. Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le portail Azure, cliquez sur **Créer une ressource > Calcul > Service cloud** pour chaque service cloud.
 
   Pendant que vous remplissez les détails du service cloud, choisissez le même _groupe de ressources_ utilisé avec le réseau virtuel.
 
-3. Pour créer chaque machine virtuelle, cliquez sur **Nouveau > Compute**, puis sélectionnez l’image de machine virtuelle appropriée à partir des **Applications à la une**.
+3. Pour créer chaque machine virtuelle, cliquez sur **Créer une ressource > Calcul**, puis sélectionnez l’image de machine virtuelle appropriée dans **Applications proposées**.
 
   Dans le panneau **Concepts de base**, cliquez sur le même _groupe de ressources_ utilisé avec le réseau virtuel.
 

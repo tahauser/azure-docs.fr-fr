@@ -2,7 +2,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Création d’un compte SendGrid
 1. Connectez-vous au [portail Azure][Azure portal].
-2. Dans le menu de gauche, cliquez sur **Nouveau**.
+2. Dans le menu de gauche, cliquez sur **Créer une ressource**.
 
     ![command-bar-new][command-bar-new]
 3. Cliquez sur **Modules complémentaires**, puis sur **Service de messagerie SendGrid**.
@@ -45,7 +45,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
     ![api-keys][api-keys]
 
-3. Cliquez sur le menu déroulant **Créer une clé API** et sélectionnez **Clé API générale**.
+3. Cliquez sur **Créer une clé API**.
 
     ![general-api-key][general-api-key]
 4. Au minimum, fournissez le **nom de cette clé** et un accès complet à **Mail Send** (Envoi de courrier) puis sélectionnez **Enregistrer**.

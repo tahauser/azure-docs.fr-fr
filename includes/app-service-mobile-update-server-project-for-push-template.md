@@ -1,10 +1,10 @@
-Dans cette section, vous mettez à jour le code dans votre projet de serveur principal Mobile Apps existant pour envoyer une notification Push chaque fois qu’un nouvel élément est ajouté. Cette opération est rendue possible par la fonctionnalité [modèle](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) d’Azure Notification Hubs, qui autorise l’envoi de notifications Push multiplateforme. Les différents clients sont inscrits pour les notifications Push à l’aide de modèles, et une notification Push universelle unique peut accéder à toutes les plates-formes clientes.
+Dans cette section, vous mettez à jour le code dans votre projet de serveur principal Mobile Apps existant pour envoyer une notification Push chaque fois qu’un nouvel élément est ajouté. Ce processus est rendu possible par la fonctionnalité [modèle](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) d’Azure Notification Hubs, qui autorise l’envoi de notifications Push multiplateforme. Les différents clients sont inscrits pour les notifications Push à l’aide de modèles, et une notification Push universelle unique peut accéder à toutes les plates-formes clientes.
 
 Choisissez l’une des procédures ci-après correspondant au type de votre projet de serveur principal &mdash; [projet de serveur principal .NET](#dotnet) ou [projet de serveur principal Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projet de serveur principal .NET
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**. Recherchez `Microsoft.Azure.NotificationHubs`, puis cliquez sur **Installer**. Cette opération installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir de votre serveur principal.
-2. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur. Ensuite, sélectionnez **Gérer les packages NuGet**. Recherchez `Microsoft.Azure.NotificationHubs`, puis sélectionnez **Installer**. Ce processus installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir du serveur principal.
+2. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs**. Puis ajoutez les instructions using suivantes :
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
@@ -16,7 +16,7 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
         MobileAppSettingsDictionary settings =
             this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
+        // Get the Notification Hubs credentials for the mobile app.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -25,8 +25,8 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Sending the message so that all template registrations that contain "messageParam"
-        // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+        // Send the message so that all template registrations that contain "messageParam"
+        // receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
         Dictionary<string,string> templateParams = new Dictionary<string,string>();
         templateParams["messageParam"] = item.Text + " was added to the list.";
 
@@ -45,12 +45,12 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
+    Ce processus envoie une notification de modèle contenant item.Text lorsqu’un nouvel élément est inséré.
 4. Publier à nouveau le projet de serveur
 
 ### <a name="nodejs"></a>Projet de serveur principal Node.js
 1. Si vous ne l’avez pas encore fait, [téléchargez le projet de serveur principal de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du Portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Remplacez le code présent dans todoitem.js par le code suivant :
+2. Remplacez le code existant dans todoitem.js par le code suivant :
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -60,17 +60,17 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
 
         table.insert(function (context) {
         // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
+        // see http://aka.ms/nodejshubs.
         logger.info('Running TodoItem.insert');
 
         // Define the template payload.
         var payload = '{"messageParam": "' + context.item.text + '" }';  
 
-        // Execute the insert.  The insert returns the results as a Promise,
+        // Execute the insert. The insert returns the results as a promise.
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do the push if configured
+                // Only do the push if configured.
                 if (context.push) {
                     // Send a template notification.
                     context.push.send(null, payload, function (error) {
@@ -81,7 +81,7 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
                         }
                     });
                 }
-                // Don't forget to return the results from the context.execute()
+                // Don't forget to return the results from the context.execute().
                 return results;
             })
             .catch(function (error) {
@@ -91,5 +91,5 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
 
         module.exports = table;  
 
-    Une notification de modèle contenant item.Text est ensuite envoyée quand un nouvel élément est inséré.
-3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet serveur.
+    Ce processus envoie une notification de modèle contenant item.text lorsqu’un nouvel élément est inséré.
+3. Quand vous modifiez le fichier sur votre ordinateur local, republiez le projet de serveur.

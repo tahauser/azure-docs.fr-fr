@@ -15,15 +15,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous trouverez [ici](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/) plus d’informations pour déployer une application web avec Java 8 et Tomcat selon un modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous trouverez [ici](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/) plus d’informations pour déployer une application web avec Java 8 et Tomcat selon un modèle Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Azure permet d'utiliser une machine virtuelle pour obtenir des fonctionnalités de serveur. Par exemple, vous pouvez configurer une machine virtuelle exécutée sur Azure pour qu'elle héberge un serveur d'applications Java, comme Apache Tomcat.
@@ -43,8 +43,8 @@ Après avoir lu ce guide, vous comprendrez comment créer une machine virtuelle 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Création d’une machine virtuelle
-1. Connectez-vous au [portail Azure](https://portal.azure.com).  
-2. Cliquez sur **Nouveau**, **Calcul**, puis sur **Afficher tout** dans les **Applications proposées**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+2. Cliquez sur **Créer une ressource**, sur **Calcul**, puis sur **Afficher tout** dans **Applications proposées**.
 3. Cliquez sur **JDK**, puis sur **JDK 8** dans le volet **JDK**.  
    Les images de machine virtuelle prenant en charge **JDK 6** et **JDK 7** sont disponibles si vous ne pouvez pas exécuter certaines de vos applications héritées dans la version JDK 8.
 4. Dans le volet JDK 8, sélectionnez **Classique**, puis cliquez sur **Créer**.
@@ -89,7 +89,7 @@ Une fois Tomcat en cours d’exécution, vous pouvez y accéder en entrant l’U
 Pour démarrer Tomcat depuis des machines externes, vous devez créer un point de terminaison et ouvrir un port.
 
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>Création d'un point de terminaison pour votre machine virtuelle
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Machines virtuelles (classiques)**.
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
@@ -121,7 +121,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 10. Dans l’écran **Name**, indiquez un nom pour la règle, par exemple **HttpIn** (il n’est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**.  
     ![Nom de nouvelle règle de trafic entrant][NewRuleName]
 
-À ce stade, votre site web Tomcat doit être visible à partir d’un navigateur externe. Dans la fenêtre d’adresse du navigateur,entrez une URL au format **http://*votre\_nom\_DNS*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+À ce stade, votre site web Tomcat doit être visible à partir d’un navigateur externe. Dans la fenêtre d’adresse du navigateur, tapez une URL au format **http://*votre\_nom\_DNS*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## <a name="application-lifecycle-considerations"></a>Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive web d’application (WAR) et l’ajouter au dossier **webapps** . Par exemple, créez un projet web dynamique Java Service Page (JSP) de base et exportez-le sous forme de fichier WAR. Ensuite, copiez le fichier WAR dans le dossier **webapps** Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.
@@ -131,7 +131,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 
     L’activation du démarrage automatique de Tomcat lui permet de redémarrer en même temps que la machine virtuelle (par exemple, après des mises à jour logicielles nécessitant un redémarrage).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre davantage sur les autres services, tels qu’Azure Storage, Service Bus et la base de données SQL, à inclure dans vos applications Java. Afficher les informations disponibles dans le [Centre de développement Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

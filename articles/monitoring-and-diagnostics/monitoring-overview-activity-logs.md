@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 Le **Journal d’activité Azure** est un journal d’abonnement qui fournit un aperçu de tous les événements relatifs aux abonnements qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Le journal d’activité était précédemment appelé « journaux d’audit » ou « journaux des opérations », car la catégorie administrative indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
@@ -72,10 +72,10 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 * Interrogez-le via l’applet de commande PowerShell, l’interface de ligne de commande ou l’API REST.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Interroger le journal d’activité dans le portail Azure
-Vous pouvez accéder au journal d’activité à différents endroits du portail Azure :
-* Le **Panneau Journal d’activité**, auquel vous pouvez accéder en cliquant sur « Plus de services » dans le volet de navigation de gauche.
-* Le **Panneau Surveillance**, qui s’affiche par défaut dans le volet de navigation gauche. Le journal d’activité est l’une des sections de ce panneau.
-* Le **Panneau des ressources** de n’importe quelle ressource (par exemple, le panneau de configuration d’une machine virtuelle). Le journal d’activité se trouve dans la plupart des panneaux de ressources. Quand vous cliquez dessus, les événements associés à la ressource sont automatiquement affichés.
+À l’intérieur du portail Azure, vous pouvez afficher votre journal d’activité à plusieurs endroits :
+* Le **Journal d’activité** auquel vous avez accès en recherchant le Journal d’activité sous **Tous les services** dans le volet de navigation de gauche.
+* **Monitor** s’affiche par défaut dans le volet de navigation de gauche. Le journal d’activité est une section d’Azure Monitor.
+* Toutes les **ressources** des ressources, par exemple, le panneau de configuration d’une machine virtuelle. Le journal d’activité se trouve dans la plupart des panneaux de ressources. Quand vous cliquez dessus, les événements associés à la ressource sont automatiquement affichés.
 
 Dans le portail Azure, vous pouvez filtrer le journal d’activités à l’aide des champs suivants :
 * Intervalle de temps : heure de début et de fin des événements.
@@ -113,7 +113,7 @@ Ces paramètres peuvent être configurés via l’option « Exporter » dans l
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configuration des profils de journal à l’aide du portail Azure
 Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le stocker dans un compte de stockage à l’aide de l’option d’export dans le portail Azure.
 
-1. Accédez au panneau **Journal d’activité** à l’aide du menu sur le côté gauche du portail.
+1. Accédez au **Journal d’activité** à l’aide du menu sur le côté gauche du portail.
 
     ![Accéder au journal d’activité dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Cliquez sur le bouton **Exporter** en haut du panneau.

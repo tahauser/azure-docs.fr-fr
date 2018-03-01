@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Créer un réseau virtuel à l’aide d’un modèle Azure Resource Manager
 
@@ -39,9 +39,9 @@ Cet article explique comment créer un réseau virtuel dans le modèle de déplo
 - [PowerShell (classique)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [Interface de ligne de commande (classique)](virtual-networks-create-vnet-classic-cli.md)
 
-Vous découvrirez comment télécharger et modifier un modèle ARM existant à partir de GitHub, et déployer le modèle à partir de GitHub, PowerShell et l'interface de ligne de commande Azure.
+Découvrez comment télécharger et modifier un modèle Azure Resource Manager existant à partir de GitHub, et apprendrez à déployer le modèle à partir de GitHub, de PowerShell et de l’interface de ligne de commande Azure.
 
-Si vous déployez simplement le modèle ARM directement à partir de GitHub, sans rien modifier, passez à la section [Déployer un modèle à partir de github](#deploy-the-arm-template-by-using-click-to-deploy).
+Si vous déployez simplement le modèle Azure Resource Manager directement à partir de GitHub sans rien modifier, passez à la section [Déployer un modèle à partir de GitHub](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Vous pouvez télécharger le modèle existant pour créer un réseau virtuel et 
 2. Cliquez sur **azuredeploy.json**, puis sur **RAW**.
 3. Enregistrez le fichier dans un dossier local sur votre ordinateur.
 4. Si vous connaissez déjà les modèles, passez à l’étape 7.
-5. Ouvrez le fichier que vous venez d’enregistrer et consultez le contenu sous **parameters** à la ligne 5. Les paramètres de modèle ARM fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
+5. Ouvrez le fichier que vous avez enregistré et consultez le contenu sous **parameters** à la ligne 5. Les paramètres du modèle Azure Resource Manager fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
    
-   | Paramètre | Description |
+   | Paramètre | DESCRIPTION |
    | --- | --- |
-   | **emplacement** |Région Azure où le réseau virtuel doit être créé. |
+   | **location** |Région Azure où le réseau virtuel est créé |
    | **vnetName** |Nom du nouveau réseau virtuel |
    | **addressPrefix** |Espace d’adressage du réseau virtuel, au format CIDR |
    | **subnet1Name** |Nom du premier réseau virtuel |
@@ -104,7 +104,7 @@ Vous pouvez télécharger le modèle existant pour créer un réseau virtuel et 
         }
     ```
 
-11. Enregistrez le fichier.
+11. Enregistrez le fichier .
 
 
 ## <a name="deploy-the-template-using-powershell"></a>Déployer le modèle à l’aide de PowerShell
@@ -231,11 +231,11 @@ Vous pouvez réutiliser les modèles Azure Resource Manager prédéfinis sur le 
    
     ![Mosaïque d’envoi d’un déploiement dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Une fois le déploiement terminé, dans le portail Azure, cliquez sur **Plus de services**, tapez *réseaux virtuels* dans la zone de filtre qui s’affiche, puis cliquez sur Réseaux virtuels pour voir le panneau des réseaux virtuels. Dans le panneau , cliquez sur *TestVNet*. Dans le panneau *TestVNet*, cliquez sur **Sous-réseaux** pour afficher les sous-réseaux créés, comme indiqué dans l’image suivante :
+10. Une fois le déploiement terminé, dans le portail Azure, cliquez sur **Tous les services**, tapez *réseaux virtuels* dans la zone de filtre qui s’affiche, puis cliquez sur Réseaux virtuels pour voir le panneau des réseaux virtuels. Dans le panneau , cliquez sur *TestVNet*. Dans le panneau *TestVNet*, cliquez sur **Sous-réseaux** pour afficher les sous-réseaux créés, comme indiqué dans l’image suivante :
     
      ![Créer un réseau virtuel dans le portail en version préliminaire](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Apprenez à connecter :
 

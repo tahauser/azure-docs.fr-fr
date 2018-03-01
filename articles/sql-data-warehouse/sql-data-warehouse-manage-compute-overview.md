@@ -1,6 +1,6 @@
 ---
-title: "Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble) | Documents Microsoft"
-description: "Capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Montez en puissance en ajustant le nombre d’unités DWU ou suspendez et reprenez des ressources de calcul pour réduire les coûts."
+title: "Gérer les ressources de calcul dans Azure SQL Data Warehouse | Microsoft Docs"
+description: "Découvrez les capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Procédez à une montée en puissance en ajustant la valeur DWU ou allégez les coûts en suspendant l’entrepôt de données."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -13,36 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 3/23/2017
+ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-data-warehouse-manage-compute-overview.md)
-> * [Portail](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
+# <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
+Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 
 
-L’architecture de SQL Data Warehouse sépare le stockage du calcul, ce qui permet de les mettre à l’échelle indépendamment l’un de l’autre. En conséquence, le calcul peut être mis à l’échelle pour répondre aux exigences de performance, indépendamment du volume de données. Une conséquence naturelle de cette architecture est la séparation de la [facturation][billed] du calcul et du stockage. 
+## <a name="what-is-compute-management"></a>En quoi consiste la gestion des ressources de calcul ?
+L’architecture de SQL Data Warehouse sépare le stockage du calcul, ce qui permet de les mettre à l’échelle indépendamment l’un de l’autre. En conséquence, vous pouvez procéder à la mise à l’échelle du calcul afin de répondre aux exigences en matière de niveau de performance, sans modifier le stockage des données. Vous avez également la possibilité de suspendre ou reprendre des ressources de calcul. Dans le cadre de cette architecture, la [facturation](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) du calcul est donc effectuée séparément de celle du stockage. Si vous n’avez pas besoin d’utiliser votre entrepôt de données pendant un certain temps, vous pouvez alléger les coûts de calcul en suspendant les ressources de calcul. 
 
-Cette présentation décrit le fonctionnement de la mise à l’échelle avec SQL Data Warehouse. Elle explique également comment utiliser les fonctionnalités de mise en pause, de reprise et de mise à l’échelle de SQL Data Warehouse. 
+## <a name="scaling-compute"></a>Mise à l’échelle du calcul
+Vous pouvez procéder à la montée ou descente en puissance du calcul en ajustant le paramétrage relatif aux [unités Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) de votre entrepôt de données. Les performances de chargement et de requête peuvent s’accroître de manière linéaire à mesure que vous augmentez la valeur DWU. SQL Data Warehouse offre des [niveaux de service](performance-tiers.md#service-levels) pour les DWU qui garantissent une évolution notable des performances lorsque vous procédez à une montée ou descente en puissance. 
 
-## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Fonctionnement des opérations de gestion du calcul dans SQL Data Warehouse
-L’architecture de SQL Data Warehouse consiste en un nœud de contrôle, des nœuds de calcul et la couche de stockage, le tout réparti sur 60 distributions. 
+Pour plus d’informations sur la procédure de montée en puissance, consultez les articles de démarrage rapide pour le [portail Azure](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) ou [T-SQL](quickstart-scale-compute-tsql.md). Vous pouvez également effectuer des opérations de montée en puissance à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-Au cours d’une session active normale dans SQL Data Warehouse, le nœud principal du système gère les métadonnées et contient l’optimiseur de requête distribuée. Sous ce nœud principal, se trouvent les nœuds de calcul et la couche de stockage. Pour une instance de 400 DWU, votre système possède un nœud principal, quatre nœuds de calcul et la couche de stockage, soit 60 distributions. 
+Pour procéder à une mise à l’échelle, le service SQL Data Warehouse commence par tuer toutes les requêtes entrantes, puis il restaure les transactions afin de garantir un état cohérent. La mise à l’échelle ne se produit qu’une fois la restauration des transactions effectuée. Dans le cadre d’une opération de mise à l’échelle, le système détache la couche de stockage des nœuds de calcul, ajoute des nœuds de calcul, puis rattache la couche de stockage à la couche de calcul. Chaque entrepôt de données présente 60 distributions, qui sont réparties uniformément entre les nœuds de calcul. L’ajout de nœuds de calcul augmente la puissance de calcul. À mesure que le nombre de nœuds de calcul augmente, le nombre de distributions par nœud de calcul diminue, offrant ainsi davantage de puissance de calcul pour vos requêtes. De même, la diminution de la valeur DWU abaisse le nombre de nœuds de calcul, ce qui réduit les ressources de calcul pour les requêtes.
 
-Lorsque vous entreprenez une mise à l’échelle ou que vous interrompez l’opération, le système supprime tout d’abord toutes les requêtes entrantes, puis restaure les transactions pour garantir un état cohérent. La mise à l’échelle intervient uniquement une fois la restauration des transactions effectuée. Pour une opération de montée en puissance, le système configure le nombre de nœuds de calcul souhaité, puis commence le rattachement des nœuds de calcul à la couche de stockage. Pour une opération de descente en puissance, les nœuds inutiles sont rendus disponibles et les nœuds de calcul restants sont rattachés au nombre de distributions approprié. Pour une opération de mise en pause, tous les nœuds de calcul sont rendus disponibles et le système entreprend diverses opérations sur les métadonnées afin de garantir la stabilité du système final.
+Le tableau ci-après illustre l’évolution du nombre de distributions par nœud de calcul à mesure que la valeur DWU change.  La valeur DWU6000 fournit 60 nœuds de calcul et offre un niveau de performance de requête bien supérieur à celui de la valeur DWU100. 
 
-| DWU  | \# de nœuds de calcul | \# de distributions par nœud |
+| Data Warehouse Units  | \# de nœuds de calcul | \# de distributions par nœud |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -57,163 +51,72 @@ Lorsque vous entreprenez une mise à l’échelle ou que vous interrompez l’op
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-Les trois principales fonctions pour la gestion du calcul sont :
 
-1. Suspendre
-2. Reprendre
-3. Scale
+## <a name="finding-the-right-size-of-data-warehouse-units"></a>Détermination du nombre d’unités DWU optimal
 
-Chacune de ces opérations peut prendre plusieurs minutes. Si vous effectuez une mise à l’échelle/mise en pause/reprise automatique, il vous faudra peut-être implémenter une logique pour vous assurer que certaines opérations sont bien terminées avant de passer à une autre action. 
+Pour découvrir les avantages d’une montée en puissance en termes de niveau de performance, en particulier dans le cas des valeurs DWU les plus élevées, vous devez utiliser un jeu de données d’au moins 1 To. Pour déterminer le nombre d’unités DWU idéal pour votre entrepôt de données, essayez d’effectuer une montée et une descente en puissance. Exécutez quelques requêtes avec différentes valeurs DWU après avoir chargé vos données. La mise à l’échelle étant rapide, vous pouvez essayer plusieurs niveaux de performances en une heure ou moins. 
 
-Nous vous conseillons de vérifier l’état de la base de données en différents points de terminaison afin d’automatiser correctement de telles opérations. Si le portail vous informe de la fin d’une opération et de l’état actuel des bases de données, il ne vous permet pas de programmer la vérification de l’état. 
+Recommandations en matière de recherche de la valeur DWU optimale :
 
->  [!NOTE]
->
->  La fonctionnalité de gestion du calcul n’existe pas sur tous les points de terminaison.
->
->  
+- Si vous disposez d’un entrepôt de données en développement, commencez par sélectionner un nombre réduit d’unités DWU.  DW400 ou DW200 est un bon point de départ.
+- Analysez les performances de votre application, en observant notamment le nombre d’unités DWU sélectionné.
+- Déterminez la mesure dans laquelle vous devez augmenter ou diminuer le nombre d’unités DWU à l’aide d’une mise à l’échelle linéaire. 
+- Continuez à effectuer des ajustements jusqu’à ce que vous atteigniez le niveau de performances requis par vos activités.
 
-|              | Suspendre/Reprendre | Scale | Vérifier l’état de la base de données |
-| ------------ | ------------ | ----- | -------------------- |
-| Portail Azure | OUI          | OUI   | **Non**               |
-| PowerShell   | OUI          | OUI   | OUI                  |
-| de l’API REST     | OUI          | OUI   | OUI                  |
-| T-SQL        | **Non**       | OUI   | OUI                  |
+## <a name="when-to-scale-out"></a>Quand procéder à une montée en puissance
+Une montée en puissance par l’augmentation de la valeur DWU a une incidence sur les aspects des performances ci-après :
 
+- amélioration linéaire des performances du système pour les analyses, les agrégations et les instructions CTAS (Create Table As Select) ;
+- augmentation du nombre de processus de lecture et d’écriture pour le chargement de données ;
+- nombre maximal de requêtes simultanées et d’emplacements de concurrence.
 
+Recommandations concernant les cas dans lesquels augmenter la valeur DWU :
 
-<a name="scale-compute-bk"></a>
+- Avant d’exécuter une opération de chargement ou de transformation de données importante, effectuez une montée en puissance afin que vos données soient disponibles plus rapidement.
+- Pendant les heures de pointe, procédez à une montée en puissance pour prendre en charge un nombre plus important de requêtes simultanées. 
 
-## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
+## <a name="what-if-scaling-out-does-not-improve-performance"></a>Que faire si la montée en puissance n’améliore pas les performances ?
 
-Les performances dans SQL Data Warehouse se mesurent en [data warehouse units (DWU)][data warehouse units (DWU)] qui sont une unité abstraite de ressources de calcul (processeur, mémoire et bande passante d’E/S). Un utilisateur qui souhaite augmenter les performances de son système peut y parvenir de plusieurs façons, par exemple via le portail, T-SQL et les API REST. 
+L’ajout d’unités DWU augmente le parallélisme. Si le travail est réparti uniformément entre les nœuds de calcul, ce surcroît de parallélisme accroît le niveau de performance des requêtes. Si la montée en puissance n’améliore pas votre niveau de performance, certaines raisons peuvent l’expliquer. Il peut exister une asymétrie des données entre les distributions, ou il est possible que des requêtes introduisent un déplacement important des données. Pour examiner les problèmes liés aux performances des requêtes, consultez l’article relatif à la [résolution des problèmes de performances](sql-data-warehouse-troubleshoot.md#performance). 
 
-### <a name="how-do-i-scale-compute"></a>Comment mettre à l’échelle les ressources de calcul ?
-La puissance de calcul est gérée pour vous par SQL Data Warehouse en modifiant le paramètre DWU. Les performances augmentent de manière linéaire à mesure que vous ajoutez des DWU pour certaines opérations.  Nous proposons des offres DWU qui vous garantissent une évolution notable de vos performances lorsque vous effectuez une montée ou une descente en puissance de votre système. 
+## <a name="pausing-and-resuming-compute"></a>Suspension et reprise du calcul
+La suspension du calcul consiste à détacher la couche de stockage des nœuds de calcul. Les ressources de calcul sont libérées de votre compte. Pendant la suspension du calcul, vous n’êtes pas facturé pour ce dernier. La reprise du calcul rattache le stockage aux nœuds de calcul et réenclenche la facturation du calcul. Lorsque vous suspendez un entrepôt de données :
 
-Pour ajuster les unités DWU, vous pouvez utiliser l’une des différentes méthodes suivantes.
+* Les ressources de calcul et de mémoire sont renvoyées dans le pool des ressources disponibles du centre de données.
+* Les coûts de DWU sont nuls pendant toute la durée de la suspension.
+* Le stockage de données n’est pas affecté et vos données restent intactes. 
+* SQL Data Warehouse annule toutes les opérations en cours d’exécution ou en file d’attente.
 
-* [Mise à l’échelle de la puissance de calcul avec le portail Azure][Scale compute power with Azure portal]
-* [Mise à l’échelle de la puissance de calcul avec PowerShell][Scale compute power with PowerShell]
-* [Mise à l’échelle de la puissance de calcul avec les API REST][Scale compute power with REST APIs]
-* [Mise à l’échelle de la puissance de calcul avec TSQL][Scale compute power with TSQL]
+Lorsque vous reprenez un entrepôt de données :
 
-### <a name="how-many-dwus-should-i-use"></a>Combien d’unités DWU dois-je utiliser ?
+* SQL Data Warehouse acquiert les ressources de calcul et de mémoire correspondant à votre paramétrage DWU.
+* Les frais de calcul concernant vos unités DWU vous sont de nouveau facturés.
+* Vos données deviennent disponibles.
+* Une fois que l’entrepôt de données est en ligne, vous devez redémarrer vos requêtes de charge de travail.
 
-Pour obtenir votre valeur DWU idéale, essayez d’augmenter et de réduire vos DWU et d’exécuter quelques requêtes après le chargement de vos données. La mise à l’échelle étant rapide, vous pouvez essayer plusieurs niveaux de performances en une heure ou moins. 
+Si vous souhaitez que votre entrepôt de données soit toujours accessible, envisagez de le réduire à sa taille minimale au lieu de le suspendre. 
 
-> [!Note] 
-> SQL Data Warehouse est conçu pour traiter de grandes quantités de données. Pour étudier ses fonctionnalités de mise à l’échelle, en particulier sur les unités DWU de grande taille, nous vous conseillons d’utiliser un jeu de données qui avoisine ou dépasse 1 To.
+Pour plus d’informations sur les procédures de suspension et de reprise, consultez les articles de démarrage rapide pour le [portail Azure](pause-and-resume-compute-portal.md) ou pour [PowerShell](pause-and-resume-compute-powershell.md). Vous pouvez également utiliser [l’API REST de suspension](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) ou [l’API REST de reprise](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
-Recommandations pour rechercher l’unité DWU la mieux adaptée à votre charge de travail :
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Vider les transactions avant la suspension ou la mise à l’échelle
+Nous vous recommandons d’autoriser l’achèvement des transactions existantes avant d’initialiser une opération de suspension ou de mise à l’échelle.
 
-1. Si vous disposez d’un entrepôt de données en développement, commencez par sélectionner un niveau de performances utilisant un nombre réduit d’unités DWU.  DW400 ou DW200 est un bon point de départ.
-2. Surveillez les performances de votre application, en observant notamment le nombre d’unités DWU sélectionné.
-3. Déterminez le niveau de performances le mieux adapté aux exigences en modulant la capacité de votre système à l’aide d’une mise à l’échelle linéaire.
-4. Augmentez ou diminuez le nombre de DWU en fonction de la performance de charge de travail dont vous avez besoin. 
-5. Continuez à effectuer des ajustements jusqu’à ce que vous atteigniez le niveau de performances requis par vos activités.
+Lorsque vous suspendez ou mettez à l’échelle de votre SQL Data Warehouse, en arrière-plan, vos requêtes sont annulées lorsque vous lancez la requête de suspension de mise à l’échelle.  L’annulation d’une simple requête SELECT est une opération rapide et n’a quasiment aucun impact sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre instance.  Toutefois, les requêtes transactionnelles, qui modifient vos données ou la structure des données, ne pourront peut-être pas s’arrêter rapidement.  **Par définition, les requêtes transactionnelles doivent être terminées dans leur intégralité ou annuler leurs modifications.**  L’annulation du travail effectué par une requête transactionnelle peut être aussi longue, voire plus, que la modification originale appliquée par la requête.  Par exemple, si vous annulez une requête qui supprimait des lignes et était en cours d’exécution depuis une heure, le système mettra peut-être une heure à insérer à nouveau les lignes supprimées.  Si vous exécutez une suspension ou une mise à l’échelle pendant que les transactions sont en cours, votre suspension ou mise à l’échelle peut sembler très longue, car la suspension et la mise à l’échelle doivent attendre la fin de la restauration avant de se lancer.
 
-> [!NOTE]
->
-> Si les travaux peuvent être fractionnés entre les nœuds de calcul, les performances des requêtes augmentent uniquement avec une parallélisation renforcée. Si vous trouvez que la mise à l’échelle ne modifie pas les performances, consultez nos articles sur le réglage des performances et voyez si vos données sont distribuées de manière inégale ou si vous provoquez un déplacement trop important des données. 
+Consultez également les articles fournissant une [présentation des transactions](sql-data-warehouse-develop-transactions.md) et décrivant la [procédure d’optimisation des transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
-### <a name="when-should-i-scale-dwus"></a>Quand dois-je mettre les unités DWU à l’échelle ?
-La mise à l’échelle des unités DWU modifie les principaux scénarios suivants :
+## <a name="automating-compute-management"></a>Automatisation de la gestion du calcul
+Pour plus d’informations sur l’automatisation des opérations de gestion du calcul, consultez l’article décrivant comment [gérer le calcul avec Azure Functions](manage-compute-with-azure-functions.md).
 
-1. Modification linéaire des performances du système pour les analyses, les agrégations et les instructions CTAS
-2. Augmentation du nombre de lecteurs et d’auteurs lors du chargement des données avec PolyBase
-3. Nombre maximal de requêtes simultanées et d’emplacements concurrentiels
+L’exécution de chacune des opérations de montée en puissance, de suspension et de reprise peut nécessiter plusieurs minutes. Si vous procédez à une mise à l’échelle, une suspension ou une reprise automatiques, nous vous recommandons d’implémenter une logique pour vous assurer que certaines opérations ont été effectuées avant d’exécuter une autre action. La vérification de l’état de l’entrepôt de données au niveau de différents points de terminaison vous permet d’automatiser correctement de telles opérations. 
 
-Recommandations sur le moment approprié pour mettre des unités DWU à l’échelle :
+Pour vérifier l’état de l’entrepôt de données, consultez les articles de démarrage rapide pour [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-database-state). Vous pouvez également vérifier l’état de l’entrepôt de données à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
-1. Avant d’exécuter une opération de chargement ou de transformation de données importante, vous pouvez augmenter le nombre d’unités DWU afin que vos données soient disponibles plus rapidement.
-2. Pendant les heures de pointe, envisagez une mise à l’échelle pour prendre en charge un nombre plus important de requêtes simultanées. 
-
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Suspension du calcul
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Pour suspendre une base de données, utilisez l’une des différentes méthodes suivantes.
-
-* [Suspension du calcul avec le portail Azure][Pause compute with Azure portal]
-* [Suspension du calcul avec PowerShell][Pause compute with PowerShell]
-* [Suspension du calcul avec des API REST][Pause compute with REST APIs]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Reprise du calcul
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Pour reprendre une base de données, utilisez l’une des différentes méthodes suivantes.
-
-* [Reprise du calcul avec le portail Azure][Resume compute with Azure portal]
-* [Reprise du calcul avec PowerShell][Resume compute with PowerShell]
-* [Reprise du calcul avec des API REST][Resume compute with REST APIs]
-
-<a name="check-compute-bk"></a>
-
-## <a name="check-database-state"></a>Vérifier l’état de la base de données 
-
-Pour reprendre une base de données, utilisez l’une des différentes méthodes suivantes.
-
-- [Vérifier l’état de la base de données avec T-SQL][Check database state with T-SQL]
-- [Vérifier l’état de la base de données avec PowerShell][Check database state with PowerShell]
-- [Vérifier l’état de la base de données avec les API REST][Check database state with REST APIs]
 
 ## <a name="permissions"></a>Autorisations
 
-La mise à l’échelle de la base de données requiert les autorisations décrites dans [ALTER DATABASE][ALTER DATABASE].  La suspension et la reprise requièrent l’autorisation [SQL DB Contributor][SQL DB Contributor], notamment Microsoft.Sql/servers/databases/action.
+La mise à l’échelle de l’entrepôt de données requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  La suspension et la reprise requièrent l’autorisation [Collaborateur de base de données SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), notamment Microsoft.Sql/servers/databases/action.
 
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>étapes suivantes
-Consultez les articles suivants pour mieux comprendre certains concepts supplémentaires essentiels en matière de performances :
-
-* [Gestion des charges de travail et d’accès concurrentiel][Workload and concurrency management]
-* [Vue d’ensemble de conception de table][Table design overview]
-* [Distribution de tables][Table distribution]
-* [Indexation de table][Table indexing]
-* [Partitionnement de tables][Table partitioning]
-* [Statistiques de table][Table statistics]
-* [Meilleures pratiques][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
-
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/
+Un autre aspect de la gestion des ressources de calcul concerne l’allocation de ressources de calcul différentes pour des requêtes spécifiques. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).

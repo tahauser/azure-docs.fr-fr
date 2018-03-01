@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -33,7 +33,6 @@ La machine qui fournit votre session Cloud Shell est temporaire. En effet, elle 
 * Avec le stockage monté, seules les modifications apportées à votre répertoire `clouddrive` sont conservées. Dans Bash, votre répertoire `$Home` est également conservé.
 * Les partages de fichiers Azure peuvent être montés uniquement depuis votre [région affectée](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Dans Bash, exécutez `env` pour rechercher votre région définie en tant que `ACC_LOCATION`.
-* Azure Files prend uniquement en charge les comptes de stockage localement redondant et les comptes de stockage géoredondant.
 
 ### <a name="browser-support"></a>Prise en charge des navigateurs
 
@@ -55,18 +54,11 @@ Cloud Shell est destiné aux cas d’usage interactif. De fait, les sessions non
 
 ### <a name="user-permissions"></a>Autorisations utilisateur
 
-Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors du répertoire `$Home` ne sont pas conservées.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Autorisations limitées SMB Clouddrive
-Certaines commandes situées dans le répertoire `clouddrive` (par exemple, `git clone`) ne disposent pas des autorisations nécessaires pour lire/écrire certains fichiers. Si vous rencontrez ce problème, réessayez à partir de votre répertoire `$Home` qui n’a pas de limitations SMB.
+Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors de votre répertoire `$Home` ou `clouddrive` ne sont pas conservées.
 
 ### <a name="editing-bashrc"></a>Modifier .bashrc
 
-Faites attention lorsque vous modifiez .bashrc : cela peut entraîner des erreurs inattendues dans Cloud Shell.
-
-### <a name="bashhistory"></a>.bash_history
-
-Votre historique de commandes de l’interpréteur de commandes risque d’être incohérent en raison d’interruptions de sessions Cloud Shell ou de sessions simultanées.
+Faites attention lorsque vous modifiez .bashrc, car cela peut entraîner des erreurs inattendues avec Bash dans Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limites de PowerShell
 

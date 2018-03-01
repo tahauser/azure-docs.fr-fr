@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Vérifier l’utilisation des services gratuits inclus avec votre compte gratuit Azure 
 
@@ -28,7 +28,7 @@ Vous n’êtes pas facturé pour les services inclus gratuitement avec un compte
 
 1.  Connectez-vous au [portail Azure]( http://portal.azure.com).
 
-2.  En bas du volet de navigation gauche, sélectionnez **Autres services**.
+2.  Dans la zone de navigation de gauche, sélectionnez **Tous les services**.
 
 3.  Sélectionnez **Abonnements**.
 

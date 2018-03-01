@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurer Tomcat7 sur une machine virtuelle Linux avec Azure
 Apache Tomcat (ou simplement Tomcat, également appelé Jakarta Tomcat précédemment) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems. Tomcat fournit un environnement de serveur web HTTP Java pur dans lequel exécuter le code Java. Dans la configuration la plus simple, Tomcat s’exécute dans un processus de système d’exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d’un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.  
@@ -64,7 +64,7 @@ Pour générer la clé d’authentification SSH, procédez comme suit.
 6. Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Étape 2 : Créer l’image dans le portail Azure
-1. Dans le [portail](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image. Choisissez ensuite l’image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04.
+1. Dans le [portail](https://portal.azure.com/), cliquez sur **Créer une ressource** dans la barre des tâches pour créer une image. Choisissez ensuite l’image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04.
 ![Capture d’écran du portail montrant le bouton Nouveau][3]
 
 2. Pour **Nom d’hôte** spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple, tomcatdemo. Azure génère alors l’URL sous la forme tomcatdemo.cloudapp.net.  
@@ -221,7 +221,7 @@ Vous pouvez modifier le fichier de configuration utilisateur de Tomcat pour conf
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
-Voici un exemple :  
+Voici un exemple :   
 ![Capture d’écran montrant la sortie de la commande sudo vi][17]  
 
 > [!NOTE]
@@ -246,7 +246,7 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 
      Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le port privé est identique au port d’écoute Tomcat. Consultez la section « Phase 1 : Création d’une image » de cet article pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.  
 
-     Pour déterminer le port d’écoute de Tomcat, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/tomcat7/server.xml (version Debian). Par défaut, le port d’écoute de Tomcat est 8080. Voici un exemple :  
+     Pour déterminer le port d’écoute de Tomcat, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/tomcat7/server.xml (version Debian). Par défaut, le port d’écoute de Tomcat est 8080. Voici un exemple :   
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
@@ -303,7 +303,7 @@ Cela a été testé sur CentOS 6.3.
 
   Utilisez l’option -R pour appliquer aussi les autorisations pour tous les fichiers contenus dans un répertoire.  
 
-  Cette commande fonctionne également pour les répertoires. L’option -R modifie les autorisations pour tous les fichiers et répertoires contenus dans le répertoire. Voici un exemple :  
+  Cette commande fonctionne également pour les répertoires. L’option -R modifie les autorisations pour tous les fichiers et répertoires contenus dans le répertoire. Voici un exemple :   
 
      sudo chown -R username:group directory  
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurer le niveau PremiumV2 pour Azure App Service
 
-Le nouveau niveau tarifaire **PremiumV2** fournit des [machines virtuelles Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) dotées de processeurs plus rapides, d’un stockage SSD et d’un ratio mémoire-cœur deux fois plus élevé que celui du niveau **Standard**. Dans cet article, vous allez apprendre à créer une application dans le niveau **PremiumV2** ou à monter en puissance une application en la passant au niveau **PremiumV2**.
+Le nouveau niveau tarifaire **PremiumV2** offre des processeurs plus rapides, un stockage SSD et le double de ratio mémoire-cœur des niveaux tarifaires précédents. Avec cet avantage de performances, vous pouvez économiser de l’argent en exécutant vos applications sur moins d’instances. Dans cet article, vous allez apprendre à créer une application dans le niveau **PremiumV2** ou à monter en puissance une application en la passant au niveau **PremiumV2**.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour monter en puissance une application web en la passant au niveau **PremiumV2**, vous devez avoir une application web dans Azure App Service qui s’exécute dans un niveau tarifaire inférieur à **PremiumV2**.
 
@@ -33,9 +33,9 @@ Pour monter en puissance une application web en la passant au niveau **PremiumV2
 
 ## <a name="premiumv2-availability"></a>Disponibilité de PremiumV2
 
-Le niveau PremiumV2 est actuellement disponible pour App Service sur _Windows_ uniquement. Les conteneurs Linux ne sont pas pris en charge.
+Le niveau PremiumV2 est actuellement disponible pour App Service sur _Windows_ uniquement. Les conteneurs Linux ne sont pas encore pris en charge.
 
-PremiumV2 est déjà disponible dans la plupart des régions Azure. Il sera progressivement étendu à d’autres régions. Pour savoir si ce niveau est disponible dans votre région, exécutez la commande Azure CLI suivante dans [Azure Cloud Shell](../cloud-shell/overview.md) :
+PremiumV2 est déjà disponible dans la plupart des régions Azure. Il sera progressivement étendu à d’autres régions. Pour savoir si ce niveau est disponible dans votre région, exécutez la commande Azure CLI suivante dans [Azure Cloud Shell](../cloud-shell/overview.md) :
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
@@ -88,7 +88,7 @@ Ouvrez à nouveau la page de votre application App Service. Dans le volet de nav
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Sélectionnez le plan App Service que vous venez de créer.
+Sélectionnez le plan App Service que vous avez créé.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -111,7 +111,7 @@ Si votre application s’exécute dans une région où le niveau **PremiumV2** n
 
 Vous pouvez automatiser la création d’application dans le niveau **PremiumV2** à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
 La commande suivante crée un plan App Service dans _P1V2_. Vous pouvez l’exécuter dans Cloud Shell. Les options possibles pour `--sku` sont P1V2, _P2V2_ et _P3V2_.
 

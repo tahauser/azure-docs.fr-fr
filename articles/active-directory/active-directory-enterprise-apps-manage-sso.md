@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestion de l’authentification unique pour les applications d’entreprise
 
 Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer les paramètres d’authentification uniques pour les applications d’entreprise. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation. Cet article s’applique particulièrement aux applications qui ont été ajoutées à partir de la [Galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
-Vous pouvez afficher et gérer toutes les applications d’entreprise qui sont configurées pour l’authentification unique dans le portail Azure. Les applications se trouvent dans la section **Plus de services** &gt; **Applications d’entreprise** du portail. 
+Vous pouvez afficher et gérer toutes les applications d’entreprise qui sont configurées pour l’authentification unique dans le portail Azure. Les applications figurent dans la section **Tous les services** &gt; **Applications d’entreprise** du portail. 
 
 ![Panneau Applications d’entreprise][1]
 

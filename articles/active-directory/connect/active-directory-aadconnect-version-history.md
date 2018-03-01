@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -34,6 +34,73 @@ Rubrique |  Détails
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117490"></a>1.1.749.0
+État : version publiée à l’intention d’un panel de clients
+
+>[!NOTE]
+>Lorsque la mise à niveau vers cette nouvelle version s’exécute, elle déclenche automatiquement une synchronisation complète et une importation intégrale pour le Connecteur Azure AD, ainsi qu’une synchronisation complète pour le Connecteur AD. Étant donné que cette opération peut prendre un certain temps, selon la taille de votre environnement Azure AD Connect, assurez-vous que vous avez pris les mesures nécessaires pour que cette opération ne gêne pas vos activités, ou différez la mise à niveau jusqu’à ce que vous trouviez un moment opportun pour l’effectuer.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problèmes résolus
+* Résolution du problème de fenêtre de synchronisation sur les tâches en arrière-plan pour la page Filtrage de partitions
+* Résolution du problème de fenêtre de synchronisation sur les tâches en arrière-plan pour la page Filtrage de partitions lors du passage à la page suivante
+
+* Correction d’un bogue qui entraînait une violation d’accès lors de l’action personnalisée ConfigDB
+
+* Correction d’un bogue de récupération suite à un délai de connexion SQL
+
+* Correction d’un bogue qui entraînait l’échec d’une vérification des conditions préalables pour les certificats avec caractères génériques SAN
+
+* Correction d’un bogue qui entraînait un incident d’exécution de miiserver.exe lors d’une exportation du Connecteur Azure AD
+
+* Correction d’un bogue concernant la journalisation d’une tentative d’utilisation d’un mot de passe incorrect sur le contrôleur de domaine lors de l’exécution de l’Assistant Azure AD Connect pour modifier la configuration
+
+
+#### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+
+* Ajout de paramètres de confidentialité conformément aux exigences du Règlement général sur la protection des données (RGPD).  Le RGPD nous impose d’indiquer les types de données client qui sont partagées avec Microsoft (télémétrie, intégrité, etc.), de fournir des liens d’accès à la documentation en ligne détaillée et de permettre à nos clients de modifier leurs préférences.  Cette modification ajoute les éléments suivants :
+
+
+    - notification concernant la confidentialité et le partage des données sur la nouvelle page de conditions du contrat de licence (CLUF) d’installation ;
+    - notification concernant la confidentialité et le partage des données sur la page de mise à niveau ;
+    - nouvelle tâche supplémentaire « Paramètres de confidentialité » permettant à l’utilisateur de modifier ses préférences.
+
+* Télémétrie applicative : l’administrateur peut activer/désactiver cette catégorie de données à sa convenance.
+
+* Données d’intégrité Azure AD : l’administrateur doit accéder au portail de contrôle d’intégrité pour contrôler ses paramètres d’intégrité.
+   Une fois que la stratégie du service a été modifiée, les agents la lisent et la mettent en œuvre.
+
+* Ajout d’actions de configuration d’écriture différée sur les appareils et d’une barre de progression pour l’initialisation de la page.
+
+* Amélioration des diagnostics généraux avec un rapport HTML et une collecte de données complète dans un rapport au format ZIP/HTML.
+
+* Amélioration de la fiabilité des mises à niveau automatiques et ajout d’une télémétrie supplémentaire pour garantir la possibilité de détermination de l’intégrité du serveur.
+
+* Restriction des autorisations disponibles pour les comptes privilégiés sur le compte du Connecteur AD.
+
+  * Dans le cas des nouvelles installations, l’Assistant restreindra les autorisations dont disposent les comptes privilégiés sur le compte MSOL après la création de ce dernier.
+
+Les modifications prendront en charge les éléments suivants :
+1. Installations rapides
+2. Installations personnalisées avec création automatique de compte
+
+* Modification du programme d’installation afin qu’il ne nécessite plus de privilège d’administrateur système pour une nouvelle installation d’Azure AD Connect.
+
+* Ajout d’un nouvel utilitaire destiné à résoudre les problèmes de synchronisation pour un objet spécifique. Cet utilitaire est accessible sous l’option « Troubleshoot Object Synchronization » (Résoudre les problèmes de synchronisation d’objets) de la tâche supplémentaire de résolution des problèmes disponible dans l’Assistant Azure AD Connect. Actuellement, cet utilitaire procède aux vérifications suivantes :
+
+  * détection d’une incompatibilité de nom d’utilisateur principal (UPN) entre l’objet utilisateur synchronisé et le compte d’utilisateur dans le locataire Azure AD ;
+  * vérification si l’objet a été exclu de la synchronisation en raison d’un filtrage de domaine ;
+  * vérification si l’objet a été exclu de la synchronisation en raison d’un filtrage d’unité d’organisation.
+
+* Ajout d’un nouvel utilitaire destiné à synchroniser le hachage de mot de passe actuel stocké dans le service Active Directory local pour un compte d’utilisateur spécifique.
+
+Cet utilitaire ne nécessite aucune modification de mot de passe. Il est accessible sous l’option « Troubleshoot Password Hash Synchronization » (Résoudre les problèmes de synchronisation de hachage de mot de passe) de la tâche supplémentaire de résolution des problèmes disponible dans l’Assistant Azure AD Connect.
+
+
+
+
+
 
 ## <a name="116540"></a>1.1.654.0
 État : 12 décembre 2017

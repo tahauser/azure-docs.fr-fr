@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Créer un réseau virtuel à l’aide d’Azure CLI
 
@@ -144,7 +144,7 @@ Quand vous n’avez plus besoin d’un groupe de ressources, utilisez la command
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cet article, vous avez déployé un réseau virtuel par défaut avec un sous-réseau et deux machines virtuelles. Pour découvrir comment créer un réseau virtuel personnalisé avec plusieurs sous-réseaux et effectuer des tâches de gestion de base, passez au didacticiel couvrant la création d’un réseau virtuel personnalisé et sa gestion.
 

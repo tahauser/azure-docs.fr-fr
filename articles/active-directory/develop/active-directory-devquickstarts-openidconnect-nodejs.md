@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Bien démarrer avec l’application web Azure AD Node.js
 Nous utilisons Passport pour :
@@ -48,14 +48,14 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 
 2. Dans le menu situé en haut de la page, sélectionnez votre compte. Dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 
-3. Sélectionnez **Plus de services** dans le menu sur la gauche de l’écran, puis sélectionnez **Azure Active Directory**.
+3. Sélectionnez **Tous les services** dans le menu situé à gauche de l’écran, puis sélectionnez **Azure Active Directory**.
 
 4. Sélectionnez **Inscriptions d’applications**, puis **Ajouter**.
 
 5. Suivez les invites et créez une **application web** et/ou une **API web**.
   * Le **nom** de l’application doit décrire votre application aux utilisateurs.
 
-  * L’ **URL de connexion** est l’URL de base de votre application.  La valeur par défaut de la structure est `http://localhost:3000/auth/openid/return``.
+  * L’ **URL de connexion** est l’URL de base de votre application.  La valeur par défaut de la structure est `http://localhost:3000/auth/openid/return`.
 
 6. Une fois l’application enregistrée, Azure AD lui affecte un ID d’application unique. Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
 7. À partir de la page **Paramètres** -> **Propriétés** de votre application, mettez à jour l’URI ID d’application. Un **URI ID d’application** est un identificateur unique pour votre application. La convention consiste à utiliser le format `https://<tenant-domain>/<app-name>`, par exemple : `https://contoso.onmicrosoft.com/my-first-aad-app`.

@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Afficher ou rechercher vos groupes d’utilisateurs dans Azure Active Directory
 Cet article explique comment afficher tous les groupes dans Azure Active Directory (Azure AD). L’une des fonctionnalités de gestion des utilisateurs Azure AD est que vous pouvez utiliser des groupes pour effectuer des tâches de gestion telles que l’attribution de licences ou d’autorisations à un certain nombre d’utilisateurs à la fois.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Comment afficher tous les groupes ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Tous les services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
    ![Ouverture du panneau Utilisateurs et groupes](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les groupes**.
@@ -35,7 +35,7 @@ Cet article explique comment afficher tous les groupes dans Azure Active Directo
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , vous pouvez ajouter ou supprimer des colonnes d’affichage, filtrer la liste pour rechercher un groupe, ou apporter des modifications à des groupes pour lesquels vous avez les autorisations de modification.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

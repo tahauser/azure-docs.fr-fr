@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Voici les étapes que vous effectuez dans cette section :
 
 ### <a name="step-1-create-the-data-factory"></a>Étape 1 : Créer la fabrique de données
 1. Une fois connecté au portail Azure, procédez comme suit :
-   1. Cliquez sur **NOUVEAU** dans le menu de gauche.
+   1. Dans le menu de gauche, sélectionnez **Créer une ressource**.
    2. Dans le panneau **Nouveau**, cliquez sur **Données et analyses**.
    3. Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
    
