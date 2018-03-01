@@ -1,9 +1,11 @@
+# [Documentation IoT Hub](index.md)
+
 # Vue d'ensemble
 ## [Azure et IoT](iot-hub-what-is-azure-iot.md)
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Démarrer](iot-hub-get-started.md)
+# [Prise en main](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)

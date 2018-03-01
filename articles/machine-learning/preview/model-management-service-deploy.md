@@ -4,17 +4,17 @@ description: "Ce document décrit les étapes à suivre pour déployer un modèl
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9fbdb190e7c745000b358451c1a6e3058cb861fd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Déploiement d’un modèle d’apprentissage automatique comme service web
 
@@ -144,7 +144,7 @@ Vous pouvez ajouter au manifeste un modèle inscrit précédemment en utilisant 
 Vous pouvez créer une image avec la possibilité de créer préalablement son manifeste. 
 
 ```
-az ml image create -n [image name] -manifest-id [the manifest ID]
+az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
 Vous pouvez aussi créer le manifeste et l’image avec une seule commande. 

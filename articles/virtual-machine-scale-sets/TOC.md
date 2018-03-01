@@ -1,3 +1,5 @@
+# [Documentation sur les groupes de machines virtuelles identiques](index.md)
+
 # Vue d'ensemble
 ## [Que sont les groupes de machines virtuelles identiques ?](virtual-machine-scale-sets-overview.md)
 

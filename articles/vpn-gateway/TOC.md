@@ -1,3 +1,5 @@
+# [Documentation sur la passerelle VPN](index.md)
+
 # Vue d'ensemble
 ## [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md)
 ## [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md)

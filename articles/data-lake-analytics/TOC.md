@@ -1,4 +1,6 @@
-# Vue d’ensemble
+# [Documentation Data Lake Analytics](index.md)
+
+# Vue d'ensemble
 ## [Qu’est-ce que Data Lake Analytics ?](data-lake-analytics-overview.md)
 
 # Prise en main

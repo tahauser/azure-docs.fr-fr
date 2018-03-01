@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: rajanaki
 ms.openlocfilehash: d487c1fcf7fb6444c2b8489df839a6450715ae0a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-errors-reported-during-the-process-of-failback"></a>Résoudre les erreurs signalées pendant le processus de restauration automatique
 Une restauration automatique implique essentiellement deux étapes principales. L’une consiste à reprotéger les machines virtuelles locales à partir d’Azure, et l’autre à effectuer réellement la restauration automatique à partir d’Azure vers le site local.

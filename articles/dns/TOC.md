@@ -1,3 +1,5 @@
+# [Documentation DNS](index.md)
+
 # Vue d'ensemble
 
 ## [Présentation d’Azure DNS](dns-overview.md)
@@ -9,9 +11,9 @@
 # Prise en main
 
 ## Créer une zone et un enregistrement DNS
-### [Portail Azure](dns-getstarted-portal.md)
+### [Portail Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Interface de ligne de commande Azure](dns-getstarted-cli.md)
+### [interface de ligne de commande Azure](dns-getstarted-cli.md)
 
 ## Créer une zone DNS privée et un enregistrement
 ### [PowerShell](private-dns-getstarted-powershell.md)
@@ -21,17 +23,17 @@
 # Procédures
 
 ## Gestion des zones DNS
-### [Portail Azure](dns-operations-dnszones-portal.md)
+### [Portail Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
 
 ## Gestion des enregistrements DNS
-### [Portail Azure](dns-operations-recordsets-portal.md)
+### [Portail Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
+### [interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
 
 ## Gérer des enregistrements DNS inversés
-### [Vue d'ensemble](dns-reverse-dns-overview.md)
+### [Vue d’ensemble](dns-reverse-dns-overview.md)
 ### [Héberger des zones de recherche inversée dans Azure DNS](dns-reverse-dns-hosting.md)
 ### [Gérer des enregistrements DNS inversés pour les services Azure](dns-reverse-dns-for-azure-services.md)
 
@@ -44,10 +46,10 @@
 ## Résolution des problèmes
 ### [Guide de résolution des problèmes](dns-troubleshoot.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
-## [Interface de ligne de commande Azure](/cli/azure/network/dns)
+## [interface de ligne de commande Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)

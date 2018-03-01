@@ -1,3 +1,5 @@
+# [Documentation Multi-Factor Authentication](index.md)
+
 # Vue d'ensemble
 ## [Présentation d'Azure Multi-Factor Authentication](multi-factor-authentication.md)
 ## [Fonctionnement](multi-factor-authentication-how-it-works.md)

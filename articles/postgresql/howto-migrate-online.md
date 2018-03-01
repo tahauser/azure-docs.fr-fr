@@ -1,19 +1,19 @@
 ---
-title: "Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL | Microsoft Docs"
+title: "Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL"
 description: "Cet article explique comment effectuer une migration avec temps d’arrêt minimal en extrayant une base de données PostgreSQL dans un fichier de sauvegarde, en restaurant la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump dans Azure Database pour PostgreSQL et en configurant la charge initiale et la synchronisation des données en continu depuis la base de données source vers la base de données cible à l’aide d’Attunity Replicate pour Microsoft Migrations."
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL
 Pour migrer votre base de données PostgreSQL existante vers Azure Database pour PostgreSQL, utilisez Attunity Replicate pour Microsoft Migrations. Attunity Replicate est une offre commune d’Attunity et de Microsoft. Fournie avec Azure Database Migration Service, cette solution est offerte sans frais supplémentaires aux clients Microsoft. 

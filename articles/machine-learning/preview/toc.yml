@@ -9,17 +9,17 @@
       href: model-management-overview.md
 - name: Démarrages rapides
   items:
-    - name: Installer et créer
+    - name: Installer et démarrer
       href: quickstart-installation.md
 - name: Didacticiels
   items:
-    - name: 1 - Préparer les données
+    - name: "1\_: préparer les données"
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 - Générer un modèle
+    - name: "2\_: créer des modèles"
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 - Déployer un modèle
+    - name: "3\_: déployer des modèles"
       href: tutorial-classifying-iris-part-3.md
-    - name: 4 - Préparer des données avancées
+    - name: "4\_: préparation avancée des données"
       href: tutorial-bikeshare-dataprep.md
 - name: Concepts
   items:

@@ -1,4 +1,6 @@
-# Vue d’ensemble
+# [Documentation Power BI Embedded](index.md)
+
+# Vue d'ensemble
 ## [En savoir plus sur Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Prise en main

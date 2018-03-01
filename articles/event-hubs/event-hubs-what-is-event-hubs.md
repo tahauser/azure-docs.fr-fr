@@ -12,27 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 08b78f59dc758f12556f332546ccb6043bef2812
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-event-hubs"></a>Qu’est-ce qu’Event Hubs ?
 
 Azure Event Hubs est une plateforme de diffusion de données hautement évolutive et de service d’ingestion d’événement capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Grâce à leur capacité à fournir des [fonctionnalités publication-abonnement](/biztalk/core/publish-and-subscribe-architecture) avec une faible latence et à grande échelle, les concentrateurs d’événements constitue la « base » des données volumineuses (Big Data).
 
-## <a name="why-use-event-hubs"></a>Pourquoi utiliser Azure Event Hubs ?
-
-Les fonctionnalités de traitement des événements et données de télémétrie de cette solution sont particulièrement adaptées pour les opérations suivantes :
-
-* L’instrumentation de l'application
-* L’expérience de l'utilisateur ou le traitement du flux de travail
-* Des scénarios Internet des objets (IoT)
-
-Par exemple, les concentrateurs d’événements incluent une fonction de suivi du comportement dans les applications mobiles, des informations sur le trafic provenant de batteries de serveurs web, de capture d’événements de jeu dans les jeux de console ou des données de télémétrie collectées sur des machines industrielles, des véhicules connectés ou d’autres appareils.
+Par exemple, les concentrateurs d’événements inclut une fonction de suivi du comportement dans les applications mobiles, des informations sur le trafic provenant de batteries de serveurs web, de capture d’événements de jeu dans les jeux de console ou des données de télémétrie collectées sur des machines industrielles, des véhicules connectés ou d’autres appareils.
 
 ## <a name="azure-event-hubs-overview"></a>Vue d'ensemble des hubs d'événements Azure
 

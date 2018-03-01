@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Gérer les mises à jour pour votre machine virtuelle
       href: automation-tutorial-update-management.md
-    - name: Mise à jour intégrée et suivi des modifications
+    - name: Mise à jour intégrée et suivi des modifications par les runbooks
       href: automation-onboard-solutions.md
     - name: Identifier les logiciels sur une machine virtuelle
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Procédures
   items:
-    - name: Gestion des mises à jour
+    - name: Mise en route
       items:
-        - name: Vue d'ensemble
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Intégrer à partir d’une machine virtuelle Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Intégrer à partir d’un compte Automation
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Update Management
+      items:
+        - name: Vue d’ensemble de Update Management
+          href: automation-update-management.md
         - name: Gérer les mises à jour pour plusieurs machines virtuelles
           href: manage-update-multi.md
-        - name: Intégrer SCCM avec OMS Update Management
+        - name: Intégrer SCCM avec Update Management
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Suivi des modifications
       items:
-        - name: Vue d'ensemble
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Suivi des modifications dans vos machines virtuelles
-          href: automation-vm-change-tracking.md
+        - name: Vue d’ensemble du suivi des modifications
+          href: automation-change-tracking.md
     - name: Inventaire
       items:
         - name: Gérer une machine virtuelle avec la collecte d’inventaire

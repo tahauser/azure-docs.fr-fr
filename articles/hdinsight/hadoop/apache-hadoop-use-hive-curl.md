@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: c830abdf8220f222a06b771b8c9fc905146420b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dfe9efdb57a0ce2506abd251267f39020568d081
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Hive avec Hadoop dans HDInsight à l’aide de REST
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 
 Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hive avec Hadoop sur un cluster Azure HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
@@ -77,7 +77,8 @@ Ce document utilise également Windows PowerShell et [Jq](http://stedolan.github
     
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -100,7 +101,8 @@ Ce document utilise également Windows PowerShell et [Jq](http://stedolan.github
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
-       -Credential $creds
+       -Credential $creds `
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -122,7 +124,8 @@ Ce document utilise également Windows PowerShell et [Jq](http://stedolan.github
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
-       -Method POST
+       -Method POST `
+       -UseBasicParsing
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -162,7 +165,8 @@ Ce document utilise également Windows PowerShell et [Jq](http://stedolan.github
     $reqParams=@{"user.name"="admin"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
        -Credential $creds `
-       -Body $reqParams
+       -Body $reqParams `
+       -UseBasicParsing
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")

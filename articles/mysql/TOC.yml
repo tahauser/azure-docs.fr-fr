@@ -1,6 +1,6 @@
 - name: Base de données Azure pour les documents MySQL
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Base de données Azure pour MySQL
       href: overview.md
@@ -66,9 +66,7 @@
     - name: Ressources
       items:
         - name: Niveaux de tarification
-          href: concepts-service-tiers.md
-        - name: Unités de calcul
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: limites
           href: concepts-limits.md
     - name: Accès aux données et sécurité
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: Configuration de SSL
           href: concepts-ssl-connection-security.md
+    - name: Continuité de l’activité
+      items:
+        - name: Vue d'ensemble
+          href: concepts-business-continuity.md
+        - name: Sauvegarde et restauration
+          href: concepts-backup.md
     - name: Surveiller
       href: concepts-monitoring.md
     - name: Développement
@@ -137,6 +141,12 @@
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-on-metric.md
+    - name: Résolution des problèmes
+      items:
+        - name: Dépannage de la performance des requêtes
+          href: howto-troubleshoot-query-performance.md
+        - name: Utilisation des vues dans le schéma sys
+          href: howto-troubleshoot-sys-schema.md
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 036d5c2945bd6730d65f88f72c9377047fefcde6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Gérer les interfaces réseau des machines virtuelles pour les scénarios d’un emplacement local vers Azure
 
-Une machine virtuelle (VM) dans Azure doit être associée à au moins une interface réseau. Elle peut avoir autant d’interfaces réseau qu’en prend en charge la taille de machine virtuelle. 
+Une machine virtuelle (VM) dans Azure doit être associée à au moins une interface réseau. Elle peut avoir autant d’interfaces réseau qu’en prend en charge la taille de machine virtuelle.
 
 Par défaut, la première interface réseau associée à une machine virtuelle Azure est définie comme interface réseau principale. Toutes les autres interfaces réseau de la machine virtuelle sont des interfaces réseau secondaires. Par défaut, tout le trafic sortant de la machine virtuelle est envoyé à partir de l’adresse IP affectée à la configuration IP principale de l’interface réseau principale.
 

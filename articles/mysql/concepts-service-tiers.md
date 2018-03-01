@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Options et performances d’Azure Database pour MySQL : comprendre ce qui est disponible dans chaque niveau tarifaire
 Quand vous créez un serveur Azure Database pour MySQL, vous choisissez entre trois options principales pour configurer les ressources allouées pour ce serveur. Ces choix ont un impact sur les performances et la mise à l’échelle du serveur.
@@ -36,7 +36,7 @@ Le tableau suivant fournit des exemples de niveaux tarifaires adaptés à diffé
 | Niveau tarifaire | Charges de travail cibles |
 | :----------- | :----------------|
 | De base | Idéal pour les petites charges de travail qui requièrent une capacité de calcul et de stockage évolutive sans garantie d’E/S par seconde. Exemple : serveurs utilisés pour le développement ou le test ou pour des applications à petite échelle rarement utilisées. |
-| Standard | Le meilleur choix pour les applications cloud nécessitant une garantie d’E/S par seconde avec un débit élevé. Exemples : applications web ou applications d’analyse. |
+| standard | Le meilleur choix pour les applications cloud nécessitant une garantie d’E/S par seconde avec un débit élevé. Exemples : applications web ou applications d’analyse. |
 | Premium | Idéal pour les charges de travail nécessitant une latence faible pour les transactions et les E/S. Assure la meilleure prise en charge possible d’un grand nombre d’utilisateurs simultanés. S’applique aux bases de données qui prennent en charge les applications critiques.<br />Le niveau tarifaire Premium n’est pas disponible en préversion. |
 
 Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de travail a besoin d’une garantie d’E/S par seconde. Si c’est le cas, utilisez le niveau tarifaire Standard.
@@ -45,8 +45,8 @@ Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de t
 | :------------------------ | :-------- | :----------- |
 | Nombre maximal d’unités de calcul | 100 | 800 | 
 | Volume total de stockage maximal | 1 To | 1 To | 
-| Garantie d’E/S par seconde de stockage | N/A  | Oui | 
-| E/S par seconde de stockage maximales | N/A  | 3 000 | 
+| Garantie d’E/S par seconde de stockage | N/A | OUI | 
+| E/S par seconde de stockage maximales | N/A | 3 000 | 
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 
 
 Pendant la phase de préversion, vous ne pouvez pas changer le niveau tarifaire une fois que le serveur est créé. Ultérieurement, il sera possible de faire passer un serveur d’un niveau tarifaire à l’autre.
@@ -64,7 +64,7 @@ Les unités de calcul sont une mesure du débit de traitement du processeur, don
 | **Niveau de performances** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Nombre maximal d’unités de calcul | 50 | 100 |
-| Taille du stockage inclus | 50 Go | 50 Go |
+| Taille du stockage inclus | 50 Go | 50 Go |
 | Taille maximale de stockage du serveur\* | 1 To | 1 To |
 
 ### <a name="standard-pricing-tier-performance-levels"></a>Niveaux de performances du niveau tarifaire Standard :
@@ -100,6 +100,6 @@ En réalité, un changement du niveau de performances d’un serveur crée une c
 
 La durée de la totalité du processus de mise à l’échelle dépend de la taille et du niveau tarifaire du serveur avant et après le changement. Par exemple, le changement des unités de calcul au sein du niveau tarifaire Standard ne demande normalement que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour plus d’informations sur les unités de calcul, consultez [Présentation des unités de calcul](concepts-compute-unit-and-storage.md)
 - Découvrez comment [Surveiller et mettre à l’échelle un serveur Azure Database pour MySQL à l’aide d’Azure CLI](scripts/sample-scale-server.md)

@@ -1,6 +1,6 @@
 - name: Documentation Azure Migrate
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Migrate
       href: migrate-overview.md
@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
+    - name: Concepts du collecteur
+      href: concepts-collector.md
     - name: Calculs d’évaluation
       href: concepts-assessment-calculation.md
     - name: Visualisation de dépendance

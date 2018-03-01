@@ -1,6 +1,6 @@
-- name: Jenkins sur Azure
+- name: Jenkins sur la Documentation Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Jenkins sur Azure
       href: overview.md

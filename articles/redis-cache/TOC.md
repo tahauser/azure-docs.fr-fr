@@ -1,3 +1,5 @@
+# [Documentation du Cache Redis](index.md)
+
 # Vue d'ensemble
 ##[Pourquoi utiliser le cache Redis](https://azure.microsoft.com/services/cache/)
 ##[Explorer les fonctionnalités du niveau Premium](cache-premium-tier-intro.md)
@@ -31,7 +33,7 @@
 ## Intégrer à ASP.NET
 ###[Fournisseur d’état de session](cache-aspnet-session-state-provider.md)
 ###[Fournisseur de caches de sortie](cache-aspnet-output-cache-provider.md)
-## Gérer
+## gérer
 ###[Configurer dans le portail Azure](cache-configure.md)
 ###[Configurer la géoréplication](cache-how-to-geo-replication.md)
 ###[Importer/Exporter des données](cache-how-to-import-export-data.md)
@@ -47,7 +49,7 @@
 ## Intégrer avec Spring Boot
 ###[Utiliser une application d’initialisation de Spring Boot avec le Cache Redis Azure](cache-java-spring-boot-initializer-with-redis-cache.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [Azure PowerShell](/powershell/module/azurerm.rediscache)
 ## [Préversion de l’interface CLI Azure](/cli/azure/redis)

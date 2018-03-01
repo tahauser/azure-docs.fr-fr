@@ -1,3 +1,5 @@
+# [Azure Service Health](index.md)
+
 # Vue d'ensemble
 ## [Qu’est-ce qu’Azure Service Health ?](service-health-overview.md)
 ## [Qu’est-ce qu’Azure Resource Health ?](resource-health-overview.md)
@@ -8,7 +10,7 @@
 ### [Configurer avec PagerDuty](service-health-alert-webhook-pagerduty.md)
 ### [Configurer avec OpsGenie](service-health-alert-webhook-opsgenie.md)
 # Ressources
-## [Forum Aux Questions](resource-health-faq.md)
+## [Forum Aux Questions (FAQ)](resource-health-faq.md)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Types de ressource et contrôles d’intégrité disponibles par le biais d’Azure Resource Health](resource-health-checks-resource-types.md)
 
