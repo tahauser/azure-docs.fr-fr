@@ -176,7 +176,7 @@ Ces performances élevées ont toutefois un prix. L’apprentissage des réseaux
 Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](http://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
 
 ![Limites apprises par les réseaux neuronaux][6]
-*** Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
+***Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
 
 Le [perceptron moyenné à deux classes](https://msdn.microsoft.com/library/azure/dn906036.aspx) est le réseau neuronal idéal pour répondre à l’explosion des durées d'apprentissage. Il utilise une structure de réseau qui fournit des limites de la classe linéaire. Il est presque primitif au vu des normes actuelles, mais il a un long historique d'utilisation fiable et est suffisamment petit pour apprendre rapidement.
 
