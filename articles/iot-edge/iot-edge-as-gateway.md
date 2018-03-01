@@ -1,5 +1,5 @@
 ---
-title: "Comprendre comment un appareil Azure IoT Edge peut être utilisé comme passerelle pour d’autres appareils | Microsoft Docs"
+title: Utiliser des appareils Azure IoT Edge en tant que passerelles | Microsoft Docs
 description: "Utilisez Azure IoT Edge pour créer un appareil de passerelle proxy ou opaque et transparent qui envoie des données à partir de plusieurs appareils en aval vers le cloud ou qui traite ces données localement."
 services: iot-edge
 keywords: 
@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle - préversion
 
@@ -32,7 +32,7 @@ Tous les modèles de passerelles fournissent les avantages suivants :
 * **Analytique Edge** : utilisez les services IA localement pour traiter les données provenant des appareils en aval sans envoyer d’informations de télémétrie haute fidélité au cloud. Recherchez des insights localement, réagissez-y, et envoyez uniquement un sous-ensemble de données à IoT Hub. 
 * **Isolation d’appareil en aval** : l’appareil de passerelle peut protéger tous les appareils en aval contre une exposition sur Internet. Il peut être placé entre un réseau OT qui n’a pas de connectivité et un réseau IT qui fournit l’accès au web. 
 * **Multiplexage des connexions** : tous les appareils se connectant à IoT Hub via un appareil IoT Edge utiliseront la même connexion sous-jacente.
-* **Lissage du trafic** : l’appareil IoT Edge implémentera automatiquement une interruption exponentielle en cas de limitation d’IoT Hub, tout en assurant une conservation locale des messages. Votre solution sera ainsi résistante aux pics de trafic.
+* **Lissage du trafic** : l’appareil IoT Edge implémentera automatiquement une interruption exponentielle en cas de limitation d’IoT Hub, tout en assurant une conservation locale des messages. Votre solution sera ainsi résiliente face aux pics de trafic.
 * **Prise en charge hors connexion limitée** : l’appareil de passerelle stockera localement les messages et mises à jour de la représentation qui ne peuvent pas être remis à IoT Hub.
 
 Une passerelle effectue la traduction de protocole et peut également effectuer l’analytique Edge, l’isolation d’appareil, le lissage du trafic et la prise en charge hors connexion pour les appareils existants et nouveaux dont les ressources sont limitées. De nombreux appareils existants produisent des données qui peuvent alimenter les insights métier : toutefois, ils n’ont pas été conçus pour la connectivité au cloud. Les passerelles opaques permettent le déverrouillage et l’utilisation de ces données dans une solution IoT de bout en bout.

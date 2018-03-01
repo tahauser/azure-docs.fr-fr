@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
@@ -36,7 +36,7 @@ La journalisation des métriques et diagnostics n’est pas activée par défaut
 
 - Portail Azure
 - PowerShell
-- Interface de ligne de commande Azure
+- Azure CLI
 - API REST Azure Monitor 
 - Modèle Azure Resource Manager
 
@@ -44,7 +44,7 @@ Lorsque vous activez la journalisation des métriques et diagnostics, vous devez
 
 - Log Analytics
 - Event Hubs
-- Storage 
+- Stockage 
 
 Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une ressource existante. Après avoir sélectionné la ressource de stockage, vous devez spécifier les données à collecter. Les options disponibles sont les suivantes :
 
@@ -125,7 +125,7 @@ Fournissez l’ID de ressource d’espace de travail &lt;$WSID&gt; en tant que p
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Pour activer la journalisation des métriques et diagnostics à l’aide d’Azure CLI, utilisez les commandes suivantes :
 
@@ -157,7 +157,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide d’Azu
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>de l’API REST
 
 Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’API RESTS Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
@@ -180,7 +180,7 @@ La surveillance d’une flotte SQL Database est simple avec Log Analytics. Trois
 
 ### <a name="create-a-log-analytics-resource"></a>Créer une ressource Log Analytics
 
-1. Sélectionnez **Nouveau** dans le menu de gauche.
+1. Sélectionnez **Créer une ressource** dans le menu de gauche.
 
 2. Sélectionnez **Surveillance et gestion**.
 
@@ -271,12 +271,12 @@ Découvrez comment [télécharger les journaux de métriques et de diagnostics �
 
 ### <a name="query-store-runtime-statistics"></a>Statistiques d’exécution du magasin des requêtes
 
-|Propriété|Description|
+|Propriété|DESCRIPTION|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|Type|Toujours : AzureDiagnostics|
+|type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
 |Catégorie|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics|
 |Nom d'opération|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent|
@@ -322,12 +322,12 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 
 ### <a name="query-store-wait-statistics"></a>Statistiques d’attente du magasin des requêtes
 
-|Propriété|Description|
+|Propriété|DESCRIPTION|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|Type|Toujours : AzureDiagnostics|
+|type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
 |Catégorie|Nom de la catégorie. Toujours : QueryStoreWaitStatistics|
 |Nom d'opération|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent|
@@ -360,12 +360,12 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 
 ### <a name="errors-dataset"></a>Jeu de données d’erreurs
 
-|Propriété|Description|
+|Propriété|DESCRIPTION|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|Type|Toujours : AzureDiagnostics|
+|type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
 |Catégorie|Nom de la catégorie. Toujours : Errors|
 |Nom d'opération|Nom de l’opération. Toujours : ErrorEvent|
@@ -380,7 +380,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |Message|Message d’erreur en texte brut.|
 |user_defined_b|Indique si l’erreur est un bit défini par l’utilisateur.|
 |error_number_d|Code d’erreur|
-|Severity|Gravité de l’erreur.|
+|Niveau de gravité|Gravité de l’erreur.|
 |state_d|État de l’erreur.|
 |query_hash_s|Hachage de requête de la requête ayant échoué si disponible.|
 |query_plan_hash_s|Hachage du plan de requête de la requête ayant échoué si disponible.|
@@ -389,12 +389,12 @@ En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.c
 
 ### <a name="database-wait-statistics-dataset"></a>Jeu de données de statistiques d’attente de base de données
 
-|Propriété|Description|
+|Propriété|DESCRIPTION|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|Type|Toujours : AzureDiagnostics|
+|type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
 |Catégorie|Nom de la catégorie. Toujours  : DatabaseWaitStatistics|
 |Nom d'opération|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent|
@@ -418,12 +418,12 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 
 ### <a name="time-outs-dataset"></a>Jeu de données d’expirations
 
-|Propriété|Description|
+|Propriété|DESCRIPTION|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|Type|Toujours : AzureDiagnostics|
+|type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
 |Catégorie|Nom de la catégorie. Toujours : Timeouts|
 |Nom d'opération|Nom de l’opération. Toujours : TimeoutEvent|
@@ -441,12 +441,12 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 
 ### <a name="blockings-dataset"></a>Jeu de données de blocages
 
-|Propriété|Description|
+|Propriété|DESCRIPTION|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|Type|Toujours : AzureDiagnostics|
+|type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
 |Catégorie|Nom de la catégorie. Toujours : Blocks|
 |Nom d'opération|Nom de l’opération. Toujours : BlockEvent|
@@ -466,7 +466,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 ### <a name="intelligent-insights-dataset"></a>Jeu de données Intelligent Insights
 Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et métriques prises en charge par les différents services Azure, consultez :
 

@@ -1,9 +1,9 @@
 ---
-title: "Configurer Network Performance Monitor pour les circuits Azure ExpressRoute (préversion) | Microsoft Docs"
-description: "Configurez NPM pour les circuits Azure ExpressRoute. (Préversion)"
+title: Configurer Network Performance Monitor pour les circuits Azure ExpressRoute | Microsoft Docs
+description: "Configurez la surveillance réseau basée sur le cloud pour les circuits Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurer Network Performance Monitor pour ExpressRoute (préversion)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
 Network Performance Monitor (NPM) est une solution de surveillance réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie de Microsoft Operations Management Suite (OMS). NPM offre désormais une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser l’homologation privée. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer.
 
@@ -62,9 +62,15 @@ Des agents de surveillance sont installés sur plusieurs serveurs, en local et s
 
 Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres objets ou services, et si vous avez déjà un espace de travail dans une des régions prises en charge, vous pouvez passer les étapes 1 et 2 et commencer votre configuration à l’étape 3.
 
-## <a name="configure"></a>Étape 1 : Créer un espace de travail (dans l’abonnement avec les réseaux virtuels liés au(x) circuit(s) ExpressRoute)
+## <a name="configure"></a>Étape 1 : Créer un espace de travail
+
+Créez un espace de travail dans l’abonnement où les réseaux virtuels sont liés aux circuits ExpressRoute.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’abonnement avec les réseaux virtuels associés à votre circuit ExpressRoute. Ensuite, recherchez « Network Performance Monitor » dans la liste des services de la **Place de marché**. Dans les résultats, cliquez pour ouvrir la page **Network Performance Monitor**.
+
+>[!NOTE]
+>Vous pouvez créer un espace de travail ou utiliser un espace de travail existant.  Si vous souhaitez utiliser un espace de travail existant, vous devez vérifier qu’il a été migré vers le nouveau langage de requête. [Plus d’informations...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portail](.\media\how-to-npm\3.png)<br><br>
 2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail OMS - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
@@ -79,29 +85,25 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
   >[!NOTE]
   >Le circuit ExpressRoute peut se trouver n’importe où dans le monde et pas nécessairement dans la même région que l’espace de travail.
   >
-
-
+  
   ![espace de travail](.\media\how-to-npm\4.png)<br><br>
 4. Cliquez sur **OK** pour enregistrer et déployer le modèle de paramètres. Une fois le modèle validé, cliquez sur **Créer** pour déployer l’espace de travail.
 5. Une fois l’espace de travail déployé, accédez à la ressource **NetworkMonitoring(name)** que vous avez créée. Validez les paramètres, puis cliquez sur **La solution nécessite une configuration supplémentaire**.
 
   ![configuration supplémentaire](.\media\how-to-npm\5.png)
-6. Sur la page **Bienvenue dans le moniteur de performances réseau**, sélectionnez **Utiliser TCP pour les transactions synthétiques**, puis cliquez sur **Envoyer**. Les transactions TCP sont utilisées uniquement pour créer et arrêter la connexion. Aucune donnée n’est envoyée via ces connexions TCP.
-
-  ![TCP pour les transactions synthétiques](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Étape 2 : Installer et configurer des agents
 
 ### <a name="download"></a>2.1 : Télécharger le fichier de configuration de l’agent
 
-1. Sur la page **Configuration de Network Performance Monitor - Installation de TCP** de votre ressource, dans la section **Installer les agents OMS**, cliquez sur l’agent qui correspond à votre processeur de serveur et téléchargez le fichier de configuration.
+1. Accédez à l’onglet **Paramètres communs** de la page **Configuration de Network Performance Monitor** de votre ressource. Cliquez sur l’agent qui correspond au processeur de votre serveur dans la section **Installer les agents OMS**, puis téléchargez le fichier d’installation.
 
   >[!NOTE]
   >L’agent doit être installé sur Windows Server 2008 SP1 ou version ultérieure. Le monitoring des circuits ExpressRoute à l’aide du système d’exploitation de bureau Windows et du système d’exploitation Linux n’est pas pris en charge. 
   >
   >
 2. Ensuite, copiez et collez **l’ID d’espace de travail** et la **clé primaire** dans le bloc-notes.
-3. Dans la section **Configurer les agents**, téléchargez le script Powershell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
+3. Dans la section **Configurer les agents OMS pour le monitoring avec le protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
 
   ![Script PowerShell](.\media\how-to-npm\7.png)
 
@@ -217,7 +219,7 @@ Pour afficher une liste de tous les circuits ExpressRoute surveillés, cliquez s
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Tendances en matière de perte, de latence et de débit
+#### <a name="trend"></a>Tendances concernant les pertes, la latence et le débit
 
 Les graphiques représentant la bande passante, la latence et la perte sont interactifs. Vous pouvez zoomer sur n’importe quelle section de ces graphiques, à l’aide de contrôles de la souris. Vous pouvez également voir des données de bande passante, de latence et de perte pour d’autres intervalles en cliquant sur l’option **Date/Heure**, située sous le bouton Actions, à gauche.
 

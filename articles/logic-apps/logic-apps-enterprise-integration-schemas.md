@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Valider des documents XML avec des schémas pour Azure Logic Apps et Enterprise Integration Pack
 
@@ -26,9 +26,9 @@ Les schémas confirment que les documents XML que vous recevez sont valides et c
 
 ## <a name="add-a-schema"></a>Ajout d’un schéma
 
-1. Dans le portail Azure, cliquez sur **Plus de services**.
+1. Dans le portail Azure, sélectionnez **Tous les services**.
 
-    ![Portail Azure, « Plus de services »](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Portail Azure, « Tous les services »](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. Entrez **intégration** dans la zone de recherche de filtre et sélectionnez **Integration Accounts** (Comptes d’intégration) dans la liste des résultats.
 
@@ -130,6 +130,6 @@ Azure affiche un message indiquant que le schéma a été téléchargé avec suc
 
     ![Votre compte d’intégration, avec « Schémas » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack").  
 

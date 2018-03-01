@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analyse de journaux pour les groupes de sécurité réseau (NSG)
 
@@ -46,7 +46,7 @@ La journalisation des diagnostics doit être activée pour *chaque* groupe de s�
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour utiliser le portail pour activer la journalisation, connectez-vous au [portail](https://portal.azure.com). Cliquez sur **Plus de services**, puis tapez *groupes de sécurité réseau*. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation. Suivez les instructions pour les ressources hors calcul dans l’article [Activation des journaux de diagnostic dans le portail](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Sélectionnez **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, ou les deux catégories de journaux.
+Pour utiliser le portail pour activer la journalisation, connectez-vous au [portail](https://portal.azure.com). Cliquez sur **Tous les services**, puis tapez *groupes de sécurité réseau*. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation. Suivez les instructions pour les ressources hors calcul dans l’article [Activation des journaux de diagnostic dans le portail](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Sélectionnez **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, ou les deux catégories de journaux.
 
 ### <a name="powershell"></a>PowerShell
 

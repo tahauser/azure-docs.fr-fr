@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
 
@@ -52,7 +52,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
 
 ### <a name="create-a-stream-analytics-job"></a>Création d’un travail Stream Analytics
 
-1. Dans le portail Azure, cliquez sur Nouveau > Internet des objets > Travail Stream Analytics.
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource** > **Internet des objets** > **Tâche Stream Analytics**.
 1. Saisissez les informations ci-après concernant le travail.
 
    **Nom du travail** : nom du travail. Le nom doit être globalement unique.
@@ -65,7 +65,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
 
    ![Créer un travail Stream Analytics dans Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée au travail Stream Analytics
 
@@ -78,7 +78,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
    **Source** : sélectionnez **IoT Hub**.
 
    **Groupe de consommateurs** : sélectionnez le groupe de consommateurs que vous venez de créer.
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
    ![Ajouter une entrée à un travail Stream Analytics dans Azure](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
@@ -98,7 +98,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
    **Nom du jeu de données** : saisissez le nom de jeu de données.
 
    **Nom de la table** : saisissez le nom de la table.
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
    ![Ajouter une sortie à un travail Stream Analytics dans Azure](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -107,7 +107,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
 1. Sous **Topologie du travail**, cliquez sur **Requête**.
 1. Remplacez `[YourInputAlias]` par l’alias d’entrée du travail.
 1. Remplacez `[YourOutputAlias]` par l’alias de sortie du travail.
-1. Cliquez sur **Save**.
+1. Cliquez sur **Enregistrer**.
 
    ![Ajouter une requête à un travail Stream Analytics dans Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
@@ -153,7 +153,7 @@ Vous obtenez le lien d’accès au rapport, que vous pouvez partager avec les ut
 
 Microsoft propose également des [applications mobiles Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/), qui permettent d’afficher les tableaux de bord et rapports Power BI sur votre appareil mobile et d’interagir avec eux.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez correctement utilisé Power BI pour visualiser les données de capteur en temps réel, à partir de votre instance Azure IoT Hub.
 Cela dit, il existe un autre moyen de visualiser ces données depuis Azure IoT Hub. Voir [Utiliser Azure Web Apps pour visualiser les données de capteur en temps réel à partir d’Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).

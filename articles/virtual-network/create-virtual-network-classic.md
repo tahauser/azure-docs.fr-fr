@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
@@ -39,10 +39,10 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 ## <a name="portal"></a>Portail
 
 1. Dans un navigateur Internet, accédez au [portail Azure](https://portal.azure.com). Connectez-vous à votre [compte Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Dans le portail, cliquez sur **+Nouveau**.
-3. Entrez *Réseau virtuel* dans la zone **Rechercher dans le marketplace** en haut du panneau **Nouveau** qui s’affiche.  Quand la mention **Réseau virtuel** apparaît dans les résultats de la recherche, cliquez dessus.
-4. Sur le panneau **Réseaux virtuels** qui s’affiche, dans la zone **Sélectionner un modèle de déploiement**, sélectionnez **Classic**, puis cliquez sur **Créer**. 
-5. Sur le panneau **Créer un réseau virtuel**, entrez les valeurs ci-après, puis cliquez sur **Créer** :
+2. Cliquez sur **Créer une ressource** dans le portail.
+3. Entrez *Réseau virtuel* dans la zone **Rechercher dans la place de marché** située dans le haut du volet **Nouveau** qui s’affiche. Quand la mention **Réseau virtuel** apparaît dans les résultats de la recherche, cliquez dessus.
+4. Dans le volet **Réseau virtuel** qui s’affiche, repérez la zone **Sélectionnez un modèle de déploiement** et sélectionnez **Classique**, puis cliquez sur **Créer**. 
+5. Dans le volet **Créer un réseau virtuel (classique)**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
     |Paramètre|Valeur|
     |---|---|
@@ -55,13 +55,13 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 
     Si vous débutez avec Azure, apprenez-en davantage sur les [groupes de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), les [abonnements](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) et les [emplacements](https://azure.microsoft.com/regions) (également appelés *régions*).
 4. Dans le portail, lorsque vous créez un réseau virtuel, vous ne pouvez créer qu’un seul sous-réseau. Dans ce didacticiel, vous créez un deuxième sous-réseau après avoir créé le réseau virtuel. Vous pouvez créer ultérieurement des ressources accessibles sur Internet dans le sous-réseau **Public**. Vous pouvez également créer des ressources non accessibles à partir d’Internet dans le sous-réseau **Privé**. Pour créer le deuxième sous-réseau, dans la zone **Rechercher des ressources** en haut de la page, entrez **myVnet**. Quand la mention **myVnet** apparaît dans les résultats de recherche, cliquez dessus.
-5. Sur le panneau **Créer un réseau virtuel (classique)** qui s’affiche, dans la section **Paramètres**, cliquez sur **Sous-réseaux**.
-6. Sur le panneau **myVnet - Sous-réseaux** qui s’affiche, cliquez sur **+ Ajouter**.
-7. Sur le panneau **Ajouter un sous-réseau**, pour **Nom**, entrez **Privé**. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.  Cliquez sur **OK**.
-8. Sur le panneau **myVnet - sous-réseaux**, vous pouvez voir les sous-réseaux **Publics** et **Privés** que vous avez créés.
+5. Dans le volet **Créer un réseau virtuel (classique)** qui s’affiche, repérez la section **PARAMÈTRES** et cliquez sur **Sous-réseaux**.
+6. Dans le volet **myVnet - Sous-réseaux** qui s’affiche, cliquez sur **+Ajouter**.
+7. Dans le volet **Ajouter un sous-réseau**, pour **Nom**, entrez **Privé**. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.  Cliquez sur **OK**.
+8. Dans le volet **myVnet - Sous-réseaux**, vous pouvez voir les sous-réseaux **Publics** et **Privés** que vous avez créés.
 9. **Facultatif** : à l’issue de ce didacticiel, vous pouvez supprimer les ressources créées afin d’éviter la facturation liée à leur utilisation :
-    - Sur le panneau **myVnet**, cliquez sur **Vue d’ensemble**.
-    - Sur le panneau **myVnet**, cliquez sur l’icône **Supprimer**.
+    - Dans le volet **myVnet**, cliquez sur **Vue d’ensemble**.
+    - Dans le volet **myVnet**, cliquez sur l’icône **Supprimer**.
     - Pour confirmer la suppression, dans la zone **Supprimer le réseau virtuel**, cliquez sur **Oui**.
 
 ## <a name="azure-cli"></a>Azure CLI

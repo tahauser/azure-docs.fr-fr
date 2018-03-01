@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Découvrir, identifier et classer des données personnelles dans Microsoft Azure
 
@@ -59,22 +59,22 @@ C’est particulièrement utile si vous voulez rechercher ou modifier les donné
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Tous les services**, entrez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
    ![comment localiser des informations professionnelles et de profil utilisateur](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Utilisateurs**.
 
-  ![Ouverture du panneau Utilisateurs et groupes](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Ouverture du panneau Utilisateurs et groupes](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. Dans le panneau **Utilisateurs et groupes - Utilisateurs**, sélectionnez un utilisateur dans la liste puis, dans le panneau de l’utilisateur sélectionné, sélectionnez **Profil** pour afficher les informations de profil utilisateur susceptibles de contenir des données personnelles.
 
-  ![sélectionner un utilisateur](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![sélectionner un utilisateur](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Si vous avez besoin d’ajouter ou de modifier des informations de profil utilisateur, sélectionnez **Enregistrer** dans la barre de commandes après avoir effectué cette opération.
 6. Dans le panneau de l’utilisateur sélectionné, sélectionnez **Informations professionnelles** pour afficher les informations professionnelles utilisateur susceptibles de contenir des données personnelles.
 
- ![affichage d’informations professionnelles](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![affichage d’informations professionnelles](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Si vous avez besoin d’ajouter ou de modifier des informations professionnelles utilisateur, sélectionnez **Enregistrer** dans la barre de commandes après avoir effectué cette opération.
 

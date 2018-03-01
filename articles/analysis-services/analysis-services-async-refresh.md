@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 À l’aide de n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
@@ -208,7 +208,7 @@ L’exemple de code peut utiliser une connexion interactive, une combinaison nom
 
 Cette forme d’authentification nécessite de créer une application Azure disposant des autorisations d’API requises. 
 
-1.  Dans le portail Azure, cliquez sur **Nouveau** > **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription d’application**.
+1.  Dans le portail Azure, cliquez sur **Créer une ressource** > **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription d’application**.
 
     ![Nouvelle inscription d’application](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

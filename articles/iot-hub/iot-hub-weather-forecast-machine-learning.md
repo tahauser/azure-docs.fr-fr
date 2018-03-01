@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning
 
@@ -80,7 +80,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 ### <a name="create-a-stream-analytics-job"></a>Création d’un travail Stream Analytics
 
-1. Dans le [portail Azure](https://ms.portal.azure.com/), cliquez sur **Nouveau** > **Internet des objets** > **Travail Stream Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** > **Internet des objets** > **Tâche Stream Analytics**.
 1. Saisissez les informations ci-après concernant le travail.
 
    **Nom du travail** : nom du travail. Le nom doit être globalement unique.
@@ -93,7 +93,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
    ![Créer un travail Stream Analytics dans Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée au travail Stream Analytics
 
@@ -109,7 +109,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
    ![Ajouter une entrée à un travail Stream Analytics dans Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Ajouter une sortie au travail Stream Analytics
 
@@ -128,7 +128,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
    ![Ajouter une sortie à un travail Stream Analytics dans Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Ajouter une fonction au travail Stream Analytics pour appeler le service web que vous avez déployé
 
@@ -147,7 +147,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
    ![Ajouter une requête à un travail Stream Analytics dans Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurer la requête du travail Stream Analytics
 
@@ -167,7 +167,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
    Remplacez `[YourOutputAlias]` par l’alias de sortie du travail.
 
-1. Cliquez sur **Save**.
+1. Cliquez sur **Enregistrer**.
 
 ### <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
 

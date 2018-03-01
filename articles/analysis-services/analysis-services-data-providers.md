@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/21/2018
 ms.author: owend
-ms.openlocfilehash: 870d430d1926859894f452e0af812d794272a9e6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliothèques clientes pour la connexion à Azure Analysis Services
 
@@ -29,10 +29,23 @@ Les bibliothèques clientes sont nécessaires pour que les applications clientes
 
 |Download  |Version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+
+## <a name="amo-and-adomd-on-nuget"></a>AMO et ADOMD sur NuGet
+
+Les bibliothèques clientes AMO et ADOMD sont disponibles sous forme de packages d’installation sur [NuGet.org](https://www.nuget.org/). 
+
+|Package  |Version  | 
+|---------|---------|
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
+
+Il est recommandé de migrer vers des références NuGet au lieu d’utiliser le programme d’installation MSI. 
+
+Les assemblys de package NuGet AssemblyVersion respectent la gestion sémantique de version suivante : MAJEURE.MINEURE.CORRECTIF. Les références NuGet chargent la version attendue, même s’il existe une version différente dans le Global Assembly Cache (résultant de l’installation MSI). Le numéro de correctif est incrémenté à chaque version. Les versions AMO et ADOMD sont constamment synchronisées.
 
 ## <a name="understanding-client-libraries"></a>Présentation des bibliothèques clientes
 
@@ -72,9 +85,10 @@ Les bibliothèques clientes pour les connexions clientes sont différentes des f
   
 1.  Accédez à `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140` Si vous avez plusieurs dossiers, choisissez le numéro le plus élevé.
   
-2.  Cliquez avec le bouton droit sur **msolap140.dll** > **Propriétés** > **Détails**.  
+2.  Cliquez avec le bouton droit sur **msolap.dll** > **Propriétés** > **Détails**. Si la dll est nommée msolap140.dll, elle est plus ancienne que la version la plus récente et doit donc être mise à niveau.
     
     ![Détails de la bibliothèque cliente](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### <a name="amo"></a>AMO
 

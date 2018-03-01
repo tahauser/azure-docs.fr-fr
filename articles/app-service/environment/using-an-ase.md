@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
@@ -48,7 +48,7 @@ Si vous ne disposez pas d’un environnement ASE, vous pouvez en créer un en su
 
 Pour créer une application web dans un environnement ASE :
 
-1. Sélectionnez **Nouveau** > **Web + Mobile** > **Web App**.
+1. Sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
 2. Entrez le nom de l’application web. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
 
@@ -130,7 +130,7 @@ Les systèmes d’intégration continue basés sur Internet, comme GitHub et Vis
 
 Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Vous pouvez le voir dans le profil de publication de l’application et dans le panneau du portail de l’application (dans **Vue d’ensemble** > **Bases** et également dans **Propriétés**). 
 
-## <a name="pricing"></a>Tarification ##
+## <a name="pricing"></a>Tarifs ##
 
 La référence (SKU) de tarification **Isolé** a été créée pour une utilisation avec ASEv2 uniquement. Tous les plans App Service qui sont hébergés dans un environnement ASEv2 se trouvent dans la référence SKU de tarification Isolé. Les tarifs du plan App Service Isolé peuvent varier selon la région. 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 
@@ -31,7 +31,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil permettant de copier des données d’objets blob du stockage Azure vers Azure Data Lake Store. Il peut également copier des données entre deux comptes Azure Data Lake Store.      |
+| Qu’est-ce que c’est ?   | Outil permettant de copier des données d’objets blob du stockage Azure vers Azure Data Lake Store. Il peut également copier des données entre deux comptes Azure Data Lake Store.      |
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Importation de plusieurs objets blob du stockage Azure vers Azure Data Lake Store.      |
 |  Comment l’utiliser/l’exécuter ?    |   Ouvrez une invite de commandes et tapez `adlcopy` pour obtenir de l’aide.    |
@@ -54,7 +54,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil permettant de copier des données vers et depuis des fichiers locaux, des objets blob, des fichiers et des tables de stockage Azure.      |
+| Qu’est-ce que c’est ?   | Outil permettant de copier des données vers et depuis des fichiers locaux, des objets blob, des fichiers et des tables de stockage Azure.      |
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Copie de fichiers vers le stockage d’objets blob, copie d’objets blob entre plusieurs comptes.      |
 |  Comment l’utiliser/l’exécuter ?    |   Ouvrez une invite de commandes et tapez `azcopy` pour obtenir de l’aide.    |
@@ -66,7 +66,7 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil permettant d’importer des données dans Azure Cosmos DB à partir de différentes sources, notamment des fichiers JSON, des fichiers CSV, SQL, MongoDB, Stockage Table Azure, Amazon DynamoDB et les collections d’API SQL Azure Cosmos DB.      |
+| Qu’est-ce que c’est ?   | Outil permettant d’importer des données dans Azure Cosmos DB à partir de différentes sources, notamment des fichiers JSON, des fichiers CSV, SQL, MongoDB, Stockage Table Azure, Amazon DynamoDB et les collections d’API SQL Azure Cosmos DB.      |
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Importation de fichiers à partir d’une machine virtuelle vers CosmosDB, importation de données à partir du stockage Table Azure vers CosmosDB ou importation de données à partir d’une base de données SQL Server vers CosmosDB.     |
 |  Comment l’utiliser/l’exécuter ?    |   Pour utiliser la version en ligne de commande, ouvrez une invite de commandes et tapez `dt`. Pour utiliser l’outil GUI, ouvrez une invite de commandes et tapez `dtui`.    |
@@ -78,12 +78,23 @@ Voici quelques outils de déplacement de données que nous vous avons fournis su
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil SQL Server permettant de copier des données entre SQL Server et un fichier de données.      |
+| Qu’est-ce que c’est ?   | Outil SQL Server permettant de copier des données entre SQL Server et un fichier de données.      |
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Importation d’un fichier CSV dans une table SQL Server, exportation d’une table SQL Server dans un fichier.      |
 |  Comment l’utiliser/l’exécuter ?    |   Ouvrez une invite de commandes et tapez `bcp` pour obtenir de l’aide.    |
 | Liens vers des exemples      | [Utilitaire de copie en bloc](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Outils connexes sur la machine virtuelle DSVM      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Qu’est-ce que c’est ?   | Un outil pour monter un conteneur d’objets blob Azure dans le système de fichiers Linux.      |
+| Versions DSVM prises en charge      | Linux      |
+| Utilisations classiques      | Lecture et écriture dans des objets blob dans un conteneur      |
+|  Comment l’utiliser/l’exécuter ?    |   Exécutez _blobfuse_ sur un terminal.    |
+| Liens vers des exemples      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Outils connexes sur la machine virtuelle DSVM      | Ligne de commande Azure      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Passerelle de gestion des données de Microsoft

@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurer un environnement de bac à sable HDInsight joint à un domaine
 
-Découvrez comment configurer un cluster Azure HDInsight avec un annuaire Active Directory autonome et [Apache Ranger](http://hortonworks.com/apache/ranger/) pour valoriser les stratégies d’authentification forte et de contrôle de l’accès enrichi basé sur les rôles. Pour plus d’informations, consultez [Introduire des clusters HDInsight joints à un domaine](apache-domain-joined-introduction.md).
+Découvrez comment configurer un cluster Azure HDInsight avec un annuaire Active Directory autonome et [Apache Ranger](http://hortonworks.com/apache/ranger/) pour valoriser les stratégies d’authentification forte et de contrôle de l’accès enrichi basé sur les rôles. Pour plus d’informations, consultez [Introduire des clusters HDInsight joints à un domaine](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Par défaut, cette configuration peut uniquement servir pour l’utilisation de comptes de stockage Azure. Pour l’utiliser avec Azure Data Lake Store, synchronisez Active Directory avec une nouvelle instance d’Azure Active Directory.
 
 Sans cluster HDInsight joint à un domaine, chaque cluster peut uniquement avoir un compte d’utilisateur HTTP Hadoop et un compte d’utilisateur SSH.  L’authentification de plusieurs utilisateurs peut être effectuée à l’aide des éléments suivants :
 
@@ -40,6 +43,7 @@ Cet article couvre l’utilisation d’un annuaire Active Directory autonome s�
     - Créer un cluster HDInsight
 
 > [!IMPORTANT]
+> 
 > Oozie n’est pas activé sur HDInsight joint à un domaine.
 
 ## <a name="prerequisite"></a>Configuration requise

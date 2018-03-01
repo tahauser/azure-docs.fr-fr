@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Outils de développement sur la machine virtuelle DSVM
 
@@ -28,7 +28,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | IDE à usage général      |
+| Qu’est-ce que c’est ?   | IDE à usage général      |
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Développement de logiciels    |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?      | Charge de travail Science des données (outils Python et R), charge de travail Azure (Hadoop, Data Lake), Node.js, outils SQL Server    |
@@ -38,7 +38,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | IDE à usage général      |
+| Qu’est-ce que c’est ?   | IDE à usage général      |
 | Versions DSVM prises en charge      | Windows, Linux     |
 | Utilisations classiques      | Éditeur de code et Intégration de Git   |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) dans Windows, raccourci sur le Bureau ou terminal (`code`) dans Linux    |
@@ -47,16 +47,25 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | IDE client pour le langage R    |
+| Qu’est-ce que c’est ?   | IDE client pour R    |
 | Versions DSVM prises en charge      | Windows, Linux      |
 | Utilisations classiques      |  Développement R     |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\RStudio\bin\rstudio.exe`) dans Windows, raccourci sur le Bureau (`/usr/bin/rstudio`) dans Linux      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
+## <a name="rstudio--server"></a>RStudio Server 
+|    |           |
+| ------------- | ------------- |
+| Qu’est-ce que c’est ?   | IDE basé sur le web pour R    |
+| Versions DSVM prises en charge      | Linux      |
+| Utilisations classiques      |  Développement R     |
+| Comment l’utiliser/l’exécuter ?      | Activez le service avec _systemctl enable rstudio-server_, puis démarrez-le avec _systemctl start rstudio-server_. Vous pouvez ensuite vous connecter à RStudio Server à l’adresse http://adresse_IP_de_votre_machine_virtuelle:8787.       |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
+
 ## <a name="juno"></a>Juno 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | IDE client pour le langage Julia   |
+| Qu’est-ce que c’est ?   | IDE client pour le langage Julia   |
 | Versions DSVM prises en charge      | Windows, Linux      |
 | Utilisations classiques      |  Développement Julia     |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\JuliaPro-0.5.1.1\Juno.bat`) dans Windows, raccourci sur le Bureau (`/opt/JuliaPro-VERSION/Juno`) dans Linux      |
@@ -65,7 +74,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 ## <a name="pycharm"></a>Pycharm
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | IDE client pour le langage Python    |
+| Qu’est-ce que c’est ?   | IDE client pour le langage Python    |
 | Versions DSVM prises en charge      | Linux      |
 | Utilisations classiques      |  Développement R     |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`/usr/bin/pycharm`) dans Linux      |
@@ -76,7 +85,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil de décisionnel et de visualisation interactive des données    |
+| Qu’est-ce que c’est ?   | Outil de décisionnel et de visualisation interactive des données    |
 | Versions DSVM prises en charge      | Windows  |
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considérations relatives à l’ordre des événements Azure Stream Analytics
 
@@ -70,6 +70,9 @@ Les événements qui arrivent dans le désordre, mais dans la fenêtre de tolér
 * **Supprimés** : ignorés.
 
 Quand Stream Analytics réorganise les événements reçus dans la fenêtre de tolérance de désordre, la sortie de la requête est retardée par la fenêtre de tolérance de désordre.
+
+### <a name="early-events"></a>Événements précoces
+Lors du traitement selon l’heure de l’application, les événements dont l’heure de l’application est en avance de plus de 5 minutes sur leur heure d’arrivée sont supprimés ou ajustés en fonction de l’option de configuration sélectionnée.
 
 ### <a name="example"></a>exemples
 

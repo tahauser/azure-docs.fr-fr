@@ -1,6 +1,6 @@
 ---
-title: Utiliser la solution Service Map dans Operations Management Suite | Microsoft Docs
-description: "Service Map est une solution OMS (Operations Management Suite) qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios."
+title: Utiliser la solution Service Map dans Azure | Microsoft Docs
+description: "Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Service Map dans Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, processus et ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
 
-Cet article décrit les détails de l’utilisation de Service Map. Pour plus d’informations sur la configuration de la solution Service Map et l’intégration d’agents, voir [Configuration de la solution Service Map dans Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md).
+Cet article décrit les détails de l’utilisation de Service Map. Pour plus d’informations sur la configuration de la solution Service Map et l’intégration d’agents, consultez [Configuration de la solution Service Map dans Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Cas d’utilisation : Intégrer la dépendance dans les processus informatiques
@@ -32,16 +32,16 @@ Cet article décrit les détails de l’utilisation de Service Map. Pour plus d�
 Service Map crée automatiquement une carte de référence commune des dépendances entre vos serveurs, les processus et les services tiers. La solution découvre et mappe toutes les dépendances TCP, en identifiant les connexions inattendues, les systèmes tiers distants dont vous dépendez et les dépendances envers les zones sombres traditionnelles de votre réseau comme Active Directory. Service Map détecte les échecs de connexion réseau que vos systèmes gérés tentent d’établir, vous aidant ainsi à identifier d’éventuels problèmes de réseau, interruptions de service et autres configurations de serveur inappropriées.
 
 ### <a name="incident-management"></a>Gestion des incidents
-Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évide de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
+Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évide de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des workflows intégrés dans la solution Change Tracking, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause racine d’un incident.
 
 ### <a name="migration-assurance"></a>Garantie d’une migration réussie
 La solution Service Map vous permet de planifier, d’accélérer et de valider efficacement les migrations vers Azure pour vous assurer que rien n’est oublié et vous prémunir contre toute panne surprise. Vous pouvez découvrir tous les systèmes interdépendants qui doivent migrer en même temps, évaluer la capacité et la configuration du système et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration. Une fois la migration terminée, vous pouvez vérifier la charge et l’identité du client pour contrôler que les systèmes de test et les clients se connectent. Si vos définitions de pare-feu et de planification de sous-réseau rencontrent des problèmes, les connexions ayant échoué dans les mappages Service Map vous dirigent vers les systèmes nécessitant une connectivité.
 
 ### <a name="business-continuity"></a>Continuité de l’activité
-Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontend à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
+Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontaux à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
 
 ### <a name="patch-management"></a>Gestion des correctifs
-La solution Service Map améliore l’utilisation de la fonction Évaluation des mises à jour système d’Operations Management Suite en vous montrant les autres équipes et serveurs dépendant de votre service. Vous pouvez ainsi notifier ces derniers avant d’arrêter vos systèmes en vue d’une mise à jour corrective. La solution Service Map facilite également la gestion des correctifs dans Operations Management Suite en vous montrant si vos services sont disponibles et connectés correctement après application de la mise à jour corrective et redémarrage.
+Service Map améliore l’utilisation de l’évaluation des mises à jour système en vous montrant quels autres équipes et serveurs dépendent de votre service. Vous pouvez ainsi notifier ces derniers à l’avance avant d’interrompre vos systèmes pour la mise à jour corrective. Service Map améliore aussi la gestion des correctifs en vous montrant si vos services sont disponibles et connectés correctement une fois que la mise à jour corrective a été appliquée et qu’ils ont redémarré.
 
 
 ## <a name="mapping-overview"></a>Vue d’ensemble du mappage
@@ -49,12 +49,12 @@ Les agents Service Map rassemblent des informations sur tous les processus conne
 
 ![Vue d’ensemble de Service Map](media/oms-service-map/service-map-overview.png)
 
-Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus et équipes processus en cours d’exécution avec des connexions réseau actives pendant la période sélectionnée. Quand un ordinateur distant doté d’un agent Service Map est développé pour afficher des détails de processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés. Le nombre d’ordinateurs frontend sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent. Si l’ordinateur ciblé se connecte à un ordinateur principal dépourvu d’agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec les autres connexions au même numéro de port.
+Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus et équipes processus en cours d’exécution avec des connexions réseau actives pendant la période sélectionnée. Quand un ordinateur distant doté d’un agent Service Map est développé pour afficher des détails de processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés. Le nombre d’ordinateurs frontaux sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent. Si l’ordinateur ciblé se connecte à un ordinateur principal dépourvu d’agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec les autres connexions au même numéro de port.
 
 Par défaut, les mappages Service Map affichent les 30 dernières minutes des informations de dépendance. Les contrôles de temps en haut à gauche permettent d’interroger des cartes pour obtenir des plages horaires historiques de jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification). Les données Service Map sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
 
 ## <a name="status-badges-and-border-coloring"></a>Badges d’état et couleur de bordure
-En bas de chaque serveur dans le mappage, une liste de badges état affiche des informations sur l’état du serveur. Les badges indiquent qu’il existe des informations pertinentes concernant le serveur provenant d’une des intégrations des solutions Operations Management Suite. En cliquant sur un badge, vous accédez directement aux détails de l’état dans le volet droit. Les badges d’état actuellement disponibles sont Alertes, Service Desk, Modifications, Sécurité et Mises à jour.
+En bas de chaque serveur dans le mappage, une liste de badges état affiche des informations sur l’état du serveur. Les badges indiquent qu’il existe des informations pertinentes concernant le serveur provenant d’une des intégrations de solutions. En cliquant sur un badge, vous accédez directement aux détails de l’état dans le volet droit. Les badges d’état actuellement disponibles sont Alertes, Service Desk, Modifications, Sécurité et Mises à jour.
 
 Selon la gravité des badges d’état, les bordures de nœud de machine peuvent être colorées en rouge (critique), en jaune (avertissement) ou en bleu (informations). La couleur est celle du badge d’état dont la gravité est la plus critique. Une bordure de couleur grise indique un nœud dépourvu d’indicateur d’état.
 
@@ -168,12 +168,12 @@ Un clic sur l’option **Charger la carte des serveurs** permet d’accéder à 
 Un clic sur l’option **Afficher les self-links** permet de redessiner le nœud du serveur incluant tous les self-links qui représentent des connexions TCP commençant et se terminant sur des processus au sein du serveur. Si des self-links sont affichés, la commande de menu devient **Masquer les self-links**, de sorte que vous pouvez les désactiver.
 
 ## <a name="computer-summary"></a>Récapitulatif de la machine
-Le volet **Récapitulatif d’une machine** contient une vue d’ensemble du système d’exploitation, du nombre de dépendances et des données provenant d’autres solutions Operations Management Suite pour un serveur. Ces données ont trait aux métriques de performance, aux tickets de Service Desk, au suivi des modifications, à la sécurité et aux mises à jour.
+Le volet **Récapitulatif d’une machine** contient une vue d’ensemble du système d’exploitation, du nombre de dépendances et des données provenant d’autres solutions pour un serveur. Ces données ont trait aux métriques de performance, aux tickets de Service Desk, au suivi des modifications, à la sécurité et aux mises à jour.
 
 ![Volet Récapitulatif d’une machine](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propriétés des ordinateurs et processus
-Lorsque vous naviguez dans une carte de type Service Map, vous pouvez sélectionner des machines et des processus afin d’obtenir un contexte supplémentaire concernant leurs propriétés. Les machines fournissent des informations sur le nom DNS, les adresses IPv4, la capacité du processeur et de la mémoire, le type de machine virtuelle, le système d’exploitation et sa version, l’heure du dernier redémarrage et les ID de leurs agents Operations Management Suite et Service Map.
+Lorsque vous naviguez dans une carte de type Service Map, vous pouvez sélectionner des machines et des processus afin d’obtenir un contexte supplémentaire concernant leurs propriétés. Les ordinateurs fournissent des informations sur le nom DNS, les adresses IPv4, la capacité en termes de processeur et de mémoire, le type de machine virtuelle, la version du système d’exploitation, l’heure du dernier redémarrage et les ID de leurs agents OMS et Service Map.
 
 ![Volet Propriétés d’une machine](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Le volet **Récapitulatif du processus** fournit des informations supplémentair
 
 ![Volet Récapitulatif du processus](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Intégration des alertes d’Operations Management Suite
-La solution Service Map s’intègre avec les alertes d’Operations Management Suite pour afficher les alertes déclenchées pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des alertes, et le volet **Alertes de la machine** répertorie les alertes.
+## <a name="alerts-integration"></a>Intégration des alertes
+Service Map s’intègre aux alertes dans Log Analytics pour afficher les alertes déclenchées pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des alertes, et le volet **Alertes de la machine** répertorie les alertes.
 
 ![Volet Alertes d’une machine](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Pour permettre à la solution Service Map d’afficher les alertes pertinentes, 
 ![Configuration des alertes](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Intégration des journaux d’événements d’Operations Management Suite
+## <a name="log-events-integration"></a>Intégration des événements du journal
 Service Map intègre la recherche dans les journaux pour afficher un nombre de tous les événements du journal disponibles pour le serveur sélectionné au cours de la période sélectionnée. Vous pouvez cliquer sur n’importe quelle ligne dans la liste des événements pour passer à la recherche dans les journaux et consulter les événements du journal individuel.
 
 ![Volet Journaux d’événements d’une machine](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Intégration du Service Desk d’Operations Management Suite
-L’intégration de la solution Service Map avec IT Service Management Connector est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Intégration du service d’assistance
+L’intégration de Service Map au connecteur de gestion des services informatiques est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics. L’intégration dans Service Map est libellée « Service Desk ». Pour plus d’informations, voir [Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 Le volet **Service Desk d’une machine** affiche la liste de tous les événements d’IT Service Management survenus pour le serveur sélectionné pendant la période sélectionnée. Le serveur affiche une icône s’il existe des éléments en cours, et le volet Service Desk de la machine affiche la liste de ceux-ci.
 
@@ -214,8 +214,8 @@ Pour ouvrir l’élément dans votre solution ITSM connectée, cliquez sur **Aff
 Pour afficher les détails de l’élément dans la recherche, cliquez sur **Recherche dans les journaux**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Intégration de la solution Change Tracking d’Operations Management Suite
-L’intégration de la solution Service Map avec la fonction Change Tracking est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
+## <a name="change-tracking-integration"></a>Intégration de Change Tracking
+L’intégration de Service Map à Change Tracking est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics.
 
 Le volet **Change Tracking d’une machine** affiche la liste de toutes les modifications, les plus récentes en tête, ainsi qu’un lien pour consulter des détails supplémentaires dans Recherche dans les journaux.
 
@@ -226,7 +226,7 @@ L’illustration suivante est une vue détaillée d’un événement Modificatio
 ![Événement ModificationDeConfiguration](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Intégration des performances d’Operations Management Suite
+## <a name="performance-integration"></a>Intégration des performances
 Le volet **Performances d’une machine** affiche des métriques de performance standard pour le serveur sélectionné. Ces métriques incluent l’utilisation du processeur, l’utilisation de la mémoire, les octets réseau envoyés et reçus, et la liste des principaux processus classée par octets réseau envoyés et reçus.
 
 ![Volet Performances d’une machine](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux :
 - Carte réseau(*)\\Octets envoyés/s
 - Carte réseau(*)\\Octets reçus/s
 
-Pour obtenir les données de performances réseau, vous devez également activer la solution Wire Data 2.0 dans Operations Management Suite.
+Pour obtenir les données de performances réseau, vous devez également activer la solution Wire Data 2.0 dans votre espace de travail.
  
-## <a name="operations-management-suite-security-integration"></a>Intégration de la solution Security and Audit d’Operations Management Suite
-L’intégration de la solution Service Map avec la fonction Security and Audit est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
+## <a name="security-integration"></a>Intégration de la sécurité
+L’intégration de Service Map à Security and Audit est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics.
 
-Le volet **Sécurité d’une machine** affiche des données provenant de la solution Security and Audit d’Operations Management Suite pour le serveur sélectionné. Le volet affiche un récapitulatif de tous les problèmes de sécurité en attente pour le serveur pendant la période sélectionnée. Un clic sur un problème de sécurité permet d’accéder à Recherche dans les journaux pour plus d’informations concernant ce problème.
+Le volet **Sécurité de la machine** présente les données de la solution Security and Audit pour le serveur sélectionné. Le volet affiche un récapitulatif de tous les problèmes de sécurité en attente pour le serveur pendant la période sélectionnée. Un clic sur un problème de sécurité permet d’accéder à Recherche dans les journaux pour plus d’informations concernant ce problème.
 
 ![Volet Sécurité d’une machine](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Intégration de la solution Update Management d’Operations Management Suite
-L’intégration de la solution Service Map avec la solution Update Management est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail Operations Management Suite.
+## <a name="updates-integration"></a>Intégration des mises à jour
+L’intégration de Service Map à Update Management est automatique quand les deux solutions sont activées et configurées dans votre espace de travail Log Analytics.
 
-Le volet **Mises à jour d’une machine** affiche les données provenant de la solution Update Management d’Operations Management Suite pour le serveur sélectionné. Le volet affiche un récapitulatif de toutes les mises à jour manquantes pour le serveur pendant la période sélectionnée.
+Le volet **Mises à jour de la machine** affiche les données de la solution Update Management pour le serveur sélectionné. Le volet affiche un récapitulatif de toutes les mises à jour manquantes pour le serveur pendant la période sélectionnée.
 
 ![Volet Change Tracking d’une machine](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ Un enregistrement par heure est généré pour chaque processus et ordinateur, e
 
 Il existe des propriétés générées en interne que vous pouvez utiliser pour identifier les ordinateurs et processus uniques :
 
-- Ordinateur : utilisez ResourceId ou ResourceName_s pour identifier de façon unique un ordinateur au sein d’un espace de travail Operations Management Suite.
-- Processus : utilisez ResourceId pour identifier de façon unique un processus au sein d’un espace de travail Operations Management Suite. ResourceName_s est unique dans le contexte de l’ordinateur sur lequel le processus est en cours d’exécution (MachineResourceName_s) 
+- Ordinateur : utilisez ResourceId ou ResourceName_s pour identifier de façon unique un ordinateur au sein d’un espace de travail Log Analytics.
+- Processus : utilisez ResourceId pour identifier de façon unique un processus au sein d’un espace de travail Log Analytics. ResourceName_s est unique dans le contexte de l’ordinateur sur lequel le processus est en cours d’exécution (MachineResourceName_s) 
 
 Étant donné que plusieurs enregistrements peuvent exister pour un processus et un ordinateur donnés au cours d’une période spécifique, les requêtes peuvent renvoyer plusieurs enregistrements pour un même ordinateur ou processus. Pour inclure uniquement l’enregistrement le plus récent, ajoutez "| dedup ResourceId" à la requête.
 
