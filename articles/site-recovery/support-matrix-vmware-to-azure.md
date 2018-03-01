@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
@@ -22,8 +22,8 @@ Cet article décrit les composants pris en charge et les paramètres concernant 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-**Scénario** | **Détails** 
---- | --- 
+**Scénario** | **Détails**
+--- | ---
 **Machines virtuelles VMware** | Vous pouvez configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales. Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.
 **Serveurs physiques** | Vous pouvez configurer la récupération d’urgence vers Azure pour des serveurs physiques Windows/Linux locaux. Vous pouvez déployer ce scénario dans le portail Azure.
 
@@ -83,90 +83,91 @@ XFSv5 | Les fonctionnalités XFSv5 sur des systèmes de fichiers XFS tels que le
 
 ## <a name="network"></a>Réseau
 
-**Composant** | **Pris en charge** 
---- | --- 
+**Composant** | **Pris en charge**
+--- | ---
 Réseau hôte : association de cartes réseau | Pris en charge pour les machines virtuelles VMware <br/><br/>Non pris en charge pour la réplication des machines physiques
-Réseau hôte VLAN | OUI 
-Réseau hôte IPv4 | OUI 
-Réseau hôte IPv6 | Non  
-Association de cartes réseau invité/serveur | Non  
-Réseau invité/serveur IPv4 | OUI 
-Réseau invité/serveur IPv6 | Non  
-Adresse IP statique du réseau invité/serveur (Windows) | OUI 
+Réseau hôte VLAN | OUI
+Réseau hôte IPv4 | OUI
+Réseau hôte IPv6 | Non 
+Association de cartes réseau invité/serveur | Non 
+Réseau invité/serveur IPv4 | OUI
+Réseau invité/serveur IPv6 | Non 
+Adresse IP statique du réseau invité/serveur (Windows) | OUI
 Adresse IP statique du réseau invité/serveur (Linux) | OUI <br/><br/>Les machines virtuelles sont configurées pour utiliser le protocole DHCP lors de la restauration automatique.  
-Plusieurs cartes réseau invité/serveur | OUI 
+Plusieurs cartes réseau invité/serveur | OUI
 
 
 ## <a name="azure-vm-network-after-failover"></a>Réseau de machines virtuelles Azure (après le basculement)
 
-**Composant** | **Pris en charge** 
---- | --- 
-ExpressRoute | OUI 
-ILB | OUI 
-ELB | OUI 
-Traffic Manager | OUI 
-Plusieurs cartes réseau | OUI 
-Adresses IP réservées | OUI 
-IPv4 | OUI 
-Conserver l’adresse IP source | OUI 
-Points de terminaison de service de réseau virtuel<br/><br/> (Pare-feu et réseaux virtuels dans Stockage Azure) | Non  
+**Composant** | **Pris en charge**
+--- | ---
+ExpressRoute | OUI
+ILB | OUI
+ELB | OUI
+Traffic Manager | OUI
+Plusieurs cartes réseau | OUI
+Adresses IP réservées | OUI
+IPv4 | OUI
+Conserver l’adresse IP source | OUI
+Points de terminaison de service de réseau virtuel<br/><br/> (Pare-feu et réseaux virtuels dans Stockage Azure) | Non 
 
 
 ## <a name="storage"></a>Stockage
 
 
-**Composant** | **Pris en charge** 
---- | --- 
-Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques 
+**Composant** | **Pris en charge**
+--- | ---
+Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
 Hôte SAN (ISCSI) | OUI
 Chemins d’accès multiples de l’hôte (MPIO) | Oui - Testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON
-VMDK invité/serveur | OUI 
-EFI/UEFI invité/serveur| Partiel (Migration vers Azure pour Windows Server 2012 et versions ultérieures uniquement.) </br></br> ** Voir la remarque à la fin du tableau.
-Disque de cluster partagé invité/serveur | Non  
-Disque chiffré invité/serveur | Non  
-NFS invité/serveur | Non  
+VMDK invité/serveur | OUI
+EFI/UEFI invité/serveur| Ligne de code partiellement exécutée (Migration vers Azure pour machines virtuelles VMware Windows Server 2012 et version ultérieure uniquement.) </br></br> ** Voir la remarque à la fin du tableau.
+Disque de cluster partagé invité/serveur | Non 
+Disque chiffré invité/serveur | Non 
+NFS invité/serveur | Non 
 SMB 3.0 invité/serveur | Non 
-RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques 
-Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4095 Go 
+RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
+Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4095 Go
 Disque invité/serveur avec une taille de secteur logique de 4 Ko et une taille de secteur physique de 4 K | OUI
-Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | OUI 
+Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | OUI
 Volume d’invité/de serveur avec disque à bandes > 4 To <br><br/>Gestion des volumes logiques | OUI
-Invité/serveur - Espaces de stockage | Non  
-Ajout/retrait à chaud de disque d’Invité/de serveur | Non  
-Invité/serveur - Exclure le disque | OUI 
+Invité/serveur - Espaces de stockage | Non 
+Ajout/retrait à chaud de disque d’Invité/de serveur | Non 
+Invité/serveur - Exclure le disque | OUI
 Chemins d’accès multiples (MPIO) d’invité/de serveur | N/A
 
 > [!NOTE]
-> Les machines virtuelles VMware à démarrage ** UEFI ** ou les serveurs physiques exécutant Windows Server 2012 ou version ultérieure peuvent être migrés vers Azure. Les restrictions suivantes s’appliquent.
+> Les machines virtuelles VMware à démarrage ** UEFI ** exécutant Windows Server 2012 ou version ultérieure peuvent être migrées vers Azure. Les restrictions suivantes s’appliquent.
 > - Seule la migration vers Azure est prise en charge. La restauration automatique vers le site VMware local n’est pas prise en charge.
 > - Le serveur ne doit pas posséder plus de 4 partitions sur le disque de système d’exploitation.
 > - Requiert la version du service Azure Site Recovery mobilité 9.13 ou version ultérieure.
+> - Pas de prise en charge pour les serveurs physiques.
 
 
 ## <a name="azure-storage"></a>Stockage Azure
 
-**Composant** | **Pris en charge** 
---- | --- 
-LRS | OUI 
-GRS | OUI 
-RA-GRS | OUI 
-Stockage froid | Non  
-Stockage chaud| Non  
-Objets blob de blocs | Non  
-Chiffrement au repos (SSE)| OUI 
-Stockage Premium | OUI 
-Service Import/Export | Non  
-Points de terminaison de service de réseau virtuel<br/><br/> Pare-feux et réseaux virtuels du Stockage Azure configurés sur le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication). | Non  
-Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non  
+**Composant** | **Pris en charge**
+--- | ---
+LRS | OUI
+GRS | OUI
+RA-GRS | OUI
+Stockage froid | Non 
+Stockage chaud| Non 
+Objets blob de blocs | Non 
+Chiffrement au repos (SSE)| OUI
+Stockage Premium | OUI
+Service Import/Export | Non 
+Points de terminaison de service de réseau virtuel<br/><br/> Pare-feux et réseaux virtuels du Stockage Azure configurés sur le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication). | Non 
+Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non 
 
 
 ## <a name="azure-compute"></a>Calcul Azure
 
-**Fonctionnalité** | **Pris en charge** 
---- | --- 
-Groupes à haute disponibilité | OUI 
+**Fonctionnalité** | **Pris en charge**
+--- | ---
+Groupes à haute disponibilité | OUI
 HUB | OUI   
-Disques gérés | OUI 
+Disques gérés | OUI
 
 ## <a name="azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 
@@ -180,7 +181,7 @@ Les machines virtuelles locales que vous répliquez vers Azure doivent respecter
 **Nombre de disques du système d’exploitation** | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Nombre de disques de données** | 64 ou moins si vous répliquez des **machines virtuelles VMware sur Azure** ; 16 ou moins si vous répliquez des **machines virtuelles Hyper-V sur Azure** | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Taille du disque dur virtuel de données** | Jusqu’à 4095 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-**Adaptateurs réseau** | Prise en charge de plusieurs adaptateurs réseau. | 
+**Adaptateurs réseau** | Prise en charge de plusieurs adaptateurs réseau. |
 **Disque dur virtuel partagé** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Disque FC** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Format de disque dur** | Disque dur virtuel (VHD)  <br/><br/> VHDX | Bien que VDHX ne soit pas actuellement pris en charge dans Azure, Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à la restauration automatique en local, les machines continue à utiliser le format VHDX.
@@ -190,10 +191,10 @@ Les machines virtuelles locales que vous répliquez vers Azure doivent respecter
 
 ## <a name="vault-tasks"></a>Tâches de coffre
 
-**Action** | **Pris en charge** 
---- | --- 
-Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  
+**Action** | **Pris en charge**
+--- | ---
+Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non 
 
 
 ## <a name="mobility-service"></a>Service Mobilité

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Raccourcis clavier du portail Azure
 Cet article indique les raccourcis clavier qui fonctionnent sur le portail Azure. Les services individuels peuvent bénéficier de leurs propres raccourcis clavier.
@@ -28,7 +28,7 @@ Cet article indique les raccourcis clavier qui fonctionnent sur le portail Azure
 |Action à réaliser |Appuyez sur |
 | --- | --- |
 |Créer une nouvelle ressource|G + N|
-|Ouvrir le volet « Plus de services »|G + B|
+|Ouvrir le volet « Tous les services »|G + B|
 |Rechercher des ressources|G+/| 
 |Rechercher les éléments de menu de ressource|CTRL + / |
 |Déplacer l’élément du volet de gauche sélectionné vers le haut |ALT+ Maj + Flèche haut|

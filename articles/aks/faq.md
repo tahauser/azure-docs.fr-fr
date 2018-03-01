@@ -6,19 +6,19 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 59dceded1e72e6e0e3d1a2bb25ca63bd023a9d21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Forum aux questions sur Azure Container Service (AKS)
 
 Cet article aborde les questions fréquemment posées sur Azure Container Service (AKS).
 
-## <a name="which-azure-regions-will-have-azure-container-service-aks"></a>Quelles régions Azure bénéficieront d’Azure Container Service (AKS) ? 
+## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Quelles régions Azure bénéficient d’Azure Container Service (AKS) aujourd’hui ?
 
 - Centre du Canada 
 - Est du Canada 
@@ -32,13 +32,17 @@ Cet article aborde les questions fréquemment posées sur Azure Container Servic
 
 D’autres régions sont ajoutées au fur et à mesure de l’augmentation de la demande.
 
-## <a name="are-security-updates-applied-to-aks-nodes"></a>Les mises à jour de sécurité s’appliquent-elles aux nœuds AKS ? 
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Des mises à jour sécurisées sont-elles appliquées aux nœuds de l’agent AKS ? 
 
-Les mises à jour de sécurité du système d’exploitation s’appliquent aux nœuds du cluster la nuit, mais aucun redémarrage n’est effectué. Si nécessaire, il est possible de redémarrer les nœuds sur le portail ou avec l’interface Azure CLI. Lors de la mise à niveau d’un cluster, la dernière image Ubuntu est utilisée et toutes les mises à jour de sécurité sont appliquées (avec redémarrage).
+Azure applique automatiquement les correctifs de sécurité pour les nœuds de votre cluster selon une planification nocturne. Toutefois, vous êtes chargé de vous assurer que les nœuds sont redémarrés selon les besoins. Vous avez plusieurs options pour effectuer des redémarrages de nœud :
 
-## <a name="do-you-recommend-customers-use-acs-or-akss"></a>Recommandez-vous aux clients d’utiliser ACS ou AKS ? 
+- Manuellement, via le portail Azure ou l’interface de ligne de commande Azure. 
+- En mettant à niveau votre cluster AKS. Le cluster met automatiquement à niveau des [nœuds drain et cordon](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), puis les sauvegarde à nouveau avec la dernière image Ubuntu. Vous pouvez mettre à jour l’image du SE sur vos nœuds sans modifier les versions Kubernetes en spécifiant la version actuelle du cluster dans `az aks upgrade`.
+- Utilisation de [Kured](https://github.com/weaveworks/kured), un démon de redémarrage Open Source pour Kubernetes. Kured s’exécute comme un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Ensuite, il orchestre ces redémarrages au sein du cluster, en suivant le même processus drain et cordon décrit plus haut.
 
-La version finale d’Azure Container Service (AKS) sera disponible plus tard. Par conséquent, nous vous recommandons de créer des clusters POC, de développement et de test dans AKS, mais des clusters de production dans ACS-Kubernetes.  
+## <a name="do-you-recommend-customers-use-acs-or-aks"></a>Recommandez-vous aux clients d’utiliser ACS ou AKS ? 
+
+Tandis qu’AKS reste dans l’aperçu, nous vous recommandons de créer des clusters de production à l’aide des services ACS-Kubernetes ou [acs-engine](https://github.com/azure/acs-engine). Vous pouvez utiliser AKS pour des déploiements de preuve de concept et des environnements dev/test.
 
 ## <a name="when-will-acs-be-deprecated"></a>Quand le service ACS sera-t-il déconseillé ? 
 
@@ -48,21 +52,27 @@ ACS sera déconseillé à peu près au moment de la publication de la version fi
 
 La mise à l’échelle automatique des nœuds n’est pas prise en charge, mais elle est intégrée à la feuille de route. Nous vous proposons d’aller voir du côté de cette [implémentation de la mise à l’échelle automatique][auto-scaler].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ? 
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS prend-il en charge le contrôle d’accès par rôle Kubernetes (RBAC) ?
 
-Chaque cluster Azure Container Service est contenu dans deux groupes de ressources. Le premier, créé par vous, contient uniquement la ressource Azure Container Service. Le deuxième, créé automatiquement lors du déploiement, contient toutes les ressources d’infrastructure du cluster, telles que les ordinateurs virtuels et les ressources de mise en réseau et de stockage. Ce groupe de ressources est créé pour faciliter le nettoyage des ressources. 
+Non, RBAC n’est actuellement pas pris en charge dans AKS mais sera bientôt disponible.   
 
-Le groupe de ressources créé automatiquement a un nom similaire au suivant :
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Puis-je déployer AKS dans mon réseau virtuel existant ?
 
-```
-MC_myResourceGRoup_myAKSCluster_eastus
-```
-
-Lorsque vous ajoutez des ressources Azure à utiliser avec le cluster Kubernetes, telles que des comptes de stockage ou des adresses IP publiques réservées, ces ressources doivent être créées dans le groupe de ressources créé automatiquement.   
+Non, cela n’est pas encore disponible, mais le sera bientôt.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault est-il intégré à AKS ? 
 
 Non, mais cette intégration est planifiée. En attendant, vous pouvez essayer la solution [Hexadite][hexadite]. 
+
+## <a name="can-i-run-windows-server-containers-on-aks"></a>Puis-je exécuter des conteneurs Windows Server sur AKS ?
+
+Non, AKS ne fournit pas actuellement de nœuds d’agent basé sur Windows Server, vous ne pouvez donc pas exécuter de conteneurs Windows Server. Si vous avez besoin d’exécuter des conteneurs Windows Server sur Kubernetes dans Azure, consultez la [documentation sur acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ? 
+
+Chaque déploiement AKS s’étend sur deux groupes de ressources. Le premier, créé par vous, contient uniquement la ressource Azure Container Service. Le fournisseur de ressources AKS crée automatiquement le second au cours du déploiement avec un nom tel que *MC_myResourceGRoup_myAKSCluster_eastus*. Le second groupe de ressources contient toutes les ressources d’infrastructure associées au cluster, tels que des machines virtuelles, la mise en réseau et le stockage. Il est créé pour simplifier le nettoyage des ressources. 
+
+Si vous créez des ressources qui seront utilisées avec votre cluster AKS, tels que les comptes de stockage ou l’adresse IP publique réservée, vous devez les placer dans le groupe de ressources généré automatiquement.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

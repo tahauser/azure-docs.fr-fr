@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5c850fe9eaf78ab5ee6a175e5433998e1f15ab2e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
@@ -39,7 +39,7 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
 
 Suivez les étapes ci-dessous pour accéder à la fonction de réinitialisation de mot de passe en libre-service Azure AD (SSPR) et récupérer votre compte.
 
-1. Depuis n’importe quelle page de **Connexion** professionnelle ou scolaire, sélectionnez le lien **Vous ne pouvez pas accéder à votre compte ?**, puis sélectionnez **Compte professionnel ou scolaire**, ou accédez directement à la [page de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
+1. Depuis une page de **Connexion** professionnelle ou scolaire, sélectionnez le lien **Vous ne pouvez pas accéder à votre compte ?**, puis sélectionnez **Compte professionnel ou scolaire**, ou accédez directement à la [page de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
 
     ![Vous ne pouvez pas accéder à votre compte ?][Login]
 
@@ -125,12 +125,12 @@ Vous devez maintenant être en mesure d’accéder à votre compte. Si ce n’es
 | Je vois une erreur quand j’essaie de changer mon mot de passe. | Malheureusement, votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner. Réessayez avec un autre mot de passe. | Choisissez un mot de passe qui est plus difficile à deviner. |
 | La page « Contactez votre administrateur. » s’affiche lorsque j’entre mon identifiant utilisateur | Contactez votre administrateur. <br> <br> Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br> <br> Vous devez contacter votre service informatique pour obtenir de l’aide. | Ce message s’affiche parce que votre service informatique gère votre mot de passe dans votre environnement local. Vous ne pouvez pas réinitialiser votre mot de passe à partir du lien « Vous ne pouvez pas accéder à votre compte ». <br> <br> Pour réinitialiser votre mot de passe, contactez directement un membre de votre service informatique afin d’obtenir de l’aide et informez-le que vous souhaitez réinitialiser votre mot de passe pour qu’il puisse activer cette fonctionnalité pour vous.|
 | L’erreur « Votre compte n’est pas activé pour la réinitialisation de mot de passe » s’affiche lorsque j’entre mon identifiant utilisateur | Votre compte n’est pas activé pour la réinitialisation du mot de passe. <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre entreprise à partir du lien « Vous ne pouvez pas accéder à votre compte » ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. Informez-le que vous souhaitez réinitialiser votre mot de passe afin qu’il puisse activer cette fonctionnalité pour vous. |
-| L’erreur « Nous n'avons pas pu vérifier votre compte » s’affiche lorsque j’entre mon identifiant utilisateur | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à http://aka.ms/ssprsetup une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. |
+| L’erreur « Nous n'avons pas pu vérifier votre compte » s’affiche lorsque j’entre mon identifiant utilisateur | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à https://aka.ms/ssprsetup une fois que vous avez de nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Page relative à la procédure d’inscription pour utiliser la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
-* [Page relative à l’inscription à la réinitialisation du mot de passe](http://aka.ms/ssprsetup)
+* [Page relative à l’inscription à la réinitialisation du mot de passe](https://aka.ms/ssprsetup)
 * [Portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/)
 * [Connexion impossible à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

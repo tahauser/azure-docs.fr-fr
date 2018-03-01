@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
 
 ## <a name="install-the-java-sdk"></a>Installer le Kit de développement logiciel (SDK) Java
 
-Installez le [kit de développement logiciel (SDK) Application Insights pour Java][java], si ce n’est pas déjà fait.
-
-(Si vous ne voulez pas suivre les demandes HTTP, vous pouvez omettre la majeure partie du fichier de configuration .xml, mais vous devez inclure au moins l’élément `InstrumentationKey`. Vous devez également appeler `new TelemetryClient()` pour initialiser le Kit de développement logiciel [SDK].)
-
+Suivez les instructions pour installer le [kit de développement logiciel (SDK) Application Insights pour Java][java], si ce n’est pas déjà fait.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Ajouter des bibliothèques de journalisation à votre projet
 *Choisissez la méthode adaptée à votre projet.*
@@ -101,13 +98,14 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 #### <a name="otherwise-"></a>Sinon...
-Téléchargez et décompressez l’appender approprié, puis ajoutez la bibliothèque qui convient à votre projet :
+Suivez les instructions pour installer manuellement le kit de développement logiciel Application Insights pour Java, téléchargez le fichier jar (une fois sur la page principale Maven, cliquez sur le lien « jar » dans la section de téléchargement) de l’appender approprié, puis ajoutez le fichier jar de l’appender téléchargé au projet.
 
-| Enregistreur | Télécharger | Bibliothèque |
+| Enregistreur | Download | Bibliothèque |
 | --- | --- | --- |
-| Logback |[Kit de développement logiciel (SDK) avec appender Logback](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J v2.0 |[Kit de développement logiciel (SDK) avec appender Log4J v2](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4J v1.2 |[Kit de développement logiciel (SDK) avec appender Log4J v1.2](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[Jar de l’appender Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Jar de l’appender Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J v1.2 |[Jar de l’appender Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Ajouter l’appender à votre infrastructure de journalisation
 Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier de configuration Log4J ou Logback : 
@@ -128,7 +126,7 @@ Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -158,9 +156,11 @@ Les appenders Application Insights peuvent être référencés par n’importe q
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explorer le suivi dans le portail Application Insights
 Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à Application Insights, vous pouvez rechercher et consulter ce suivi dans le portail Application Insights, dans le panneau [Recherche][diagnostic].
 
+Les exceptions envoyées via les enregistreurs d’événements s’afficheront sur le portail en tant que télémétrie d’exception.
+
 ![Dans Application Insights, ouvrez Recherche](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Recherche de diagnostic][diagnostic]
 
 <!--Link references-->

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -227,13 +227,22 @@ Dans C# et Script C#, accédez aux données d’objets blob en utilisant un para
 
 Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
 
-Si des objets blob de texte sont attendus, vous pouvez lier au type `string`. Ceci est recommandé uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`.
+Si des objets blob de texte sont attendus, vous pouvez lier au type `string`. Ceci est recommandé uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus loin dans cet article.
 
 Dans JavaScript, accédez aux données de l’objet blob d’entrée en utilisant `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Déclencheur - modèles de nom d’objet blob
 
-Vous pouvez spécifier un modèle de nom d’objet blob dans la propriété `path` du fichier *function.json* ou dans le constructeur d’attribut `BlobTrigger`. Le modèle de nom peut être une [expression de filtre ou de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Vous pouvez spécifier un modèle de nom d’objet blob dans la propriété `path` du fichier *function.json* ou dans le constructeur d’attribut `BlobTrigger`. Le modèle de nom peut être une [expression de filtre ou de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns). Les sections suivantes fournissent des exemples.
+
+### <a name="get-file-name-and-extension"></a>Obtenir l’extension et le nom de fichier
+
+L’exemple suivant montre comment se lier séparément à l’extension et au nom de fichier de l’objet blob :
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Si l’objet blob est nommé *original-Blob1.txt*, les valeurs des variables `blobname` et `blobextension` dans le code de la fonction sont *original-Blob1* et *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrer sur le nom de l’objet blob
 
@@ -262,15 +271,6 @@ Pour rechercher les accolades dans les noms de fichiers, utilisez une séquence 
 ```
 
 Si l’objet blob est nommé *{20140101}-soundfile.mp3*, la valeur de la variable `name` dans le code de la fonction est *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Obtenir l’extension et le nom de fichier
-
-L’exemple suivant montre comment se lier séparément à l’extension et au nom de fichier de l’objet blob :
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Si l’objet blob est nommé *original-Blob1.txt*, les valeurs des variables `blobname` et `blobextension` dans le code de la fonction sont *original-Blob1* et *txt*.
 
 ## <a name="trigger---metadata"></a>Déclencheur - métadonnées
 
@@ -309,6 +309,14 @@ Si les 5 tentatives échouent, Azure Functions ajoute un message à une file d�
 * ContainerName
 * BlobName
 * ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Déclencheur : concurrence et utilisation de la mémoire
+
+Le déclencheur de blob utilise une file d’attente en interne. Le nombre maximal d’appels de fonction concurrents est par conséquent contrôlé par la [configuration des files d’attente dans host.json](functions-host-json.md#queues). Les paramètres par défaut limitent la concurrence à 24 appels. Cette limite s’applique séparément à chaque fonction qui utilise un déclencheur de blob.
+
+[Le plan de consommation](functions-scale.md#how-the-consumption-plan-works) limite une application de fonction sur une machine virtuelle (VM) à 1,5 Go de mémoire. La mémoire est utilisée par chaque instance de la fonction qui s’exécutent simultanément et par le runtime de fonctions lui-même. Si une fonction déclenchée par blob charge le blob entier en mémoire, la mémoire maximale utilisée par cette fonction uniquement pour les blobs est 24 fois la taille maximale du blob. Par exemple, une application de fonction avec trois fonctions déclenchées par blob et les paramètres par défaut aurait une concurrence par machine virtuelle maximale de 3 fois 24 = 72 appels de fonction.
+
+Les fonctions JavaScript chargent le blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Déclencheur - interrogation pour les grands conteneurs
 

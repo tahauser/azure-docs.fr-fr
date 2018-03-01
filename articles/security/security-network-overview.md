@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Présentation de la sécurité réseau Azure
 Microsoft Azure inclut une infrastructure réseau solide pour prendre en charge les exigences de connectivité de vos applications et services. La connectivité réseau est possible entre les ressources hébergées dans Azure, entre les ressources hébergées sur site et dans Azure, mais aussi vers et à partir d’Internet et d’Azure.
@@ -37,7 +37,7 @@ Cet article de présentation de la sécurité réseau Azure se concentre sur les
 
 
 ## <a name="azure-networking"></a>Mise en réseau Azure
-Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cela permet de s’assurer que le trafic réseau dans votre déploiement n’est pas accessible aux autres clients Microsoft Azure.
+Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cela permet de s’assurer que le trafic réseau dans vos déploiements n’est pas accessible aux autres clients Microsoft Azure.
 
 En savoir plus :
 
@@ -149,7 +149,7 @@ En savoir plus :
 
 * [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilité
 La disponibilité est au cœur de tout programme de sécurité. Si vos utilisateurs et les systèmes ne peuvent pas accéder à ce dont ils ont besoin via le réseau, le service peut être considéré comme compromis. Azure propose des technologies de mise en réseau qui prennent en charge les mécanismes de haute disponibilité suivants :
 
 * Équilibrage de charge basé sur HTTP
@@ -272,7 +272,7 @@ Azure Security Center vous permet d’optimiser et de surveiller la sécurité r
 
 En savoir plus :
 
-* [Présentation du Centre de sécurité Azure](../security-center/security-center-intro.md)
+* [Présentation d’Azure Security Center](../security-center/security-center-intro.md)
 
 
 ### <a name="logging"></a>Journalisation

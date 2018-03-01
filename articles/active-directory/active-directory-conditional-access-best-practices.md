@@ -13,61 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
-Cette rubrique vous fournit des informations sur les éléments à connaître ce que vous devez évite lors de la configuration des stratégies d’accès conditionnel. Avant de lire cette rubrique, vous devez vous familiariser avec les concepts et la terminologie décrits dans [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Cet article vous fournit des informations sur :
 
-## <a name="what-you-should-know"></a>Ce que vous devez savoir
+- ce que vous devez savoir ; 
+- ce que vous devez éviter lors de la configuration des stratégies d’accès conditionnel. 
 
-### <a name="whats-required-to-make-a-policy-work"></a>Qu’est-ce qui est nécessaire pour faire fonctionner une stratégie ?
+Cet article repose sur l’hypothèse que vous vous êtes familiarisé avec les concepts et la terminologie décrits dans l’article [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+
+
+## <a name="whats-required-to-make-a-policy-work"></a>Qu’est-ce qui est nécessaire pour faire fonctionner une stratégie ?
 
 Lorsque vous créez une stratégie, aucun utilisateur, groupe, application ou contrôle d’accès n’est sélectionné.
 
 ![Applications cloud](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-Pour que votre stratégie fonctionne, vous devez configurer ce qui suit :
+Pour que votre stratégie fonctionne, vous devez configurer les éléments suivants :
 
 
 |Quoi           | Comment                                  | Pourquoi|
 |:--            | :--                                  | :-- |
-|**Applications cloud** |Vous devez sélectionner une ou plusieurs applications.  | L’objectif d’une stratégie d’accès conditionnel est de vous permettre d’ajuster la manière dont les utilisateurs autorisés peuvent accéder à vos applications.|
-| **Utilisateurs et groupes** | Vous devez sélectionner au moins un utilisateur ou groupe autorisé à accéder aux applications cloud sélectionnées. | Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée. |
-| **Contrôles d’accès** | Vous devez sélectionner au moins un contrôle d'accès. | Votre processeur de stratégies doit savoir que faire si vos conditions sont remplies.|
+|**Applications cloud** |Vous devez sélectionner une ou plusieurs applications.  | Une stratégie d’accès conditionnel a pour fonction de vous permettre de contrôler la manière dont les utilisateurs autorisés peuvent accéder à vos applications cloud.|
+| **Utilisateurs et groupes** | Vous devez sélectionner au moins un utilisateur ou groupe autorisé à accéder à vos applications cloud sélectionnées. | Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée. |
+| **Contrôles d’accès** | Vous devez sélectionner au moins un contrôle d'accès. | Si vos conditions sont remplies, votre processeur de stratégies doit connaître la procédure à suivre.|
 
 
-En plus de ces exigences de base, dans de nombreux cas, vous devez également configurer une condition. Si une stratégie peut fonctionner sans condition configurée, les conditions constituent un facteur déterminant pour l’ajustement précis de l’accès à vos applications.
 
 
-![Applications cloud](./media/active-directory-conditional-access-best-practices/04.png)
-
-
+## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
 ### <a name="how-are-assignments-evaluated"></a>Comment les affectations sont-elles évaluées ?
 
-Toutes les attributions sont reliées par l’opérateur logique **AND**. Si vous configurez plusieurs affectations, elles doivent toutes être satisfaites pour que la stratégie soit déclenchée.  
+Toutes les attributions sont reliées par l’opérateur logique **AND**. Si vous configurez plusieurs affectations, ces dernières doivent toutes être satisfaites pour qu’une stratégie soit déclenchée.  
 
-Pour configurer une condition d’emplacement applicable à toutes les connexions non établies depuis le réseau de votre organisation, vous devez :
+Si vous souhaitez configurer une condition d’emplacement applicable à toutes les connexions non établies à partir du réseau de votre organisation, vous devez :
 
-- inclure **tous les emplacements**,
-- exclure **toutes les adresses IP approuvées**.
+- inclure **Tous les emplacements** ;
+- exclure **Toutes les adresses IP approuvées**.
+
+
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Que faire si votre accès au portail d’administration Azure AD est verrouillé ?
+
+Si vous ne pouvez pas accéder au portail Azure AD en raison d’un paramètre incorrect dans une stratégie d’accès conditionnel :
+
+- Vérifiez s’il existe d’autres administrateurs dans votre organisation dont l’accès n’a pas encore été verrouillé. Un administrateur ayant accès au portail Azure peut désactiver la stratégie qui affecte votre connexion. 
+
+- Si aucun des administrateurs de votre organisation ne peut mettre à jour la stratégie, vous devez soumettre une demande de support. Le Support Microsoft peut consulter et mettre à jour les stratégies d’accès conditionnel qui empêchent l’accès.
+
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Que se passe-t-il si vous avez configuré des stratégies dans le portail Azure Classic et le portail Azure ?  
+
 Azure Active Directory applique les deux stratégies et l’utilisateur n’obtient l’accès que si toutes les conditions requises sont remplies.
 
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Que se passe-t-il si vous avez des stratégies dans le portail Intune Silverlight et le portail Azure ?
+### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Que se passe-t-il si vous disposez de stratégies dans le portail Intune Silverlight et dans le portail Azure ?
+
 Azure Active Directory applique les deux stratégies et l’utilisateur n’obtient l’accès que si toutes les conditions requises sont remplies.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Que se passe-t-il si j’ai configuré plusieurs stratégies pour le même utilisateur ?  
+
 À chaque connexion, Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur.
 
 
@@ -76,9 +91,13 @@ Azure Active Directory applique les deux stratégies et l’utilisateur n’obti
 Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel.
 
 
+
+
+
+
 ## <a name="what-you-should-avoid-doing"></a>Ce que vous devez éviter
 
-L’infrastructure d’accès conditionnel vous offre une souplesse de configuration exceptionnelle. Toutefois, une grande souplesse signifie également que vous devez examiner chaque stratégie de configuration avant de la mettre en œuvre afin d’éviter des résultats indésirables. Dans ce contexte, prêtez une attention particulière à l’affectation de jeux complets comme par exemple **tous les utilisateurs / groupes / applications cloud**.
+L’infrastructure d’accès conditionnel vous offre une souplesse de configuration exceptionnelle. Toutefois, une grande souplesse signifie également que vous devez examiner soigneusement chaque stratégie de configuration avant de la mettre en œuvre afin d’éviter des résultats indésirables. Dans ce contexte, prêtez une attention particulière à l’affectation de jeux complets comme par exemple **tous les utilisateurs / groupes / applications cloud**.
 
 Dans votre environnement, vous devez éviter les configurations suivantes :
 
@@ -97,10 +116,27 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 - **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 
 
+## <a name="how-should-you-deploy-a-new-policy"></a>Comment déployer une nouvelle stratégie ?
+
+Pour commencer, vous devez évaluer votre stratégie à l’aide de [l’outil de simulation](active-directory-conditional-access-whatif.md).
+
+Lorsque vous êtes prêt à déployer une nouvelle stratégie dans votre environnement, vous devez le faire en plusieurs phases :
+
+1. Appliquez une stratégie à un ensemble d’utilisateurs restreint et vérifiez qu’elle fonctionne comme prévu. 
+
+2.  Lorsque vous étendez une stratégie de façon à inclure davantage d’utilisateurs, continuez à exclure tous les administrateurs de la stratégie. Cette opération garantit que les administrateurs disposent toujours d’un accès et qu’ils peuvent mettre à jour une stratégie si une modification est nécessaire.
+
+3. N’appliquez une stratégie à tous les utilisateurs que si cette opération se révèle réellement nécessaire. 
+
+Une bonne pratique consiste à créer un compte d’utilisateur :
+
+- dédié à l’administration des stratégies ; 
+- exclu de toutes vos stratégies.
+
 
 ## <a name="policy-migration"></a>Migration des stratégies
 
-Envisagez de migrer les stratégies que vous n’avez pas créées dans le portail Azure, car :
+Envisagez d’effectuer la migration des stratégies que vous n’avez pas créées dans le portail Azure, car :
 
 - Vous pouvez maintenant résoudre des scénarios que vous ne pouviez pas gérer auparavant.
 
@@ -108,12 +144,12 @@ Envisagez de migrer les stratégies que vous n’avez pas créées dans le porta
 
 - Vous pouvez gérer toutes vos stratégies d’accès conditionnel dans un emplacement central.
 
-- Le portail Azure Classic va être mis hors service.   
+- Le Portail Azure Classic a été mis hors service.   
 
 
 Pour plus d’informations, consultez [Migrer les stratégies classiques dans le portail Azure](active-directory-conditional-access-migration.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).

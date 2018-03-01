@@ -21,9 +21,7 @@ Pour cela, vous pouvez utiliser le portail Azure ou des commandes Azure Power
 Pour utiliser le portail Azure :
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu hub, cliquez sur **+ Nouveau**, puis sur **Machine virtuelle**.
-   
-    ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Cliquez sur **Créer une ressource** > **Calcul**.
 3. Sélectionner l’image de machine virtuelle Marketplace que vous voulez utiliser. Vous pouvez choisir de créer une machine virtuelle Linux ou Windows.
 4. Pour la machine virtuelle sélectionnée, vérifiez que le modèle de déploiement est défini sur **Classique**, puis cliquez sur **Créer**.
    
@@ -42,7 +40,7 @@ Pour plus d’informations sur l’utilisation des commandes Azure PowerShell p
 Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques existantes à un groupe à haute disponibilité existant, ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu Hub, cliquez sur **Machines virtuelles (classiques)**.
+2. Dans le menu de gauche, cliquez sur **Machines virtuelles (classiques)**.
    
     ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Dans la liste des machines virtuelles, sélectionnez le nom de la machine virtuelle que vous voulez ajouter au groupe.
@@ -52,7 +50,7 @@ Dans le portail Azure, vous pouvez ajouter des machines virtuelles classiques ex
 5. Sélectionner le groupe à haute disponibilité auquel vous voulez ajouter la machine virtuelle. La machine virtuelle doit appartenir au même service cloud que le groupe à haute disponibilité.
    
     ![Texte de remplacement d’image](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. Cliquez sur **Save**.
+6. Cliquez sur **Enregistrer**.
 
 Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShell de niveau administrateur et exécutez la commande suivante. Pour les espaces réservés (tels que &lt;VmCloudServiceName&gt;), remplacez tout ce qui se trouve entre guillemets, y compris les caractères < et >, par les noms adéquats.
 

@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
 
 Si un objet ne se synchronise pas comme attendu avec Azure AD, cela peut être causé par plusieurs raisons. Si vous avez reçu un message d’erreur d’Azure AD ou que vous voyez l’erreur dans Azure AD Connect Health, lisez [Résolution des erreurs d’exportation](active-directory-aadconnect-troubleshoot-sync-errors.md) à la place. Mais si vous essayez de résoudre un problème pour un objet qui n’est pas dans Azure AD, cette rubrique est pour vous. Elle décrit comment rechercher des erreurs dans le composant de synchronisation Azure AD Connect local.
+
+>[!IMPORTANT]
+>Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version <verison> ou ultérieure, utilisez la [tâche de résolution des problèmes](active-directory-aadconnect-troubleshoot-objectsync.md) disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. 
 
 Pour rechercher les erreurs, vous allez examiner différents endroits dans l’ordre suivant :
 
@@ -78,7 +81,7 @@ Si vous ne trouvez pas l’objet recherché, il peut avoir été filtré avec le
 
 Une autre recherche utile consiste à sélectionner le connecteur Azure AD. Dans **Étendue**, sélectionnez **Importation en attente**, puis cochez **Ajouter**. Cette recherche vous propose tous les objets synchronisés dans Azure AD qui ne peuvent pas être associés à un objet local.  
 ![Recherche d’espace de connecteur orphelin](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Ces objets ont été créés par un autre moteur de synchronisation ou un moteur de synchronisation avec une autre configuration de filtrage. Cette vue est une liste d’objets **orphelins** qui ne sont plus gérés. Vous devez examiner cette liste et envisager de supprimer ces objets à l’aide des applets de commande [Azure AD PowerShell](http://aka.ms/aadposh).
+Ces objets ont été créés par un autre moteur de synchronisation ou un moteur de synchronisation avec une autre configuration de filtrage. Cette vue est une liste d’objets **orphelins** qui ne sont plus gérés. Vous devez examiner cette liste et envisager de supprimer ces objets à l’aide des applets de commande [Azure AD PowerShell](https://aka.ms/aadposh).
 
 ### <a name="cs-import"></a>Importation de CS
 Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’onglet **Importer** affiche les données mises en lot après une importation.  

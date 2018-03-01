@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 7ff6817bafdfe1943d70639c7f3c69c417f5f94a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Apparence des applications dans le volet d’accès
 
-Le volet d’accès est un portail Web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Ces applications sont configurées pour le compte de l’utilisateur dans le portail Azure AD. L’administrateur peut fournir directement l’application à l’utilisateur ou à un groupe dont l’utilisateur fait partie, l’application apparaissant alors dans le volet d’accès de l’utilisateur.
+Le volet d’accès est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) de visualiser et de démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Ces applications sont configurées pour le compte de l’utilisateur dans le portail Azure AD. L’administrateur peut fournir directement l’application à l’utilisateur ou à un groupe dont l’utilisateur fait partie, l’application apparaissant alors dans le volet d’accès de l’utilisateur.
 
 ## <a name="general-issues-to-check-first"></a>Problèmes d’ordre général à vérifier en premier
 
--   Si une application vient d’être supprimée d’un utilisateur ou d’un groupe dont fait partie l’utilisateur, essayez de vous connecter / déconnecter de nouveau sur le volet d’accès de l’utilisateur après quelques minutes pour voir si l’application a été supprimée.
+-   Si une application a été supprimée d’un utilisateur ou d’un groupe dont fait partie l’utilisateur, essayez de vous connecter/déconnecter de nouveau dans le volet d’accès de l’utilisateur après quelques minutes pour voir si l’application a été supprimée.
 
--   Si une licence vient d’être supprimée pour un utilisateur ou un groupe dont l’utilisateur est membre, la prise en compte des modifications peut prendre du temps, en fonction de la taille et de la complexité du groupe. Prévoyez du temps supplémentaire avant de vous connecter au volet d’accès.
+-   Si une licence a été supprimée pour un utilisateur ou un groupe dont l’utilisateur est membre, la prise en compte des modifications peut prendre du temps en fonction de la taille et de la complexité du groupe. Prévoyez du temps supplémentaire avant de vous connecter au volet d’accès.
 
 ## <a name="problems-related-to-assigning-applications-to-users"></a>Problèmes liés à l’affectation des applications aux utilisateurs
 
-Un utilisateur peut voir une application sur son volet d’accès car il y a été affecté auparavant. Voici plusieurs méthodes pour vérifier :
+Un utilisateur peut voir une application sur son volet d’accès car il y a été affecté auparavant. Voici différentes méthodes de vérification possibles :
 
 -   [Vérifier si un utilisateur est affecté à l’application](#check-if-a-user-is-assigned-to-the-application)
 
@@ -41,17 +41,17 @@ Un utilisateur peut voir une application sur son volet d’accès car il y a ét
 
 ### <a name="check-if-a-user-is-assigned-to-the-application"></a>Vérifier si un utilisateur est affecté à l’application
 
-Pour vérifier si un utilisateur est affecté à l’application, effectuez les étapes suivantes :
+Pour vérifier si un utilisateur est affecté à l’application, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 
-5.  Cliquez sur **Toutes les applications** pour afficher la liste de toutes vos applications.
+5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
 6.  **Recherchez** le nom de l’application en question.
 
@@ -63,13 +63,13 @@ Pour vérifier si un utilisateur est affecté à l’application, effectuez les 
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Vérifier si un utilisateur est affecté à une licence liée à l’application
 
-Pour vérifier les licences affectées à un utilisateur, effectuez les étapes suivantes :
+Pour vérifier les licences affectées à un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
@@ -79,11 +79,11 @@ Pour vérifier les licences affectées à un utilisateur, effectuez les étapes 
 
 7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées à l’utilisateur.
 
-   * Si l’utilisateur est affecté à une licence Office, les applications Office internes apparaîtront dans le volet d’accès.
+   * Si l’utilisateur est affecté à une licence Office, les applications Office internes apparaîtront dans le volet d’accès de l’utilisateur.
 
 ## <a name="problems-related-to-assigning-applications-to-groups"></a>Problèmes liés à l’affectation des applications aux groupes
 
-Un utilisateur peut ne pas voir une application sur son volet d’accès, car il ne fait pas partie d’un groupe affecté à l’application. Voici plusieurs méthodes pour vérifier :
+Un utilisateur peut ne pas voir une application sur son volet d’accès, car il ne fait pas partie d’un groupe affecté à l’application. Voici différentes méthodes de vérification possibles :
 
 -   [Vérifier les appartenances d’un utilisateur à des groupes](#check-a-users-group-memberships)
 
@@ -91,13 +91,13 @@ Un utilisateur peut ne pas voir une application sur son volet d’accès, car il
 
 ### <a name="check-a-users-group-memberships"></a>Vérifier les appartenances d’un utilisateur à des groupes
 
-Pour vérifier l’appartenance d’un utilisateur à un groupe, effectuez les étapes suivantes :
+Pour vérifier l’appartenance d’un utilisateur à un groupe, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
@@ -113,11 +113,11 @@ Pour vérifier l’appartenance d’un utilisateur à un groupe, effectuez les �
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Vérifier si un utilisateur fait partie d’un groupe affecté à une licence
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
@@ -150,5 +150,5 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

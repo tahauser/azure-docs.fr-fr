@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -32,7 +32,7 @@ Avec Advisor, vous pouvez :
 * Améliorer les performances, la sécurité et la haute disponibilité de vos ressources en identifiant les possibilités de réduction de vos dépenses Azure globales.
 * Obtenir des recommandations avec des propositions d’actions intégrées.
 
-Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard). Connectez-vous au [portail](https://portal.azure.com), recherchez **Advisor** dans le menu de navigation ou dans le menu **Autres services**.
+Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard). Connectez-vous au [portail](https://portal.azure.com), puis recherchez **Advisor** dans le menu de navigation ou dans le menu **Tous les services**.
 
 Le tableau de bord Advisor affiche des recommandations personnalisées pour l’ensemble de vos abonnements.  Vous pouvez appliquer des filtres pour afficher les recommandations pour des abonnements et des types de ressource spécifiques.  Les recommandations sont divisées en quatre catégories : 
 
@@ -44,7 +44,7 @@ Le tableau de bord Advisor affiche des recommandations personnalisées pour l’
   ![Types de recommandation du conseiller](./media/advisor-overview/advisor-dashboard.png)
 
 > [!NOTE]
-> Pour utiliser Azure Advisor avec un abonnement, le *propriétaire* de cet abonnement doit lancer le tableau de bord Advisor.  Cette action enregistre l’abonnement auprès d’Advisor.  Dès lors, tout *Propriétaire*, *Contributeur* ou *Lecteur* de l’abonnement peut accéder aux recommandations Advisor correspondantes. 
+> Pour utiliser Azure Advisor avec un abonnement, un *propriétaire* de cet abonnement doit lancer le tableau de bord Advisor.  Cette action enregistre l’abonnement auprès d’Advisor.  Dès lors, tout *Propriétaire*, *Contributeur* ou *Lecteur* de l’abonnement peut accéder aux recommandations Advisor correspondantes. 
 
 Vous pouvez cliquer sur une catégorie pour afficher la liste des recommandations au sein de cette catégorie, puis sélectionner une recommandation pour en savoir plus sur celle-ci.  Vous pouvez également obtenir des informations sur les actions que vous pouvez effectuer pour tirer parti d’une opportunité ou résoudre un problème.
 
@@ -54,10 +54,10 @@ Sélectionnez l’action recommandée pour une recommandation afin d’implémen
 
 Si vous ne prévoyez pas d’effectuer d’action immédiate sur une recommandation, vous pouvez la répéter pendant une période spécifique ou la masquer.  Si vous ne souhaitez pas recevoir de recommandations pour un abonnement ou un groupe de ressources spécifiques, vous pouvez configurer Advisor pour générer uniquement des recommandations pour les abonnements et groupes de ressources spécifiés.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="how-do-i-access-advisor"></a>Accès au conseiller
-Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard). Connectez-vous au [portail](https://portal.azure.com), recherchez **Advisor** dans le menu de navigation ou dans le menu **Autres services**.
+Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard). Connectez-vous au [portail](https://portal.azure.com), puis recherchez **Advisor** dans le menu de navigation ou dans le menu **Tous les services**.
 
 Vous pouvez également afficher les recommandations Advisor via l’interface des ressources de machine virtuelle. Choisissez une machine virtuelle, puis accédez aux recommandations du conseiller dans le menu. 
 
@@ -73,11 +73,11 @@ Advisor fournit des recommandations pour les machines virtuelles, les groupes à
 
 Pour répéter ou ignorer une recommandation, cliquez sur le lien **Répéter**. Vous pouvez spécifier une période de répétition ou sélectionner **Jamais** pour faire disparaître la recommandation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 
-* [Prise en main du conseiller](advisor-get-started.md)
+* [Prise en main d’Advisor](advisor-get-started.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)

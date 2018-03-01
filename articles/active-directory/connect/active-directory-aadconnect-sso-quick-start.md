@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -75,10 +75,10 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
-Pour déployer la fonctionnalité sur les systèmes de vos utilisateurs, ajoutez les URL Azure AD suivantes dans les paramètres de zone intranet des utilisateurs, à l’aide de la stratégie de groupe, dans Active Directory :
+Pour déployer la fonctionnalité sur les systèmes de vos utilisateurs, ajoutez l’URL Azure AD ci-après aux paramètres de zone intranet des utilisateurs en utilisant la stratégie de groupe dans Active Directory :
 
 - https://autologon.microsoftazuread-sso.com
-- https://aadg.windows.net.nsatc.net
+
 
 En outre, vous devez activer un paramètre de stratégie Zone intranet appelé **Autoriser les mises à jour de la barre d’état via le script** via la stratégie de groupe. 
 
@@ -87,7 +87,7 @@ En outre, vous devez activer un paramètre de stratégie Zone intranet appelé *
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Pourquoi devez-vous modifier les paramètres de la zone Intranet des utilisateurs ?
 
-Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet ou Intranet, à partir d’une URL spécifique. Par exemple, « http://contoso/ » est mappée à la zone Intranet, tandis que « http://intranet.contoso.com/ » est mappée à la zone Internet (car l’URL contient un point). Les navigateurs n’envoient pas de ticket Kerberos à un point de terminaison cloud, comme les deux URL Azure AD, sauf si vous ajoutez explicitement l'URL à la zone Intranet du navigateur.
+Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet ou Intranet, à partir d’une URL spécifique. Par exemple, « http://contoso/ » est mappée à la zone Intranet, tandis que « http://intranet.contoso.com/ » est mappée à la zone Internet (car l’URL contient un point). Les navigateurs n’enverront pas de tickets Kerberos à un point de terminaison cloud, comme l’URL Azure AD, sauf si vous ajoutez explicitement l’URL à la zone intranet du navigateur.
 
 ### <a name="detailed-steps"></a>Procédure détaillée
 
@@ -96,7 +96,7 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet
 3. Accédez à **Configuration utilisateur** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/active-directory-aadconnect-sso/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
-   - **Nom de la valeur** : URL Azure AD vers lesquelles les tickets Kerberos sont transférés.
+   - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
    - **Valeur** (données) : **1** indique la zone Intranet.
 
    Le résultat ressemble à :
@@ -104,13 +104,9 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet
     Valeur : https://autologon.microsoftazuread-sso.com
   
     Data 1
-        
-   Valeur : https://aadg.windows.net.nsatc.net
-
-    Data 1
 
    >[!NOTE]
-   > Si vous souhaitez interdire à certains utilisateurs l’utilisation de l’authentification unique transparente (par exemple, si ces utilisateurs se connectent sur des bornes partagées), définissez les valeurs précédentes sur **4**. Cette action ajoute les URL Azure AD aux Sites sensibles et rend l’authentification unique transparente inutilisable en permanence.
+   > Si vous souhaitez interdire à certains utilisateurs l’utilisation de l’authentification unique transparente (par exemple, si ces utilisateurs se connectent sur des bornes partagées), définissez les valeurs précédentes sur **4**. Cette opération ajoute l’URL Azure AD à la zone Sites sensibles et rend l’authentification unique transparente inutilisable en permanence.
    >
 
 5. Sélectionnez **OK**, puis de nouveau **OK**.
@@ -146,9 +142,9 @@ Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhite
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (Mac OS uniquement)
 
-Pour ce qui est de Google Chrome sur Mac OS et sur les autres plateformes autres que Windows, reportez-vous à l'article [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) pour obtenir plus d’informations sur l’ajout des URL Azure AD à la liste approuvée pour l’authentification intégrée.
+En ce qui concerne Google Chrome sur Mac OS et sur les autres plateformes non-Windows, consultez la [liste de stratégies du site Chromium Projects](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) afin d’obtenir plus d’informations sur la procédure d’ajout à la liste verte de l’URL Azure AD pour l’authentification intégrée.
 
-L’utilisation des extensions de stratégie de groupe Active Directory tierces permettant de déployer les URL Azure AD pour les utilisateurs de Firefox et de Google Chrome sur Mac dépasse la portée de cet article.
+L’utilisation des extensions de stratégie de groupe Active Directory tierces afin de déployer l’URL Azure AD pour les utilisateurs de Firefox et de Google Chrome sur Mac n’est pas couverte par cet article.
 
 #### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
@@ -176,7 +172,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Présentation technique approfondie](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
 - [Forum aux questions](active-directory-aadconnect-sso-faq.md) : obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.

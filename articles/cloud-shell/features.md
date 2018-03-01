@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Fonctionnalités et outils pour Bash dans Azure Cloud Shell
 
@@ -37,7 +37,7 @@ Bash dans Cloud Shell authentifie automatiquement et en toute sécurité l’acc
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH sur les machines virtuelles Linux Azure
 
-La création d’une machine virtuelle Linux à partir d’Azure CLI 2.0 peut créer une clé SSH par défaut et la placer dans votre répertoire `$Home` actif. Le placement des clés SSH dans `$Home` permet de diriger les connexions SSH vers les machines virtuelles Linux Azure directement à partir de l’interpréteur de Cloud Shell. Les clés sont stockées dans acc_<user>.img dans votre partage de fichiers. Utilisez les meilleures pratiques lors de l’utilisation ou du partage d’accès au partage de fichiers ou aux clés.
+La création d’une machine virtuelle Linux à partir d’Azure CLI 2.0 peut créer une clé SSH par défaut et la placer dans votre répertoire `$Home` actif. Le placement des clés SSH dans `$Home` autorise les connexions SSH aux machines virtuelles Linux Azure directement à partir de Cloud Shell. Les clés sont stockées dans acc_<user>.img dans votre partage de fichiers. Utilisez les meilleures pratiques lors de l’utilisation ou du partage d’accès au partage de fichiers ou aux clés.
 
 ### <a name="home-persistence-across-sessions"></a>Persistance de $Home entre les sessions
 
@@ -47,6 +47,10 @@ En outre, dans Bash dans Cloud Shell, le répertoire `$Home` est conservé en ta
 Les fichiers en dehors de `$Home` et de l’état de la machine ne sont pas conservés entre les sessions.
 
 [En savoir plus sur les fichiers persistants dans Bash dans Cloud Shell.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Étroite intégration à des outils open source
+
+Bash dans Cloud Shell inclut une authentification préconfigurée pour des outils open source tels que Terraform et Ansible. Faites un essai à partir des exemples de procédures pas à pas.
 
 ## <a name="tools"></a>Outils
 

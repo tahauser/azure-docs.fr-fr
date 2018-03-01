@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Définir le débit des conteneurs Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Le tableau suivant répertorie les débits disponibles pour les conteneurs :
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Pour définir le débit à l’aide du portail Azure
 
 1. Dans une nouvelle fenêtre, ouvrez le [portail Azure](https://portal.azure.com).
-2. Dans la barre de gauche, cliquez sur **Azure Cosmos DB** ou sur **Plus de services** en bas, accédez à **Bases de données**, puis sélectionnez **Azure Cosmos DB**.
+2. Dans la barre de gauche, cliquez sur **Azure Cosmos DB** ou sur **Tous les services** en bas, accédez à **Bases de données**, puis sélectionnez **Azure Cosmos DB**.
 3. Sélectionnez votre compte Azure Cosmos DB.
 4. Dans la nouvelle fenêtre, cliquez sur **Explorateur de données** dans le menu de navigation.
 5. Dans la nouvelle fenêtre, développez la base de données et le conteneur, puis cliquez sur **Scale & Settings** (Mise à l’échelle & paramètres).

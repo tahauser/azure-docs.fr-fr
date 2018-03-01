@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 37f50d962ff73330a23c0f7397b93c84dd2e8181
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure Key Vault 
 
@@ -47,7 +47,7 @@ Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](ht
 
 Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
 
-1.  Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1.  Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
 3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
 4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.
@@ -77,7 +77,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
 Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Vault à l’identité de la machine virtuelle.   
 
-1. En haut de la barre de navigation gauche, sélectionnez **+ Nouveau**, **Sécurité + Identité**, puis **Key Vault**.  
+1. En haut de la barre de navigation de gauche, sélectionnez **Créer une ressource** > **Sécurité + Identité** > **Key Vault**.  
 2. Entrez un **Nom** pour le nouveau Key Vault. 
 3. Recherchez le Key Vault dans le même abonnement et le même groupe de ressources que la machine virtuelle créée précédemment. 
 4. Sélectionnez des **Stratégies d’accès** et cliquez sur le bouton **Ajouter un nouveau**. 

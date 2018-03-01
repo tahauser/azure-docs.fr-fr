@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
 Cette rubrique décrit les représentations de type et d’entité des éléments courants utilisés dans les modèles de données pour les modèles du portail des développeurs dans la Gestion des API Azure.  
@@ -47,8 +47,8 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 -   [Abonnement](#Subscription)  
 -   [Subscription summary](#SubscriptionSummary)  
 -   [User account info](#UserAccountInfo)  
--   [User sign in](#UseSignIn)  
--   [User sign up](#UserSignUp)  
+-   [Connexion utilisateur](#UseSignIn)  
+-   [Inscription utilisateur](#UserSignUp)  
   
 ##  <a name="API"></a> API  
  L’entité `API` a les propriétés suivantes :  
@@ -184,7 +184,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |description|chaîne|Description de la réponse de l’opération.|  
 |representations|tableau de [Representation](#Representation)|Collection de représentations de la réponse de l’opération.|  
   
-##  <a name="Operation"></a> Operation  
+##  <a name="Operation"></a> Opération  
  L’entité `operation` a les propriétés suivantes :  
   
 |Propriété|type|DESCRIPTION|  
@@ -242,7 +242,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |kind|number|Indique si ce paramètre est un paramètre de chemin d’accès (1) ou un paramètre de chaîne de requête (2).|  
 |typeName|chaîne|Type de paramètre.|  
   
-##  <a name="Product"></a> Product  
+##  <a name="Product"></a> Produit  
  L’entité `product` a les propriétés suivantes :  
   
 |Propriété|type|DESCRIPTION|  
@@ -285,7 +285,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |state|chaîne|État de l’abonnement. Les états possibles sont :<br /><br /> - `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br /><br /> - `1 - active` : l’abonnement est actif.<br /><br /> - `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br /><br /> - `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br /><br /> - `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br /><br /> - `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
 |DisplayName|chaîne|Nom complet de l’abonnement.|  
 |CreatedDate|dateTime|Date à laquelle l’abonnement a été créé, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|booléenne|Indique si l’abonnement peut être annulé par l’utilisateur actuel.|  
+|CanBeCancelled|booléenne|Si l’abonnement peut être annulé par l’utilisateur actuel.|  
 |IsAwaitingApproval|booléenne|Indique si l’abonnement est en attente d’approbation.|  
 |StartDate|dateTime|Date de début de l’abonnement, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  
 |ExpirationDate|dateTime|Date d’expiration de l’abonnement, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  

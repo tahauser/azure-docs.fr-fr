@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -82,6 +82,18 @@ Si la jointure Azure AD hybride n’a pas réussi, la boîte de dialogue vous fo
 - Vous n’êtes pas connecté en tant qu’utilisateur du domaine
 
     ![Workplace Join pour Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Cette situation peut se produire pour différentes raisons :
+    
+    1. Si l’utilisateur connecté n’est pas un utilisateur de domaine (par exemple, un utilisateur local). La jointure Azure AD hybride sur les appareils de bas niveau est uniquement prise en charge pour les utilisateurs de domaine.
+    
+    2. Si, pour une raison quelconque, Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Cette impossibilité peut avoir plusieurs motifs, par exemple s’il existe des problèmes de connectivité réseau sortante vers les URL Azure AD (vérifier les prérequis), ou lorsque MFA est activé/configuré pour l’utilisateur, mais que WIAORMUTLIAUTHN n’est pas configuré au niveau du serveur de fédération (vérifier les étapes de configuration). Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, empêchant ainsi Autoworkplace.exe d’obtenir un jeton sans assistance. 
+    
+    3. Si l’organisation utilise l’authentification unique transparente Azure AD, les URL ci-après ne figurent pas dans les paramètres intranet Internet Explorer de l’appareil :
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    et le paramètre « Autoriser les mises à jour de la barre d’état via le script » doit être activé pour la zone Intranet.
 
 - Un quota a été atteint.
 
@@ -107,6 +119,6 @@ Vous pouvez également trouver les informations d’état dans le journal des é
 
   - Un utilisateur a atteint la limite d’appareils. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour toute question, consultez [FAQ sur la gestion des appareils](device-management-faq.md)  

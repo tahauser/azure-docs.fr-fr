@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 La vidéo suivante montre comment générer un serveur principal d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API.  Cet article fournit une vue d’ensemble et des informations supplémentaires pour les étapes mentionnées dans la vidéo. Cette vidéo 24 minutes vous montre comment faire pour :
@@ -33,11 +33,11 @@ La vidéo suivante montre comment générer un serveur principal d’API web et 
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Création d’un répertoire Azure AD
-Pour protéger votre backend d’API web à l’aide d’Azure Active Directory, vous devez disposer d’un locataire AAD. Dans cette vidéo, on utilise un client nommé **APIMDemo** . Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau**->**App Services**->**Active Directory**->**Répertoire**->**Création personnalisée**. 
+Pour protéger votre backend d’API web à l’aide d’Azure Active Directory, vous devez disposer d’un locataire AAD. Dans cette vidéo, un locataire nommé **APIMDemo** est utilisé. Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau**->**App Services**->**Active Directory**->**Répertoire**->**Création personnalisée**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-Dans cet exemple, on crée un répertoire nommé **APIMDemo** avec un domaine par défaut nommé **DemoAPIM.onmicrosoft.com**. Ce répertoire est utilisé tout au long de la vidéo.
+Dans cet exemple, un répertoire nommé **APIMDemo** est créé avec un domaine par défaut nommé **DemoAPIM.onmicrosoft.com**. Ce répertoire est utilisé tout au long de la vidéo.
 
 ![Azure Active Directory][api-management-create-aad]
 
@@ -46,7 +46,7 @@ Dans cette étape, un serveur principal d’API web est créé à l’aide de Vi
 
 ![Visual Studio][api-management-new-web-app]
 
-Cliquez sur **API web** à partir de **Sélectionner un modèle** pour créer un projet d’API web. Pour configurer Azure Active Authentication, cliquez sur **Modifier l’authentification**.
+Cliquez sur **API web** à partir de **Sélectionner un modèle** pour créer un projet d’API web. Pour configurer l’authentification Azure Active Directory, cliquez sur **Modifier l’authentification**.
 
 ![Nouveau projet][api-management-new-project]
 
@@ -70,7 +70,7 @@ Vous pouvez être invité à vous connecter à Azure, et vous pouvez ensuite con
 
 ![Configuration][api-management-configure-web-app]
 
-Dans cet exemple, on spécifie un nouveau **Plan App Service** nommé **APIMAADDemo**.
+Dans cet exemple, un nouveau **Plan App Service** nommé **APIMAADDemo** est spécifié.
 
 Cliquez sur **OK** pour configurer l’application web et créer le projet.
 
@@ -192,7 +192,7 @@ Les API sont configurées à partir du portail des éditeurs d’API, accessible
 
 Il est possible d’ [ajouter manuellement des opérations aux API](api-management-howto-add-operations.md), ou bien de les importer. Dans cette vidéo, à partir de 6’40’’, les opérations sont importées au format Swagger.
 
-Créez un fichier nommé `calcapi.json` avec le contenu suivant et enregistrez-le sur votre ordinateur. Vérifiez que l’attribut `host` pointe vers le serveur principal de votre API web. Dans cet exemple, on utilise `"host": "apimaaddemo.azurewebsites.net"` .
+Créez un fichier nommé `calcapi.json` avec le contenu suivant et enregistrez-le sur votre ordinateur. Vérifiez que l’attribut `host` pointe vers le serveur principal de votre API web. Dans cet exemple, `"host": "apimaaddemo.azurewebsites.net"` est utilisé.
 
 ```json
 {
@@ -375,7 +375,7 @@ La demande n’est pas autorisée, car l’API du serveur principal est protég�
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Inscription du portail des développeurs en tant qu’application AAD
 La première étape de la configuration du portail des développeurs pour autoriser les développeurs utilisant OAuth 2.0 consiste à inscrire le portail des développeurs en tant qu’application AAD. Cela est expliqué à partir de 8’27’’ dans la vidéo.
 
-Accédez au client Azure AD créé à la première étape de cette vidéo (dans cet exemple, **APIMDemo**) et accédez à l’onglet **Applications**.
+Accédez au locataire Azure AD créé à la première étape de cette vidéo (dans cet exemple, **APIMDemo**) et accédez à l’onglet **Applications**.
 
 ![Nouvelle application][api-management-aad-new-application-devportal]
 
@@ -383,13 +383,13 @@ Cliquez sur le bouton **Ajouter** pour créer une application Azure Active Direc
 
 ![Nouvelle application][api-management-new-aad-application-menu]
 
-Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur la flèche Suivant. Dans cet exemple, on utilise **APIMDeveloperPortal** .
+Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur la flèche Suivant. Dans cet exemple, **APIMDeveloperPortal** est utilisé.
 
 ![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/signin` .
+Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, `https://contoso5.portal.azure-api.net/signin` est utilisé.
 
-Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/dp`. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
+Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix. Dans cet exemple, `https://contoso5.portal.azure-api.net/dp` est utilisé. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
 ![Nouvelle application][api-management-aad-new-application-devportal-2]
 
@@ -400,9 +400,9 @@ Cliquez sur **Sécurité** dans le menu Gestion des API de gauche, cliquez sur *
 
 ![Ajouter un serveur d’autorisation][api-management-add-authorization-server]
 
-Entrez un nom et une description facultative dans les champs **Nom** et **Description**. Ces champs sont utilisés pour identifier le serveur d’autorisation OAuth 2.0 dans l’instance de service Gestion des API. Dans cet exemple, on utilise **Démonstration de serveur d’autorisation** . Ensuite, lorsque vous spécifierez un serveur OAuth 2.0 à utiliser pour l’authentification pour une API, vous allez sélectionner ce nom.
+Entrez un nom et une description facultative dans les champs **Nom** et **Description**. Ces champs sont utilisés pour identifier le serveur d’autorisation OAuth 2.0 dans l’instance de service Gestion des API. Dans cet exemple, **Démonstration de serveur d’autorisation** est utilisé. Ensuite, lorsque vous spécifierez un serveur OAuth 2.0 à utiliser pour l’authentification pour une API, vous allez sélectionner ce nom.
 
-Pour l’**URL de la page d’enregistrement client**, saisissez une valeur d’espace réservé telle que `http://localhost`.  L’ **URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Ainsi, on utilise un espace réservé.
+Pour l’**URL de la page d’enregistrement client**, saisissez une valeur d’espace réservé telle que `http://localhost`.  L’ **URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Un espace réservé est donc utilisé.
 
 ![Ajouter un serveur d’autorisation][api-management-add-authorization-server-1]
 
@@ -434,7 +434,7 @@ Ensuite, spécifiez les informations d’identification du client. Ce sont les i
 
 Pour obtenir **l’ID client**, accédez à l’onglet **Configurer** de l’application AAD pour le Portail des développeurs et copiez **l’ID client**.
 
-Pour obtenir la **Clé secrète client**, cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, on utilise la valeur 1 an.
+Pour obtenir la **Clé secrète client**, cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, la valeur 1 an est utilisée.
 
 ![ID client][api-management-aad-client-id]
 
@@ -495,7 +495,7 @@ Cliquez sur **Envoyer** et observez l’**État de la réponse** obtenu, à savo
 La procédure suivante dans la vidéo commence à 16’30’’ et illustre la configuration d’une application de bureau simple pour appeler l’API. La première étape consiste à enregistrer l’application de bureau dans Azure AD et à lui donner accès au répertoire et au service du serveur principal. À 18’25’’, vous pouvez voir une démonstration de l’application de bureau appelant une opération sur l’API de calcul.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configuration d’une stratégie de validation JWT pour autoriser des demandes
-La procédure finale de la vidéo commence à 20’48’’ et vous montre comment utiliser la stratégie [Valider un JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) pour autoriser des demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au serveur principal.
+La procédure finale de la vidéo commence à 20’48’’ et vous montre comment utiliser la stratégie [Valider un JWT](api-management-access-restriction-policies.md#ValidateJWT) pour autoriser des demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au serveur principal.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

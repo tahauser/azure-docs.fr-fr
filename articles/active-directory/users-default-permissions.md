@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Autorisations utilisateur par défaut dans Azure Active Directory
 
@@ -59,7 +59,7 @@ Possibilité d’inscrire (créer) des applications | Définir cette option sur 
 Les administrateurs et les utilisateurs membres du rôle inviteur d’invités peuvent inviter des invités | Définir cette option sur Non empêche tous les utilisateurs d’inviter des invités. Consultez Configuration des autorisations par défaut pour les utilisateurs membres. Pour plus d’informations, consultez [Applications, autorisations et consentement dans Azure Active Directory](active-directory-apps-permissions-consent.md).
 Les membres peuvent inviter des invités | Définir cette option sur Non empêche les utilisateurs d’inviter des invités. Les administrateurs généraux, les administrateurs de comptes d’utilisateur et les inviteurs peuvent toujours inviter des invités. Pour plus d’informations, consultez [Applications, autorisations et consentement dans Azure Active Directory](active-directory-apps-permissions-consent.md).
 Limiter l’accès au portail d’administration Azure AD | Définir cette option sur Non empêche les utilisateurs d’accéder au portail Azure Active Directory.
-Possibilité de lire d’autres utilisateurs | Pour plus d’informations, consultez [Applications, autorisations et consentement dans Azure Active Directory](active-directory-apps-permissions-consent.md).
+Possibilité de lire d’autres utilisateurs | Ce paramètre est uniquement disponible dans PowerShell. Définir ce paramètre sur $false empêche tous les utilisateurs non administrateurs de lire les informations utilisateur du répertoire. Cela n’empêche pas de lire les informations utilisateur dans d’autres services Microsoft comme Exchange Online. Ce paramètre est destiné à des circonstances particulières et le définir sur $false n’est pas recommandé.
 
 ## <a name="object-ownership"></a>Propriété des objets
 

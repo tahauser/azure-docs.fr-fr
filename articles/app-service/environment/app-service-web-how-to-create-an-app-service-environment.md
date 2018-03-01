@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Comment créer un environnement App Service Environment v1 
 
@@ -42,12 +42,12 @@ Il est important de connaître les choses que vous ne pouvez pas modifier. Voici
 Lors de la sélection d’un réseau virtuel et de la spécification d’un sous-réseau, assurez-vous qu’il est suffisamment grand pour contenir toute croissance future. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Création d’un environnement App Service Environment v1
-Pour créer un environnement App Service Environment v1, recherchez ***App Service Environment v1*** dans la Place de marché Azure ou sélectionnez Nouveau > Web et mobilité > App Service Environment. Pour créer un ASE v1 :
+Pour créer un environnement App Service Environment v1, vous pouvez rechercher ***App Service Environment v1*** dans la Place de marché Azure ou sélectionner **Créer une ressource** -> **Web + Mobile** -> **Environnement App Service**. Pour créer un ASE v1 :
 
-1. Indiquez le nom de votre ASE. Le nom spécifié pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est appsvcenvdemo, le nom du sous-domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules. Si vous utilisez un ILB, le nom de votre ASE n’est pas utilisé dans votre sous-domaine mais explicitement indiqué lors de la création de l’ASE.
+1. Indiquez le nom de votre ASE. Le nom que vous spécifiez pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est appsvcenvdemo, le nom du sous-domaine est : .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères majuscules dans le nom, le nom de domaine correspondra à la version complète de ce nom en minuscules. Si vous utilisez un équilibreur de charge interne (ILB), le nom de votre ASE n’est pas utilisé dans votre sous-domaine, mais il est explicitement indiqué lors de la création de l’ASE.
    
     ![][1]
-2. Sélectionnez votre abonnement. L’abonnement utilisé pour votre ASE est également celui avec lequel toutes les applications dans cet ASE seront créées. Vous ne pouvez pas placer votre ASE dans un réseau virtuel qui se trouve dans un autre abonnement.
+2. Sélectionnez votre abonnement. L’abonnement que vous utilisez pour votre ASE s’appliquera également à toutes les applications que vous créez dans cet ASE. Vous ne pouvez pas placer votre ASE dans un réseau virtuel qui se trouve dans un autre abonnement.
 3. Sélectionnez ou spécifiez un nouveau groupe de ressources. Le groupe de ressources utilisé pour votre ASE doit être le même que celui utilisé pour votre réseau virtuel. Si vous sélectionnez un réseau virtuel préexistant, la sélection du groupe de ressources pour votre ASE sera mise à jour pour refléter celle de votre réseau virtuel.
    
     ![][2]

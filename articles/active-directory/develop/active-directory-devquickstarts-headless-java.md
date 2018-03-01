@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Utilisation d’une application en ligne de commande Java pour accéder à une API avec Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,9 +44,9 @@ Pour commencer, téléchargez [la structure de l’application](https://github.c
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Inscrire une application auprès d’Azure AD
 Pour autoriser l’authentification des utilisateurs par votre application, vous devez tout d’abord inscrire une nouvelle application dans votre client.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
-3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
+3. Cliquez sur **Tous les services** dans le volet de navigation de gauche, puis choisissez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sur **Ajouter**.
 5. Suivez les invites et créez une **Application Web et/ou API Web**.
   * Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.

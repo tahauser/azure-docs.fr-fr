@@ -4,7 +4,7 @@ description: "Décrit la fonctionnalité de sauvegarde automatisée pour les mac
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour SQL Server 2016 dans des machines virtuelles Azure (Resource Manager)
 
@@ -31,7 +31,7 @@ La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde m
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -66,27 +66,27 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 
 ### <a name="basic-settings"></a>Paramètres de base
 
-| Paramètre | Plage (par défaut) | Description |
+| Paramètre | Plage (par défaut) | DESCRIPTION |
 | --- | --- | --- |
 | **Sauvegarde automatisée** | Activer/Désactiver (désactivé) | Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2016 Standard ou Enterprise. |
 | **Période de rétention** | 1 à 30 jours (30 jours) | Nombre de jours durant lesquels les sauvegardes sont conservées. |
 | **Compte de stockage** | Compte Azure Storage | Compte de stockage Azure à utiliser pour stocker les fichiers de sauvegarde automatisée dans le stockage d’objets blob. Un conteneur est créé à cet emplacement pour stocker tous les fichiers de sauvegarde. La convention de dénomination des fichiers de sauvegarde inclut la date, l’heure et le GUID de base de données. |
-| **Chiffrement** |Activer/Désactiver (désactivé) | Active ou désactive le chiffrement. Lorsque le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié dans le même conteneur **automaticbackup** à l’aide de la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
-| **Mot de passe** |Texte du mot de passe | Mot de passe pour les clés de chiffrement. Il est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. |
+| **Chiffrement** |Activer/Désactiver (désactivé) | Active ou désactive le chiffrement. Quand le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié. Il utilise le même conteneur **automaticbackup** avec la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
+| **Mot de passe** |Texte du mot de passe | Mot de passe pour les clés de chiffrement. Le mot de passe est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. |
 
 ### <a name="advanced-settings"></a>Paramètres avancés
 
-| Paramètre | Plage (par défaut) | Description |
+| Paramètre | Plage (par défaut) | DESCRIPTION |
 | --- | --- | --- |
 | **Sauvegardes de bases de données système** | Activer/Désactiver (désactivé) | Lorsqu’elle et activée, cette fonctionnalité sauvegarde également les bases de données système : Master, MSDB et Modèle. Pour les bases de données MSDB et Modèle, vérifiez qu’elles sont en mode de récupération complète si vous souhaitez effectuer des sauvegardes de journaux. Les sauvegardes de journaux ne sont jamais effectuées pour Master. Et aucune sauvegarde n’est effectuée pour TempDB. |
-| **Planification de sauvegarde** | Manuelle/automatisée (automatisée) | Par défaut, la planification de la sauvegarde varie automatiquement selon la croissance du journal. Une planification de sauvegarde manuelle permet à l’utilisateur de spécifier la fenêtre de temps des sauvegardes. Dans ce cas, les sauvegardes seront effectuées uniquement à une fréquence spécifiée et pendant la fenêtre de temps définie sur un jour donné. |
+| **Planification de sauvegarde** | Manuelle/automatisée (automatisée) | Par défaut, la planification de la sauvegarde varie automatiquement selon la croissance du journal. Une planification de sauvegarde manuelle permet à l’utilisateur de spécifier la fenêtre de temps des sauvegardes. Dans ce cas, les sauvegardes sont effectuées uniquement à une fréquence spécifiée et pendant la fenêtre de temps définie sur un jour donné. |
 | **Fréquence de sauvegarde complète** | Quotidienne/hebdomadaire | Fréquence des sauvegardes complètes. Dans les deux cas, les sauvegardes complètes commencent à la prochaine fenêtre de temps planifiée. Si vous sélectionnez l’option Hebdomadaire, les sauvegardes peuvent s’étaler sur plusieurs jours jusqu'à ce que toutes les bases de données aient été sauvegardées avec succès. |
 | **Heure de début de la sauvegarde complète** | 00:00 – 23:00 (01:00) | Heure de début d’un jour donné où des sauvegardes complètes peuvent être effectuées. |
 | **Fenêtre de temps de la sauvegarde complète** | 1 à 23 heures (1 heure) | Durée de la fenêtre de temps d’un jour donné où des sauvegardes complètes peuvent être effectuées. |
 | **Fréquence de sauvegarde des journaux** | 5 à 60 minutes (60 minutes) | Fréquence des sauvegardes de journaux. |
 
 ## <a name="understanding-full-backup-frequency"></a>Présentation de la fréquence de sauvegarde complète
-Il est important de bien comprendre la différence entre les sauvegardes complètes quotidiennes et hebdomadaires. Ici, nous étudierons deux exemples de scénarios.
+Il est important de bien comprendre la différence entre les sauvegardes complètes quotidiennes et hebdomadaires. Considérez les deux exemples de scénarios suivants.
 
 ### <a name="scenario-1-weekly-backups"></a>Scénario 1 : Sauvegardes hebdomadaires
 Vous utilisez une machine virtuelle SQL Server qui contient plusieurs bases de données très volumineuses.
@@ -100,9 +100,9 @@ Lundi, vous activez la sauvegarde automatisée version 2 avec les paramètres su
 
 Cela signifie que la prochaine fenêtre de sauvegarde disponible est mardi à 1 h 00 pendant 1 heure. À ce stade, la sauvegarde automatisée commence à sauvegarder vos bases de données une par une. Dans ce scénario, vos bases de données sont suffisamment volumineuses pour pouvoir sauvegarder complètement les deux premières bases de données. Mais après une heure, les bases de données n’ont pas toutes été sauvegardées.
 
-Dans ce cas, Sauvegarde automatisée commencera à sauvegarder les bases de données restantes le lendemain, mercredi à 1 h 00 pendant 1 heure. Si les bases de données n’ont pas toutes été sauvegardées pendant cette période, une nouvelle tentative de sauvegarde sera effectuée le lendemain à la même heure. Cette opération se poursuit jusqu'à ce que toutes les bases de données aient été correctement sauvegardées.
+Dans ce cas, Sauvegarde automatisée commencera à sauvegarder les bases de données restantes le lendemain, mercredi à 1 h 00 pendant une heure. Si les bases de données n’ont pas toutes été sauvegardées pendant cette période, une nouvelle tentative de sauvegarde est effectuée le lendemain à la même heure. Cette opération se poursuit jusqu'à ce que toutes les bases de données aient été correctement sauvegardées.
 
-Le mardi suivant, la sauvegarde automatisée recommencera à sauvegarder toutes les bases de données.
+Le mardi suivant, la sauvegarde automatisée commence à nouveau à sauvegarder toutes les bases de données.
 
 Ce scénario montre que la sauvegarde automatisée ne fonctionne que dans la fenêtre de temps spécifiée, et que chaque base de données est sauvegardée une fois par semaine. Il montre également que les sauvegardes peuvent s’étaler sur plusieurs jours dans le cas où il n’est pas possible de terminer toutes les sauvegardes le même jour.
 
@@ -321,7 +321,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 La sauvegarde automatisée v2 configure une sauvegarde managée sur les machines virtuelles Azure. Il est donc important de [lire la documentation relative à la sauvegarde gérée](https://msdn.microsoft.com/library/dn449496.aspx) pour comprendre son comportement et ses implications.
 
 Vous trouverez des conseils supplémentaires pour la sauvegarde et la restauration de SQL Server sur les machines virtuelles Azure dans la rubrique suivante : [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-backup-recovery.md).

@@ -1,5 +1,5 @@
 ---
-title: "Exemples de démarrage rapide Azure Monitor PowerShell. | Microsoft Docs"
+title: "Exemples de démarrage rapide Azure Monitor PowerShell. | Microsoft Docs"
 description: "Utilisez PowerShell pour accéder aux fonctionnalités d’Azure Monitor telles que la mise à l’échelle, les alertes, les webhooks et la recherche dans les journaux d’activité."
 author: rboucher
 manager: carmonm
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
-Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights. Azure Monitor vous permet de mettre à l’échelle automatiquement les services Cloud, les machines virtuelles et Web Apps. Cette plateforme vous permet également d’envoyer des notifications d’alerte ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées.
+Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
 
 > [!NOTE]
 > Azure Monitor est le nouveau nom de ce qui était appelé « Azure Insights » jusqu’au 25 septembre 2016. Toutefois, les espaces de noms et donc les commandes suivantes contiennent toujours le mot « insights ».
@@ -147,7 +147,7 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 
 | paramètre | value |
 | --- | --- |
-| Nom |simpletestdiskwrite |
+| NOM |simpletestdiskwrite |
 | Emplacement de cette règle d'alerte |Est des États-Unis |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Une liste complète des options disponibles pour `Get-AzureRmMetricDefinition` est disponible dans [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Créer et gérer les alertes de journal d’activité
+Vous pouvez utiliser l’applet de commande `Set-AzureRmActivityLogAlert` pour définir une alerte de journal d’activité. Pour créer une alerte de journal d’activité, vous devez commencer par définir vos conditions sous la forme d’un dictionnaire de conditions, puis créer une alerte qui utilise ces conditions.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+Les propriétés de Webhook supplémentaires sont facultatives. Vous pouvez récupérer le contenu d’une alerte de journal d’activité à l’aide de `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Créer et gérer les paramètres de mise à l'échelle automatique
 Une ressource (application web, machine virtuelle, service cloud ou groupe de machines virtuelles identiques) ne peut avoir qu’un seul paramètre de mise à l’échelle automatique configuré.

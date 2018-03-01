@@ -15,15 +15,13 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Dans la liste à gauche, sélectionnez **Parcourir**. 
+2. Dans la liste de gauche, sélectionnez **Tous les services**. 
 
 3. Faites défiler l’écran, puis sélectionnez **Serveurs SQL**. 
    
     ![Rechercher votre serveur Azure SQL Database sur le portail][b21-FindServerInPortal]
-4. Si vous trouvez cela plus pratique, vous pouvez réduire le panneau **Parcourir**.
-
 5. Dans la zone de texte de filtre, tapez les premières lettres du nom de votre serveur. La ligne correspondante s’affiche.
 
 6. Sélectionnez la ligne de votre serveur. Un panneau dédié à votre serveur s’affiche.

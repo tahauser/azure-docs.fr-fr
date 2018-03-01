@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Effectuer une migration à partir d’Azure Access Control Service
 
@@ -81,7 +81,7 @@ Les sections suivantes fournissent des recommandations générales pour migrer A
 
 Chaque service cloud Microsoft qui accepte les jetons émis par Access Control Service prend maintenant en charge au moins une autre forme d’authentification. Le mécanisme d’authentification approprié varie selon chaque service. Nous vous recommandons de consulter la documentation de chaque service pour obtenir des conseils officiels. Pour plus de commodité, chaque ensemble de documentation est mentionné ici :
 
-| Service | Assistance |
+| de diffusion en continu | Assistance |
 | ------- | -------- |
 | Azure Service Bus | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -134,24 +134,24 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 | Fonctionnalité | Prise en charge d’Access Control Service | Prise en charge d’Azure Active Directory |
 | ---------- | ----------- | ---------------- |
 | **Types de comptes** | | |
-| Comptes professionnels et scolaires Microsoft | Pris en charge | Pris en charge |
+| Comptes professionnels et scolaires Microsoft | Prise en charge | Prise en charge |
 | Comptes Windows Server Active Directory et AD FS |- Pris en charge par le biais de la fédération avec un abonné Azure Active Directory <br />- Pris en charge par le biais de la fédération directe avec AD FS | Pris en charge uniquement par le biais de la fédération avec un locataire Azure AD | 
 | Comptes d’autres systèmes de gestion d’identité d’entreprise |- Possible par le biais de la fédération avec un abonné Azure Active Directory <br />- Pris en charge par le biais de la fédération directe | Possible par le biais de la fédération avec un locataire Azure AD |
-| Comptes Microsoft destinés à une utilisation personnelle | Pris en charge | Pris en charge par le biais du protocole OAuth v2.0 d’Azure Active Directory, mais pas sur d’autres protocoles | 
-| Comptes Facebook, Google, Yahoo | Pris en charge | Aucune prise en charge |
+| Comptes Microsoft destinés à une utilisation personnelle | Prise en charge | Pris en charge par le biais du protocole OAuth v2.0 d’Azure Active Directory, mais pas sur d’autres protocoles | 
+| Comptes Facebook, Google, Yahoo | Prise en charge | Aucune prise en charge |
 | **Protocoles et compatibilité des SDK** | | |
-| WIF | Pris en charge | Pris en charge, mais les instructions disponibles sont limitées |
-| Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Pris en charge |
+| WIF | Prise en charge | Pris en charge, mais les instructions disponibles sont limitées |
+| Un certificat de fournisseur d'identité WS-Federation | Prise en charge | Prise en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
-| WS-Trust | Pris en charge | Non pris en charge |
+| WS-Trust | Prise en charge | Non pris en charge |
 | **Formats de jeton** | | |
-| JWT | Pris en charge dans la version bêta | Pris en charge |
-| SAML 1.1 | Pris en charge | VERSION PRÉLIMINAIRE |
-| SAML 2.0 | Pris en charge | Pris en charge |
-| SWT | Pris en charge | Non pris en charge |
+| JWT | Pris en charge dans la version bêta | Prise en charge |
+| SAML 1.1 | Prise en charge | VERSION PRÉLIMINAIRE |
+| SAML 2.0 | Prise en charge | Prise en charge |
+| SWT | Prise en charge | Non pris en charge |
 | **Personnalisations** | | |
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Non pris en charge |
-| Chargement de certificats de signature de jeton personnalisés | Pris en charge | Pris en charge |
+| Chargement de certificats de signature de jeton personnalisés | Prise en charge | Prise en charge |
 | Personnalisation des revendications dans les jetons |- Transfert direct des revendications d’entrée émis par des fournisseurs d’identité<br />- Obtention de jeton d’accès auprès du fournisseur d’identité en tant que revendication<br />- Émission de revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Émission de revendications de sortie avec des valeurs constantes |- Impossibilité de transférer directement des revendications émises par des fournisseurs d’identité fédérés<br />- Impossibilité d’obtenir un jeton d’accès auprès du fournisseur d’identité sous la forme d’une revendication<br />- Impossibilité d’émettre des revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Possibilité d’émettre des revendications de sortie avec des valeurs constantes<br />- Possibilité d’émettre des revendications de sortie basées sur des propriétés d’utilisateurs synchronisées avec Azure Active Directory |
 | **Automation** | | |
 | Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Prise en charge par le biais de l’API Graph d’Azure Active Directory et Microsoft Graph |
@@ -180,7 +180,7 @@ Une autre solution consiste à suivre [cet exemple de code](https://github.com/A
 
 Si vous choisissez cette approche, vous devez comprendre la [substitution de clé de signature dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Cette approche utilise la clé de signature globale Azure AD pour émettre des jetons. Par défaut, WIF n’actualise pas automatiquement les clés de signature. Quand Azure AD permute ses clés de signature globale, votre implémentation de WIF doit être prête à accepter les changements.
 
-Si vous pouvez effectuer une intégration dans Azure Active Directory par le biais du protocole OpenID Connect ou OAuth, nous vous recommandons de le faire. Vous trouverez une documentation complète et des instructions détaillées expliquant comment intégrer Azure Active Directory dans votre application web, dans notre [Guide du développeur Azure Active Directory](http://aka.ms/aaddev).
+Si vous pouvez effectuer une intégration dans Azure Active Directory par le biais du protocole OpenID Connect ou OAuth, nous vous recommandons de le faire. Vous trouverez une documentation complète et des instructions détaillées expliquant comment intégrer Azure Active Directory dans votre application web, dans notre [Guide du développeur Azure Active Directory](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -197,24 +197,24 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 | Fonctionnalité | Prise en charge d’Access Control Service | Prise en charge d’Azure Active Directory B2C |
 | ---------- | ----------- | ---------------- |
 | **Types de comptes** | | |
-| Comptes professionnels et scolaires Microsoft | Pris en charge | Pris en charge par le biais des stratégies personnalisées  |
+| Comptes professionnels et scolaires Microsoft | Prise en charge | Pris en charge par le biais des stratégies personnalisées  |
 | Comptes Windows Server Active Directory et AD FS | Pris en charge par le biais de la fédération directe avec AD FS | Pris en charge par le biais de la fédération SAML à l’aide de stratégies personnalisées |
 | Comptes d’autres systèmes de gestion d’identité d’entreprise | Pris en charge par le biais de la fédération directe avec WS-Federation | Pris en charge par le biais de la fédération SAML à l’aide de stratégies personnalisées |
-| Comptes Microsoft destinés à une utilisation personnelle | Pris en charge | Pris en charge | 
-| Comptes Facebook, Google, Yahoo | Pris en charge | Facebook et Google pris en charge en mode natif, Yahoo pris en charge par le biais de la fédération OpenID Connect à l’aide de stratégies personnalisées |
+| Comptes Microsoft destinés à une utilisation personnelle | Prise en charge | Prise en charge | 
+| Comptes Facebook, Google, Yahoo | Prise en charge | Facebook et Google pris en charge en mode natif, Yahoo pris en charge par le biais de la fédération OpenID Connect à l’aide de stratégies personnalisées |
 | **Protocoles et compatibilité des SDK** | | |
-| Windows Identity Foundation (WIF) | Pris en charge | Non pris en charge |
-| Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Non pris en charge |
+| Windows Identity Foundation (WIF) | Prise en charge | Non pris en charge |
+| Un certificat de fournisseur d'identité WS-Federation | Prise en charge | Non pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
-| WS-Trust | Pris en charge | Non pris en charge |
+| WS-Trust | Prise en charge | Non pris en charge |
 | **Formats de jeton** | | |
-| JWT | Pris en charge dans la version bêta | Pris en charge |
-| SAML 1.1 | Pris en charge | Non pris en charge |
-| SAML 2.0 | Pris en charge | Non pris en charge |
-| SWT | Pris en charge | Non pris en charge |
+| JWT | Pris en charge dans la version bêta | Prise en charge |
+| SAML 1.1 | Prise en charge | Non pris en charge |
+| SAML 2.0 | Prise en charge | Non pris en charge |
+| SWT | Prise en charge | Non pris en charge |
 | **Personnalisations** | | |
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Interface utilisateur entièrement personnalisable par le biais de feuilles de style CSS personnalisées |
-| Chargement de certificats de signature de jeton personnalisés | Pris en charge | Clés de signature (et non certificats) personnalisées prises en charge par le biais de stratégies personnalisées |
+| Chargement de certificats de signature de jeton personnalisés | Prise en charge | Clés de signature (et non certificats) personnalisées prises en charge par le biais de stratégies personnalisées |
 | Personnalisation des revendications dans les jetons |- Transfert direct des revendications d’entrée émis par des fournisseurs d’identité<br />- Obtention de jeton d’accès auprès du fournisseur d’identité en tant que revendication<br />- Émission de revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Émission de revendications de sortie avec des valeurs constantes |- Possibilité de transmettre des revendications à partir des fournisseurs d’identité ; stratégies personnalisées requises pour certaines revendications<br />- Impossibilité d’obtenir un jeton d’accès auprès du fournisseur d’identité sous la forme d’une revendication<br />- Possibilité d’émettre des revendications de sortie basées sur les valeurs des revendications d’entrée par le biais de stratégies personnalisées<br />- Possibilité d’émettre des revendications avec des valeurs constantes par le biais de stratégies personnalisées |
 | **Automation** | | |
 | Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service |- Création d’utilisateurs possible avec l’API Graph d’Azure Active Directory<br />- Impossibilité de créer des abonnés, des applications ou des stratégies B2C par programmation |

@@ -16,42 +16,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
 Ce didacticiel décrit les modèles SaaS d’approvisionnement et d’inscription au catalogue et comment ils sont implémentés dans l’application Wingtip Tickets SaaS Database per Tenant. Vous allez créer et initialiser de nouvelles bases de données de clients et les enregistrer dans le catalogue de clients de l’application. Le catalogue est une base de données qui gère le mappage entre les nombreux clients des applications SaaS et les données associées. Le catalogue joue un rôle important, car il dirige les demandes de l’application et de gestion vers la base de données appropriée.  
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 
-> * Approvisionner un nouveau client unique et découvrir comment il est implémenté
+> * Approvisionner un nouveau locataire unique
 > * Approvisionner un lot de locataires supplémentaires
 
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
-* L’application Wingtip Tickets SaaS Database per Tenant est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application Wingtip Tickets SaaS Database per Tenant](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application Wingtip Tickets SaaS Database per Tenant](saas-dbpertenant-get-started-deploy.md)
+* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Présentation du modèle de catalogue SaaS
 
-Dans une application SaaS mutualisée appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et la base de données dans laquelle sont stockées leurs données. L’application Wingtip Tickets SaaS Database per Tenant utilise une architecture à locataire unique par base de données. Toutefois, le modèle de base relatif au stockage du mappage locataire/base de données dans un catalogue s’applique, que les données du locataire soient distribuées entre plusieurs bases de données, que la base de données soit mutualisée ou à locataire unique.
+Dans une application SaaS mutualisée appuyée par une base de données, il est important de savoir où sont stockées les informations de chaque locataire. Dans le modèle de catalogue SaaS, une base de données de catalogue permet de conserver le mappage entre les locataires et la base de données dans laquelle sont stockées leurs données. Ce modèle s’applique chaque fois que les données de client sont réparties sur plusieurs bases de données.
 
-Une clé est attribuée à chaque client afin de l’identifier dans le catalogue. Cette est mappée sur l’emplacement de la base de données correspondante. Dans le cas de l’application Wingtip Tickets SaaS, la clé est générée à partir d’un code de hachage du nom du client. Cela permet d’utiliser le nom du client dans l’URL de l’application pour construire la clé. D’autres schémas de clé de client peuvent être utilisés.  
+Chaque client est identifié par une clé dans le catalogue, qui est mappée à l’emplacement de sa base de données. Dans le cas de l’application Wingtip Tickets, la clé est générée à partir d’un code de hachage du nom du client. Cela permet à l’application de construire la clé à partir du nom de client inclus dans l’URL de l’application. D’autres schémas de clé de client peuvent être utilisés.  
 
 Le catalogue permet de modifier le nom ou l’emplacement de la base de données avec un impact minimal sur l’application.  Dans un modèle de base de données multiclient, il facilite également le « déplacement » d’un client entre les différentes bases de données.  Le catalogue peut également être utilisé pour indiquer si un client ou une base de données est hors connexion pour maintenance ou dans le cadre d’autres opérations. Ce processus est décrit dans le [didacticiel sur la restauration d’un client unique](saas-dbpertenant-restore-single-tenant.md).
 
-En outre, le catalogue, qui est en réalité une base de données de gestion pour une application SaaS, peut stocker des métadonnées supplémentaires relatives au client ou à la base de données, telles que le niveau ou la version d’une base de données, la version du schéma, le plan de service ou les SLA proposés aux clients, ainsi que d’autres informations associées à la gestion des applications, au support technique ou aux processus devops.  
+Le catalogue peut également peut stocker des métadonnées supplémentaires relatives au client ou à la base de données, telles que la version du schéma, le plan de service ou les SLA proposés aux clients, ainsi que d’autres informations associées à la gestion des applications, au support technique ou à devops.  
 
-Au-delà de l’application SaaS, le catalogue permet d’accéder à des outils de base de données.  Dans l’exemple de l’application Wingtip Tickets SaaS Database per Tenant, le catalogue est utilisé pour activer des requêtes entre locataires, tel que décrit dans le [didacticiel sur les analyses ad hoc](saas-tenancy-adhoc-analytics.md). La gestion des travaux entre différentes bases de données est expliquée dans les didacticiels sur la [gestion des schémas](saas-tenancy-schema-management.md) et les [analyses de clients](saas-tenancy-tenant-analytics.md). 
+Au-delà de l’application SaaS, le catalogue permet d’accéder à des outils de base de données.  Dans l’exemple de l’application Wingtip Tickets SaaS Database per Tenant, le catalogue est utilisé pour activer des requêtes entre locataires, tel que décrit dans le [didacticiel sur les rapports ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestion des travaux entre différentes bases de données est expliquée dans les didacticiels sur la [gestion des schémas](saas-tenancy-schema-management.md) et les [analyses de clients](saas-tenancy-tenant-analytics.md). 
 
-Dans les exemples de Wingtip Tickets SaaS, le catalogue est implémenté à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](sql-database-elastic-database-client-library.md). L’EDCL est disponible dans Java et .Net Framework. La bibliothèque EDCL permet à une application de créer, gérer et utiliser une carte de partitions reposant sur des bases de données. Une carte de partitions contient une liste de partitions (bases de données) et le mappage entre les clés (locataires) et les partitions.  Les fonctions EDCL peuvent être utilisées à partir des applications ou des scripts PowerShell au cours de l’approvisionnement des clients pour créer les entrées dans la carte de partitions, et à partir des applications pour assurer une connexion fiable à la base de données correspondante. La bibliothèque EDCL met en cache les informations de connexion pour réduire le trafic vers la base de données de catalogue et booster les performances de l’application.  
+Dans les exemples de Wingtip Tickets SaaS, le catalogue est implémenté à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](sql-database-elastic-database-client-library.md). L’EDCL est disponible dans Java et .Net Framework. La bibliothèque EDCL permet à une application de créer, gérer et utiliser une carte de partitions reposant sur des bases de données. Une carte de partitions contient une liste de partitions (bases de données) et le mappage entre les clés (locataires) et les partitions.  Les fonctions de la bibliothèque cliente de bases de données élastiques sont utilisées pendant le provisionnement des locataires pour créer les entrées dans la carte de partitions et, ensuite, au moment de l’exécution par les applications pour se connecter à la base de données appropriée. La bibliothèque EDCL met en cache les informations de connexion pour réduire le trafic vers la base de données de catalogue et booster les performances de l’application.  
 
 > [!IMPORTANT]
 > Bien que les données de mappage soient accessibles dans la base de données de catalogue, *ne les modifiez pas*. Modifiez les données de mappage des API Elastic Database Client Library uniquement. Manipuler directement les données de mappage risque d’endommager le catalogue et n’est pas pris en charge.
@@ -59,30 +59,30 @@ Dans les exemples de Wingtip Tickets SaaS, le catalogue est implémenté à l’
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Présentation du modèle d’approvisionnement SaaS
 
-Lors de l’intégration d’un nouveau client dans une application SaaS qui utilise un modèle de base de données à client unique, une nouvelle base de données client doit être approvisionnée.  Celle-ci doit être créée dans l’emplacement et le niveau de service appropriés, initialisée avec les données de référence et le schéma appropriés, puis enregistrée dans le catalogue sous la clé de client correspondante.  
+Lors de l’intégration d’un nouveau client dans une application SaaS qui utilise un modèle de base de données à client unique, une nouvelle base de données client doit être approvisionnée.  La base de données doit être créée dans l’emplacement et le niveau de service appropriés, initialisée avec les données de référence et le schéma appropriés, puis enregistrée dans le catalogue sous la clé de client correspondante.  
 
 Il existe différentes approches d’approvisionnement des bases de données, notamment l’exécution de scripts SQL, le déploiement d’un fichier bacpac ou la copie d’un modèle de base de données.  
 
-La méthode d’approvisionnement que vous utilisez doit être comprise dans votre stratégie globale de gestion des schémas, qui doit s’assurer que les nouvelles bases de données sont approvisionnées avec le schéma le plus récent.  Cela est explique dans le [didacticiel sur la gestion des schémas](saas-tenancy-schema-management.md).  
+Le provisionnement de bases de données doit faire partie de votre stratégie globale de gestion des schémas, laquelle doit vérifier que les nouvelles bases de données sont provisionnées avec le schéma le plus récent. Cette exigence est expliquée dans le [didacticiel sur la gestion des schémas](saas-tenancy-schema-management.md).  
 
-L’application Wingtip Tickets SaaS Database per Tenant approvisionne les nouveaux locataires en copiant une base de données nommée _basetenantdb_, déployée sur le serveur de catalogue.  L’approvisionnement peut être intégré au processus d’inscription de l’application et/ou pris en charge en mode hors connexion à l’aide de scripts. Ce didacticiel décrit le processus d’approvisionnement à l’aide des scripts PowerShell. Les scripts d’approvisionnement copient la base de données basetenantdb pour créer une nouvelle base de données locataire dans un pool élastique, avant de l’initialiser avec les informations spécifiques au client et de l’inscrire dans la carte de partitions du catalogue.  Dans l’application Wingtip Tickets SaaS Database per Tenant, les bases de données locataires sont nommées en fonction du nom du locataire, même s’il ne s’agit pas d’un élément essentiel du modèle. Le catalogue permet d’attribuer n’importe quel nom aux bases de données locataires.+ 
+L’application Wingtip Tickets database per tenant approvisionne les nouveaux locataires en copiant une base de données nommée _basetenantdb_, déployée sur le serveur de catalogue.  L’approvisionnement peut être intégré au processus d’inscription de l’application et/ou pris en charge en mode hors connexion à l’aide de scripts. Ce didacticiel décrit le processus d’approvisionnement à l’aide des scripts PowerShell. Les scripts d’approvisionnement copient la base de données _basetenantdb_ pour créer une nouvelle base de données locataire dans un pool élastique, avant d’initialiser la base de données avec les informations spécifiques au client et de l’inscrire dans la carte de partitions du catalogue.  Les bases de données clientes sont nommées en fonction du nom de client, mais ce schéma d’affectation de noms n’est pas un élément essentiel du modèle : le catalogue mappe la clé de locataire sur le nom de la base de données, aussi toute convention d’affectation de noms peut être utilisée. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
-Les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
+Les scripts et le code source de l’application Wingtip Tickets SaaS sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Procédure pas à pas détaillée sur l’approvisionnement et l’inscription dans le catalogue
 
-Pour comprendre comment l’application Wingtip gère l’approvisionnement du nouveau client, ajoutez un point d’arrêt et suivez les étapes du flux de travail dans le cadre de l’approvisionnement d’un client :
+Pour comprendre comment l’application Wingtip Tickets gère l’approvisionnement du nouveau client, ajoutez un point d’arrêt et suivez les étapes du flux de travail dans le cadre de l’approvisionnement d’un client :
 
 1. Dans _PowerShell ISE_, ouvrez ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ et définissez les paramètres suivants :
    * **$TenantName** = nom du nouveau lieu (par exemple *Bushwillow Blues*).
-   * **$VenueType** = un des types prédéfinis de décor : *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
+   * **$VenueType** = un des types prédéfinis de décor : _blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer_.
    * **$DemoScenario** = **1**, sur *Approvisionner un seul locataire*.
 
-1. Ajoutez un point d’arrêt en plaçant votre curseur n’importe où sur la ligne 48, celle qui indique *New-Tenant `*, puis appuyez sur **F9**.
+1. Ajoutez un point d’arrêt en plaçant votre curseur n’importe où sur la ligne qui indique *New-Tenant `*, puis appuyez sur **F9**.
 
    ![point d’arrêt](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
@@ -100,19 +100,20 @@ Suivez l’exécution du script à l’aide des options du menu **Débogage** **
 Les points suivants ne sont pas des étapes à suivre explicitement, mais constituent une explication du flux de travail parcouru pendant le débogage du script :
 
 1. **Importe le module SubscriptionManagement.psm1** qui contient des fonctions pour la connexion à Azure et la sélection de l’abonnement Azure que vous utilisez.
-1. **Importe le module CatalogAndDatabaseManagement.psm1** qui fournit un catalogue et l’abstraction au niveau du locataire sur les fonctions de [gestion des partitions](sql-database-elastic-scale-shard-map-management.md). Il s’agit d’un module important qui encapsule une bonne partie du modèle de catalogue et que nous vous conseillons d’explorer.
+1. **Importe le module CatalogAndDatabaseManagement.psm1** qui fournit un catalogue et l’abstraction au niveau du locataire sur les fonctions de [gestion des partitions](sql-database-elastic-scale-shard-map-management.md). Ce module encapsule une bonne partie du modèle de catalogue et que nous vous conseillons d’explorer.
 1. **Accédez aux détails de configuration**. Accédez à Get-Configuration (avec F11) et découvrez la façon dont la configuration de l’application est spécifiée. Les noms de ressources et d’autres valeurs propres à l’application sont définis ici, mais ne les modifiez pas tant que vous n’êtes pas familiarisé avec les scripts.
 1. **Obtenez l’objet catalogue**. Accédez à la fonction Get-Catalogue qui compose et retourne un objet de catalogue utilisé dans le script de niveau supérieur.  Cette fonction utilise les fonctions de gestion de partitions qui sont importées à partir de **AzureShardManagement.psm1**. L’objet de catalogue est composé des éléments suivants :
    * $catalogServerFullyQualifiedName est construit à l’aide de la ressource standard et de votre nom d’utilisateur : _catalog-\<utilisateur\>.database.windows.net_.
    * $catalogDatabaseName est extrait de la configuration : *tenantcatalog*.
    * L’objet $shardMapManager est initialisé à partir de la base de données de catalogue.
-   * L’objet $shardMap est initialisé à partir de la carte de partitions *tenantcatalog* dans la base de données de catalogue.
+   * L’objet $shardMap est initialisé à partir de la carte de partitions _tenantcatalog_ dans la base de données de catalogue.
    Un objet catalogue est composé, retourné et utilisé dans le script de niveau supérieur.
 1. **Calculez la clé du nouveau locataire**. Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
 1. **Vérifiez si la clé de locataire existe déjà**. Le catalogue est passé en revue pour vérifier que la clé est disponible.
 1. **La base de données de locataire est approvisionnée avec New-TenantDatabase.** Utilisez **F11** pour parcourir les étapes du script et voir la façon dont la base de données est approvisionnée à l’aide d’un modèle [Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-    Le nom de la base de données est construit à partir du nom de locataire, ce qui permet d’indiquer clairement quelle partition appartient à tel locataire. (D’autres stratégies relatives aux noms de base de données peuvent facilement être utilisées.) Un modèle Resource Manager permet de créer une base de données locataire en copiant une base de données modèle (baseTenantDB) sur le serveur de catalogue. Une autre approche consiste à créer une base de données vide et à l’initialiser en important un fichier bacpac. Il est également possible d’exécuter un script d’initialisation à partir d’un emplacement connu.  
+    Le nom de la base de données est construit à partir du nom de locataire, ce qui permet d’indiquer clairement quelle partition appartient à tel locataire, même si vous pouvez utiliser d’autres conventions d’affectation de noms.
+    Un modèle Resource Manager crée une base de données locataire en copiant une base de données modèle (_baseTenantDB_) sur le serveur de catalogue. En guise d’alternative, vous pourriez créer une base de données et l’initialiser en important un fichier bacpac ou en exécutant un script d’initialisation à partir d’un emplacement connu.
 
     Le modèle Resource Manager est situé dans le dossier ...\Learning Modules\Common\ : *tenantdatabasecopytemplate.json*
 
@@ -122,7 +123,7 @@ Les points suivants ne sont pas des étapes à suivre explicitement, mais consti
 
     * La base de données de catalogue est ajoutée à la carte de partitions (liste des bases de données connues).
     * Le mappage qui lie la valeur de clé à la partition est créé.
-    * Des métadonnées supplémentaires sur le locataire (nom du lieu) sont ajoutées dans le tableau Clients du catalogue.  Le tableau Clients ne fait pas partie du schéma ShardManagement et n’est pas installé par la bibliothèque EDCL.  Le tableau suivant illustre comment la base de données de catalogue peut être étendue pour prendre en charge des données supplémentaires spécifiques à l’application.   
+    * Des métadonnées supplémentaires sur le locataire (nom du lieu) sont ajoutées dans le tableau *Clients* du catalogue.  Le tableau Clients ne fait pas partie du schéma ShardManagement et n’est pas installé par la bibliothèque EDCL.  Le tableau suivant illustre comment la base de données de catalogue peut être étendue pour prendre en charge des données supplémentaires spécifiques à l’application.   
 
 
 Une fois l’approvisionnement terminé, l’exécution retourne au script d’origine *Demo-ProvisionAndCatalog* qui ouvre la page **Events** (Événements) du nouveau client dans le navigateur :
@@ -138,7 +139,7 @@ Cet exercice permet d’approvisionner un lot de 17 clients. Il est recommandé 
    * **$DemoScenario** = **3**, sur *Approvisionner un lot de locataires*.
 1. Appuyez sur **F5** pour exécuter le script.
 
-Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) qui contrôle le lot et délègue ensuite la configuration de chaque base de données à un modèle lié. Utiliser des modèles de cette façon permet à Azure Resource Manager de répartir le processus d’approvisionnement pour votre script. Les modèles approvisionnent des bases de données en parallèle dans la mesure du possible, et gèrent les nouvelles tentatives au besoin, en optimisant le processus global. Comme le script est idempotent, en cas d’échec ou d’arrêt pour une raison quelconque, exécutez-le à nouveau.
+Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) qui contrôle le lot et délègue ensuite la configuration de chaque base de données à un modèle lié. Utiliser des modèles de cette façon permet à Azure Resource Manager de répartir le processus d’approvisionnement pour votre script. Les modèles approvisionnent des bases de données et, au besoin, gèrent les nouvelles tentatives. Comme le script est idempotent, en cas d’échec ou d’arrêt pour une raison quelconque, exécutez-le à nouveau.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Vérifier que le lot de locataires a été correctement déployé
 
@@ -157,8 +158,7 @@ Voici les autres modèles d’approvisionnement non inclus dans ce tutoriel :
 **Approvisionnement automatique.** Dans le modèle d’approvisionnement automatique, un service d’approvisionnement approvisionne automatiquement les serveurs, pools et bases de données en fonction des besoins, notamment en pré-approvisionnant les bases de données dans des pools élastiques si besoin. Si les bases de données sont mises hors service et supprimées, les écarts dans les pools élastiques peuvent être remplis par le service d’approvisionnement. Un tel service peut être simple ou complexe (par exemple, la gestion de l’approvisionnement sur plusieurs zones géographiques) et peut configurer la géoréplication pour la récupération d’urgence. Avec le modèle d’approvisionnement automatique, une application cliente ou un script soumet une requête d’approvisionnement à une file d’attente pour traitement par le service d’approvisionnement et interroge ensuite le service pour déterminer l’achèvement de l’opération. Si le pré-approvisionnement est utilisé, les requêtes sont gérées rapidement grâce au service approvisionnant d’une base de données de remplacement en arrière-plan.
 
 
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

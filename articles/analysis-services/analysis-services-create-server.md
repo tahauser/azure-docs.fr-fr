@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Création d’un serveur Azure Analysis Services dans le portail Azure
 Cet article vous guide lors du processus de création d’une ressource de serveur Analysis Services dans votre abonnement Azure.
@@ -37,7 +37,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 > 
 
 ## <a name="to-create-a-server-in-azure-portal"></a>Pour créer un serveur dans le portail Azure
-1. Connectez-vous au [portail Azure](https://portal.azure.com).  
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
 2. Cliquez sur **+ Nouveau** > **Données + analyse** > **Analysis Services**.
 3. Dans le panneau **Analysis Services**, renseignez les champs requis, puis appuyez sur **Créer**.
    
@@ -48,14 +48,14 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
    * **Groupe de ressources** : ces conteneurs sont conçus pour vous aider à gérer un ensemble de ressources Azure. Pour en savoir plus, consultez les [groupes de ressources](../azure-resource-manager/resource-group-overview.md).
    * **Emplacement** : cet emplacement du centre de données Azure héberge le serveur. Choisissez l’emplacement le plus proche de votre plus grande base d’utilisateurs.
    * **Niveau de tarification** : sélectionnez un niveau de tarification. Les modèles tabulaires sont pris en charge jusqu’à 400 Go. Pour en savoir plus, voir [Tarification d’Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
-4. Cliquez sur **Create**.
+4. Cliquez sur **Créer**.
 
-La création prend généralement moins d’une minute, souvent quelques secondes seulement. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **More services (Plus de services)** > **Analysis Services** pour voir si votre serveur est prêt.
+La création prend généralement moins d’une minute, souvent quelques secondes seulement. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **Tous les services** > **Analysis Services** pour voir si votre serveur est prêt.
 
- ![Tableau de bord](./media/analysis-services-create-server/aas-create-server-dashboard.png)
+ ![tableau de bord](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois que vous avez créé votre serveur, vous pouvez y [déployer un modèle](analysis-services-deploy.md) via SSDT ou SSMS.
 
 Si un modèle déployé sur votre serveur se connecte à des sources de données locales, vous devez installer une [passerelle de données locale](analysis-services-gateway.md) sur un ordinateur de votre réseau.

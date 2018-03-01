@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
-Cet article contient des instructions concernant l’utilisation des applets de commande PowerShell Azure Active Directory (Azure AD) pour créer et mettre à jour des groupes. Ce contenu s’applique uniquement aux groupes Office 365. 
+Cet article contient des instructions concernant l’utilisation des applets de commande PowerShell Azure Active Directory (Azure AD) pour créer et mettre à jour des groupes. Ce contenu s’applique uniquement aux groupes Office 365 (parfois appelés groupes unifiés). 
 
 > [!IMPORTANT]
 > Certains paramètres nécessitent une licence Azure Active Directory Premium P1. Pour plus d’informations, consultez le tableau [Paramètres de modèle](#template-settings).
@@ -42,7 +41,7 @@ Si vous connaissez le nom du paramètre à récupérer, vous pouvez utiliser l�
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Créer des paramètres au niveau du répertoire
-Les étapes suivantes permettent de créer des paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office 365 (groupes unifiés) du répertoire.
+Les étapes ci-après permettent de créer des paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office 365 du répertoire.
 
 1. Dans les applets de commande DirectorySettings, vous devez spécifier l’ID du modèle SettingsTemplate que vous voulez utiliser. Si vous ne connaissez pas cet ID, cette applet de commande renvoie la liste de tous les modèles de paramètres :
   
@@ -55,7 +54,7 @@ Les étapes suivantes permettent de créer des paramètres au niveau du réperto
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 
 | **Paramètre** | **Description** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True |Indicateur spécifiant si la création de groupes unifiés est autorisée dans le répertoire par les utilisateurs non administrateurs. Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “” |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes unifiés même lorsque EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True |Indicateur spécifiant si la création de groupes Office 365 est autorisée dans le répertoire par les utilisateurs non administrateurs. Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “” |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes Office 365 même lorsque EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
 |  <ul><li>ClassificationDescriptions<li>Type : string<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. |
 |  <ul><li>DefaultClassification<li>Type : string<li>Valeur par défaut : “” | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type : string<li>Valeur par défaut : “” | Ne pas utiliser. Pas encore implémenté. |
-| <ul><li>CustomBlockedWordsList<li>Type : string<li>Valeur par défaut : “” | Ne pas utiliser. Pas encore implémenté. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type : string<li>Valeur par défaut : “” | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Office 365. Pour plus d’informations, consultez l’article [Enforce a naming policy for Office 365 groups (preview) (Appliquer une stratégie d’affectation de noms pour les groupes Office 365 (préversion))](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Type : string<li>Valeur par défaut : “” | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez l’article [Enforce a naming policy for Office 365 groups (preview) (Appliquer une stratégie d’affectation de noms pour les groupes Office 365 (préversion))](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Type : booléen<li>Par défaut : « False » | Ne pas utiliser
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Type : booléen<li>Par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type : booléen<li>Par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes unifiés.  Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Type : booléen<li>Par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Type : booléen<li>Par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes Office 365.  Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” | URL d’un lien vers les instructions d’utilisation de l’invité. |
-|  <ul><li>AllowToAddGuests<li>Type : booléen<li>Par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire.|
-|  <ul><li>ClassificationList<li>Type : string<li>Valeur par défaut : “” |Liste des valeurs de classification valides séparées par des virgules pouvant être appliquées à des groupes unifiés. |
-
+|  <ul><li>AllowToAddGuests<li>Type : booléen<li>Par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire.|
+|  <ul><li>ClassificationList<li>Type : string<li>Valeur par défaut : “” |Liste de valeurs de classification valides séparées par des virgules qui peuvent être appliquées à des groupes Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Lire les paramètres au niveau du répertoire
 Les étapes suivantes permettent de lire les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
@@ -138,6 +136,7 @@ Les étapes suivantes permettent de lire les paramètres au niveau du répertoir
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ Les étapes suivantes permettent de lire les paramètres au niveau du répertoir
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ Les étapes suivantes permettent de lire les paramètres au niveau du répertoir
 
 ## <a name="update-settings-at-the-directory-level"></a>Mettre à jour des paramètres au niveau du répertoire
 
-Les étapes suivantes mettent à jour les paramètres au niveau du répertoire qui s’appliquent à tous les groupes unifiés du répertoire. Ces exemples supposent qu’un objet Settings existe déjà dans votre répertoire.
+Les étapes ci-après permettent de mettre à jour les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office 365 du répertoire. Ces exemples supposent qu’un objet Settings existe déjà dans votre répertoire.
 
 1. Recherchez l’objet Settings existant :
   ```
@@ -221,4 +220,4 @@ Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)

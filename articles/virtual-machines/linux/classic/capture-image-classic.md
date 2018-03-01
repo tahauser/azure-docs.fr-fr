@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Capture d'une machine virtuelle Linux classique en tant qu'image
 > [!IMPORTANT]
@@ -98,7 +98,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
    azure vm image list
    ```
 
-   Sur le [portail Azure](http://portal.azure.com), la nouvelle image apparaît dans les **images de machine virtuelle (classique)** qui appartiennent aux services **Compute**. Vous pouvez accéder aux **images de machine virtuelle (classique)** en cliquant sur _Autres services_ en bas de la liste de services Azure, puis en recherchant les services **Compute**.   
+   Sur le [portail Azure](http://portal.azure.com), la nouvelle image apparaît dans les **images de machine virtuelle (classique)** qui appartiennent aux services **Compute**. Vous pouvez accéder à **Images de machine virtuelle (classiques)** en cliquant sur **Tous les services** en haut de la liste de services Azure, puis en examinant les services **Calcul**.   
 
    ![Capture d’image réussie](./media/capture-image/VMCapturedImageAvailable.png)
 

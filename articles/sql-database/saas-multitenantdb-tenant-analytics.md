@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analyses entre clients à l’aide de données extraites
 
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous suivez un scénario complet d’analyse. Le scénario 
 2.  **Optimisez les données extraites** pour le traitement analytique.
 3.  Utilisez les outils **d’Aide à la décision** pour en tirer des informations utiles, qui peuvent guider la prise de décision. 
 
-Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > - Créez le magasin analytique client dans lequel extraire les données.
@@ -68,7 +68,7 @@ Comprendre la fréquence à laquelle chaque client utilise le service fournit un
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
@@ -76,7 +76,7 @@ Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous 
 - Les scripts de base de données Wingtip SaaS et le [code source](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de l’application sont disponibles au téléchargement sur GitHub. Veillez à *débloquer le fichier zip* avant d’extraire son contenu. Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 - Power BI Desktop est installé. [Télécharger Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](saas-multitenantdb-provision-and-catalog.md).
-- Un compte de travail et la base de données du compte de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Un agent de travail et une base de données d’agent de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Créer des données pour la démonstration
 
@@ -228,9 +228,9 @@ Précédemment, vous avez approfondi l’analyse pour découvrir que les ventes 
 
 Vous avez observé les tendances des données client à partir de l’application de base de données multi-locataire Wingtip Tickets SaaS. Vous pouvez envisager d’autres façons dont l’application peut indiquer des décisions d’affaires pour les fournisseurs d’applications SaaS. Les fournisseurs peuvent mieux répondre aux besoins de leurs clients. Nous espérons que ce didacticiel vous aura donné les outils nécessaires pour effectuer des analyses sur les données client afin de répondre aux besoins de votre entreprise pour prendre des décisions pilotées par les données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Déployé une base de données analytique client avec des tables de schéma en étoile prédéfinies

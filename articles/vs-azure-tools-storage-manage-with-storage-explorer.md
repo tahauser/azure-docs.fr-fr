@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Prise en main de l’Explorateur de stockage (version préliminaire)
 ## <a name="overview"></a>Vue d'ensemble
@@ -28,6 +28,16 @@ L’Explorateur de stockage Azure (version préliminaire) est une application au
 
 ## <a name="prerequisites"></a>configuration requise
 * [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Pour les distributions Linux autres que Ubuntu 16.04, vous devrez peut-être installer manuellement quelques dépendances. En général, les packages suivants sont nécessaires :
+> * libgconf-2-4
+> * libsecret
+> * GCC à jour
+>
+> En fonction de votre distribution, vous devrez peut-être installer d’autres packages. Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage contiennent des étapes propres à certaines distributions.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connexion à un service ou un compte de stockage
 L’Explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Vous pouvez par exemple :

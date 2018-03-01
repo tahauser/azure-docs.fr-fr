@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenir la chaîne de connexion sur le portail Azure
 Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne de connexion nécessaire pour que votre programme client interagisse avec Azure SQL Database. 
 
-1. Sélectionnez **TOUT PARCOURIR** > **Bases de données SQL**.
+1. Sélectionnez **Tous les services** > **Bases de données SQL**.
 
 2. Entrez le nom de votre base de données dans la zone de texte de filtre en haut à gauche du panneau **Bases de données SQL**.
 
@@ -19,7 +19,6 @@ Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne d
 
 4. Une fois que le panneau de votre base de données s’affiche, pour un meilleur confort visuel, sélectionnez les boutons de **réduction** afin de réduire les panneaux que vous avez utilisés pour la navigation et le filtrage de la base de données. 
    
-    ![Filtrer pour isoler votre base de données][10-FilterDatabase]
 5. Dans le panneau de votre base de données, sélectionnez **Afficher les chaînes de connexion de la base de données**.
 
 6. Si vous prévoyez d’utiliser la bibliothèque de connexions ADO.NET, copiez la chaîne intitulée **ADO**. 
@@ -31,7 +30,7 @@ Pour plus d’informations, consultez [Connection strings and configuration file
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

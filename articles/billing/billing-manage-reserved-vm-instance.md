@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Administrer les instances de machine virtuelle réservées Azure
 
@@ -28,7 +28,7 @@ Après avoir acheté une instance de machine virtuelle réservée Azure, vous vo
 
 Pour mettre à jour l’étendue d’une réservation : 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Autres services** > **Réservations**.
+2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez la réservation.
 4. Sélectionnez **Paramètres** > **Configuration**.
 5. Modifiez l’étendue. Si vous passez de l’étendue partagée à une étendue unique, vous ne pouvez sélectionner que les abonnements dont vous êtes le propriétaire. Seuls peuvent être sélectionnés les abonnements présents dans le même contexte de facturation que celui de la réservation. Le contexte de facturation est déterminé par l’abonnement que vous avez sélectionné au moment de l’achat de la réservation. L’étendue s’applique uniquement aux abonnements MS-AZR-0003P de l’offre avec paiement à l’utilisation, et MS-AZR-0017P de l’offre Entreprise. Pour les contrats d’entreprise, les abonnements de développement et de test ne peuvent pas bénéficier de la remise de réservation.
@@ -69,7 +69,7 @@ Vous pouvez gérer l’accès aux réservations, indépendamment des abonnements
  
 Pour déléguer la gestion de l’accès à une réservation : 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com).
-2.  Sélectionnez **Autres services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
+2.  Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
 3.  Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
 4.  Sélectionnez **Contrôle d’accès (IAM)** dans le menu.
 5.  Sélectionnez **Ajouter** > **Rôle** > **Propriétaire** (ou un rôle différent si vous souhaitez accorder un accès limité). 
