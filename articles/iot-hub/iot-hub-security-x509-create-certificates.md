@@ -279,7 +279,7 @@ Exécutez ensuite `New-CADevice "<yourTestDevice>"` dans votre fenêtre PowerShe
 
 ## <a name="clean-up-certificates"></a>Nettoyer les certificats
 
-Dans la barre de démarrage ou dans l’application **Paramètres**, recherchez et sélectionnez **Manage computer certificates** (Gérer les certificats d’ordinateur). Supprimez tous les certificats délivrés par **Azure IoT CA TestOnly***. Ces certificats doivent se trouver aux trois emplacements suivants : 
+Dans la barre de démarrage ou dans l’application **Paramètres**, recherchez et sélectionnez **Manage computer certificates** (Gérer les certificats d’ordinateur). Supprimez tous les certificats délivrés par **Azure IoT CA TestOnly**\*. Ces certificats doivent se trouver aux trois emplacements suivants : 
 
 * Certificats - Ordinateur local > Personnel > Certificats
 * Certificats - Ordinateur local > Autorités de certification racines de confiance > Certificats

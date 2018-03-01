@@ -73,7 +73,7 @@ Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action q
    ![Image d’action FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    Le contrôle **Obtenir le contenu d’un fichier** s’affiche. **Remarque** : vous serez invité à autoriser votre application logique à accéder à votre compte de serveur FTP, si vous ne l’avez pas fait précédemment.  
    ![Image d’action FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Sélectionnez le contrôle **Fichier** (espace blanc situé sous **FICHIER***). Ce contrôle vous permet d’utiliser les diverses propriétés du fichier nouveau ou modifié trouvé sur le serveur FTP.  
+5. Sélectionnez le contrôle **Fichier** (espace blanc situé sous **FICHIER**\*). Ce contrôle vous permet d’utiliser les diverses propriétés du fichier nouveau ou modifié trouvé sur le serveur FTP.  
 6. Sélectionnez l’option **Contenu du fichier**.  
    ![Image d’action FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Le contrôle est mis à jour, ce qui indique que l’action **FTP - Obtenir le contenu d’un fichier** récupérera le *contenu du fichier* nouveau ou modifié sur le serveur FTP.      

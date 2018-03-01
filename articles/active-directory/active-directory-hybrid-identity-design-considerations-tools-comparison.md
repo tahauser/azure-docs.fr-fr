@@ -50,7 +50,7 @@ PP = Version préliminaire publique
 | Synchronisation des attributs définis par le client (extensions de répertoire) |● | | | | |
 | Connexion à un système de ressources humaines local (par exemple, SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Prise en charge des connecteurs et des règles de synchronisation FIM pour le déploiement sur des systèmes locaux. | | | |● |● |
-&#42; &#42; Actuellement, deux options sont prises en charge pour cela.  Il s'agit de :
+&#42; Actuellement, deux options sont prises en charge pour cela.  Il s'agit de :
    1. Vous pouvez utiliser le connecteur LDAP générique et l’activer en dehors d’Azure AD Connect.  C’est une opération complexe demandant un partenaire pour l’intégration et un contrat de support Premier pour le tenir à jour.  Cette option peut gérer les répertoires LDAP uniques et multiples.
    2. Vous pouvez développer votre propre solution pour déplacer des objets depuis LDAP vers Active Directory.  Synchronisez ensuite les objets avec Azure AD Connect.  MIM ou FIM peut être utilisé comme solution pour déplacer les objets.
 
