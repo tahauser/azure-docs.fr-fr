@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestion des applications avec Azure Active Directory
 Au-delà du workflow ou du contenu réels, les entreprises ont deux exigences de base pour toutes les applications :
@@ -78,7 +78,7 @@ Lorsque vous utilisez Azure AD pour gérer des applications et activer l’authe
 * L’authentification est effectuée sur l’installation locale de l’utilisateur (par exemple, AD) ou sur le compte Azure AD.
 * L’autorisation s’exécute sur la stratégie Azure AD d’affectation et de protection, garantissant ainsi une expérience utilisateur cohérente, et vous permettant d’ajouter des affectations, des emplacements et des conditions MFA sur toute application, indépendamment de ses fonctionnalités internes.
 
-Il est important de comprendre que la manière dont l’autorisation est mise en œuvre sur l’application cible varie en fonction de la façon dont l’application a été intégrée avec Azure AD.
+Il est important de comprendre que le mode de mise en œuvre de l’autorisation sur l’application cible varie en fonction de la manière dont l’application a été intégrée à Azure AD.
 
 * **Applications préintégrées par le fournisseur de services** À l’instar d’Office 365 et d’Azure, ce sont des applications directement intégrées sur Azure AD et dépendantes pour l’intégralité de leurs fonctionnalités de gestion de l’identité et de l’accès. L’accès à ces applications est activé via les informations de répertoire et l’émission de jetons.
 * **Applications préintégrées par Microsoft et applications personnalisées** Ce sont des applications cloud indépendantes qui s’appuient sur un répertoire d’applications internes et peuvent fonctionner indépendamment d’Azure AD. L’accès à ces applications est activé par l’émission d’informations d’identification spécifiques à une application et mappées sur un compte d’application. Selon les fonctionnalités de l’application, les informations d’identification peuvent être un jeton de fédération ou le nom d’utilisateur et le mot de passe d’un compte précédemment configuré dans l’application.
@@ -90,7 +90,7 @@ Par exemple, si un utilisateur rejoint votre entreprise, vous devez lui créer u
 Dans les entreprises modernes, les services informatiques n’ont souvent pas connaissance de toutes les applications cloud qui sont utilisées. En association avec Cloud App Discovery, Azure AD vous fournit une solution permettant de détecter ces applications.
 
 ## <a name="account-management"></a>Account management
-Historiquement, la gestion des comptes dans les différentes applications est un processus manuel effectué par le service informatique ou le personnel de support technique dans l’entreprise. Azure AD a entièrement automatisé la gestion des comptes dans toutes les applications intégrées de fournisseur de services, ainsi que les applications préintégrées par Microsoft prenant en charge l’approvisionnement automatique des utilisateurs ou SAML JIT.
+Généralement, la gestion des comptes dans les différentes applications est un processus manuel effectué par le service informatique ou le personnel de support technique de l’organisation. Azure AD automatise entièrement la gestion des comptes dans toutes les applications intégrées de fournisseur de services, ainsi que dans les applications préintégrées par Microsoft prenant en charge l’approvisionnement automatique des utilisateurs ou l’approvisionnement SAML juste-à-temps (JIT).
 
 ## <a name="automated-user-provisioning"></a>Approvisionnement automatique des utilisateurs
 Certaines applications fournissent des interfaces d’automatisation pour la création et la suppression (ou la désactivation) de comptes. Si un fournisseur offre une interface de ce type, elle est exploitée par Azure AD. Ainsi, vos coûts d’exploitation sont réduits, car les tâches d’administration sont effectuées automatiquement, et la sécurité de votre environnement est améliorée, car le risque d’accès non autorisé est atténué.

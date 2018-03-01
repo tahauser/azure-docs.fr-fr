@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
 
@@ -50,17 +50,17 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
 
 ### <a name="create-a-service-bus-namespace"></a>Création d'un espace de noms Service Bus
 
-1. Sur le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** > **Enterprise Integration** > **Service Bus**.
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** > **Enterprise Integration** > **Service Bus**.
 1. Fournissez les informations suivantes :
 
    **Nom** : le nom du Service Bus.
 
    **Niveau tarifaire**: cliquez sur **De base** > **Sélectionnez**. Le niveau de base est suffisant pour ce didacticiel.
 
-   **Groupe de ressources** : utilisez le groupe de ressources que votre instance IoT Hub exploite.
+   **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre IoT Hub.
 
    **Emplacement** : utilisez le même emplacement que celui utilisé par votre IoT Hub.
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
    ![Créer un espace de noms Service Bus dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
@@ -103,7 +103,7 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
    **Point de terminaison** : sélectionnez le point de terminaison que vous avez créé.
 
    **Chaîne de requête** : entrez `temperatureAlert = "true"`.
-1. Cliquez sur **Save**.
+1. Cliquez sur **Enregistrer**.
 
    ![Ajouter une règle de routage dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
 
@@ -111,15 +111,15 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
 
 ### <a name="create-a-logic-app"></a>Créer une application logique
 
-1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** > **Enterprise Integration** > **Application logique**.
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** > **Enterprise Integration** > **Application logique**.
 1. Entrez les informations suivantes :
 
    **Nome** : le nom de l’application logique.
 
-   **Groupe de ressources** : utilisez le groupe de ressources que votre instance IoT Hub exploite.
+   **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre IoT Hub.
 
    **Emplacement** : utilisez le même emplacement que celui utilisé par votre IoT Hub.
-1. Cliquez sur **Create**.
+1. Cliquez sur **Créer**.
 
 ### <a name="configure-the-logic-app"></a>Configurer l’application logique
 
@@ -157,7 +157,7 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
 
       Obtenez les informations SMTP pour [Hotmail/Outlook.com](https://support.office.com/en-us/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) et [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
    1. Entrez votre adresse de messagerie pour **De** et **À**, et `High temperature detected` pour **Objet** et **Corps**.
-   1. Cliquez sur **Save**.
+   1. Cliquez sur **Enregistrer**.
 
 L’application logique est en état de marche lorsque vous l’enregistrez.
 
@@ -170,7 +170,7 @@ L’application logique est en état de marche lorsque vous l’enregistrez.
    > [!NOTE]
    > Il se peut que votre fournisseur de services de messagerie doive vérifier l’identité de l’expéditeur pour s’assurer que vous êtes bien celui qui envoie l’e-mail.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez créé avec succès une application logique qui connecte votre IoT Hub et votre boîte aux lettres pour la surveillance de la température et les notifications.
 

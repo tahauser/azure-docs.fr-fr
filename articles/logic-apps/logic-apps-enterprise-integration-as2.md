@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Échangez des messages AS2 dans le cadre d’une intégration d’entreprise avec Logic Apps
 
@@ -40,12 +40,12 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure").  
 
-2.  Dans le menu de gauche, cliquez sur **Plus de services**. Dans la zone de recherche, entrez **intégration** comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+2.  Dans le menu de gauche, sélectionnez **Tous les services**. Dans la zone de recherche, entrez **intégration** comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
 
     > [!TIP]
-    > Si vous ne voyez pas l’option **Plus de services**, vous devez d’abord développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
+    > Si vous ne voyez pas l’option **Tous les services**, vous devez commencer par développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
 
-    ![Plus de services, filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![Tous les services, filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
 Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  

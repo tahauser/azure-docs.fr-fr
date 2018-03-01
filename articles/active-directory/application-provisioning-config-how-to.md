@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Comment configurer l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
@@ -31,7 +31,7 @@ Dans le Portail Azure, l’onglet **Approvisionnement** du volet de navigation d
 
 Si le mode manuel est le seul proposé par une application donnée, cela signifie qu’aucun connecteur d’approvisionnement Azure AD automatique n’a encore été créé pour l’application. Cela peut également signifier que l’application ne prend pas en charge l’API de gestion des utilisateurs requise sur laquelle doit s’appuyer la création d’un connecteur d’approvisionnement automatisé.
 
-Si vous avez besoin d’assistance en matière d’approvisionnement automatique pour une application donnée, vous pouvez effectuer une demande à l’adresse <http://aka.ms/aadapprequest>.
+Si vous avez besoin d’assistance en matière d’approvisionnement automatique pour une application donnée, vous pouvez remplir une demande sur la page [Azure Active Directory Application Requests (Demandes d’applications Azure Active Directory)](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configuration d’une application pour l’approvisionnement automatique
 
@@ -48,8 +48,8 @@ Les étapes nécessaires pour activer et configurer l’approvisionnement automa
 
 Vous trouverez les didacticiels spécifiques aux applications à la page [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-Lors de la configuration de l’approvisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Cela inclut la définition d’une « propriété correspondante », qui sera utilisée pour identifier de façon unique et mettre en correspondance des utilisateurs/groupes entre les deux systèmes. Pour plus d’informations sur ce processus important.
+Lors de la configuration de l’approvisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Cela inclut la définition d’une « propriété correspondante » réservée à l’utilisation et à la mise en correspondance des utilisateurs/groupes entre les deux systèmes. Pour plus d’informations sur ce processus important.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

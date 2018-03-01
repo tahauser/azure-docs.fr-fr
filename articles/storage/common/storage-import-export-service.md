@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
@@ -87,7 +87,7 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 Cette section décrit les prérequis de ce service. Lisez-les soigneusement avant d’expédier vos lecteurs.
 
 ### <a name="storage-account"></a>Compte de stockage
-Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
+Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Azure Import/Export prend uniquement en charge les comptes classiques, de stockage Blob et les comptes de stockage v1 à usage général. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Types de données
 Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **blocs**, des objets blob de **pages** ou des **fichiers**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure. Le service prend en charge uniquement l’importation d’Azure Files vers Stockage Azure. L’exportation d’Azure Files n’est pas prise en charge actuellement.
@@ -299,7 +299,7 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 **Frais de transaction**
 
-Aucun frais de transaction ne s’applique lors de l’importation de données dans Stockage Azure. Des frais de sortie standard s’appliquent quand les données sont exportées à partir de Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
+L’importation de données dans le stockage Azure n’entraîne pas de frais de transaction supplémentaires par rapport aux frais de transaction du stockage standard. Des frais de sortie standard s’appliquent quand les données sont exportées à partir de Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 

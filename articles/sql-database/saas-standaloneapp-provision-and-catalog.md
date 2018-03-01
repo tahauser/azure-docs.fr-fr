@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
 
@@ -30,7 +30,7 @@ Cet article comprend deux parties principales :
 * Didacticiel mettant en évidence des exemples de code PowerShell effectuant l’approvisionnement et le catalogage
     * Le didacticiel utilise l’exemple d’application SaaS Wingtip Tickets, adaptée à l’application autonome par modèle de client.
 
-## <a name="application-per-tenant-pattern"></a>Application par le modèle de client
+## <a name="standalone-application-per-tenant-pattern"></a>Modèle d’application autonome par client
 L’application autonome par modèle de client est l’un des modèles pour les applications SaaS mutualisées.  Dans ce modèle, une application autonome est approvisionnée pour chaque client. L’application comprend des composants de niveau application et une base de données SQL.  Chaque application cliente peut être déployée dans l’abonnement du fournisseur.  Azure offre également un [programme d’applications managées](https://docs.microsoft.com/en-us/azure/managed-applications/overview) dans le cadre duquel une application peut être déployée dans l’abonnement d’un client et gérée par le fournisseur pour le compte du client. 
 
    ![modèle d’application-par-client](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Chaque client a besoin d’un nouveau groupe de ressources Azure qui doit être 
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 * Approvisionner un catalogue
-* Inscrire les bases de données client déployées précédemment dans le catalogue
+* Inscrire les exemples de bases de données client déployées précédemment dans le catalogue
 * Configurer un client supplémentaire et l’inscrire dans le catalogue
 
 Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’application, créer la base de données client, puis importer un fichier bacpac pour l’initialiser. La demande d’importation peut être mise en file d’attente pendant plusieurs minutes avant d’être déclenchée.
@@ -148,3 +148,5 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Déployer l’application autonome SaaS Wingtip Tickets.
 > * Explorer les serveurs et les bases de données qui composent l’application.
 > * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
+
+Vous pouvez explorer la manière dont le catalogue est utilisé pour prendre en charge différents scénarios inter-clients à l’aide de la version base de données par client de [l’application SaaS de Tickets Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

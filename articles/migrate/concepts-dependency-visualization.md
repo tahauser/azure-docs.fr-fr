@@ -4,13 +4,13 @@ description: "Offre une vue d’ensemble des calculs d’évaluation dans le ser
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -35,7 +35,7 @@ Pour utiliser la visualisation des dépendances, vous devez télécharger et ins
 
 ## <a name="do-i-need-to-pay-for-it"></a>Est-ce une fonctionnalité payante ?
 
-Oui. L’espace de travail Log Analytics est créé par défaut, mais il n’est utilisé que si vous utilisez la visualisation des dépendances dans Azure Migrate. Si vous utilisez la visualisation des dépendances (ou l’espace de travail en dehors d’Azure Migrate), vous êtes facturé pour l’utilisation de l’espace de travail.  [Découvrez-en plus](https://azure.microsoft.com/pricing/details/insight-analytics/) sur les prix de la solution Service Map. 
+En savoir plus sur la tarification Azure Migrate [ici](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Comment gérer l’espace de travail ?
 
@@ -43,6 +43,6 @@ Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Mig
 
 Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet de migration. Si vous le faites, les dépendances ne fonctionneront pas comme prévu.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Regrouper des machines à l’aide de dépendances de machines](how-to-create-group-machine-dependencies.md)

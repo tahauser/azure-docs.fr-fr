@@ -1,18 +1,22 @@
 ---
-title: "Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack"
-description: "Découvrez comment un administrateur cloud peut ajouter des machines virtuelles identiques à la Marketplace Azure Stack."
+title: "Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack | Microsoft Docs"
+description: "Découvrez comment un opérateur cloud peut ajouter des machines virtuelles identiques à la Marketplace Azure Stack"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack
 
@@ -28,7 +32,7 @@ Les groupes de machines virtuelles identiques sur Azure Stack suivent le même p
 
 Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compatibles avec la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique avec le portail Azure Stack, les modèles Resource Manager ou PowerShell.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * **PowerShell et outils**
 
    Installer et configurez PowerShell pour Azure Stack et les outils Azure Stack. Consultez la page [Devenir opérationnel avec PowerShell dans Azure Stack](azure-stack-powershell-configure-quickstart.md).
@@ -47,7 +51,7 @@ Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compa
 
 Modifiez le script PowerShell suivant en fonction de votre environnement, puis exécutez-le pour ajouter un groupe de machines virtuelles identiques à votre Marketplace Azure Stack. 
 
-``$User`` est le compte servant à se connecter au portail d’administration. Par exemple, serviceadmin@contoso.onmicrosoft.com.
+``$User`` est le compte servant à se connecter au portail d’administration. Par exemple : serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -80,6 +84,6 @@ Pour supprimer un élément de la galerie du groupe de machines virtuelles ident
 > L’élément de la galerie n’est pas forcément supprimé immédiatement de la marketplace. Vous devrez peut-être pour cela actualiser le portail plusieurs fois.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Forum aux questions sur Azure Stack](azure-stack-faq.md)
 

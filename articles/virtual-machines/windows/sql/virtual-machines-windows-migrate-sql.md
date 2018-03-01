@@ -3,8 +3,8 @@ title: "Migrer une base de données SQL Server vers SQL Server sur une machine 
 description: "Découvrez comment migrer une base de données utilisateur sur site de SQL Server dans une machine virtuelle Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: sabotta
-manager: jhubbard
+author: rothja
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: carlasab
-ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/13/2018
+ms.author: jroth
+ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrer une base de données SQL Server vers SQL Server dans une machine virtuelle Azure
 
@@ -35,7 +35,7 @@ Les méthodes de migration principales consistent à :
 * Détacher, puis copier les fichiers journaux et de données vers le stockage d’objets blob Azure, puis les rattacher à SQL Server dans la machine virtuelle Azure depuis une URL
 * Convertir une machine physique locale en disque dur virtuel Hyper-V, effectuer un téléchargement vers le stockage d’objets Blob Azure, puis exécuter un déploiement en tant que nouvelle machine virtuelle en utilisant le disque dur virtuel téléchargé
 * Expédition du disque dur avec le Service d’importation/exportation Windows
-* Si vous disposez d’un déploiement AlwaysOn local, utilisez l’ [Assistant Ajout d’un réplica Azure](../classic/sql-onprem-availability.md) pour créer un réplica dans Azure, puis basculez en dirigeant les utilisateurs vers l’instance de base de données Azure
+* Si vous disposez d’un déploiement AlwaysOn local, utilisez l’ [Assistant Ajout d’un réplica Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) pour créer un réplica dans Azure, puis basculez en dirigeant les utilisateurs vers l’instance de base de données Azure
 * Utiliser la [réplication transactionnelle](https://msdn.microsoft.com/library/ms151176.aspx) de SQL Server pour configurer l’instance Azure SQL Server en tant qu’abonné, puis désactiver la réplication en dirigeant les utilisateurs vers l’instance de base de données Azure
 
 > [!TIP]
@@ -53,15 +53,15 @@ S’il n’est pas possible d’utiliser les méthodes décrites ci-dessus, migr
 
 Le tableau suivant répertorie les principales méthodes de migration et explique dans quelles circonstances utiliser chacune d’elles.
 
-| Méthode | Version de base de données source | Version de base de données de destination | Contrainte de taille pour la sauvegarde de base de données source | Remarques |
+| Méthode | Version de base de données source | Version de base de données de destination | Contrainte de taille pour la sauvegarde de base de données source | Notes |
 | --- | --- | --- | --- | --- |
 | [Effectuer une sauvegarde locale en utilisant la compression et copier manuellement le fichier de sauvegarde dans la machine virtuelle Azure](#backup-and-restore) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Il s’agit d’une technique très simple et éprouvée pour déplacer des bases de données d’une machine à l’autre. |
 | [Effectuer une sauvegarde vers l’URL et une restauration dans la machine virtuelle Azure depuis l’URL](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 ou ultérieur |SQL Server 2012 SP1 CU2 ou ultérieur |< 12,8 To pour SQL Server 2016, sinon < 1 To | Cette méthode représente simplement une autre façon de déplacer le fichier de sauvegarde sur la machine virtuelle à l’aide du stockage Azure. |
 | [Détacher, puis copier les données et les fichiers journaux dans le stockage d’objets blob Azure et les rattacher à SQL Server dans la machine virtuelle Azure à partir d’URL](#detach-and-attach-from-url) |SQL Server 2005 ou ultérieur |SQL Server 2014 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Utilisez cette méthode quand vous envisagez de [stocker ces fichiers à l’aide du service de stockage d’objets Blob Azure](https://msdn.microsoft.com/library/dn385720.aspx) et de les rattacher à SQL Server s’exécutant dans une machine virtuelle Azure, en particulier avec les bases de données très volumineuses. |
 | [Convertir l’ordinateur local pour les disques durs virtuels Hyper-V, charger sur le stockage d’objets Blob Azure, puis déployer une nouvelle machine virtuelle en utilisant le disque dur virtuel chargé](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |À utiliser lors de [la mise en service de votre propre licence SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), lors de la migration d’une base de données que vous allez exécuter sur une version plus ancienne de SQL Server, ou lors de la migration d’un système et de bases de données d’un système utilisateur dans le cadre de la migration de base de données dépendant des autres bases de données utilisateur et/ou bases de données système. |
 | [Expédition du disque dur à l’aide du Service d’importation/exportation Windows](#ship-hard-drive) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Utilisez le [Service Import/Export de Windows](../../../storage/common/storage-import-export-service.md) lorsque la méthode de copie manuelle est trop lente, par exemple avec de très grandes bases de données. |
-| [Utiliser l’Assistant Ajout d’un réplica Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 ou ultérieur |SQL Server 2012 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Réduit le temps d’arrêt ; à utiliser lorsque vous disposez d’un déploiement local AlwaysOn. |
-| [Utiliser la réplication transactionnelle de SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |À utiliser si vous devez réduire le temps d’arrêt et que vous ne disposez pas d’un déploiement local AlwaysOn. |
+| [Utiliser l’Assistant Ajout d’un réplica Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 ou ultérieur |SQL Server 2012 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Réduit le temps d’arrêt ; à utiliser lorsque vous disposez d’un déploiement local Always On. |
+| [Utiliser la réplication transactionnelle de SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |À utiliser si vous devez réduire le temps d’arrêt et que vous ne disposez pas d’un déploiement local Always On. |
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 Sauvegardez votre base de données avec compression, copiez la sauvegarde sur la machine virtuelle, puis restaurez la base de données. Si le volume de votre fichier de sauvegarde est supérieur à 1 To, vous devez le partager parce que la taille maximum d’un disque de machine virtuelle est de 1 To. Utilisez les étapes générales suivantes pour faire migrer une base de données utilisateur à l’aide de cette méthode manuelle :

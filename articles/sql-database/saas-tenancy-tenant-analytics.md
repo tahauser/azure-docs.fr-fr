@@ -1,5 +1,5 @@
 ---
-title: "Exécuter des requêtes d’analyse sur des bases de données | Microsoft Docs"
+title: "Exécuter l’analytique entre locataires à l’aide des données extraites | Microsoft Docs"
 description: "Des requêtes analytiques entre clients à l’aide de données extraites de plusieurs bases de données SQL Azure Database."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
@@ -15,21 +15,21 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analyses entre clients à l’aide de données extraites
 
-Dans ce didacticiel, vous suivez un scénario complet d’analyse. Le scénario illustre comment les analyses permettent aux entreprises de prendre des décisions intelligentes. À l’aide de données extraites de la base de données de chaque client, vous utilisez les analyses pour obtenir des informations sur un comportement de client, y compris son utilisation de l’exemple d’application Wingtip Tickets SaaS. Ce scénario implique trois étapes : 
+Dans ce didacticiel, vous suivez un scénario complet d’analyse. Le scénario illustre comment les analyses permettent aux entreprises de prendre des décisions intelligentes. À l’aide des données extraites à partir des bases de données de chaque client, utilisez l’analytique pour obtenir des informations sur le comportement et l’utilisation des applications des clients. Ce scénario implique trois étapes : 
 
-1.  **Extrayez des données** à partir de chaque base de données dans un magasin d’analytique.
-2.  **Optimisez les données extraites** pour le traitement analytique.
+1.  **Extrayez** des données à partir de chaque base de données à **Charger** dans un magasin d’analytique.
+2.  **Transformez les données extraites** pour le traitement analytique.
 3.  Utilisez les outils **d’Aide à la décision** pour en tirer des informations utiles, qui peuvent guider la prise de décision. 
 
-Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > - Créez le magasin analytique client dans lequel extraire les données.
@@ -42,33 +42,32 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
 ## <a name="offline-tenant-analytics-pattern"></a>Modèle analytique client en mode hors connexion
 
-Les applications SaaS que vous développez ont accès à une grande quantité de données client stockées dans le cloud. Les données constituent une source riche d’informations sur le fonctionnement et l’utilisation de votre application et sur le comportement des clients. Ces informations peuvent guider le développement des fonctionnalités, les améliorations de convivialité et autres investissements dans l’application et la plateforme.
+Les applications SaaS mutualisées ont généralement une grande quantité de données client stockées dans le cloud. Les données constituent une source riche d’informations sur le fonctionnement et l’utilisation de votre application et sur le comportement de vos clients. Ces informations peuvent guider le développement des fonctionnalités, les améliorations de convivialité et autres investissements dans l’application et la plateforme.
 
-L’accès aux données pour tous les clients est simple lorsque toutes les données se trouvent dans une seule base de données. Mais l’accès est plus complexe lors d’une distribution à grande échelle sur des milliers de bases de données. Une façon de maîtriser la complexité consiste à extraire les données à une base de données analytique ou un entrepôt de données. Ensuite, vous interrogez le magasin analytique pour collecter des informations à partir des données de ticket de tous les clients.
+L’accès aux données pour tous les clients est simple lorsque toutes les données se trouvent dans une seule base de données. Mais l’accès est plus complexe lors d’une distribution à grande échelle sur potentiellement des milliers de bases de données. Une façon de maîtriser la complexité et minimiser l’impact des requêtes analytique sur les données transactionnelles consiste à extraire les données dans un entrepôt de données ou une base de données analytique que vous préparerez à cette fin.
 
-Ce didacticiel présente un scénario complet d’analytique pour cet exemple d’application SaaS. Tout d’abord, les travaux élastiques sont utilisés pour planifier l’extraction de données de chaque base de données client. Les données sont envoyées à un magasin d’analytique. Le magasin d’analytique peut être une base de données SQL ou un entrepôt de données SQL. Pour l’extraction de données à grande échelle, [Azure Data Factory](../data-factory/introduction.md) est recommandé.
+Ce didacticiel présente un scénario complet d’analytique pour l’application Wingtip Tickets. Tout d’abord, les *travaux élastiques* permettent d’extraire les données de chaque base de données client et de les charger dans les tables d’un magasin d’analytique intermédiaire. Le magasin d’analytique peut être une base de données SQL ou un entrepôt de données SQL. Pour l’extraction de données à grande échelle, [Azure Data Factory](../data-factory/introduction.md) est recommandé.
 
-Ensuite, les données agrégées sont fragmentées en un ensemble de tables à [schéma en étoile](https://www.wikipedia.org/wiki/Star_schema). Les tables sont constituées d’une table de faits centrale ainsi que de tables de dimension associées :
+Ensuite, les données agrégées sont transformées en un ensemble de tables à [schéma en étoile](https://www.wikipedia.org/wiki/Star_schema). Les tables sont constituées d’une table de faits centrale ainsi que de tables de dimension associées.  Pour Wingtip Tickets :
 
 - La table de faits centrale dans le schéma en étoile contient les données de ticket.
-- Les tables de dimension contiennent des données sur les emplacements, les événements, les clients et les dates d’achat.
+- Les tables de dimension décrivent les emplacements, les événements, les clients et les dates d’achat.
 
-Ensemble les tables centrale et de dimension permettent un traitement analytique efficace. Le schéma en étoile utilisé dans ce didacticiel s’affiche dans l’image suivante :
+Ensemble les tables de faits centrale et de dimension permettent un traitement analytique efficace. Le schéma en étoile utilisé dans ce didacticiel s’affiche dans l’image suivante :
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Enfin, les tables du schéma en étoile sont interrogées. Les résultats de requête sont affichés visuellement pour mettre en évidence le comportement du client et son utilisation de l’application. Avec ce schéma en étoile, vous pouvez exécuter des requêtes qui permettent de découvrir des éléments comme les suivants :
+Enfin, le magasin d’analytique est interrogé à l’aide de **PowerBI** pour mettre en évidence le comportement du client et son utilisation de l’application Wingtip Tickets. Vous exécutez des requêtes qui :
+ 
+- Afficher la popularité relative de chaque emplacement
+- Soulignent les profils de vente de tickets pour différents événements
+- Afficher la réussite relative des différents systèmes en matière de ventes pour les événements
 
-- Qui achète des tickets et à partir de quel emplacement.
-- Les modèles masqués et les tendances dans les domaines suivants :
-    - Les ventes de tickets.
-    - La popularité relative de chaque emplacement.
-
-Comprendre la fréquence à laquelle chaque client utilise le service fournit une opportunité de créer des plans de service pour répondre à leurs besoins. Ce didacticiel fournit des exemples simples d’analyses qui peuvent être collectés à partir des données client.
+Comprendre comment chaque client utilise le service pour explorer les options de monétisation du service et d’améliorer le service pour aider les clients à être plus efficaces. Ce didacticiel fournit des exemples simples des types d’analyses que vous pouvez recueillir à partir des données client.
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
@@ -76,7 +75,7 @@ Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous 
 - Les scripts de base de données Wingtip Tickets SaaS par client et le [code source](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) de l’application sont disponibles au téléchargement sur GitHub. Consultez les instructions de téléchargement. Veillez à *débloquer le fichier zip* avant d’extraire son contenu. Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 - Power BI Desktop est installé. [Télécharger Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](saas-dbpertenant-provision-and-catalog.md).
-- Un compte de travail et la base de données du compte de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Un compte de travail et la base de données du compte de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Créer des données pour la démonstration
 
@@ -228,9 +227,9 @@ Précédemment, vous avez approfondi l’analyse pour découvrir que les ventes 
 
 Vous avez observé les tendances des données client à partir de l’application WingTip. Vous pouvez envisager d’autres façons dont l’application peut indiquer des décisions d’affaires pour les fournisseurs d’applications SaaS. Les fournisseurs peuvent mieux répondre aux besoins de leurs clients. Nous espérons que ce didacticiel vous aura donné les outils nécessaires pour effectuer des analyses sur les données client afin de répondre aux besoins de votre entreprise pour prendre des décisions pilotées par les données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Déployé une base de données analytique client avec des tables de schéma en étoile prédéfinies

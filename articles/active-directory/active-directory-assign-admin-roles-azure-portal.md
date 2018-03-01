@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Attribution de rôles d’administrateur dans Azure Active Directory
 
@@ -64,7 +63,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **Inviteur** : les utilisateurs disposant de ce rôle peuvent gérer les invitations d’utilisateurs invités Azure Active Directory B2B lorsque le paramètre utilisateur « Les membres peuvent inviter » est défini sur Non. Pour plus d’informations sur B2B Collaboration, consultez [À propos de la version préliminaire d’Azure AD B2B Collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il n’inclut pas d’autres autorisations.
 
-* **Administrateur Information Protection** : les utilisateurs disposant de ce rôle peuvent accéder à Azure Information Protection dans le portail Azure. Ils peuvent configurer les étiquettes pour la stratégie Azure Information Protection, gérer les modèles de protection et activer la protection.
+* **Administrateur Information Protection (préversion)** : les utilisateurs disposant de ce rôle ont des droits utilisateur uniquement sur le service Azure Information Protection. Aucun droit utilisateur n’est accordé sur Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health ou Centre de sécurité et conformité Office 365. Ils peuvent configurer les étiquettes pour la stratégie Azure Information Protection, gérer les modèles de protection et activer la protection.
 
 * **Administrateur de service Intune**: les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft Intune Online, lorsque le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes.
 
@@ -128,11 +127,10 @@ Les rôles d’administrateur disponibles sont les suivants :
 | --- | --- |
 | <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Modifier les mots de passe des utilisateurs et des autres administrateurs du support technique uniquement</p>|<p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher des rapports</p>|
 
-### <a name="information-protection-administrator"></a>Administrateur Information Protection 
+### <a name="information-protection-administrator-preview"></a>Administrateur Information Protection (préversion)
 Dans | Peut
 -------- | ---------
-Azure Information Protection | * Configurer les étiquettes et les stratégies étendues et globales<br>* Gérer, configurer et mettre à jour les modèles de protection<br>* Activer la protection pour l’utilisation 
-Privileged Identity Management | * Autorisations de lecture<br>* Ne peut pas gérer les appartenances aux rôles Azure AD ou les paramètres.
+Azure Information Protection | <li>Configurer les paramètres et les étiquettes dans les stratégies globales et étendues<li>Configurer et gérer des modèles de protection<li>Activer ou désactiver une protection--
  
 ### <a name="reports-reader"></a>Lecteur de rapports 
 Peut | Ne peut pas

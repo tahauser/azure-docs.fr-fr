@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
@@ -100,9 +100,7 @@ Dans un environnement de production, vous créez généralement un enregistremen
 Examinons quelques-unes des ressources qui ont été déployées :
 
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des groupes de ressources.
-2. Consultez le groupe de ressources **wingtip-sa-catalog-&lt;user&gt;**.
-    - Dans ce groupe de ressources, le serveur **catalog-sa-&lt;user&gt;** est déployé. Le serveur contient la base de données **tenantcatalog**.
-    - Vous devriez également voir trois groupes de ressources client.
+2. Vous devrez voir les trois groupes de ressources client.
 3. Ouvrez le groupe de ressources **wingtip-sa-fabrikam-&lt;user&gt;** qui contient les ressources pour le déploiement du Fabrikam Jazz Club.  Le serveur **fabrikamjazzclub-&lt;user&gt;** contient la base de données **fabrikamjazzclub**.
 
 Chaque base de données client est une base de données *autonome* de 50 DTU.
@@ -131,6 +129,6 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Explorer les serveurs et les bases de données qui composent l’application.
 > * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
 
-Ensuite, essayez le didacticiel [Approvisionner et cataloguer](saas-standaloneapp-provision-and-catalog.md).
+Essayez ensuite le didacticiel [fourniture et catalogue](saas-standaloneapp-provision-and-catalog.md) dans lequel vous allez explorer l’utilisation d’un catalogue de clients qui active un éventail de scénarios inter-clients tels que la gestion des schémas et l’analyse des clients.
  
 

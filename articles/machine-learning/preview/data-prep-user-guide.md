@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Guide de l’utilisateur Data Preparations 
 L’expérience Azure Machine Learning Data Preparations fournit de nombreuses fonctionnalités enrichies. Cet article décrit les parties plus avancées de l’expérience.
@@ -89,7 +89,7 @@ Pour effectuer une duplication :
 4. Après **Conditions**, sélectionnez **Create Dataflow Containing the Filtered Out Rows** (Créer un flux de données contenant les lignes filtrées) pour dupliquer le jeu de résultats non affiché dans un nouveau flux de données.
 
 
-Cette pratique a souvent pour but de séparer un jeu de données qui nécessite une préparation supplémentaire. Après avoir mis de côté le jeu de données dupliqué, il est courant de fusionner les données avec le jeu de résultats dans le flux de données d’origine. Pour effectuer une fusion (c’est-à-dire l’inverse d’une opération de duplication), exécutez l’une des actions suivantes :
+Cette pratique a souvent pour but de séparer un jeu de données qui nécessite une préparation supplémentaire. Une fois que vous avez préparé le jeu de données dupliqué, il est courant de fusionner les données avec le jeu de résultats dans le flux de données d’origine. Pour effectuer une fusion (c’est-à-dire l’inverse d’une opération de duplication), exécutez l’une des actions suivantes :
 
 - **Ajouter des lignes**. Fusionner plusieurs flux de données verticalement (d’après les lignes). 
 - **Ajouter des colonnes**. Fusionner plusieurs flux de données horizontalement (d’après les colonnes).

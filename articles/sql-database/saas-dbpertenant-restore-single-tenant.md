@@ -16,56 +16,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 46471073f88247510f45d6c4152afa43be6e1aaa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restaurer la base de données SQL Azure d’un locataire unique dans une application SaaS multilocataire
+# <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurer un seul locataire avec une application SaaS de base de données par locataire
 
-De par sa conception, l’application SaaS Wingtip Tickets utilise un modèle de base de données par client, où chaque client possède sa propre base de données. L’un des avantages de ce modèle est la facilité avec laquelle il est possible de restaurer les données d’un client unique de manière isolée, sans affecter les autres clients.
+Le modèle de base de données par locataire facilite la restauration d’un seul client sur un point antérieur dans le temps sans affecter d’autres locataires.
 
 Dans ce didacticiel, vous allez découvrir deux modèles de récupération des données :
 
 > [!div class="checklist"]
 
 > * Restaurer une base de données dans une base de données parallèle (côte à côte)
-> * Restaurer une base de données sur place
+> * Restaurer une base de données sur place en remplaçant la base de données existante
 
 
 |||
 |:--|:--|
-| **Restaurer le client à un point antérieur dans le temps, dans une base de données parallèle** | Ce modèle peut être utilisé par le client pour la révision, l’audit, la conformité, etc. La base de données d’origine reste inchangée et en ligne. |
-| **Restaurer un client sur place** | Ce modèle est généralement utilisé pour récupérer un client à un point antérieur dans le temps, après la suppression accidentelle des données. La base de données d’origine est mise hors connexion et remplacée par la base de données restaurée. |
+| **Restaurer dans une base de données parallèle** | Ce modèle peut être utilisé pour la révision, l’audit, la conformité, etc. afin d’autoriser un locataire à inspecter ses données à partir d’un point antérieur.  La base de données actuelle du locataire reste inchangée et en ligne. |
+| **Restaurer sur place** | Ce modèle est généralement utilisé pour récupérer un locataire à un point antérieur dans le temps, après la suppression ou la corruption accidentelle des données. La base de données d’origine est mise hors connexion et remplacée par la base de données restaurée. |
 |||
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 * L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introduction au modèle SaaS de restauration d’un client
+## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Présentation des modèles SaaS de restauration d’un locataire
 
-Il existe deux modèles simples pour restaurer les données d’un client individuel. Étant donné que les bases de données des clients sont isolées les unes des autres, la restauration d’un client n’a aucun impact sur les données des autres clients.
+Il existe deux modèles simples pour restaurer les données d’un locataire individuel. Étant donné que les bases de données des clients sont isolées les unes des autres, la restauration d’un client n’a aucun impact sur les données des autres clients.  La fonctionnalité de limite de restauration dans le temps (PITR) de SQL Database est utilisée dans les deux modèles.  PITR crée toujours une nouvelle base de données.   
 
-Dans le premier modèle, les données sont restaurées dans une nouvelle base de données. Le client se voit ensuite accorder l’accès à cette base de données en même temps que celui aux données de production qu’elle contient. Ce modèle permet à un administrateur client d’examiner les données restaurées et de potentiellement pouvoir les utiliser pour remplacer les valeurs de données actuelles de manière sélective. Il incombe au concepteur d’applications SaaS de déterminer le niveau de sophistication des options de récupération des données. Dans certains scénarios, il est parfois simplement demandé de pouvoir analyser les données dans l’état dans lequel elles étaient à un instant t. Si la base de données utilise la [géoréplication](sql-database-geo-replication-overview.md), nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
+Dans le premier modèle, **restaurer en parallèle**, une nouvelle base de données parallèle est créée à côté de la base de données actuelle du locataire. Le locataire reçoit l’accès en lecture seule à la base de données restaurée. Les données restaurées peuvent être consultées et potentiellement utilisées pour remplacer les valeurs des données actuelles. Il revient au concepteur d’application de choisir comment le locataire accède à la base de données restaurée et les options de récupération fournies. Autoriser simplement le locataire à consulter ses données à un point antérieur dans le temps peut suffire dans certains scénarios. 
 
-Dans le second modèle (qui suppose que le client a perdu des données ou qu’elles sont corrompues), la base de données de production du client est restaurée à un point antérieur dans le temps. Dans le modèle de restauration sur place, le client est mis hors connexion pendant un bref instant, le temps que la base de données soit restaurée et remise en ligne. La base de données d’origine est supprimée, mais elle peut toujours être restaurée si vous avez besoin de revenir à un point encore plus antérieur dans le temps. Il existe une variante de ce modèle : vous pouvez renommer la base de données au lieu de la supprimer, bien que cela n’offre aucun avantage supplémentaire en termes de sécurité des données.
+Le second modèle, **restaurer en place**, est utile si les données ont été perdues ou corrompues et si le locataire souhaite restaurer à un point antérieur dans le temps.  Le locataire est mis hors connexion pendant la restauration de la base de données. La base de données d’origine est supprimée et la base de données restaurée est renommée. La chaîne de sauvegarde de la base de données d’origine reste accessible après la suppression, ce qui vous permet de restaurer la base de données à un point antérieur dans le temps, si nécessaire.
+
+Si la base de données utilise la [géoréplication](sql-database-geo-replication-overview.md) et la restauration en parallèle, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
 Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
+## <a name="before-you-start"></a>Avant de commencer
+
+Lorsqu’une base de données est créée, entre 10 et 15 minutes peuvent être nécessaires avant que la première sauvegarde complète soit disponible pour la restauration.  Si vous venez d’installer l’application, vous devrez peut-être attendre quelques minutes avant d’essayer de ce scénario.
+
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simuler la suppression accidentelle des données par le client
 
-Pour illustrer ces scénarios de récupération, nous devons *accidentellement* supprimer certaines données dans l’une des bases de données client. Même si vous pouvez supprimer n’importe quel enregistrement, l’étape suivante dans la démonstration permet de ne pas rester bloqué suite à une violation de l’intégrité du référentiel. Elle ajoute également des données d’achat de ticket à utiliser ultérieurement dans les *didacticiels Wingtip SaaS Analytics*.
-
-Exécutez le script de génération de ticket et créez des données supplémentaires. Intentionnellement, le générateur de ticket n’achète pas de ticket pour le dernier événement des clients.
-
-1. Ouvrez ...\\Learning Modules\\Utilities\\*Demo-TicketGenerator.ps1* dans *PowerShell ISE*
-1. Appuyez sur **F5** pour exécuter le script et générer les clients et les données de ventes de ticket.
-
+Pour illustrer ces scénarios de récupération, commencez par supprimer *accidentellement* un événement dans l’une des bases de données de locataire. 
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>Ouvrir l’application Events pour passer en revue les événements en cours
 
@@ -78,14 +78,14 @@ Exécutez le script de génération de ticket et créez des données supplément
    ![dernier événement](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
 
-### <a name="run-the-demo-scenario-to-accidentally-delete-the-last-event"></a>Exécuter le scénario de démonstration pour supprimer accidentellement le dernier événement
+### <a name="accidentally-delete-the-last-event"></a>Supprimer « accidentellement » le dernier événement
 
 1. Ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1* dans *PowerShell ISE*, puis définissez la valeur suivante :
-   * **$DemoScenario** = **1** Donnez-lui la valeur **1** - Delete events with no ticket sales.
-1. Appuyez sur **F5** pour exécuter le script et supprimer le dernier événement. Vous devez recevoir un message de confirmation similaire à celui ci-dessous :
+   * **$DemoScenario** = **1**, Supprimer le dernier événement (sans ventes de tickets).
+1. Appuyez sur **F5** pour exécuter le script et supprimer le dernier événement. Le message de confirmation suivant doit s’afficher :
 
    ```Console
-   Deleting unsold events from Contoso Concert Hall ...
+   Deleting last unsold event from Contoso Concert Hall ...
    Deleted event 'Seriously Strauss' from Contoso Concert Hall venue.
    ```
 
@@ -96,44 +96,43 @@ Exécutez le script de génération de ticket et créez des données supplément
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>Restaurer une base de données client en parallèle avec la base de données de production
 
-Cet exercice restaure la base de données Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Après avoir supprimé l’événement dans les étapes précédentes, vous voulez le récupérer et afficher les données supprimées. Vous n’avez pas besoin de restaurer votre base de données de production avec l’enregistrement supprimé. Toutefois, pour des raisons professionnelles, vous devez récupérer l’ancienne base de données pour accéder aux anciennes données.
+Cet exercice restaure la base de données Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Dans ce scénario, nous supposons que vous souhaitez uniquement consulter les données supprimées dans une base de données parallèle.
 
- Le script *Restore-TenantInParallel.ps1* crée une base de données client parallèle et une entrée de catalogue parallèle, toutes deux appelées *ContosoConcertHall\_ancien*. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure ou dans des scénarios de récupération de conformité et d’audit. Cette approche est également recommandée lorsque vous utilisez la [géoréplication](sql-database-geo-replication-overview.md).
+ Le script *Restore-TenantInParallel.ps1* crée une base de données de locataire parallèle nommée *ContosoConcertHall\_old*, avec une entrée de catalogue parallèle. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure ou si vous avez besoin de consulter les données à des fins de conformité et d’audit. Cette approche est également recommandée lorsque vous utilisez la [géoréplication](sql-database-geo-replication-overview.md).
 
-1. Terminez la section [simuler une suppression accidentelle de données par l’utilisateur](#simulate-a-tenant-accidentally-deleting-data).
-1. Ouvrez …\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_ dans *PowerShell ISE*.
-1. **$DemoScenario** = **2**. Donnez-lui la valeur **2***Restore tenant in parallel*.
+1. Terminez la section [Simuler une suppression accidentelle de données par le locataire](#simulate-a-tenant-accidentally-deleting-data).
+1. Dans *PowerShell ISE*, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
+1. Définissez **$DemoScenario** = **2**, *Restore tenant in parallel* (Restaurer le locataire en parallèle).
 1. Appuyez sur **F5** pour exécuter le script.
 
-Le script restaure la base de données client (dans une base de données parallèle) à un point dans le temps, avant la suppression de l’événement dans la section précédente. Il crée une deuxième base de données, supprime toutes les métadonnées de catalogue existantes dans cette base de données, puis ajoute la base de données au catalogue sous l’entrée *ContosoConcertHall\_old*.
+Le script restaure la base de données de locataire sur un point dans le temps situé avant la suppression de l’événement. La base de données est restaurée vers une nouvelle base de données nommée _ContosoConcertHall\_old_. Les métadonnées de catalogue qui existent dans cette base de données restaurée sont supprimées, puis la base de données est ajoutée au catalogue à l’aide d’une clé créée à partir du nom *ContosoConcertHall\_old*.
 
-Ce script de démonstration ouvre la page des événements dans votre navigateur. À noter dans l’URL : ```http://events.wtp.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` les données sont affichées d’après la base de données restaurée et *_old* est ajouté au nom.
+Le script de démonstration ouvre la page des événements pour cette nouvelle base de donnés de locataire dans votre navigateur. À noter dans l’URL : ```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` les données sont affichées d’après la base de données restaurée et *_old* est ajouté au nom.
 
 Faites défiler les événements répertoriés dans le navigateur pour confirmer que l’événement supprimé dans la section précédente a bien été restauré.
 
-Notez que le fait d’exposer le client restauré en tant que client supplémentaire (avec sa propre application Events pour rechercher des tickets) n’est probablement pas ce que vous feriez pour fournir un accès client aux données restaurées. Néanmoins, cela nous permet d’illustrer facilement le modèle de restauration.
+Notez que le fait d’exposer le locataire restauré en tant que locataire supplémentaire (avec sa propre application Events) n’est probablement pas ce que vous feriez pour fournir un accès au locataire aux données restaurées. Néanmoins, cela nous permet d’illustrer le modèle de restauration. En réalité, il vaudrait probablement mieux donner accès en lecture seule aux anciennes données et conserver cette base de données restaurée pendant une période définie. Dans l’exemple, vous pouvez supprimer l’entrée de locataire restauré une fois que vous avez terminé en exécutant le scénario _Remove restored tenant_ (Supprimer le locataire restauré).
 
-En réalité, mieux vaudrait probablement conserver cette base de données restaurée pendant une période définie uniquement. Vous pouvez supprimer l’entrée de client restauré une fois que vous avez terminé. Pour cela, appelez le script *Remove-RestoredTenant.ps1*.
-
-1. Définissez **$DemoScenario** sur **4** pour sélectionner le scénario *remove restored tenant*.
+1. Définissez **$DemoScenario** = **4**, *Remove restored tenant* (Supprimer le locataire restauré)
 1. **Appuyez****sur****F5** pour exécuter le script.
 1. L’entrée *ContosoConcertHall\_old* est maintenant supprimée du catalogue. Poursuivez et fermez la page des événements pour ce client dans votre navigateur.
 
 
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>Restaurer un client sur place en remplaçant la base de données client existante
 
-Cet exercice restaure le client Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Le script *Restore-TenantInPlace* restaure la base de données client actuelle dans une nouvelle base de données qui pointe vers un point antérieur dans le temps, puis supprime la base de données d’origine. Ce modèle de restauration convient davantage dans le cas d’une récupération après une grave corruption des données, dans la mesure où le client peut faire face à une perte importante de données.
+Cet exercice restaure le locataire Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Le script *Restore-TenantInPlace* restaure une base de données de locataire sur une nouvelle base de données et supprime l’original.  Ce modèle de restauration convient davantage dans le cas d’une récupération après une grave corruption des données, dans la mesure où le locataire peut faire face à une perte importante de données.
 
 1. Ouvrez le fichier **Demo-RestoreTenant.ps1** dans PowerShell ISE.
-1. Définissez **$DemoScenario** sur **5** pour sélectionner le scénario *restore tenant in place*.
+1. Définissez **$DemoScenario** = **5**, *Restore tenant in place* (Restaurer le locataire en place).
 1. Appuyez sur **F5** pour exécuter le script.
 
-Le script restaure la base de données client cinq minutes avant la suppression de l’événement. Pour y parvenir, il place tout d’abord le client Contoso Concert Hall hors connexion pour qu’aucune nouvelle mise à jour ne soit apportée aux données. Ensuite, une base de données parallèle est créée laquelle bénéficie d’une restauration à partir du point de restauration. Elle est horodatée dans son nom pour garantir que le nom de la base de données n’entre pas en conflit avec le nom de base de données client existante. Ensuite, l’ancienne base de données client est supprimée, et la base de données restaurée est renommée d’après le nom de la base de données d’origine. Enfin, la connexion de Contoso Concert Hall est rétablie pour permettre l’accès de l’application à la base de données restaurée.
+Le script restaure la base de données de locataire sur un point dans le temps avant la suppression de l’événement. Il déconnecte tout d’abord le locataire Contoso Concert Hall afin d’empêcher d’autres mises à jour. Ensuite, une base de données parallèle est créée en restaurant à partir du point de restauration.  La base de données restaurée est nommé avec un horodatage pour garantir que le nom de la base de données n’entre pas en conflit avec le nom de base de données de locataire existante. Ensuite, l’ancienne base de données client est supprimée, et la base de données restaurée est renommée d’après le nom de la base de données d’origine. Enfin, la connexion de Contoso Concert Hall est rétablie pour permettre l’accès de l’application à la base de données restaurée.
 
 Vous avez correctement restauré la base de données à un point dans le temps, avant la suppression de l’événement. La page Events s’ouvre. Confirmez alors que le dernier événement a été restauré.
 
+Notez qu’une fois que vous restaurez la base de données, 10 à 15 minutes supplémentaires sont nécessaires avant que la première sauvegarde complète soit à nouveau disponible pour la restauration. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

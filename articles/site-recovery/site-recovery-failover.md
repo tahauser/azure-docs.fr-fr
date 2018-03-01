@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 1. Avant de procéder à un basculement, effectuez un [test de basculement](site-recovery-test-failover-to-azure.md) pour vous vérifier que tout fonctionne comme prévu.
 1. Avant le basculement, [préparez le réseau](site-recovery-network-design.md) au niveau de l’emplacement cible.  
 
@@ -31,7 +31,7 @@ Utilisez le tableau suivant pour en savoir plus sur les options de basculement f
 
 | Scénario | Spécification de récupération d’application | Flux de travail pour Hyper-V | Flux de travail pour VMware
 |---|--|--|--|
-|Basculement planifié en raison d’un temps d’arrêt à venir du centre de données| Aucune perte de données pour l’application quand une activité planifiée est effectuée| Pour Hyper-V, ASR réplique les données à une fréquence de copie spécifiée par l’utilisateur. Le basculement planifié est utilisé pour remplacer la fréquence et répliquer les changements finaux avant le lancement d’un basculement. <br/> <br/> 1.    Planifiez une fenêtre de maintenance conformément aux processus de gestion des changements de votre entreprise. <br/><br/> 2. Informez les utilisateurs du temps d’arrêt à venir. <br/><br/> 3. Mettez l’application accessible aux utilisateurs hors connexion.<br/><br/>4. Lancez le basculement planifié à l’aide du portail ASR. La machine virtuelle locale est automatiquement arrêtée.<br/><br/>Perte de données d’application = 0 <br/><br/>Un journal des points de récupération est également fourni dans une fenêtre de rétention si l’utilisateur souhaite utiliser un point de récupération antérieur. (Rétention de 24 heures pour Hyper-V).| Pour VMware, ASR réplique les données en continu à l’aide de CDP. Le basculement permet à l’utilisateur de basculer vers les données les plus récentes (notamment après l’arrêt de l’application)<br/><br/> 1. Planifiez une fenêtre de maintenance conformément aux processus de gestion des changements. <br/><br/>2. Informez les utilisateurs du temps d’arrêt à venir. <br/><br/>3.  Mettez l’application accessible aux utilisateurs hors connexion. <br/><br/>4.  Lancez un basculement planifié à l’aide du portail ASR vers le dernier point après la mise hors connexion de l’application. Utilisez l’option « Basculement non planifié » sur le portail et sélectionnez le dernier point vers lequel basculer. La machine virtuelle locale est automatiquement arrêtée.<br/><br/>Perte de données d’application = 0 <br/><br/>Un journal des points de récupération est fourni dans une fenêtre de rétention si l’utilisateur souhaite utiliser un point de récupération antérieur. (72 heures de rétention pour VMware).
+|Basculement planifié en raison d’un temps d’arrêt à venir du centre de données| Aucune perte de données pour l’application quand une activité planifiée est effectuée| Pour Hyper-V, ASR réplique les données à une fréquence de copie spécifiée par l’utilisateur. Le basculement planifié est utilisé pour remplacer la fréquence et répliquer les changements finaux avant le lancement d’un basculement. <br/> <br/> 1.    Planifiez une fenêtre de maintenance conformément aux processus de gestion des changements de votre entreprise. <br/><br/> 2. Informez les utilisateurs du temps d’arrêt à venir. <br/><br/> 3. Mettez l’application accessible aux utilisateurs hors connexion.<br/><br/>4. Lancez le basculement planifié à l’aide du portail ASR. La machine virtuelle locale est automatiquement arrêtée.<br/><br/>Perte de données d’application = 0 <br/><br/>Un journal des points de récupération est également fourni dans une fenêtre de rétention si l’utilisateur souhaite utiliser un point de récupération antérieur. (Rétention de 24 heures pour Hyper-V).| Pour VMware, ASR réplique les données en continu à l’aide de CDP. Le basculement permet à l’utilisateur de basculer vers les données les plus récentes (notamment après l’arrêt de l’application)<br/><br/> 1. Planifiez une fenêtre de maintenance conformément aux processus de gestion des changements. <br/><br/>2. Informez les utilisateurs du temps d’arrêt à venir. <br/><br/>3.    Mettez l’application accessible aux utilisateurs hors connexion. <br/><br/>4.  Lancez un basculement planifié à l’aide du portail ASR vers le dernier point après la mise hors connexion de l’application. Utilisez l’option « Basculement non planifié » sur le portail et sélectionnez le dernier point vers lequel basculer. La machine virtuelle locale est automatiquement arrêtée.<br/><br/>Perte de données d’application = 0 <br/><br/>Un journal des points de récupération est fourni dans une fenêtre de rétention si l’utilisateur souhaite utiliser un point de récupération antérieur. (72 heures de rétention pour VMware).
 |Basculement en raison d’un temps d’arrêt non planifié du centre de données (naturel ou sinistre informatique) | Perte de données minimale pour l’application | 1. Lancez le plan BCP de l’organisation. <br/><br/>2. Lancez un basculement non planifié à l’aide du portail ASR vers le dernier point ou un point de la fenêtre de rétention (journal).| 1. Lancez le plan BCP de l’organisation. <br/><br/>2.  Lancez un basculement non planifié à l’aide du portail ASR vers le dernier point ou un point de la fenêtre de rétention (journal).
 
 
@@ -61,22 +61,21 @@ Cette procédure explique comment exécuter un basculement dans le cadre d’un 
 1. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt.  
 
     > [!NOTE]
-    > Si les machines virtuelles Hyper-v sont protégées, l’option d’arrêt tente également de synchroniser les données locales qui n’ont pas encore été envoyées au service avant de déclencher le basculement.
+    > Si les machines virtuelles Hyper-V sont protégées, l’option d’arrêt tente également de synchroniser les données locales qui n’ont pas encore été envoyées au service avant de déclencher le basculement.
     >
     >
 
 1. Vous pouvez suivre la progression du basculement sur la page **Tâches**. Même si des erreurs se produisent lors d’un basculement non planifié, le plan de récupération s’exécute jusqu’à la fin.
-1. Après le basculement, validez la machine virtuelle en vous y connectant. Si vous souhaitez accéder à un autre point de récupération pour la machine virtuelle, utilisez l’option **Changer le point de récupération**.
-1. Si vous êtes satisfait de la machine vers laquelle est effectué le basculement, vous pouvez **Valider** le basculement. La validation supprime tous les points de récupération disponibles avec le service. Par ailleurs, l’option **Changer le point de récupération** n’est plus disponible.
+1. Après le basculement, validez la machine virtuelle en vous y connectant. Si vous souhaitez basculer sur un autre point de récupération de la machine virtuelle, utilisez l’option **Changer le point de récupération**.
+1. Si vous êtes satisfait de la machine vers laquelle est effectué le basculement, vous pouvez **Valider** le basculement. **La validation supprime tous les points de récupération disponibles avec le service**, et l’option **Changer le point de récupération** n’est plus disponible.
 
 ## <a name="planned-failover"></a>Basculement planifié
 Les machines virtuelles/serveurs physiques protégés à l’aide de Site Recovery prennent également en charge le **basculement planifié**. Ce basculement planifié évite toute perte de données. Lorsqu’un basculement planifié se déclenche, les machines virtuelles sources sont arrêtées, les données les plus récentes sont synchronisées, puis un basculement est effectué.
 
 > [!NOTE]
-> Lorsque vous basculez des machines virtuelles Hyper-v d’un site local vers un autre site local, pour revenir au site local principal vous devez d’abord exécuter une **réplication inverse** de la machine virtuelle vers le site principal, puis déclencher un basculement. Si la machine virtuelle principale n’est pas disponible, avant de commencer la **réplication inversée** vous devez restaurez la machine virtuelle à partir d’une sauvegarde.   
+> Au cours du basculement des machines virtuelles Hyper-V d’un site local vers un autre site local, pour revenir au site local principal vous devez d’abord exécuter une **réplication inverse** de la machine virtuelle vers le site principal, puis déclencher un basculement. Si la machine virtuelle principale n’est pas disponible, avant de commencer la **réplication inversée** vous devez restaurer la machine virtuelle à partir d’une sauvegarde.   
 >
 >
-
 ## <a name="failover-job"></a>Travail de basculement
 
 ![Basculement](./media/site-recovery-failover/FailoverJob.png)
@@ -108,7 +107,7 @@ Dans certains cas, le basculement des machines virtuelles nécessite une étape 
     * atapi
 * Machines virtuelles VMware qui n’ont pas de service DHCP activé, que vous utilisiez des adresses IP statiques ou DHCP
 
-Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et le temps nécessaire au basculement est nettement plus faible. 
+Dans tous les autres cas, cette étape intermédiaire n’est pas utile et le temps nécessaire au basculement est réduit. 
 
 
 
@@ -117,12 +116,14 @@ Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et
 ## <a name="using-scripts-in-failover"></a>Utilisation de scripts lors du basculement
 Si vous le souhaitez, vous pouvez automatiser certaines actions pendant l’exécution d’un basculement. Pour ce faire, vous pouvez utiliser des scripts ou des [runbooks Azure Automation](site-recovery-runbook-automation.md) dans les [plans de récupération](site-recovery-create-recovery-plans.md).
 
-## <a name="other-considerations"></a>Autres considérations
-* **Lettre de lecteur** : pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle sur **Activé**. [En savoir plus](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+## <a name="post-failover-considerations"></a>Points à prendre en compte après le basculement
+Après le basculement, vous souhaiterez peut-être prendre en compte les recommandations suivantes :
+### <a name="retaining-drive-letter-after-failover"></a>Conserver la lettre de lecteur après le basculement 
+Pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle sur **Activé**. [En savoir plus](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!WARNING]
 > Une fois le basculement des machines virtuelles effectué et le centre de données local disponible, vous devez [**à nouveau protéger**](site-recovery-how-to-reprotect.md) les machines virtuelles VMware dans le centre de données local.

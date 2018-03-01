@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
@@ -26,9 +26,9 @@ Découvrez comment accéder à Advisor à l’aide du portail Azure, obtenir des
 
 ## <a name="get-advisor-recommendations"></a>Obtenir des recommandations du conseiller
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Dans le volet gauche, cliquez sur **Advisor**.  Si vous ne voyez pas Advisor dans le volet gauche, cliquez sur **Autres services**.  Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Advisor**.
+2. Dans le volet gauche, cliquez sur **Advisor**.  Si vous ne voyez pas Advisor dans le volet gauche, cliquez sur **Tous les services**.  Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Advisor**.
  Le tableau de bord Advisor s’affiche.
 
    ![Accéder au conseiller Azure avec le portail Azure](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -128,7 +128,7 @@ Advisor permet de télécharger un résumé de vos recommandations.  Vous pouvez
 
 L’option de téléchargement conserve les filtres que vous avez appliqués au tableau de bord Advisor.  Si vous sélectionnez l’option de téléchargement alors qu’une catégorie de recommandations ou une recommandation spécifique est affichée, le résumé téléchargé inclut uniquement les informations de cette catégorie ou de cette recommandation. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller Azure](advisor-overview.md)

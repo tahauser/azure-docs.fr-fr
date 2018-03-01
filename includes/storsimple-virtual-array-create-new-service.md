@@ -2,7 +2,7 @@
 
 1.  À l’aide des informations d’identification de votre compte Microsoft, connectez-vous au portail Azure à cette URL : <https://portal.azure.com/>. Si vous déployez l’appareil dans le portail Government, connectez-vous à l’adresse suivante : <https://portal.azure.us/>
 
-2.  Dans le portail Azure, cliquez sur **+ Nouveau** &gt; **Stockage** &gt; **Série d’appliances virtuelles StorSimple**.
+2.  Dans le portail Azure, cliquez sur **+ Créer une ressource** &gt; **Stockage** &gt; **StorSimple Virtual Series**.
 
     ![Créer un nouveau service](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

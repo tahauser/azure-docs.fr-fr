@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
 
@@ -79,9 +79,9 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Construire une trame de données d’entrée
-Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des données structurées. La première tâche consiste à charger les exemples de données ((**Food_Inspections1.csv**)) dans un *tableau de données* SQL Spark.
+Vous pouvez utiliser `sqlContext` pour effectuer des transformations sur des données structurées. La première tâche consiste à charger les exemples de données ((**Food_Inspections1.csv**)) dans un *tableau de données* SQL Spark.
 
-1. Étant donné que les données brutes sont au format CSV, nous devons utiliser le contexte Spark pour extraire chaque ligne du fichier en mémoire sous forme de texte non structuré. Ensuite, utilisez la bibliothèque CSV de Python pour analyser chaque ligne individuellement.
+1. Étant donné que les données brutes sont au format CSV, vous devez utiliser le contexte Spark pour extraire chaque ligne du fichier en mémoire sous forme de texte non structuré. Ensuite, utilisez la bibliothèque CSV de Python pour analyser chaque ligne individuellement.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Nous avons maintenant le fichier CSV sous forme de RDD.  Pour comprendre le schéma de données, nous extrayons une ligne du RDD.
+1. Le fichier CSV se présente désormais sous la forme d’un RDD.  Pour comprendre le schéma des données, vous extrayez une ligne du RDD.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. La sortie précédente donne une idée du schéma du fichier d’entrée. Elle inclut notamment, pour chaque établissement, le nom, le type, l’adresse, les données des inspections et l’emplacement. Nous allons sélectionner quelques colonnes utiles pour notre analyse prédictive et regrouper les résultats dans une tramedonnées que nous utiliserons ensuite pour créer une table temporaire.
+1. La sortie précédente donne une idée du schéma du fichier d’entrée. Elle inclut notamment, pour chaque établissement, le nom, le type, l’adresse, les données des inspections et l’emplacement. Sélectionnons quelques colonnes utiles pour notre analyse prédictive et regroupons les résultats dans une trame de données, que vous utiliserez ensuite pour créer une table temporaire.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Nous avons maintenant un *tableau de données*, `df` sur lequel nous pouvons effectuer l’analyse. Nous obtenons également une table temporaire **CountResults**. Nous avons inclus dans la tramedonnées quatre colonnes intéressantes : **id**, **nom**, **résultats** et **violations**.
+1. Vous disposez désormais d’une *trame de données*, `df` sur laquelle vous pouvez effectuer l’analyse. Vous obtenez également une table temporaire **CountResults**. Nous avons inclus dans la tramedonnées quatre colonnes intéressantes : **id**, **nom**, **résultats** et **violations**.
 
     Prenons un petit échantillon de données :
 
@@ -172,7 +172,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Un aperçu rapide peut nous aider à examiner la distribution de ces résultats. Nous avons déjà les données dans une table temporaire **CountResults**. Vous pouvez exécuter la requête SQL suivante sur la table pour mieux comprendre la façon dont les résultats sont distribués.
+1. Un aperçu rapide peut nous aider à examiner la distribution de ces résultats. Vous disposez déjà des données dans une table temporaire **CountResults**. Vous pouvez exécuter la requête SQL suivante sur la table pour mieux comprendre la façon dont les résultats sont distribués.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -207,8 +207,8 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
    * Réussite avec conditions
    * Cessation d’activités
 
-     Développons un modèle capable de deviner le résultat d’une inspection alimentaire, en fonction des violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données en deux catégories : **échec** et **réussite**. Une « Réussite avec conditions » reste une Réussite. Par conséquent, lorsque nous formons le modèle, nous considérons ces deux résultats comme équivalents. Les données contenant les autres résultats (« Entreprise introuvable » ou « Cessation d’activités ») étant inutiles, nous pouvons donc les supprimer de notre jeu d’apprentissage. Cela ne devrait pas poser de problème, puisque ces deux catégories ne représentent qu’un faible pourcentage du résultat total.
-1. À présent, convertissons notre trame de données existante (`df`) en une nouvelle trame de données dans laquelle chaque inspection est représentée par une paire de violations étiquetée. Dans notre cas, une étiquette `0.0` représente un échec, une étiquette `1.0` représente une réussite et une étiquette `-1.0` représente d’autres résultats. Nous filtrons ces autres résultats lors du calcul de la nouvelle trame de données.
+     Développons un modèle capable de deviner le résultat d’une inspection alimentaire, en fonction des violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données en deux catégories : **échec** et **réussite**. Une « Réussite avec conditions » reste une Réussite. Par conséquent, lorsque vous formez le modèle, vous considérez ces deux résultats comme équivalents. Les données qui contiennent les autres résultats (« Entreprise introuvable » ou « Cessation d’activités ») étant inutiles, vous pouvez donc les supprimer de notre jeu d’apprentissage. Cela ne devrait pas poser de problème, puisque ces deux catégories ne représentent qu’un faible pourcentage du résultat total.
+1. À présent, convertissons notre trame de données existante (`df`) en une nouvelle trame de données dans laquelle chaque inspection est représentée par une paire de violations étiquetée. Dans notre cas, une étiquette `0.0` représente un échec, une étiquette `1.0` représente une réussite et une étiquette `-1.0` représente d’autres résultats. Vous filtrez ces autres résultats lors du calcul de la nouvelle trame de données.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Créer un modèle de régression logistique à partir de la trame de données d’entrée
-La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-fonctionnalité*, où le « vecteur fonctionnalité » est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir la colonne « violations », qui est semi-structurée et contient un grand nombre de commentaires sous forme de texte libre, en un tableau de nombres réels qu’une machine peut facilement comprendre.
+La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-fonctionnalité*, où le « vecteur fonctionnalité » est un vecteur de nombres représentant le point d’entrée. Vous devez donc convertir la colonne « violations », qui est semi-structurée et contient un grand nombre de commentaires sous forme de texte libre, en un tableau de nombres réels qu’une machine peut facilement comprendre.
 
 Une approche Machine Learning standard pour le traitement du langage naturel consiste à assigner un « index » à chaque mot distinct et à transmettre un vecteur à l’algorithme de Machine Learning, de manière à ce que la valeur de chaque index contienne la fréquence relative de ce mot dans la chaîne de texte.
 
-MLLib permet d’effectuer cette opération en toute simplicité. Tout d’abord, il convertit en jetons chaque chaîne de violations afin d’obtenir les mots de celle-ci. Ensuite, il utilise un `HashingTF` pour convertir chaque ensemble de jetons en un vecteur fonctionnalité qui peut ensuite être transmis à l’algorithme de régression logistique pour construire un modèle. Nous allons effectuer toutes ces étapes successivement à l’aide d’un « pipeline ».
+MLLib permet d’effectuer cette opération en toute simplicité. Tout d’abord, il convertit en jetons chaque chaîne de violations afin d’obtenir les mots de celle-ci. Ensuite, il utilise un `HashingTF` pour convertir chaque ensemble de jetons en un vecteur fonctionnalité qui peut ensuite être transmis à l’algorithme de régression logistique pour construire un modèle. Vous exécutez toutes ces étapes successivement à l’aide d’un « pipeline ».
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLLib permet d’effectuer cette opération en toute simplicité. Tout d’abord
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Évaluer le modèle sur un jeu de données de test séparé
-Nous pouvons utiliser le modèle que nous avons créé précédemment pour *prédire* les résultats des nouvelles inspections, en fonction des violations qui ont été observées. Nous avons formé ce modèle sur le jeu de données **Food_Inspections1.csv**. Utilisons un second jeu de données, **Food_Inspections2.csv**, pour *évaluer* la puissance de ce modèle sur les nouvelles données. Ce second jeu de données (**Food_Inspections2.csv**) doit déjà se trouver dans le conteneur de stockage par défaut associé au cluster.
+Vous pouvez utiliser le modèle que vous avez créé précédemment pour *prédire* les résultats des nouvelles inspections, en fonction des violations qui ont été observées. Vous avez formé ce modèle sur le jeu de données **Food_Inspections1.csv**. Utilisons un second jeu de données, **Food_Inspections2.csv**, pour *évaluer* la puissance de ce modèle sur les nouvelles données. Ce second jeu de données (**Food_Inspections2.csv**) doit déjà se trouver dans le conteneur de stockage par défaut associé au cluster.
 
 1. L’extrait de code ci-dessous crée une tramedonnées, **predictionsDf**, qui contient la prédiction générée par le modèle. Il crée également une table temporaire, **Predictions**, basée sur la tramedonnées.
 
@@ -279,7 +279,7 @@ Nous pouvons utiliser le modèle que nous avons créé précédemment pour *pré
         predictionsDf.take(1)
 
    Une prédiction pour la première entrée figure dans le jeu de données de test.
-1. La méthode `model.transform()` applique la même transformation à toutes les nouvelles données possédant le même schéma afin d’obtenir une prédiction permettant de classer les données. Nous pouvons faire des statistiques simples pour avoir une idée de la précision de nos prédictions :
+1. La méthode `model.transform()` applique la même transformation à toutes les nouvelles données possédant le même schéma afin d’obtenir une prédiction permettant de classer les données. Vous pouvez générer des statistiques simples pour avoir une idée de la précision de nos prédictions :
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Nous pouvons utiliser le modèle que nous avons créé précédemment pour *pré
     À l’aide de la régression logistique, Spark fournit un modèle précis de la relation entre les descriptions des violations en anglais et indique si une entreprise donnée échoue ou réussit l’inspection alimentaire.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Créer une représentation visuelle de la prédiction
-Nous pouvons désormais créer une visualisation finale pour nous aider à examiner les résultats de ce test.
+Vous pouvez désormais créer une visualisation finale pour faciliter l’examen des résultats de ce test.
 
-1. Nous allons commencer par extraire les différentes prédictions et résultats de la table temporaire **Predictions** créée précédemment. Les requêtes suivantes séparent la sortie en tant que *true_positive*, *false_positive*, *true_negative* et *false_negative*. Dans les requêtes ci-dessous, nous désactivons la visualisation à l’aide de `-q` et nous enregistrons la sortie (à l’aide de `-o`) en tant que trames de données qui peuvent ensuite être utilisées avec la magie `%%local`.
+1. Vous commencez par extraire les différents prédictions et résultats de la table temporaire **Predictions** créée précédemment. Les requêtes suivantes séparent la sortie en tant que *true_positive*, *false_positive*, *true_negative* et *false_negative*. Dans les requêtes ci-après, vous désactivez la visualisation en utilisant `-q` et vous enregistrez la sortie (avec `-o`) sous la forme de trames de données qui sont ensuite utilisables avec la magie `%%local`.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Une fois l’exécution de l’application terminée, fermez le bloc-notes pour 
 ### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour l’analyse de la température des bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](apache-spark-eventhub-streaming.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analyse des sentiments à l’aide d’Azure Stream Analytics et Azure Machine Learning
 Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning. Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
@@ -41,7 +41,7 @@ La figure suivante illustre cette configuration. Comme nous l’avons indiqué, 
 
 ![Vue d’ensemble de l’intégration de Machine Learning dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un abonnement Azure actif.
@@ -57,7 +57,7 @@ Avant de commencer, veillez à disposer des éléments qui suivent :
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Créer un conteneur de stockage et charger le fichier d’entrée CSV
 Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, par exemple celui de GitHub.
 
-1. Dans le portail Azure, cliquez sur **Nouveau** &gt; **Stockage** &gt; **Compte de stockage**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource** &gt; **Stockage** &gt; **Compte de stockage**.
 
    ![créer un compte de stockage](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Vous pouvez maintenant créer un travail Stream Analytics lisant les exemples de
 
 1. Accédez au [portail Azure](https://portal.azure.com).  
 
-2. Dans le portail Azure, cliquez sur **Nouveau** > **Internet des objets** > **Travail Stream Analytics**. 
+2. Cliquez sur **Créer une ressource** > **Internet des objets** > **Travail Steam Analytics**. 
 
    ![Chemin d’accès au portail Azure pour accéder à un nouveau travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -160,7 +160,7 @@ Le travail reçoit les entrées à partir du fichier CSV chargé précédemment 
 
     ![Paramètres de la nouvelle entrée de travail](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Cliquez sur **Create**.
+4. Cliquez sur **Créer**.
 
 ### <a name="configure-the-job-output"></a>Configurer la sortie du travail
 Le travail envoie les résultats vers le stockage d’objets blob d’où il a reçu les entrées. 
@@ -179,7 +179,7 @@ Le travail envoie les résultats vers le stockage d’objets blob d’où il a r
 
    ![Paramètres de la nouvelle sortie de travail](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Cliquez sur **Create**.   
+4. Cliquez sur **Créer**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Ajouter la fonction Machine Learning 
@@ -204,7 +204,7 @@ Dans cette section du didacticiel, vous allez définir une fonction dans le trav
   
     ![Paramètres d’ajout d’une fonction Machine Learning au travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Créer une requête de transformation des données
 
@@ -269,12 +269,12 @@ Vous pouvez également afficher les mesures liées à la fonction Azure Machine 
 * **Événements de fonction** indique le nombre d’événements dans la requête. Par défaut, chaque requête envoyée à un service web Machine Learning contient jusqu'à 1 000 événements.  
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Intégrer l’API REST et le service Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

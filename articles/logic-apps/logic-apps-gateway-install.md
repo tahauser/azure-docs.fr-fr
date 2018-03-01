@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installer la passerelle de données locale pour Azure Logic Apps
 
@@ -54,18 +54,18 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 ## <a name="requirements"></a>Configuration requise
 
-**Minimale** :
+**Minimum**
 
 * .NET Framework 4.5
 * Version 64 bits de Windows 7 ou Windows Server 2008 R2 (ou version ultérieure)
 
-**Recommandée** :
+**Recommended**
 
 * Processeur 8 cœurs
 * 8 Go de mémoire
 * Version 64 bits de Windows 2012 R2 (ou version ultérieure)
 
-**Points importants à prendre en considération** :
+**Points importants à prendre en compte**
 
 * Installez la passerelle de données locale sur un seul ordinateur local.
 Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
@@ -80,7 +80,7 @@ Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
   > [!TIP]
   > Si vous souhaitez utiliser un compte Microsoft qui possède un abonnement Visual Studio avec MSDN, commencez par [créer un répertoire (client) dans Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) avec votre compte Microsoft, ou utilisez le répertoire par défaut. Ajoutez un utilisateur avec un mot de passe au répertoire, puis donnez-lui accès à votre abonnement. Vous pourrez alors vous connecter au cours de l’installation de la passerelle avec ce nom d’utilisateur et ce mot de passe.
 
-  Vous devrez par la suite utiliser le même compte professionnel ou scolaire sur le Portail Azure lorsque vous créerez et associerez une ressource de passerelle à votre installation de passerelle. Vous sélectionnerez ensuite cette ressource de passerelle lors de la création de la connexion entre votre application logique et la source de données locale. [Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure AD ?](#why-azure-work-school-account)
+  Vous devez utiliser le même compte professionnel ou scolaire par la suite dans le portail Azure lorsque vous créez et associez une ressource de passerelle à votre installation de passerelle. Vous sélectionnerez ensuite cette ressource de passerelle lors de la création de la connexion entre votre application logique et la source de données locale. [Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure AD ?](#why-azure-work-school-account)
 
   > [!TIP]
   > Si vous avez souscrit une offre Office 365 sans fournir votre adresse de messagerie professionnelle réelle, votre adresse de connexion peut ressembler à ceci : jeff@contoso.onmicrosoft.com. 
@@ -93,7 +93,7 @@ Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
 
 ## <a name="install-the-data-gateway"></a>Installer la passerelle de données
 
-1.  [Téléchargez et exécutez le programme d’installation de passerelle sur un ordinateur local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Téléchargez et exécutez le programme d’installation de passerelle sur un ordinateur local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Lisez et acceptez les conditions d’utilisation et la déclaration de confidentialité.
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Si **TcpTestSucceeded** n’est pas défini sur **true**, il se peut que vous soyez bloqué par un pare-feu. Pour être exhaustif, remplacez les valeurs **ComputerName** et **Port** par celles répertoriées dans la section [Configurer les ports](#configure-ports) de cette rubrique.
+Si **TcpTestSucceeded** n’est pas défini sur **true**, il se peut que vous soyez bloqué par un pare-feu. Pour être exhaustif, remplacez les valeurs **ComputerName** et **Port** par celles répertoriées dans la section [Configuration des ports](#configure-ports) de cet article.
 
 Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente d’établir avec des centres de données Microsoft Azure. Si ce scénario se produit, approuvez (débloquez) toutes les adresses IP de ces centres de données dans votre région. Pour ces adresses IP, vous pouvez [obtenir la liste des adresses IP Azure ici](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -205,8 +205,8 @@ Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente 
 
 La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| NOMS DE DOMAINE | PORTS SORTANTS | DESCRIPTION |
-| --- | --- | --- |
+| Noms de domaine | Ports sortants | DESCRIPTION |
+| ------------ | -------------- | ----------- |
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
 | *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
@@ -215,10 +215,12 @@ La passerelle crée une connexion sortante vers [Azure Service Bus](https://azur
 | *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
 | *.msftncsi.com | 443 | Permet de tester la connectivité Internet lorsque la passerelle est inaccessible par le service Power BI. | 
+||||
 
 Si vous devez mettre sur liste approuvée des adresses IP au lieu des domaines, vous pouvez télécharger et utiliser la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Dans certains cas, les connexions Azure Service Bus s’effectuent avec l’adresse IP plutôt qu’avec le nom de domaine complet.
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>Fonctionnement de la passerelle de données
 
 La passerelle de données assure une communication rapide et sécurisée entre votre application logique, le service cloud de passerelle et votre source de données locale. 
@@ -240,26 +242,27 @@ Ainsi, quand l’utilisateur dans le cloud interagit avec un élément connecté
 6. Les résultats sont renvoyés de la source de données vers la passerelle, puis au service cloud de passerelle. Le service cloud de passerelle utilise ensuite les résultats.
 
 <a name="faq"></a>
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="general"></a>Généralités
 
 **Q**: Ai-je besoin d’une passerelle pour des sources de données dans le cloud telles que SQL Azure ? <br/>
-**R** : Non. Une passerelle se connecte uniquement aux sources de données locales.
+**R** : Non. Une passerelle se connecte uniquement aux sources de données locales.
 
 **Q** : La passerelle doit-elle être installée sur le même ordinateur que la source de données ? <br/>
-**R** : Non. La passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur qui a été fourni.
+**R** : Non. La passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur qui a été fourni.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q** : Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure pour me connecter ? <br/>
-**R** : lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire Azure. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
+**Q** : Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure pour me connecter ? <br/>
+**R** : Lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire Azure. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
 
 **Q** : où mes informations d’identification sont-elles stockées ? <br/>
-**R** : Les informations d’identification que vous entrez pour une source de données sont chiffrées et stockées dans le service cloud de passerelle. Les informations d’identification sont déchiffrées au niveau de la passerelle de données locale.
+**R** : Les informations d’identification que vous entrez pour une source de données sont chiffrées et stockées dans le service cloud de passerelle. Les informations d’identification sont déchiffrées au niveau de la passerelle de données locale.
 
 **Q** : Existe-t-il des exigences concernant la bande passante réseau ? <br/>
-**R** : Nous vous recommandons d’utiliser une connexion réseau offrant un bon débit. Chaque environnement est différent et la quantité de données envoyées affecte les résultats. ExpressRoute peut vous aider à garantir un niveau de débit approprié entre les centres de données locaux et les centres de données Azure.
+**R** : Nous vous recommandons d’utiliser une connexion réseau offrant un bon débit. Chaque environnement est différent et la quantité de données envoyées affecte les résultats. ExpressRoute peut vous aider à garantir un niveau de débit approprié entre les centres de données locaux et les centres de données Azure.
 Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre débit.
 
 **Q** : Quelle est la latence d’exécution des requêtes adressées à une source de données à partir de la passerelle ? Quelle est la meilleure architecture ? <br/>
@@ -269,16 +272,16 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : Les résultats sont envoyés via Azure Service Bus.
 
 **Q** : existe-t-il des connexions entrantes vers la passerelle à partir du cloud ? <br/>
-**R** : Non. La passerelle utilise des connexions sortantes vers Azure Service Bus.
+**R** : Non. La passerelle utilise des connexions sortantes vers Azure Service Bus.
 
 **Q** : Que se passe-t-il si je bloque les connexions sortantes ? Que dois-je ouvrir ? <br/>
 **R** : Vérifiez les ports et les hôtes que la passerelle utilise.
 
 **Q** : Comment s’appelle le service Windows réel ?<br/>
-**R** : Dans Services, la passerelle est appelée Service Enterprise Gateway Power BI.
+**R** : Dans Services, la passerelle est appelée Service Enterprise Gateway Power BI.
 
 **Q** : Le service Windows de passerelle peut-il s’exécuter avec un compte Azure Active Directory ? <br/>
-**R** : Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
+**R** : Non. Le service Windows doit avoir un compte Windows valide. Par défaut, le service sera exécuté avec le SID du service, NT SERVICE\PBIEgwService.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence
 
@@ -289,7 +292,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 **R** : La clé de récupération permet de migrer ou de récupérer les paramètres de votre passerelle en cas de récupération d’urgence.
 
 **Q** : Existe-t-il des plans pour activer des scénarios de haute disponibilité avec la passerelle ? <br/>
-**R** : ces scénarios figurent sur notre feuille de route, mais leur chronologie n’est pas encore établie.
+**R**: Certains connecteurs prennent en charge les scénarios de haute disponibilité, tels que le connecteur Système de fichiers et d’autres. Pour plus d’informations, consultez [Clusters à haute disponibilité pour la passerelle de données locale](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -301,7 +304,7 @@ Vous pouvez utiliser l’application tierce Azure Speed Test pour mesurer votre 
 Vous pouvez également utiliser les outils de suivi des requêtes proposés par votre source de données. Par exemple, vous pouvez utiliser Extended Events ou SQL Profiler for SQL Server et Analysis Services.
 
 **Q** : Où se situent les journaux de la passerelle ? <br/>
-**R**: Voir la section Outils plus loin dans cette rubrique.
+**R** : Consultez la section Outils plus loin dans cet article.
 
 ### <a name="update-to-the-latest-version"></a>Mise à jour avec la version la plus récente
 
@@ -337,7 +340,7 @@ Les journaux de passerelle de gestion des données et PowerBIGateway figurent so
 
 [Fiddler](http://www.telerik.com/fiddler) est un outil gratuit développé par Telerik, qui surveille le trafic HTTP. Il permet de visualiser le trafic entre le service Power BI et l’ordinateur client. Ce service peut également indiquer les éventuelles erreurs et autres informations connexes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
     
 * [Connexion à des données locales à partir d’applications logiques](../logic-apps/logic-apps-gateway-connection.md)
 * [Fonctionnalités d’intégration d'entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)

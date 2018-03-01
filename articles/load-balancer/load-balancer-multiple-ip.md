@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -43,7 +43,7 @@ Dans ce scénario, nous utilisons la configuration suivante :
 - Azure Load Balancer est utilisé pour exposer deux adresses IP frontales, une pour chaque site web. Les adresses frontales sont utilisées pour répartir le trafic sur la configuration IP respective de chaque site web.
 - Le même numéro de port est utilisé pour les adresses IP frontales et pour celles du pool principal.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Notre exemple de scénario suppose que vous disposez d’un groupe de ressources nommé **contosofabrikam** configuré de la manière suivante :
 
@@ -89,7 +89,7 @@ Créez votre équilibreur de charge pour la configuration :
 
 1. Accédez au portail Azure à l’adresse http://portal.azure.com. Connectez-vous à votre compte Azure.
 
-2. Dans le coin supérieur gauche de l’écran, cliquez sur **Nouveau** > **Mise en réseau** > **Équilibreur de charge**. Ensuite, sélectionnez **Créer**.
+2. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**. Ensuite, sélectionnez **Créer**.
 
 3. Dans **Créer un équilibreur de charge**, tapez le nom de votre équilibreur de charge. Dans ce scénario, nous utilisons le nom **mylb**.
 
@@ -193,6 +193,6 @@ Une fois les règles configurées, elles s’affichent dans les paramètres **R�
 
 La dernière étape consiste à configurer vos enregistrements de ressource DNS pour qu’ils pointent sur les adresses IP frontales respectives de votre équilibreur de charge. Vous pouvez héberger vos domaines dans Azure DNS. Pour plus d’informations sur l’utilisation d’Azure DNS avec un équilibrage de charge, voir [Utiliser Azure DNS avec d’autres services Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

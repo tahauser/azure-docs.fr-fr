@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -93,7 +93,9 @@ Les données de surveillance de l’application nécessitent que votre code soit
 Le routage de vos données de surveillance vers un hub d’événements avec Azure Monitor vous permet d’intégrer facilement des systèmes SIEM ou des outils de surveillance partenaires. La plupart des outils nécessitent la chaîne de connexion du hub d’événements, ainsi que certaines autorisations de votre abonnement Azure, pour lire les données du hub d’événements. Voici une liste non exhaustive d’outils avec intégration Azure Monitor :
 
 * **IBM QRadar** : le module DSM Microsoft Azure et le protocole Microsoft Azure Event Hubs sont disponibles au téléchargement sur le [site web du support IBM](http://www.ibm.com/support). Pour plus d’informations sur l’intégration à Azure [cliquez ici](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** - [Le module Azure Monitor pour Splunk](https://splunkbase.splunk.com/app/3534/) est un projet open source disponible dans Splunkbase. [La documentation est disponible ici](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **Splunk** - En fonction de votre configuration Splunk, deux approches sont possibles :
+    1. [Le module complémentaire Azure Monitor pour Splunk](https://splunkbase.splunk.com/app/3534/) est un projet open source disponible dans Splunkbase. [La documentation est disponible ici](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk (par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk), vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk en utilisant [cette fonction qui est déclenchée par les nouveaux messages dans le hub d’événements](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** : les instructions pour configurer SumoLogic de manière à utiliser les données d’un hub d’événements sont [disponibles ici](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Étapes suivantes

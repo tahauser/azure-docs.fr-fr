@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 L’intégration du contrôle de code source vous permet d’associer des runbooks dans votre compte Automation à un référentiel de contrôle de code source GitHub. Le contrôle du code source vous permet de collaborer avec votre équipe en toute simplicité, de suivre les modifications et de restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches avec vos comptes de développement, de test ou de production Automation, et contribue à promouvoir le code qui a été testé dans votre environnement de développement vers votre compte Automation de production.
@@ -30,21 +30,20 @@ Le contrôle du code source vous permet de transmettre le code à partir d’Azu
 > 
 > 
 
-Deux étapes simples sont requises pour configurer le contrôle de code source pour votre compte Automation. Une seule étape suffit si vous possédez déjà un compte GitHub. Les voici :
+Deux étapes simples sont requises pour configurer le contrôle de code source pour votre compte Automation. Une seule étape suffit si vous possédez déjà un compte GitHub. Il s'agit de :
 
 ## <a name="step-1--create-a-github-repository"></a>Étape 1 : Création d’un référentiel GitHub
 Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez lier à Azure Automation, connectez-vous à votre compte existant et commencez à partir de l’étape 2, ci-dessous. Sinon, accédez à [GitHub](https://github.com/), inscrivez-vous pour obtenir un compte et [créez un référentiel](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Étape 2 : Configuration du contrôle de code source dans Azure Automation
-1. Dans la page Compte Automation du portail Azure, cliquez sur **Définir le contrôle de code source.** 
+1. Sur la page Compte Automation du portail Azure, sous **Paramètres de compte**, cliquez sur **Contrôle de code source**. 
    
-    ![Définition du contrôle de code source](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. La page **Contrôle de code source** s’ouvre. Vous pouvez configurer les détails de votre compte GitHub. Vous trouverez ci-dessous la liste des paramètres à configurer :  
+1. La page **Contrôle de code source** s’ouvre. Vous pouvez configurer les détails de votre compte GitHub. Vous trouverez ci-dessous la liste des paramètres à configurer :  
    
    | **Paramètre** | **Description** |
    |:--- |:--- |
    | Choisir une source |Sélectionnez la source. Actuellement, seul **GitHub** est pris en charge. |
-   | Autorisation |Cliquez sur le bouton **Autoriser** pour accorder à Azure Automation l'accès à votre référentiel GitHub. Si vous êtes déjà connecté à votre compte GitHub dans une autre fenêtre, les informations d’identification de ce compte sont utilisées. Une fois que l’autorisation est accordée, la page affiche votre nom d’utilisateur GitHub sous **Propriété d’autorisation**. |
+   | Authorization |Cliquez sur le bouton **Autoriser** pour accorder à Azure Automation l'accès à votre référentiel GitHub. Si vous êtes déjà connecté à votre compte GitHub dans une autre fenêtre, les informations d’identification de ce compte sont utilisées. Une fois que l’autorisation est accordée, la page affiche votre nom d’utilisateur GitHub sous **Propriété d’autorisation**. |
    | Choisir un référentiel |Sélectionnez un référentiel GitHub à partir de la liste des référentiels disponibles. |
    | Choisir une branche |Sélectionnez la branche à partir de la liste des branches disponibles. Seule la branche **master** s'affiche si vous n'avez pas créé de branches. |
    | Chemin d’accès au dossier de runbooks |Le chemin d’accès au dossier de runbooks spécifie le chemin d’accès dans le référentiel GitHub à partir duquel vous souhaitez transmettre ou extraire votre code. Il doit être saisi au format **/nomdossier/nomsous-dossier**. Seuls les runbooks du chemin d’accès au dossier de runbooks seront synchronisés avec votre compte Automation. Les runbooks des sous-dossiers du chemin d’accès au dossier de runbooks ne seront **PAS** synchronisés. Utilisez **/** pour synchroniser tous les runbooks dans le référentiel. |
@@ -66,19 +65,19 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
      
      | **Paramètre** | **Valeur** |
      |:--- |:--- |
-     | Nom |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |String |
+     | NOM |Microsoft.Azure.Automation.SourceControl.Connection |
+     | type |Chaîne |
      | Valeur |{"Branch" :\<*Nom de votre branche*>,"RunbookFolderPath" :\<*Chemin d’accès au dossier de Runbooks*>,"ProviderType" :\<*possède une valeur 1 pour GitHub*>,"Repository" :\<*Nom de votre référentiel*>,"Username" :\<*Votre nom d’utilisateur GitHub*>} |
 
     * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken**contient la valeur chiffrée sécurisée de votre OAuthToken.  
 
     |**Paramètre**            |**Valeur** |
     |:---|:---|
-    | Nom  | Microsoft.Azure.Automation.SourceControl.OauthToken |
-    | Type | Inconnue (chiffrée) |
+    | NOM  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | type | Inconnue (chiffrée) |
     | Valeur | <*OAuthToken chiffré*> |  
 
-    ![Variables](media/automation-source-control-integration/automation_04_Variables.png)  
+    ![variables](media/automation-source-control-integration/automation_04_Variables.png)  
 
     * **contrôle de code source Automation** est ajouté en tant qu'application autorisée à votre compte GitHub. Pour afficher l’application : à partir de votre page d’accueil GitHub, accédez à **Profil** > **Paramètres** > **Applications**. Cette application permet à Azure Automation de synchroniser votre référentiel GitHub sur un compte Automation.  
 
@@ -137,7 +136,7 @@ Pour vous déconnecter de votre compte GitHub, ouvrez la page Synchronisation du
 
   ![Bouton de déconnexion](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir plus d’informations sur le contrôle de code source, consultez les ressources suivantes :  
 
 * [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

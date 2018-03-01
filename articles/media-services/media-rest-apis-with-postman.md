@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 
@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment configurer **Postman** afin de l’utiliser p
 
 Cet environnement et la collection sont utilisés dans les articles qui indiquent comment effectuer diverses tâches liées aux API REST Azure Media Services.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans certains des didacticiels REST AMS. 
 
@@ -33,7 +33,7 @@ Cet environnement et la collection sont utilisés dans les articles qui indiquen
 
 ## <a name="configure-the-environment"></a>Configurer l’environnement 
 
-1. Créez un fichier .json qui contient les variables d’environnement utilisées dans les didacticiels AMS. Nommez le fichier **AzureMediaServices.postman_environment.json**. Ouvrez le fichier et collez le code qui définit l’environnement Postman à partir de [cette liste de code](postman-environment.md). 
+1. Créez un fichier .json qui contient les variables d’environnement utilisées dans les didacticiels AMS. Nommez le fichier (**AzureMediaServices.postman_environment.json**). Ouvrez le fichier et collez le code qui définit l’environnement Postman à partir de [cette liste de code](postman-environment.md). 
 2. Ouvrez **Postman**.
 3. Sur la droite de l’écran, sélectionnez l’option **Gérer environnement**.
 
@@ -48,7 +48,7 @@ Cet environnement et la collection sont utilisés dans les articles qui indiquen
 
 ## <a name="configure-the-collection"></a>Configurer la collection
 
-1. Créez un fichier .json qui contient la collection **Postman** avec toutes les opérations nécessaires pour charger un fichier dans Media Services. Nommez le fichier **AzureMediaServicesOperations.postman_collection.json**. Ouvrez le fichier et collez le code qui définit la collection **Postman** à partir de [cette liste de code](postman-collection.md).
+1. Créez un fichier .json qui contient la collection **Postman** avec toutes les opérations nécessaires pour charger un fichier dans Media Services. Nommez le fichier (par exemple **AzureMediaServicesOperations.postman_collection.json**). Ouvrez le fichier et collez le code qui définit la collection **Postman** à partir de [cette liste de code](postman-collection.md).
 2. Cliquez sur **Importer** pour importer le fichier de la collection.
 3. Choisissez le fichier **AzureMediaServicesOperations.postman_collection.json**.
 

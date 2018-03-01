@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problème de connexion sur le site web du volet d’accès
 
-Le volet d’accès est un portail Web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de lancer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Un utilisateur disposant d’éditions Azure AD peut également utiliser des fonctionnalités de gestion de groupes et d’applications en libre-service par le biais du volet d’accès. Le volet d’accès est distinct du portail Azure et n’exige pas des utilisateurs qu’ils aient un abonnement Azure.
+Le volet d’accès est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) de visualiser et de lancer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Un utilisateur disposant d’éditions Azure AD peut également utiliser des fonctionnalités de gestion de groupes et d’applications en libre-service par le biais du volet d’accès. Le volet d’accès est distinct du portail Azure et n’exige pas des utilisateurs qu’ils aient un abonnement Azure.
 
 Les utilisateurs peuvent se connecter au volet d’accès s’ils possèdent un compte professionnel ou scolaire dans Azure AD.
 
@@ -50,7 +50,7 @@ Si un utilisateur dispose d’un abonnement Azure ou Office 365 et s’il utilis
 
 -   Vérifiez qu’une **stratégie d’accès conditionnel** ou **stratégie de protection d’identité** ne bloque pas l’accès utilisateur.
 
--   Vérifiez que les **informations de contact d’authentification** de l’utilisateur sont à jour et permettent d’appliquer les stratégies d’accès conditionnel ou de Multi-Factor Authentication.
+-   Vérifiez que les **informations de contact d’authentification** de l’utilisateur sont à jour pour permettre d’appliquer les stratégies Multi-Factor Authentication ou d’accès conditionnel.
 
 -   Essayez également d’effacer les cookies de votre navigateur, puis réessayez de vous connecter.
 
@@ -71,7 +71,7 @@ Pour l’authentification unique par mot de passe, les navigateurs de l’utilis
 
 ## <a name="problems-with-the-users-account"></a>Problèmes avec le compte de l’utilisateur
 
-L’accès au volet d’accès peut être bloqué en raison d’un problème avec le compte de l’utilisateur. Voici quelques méthodes pour vous aider à résoudre les problèmes avec les utilisateurs et leurs paramètres de compte :
+L’accès au volet d’accès peut être bloqué en raison d’un problème avec le compte de l’utilisateur. La liste ci-après répertorie quelques méthodes pouvant vous aider à résoudre les problèmes liés aux utilisateurs et à leurs paramètres de compte :
 
 -   [Vérifier l’existence d’un compte d’utilisateur dans Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -93,13 +93,13 @@ L’accès au volet d’accès peut être bloqué en raison d’un problème ave
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Vérifier l’existence d’un compte d’utilisateur dans Azure Active Directory
 
-Pour vérifier si le compte d’un utilisateur est présent, effectuez les étapes suivantes :
+Pour vérifier si le compte d’un utilisateur est présent, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
@@ -111,19 +111,19 @@ Pour vérifier si le compte d’un utilisateur est présent, effectuez les étap
 
 ### <a name="check-a-users-account-status"></a>Vérifier l’état du compte d’un utilisateur
 
-Pour vérifier l’état du compte d’un utilisateur, effectuez les étapes suivantes :
+Pour vérifier l’état du compte d’un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Profil**.
 
@@ -131,23 +131,23 @@ Pour vérifier l’état du compte d’un utilisateur, effectuez les étapes sui
 
 ### <a name="reset-a-users-password"></a>Réinitialiser le mot de passe d’un utilisateur
 
-Pour réinitialiser le mot de passe d’un utilisateur, effectuez les étapes suivantes :
+Pour réinitialiser le mot de passe d’un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
-7.  Cliquez sur le bouton **Réinitialiser le mot de passe** en haut du panneau Utilisateur.
+7.  Cliquez sur le bouton **Réinitialiser le mot de passe** en haut du volet Utilisateur.
 
-8.  Cliquez sur le bouton **Réinitialiser le mot de passe** sur le panneau **Réinitialiser le mot de passe** qui s’affiche.
+8.  Cliquez sur le bouton **Réinitialiser le mot de passe** dans le volet **Réinitialiser le mot de passe** qui s’affiche.
 
 9.  Copiez le **mot de passe temporaire** ou **entrez un nouveau mot de passe** pour l’utilisateur.
 
@@ -155,7 +155,7 @@ Pour réinitialiser le mot de passe d’un utilisateur, effectuez les étapes su
 
 ### <a name="enable-self-service-password-reset"></a>Activer la réinitialisation du mot de passe libre-service
 
-Pour activer la réinitialisation du mot de passe libre-service, suivez les étapes de déploiement ci-dessous :
+Pour activer la réinitialisation du mot de passe en libre-service, procédez comme suit :
 
 -   [Permettre aux utilisateurs de réinitialiser leur mot de passe Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
@@ -163,19 +163,19 @@ Pour activer la réinitialisation du mot de passe libre-service, suivez les éta
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Vérifier l’état Multi-Factor Authentication d’un utilisateur
 
-Pour vérifier l’état Multi-Factor Authentication d’un utilisateur, suivez les étapes ci-dessous :
+Pour vérifier l’état d’authentification multifacteur d’un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  Cliquez sur le bouton **Multi-Factor Authentication** en haut du panneau.
+6.  Cliquez sur le bouton **Multi-Factor Authentication** en haut du volet.
 
 7.  Une fois le **portail d’administration Multi-Factor Authentication** chargé, assurez-vous de vous trouver sur l’onglet **Utilisateurs**.
 
@@ -184,25 +184,25 @@ Pour vérifier l’état Multi-Factor Authentication d’un utilisateur, suivez 
 9.  Sélectionnez l’utilisateur dans la liste des utilisateurs et **activez**, **désactivez** ou **appliquez** la Multi-Factor Authentication comme souhaité.
 
    >[!NOTE]
-   >Si un utilisateur est dans un état **Appliqué**, vous pouvez définir le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite modifier son état en le redéfinissant sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.
+   >Si un utilisateur est dans un état **Appliqué**, vous pouvez définir le définir sur **Désactivé** de façon temporaire pour lui permettre de revenir à son compte. Une fois qu’il est revenu dans son compte, vous pouvez ensuite redéfinir son état sur **Activé** pour lui demander d’enregistrer à nouveau ses informations de contact à sa prochaine connexion. Sinon, vous pouvez suivre les étapes décrites dans [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info) pour vérifier ou définir ces données à sa place.
    >
    >
 
 ### <a name="check-a-users-authentication-contact-info"></a>Vérifier les informations de contact de l’authentification d’un utilisateur
 
-Pour vérifier les informations de contact de l’authentification d’un utilisateur utilisées pour Multi-Factor Authentication, Accès conditionnel, Identity Protection et Réinitialisation de mot de passe, effectuez les étapes suivantes :
+Pour vérifier les informations de contact de l’authentification d’un utilisateur utilisées pour Authentification multifacteur, Accès conditionnel, Identity Protection et Réinitialisation du mot de passe, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Profil**.
 
@@ -212,31 +212,31 @@ Pour vérifier les informations de contact de l’authentification d’un utilis
 
 ### <a name="check-a-users-group-memberships"></a>Vérifier les appartenances d’un utilisateur à des groupes
 
-Pour vérifier l’appartenance d’un utilisateur à des groupes, effectuez les étapes suivantes :
+Pour vérifier l’appartenance d’un utilisateur à des groupes, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Groupes** pour afficher les groupes dont l’utilisateur est membre.
 
 ### <a name="check-a-users-assigned-licenses"></a>Vérifier les licences affectées à un utilisateur
 
-Pour vérifier les licences affectées à un utilisateur, effectuez les étapes suivantes :
+Pour vérifier les licences affectées à un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
@@ -248,13 +248,13 @@ Pour vérifier les licences affectées à un utilisateur, effectuez les étapes 
 
 ### <a name="assign-a-user-a-license"></a>Affecter une licence à un utilisateur 
 
-Pour affecter une licence à un utilisateur, effectuez les étapes suivantes :
+Pour affecter une licence à un utilisateur, procédez comme suit :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche du filtre et sélectionnez l’élément **Azure Active Directory**.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 
 4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
 
@@ -288,5 +288,5 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)

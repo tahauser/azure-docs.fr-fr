@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application web dans Azure App Service
 Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -62,7 +62,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 * Temps de réponse moyen
 * Temps processeur
 * Plage de travail de la mémoire
-* Requêtes
+* Requests
 
 ![surveiller les performances d’une application web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
@@ -83,18 +83,14 @@ Pour le configurer, voir [Surveillance des applications dans Azure App Service](
 Consultez également [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison, avec Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) pour obtenir une vidéo décrivant la surveillance d’un point de terminaison.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Analyse des performances des applications à l’aide d’Extensions
-Vous pouvez également surveiller les performances de votre application grâce aux *extensions de site*.
+Vous pouvez également analyser les performances de votre application à l’aide d’une *extension de site*.
 
 Chaque application web d’App Service fournit un point de terminaison de gestion extensible qui vous permet d’utiliser un ensemble performant d’outils déployés en tant qu’extensions de site. Les extensions incluent : 
 
 - Des éditeurs de code source, tels que [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Des outils de gestion pour les ressources connectées, comme une base de données MySQL connectée à une application web.
 
-[Azure Application Insights](/services/application-insights/) et [New Relic](/marketplace/partners/newrelic/newrelic/) sont tous les deux des extensions de site de surveillance des performances disponibles. Pour utiliser New Relic, vous installez un agent lors de l'exécution. Pour utiliser Azure Application Insights, vous devez régénérer votre code avec un kit de développement logiciel (SDK). Vous avez également la possibilité d’installer une extension qui fournit l’accès aux données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
-
-Pour utiliser Application Insights, consultez [Surveiller les performances dans les applications web](../application-insights/app-insights-web-monitor-performance.md).
-
-Pour utiliser New Relic, consultez la page [Gestion des performances des applications New Relic sur Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) est une extension de site d’analyse des performances qui est également disponible. Pour utiliser Application Insights, vous régénérez votre code avec un Kit de développement logiciel (SDK). Vous pouvez également installer une extension qui fournit l’accès à des données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application. Pour plus d’informations, consultez l’article [Analyse des performances dans les applications web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

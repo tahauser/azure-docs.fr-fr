@@ -1,6 +1,6 @@
 ---
-title: "Transfert des informations d’identification à Azure à l’aide de DSC | Microsoft Docs"
-description: "Vue d’ensemble du transfert sécurisé des informations d’identification aux machines virtuelles Azure à l’aide de la Configuration de l’état souhaité PowerShell"
+title: "Transmettre des informations d’identification vers Azure à l’aide d’une Configuration d'état souhaité | Microsoft Docs"
+description: "Découvrez comment transmettre des informations d’identification aux machines virtuelles Azure à l’aide de la Configuration d’état souhaité (DSC) PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: zjalexander
@@ -16,26 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: zachal,migreene
-ms.openlocfilehash: 140ca3cc9b72afac720e5bcf1d620ac9b1b72132
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a0a565c0bb7e17315c7b0475f3213b620a3e2d6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="passing-credentials-to-the-azure-dsceextension-handler"></a>Transfert des informations d’identification au gestionnaire DSCEextension Azure
+# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Transmission d’informations d’identification au gestionnaire DSCEextension Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Cet article traite de l’extension de Configuration de l’état souhaité pour Azure.
-Vous trouverez une vue d’ensemble du gestionnaire de l’extension DSC dans [Présentation du gestionnaire de l’extension de Configuration de l’état souhaité Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Cet article traite de l’extension de la Configuration d’état souhaité (DSC) pour Azure. Vous trouverez une vue d’ensemble du gestionnaire d’extensions DSC dans [Introduction du gestionnaire d’extensions de la Configuration d’état souhaité Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="passing-in-credentials"></a>Transfert d’informations d’identification
+## <a name="pass-in-credentials"></a>Transmettre des informations d’identification
 
-Dans le cadre du processus de configuration, vous devrez peut-être configurer des comptes d’utilisateur, accéder aux services ou installer un programme dans un contexte utilisateur. Pour effectuer ces opérations, vous devez fournir les informations d’identification.
+Dans le cadre du processus de configuration, vous devrez peut-être configurer des comptes d’utilisateur, accéder à des services ou installer un programme dans un contexte utilisateur. Pour effectuer ces opérations, vous devez fournir les informations d’identification.
 
-DSC permet d’effectuer des configurations paramétrables dans lesquelles les informations d’identification sont transmises à la configuration et stockées en toute sécurité dans les fichiers MOF.
-Le Gestionnaire d’extensions Azure simplifie la gestion des informations d’identification en fournissant une gestion automatique des certificats.
+Vous pouvez utiliser DSC pour définir des configurations paramétrables. Dans le cadre d’une configuration paramétrable, les informations d’identification sont transmises à la configuration et stockées en toute sécurité dans des fichiers .mof. Le gestionnaire d’extensions Azure simplifie la gestion des informations d’identification en fournissant une gestion automatique des certificats.
 
-Examinez le script de configuration DSC suivant qui crée un compte d’utilisateur local avec le mot de passe spécifié :
+Le script de configuration DSC suivant crée un compte d’utilisateur local avec le mot de passe spécifié :
 
 ```powershell
 configuration Main
@@ -61,15 +59,13 @@ configuration Main
 }
 ```
 
-Il est important d’inclure l’ *hôte local du nœud* dans le cadre de la configuration.
-Si cette instruction est manquante, les étapes suivantes ne fonctionnent pas, car le gestionnaire d’extensions recherche spécifiquement l’instruction relative à l’hôte local du nœud.
-Il est également important d’inclure le caractère *[PsCredential]*, car ce type spécifique déclenche l’extension pour chiffrer les informations d’identification.
+Il est important d’inclure le **nœud localhost** dans le cadre de la configuration. Le gestionnaire d’extensions recherche plus particulièrement l’instruction du **nœud localhost**. Si cette instruction est manquante, les étapes suivantes ne fonctionnent pas. Il est également important d’inclure la conversion de typecast **[PsCredential]**. Ce type spécifique déclenche l’extension de chiffrement des informations d’identification.
 
-Publiez ce script sur le stockage d’objets blob :
+Pour publier ce script sur le Stockage Blob Azure :
 
 `Publish-AzureVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Définissez l’extension DSC Azure et fournissez les informations d’identification :
+Pour définir l’extension DSC Azure et fournir les informations d’identification :
 
 ```powershell
 $configurationName = "Main"
@@ -83,21 +79,15 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-## <a name="how-credentials-are-secured"></a>Sécurisation des informations d’identification
+## <a name="how-a-credential-is-secured"></a>Quel est le mode de sécurisation des informations d’identification
 
-L’exécution de ce code invite à entrer les informations d’identification.
-Une fois celles-ci fournies, elles sont stockées en mémoire brièvement.
-Lorsqu’elles sont publiées avec l’applet de commande `Set-AzureVmDscExtension` , elles sont transmises via le protocole HTTPS à la machine virtuelle, où elles sont stockées de manière chiffrée sur le disque par Azure, à l’aide du certificat local de la machine virtuelle.
-Elles sont ensuite déchiffrées brièvement en mémoire, puis rechiffrées pour leur transfert à DSC.
+L’exécution de ce code invite à entrer les informations d’identification. Une fois les informations d’identification fournies, elles sont brièvement stockées en mémoire. Lorsque les informations d’identification sont publiées à l’aide de la cmdlet **Set-AzureVmDscExtension**, les informations d’identification sont transmises via le protocole HTTPS à la machine virtuelle. Dans la machine virtuelle, Azure stocke les informations d’identification chiffrées sur le disque à l’aide du certificat de machine virtuelle local. Les informations d’identification sont ensuite déchiffrées brièvement en mémoire, puis rechiffrées pour leur transmission à DSC.
 
-Ce comportement diffère de l’ [utilisation de configurations sécurisées sans le gestionnaire d’extensions](https://msdn.microsoft.com/powershell/dsc/securemof). L’environnement Windows Azure permet de transmettre des données de configuration en toute sécurité via des certificats. Lors de l’utilisation du gestionnaire d’extensions DSC, il est inutile de fournir une entrée $CertificatePath ou $CertificateID/$Thumbprint dans ConfigurationData.
+Ce processus diffère de [l’utilisation des configurations sécurisées sans le gestionnaire d’extensions](https://msdn.microsoft.com/powershell/dsc/securemof). L’environnement Azure permet de transmettre des données de configuration en toute sécurité via des certificats. Lors de l’utilisation du gestionnaire d’extensions DSC, il est inutile de fournir une entrée **$CertificatePath** ou **$CertificateID**/ **$Thumbprint** dans **ConfigurationData**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour plus d’informations sur le gestionnaire d’extensions DSC Azure, voir [Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Examinez le [modèle Azure Resource Manager pour l’extension DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-Pour plus informations sur DSC PowerShell, [voir le centre de documentation PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
-
-Pour accéder aux fonctionnalités supplémentaires que vous pouvez gérer avec DSC PowerShell, [parcourez PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) pour voir des ressources DSC supplémentaires.
+* Obtenir une [introduction au gestionnaire d’extensions Azure DSC](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Examinez le [modèle Azure Resource Manager pour l’extension DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Pour plus informations sur DSC PowerShell, reportez-vous au [centre de documentation PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+* Pour obtenir plus de fonctionnalités gérables avec DSC PowerShell ainsi que plus de ressources DSC, parcourez la [galerie PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

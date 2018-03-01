@@ -1,6 +1,6 @@
 ---
 title: "Connecter un réseau virtuel à plusieurs sites en utilisant une passerelle VPN et PowerShell : Classic | Microsoft Docs"
-description: "Cet article vous guidera pour la connexion de plusieurs sites locaux à un réseau virtuel à l’aide d’une passerelle VPN pour le modèle de déploiement classique."
+description: "Connectez plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classique)](vpn-gateway-multi-site.md)
 >
 >
@@ -162,7 +162,7 @@ Importez le fichier de configuration réseau. Lorsque vous importez ce fichier a
 ## <a name="6-download-keys"></a>6. Télécharger les clés
 Une fois les tunnels ajoutés, utilisez la cmdlet PowerShell Get-AzureVNetGatewayKey pour obtenir les clés prépartagées IPsec/IKE de chaque tunnel.
 
-Par exemple :
+Par exemple : 
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"
@@ -206,6 +206,6 @@ L’exemple renvoie :
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).

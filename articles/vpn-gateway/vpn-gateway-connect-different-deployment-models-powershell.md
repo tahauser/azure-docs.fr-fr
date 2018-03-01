@@ -1,10 +1,10 @@
 ---
 title: "Connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager : PowerShell | Microsoft Docs"
-description: "Découvrez comment créer une connexion VPN entre des réseaux virtuels classiques et des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et de PowerShell"
+description: "Créez une connexion VPN entre des réseaux virtuels classiques et des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et de PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
-
-
-Cet article vous explique comment connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager afin de permettre aux ressources situées dans les modèles de déploiement distincts de communiquer entre elles. Les étapes décrites dans cet article utilisent PowerShell, mais vous pouvez également créer cette configuration à l’aide du portail Azure en sélectionnant l’article dans cette liste.
+Cet article vous permet de connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager, afin d’autoriser les ressources situées dans les modèles de déploiement distincts à communiquer entre elles. Les étapes décrites dans cet article utilisent PowerShell, mais vous pouvez également créer cette configuration à l’aide du portail Azure en sélectionnant l’article dans cette liste.
 
 > [!div class="op_single_selector"]
 > * [Portail](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -35,7 +33,7 @@ Cet article vous explique comment connecter des réseaux virtuels classiques à 
 
 La connexion d’un réseau virtuel classique à un réseau virtuel Resource Manager est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents et des régions différentes. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. 
 
-Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être plutôt utiliser VNet Peering pour les connecter. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). 
+Si vous n’avez pas encore de passerelle de réseau virtuel et si vous ne souhaitez pas en créer une, vous voudrez peut-être connecter vos réseaux virtuels en utilisant l’homologation de réseaux virtuels. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Avant de commencer
 
@@ -76,10 +74,22 @@ Configuration d’adressage IP de la passerelle = gwipconfig
 
 ## <a name="createsmgw"></a>Section 1 : Configurer le réseau virtuel classique
 ### <a name="1-download-your-network-configuration-file"></a>1. Télécharger votre fichier de configuration réseau
-1. Dans la console PowerShell avec des droits élevés, connectez-vous à votre compte Azure. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l'applet de commande télécharge vos paramètres de compte pour qu'ils soient reconnus par Azure PowerShell. Vous utilisez les applets de commande PowerShell de gestion des services pour mener à bien cette partie de la configuration.
+1. Dans la console PowerShell avec des droits élevés, connectez-vous à votre compte Azure. Les applets de commande suivantes vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l'applet de commande télécharge vos paramètres de compte pour qu'ils soient reconnus par Azure PowerShell. Les applets de commande Azure PowerShell de gestion de service classique sont utilisées dans cette section.
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  Récupérez votre abonnement Azure.
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. Exportez votre fichier de configuration réseau Azure en exécutant la commande suivante. Vous pouvez modifier l’emplacement d’exportation du fichier si nécessaire.
 
@@ -93,7 +103,7 @@ Dans l’élément **VirtualNetworkSites**, ajoutez un sous-réseau de passerell
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**Exemple :**
+**Exemple :**
 
     <VirtualNetworkSites>
       <VirtualNetworkSite name="ClassicVNet" Location="West US">
@@ -169,13 +179,13 @@ Pour créer une passerelle VPN pour le réseau virtuel RM, suivez les instructio
   Login-AzureRmAccount
   ``` 
    
-  Si vous possédez plusieurs abonnements, procurez-vous la liste de vos abonnements Azure.
+  Obtenez la liste de vos abonnements Azure.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  Spécifiez l’abonnement que vous souhaitez utiliser.
+  Si vous avez plusieurs abonnements, spécifiez celui que vous souhaitez utiliser.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -308,4 +318,3 @@ La création d’une connexion entre les passerelles nécessite PowerShell. Vous
 ## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

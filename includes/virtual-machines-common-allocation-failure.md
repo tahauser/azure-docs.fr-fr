@@ -8,7 +8,7 @@ Ces étapes peuvent aider à résoudre de nombreux échecs d’allocation surven
 * Redimensionnez la machine virtuelle à une taille différente.<br>
     Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle > **Paramètres** > **Taille**. Pour connaître la procédure détaillée, consultez [Redimensionner la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 * Supprimez toutes les machines virtuelles du service cloud et recréez-les.<br>
-    Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle > **Supprimer**. Ensuite, cliquez sur **Nouveau** > **Calcul** > [image de la machine virtuelle].
+    Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle > **Supprimer**. Ensuite, cliquez sur **Créer une ressource** > **Calcul** > [image de machine virtuelle].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Résoudre les problèmes courants liés à l’allocation dans le modèle de déploiement Azure Resource Manager
 Ces étapes peuvent aider à résoudre de nombreux échecs d’allocation survenant au niveau des machines virtuelles :
@@ -68,7 +68,7 @@ Si l’erreur est Upgrade_VMSizeNotSupported*, essayez une autre taille de machi
 Si l’erreur est GeneralError*, le type de ressource (par exemple, une taille de machine virtuelle particulière) est probablement pris en charge par le cluster, mais ce dernier ne peut pas libérer de ressources pour le moment. Comme dans le scénario ci-dessus, ajoutez de la ressource de calcul en créant un service cloud (notez que le nouveau service cloud doit utiliser une adresse IP virtuelle différente) et utilisez un réseau virtuel régional pour connecter vos services cloud.
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scénario d’allocation : redémarrer des machines virtuelles partiellement arrêtées (désallouées)
-**Erreur**
+**Error**
 
 GeneralError*
 
@@ -84,7 +84,7 @@ S’il est possible d’utiliser une autre adresse IP virtuelle, supprimez les m
 * Si votre service cloud n’utilise pas de réseau virtuel régional, créez-en un pour le nouveau service cloud, puis connectez votre [réseau virtuel existant à celui créé](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Pour plus d’informations, consultez [Réseaux virtuels régionaux](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Scénario d’allocation : redémarrer des machines virtuelles complètement arrêtées (désallouées)
-**Erreur**
+**Error**
 
 GeneralError*
 
@@ -97,7 +97,7 @@ Une désallocation complète signifie que vous avez arrêté (désalloué) toute
 S’il est possible d’utiliser une autre adresse IP virtuelle, supprimez les machines virtuelles d’origine qui ont été arrêtées (désallouées) tout en conservant les disques associés, puis supprimez le service cloud correspondant (les ressources de calcul associées ont déjà été libérées quand vous avez arrêté (désalloué) les machines virtuelles). Créez un service cloud pour ajouter les machines virtuelles.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scénario d’allocation : déploiements en environnement intermédiaire ou de production (PaaS uniquement)
-**Erreur**
+**Error**
 
 New_General* ou New_VMSizeNotSupported*
 
@@ -110,7 +110,7 @@ Les déploiements d’un service cloud en environnement intermédiaire et en env
 Supprimez le premier déploiement et le service cloud d’origine, puis redéployez le service cloud. Cette action peut avoir pour effet de réaffecter le premier déploiement dans un cluster qui dispose de suffisamment de ressources pour les deux déploiements ou dans un cluster qui prend en charge les tailles de machine virtuelle demandées.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scénario d’allocation : groupe d’affinités (proximité entre la machine virtuelle et le service)
-**Erreur**
+**Error**
 
 New_General* ou New_VMSizeNotSupported*
 
@@ -123,7 +123,7 @@ Les ressources de calcul affectées à un groupe d’affinités sont liées à u
 Si un groupe d’affinités n’est pas nécessaire, n’utilisez pas de groupe d’affinités ou regroupez vos ressources de calcul dans plusieurs groupes d’affinités.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scénario d’allocation : réseau virtuel par groupe d’affinités
-**Erreur**
+**Error**
 
 New_General* ou New_VMSizeNotSupported*
 
@@ -149,7 +149,7 @@ Quand vous recevez une erreur d’allocation, voyez si l’un des scénarios dé
 En règle générale, tant que l’erreur n’indique pas que la taille de machine virtuelle demandée n’est pas prise en charge, vous pouvez toujours réessayer ultérieurement, car il est possible que des ressources suffisantes aient été libérées dans le cluster pour prendre en charge votre demande. Si le problème est lié à la non-prise en charge de la taille de machine virtuelle demandée, reportez-vous aux solutions de contournement ci-dessous.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scénario d’allocation : redimensionner une machine virtuelle ou ajouter des machines virtuelles à un groupe à haute disponibilité existant
-**Erreur**
+**Error**
 
 Upgrade_VMSizeNotSupported* ou GeneralError*
 
@@ -164,7 +164,7 @@ Si l’erreur est Upgrade_VMSizeNotSupported*, essayez une autre taille de machi
 Si l’erreur est GeneralError*, le type de ressource (par exemple, une taille de machine virtuelle particulière) est probablement pris en charge par le cluster, mais ce dernier ne peut pas libérer de ressources pour le moment. Si la machine virtuelle peut faire partie d’un autre groupe à haute disponibilité, créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région). Cette nouvelle machine virtuelle peut ensuite être ajoutée au même réseau virtuel.  
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scénario d’allocation : redémarrer des machines virtuelles partiellement arrêtées (désallouées)
-**Erreur**
+**Error**
 
 GeneralError*
 
@@ -177,7 +177,7 @@ Une désallocation partielle signifie que vous avez arrêté (désalloué) une o
 Arrêtez toutes les machines virtuelles du groupe à haute disponibilité avant de redémarrer la première machine. Vous pourrez ainsi effectuer une nouvelle tentative d’allocation et sélectionner un nouveau cluster ayant une capacité disponible.
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Scénario d’allocation : redémarrer des machines virtuelles complètement arrêtées (désallouées)
-**Erreur**
+**Error**
 
 GeneralError*
 

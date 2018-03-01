@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe #
 
@@ -59,7 +59,7 @@ Le plan App Service est un conteneur d’applications. Lorsque vous créez une a
 
 Pour créer un environnement App Service en même temps que le plan App Service :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Nouveau** > **Web + Mobile** > **Application web**.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
     ![Création d’une application web][1]
 
@@ -97,7 +97,7 @@ Pour créer un environnement App Service en même temps que le plan App Service 
 
 Lorsque vous créez un environnement App Service autonome, celui-ci est vide. Même vide, un environnement App Service occasionne des frais mensuels pour l’infrastructure. Effectuez les étapes permettant de créer un environnement App Service ILB ou un environnement App Service dans son propre groupe de ressources. Une fois l’environnement App Service créé, vous pouvez y créer des applications à l’aide de la procédure normale. Sélectionnez votre nouvel environnement App Service comme emplacement.
 
-1. Recherchez **App Service Environment** dans la Place de marché, ou sélectionnez **Nouveau** > **Web + mobile** > **App Service Environment**. 
+1. Recherchez **App Service Environment** dans la Place de marché Azure, ou sélectionnez **Créer une ressource** > **Web + Mobile** > **App Service Environment**. 
 
 2. Entrez le nom de votre environnement App Service. Ce nom est utilisé pour les applications créées dans l’environnement App Service. Si le nom est *mynewdemoase*, le nom du sous-domaine est *.mynewdemoase.p.azurewebsites.net*. Si vous créez une application nommée *mytestapp*,celle-ci est adressable à l’adresse mytestapp.mynewdemoase.p.azurewebsites.net. Vous ne pouvez pas utiliser d’espace blanc dans le nom. Si vous utilisez des majuscules dans le nom, le nom de domaine correspond à la version complète de ce nom en minuscules. Si vous utilisez un équilibreur de charge interne (ILB), le nom de votre environnement App Service n’est pas utilisé dans votre sous-domaine, mais il est explicitement indiqué lors de la création de l’environnement App Service.
 

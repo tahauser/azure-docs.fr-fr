@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API et personnalisation d’Azure Active Directory B2B Collaboration
 
@@ -77,7 +77,7 @@ L’API peut être exécutée dans les modes d’autorisation suivants :
 Dans ce mode, toute personne utilisant l’API doit disposer des autorisations permettant de créer des invitations B2B.
 
 ### <a name="app-only-mode"></a>Mode Application uniquement
-Dans le contexte Application uniquement, l’application a besoin des étendues User.ReadWrite.All ou Directory.ReadWrite.All pour que l’invitation réussisse.
+Dans le contexte Application uniquement, l’application a besoin de l’étendue User.Invite.All pour que l’invitation réussisse.
 
 Pour plus d’informations, consultez : https://graph.microsoft.io/docs/authorization/permission_scopes
 
@@ -98,12 +98,12 @@ Vous pouvez utiliser les options suivantes :
 
 Vous pouvez également extraire la référence d’API d’invitation dans [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
 * [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
+* [Comment les administrateurs Azure Active Directory ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-admin-add-users.md)
 * [Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration ?](active-directory-b2b-iw-add-users.md)
 * [Éléments de l’e-mail d’invitation de B2B Collaboration](active-directory-b2b-invitation-email.md)
 * [Utilisation d’une invitation B2B Collaboration](active-directory-b2b-redemption-experience.md)

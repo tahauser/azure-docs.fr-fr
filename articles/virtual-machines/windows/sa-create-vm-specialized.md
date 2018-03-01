@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -118,7 +118,7 @@ Vous pouvez copier un disque dur virtuel vers un autre compte de stockage pour l
 ### <a name="before-you-begin"></a>Avant de commencer
 Veillez à :
 
-* Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n’est pas le cas, vous pouvez en créer un avec le portail (**Plus de services** > Comptes de stockage > Ajouter) ou l’applet de commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Avoir à votre disposition des informations sur les **comptes de stockage source et de destination**. Pour la machine virtuelle source, vous devez disposer du nom du compte de stockage et du conteneur. En général, le nom du conteneur est **vhds**. Vous devez également disposer d’un compte de stockage de destination. Si ce n’est pas le cas, vous pouvez en créer un avec le portail (**Tous les services** > Comptes de stockage > Ajouter) ou l’applet de commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
 * Télécharger et installer [l’outil AzCopy](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Libérer la machine virtuelle
@@ -138,7 +138,7 @@ Vous avez besoin des URL des comptes de stockage source et de destination. Les U
 
 Vous pouvez utiliser le Portail Azure ou Azure PowerShell pour récupérer l’URL :
 
-* **Portail** : cliquez sur **>** pour **Plus de services** > **Comptes de stockage** > *compte de stockage* > **Blobs** ; votre fichier de disque dur virtuel source se trouve probablement dans le conteneur **vhds**. Cliquez sur les **Propriétés** du conteneur et copiez le texte intitulé **URL**. Vous aurez besoin des URL des conteneurs source et de destination. 
+* **Portail** : cliquez sur **>** pour **Tous les services** > **Comptes de stockage** > *compte de stockage* > **Blobs** ; votre fichier de disque dur virtuel source se trouve probablement dans le conteneur **vhds**. Cliquez sur les **Propriétés** du conteneur et copiez le texte intitulé **URL**. Vous aurez besoin des URL des conteneurs source et de destination. 
 * **PowerShell** : utilisez [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) pour récupérer les informations de la machine virtuelle nommée **myVM** dans le groupe de ressources **myResourceGroup**. Dans les résultats, recherchez **l’URI du disque dur virtuel** dans la section **Profil de stockage**. La première partie de l’URI est l’URL du conteneur et la dernière est le nom du disque dur virtuel du système d’exploitation de la machine virtuelle.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Récupérer les clés d’accès de stockage
 Récupérez les clés d’accès des comptes de stockage source et de destination. Pour plus d’informations sur les clés d’accès, consultez la page [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).
 
-* **Portail** : cliquez sur **Plus de services** > **Comptes de stockage** > *compte de stockage* > **Clés d’accès**. Copiez la clé portant le nom **key1**.
+* **Portail** : cliquez sur **Tous les services** > **Comptes de stockage** > *compte de stockage* > **Clés d’accès**. Copiez la clé portant le nom **key1**.
 * **PowerShell** : utilisez [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) pour récupérer la clé de stockage du compte de stockage **mystorageaccount** dans le groupe de ressources **myResourceGroup**. Copiez la clé portant le nom **key1**.
 
 ```powershell
@@ -312,13 +312,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Vérifier que la machine virtuelle a été créée
-Vous devez voir la machine virtuelle nouvellement créée soit dans le [portail Azure](https://portal.azure.com) sous **Parcourir** > **Machines virtuelles**, soit en utilisant les commandes PowerShell suivantes :
+Vous devez voir la machine virtuelle nouvellement créée soit dans le [portail Azure](https://portal.azure.com) sous **Tous les services** > **Machines virtuelles**, soit en utilisant les commandes PowerShell suivantes :
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
 

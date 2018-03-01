@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ La création d’un cluster de production pour répondre aux besoins de votre ap
 ![Rechercher le modèle de cluster Service Fabric sur le portail Azure.][SearchforServiceFabricClusterTemplate]
 
 1. Connectez-vous au [portail Azure][azure-portal].
-2. Cliquez sur **Nouveau** pour ajouter un nouveau modèle de ressources. Recherchez le modèle de cluster Service Fabric dans **Marketplace** sous **Tout**.
+2. Cliquez sur **Créer une ressource** pour ajouter un nouveau modèle de ressource. Recherchez le modèle de cluster Service Fabric dans **Marketplace** sous **Tout**.
 3. Sélectionnez **Cluster Service Fabric** dans la liste.
 4. Accédez au panneau **Cluster Service Fabric**, puis cliquez sur **Créer**.
 5. Le panneau **Créer un cluster Service Fabric** inclut les quatre étapes suivantes :
@@ -134,6 +134,7 @@ Pour faciliter la configuration d’un cluster de test sécurisé pour vous, nou
 #####<a name="basic-option"></a>Option de base
 Suivez les écrans suivants pour ajouter ou réutiliser un coffre de clés existant et ajouter un certificat. L’ajout du certificat est un processus synchrone, et par conséquent, vous devez attendre que le certificat soit créé.
 
+
 Résistez à la tentation de quitter l’écran jusqu'à la fin de la procédure précédente.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Maintenant que le certificat est ajouté à votre coffre de clés, vous pouvez v
 
 ![CreateKeyVault2]
 
-Cliquez sur les stratégies d’accès avancées, puis activez l’accès aux machines virtuelles pour le déploiement. Il est recommandé d’activer aussi le déploiement du modèle.
+Cliquez sur les stratégies d’accès avancées, puis activez l’accès aux machines virtuelles pour le déploiement. Il est recommandé d’activer aussi le déploiement du modèle. Une fois que vous avez effectué vos sélections, n’oubliez pas de cliquer sur le bouton **Enregistrer** et de fermer le panneau **Stratégies d’accès**.
 
 ![CreateKeyVault3]
 

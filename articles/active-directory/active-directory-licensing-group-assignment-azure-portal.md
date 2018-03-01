@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
@@ -31,42 +31,42 @@ Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Dep
 > [!NOTE]
 > Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété Emplacement d’utilisation sur l’utilisateur.
 
-> Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vous avez des utilisateurs dans plusieurs emplacements, nous vous recommandons de toujours définir l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, via une Configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services dans des emplacements non autorisés.
+> Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs sont situés à plusieurs emplacements, nous vous recommandons de définir systématiquement l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, par le biais d’une configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services à des emplacements non autorisés.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
 
 1. Connectez-vous au [**portail Azure**](https://portal.azure.com) avec un compte administrateur. Pour gérer les licences, le compte doit être un rôle Administrateur général ou Administrateur des comptes d’utilisateur.
 
-2. Sélectionnez **Plus de services** dans le volet de navigation de gauche, puis sélectionnez **Azure Active Directory**. Vous pouvez ajouter ce panneau aux Favoris ou l’épingler au tableau de bord du portail.
+2. Sélectionnez **Tous les services** dans le volet de navigation de gauche, puis sélectionnez **Azure Active Directory**. Vous pouvez ajouter ce volet aux Favoris ou l’épingler au tableau de bord du portail.
 
-3. Dans le panneau **Azure Active Directory**, sélectionnez **Licences**. Cela ouvre un panneau dans lequel vous pouvez afficher et gérer tous les produits sous licence dans le locataire.
+3. Dans le volet **Azure Active Directory**, sélectionnez **Licences** afin d’ouvrir un volet vous permettant de visualiser et de gérer tous les produits sous licence du locataire.
 
-4. Sous **Tous les produits**, sélectionnez Office 365 Enterprise E3 et Enterprise Mobility + Security en sélectionnant les noms de produits. Pour démarrer l’affectation, sélectionnez **Attribuer** en haut du panneau.
+4. Sous **Tous les produits**, sélectionnez Office 365 Enterprise E3 et Enterprise Mobility + Security en sélectionnant les noms de produits. Pour démarrer l’affectation, sélectionnez **Affecter** en haut du volet.
 
    ![Tous les produits, affecter des licences](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. Dans le panneau **Affecter une licence**, cliquez sur **Utilisateurs et groupes** pour ouvrir le panneau **Utilisateurs et groupes**. Recherchez le nom du groupe *HR Department*, sélectionnez le groupe, puis veillez à confirmer en cliquant sur **Sélectionner** en bas du panneau.
+5. Dans le volet **Affecter une licence**, cliquez sur **Utilisateurs et groupes** pour ouvrir le volet **Utilisateurs et groupes**. Recherchez le nom du groupe *HR Department*, sélectionnez le groupe, puis veillez à confirmer en cliquant sur **Sélectionner** au bas du volet.
 
    ![Sélectionner un groupe](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Dans le panneau **Affecter une licence**, cliquez sur **Options d’affectation (facultatif)** qui affiche tous les plans de service comprenant les deux produits que nous avons sélectionnés précédemment. Recherchez **Yammer Enterprise** et définissez-le sur **Désactivé** pour désactiver ce service à partir de la licence du produit. Confirmez en cliquant sur **OK** en bas des **options d’affectation**.
+6. Dans le volet **Affecter une licence**, cliquez sur **Options d’affectation (facultatif)** qui affiche tous les plans de services inclus dans les deux produits que nous avons sélectionnés précédemment. Recherchez **Yammer Enterprise** et définissez-le sur **Désactivé** pour désactiver ce service à partir de la licence du produit. Confirmez en cliquant sur **OK** en bas des **options d’affectation**.
 
    ![Options d’affectation](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Pour terminer l’affectation, dans le panneau **Affecter une licence**, cliquez sur **Affecter** au bas du panneau.
+7. Pour terminer l’affectation, dans le volet **Affecter une licence**, cliquez sur **Affecter** au bas du volet.
 
 8. Une notification indiquant l’état et le résultat du processus s’affiche dans l’angle supérieur droit. Si l’affectation au groupe n’a pas pu être effectuée (par exemple en raison de licences existantes dans le groupe), cliquez sur la notification pour afficher les détails de l’échec.
 
-Nous avons maintenant spécifié un modèle de licence sur le groupe HR Department. Un processus en arrière-plan dans Azure AD a été démarré pour traiter tous les membres existants de ce groupe. Cette opération initiale peut prendre un certain temps en fonction de la taille du groupe. Dans l’étape suivante, nous allons voir comment vérifier que le processus est terminé, et déterminer si une attention supplémentaire est requise pour résoudre des problèmes.
+Nous avons maintenant spécifié un modèle de licence sur le groupe HR Department. Un processus en arrière-plan dans Azure AD a été démarré pour traiter tous les membres existants de ce groupe. Cette opération initiale peut prendre un certain temps en fonction de la taille du groupe. L’étape suivante décrit comment vérifier que le processus est terminé, et comment déterminer si une attention supplémentaire est requise pour résoudre des problèmes.
 
 > [!NOTE]
-> Vous pouvez démarrer la même affectation à partir d’un autre emplacement : **Utilisateurs et groupes** dans Azure AD. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes**. Recherchez le groupe, sélectionnez-le et cliquez sur l’onglet **Licences**. Le bouton **Affecter** en haut du panneau permet d’ouvrir le panneau d’affectation des licences.
+> Vous pouvez démarrer la même affectation à partir d’un autre emplacement : **Utilisateurs et groupes** dans Azure AD. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes**. Recherchez le groupe, sélectionnez-le et cliquez sur l’onglet **Licences**. Le bouton **Affecter** en haut du volet permet d’ouvrir le volet d’affectation des licences.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Étape 2 : Vérifier que l’affectation initiale est terminée
 
 1. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes**. Recherchez le groupe **HR Department** auquel ont été affectées les licences.
 
-2. Dans le panneau **HR Department**, sélectionnez **Licences**. Cela vous permet de vérifier rapidement si les licences ont été entièrement affectées aux utilisateurs et s’il existe des erreurs que vous devez examiner. Les informations suivantes sont disponibles :
+2. Dans le volet du groupe **HR Department**, sélectionnez **Licences**. Cela vous permet de vérifier rapidement si les licences ont été entièrement affectées aux utilisateurs et s’il existe des erreurs que vous devez examiner. Les informations suivantes sont disponibles :
 
    - Liste des licences du produit qui sont actuellement affectées au groupe. Sélectionnez une entrée pour afficher les services spécifiques qui ont été activés et pour apporter des modifications.
 
@@ -87,12 +87,12 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
 
 1. Accédez à **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les groupes** et recherchez le groupe **HR Department** auquel des licences ont été affectées.
-2. Dans le panneau **HR Department**, sélectionnez **Licences**. La notification en haut du panneau indique que des licences n’ont pas pu être affectées à 10 utilisateurs. En cliquant sur cette notification, vous accédez à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.
+2. Dans le volet du groupe **HR Department**, sélectionnez **Licences**. La notification en haut du volet indique que des licences n’ont pas pu être affectées à 10 utilisateurs. En cliquant sur cette notification, vous accédez à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.
 3. La colonne **Échec d’affectations** indique que les deux licences de produit n’ont pas pu être affectées aux utilisateurs. La colonne **Raison principale de l’échec** contient la cause de l’échec. Dans ce cas, il s’agit de **Plans de service en conflit**.
 
    ![Échec d’affectations](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Sélectionnez un utilisateur pour ouvrir le panneau **Licences**. Ce panneau répertorie toutes les licences qui sont actuellement affectées à l’utilisateur. Dans cet exemple, l’utilisateur a hérité de la licence Office 365 Enterprise E1 du groupe **Kiosk users**. Cette licence est en conflit avec la licence E3 que le système a tenté d’appliquer à partir du groupe **HR Department**. Par conséquent, aucune des licences de ce groupe n’a été assignée à l’utilisateur.
+4. Sélectionnez un utilisateur pour ouvrir le volet **Licences**. Ce volet répertorie toutes les licences qui sont actuellement affectées à l’utilisateur. Dans cet exemple, l’utilisateur a hérité de la licence Office 365 Enterprise E1 du groupe **Kiosk users**. Cette licence est en conflit avec la licence E3 que le système a tenté d’appliquer à partir du groupe **HR Department**. Par conséquent, aucune des licences de ce groupe n’a été assignée à l’utilisateur.
 
    ![Afficher les licences pour un utilisateur](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 
@@ -100,7 +100,7 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 
    ![Licence affectée correctement](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des licences par le biais des groupes, consultez les articles suivants :
 

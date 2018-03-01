@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
-Les applications d'entreprise telles que SharePoint, Dynamics AX et SAP dépendent du bon fonctionnement d'Active Directory et de l'infrastructure DNS. Lorsque vous créez une solution de récupération d’urgence pour des applications, pour vous assurer que l’application fonctionne correctement, vous devez souvent récupérer Active Directory et DNS avant d’autres composants d’application.
 
-Vous pouvez utiliser Azure Site Recovery pour créer un plan de récupération d’urgence complet automatisé pour Active Directory. Quand une interruption se produit, vous pouvez déclencher un basculement en quelques secondes à partir de n’importe quel emplacement. Vous pouvez avoir un Active Directory opérationnel quelques minutes. Si vous avez déployé Active Directory pour plusieurs applications dans votre site principal, par exemple pour SharePoint et SAP, vous pouvez basculer le site complet. Vous commencer par basculer Active Directory à l’aide d’Azure Site Recovery. Basculez ensuite les autres applications à l’aide de plans de récupération spécifiques de celles-ci.
+Les applications d'entreprise telles que SharePoint, Dynamics AX et SAP dépendent du bon fonctionnement d'Active Directory et de l'infrastructure DNS. Lorsque vous configurez une récupération d’urgence pour des applications, pour vous assurer que l’application fonctionne correctement, vous devez souvent récupérer Active Directory et DNS avant d’autres composants d’application.
 
-Cet article explique comment créer une solution de récupération d’urgence pour Active Directory et effectuer des basculements à l’aide d’un plan de récupération d’urgence accessible en un clic, et décrit les configurations prises en charge et les conditions préalables. Avant de commencer, vous devez être capable d’utiliser Active Directory et Azure Site Recovery.
+Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une récupération d’urgence pour Active Directory. Quand une interruption se produit, vous pouvez déclencher un basculement. Vous pouvez avoir un Active Directory opérationnel quelques minutes. Si vous avez déployé Active Directory pour plusieurs applications dans votre site principal, par exemple pour SharePoint et SAP, vous pouvez basculer le site complet. Vous pouvez commencer par basculer Active Directory à l’aide de Site Recovery. Basculez ensuite les autres applications à l’aide des plans de récupération spécifiques à l’application.
 
-## <a name="prerequisites"></a>Conditions préalables
-* Un coffre Azure Recovery Services dans un abonnement Microsoft Azure.
-* Si vous répliquez vers Azure, [préparez](tutorial-prepare-azure.md) les ressources Azure. Les ressources incluent un abonnement Azure, une instance de réseau virtuel Azure et un compte de stockage Azure.
-* Examinez les spécifications de prise en charge de tous les composants.
+Cet article explique comment créer une solution de récupération d’urgence pour Active Directory. Il inclut les conditions préalables et les instructions de basculement. Avant de commencer, vous devez vous familiariser avec Active Directory et Site Recovery.
+
+## <a name="prerequisites"></a>configuration requise
+
+* Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
+* Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.
 
 ## <a name="replicate-the-domain-controller"></a>Répliquer le contrôleur de domaine
 
-Vous devez configurer la [réplication Azure Site Recovery](#enable-protection-using-site-recovery) sur au moins une machine virtuelle hébergeant un contrôleur de domaine ou DNS. Si vous avez [plusieurs contrôleurs de domaine](#environment-with-multiple-domain-controllers) dans votre environnement, vous devez également configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible. Le contrôleur de domaine supplémentaire peut être dans Azure ou dans un centre de données local secondaire.
+Vous devez configurer la [réplication Site Recovery](#enable-protection-using-site-recovery) sur au moins une machine virtuelle hébergeant un contrôleur de domaine ou DNS. Si vous avez [plusieurs contrôleurs de domaine](#environment-with-multiple-domain-controllers) dans votre environnement, vous devez également configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible. Le contrôleur de domaine supplémentaire peut être dans Azure ou dans un centre de données local secondaire.
 
-### <a name="single-domain-controller-environments"></a>Environnements avec un contrôleur domaine unique
+### <a name="single-domain-controller"></a>Contrôleur de domaine unique
 Si vous n’avez que quelques applications et un seul contrôleur de domaine, vous pouvez souhaiter basculer le site entier. Dans ce cas, nous vous recommandons d’utiliser Site Recovery pour répliquer le contrôleur de domaine sur le site cible (soit dans Azure, soit dans un centre de données local secondaire). Vous pouvez utiliser le même contrôleur de domaine répliqué ou une machine virtuelle de DNS pour [tester le basculement](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Environnement avec plusieurs contrôleurs de domaine
+### <a name="multiple-domain-controllers"></a>Contrôleurs de domaines multiples
 Si vous avez beaucoup d’applications et plus d’un contrôleur de domaine dans votre environnement, ou si vous envisagez de basculer plusieurs applications à la fois, outre la réplication de la machine virtuelle du contrôleur de domaine avec Site Recovery, nous vous recommandons de configurer un [contrôleur de domaine supplémentaire](#protect-active-directory-with-active-directory-replication) sur le site cible (soit dans Azure, soit dans un centre de données local secondaire). Pour [tester le basculement](#test-failover-considerations), vous pouvez utiliser le contrôleur de domaine répliqué par Site Recovery. Pour le basculement, vous pouvez utiliser le contrôleur de domaine supplémentaire sur le site cible.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Activer la protection à l’aide de Site Recovery
+## <a name="enable-protection-with-site-recovery"></a>Activer la protection à l'aide de Site Recovery
 
 Vous pouvez utiliser le Site Recovery pour protéger la machine virtuelle qui héberge le contrôleur de domaine ou le DNS.
 
-### <a name="protect-the-virtual-machine"></a>Protéger la machine virtuelle
+### <a name="protect-the-vm"></a>Protéger la machine virtuelle
 Le contrôleur de domaine répliqué à l’aide Site de Recovery est utilisé pour [tester le basculement](#test-failover-considerations). Assurez-vous qu’il présente la configuration requise suivante :
 
 1. Le contrôleur de domaine est un serveur de catalogue global.
 2. Le contrôleur de domaine doit être le propriétaire du rôle FSMO pour les rôles qui sont nécessaires pendant un test de basculement. Autrement, ces rôles doivent être [saisis](http://aka.ms/ad_seize_fsmo) après le basculement.
 
-### <a name="configure-virtual-machine-network-settings"></a>Configurer les paramètres réseau de la machine virtuelle
+### <a name="configure-vm-network-settings"></a>Configurer les paramètres des réseaux de machines virtuelles
 Pour la machine virtuelle hébergeant le contrôleur de domaine ou le DNS, dans Site Recovery, configurez les paramètres réseau sous les paramètres **Calcul et réseau** de l’ordinateur virtuel répliqué. Cela garantit que la machine virtuelle est attachée au réseau approprié après le basculement.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Protéger Active Directory avec la réplication Active Directory
+## <a name="protect-active-directory"></a>Protéger Active Directory
+
 ### <a name="site-to-site-protection"></a>Protection de site à site
 Créez un contrôleur de domaine sur le site secondaire. Lorsque vous allouez au serveur un rôle de contrôleur de domaine, spécifiez le nom du même domaine que celui utilisé sur le site principal. Vous pouvez utiliser le composant logiciel enfichable **Sites et services Active Directory** pour configurer les paramètres sur l'objet du lien de sites auquel les sites sont ajoutés. En configurant des paramètres sur un lien de sites, vous pouvez contrôler le moment auquel la réplication a lieu entre au moins deux sites, ainsi que sa fréquence. Pour plus d’informations, voir [Planification de la réplication entre sites](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ La plupart des applications nécessitent la présence d’un contrôleur de doma
 
 ### <a name="test-failover-to-a-secondary-site"></a>Tester le basculement vers un site secondaire
 
-1. Si vous répliquez sur un autre site local et utilisez le protocole DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Si vous répliquez sur un autre site local et utilisez le protocole DHCP, [configurez DNS et DHCP pour le test de basculement](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Effectuez un test de basculement de la machine virtuelle du contrôleur de domaine qui s’exécute dans le réseau isolé. Pour tester le basculement, utilisez le dernier point de récupération *cohérent par rapport à l’application* disponible de la machine virtuelle du contrôleur de domaine.
 3. Exécutez un test de basculement pour le plan de récupération contenant les machines virtuelles sur lesquelles l’application s’exécute.
 4. Une fois le test terminé, *nettoyez le test de basculement* sur la machine virtuelle du contrôleur de domaine. Cette étape supprime le contrôleur de domaine qui a été créé pour le test de basculement.

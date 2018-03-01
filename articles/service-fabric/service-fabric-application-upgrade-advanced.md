@@ -12,50 +12,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/5/2018
 ms.author: subramar;chackdan
-ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b0ca553fb96b0a54f3b76d306ed98d95026dcd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau d’une application Service Fabric : rubriques avancées
-## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Ajout ou suppression de services pendant la mise à niveau d'une application
-Si un service est ajouté à une application déjà déployée et publiée en tant que mise à niveau, le nouveau service est ajouté à l’application déployée.  Une telle mise à niveau n’affecte pas les services faisant déjà partie de l’application. Cependant, une instance du service ajouté doit être démarrée pour activer le nouveau service (à l’aide de l’applet de commande `New-ServiceFabricService` ).
+## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Ajout ou suppression de types de services pendant la mise à niveau d’une application
+Si un type de service est ajouté à une application publiée dans le cadre d’une mise à niveau, le nouveau type de service est ajouté à l’application déployée. Une telle mise à niveau n’affecte pas les instances de service qui faisaient déjà partie de l’application, mais une instance du type de service qui a été ajoutée doit être créée pour que le nouveau type de service soit actif (voir [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-Des services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances en cours du service à supprimer doivent être arrêtées avant de procéder à la mise à niveau (à l’aide de l’applet de commande `Remove-ServiceFabricService` ).
+De même, des types de services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances de service du type de service à supprimer doivent être supprimées avant de procéder à la mise à niveau (voir [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="manual-upgrade-mode"></a>Mode de mise à niveau manuelle
 > [!NOTE]
-> Le mode manuel non surveillé ne peut être envisagé que pour une mise à niveau ayant échoué ou suspendue. Le mode surveillé est le mode de mise à niveau recommandé pour les applications Service Fabric.
+> Le mode de mise à niveau *Monitored* est recommandé pour toutes les mises à niveau de Service Fabric.
+> Le mode de mise à niveau *UnmonitoredManual* doit uniquement être envisagé pour une mise à niveau ayant échoué ou suspendue. 
 >
 >
 
-Azure Service Fabric fournit plusieurs modes de mise à niveau pour prendre en charge les clusters de développement et de production. Les options de déploiement choisies peuvent être différentes pour différents environnements.
+En mode *Monitored*, Service Fabric applique des stratégies de contrôle d’intégrité pour s’assurer que l’application est saine au fil de l’avancement de la mise à niveau. En cas de non-respect des stratégies de contrôle d’intégrité, la mise à niveau est interrompue ou restaurée automatiquement en fonction de la valeur *FailureAction* spécifiée.
 
-La mise à niveau d’application propagée surveillée est la mise à niveau la plus courante à utiliser dans l’environnement de production. Quand la stratégie de mise à niveau est spécifiée, Service Fabric s'assure que l'application est saine avant que la mise à niveau ne se poursuive.
+En mode *UnmonitoredManual*, l’administrateur de l’application possède un contrôle total sur la progression de la mise à niveau. Ce mode est utile lorsque vous appliquez des stratégies d’évaluation de l’intégrité personnalisées ou lorsque vous effectuez des mises à niveau non conventionnelles pour contourner totalement la surveillance de l’intégrité (par exemple, si l’application présente déjà une perte de données). Une mise à niveau en cours d’exécution dans ce mode s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Lorsqu’une mise à niveau est interrompue et prête à être reprise par l’utilisateur, son état de mise à niveau sera *RollforwardPending* (voir [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
- L’administrateur d’application peut utiliser le mode de mise à niveau d’application propagée manuelle pour contrôler totalement la progression de la mise à niveau à travers les différents domaines de mise à niveau. Ce mode est utile lorsqu’une stratégie d’évaluation d’intégrité personnalisée ou complexe est nécessaire ou dans le cas d’une mise à niveau non conventionnelle (par exemple, l’application est déjà dans une situation de perte de données).
-
-Enfin, la mise à niveau d’application propagée automatisée permet aux environnements de développement ou de test de fournir un cycle d’itération rapide pendant le développement du service.
-
-## <a name="change-to-manual-upgrade-mode"></a>Passer en mode de mise à niveau manuelle
-**Mode manuel**: arrêter la mise à niveau de l’application au domaine de mise à niveau actuel et passer en mode de mise à niveau manuelle non surveillée. L’administrateur doit appeler manuellement **MoveNextApplicationUpgradeDomainAsync** pour procéder à la mise à niveau ou déclencher une restauration en initiant une nouvelle mise à niveau. Une fois que la mise à niveau est en mode manuel, elle demeure dans ce mode jusqu'à ce qu'une nouvelle mise à niveau soit initiée. La commande **GetApplicationUpgradeProgressAsync** renvoie FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
+Enfin, le mode *UnmonitoredAuto* est utile pour effectuer des itérations de mise à niveau rapides pendant le test ou le développement du service, car aucune entrée utilisateur n’est requise et aucune stratégie de contrôle d’intégrité d’application n’est évaluée.
 
 ## <a name="upgrade-with-a-diff-package"></a>Effectuer une mise à niveau avec un package différentiel
-Une application Service Fabric peut être mise à niveau via une mise en service avec un package d'application autonome et complet. Une application peut également être mise à niveau à l’aide d’un package différentiel qui contient uniquement les fichiers d’application mis à jour, les fichiers manifeste d’application mis à jour et manifeste de service.
+Au lieu d’approvisionner un package d’application complet, les mises à niveau peuvent également être effectuées en approvisionnant des packages différentiels qui contiennent uniquement les packages de code/configuration/données mis à jour, ainsi que l’intégralité du manifeste d’application complet et des manifestes de service. Il n’est pas nécessaire de disposer de packages d’application complets pour la première installation d’une application sur le cluster. Les mises à niveau suivantes peuvent se faire à partir de packages d’application complets ou différentiels.  
 
-Un package d'application complet contient tous les fichiers nécessaires pour démarrer et exécuter une application Service Fabric. Un package différentiel contient uniquement les fichiers qui ont changé entre la dernière mise en service et la mise à niveau actuelle, ainsi que les fichiers manifeste d’application et manifeste de service complets. Toute référence dans le manifeste d’application ou de service qui est introuvable dans la disposition de la build est recherchée dans le magasin d’images.
+Toute référence dans le manifeste d’application ou les manifestes de service à un package différentiel qui ne figure pas dans le package d’application est automatiquement remplacée par la version actuellement approvisionnée.
 
-Des packages d’application complets sont nécessaires pour la première installation d’une application sur le cluster. Les mises à jour suivantes peuvent être un package d'application complet ou un package différentiel.
+Les scénarios d’utilisation d’un package différentiel sont les suivants :
 
-Situations qui se prêtent à l'utilisation d'un package différentiel :
+* Quand vous disposez d’un package d’application volumineux qui référence plusieurs fichiers manifeste de service et/ou plusieurs packages de code, de configuration ou de données.
+* Quand vous disposez d’un système de déploiement qui génère la disposition de la build directement à partir de votre processus de génération d’application. Dans ce cas, même si le code n’a pas changé, les assemblys nouvellement générés obtiennent une somme de contrôle différente. Si vous utilisez un package d'application complet, vous devez mettre à jour la version installée sur tous les packages de code. Si vous utilisez un package différentiel, vous fournissez uniquement les fichiers qui ont changé et les fichiers manifeste dont la version a changé.
 
-* Un package différentiel est préférable quand vous disposez d’un package d’application volumineux qui référence plusieurs fichiers manifeste de service et/ou plusieurs packages de code, de configuration ou de données.
-* Un package différentiel est préférable quand vous disposez d’un système de déploiement qui génère la disposition de la build directement à partir de votre processus de génération d’application. Dans ce cas, même si le code n’a pas changé, les assemblys nouvellement générés obtiennent une somme de contrôle différente. Si vous utilisez un package d'application complet, vous devez mettre à jour la version installée sur tous les packages de code. Si vous utilisez un package différentiel, vous fournissez uniquement les fichiers qui ont changé et les fichiers manifeste dont la version a changé.
-
-Lorsqu'une application est mise à niveau à l'aide de Visual Studio, le package différentiel est automatiquement publié. Pour créer manuellement un package différentiel, le manifeste d’application et les manifestes de service doivent être mis à jour, mais seuls les packages modifiés doivent être inclus dans le package d’application final.
+Lorsqu’une application est mise à niveau à l’aide de Visual Studio, un package différentiel est automatiquement publié. Pour créer manuellement un package différentiel, le manifeste d’application et les manifestes de service doivent être mis à jour, mais seuls les packages modifiés doivent être inclus dans le package d’application final.
 
 Commençons par exemple par l'application suivante (numéros de version fournis pour faciliter la compréhension) :
 
@@ -69,7 +63,7 @@ app1           1.0.0
     config     1.0.0
 ```
 
-Supposons à présent que vous souhaitiez mettre à jour uniquement le package de code de service1 à l'aide d'un package différentiel avec PowerShell. À présent, votre application mise à jour présente la structure des dossiers suivante :
+Supposons que vous souhaitiez mettre à jour uniquement le package de code de service1 à l’aide d’un package différentiel. Votre application mise à jour présente les modifications de version suivantes :
 
 ```text
 app1           2.0.0      <-- new version
@@ -81,7 +75,7 @@ app1           2.0.0      <-- new version
     config     1.0.0
 ```
 
-Dans ce cas, vous mettez à jour le manifeste d'application à la version 2.0.0 ainsi que le manifeste de service pour service1 afin de refléter la mise à jour du package de code. La structure des dossiers de votre package d’application serait la suivante :
+Dans ce cas, vous mettez à jour le manifeste d’application à la version 2.0.0 ainsi que le manifeste de service pour service1 afin de refléter la mise à jour du package de code. La structure des dossiers de votre package d’application serait la suivante :
 
 ```text
 app1/
@@ -89,7 +83,17 @@ app1/
     code/
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+En d’autres termes, créez un package d’application complet normalement, puis supprimez tous les dossiers de packages de code/configuration/données pour lesquels la version n’a pas changé.
+
+## <a name="rolling-back-application-upgrades"></a>Restauration de mises à niveau d’application
+
+Tandis que les mises à niveau peuvent être restaurées par progression dans un des trois modes (*Monitored*, *UnmonitoredAuto* ou *UnmonitoredManual*), elles peuvent uniquement être restaurées en mode *UnmonitoredAuto* ou *UnmonitoredManual*. La restauration en mode *UnmonitoredAuto* fonctionne de la même façon que la restauration par progression, à la différence que la valeur par défaut de *UpgradeReplicaSetCheckTimeout* change (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)). La restauration en mode *UnmonitoredManual* fonctionne de la même façon que la restauration par progression : la restauration s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps).
+
+Les restaurations peuvent être déclenchées automatiquement lorsque les stratégies d’intégrité d’une mise à niveau en mode *Monitored* avec une valeur *FailureAction* définie sur *Rollback* sont enfreintes (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)) ou explicitement à l’aide de la commande [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+
+Pendant la restauration, la valeur *UpgradeReplicaSetCheckTimeout* et le mode peuvent être modifiés à tout moment à l’aide de la commande [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+
+## <a name="next-steps"></a>étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.

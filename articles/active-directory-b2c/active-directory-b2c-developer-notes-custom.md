@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notes de version pour la version préliminaire publique de la stratégie personnalisée Azure Active Directory B2C
 L’ensemble de fonctionnalités de stratégie personnalisée est désormais disponible à des fins d’évaluation en préversion publique pour tous les clients Azure Active Directory B2C (Azure AD B2C). Cet ensemble de fonctionnalités est destiné aux développeurs d’identité avancés créant les solutions d’identité les plus complexes.  
@@ -60,13 +60,13 @@ Afin de tirer pleinement parti de la préversion publique, nous suggérons aux d
 ## <a name="features-by-stage-and-known-issues"></a>Fonctionnalités par étape et problèmes connus
 Les fonctionnalités IEF et de stratégies personnalisées font l’objet d’un développement rapide et constant.  Le tableau ci-après indique la disponibilité des fonctionnalités/composants.
 
-Postez vos questions sur Stack Overflow à l’adresse [aka.ms/aadb2cso](http://aka.ms/aadb2cso).
+Publiez vos questions sur Stack Overflow à l’adresse [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso).
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Fournisseurs d’identité, jetons et protocoles
 Interfaces avec les applications et composants externes
 
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | Par exemple, Google+ |
 | IDP-OAUTH2 |  | x |  | Par exemple, Facebook  |
@@ -83,7 +83,7 @@ Interfaces avec les applications et composants externes
 ### <a name="component-support"></a>Prise en charge des composants
 
 
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |-------------------------------------------|-------------|---------|----|-------|
 | Azure Multi-Factor Authentication |  | x |  |  |
 | Azure Active Directory comme annuaire local |  | x |  |  |
@@ -94,7 +94,7 @@ Interfaces avec les applications et composants externes
 
 ### <a name="content-definition"></a>Définition du contenu
 
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   Page d’erreur, api.error |  | x |  |  |
 |   Page de sélection de fournisseurs d’identité, api.idpselections |  | x |  |  |
@@ -109,7 +109,7 @@ Interfaces avec les applications et composants externes
 
 
 ### <a name="app-ief-integration"></a>Intégration App-IEF
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Paramètre de chaîne de requête id_token_hint | x |  |  |  |
 | Paramètre de chaîne de requête domain_hint |  | x |  | Disponible comme revendication, peut être passé au fournisseurs d’identité |
@@ -120,7 +120,7 @@ Interfaces avec les applications et composants externes
 
 ### <a name="session-management"></a>Gestion des sessions
 
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |---------------------------------|-------------|---------|----|-------|
 | Fournisseur de session par authentification unique |  | x |  |  |
 | Fournisseur de session de connexion externe |  | x |  |  |
@@ -128,14 +128,14 @@ Interfaces avec les applications et composants externes
 
 
 ### <a name="security"></a>Sécurité
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Clés de stratégie : générer, manuel, charger |  | x |  |  |
 | Clés de stratégie : RSA/certificat, secrets |  | x |  |  |
 
 
 ### <a name="developer-interface"></a>Interface de développeur
-| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Remarques |
+| Fonctionnalité | Développement | VERSION PRÉLIMINAIRE | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Expérience utilisateur de l’infrastructure d’expérience d’identité dans le Portail Azure |  | x |  |  |
 | Journaux du parcours utilisateur Application Insights  |  | x |  |  |
@@ -143,5 +143,5 @@ Interfaces avec les applications et composants externes
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).

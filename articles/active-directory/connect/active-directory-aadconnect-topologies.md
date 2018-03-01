@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -114,7 +114,7 @@ Certaines charges de travail Office 365 ont certaines restrictions quant aux to
 | Exchange Online | Pour plus d’informations sur les topologies hybrides prises en charge par Exchange Online, consultez [Déploiements hybrides avec plusieurs forêts Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype Entreprise | Lorsque vous utilisez plusieurs forêts locales, seule la topologie de forêt de ressources de comptes est prise en charge. Pour plus d’informations, consultez la rubrique [Configuration environnementale pour Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
-Si vous êtes une plus grande organisation, vous devez envisager d’utiliser la fonctionnalité [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md). Elle vous permet de définir dans quelle région de centre de données les ressources de l’utilisateur se trouvent.
+Si vous êtes une plus grande organisation, vous devez envisager d’utiliser la fonctionnalité [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md). Elle vous permet de définir la région de centre de données dans laquelle se trouvent les ressources de l’utilisateur.
 
 ## <a name="staging-server"></a>Serveur de test
 ![Serveur intermédiaire dans une topologie](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

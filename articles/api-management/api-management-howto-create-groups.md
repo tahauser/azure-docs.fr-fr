@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f4e1f8a701b5584138b92526e0e65e28d45e7c04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
 Dans Gestion des API, les groupes permettent de gérer la visibilité des produits pour les développeurs. Les produits sont d'abord visibles pour les groupes. Les développeurs de ces groupes peuvent afficher les produits associés aux groupes et s'y abonner. 
@@ -34,7 +34,7 @@ Ce guide explique comment les administrateurs de l'instance Gestion des API peuv
 
 En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx) de l’API REST de gestion des API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
@@ -49,7 +49,7 @@ Cette section montre comment ajouter un nouveau groupe à votre compte Gestion d
 3. Entrez un nom unique pour le groupe, et éventuellement une description.
 4. Appuyez sur **Créer**.
 
-    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups001.png)
+    ![Ajouter un groupe](./media/api-management-howto-create-groups/groups001.png)
 
 Une fois le groupe créé, il est ajouté à la liste **Groupes**. <br/>Pour modifier le **nom** ou la **description** du groupe, cliquez sur le nom du groupe, puis sur **Paramètres**.<br/>Pour supprimer le groupe, cliquez sur son nom, puis appuyez sur **Supprimer**.
 
@@ -62,10 +62,10 @@ Maintenant que le groupe est créé, il peut être associé à des produits et d
 3. Appuyez sur **Contrôle d’accès**.
 4. Cliquez sur **+ Ajouter un groupe**.
 
-    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups002.png)
+    ![Associer un groupe à un produit](./media/api-management-howto-create-groups/groups002.png)
 5. Sélectionnez le groupe que vous souhaitez ajouter.
 
-    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups003.png)
+    ![Associer un groupe à un produit](./media/api-management-howto-create-groups/groups003.png)
 
     Pour supprimer un groupe du produit, cliquez sur **Supprimer**.
 
@@ -89,10 +89,10 @@ Cette section montre comment associer des groupes à des membres.
     ![Ajouter un membre](./media/api-management-howto-create-groups/groups006.png)
 4. Appuyez sur **Sélectionner**.
 
-
 Une fois l’association entre le développeur et le groupe ajoutée, vous pouvez la consulter dans l’onglet **Utilisateurs** .
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Une fois le développeur ajouté à un groupe, il peut voir tous les produits associés à ce groupe et s'y abonner. Pour plus d’informations, consultez la page [Création et publication d’un produit dans Gestion des API Azure][How create and publish a product in Azure API Management].
 * En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx) de l’API REST de gestion des API.
 

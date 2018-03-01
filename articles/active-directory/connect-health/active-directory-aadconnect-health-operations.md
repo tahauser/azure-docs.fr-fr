@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -42,6 +42,9 @@ Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie d
 
 ## <a name="delete-a-server-or-service-instance"></a>Supprimer une instance de serveur ou de service
 
+>[!NOTE] 
+> La procédure de suppression requiert une licence Azure AD Premium.
+
 Dans certains cas, vous pouvez souhaiter retirer un serveur de la surveillance. Voici ce que vous devez savoir pour supprimer un serveur du service Azure AD Connect Health.
 
 Quand vous supprimez un serveur, tenez compte des points suivants :
@@ -51,7 +54,11 @@ Quand vous supprimez un serveur, tenez compte des points suivants :
 * Cette action ne supprime pas les données déjà collectées à partir de ce serveur. Les données sont supprimées conformément à la stratégie de rétention de données Azure.
 * Après avoir effectué cette opération, si vous souhaitez recommencer à surveiller le même serveur, vous devez désinstaller puis réinstaller l’agent d’intégrité sur ce serveur.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Pour supprimer un serveur du service Azure AD Connect Health
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Supprimer un serveur du service Azure AD Connect Health
+
+>[!NOTE] 
+> La procédure de suppression requiert une licence Azure AD Premium.
+
 Azure AD Connect Health pour les services de fédération Active Directory (ADFS) et Azure AD Connect (Synchronisation) :
 
 1. Sélectionnez le nom du serveur à supprimer afin d’ouvrir le panneau **Serveur** du panneau **Liste des services**.
@@ -133,7 +140,7 @@ Les utilisateurs et les groupes répertoriés ont désormais accès, en fonction
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Étape 3 : Partager l’emplacement du panneau avec des utilisateurs ou des groupes
-1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à [cette adresse](http://aka.ms/aadconnecthealth).
+1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à [cette adresse](https://aka.ms/aadconnecthealth).
 2. Dans le panneau, l’utilisateur peut épingler le panneau (ou différentes parties de celui-ci) au tableau de bord. Il suffit de cliquer sur l’icône **Épingler au tableau de bord**.<br>
    ![Capture d’écran du panneau de contrôle d’accès en fonction du rôle d’Azure AD Connect Health, avec l’icône d’épinglage mise en surbrillance](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
@@ -148,7 +155,7 @@ Vous pouvez supprimer un utilisateur ou un groupe ajouté au contrôle d’accè
 
 [//]: # (End of RBAC section)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installation de l’agent Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
