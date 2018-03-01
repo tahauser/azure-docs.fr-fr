@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses IP publiques accessibles en externe affectées à un petit ensemble de services Azure Stack et, éventuellement, à des machines virtuelles clientes. Des certificats pour infrastructure à clé publique avec des noms DNS appropriés pour ces points de terminaison d’infrastructure publique Azure Stack sont requis pendant le déploiement Azure Stack. Cet article fournit des informations sur :
@@ -33,7 +33,7 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 La liste suivante décrit les exigences de certificat nécessaires pour déployer Azure Stack : 
 - Les certificats doivent être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, elle doit être incluse dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. Vous trouverez ici la liste complète : https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Le certificat peut être un certificat générique unique couvrant tous les espaces de noms dans le champ Autre nom de l’objet. Vous pouvez également utiliser des certificats individuels utilisant des caractères génériques pour des points de terminaison tels que le stockage et le coffre de clés dans lequel ils sont requis. 
+- Le certificat peut être un certificat générique unique couvrant tous les espaces de noms dans le champ Autre nom de l’objet. Vous pouvez également utiliser des certificats individuels utilisant des caractères génériques pour des points de terminaison tels que ACS et le coffre de clés dans lequel ils sont nécessaires. 
 - L’algorithme de signature de certificat ne peut pas être SHA1, car il doit être plus sécurisé. 
 - Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. 
 - Les fichiers pfx de certificat doivent avoir une valeur « Signature numérique » et « KeyEncipherment » dans le champ « Utilisation de la clé ».

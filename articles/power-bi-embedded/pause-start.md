@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Suspendre et démarrer une capacité Power BI Embedded sur le Portail Azure
 
@@ -35,9 +35,9 @@ La suspension de la capacité permet d’éviter d’être facturé. C’est id�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Plus de services** > **Power BI Embedded** pour voir vos capacités.
+2. Sélectionnez **Tous les services** > **Power BI Embedded** pour voir vos capacités.
 
-    ![Plus de services sur le Portail Azure](media/pause-start/azure-portal-more-services.png)
+    ![Tous les services dans le portail Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Sélectionnez la capacité que vous souhaitez suspendre.
 
@@ -57,9 +57,9 @@ Retrouvez l’usage de votre capacité en la démarrant. Le démarrage de la cap
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Plus de services** > **Power BI Embedded** pour voir vos capacités.
+2. Sélectionnez **Tous les services** > **Power BI Embedded** pour voir vos capacités.
 
-    ![Plus de services sur le Portail Azure](media/pause-start/azure-portal-more-services.png)
+    ![Tous les services dans le portail Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Sélectionnez la capacité que vous souhaitez démarrer.
 
@@ -75,7 +75,7 @@ Retrouvez l’usage de votre capacité en la démarrant. Le démarrage de la cap
 
 Si du contenu est affecté à cette capacité, il sera disponible après le démarrage.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Si vous souhaitez monter ou descendre en puissance votre capacité, consultez la page [Mettre à l’échelle une capacité Power BI Embedded](scale-capacity.md).
 

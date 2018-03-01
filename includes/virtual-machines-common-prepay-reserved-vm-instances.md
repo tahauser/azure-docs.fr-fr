@@ -8,7 +8,7 @@ Vous pouvez acheter des instances de machines virtuelles réservées sur le [por
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Acheter une instance de machine virtuelle réservée
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Autres services** > **Réservations**.
+2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez **Ajouter** pour acheter une nouvelle réservation.
 4. Renseignez les champs obligatoires. Les instances de machines virtuelles en cours d’exécution qui correspondent aux attributs que vous sélectionnez se qualifient pour bénéficier de la remise de réservation. Le nombre réel de vos instances de machines virtuelles qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
 

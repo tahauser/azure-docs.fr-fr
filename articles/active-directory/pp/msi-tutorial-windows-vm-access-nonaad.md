@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6730679f055dd0ccbb32e4185e4bfcae9cd49d41
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 151a0a1fee72c7bd7adcda8e23ebb06d96e822ae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure Key Vault 
 
@@ -48,7 +48,7 @@ Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](ht
 
 Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
 
-1.  Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1.  Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
 3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
 4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.

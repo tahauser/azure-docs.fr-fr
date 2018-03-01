@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Créer une capacité Power BI Embedded dans le portail Azure
 
@@ -41,7 +41,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **+ (Nouveau)** > **Données + Analytique**.
+2. Sélectionnez **Créer une ressource** > **Données + Analytique**.
 
 3. Dans la zone de recherche, recherchez *Power BI Embedded*.
 
@@ -51,27 +51,27 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
     ![Champs à renseigner pour créer une nouvelle capacité](media/create-capacity/azure-portal-create-power-bi-embedded.png)
 
-    |Paramètre |Description |
+    |Paramètre |DESCRIPTION |
     |---------|---------|
     |**Nom de la ressource**|Nom destiné à identifier la capacité. Le nom de la ressource est affiché dans le portail d’administration Power BI et dans le portail Azure.|
     |**Abonnement**|L’abonnement dans lequel vous souhaitez créer la capacité.|
     |**Groupe de ressources**|Le groupe de ressources qui contient cette nouvelle capacité. Choisissez un groupe de ressources existant ou créez-en un. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).|
     |**Administrateur de capacité Power BI**|Les administrateurs de capacité Power BI peuvent afficher la capacité dans le portail d’administration Power BI et accorder des autorisations d’affectation à d’autres utilisateurs. Par défaut, l’administrateur de la capacité correspond à votre compte. L’administrateur de capacité doit se trouver dans votre locataire Power BI.|
-    |**Emplacement**|L’emplacement où Power BI est hébergé pour votre locataire. Ce paramètre est résolu automatiquement, il est impossible de sélectionner un emplacement différent.|
+    |**Lieu**|L’emplacement où Power BI est hébergé pour votre locataire. Ce paramètre est résolu automatiquement, il est impossible de sélectionner un emplacement différent.|
     |**Niveau tarifaire**|Sélectionnez la référence SKU (taille de mémoire et nombre v-core) qui répond à vos besoins.  Pour plus de détails, consultez [Tarification de Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded/)|
 
 6. Sélectionnez **Créer**.
 
-La création prend généralement moins d’une minute, souvent quelques secondes seulement. Si vous avez sélectionné **Épingler au tableau de bord**, accédez à votre tableau de bord pour afficher la nouvelle capacité. Ou, accédez à **Plus de services** > **Power BI Embedded** pour voir si la capacité est prête.
+La création prend généralement moins d’une minute, souvent quelques secondes seulement. Si vous avez sélectionné **Épingler au tableau de bord**, accédez à votre tableau de bord pour afficher la nouvelle capacité. Ou accédez à **Tous les services** > **Power BI Embedded** pour voir si votre capacité est prête.
 
 ![Tableau de bord du portail Azure avec capacité Power BI Embedded](media/create-capacity/azure-portal-dashboard.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour utiliser la nouvelle capacité Power BI Embedded, accédez au portail d’administration Power BI pour affecter des espaces de travail. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
 Si vous n’avez pas besoin d’utiliser cette capacité, suspendez-la pour arrêter la facturation. Pour plus d’informations, consultez [Pause and start your Power BI Embedded capacity in the Azure portal](pause-start.md) (Suspendre et démarrer votre capacité Power BI Embedded dans le portail Azure).
 
-Pour commencer l’intégration de contenu Power BI dans votre application, consultez [Comment incorporer vos tableaux de bord, rapports et vignettes Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
+Pour commencer l’incorporation de contenus Power BI dans une application, consultez la page [Guide pratique pour incorporer vos tableaux de bord, rapports et vignettes Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
-Des questions ? [Essayer d’interroger la communauté Power BI](http://community.powerbi.com/)
+Des questions ? [Essayer d’interroger la Communauté Power BI](http://community.powerbi.com/).

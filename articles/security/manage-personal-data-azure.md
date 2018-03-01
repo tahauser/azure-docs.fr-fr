@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Gérer les données personnelles dans Microsoft Azure
 
@@ -38,7 +38,7 @@ Parmi les différents services qu’elle propose, l’entreprise assure le suivi
 
 - Les administrateurs de données doivent pouvoir exporter les données et les fournir dans un format courant et structuré à la personne concernée qui en fait la demande.
 
-## <a name="company-goals"></a>Objectifs de l’entreprise
+## <a name="company-goals"></a>Objectifs de la société
 
 - Les informations inexactes ou incomplètes sur les clients, les invités du mariage, les employés et les fournisseurs doivent être corrigées ou mises à jour dans Azure Active Directory et Azure SQL Database.
 
@@ -46,7 +46,7 @@ Parmi les différents services qu’elle propose, l’entreprise assure le suivi
 
 - Les données personnelles doivent pouvoir être exportées dans un format commun et structuré à la demande de la personne concernée.
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 ### <a name="azure-active-directory-rectifycorrect-inaccurate-or-incomplete-personal-data-and-erasedelete-personal-datauser-profiles"></a>Azure Active Directory : rectifier/corriger des données personnelles inexactes ou incomplètes et effacer/supprimer des données personnelles/profils utilisateur
 
@@ -59,7 +59,7 @@ Vous devez vous connecter avec un compte d’administrateur général de l’ann
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Tous les services**, entrez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
     ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
@@ -83,7 +83,7 @@ Vous devez vous connecter avec un compte d’administrateur général de l’ann
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+2. Sélectionnez **Tous les services**, entrez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
     ![](media/manage-personal-data-azure/image001.png)
 

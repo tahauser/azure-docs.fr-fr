@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Protéger les données personnelles avec les fonctionnalités de sécurité réseau : Azure Application Gateway et groupes de sécurité réseau
 
@@ -43,7 +43,7 @@ La compagnie doit protéger la confidentialité des données personnelles des cl
 
 L’objectif de la compagnie est de veiller à ce qu’aucune personne non autorisée ne puisse accéder aux réseaux virtuels Azure d’entreprise et aux applications et données qui y résident en exploitant des vulnérabilités courantes. 
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 Microsoft Azure fournit des mécanismes de sécurité pour empêcher le trafic indésirable d’entrer sur les réseaux virtuels Azure. Le contrôle du trafic entrant et sortant est généralement effectué par des pare-feu. Dans Azure, vous pouvez utiliser Application Gateway avec le pare-feu d’applications web et les groupes de sécurité réseau (NSG), qui agissent en tant que pare-feu distribué simple. Ces outils vous permettent de détecter et bloquer le trafic réseau indésirable.
 
@@ -59,18 +59,9 @@ Vous pouvez créer une passerelle d’application avec WAF ou ajouter WAF à une
 
 Pour créer une nouvelle passerelle d’application avec WAF activé, procédez comme suit :
 
-1. Connectez-vous au portail Azure et dans le volet **Favoris**, cliquez sur **Nouveau**.
-
-2. Dans le panneau **Nouveau**, cliquez sur **Mise en réseau**.
-
-3. Cliquez sur **Application Gateway**.
-
-4. Accédez au portail Azure, **cliquez sur Nouveau \> Mise en réseau \> Application Gateway.**
-
-   ![création de passerelles d’application](media/protect-netsec/app-gateway-01.png)
-
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Application Gateway**.
 5. Dans le panneau **Concepts de base** qui s’affiche, entrez des valeurs dans les champs suivants : Nom, Niveau (Standard ou WAF), Taille de la référence (SKU) (Petite, Moyenne ou Grande), Nombre d’instances (2 pour la haute disponibilité), Abonnement, Groupe de ressources et Emplacement.
-
 6. Dans le panneau **Paramètres** qui s’affiche sous **Réseau virtuel**, cliquez sur **Choisir un réseau virtuel**. Vous accédez alors au panneau Choisir un réseau virtuel.
 
 7. Cliquez sur **Créer un nouveau** pour ouvrir le panneau **Créer un réseau virtuel**.
@@ -126,7 +117,7 @@ Pour plus d’informations sur la planification et l’implémentation des NSG, 
 
 Pour créer des règles de trafic entrant dans un NSG existant, procédez comme suit :
 
-1. Cliquez sur **Parcourir**, puis sur **Groupes de sécurité réseau**.
+1. Cliquez sur **Tous les services**, puis sur **Groupes de sécurité réseau**.
 
 2. Dans la liste des NSG, cliquez sur **NSG-FrontEnd**, puis **Règles de sécurité de trafic entrant.**
 
@@ -140,7 +131,7 @@ Après quelques secondes, la nouvelle règle s’affiche dans le NSG.
 
 Pour obtenir des instructions sur la manière de créer des NSG dans des sous-réseaux, de créer des règles et d’associer un NSG à un sous-réseau frontal et principal, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Sécurité du réseau Azure](https://azure.microsoft.com/blog/azure-network-security/)
 

@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9d6ecd53fc034fd7014b17c98f1c5a99088723fe
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec T-SQL
 
-Mettez à l’échelle le calcul dans Azure SQL Data Warehouse à l’aide de T-SQL et de SQL Server Management Studio (SSMS). Montez en puissance le calcul pour obtenir de meilleures performances, ou réduisez-le pour diminuer les coûts. 
+Mettez à l’échelle le calcul dans Azure SQL Data Warehouse à l’aide de T-SQL et de SQL Server Management Studio (SSMS). [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -88,7 +88,7 @@ Pour afficher les unités DWU actuelles de votre entrepôt de données :
 
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
-Dans SQL Data Warehouse, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités de l’entrepôt de données. [Créer et connecter - portail](create-data-warehouse-portal.md) a créé **mySampleDataWarehouse** et l’a initialisé avec 400 DWU. Les étapes suivantes ajustent les DWU pour **mySampleDataWarehouse**.
+Dans SQL Data Warehouse, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités Data Warehouse Unit. Le guide [Créer et connecter – Portail](create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU de **mySampleDataWarehouse**.
 
 Pour modifier les DWU :
 
@@ -130,7 +130,7 @@ AND
 
 
 ## <a name="next-steps"></a>étapes suivantes
-Vous avez appris à mettre à l’échelle le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
+Vous savez maintenant mettre à l’échelle le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
 
 > [!div class="nextstepaction"]
 >[Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

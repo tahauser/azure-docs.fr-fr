@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -92,7 +92,7 @@ Pour l’authentification avec l’authentification intégrée, vous devez autor
 
 Une fois que vous avez [inscrit votre application](#register-your-application-with-an-azure-ad-tenant), procédez comme suit dans le portail Azure pour lui accorder l’accès au service Batch :
 
-1. Dans le volet de navigation de gauche du portail Azure, choisissez **Plus de services**, cliquez sur **Inscriptions d’application**.
+1. Dans le volet de navigation de gauche du portail Azure, choisissez **Tous les services**. Cliquez sur **Inscriptions des applications**.
 2. Recherchez le nom de votre application dans la liste des inscriptions d’application :
 
     ![Rechercher le nom de votre application](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Lorsque votre application s’authentifie avec un service principal, elle envoie
 
 Suivez les étapes ci-dessous dans le portail Azure :
 
-1. Dans le volet de navigation de gauche du portail Azure, choisissez **Plus de services**, cliquez sur **Inscriptions d’application**.
+1. Dans le volet de navigation de gauche du portail Azure, choisissez **Tous les services**. Cliquez sur **Inscriptions des applications**.
 2. Recherchez le nom de votre application dans la liste des inscriptions d’application.
 3. Affichez le panneau **Paramètres**. Dans la section **Accès API**, sélectionnez **Clés**.
 4. Pour créer une clé, entrez une description de la clé. Sélectionnez ensuite la durée de la clé, un ou deux ans. 

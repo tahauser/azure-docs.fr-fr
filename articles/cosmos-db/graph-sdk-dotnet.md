@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API Graph .NET Azure Cosmos DB : Télécharger et notes de publication
 
@@ -25,12 +25,14 @@ ms.lasthandoff: 12/11/2017
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://aka.ms/acdbgraphnuget)|
 |**Documentation de l’API**|[Documentation de référence sur l’API .NET](https://aka.ms/acdbgraphapiref)|
-|**Démarrage rapide**|[Azure Cosmos DB : Créer une application graphique à l’aide de .NET et de l’API Graph](create-graph-dotnet.md)|
+|**Démarrage rapide**|[Azure Cosmos DB : Créer une application de graphe à l’aide de .NET et de l’API Graph](create-graph-dotnet.md)|
 |**Didacticiel**|[Azure Cosmos DB : Créer un conteneur avec l’API Graph](tutorial-develop-graph-dotnet.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 
 ## <a name="release-notes"></a>Notes de publication
+
+Nous vous recommandons d’utiliser Gremlin.Net, le pilote open source Gremlin pour .NET. Pour plus d’informations, consultez [Azure Cosmos DB : Créer une application de graphe à l’aide de .NET et de l’API Graph](create-graph-dotnet.md).
 
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-préversion
 

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilisation de l’émulateur Azure Cosmos DB pour le développement local et le test
 
@@ -74,7 +74,7 @@ L’émulateur Azure Cosmos DB étant un environnement émulé exécuté sur une
 * L’émulateur Azure Cosmos DB ne simule pas différents [niveaux de cohérence Azure Cosmos DB](consistency-levels.md).
 * L’émulateur Azure Cosmos DB ne simule pas la [réplication dans plusieurs régions](distribute-data-globally.md).
 * L’émulateur Azure Cosmos DB ne prend pas en charge les substitutions de quota de service disponibles dans le service Azure Cosmos DB (par exemple, les limites de taille de document ou l’augmentation du stockage d’une collection partitionnée).
-* Votre copie de l’émulateur Azure Cosmos DB n’a peut-être pas été mise à jour avec les dernières modifications apportées au service Azure Cosmos DB, donc veuillez consulter la section [Planificateur de capacité Azure Cosmos DB](https://www.documentdb.com/capacityplanner) pour évaluer avec précision les besoins de débit de production (RU) de votre application.
+* Votre copie de l’émulateur Azure Cosmos DB n’a peut-être pas été mise à jour avec les dernières modifications apportées au service Azure Cosmos DB. Nous vous conseillons donc de consulter la section [Planificateur de capacité Azure Cosmos DB](https://www.documentdb.com/capacityplanner) pour évaluer avec précision les besoins en débit de production (RU) de votre application.
 
 ## <a name="system-requirements"></a>Conditions requises pour le système
 L’émulateur Azure Cosmos DB nécessite la configuration matérielle et logicielle suivante :
@@ -194,6 +194,11 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
+<tr>
+  <td>GetStatus</td>
+  <td>Permet d’obtenir l’état de l’émulateur Azure Cosmos DB. L’état est indiqué par le code de sortie : 1 = démarrage, 2 = exécution, 3 = arrêté. Un code de sortie négatif indique qu’une erreur s’est produite. Aucune autre sortie n’est générée.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
 <tr>
   <td>Shutdown</td>
   <td>Arrête l’émulateur Azure Cosmos DB.</td>
@@ -318,6 +323,40 @@ Pour modifier le nombre de collections disponibles dans l’émulateur Azure Cos
 4. Installez la dernière version de [l’émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 5. Lancez l’émulateur avec l’indicateur PartitionCount en définissant une valeur <= 250. Par exemple : `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
+## <a name="controlling-the-emulator"></a>Contrôle de l’émulateur
+
+L’émulateur est fourni avec un module PowerShell pour le démarrage, l’arrêt, la désinstallation et la récupération de l’état du service. Pour l’utiliser :
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+Sinon, placez le répertoire `PSModules` dans votre `PSModulesPath`, puis importez-le de la manière suivante :
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+Voici un récapitulatif des commandes permettant de contrôler l’émulateur à partir de PowerShell :
+
+### `Get-CosmosDbEmulatorStatus`
+
+Retourne l’une de ces valeurs ServiceControllerStatus : ServiceControllerStatus.StartPending, ServiceControllerStatus.Running ou ServiceControllerStatus.Stopped.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+Démarre l’émulateur. Par défaut, la commande attend que l’émulateur soit prêt à accepter les requêtes. Utilisez l’option -NoWait si vous souhaitez que l’applet de commande soit retournée dès le démarrage de l’émulateur.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+Arrête l’émulateur. Par défaut, cette commande attend que l’émulateur soit complètement arrêté. Utilisez l’option -NoWait si vous souhaitez que l’applet de commande soit retournée dès le début du processus d’arrêt de l’émulateur.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+Désinstalle l’émulateur et supprime éventuellement l’intégralité du contenu de $env:LOCALAPPDATA\CosmosDbEmulator.
+L’applet de commande garantit que l’émulateur est arrêté avant d’être désinstallé.
+
 ## <a name="running-on-docker"></a>Exécution sur Docker
 
 L’émulateur Azure Cosmos DB peut être exécuté sur Docker pour Windows. L’émulateur ne fonctionne pas sur Docker pour Oracle Linux.
@@ -416,7 +455,29 @@ Pour collecter des traces de débogage, exécutez les commandes suivantes à par
 
 Pour connaître le numéro de version, cliquez avec le bouton droit sur l’icône de l’émulateur local dans la barre des tâches, puis cliquez sur l’élément de menu À propos.
 
-### <a name="120-released-on-january-26-2018"></a>Version 1.20 publiée le 26 janvier 2018
+### <a name="1201084-released-on-february-14-2018"></a>Version : 1.20.108.4 publiée le 14 février 2018
+
+Cette version contient une nouvelle fonctionnalité et deux correctifs de bogues. Merci aux utilisateurs qui nous ont permis de trouver et de corriger ces problèmes.
+
+#### <a name="bug-fixes"></a>Résolution des bogues
+
+1. L’émulateur fonctionne désormais sur les ordinateurs ayant 1 ou 2 cœurs (ou unités centrales virtuelles).
+
+   Cosmos DB alloue des tâches pour effectuer divers services. Le nombre de tâches allouées est un multiple du nombre de cœurs présents sur l’hôte. Le multiple par défaut fonctionne bien dans les environnements de production comprenant un nombre élevé de cœurs. Toutefois, sur les ordinateurs équipés d’un ou deux processeurs, aucune tâche n’est allouée pour exécuter ces services lorsque ce multiple est appliqué.
+
+   Nous avons corrigé ce problème en remplaçant la configuration de l’émulateur. Nous appliquons désormais un multiple de 1. Le nombre de tâches allouées pour exécuter divers services est désormais égal au nombre de cœurs présents sur l’hôte.
+
+   Il s’agissait de notre priorité pour cette version. Nous avons découvert que de nombreux environnements de développement et de test hébergeant l’émulateur comprennent un ou deux cœurs.
+
+2. L’émulateur ne nécessite plus l’installation du package redistribuable Microsoft Visual C++ 2015.
+
+   Nous avons constaté que les nouvelles installations de Windows (poste de travail et serveur) n’incluent pas ce package redistribuable. Par conséquent, les binaires du package redistribuable sont désormais fournis avec l’émulateur.
+
+#### <a name="features"></a>Caractéristiques
+
+De nombreux utilisateurs nous ont rapporté leur souhait de pouvoir ajouter des scripts à l’émulateur. Nous avons donc ajouté à cette version la capacité d’ajout de script. L’émulateur inclut désormais un module PowerShell qui lui permet de démarrer, de s’arrêter, d’obtenir son état et de se désinstaller : `Microsoft.Azure.CosmosDB.Emulator`. 
+
+### <a name="120911-released-on-january-26-2018"></a>Version 1.20.91.1 publiée le 26 janvier 2018
 
 * Activation du pipeline d’agrégation MongoDB par défaut.
 

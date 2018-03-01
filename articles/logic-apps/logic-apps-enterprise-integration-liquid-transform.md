@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Effectuer des transformations JSON avancées avec un modèle Liquid
 
@@ -27,7 +27,7 @@ Azure Logic Apps prend en charge les transformations JSON de base par le biais d
  
 Dans cet article, vous allez découvrir comment utiliser un mappage ou un modèle Liquid qui prend en charge des transformations JSON plus complexes (itérations, flux de contrôle, variables, et ainsi de suite). Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un mappage Liquid et le stocker dans votre compte d’intégration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -110,7 +110,46 @@ Dans cet article, vous allez découvrir comment utiliser un mappage ou un modèl
 
 Publiez l’entrée JSON sur votre application logique à partir de [Postman](https://www.getpostman.com/postman) ou d’un outil similaire. La sortie JSON transformée à partir de votre application logique ressemble à ceci :
   
-![Exemple de sortie](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Exemple de sortie](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Autres exemples d’actions Liquid
+Liquid n’est pas limité aux transformations JSON. Voici d’autres actions de transformation disponibles qui utilisent Liquid.
+
+* Transformer du JSON en texte
+  
+  Voici le modèle Liquid utilisé pour cet exemple :
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Voici des exemples d’entrée et de sortie :
+  
+   ![Exemple de sortie JSON en texte](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Transformer du XML en JSON
+  
+  Voici le modèle Liquid utilisé pour cet exemple :
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Voici des exemples d’entrée et de sortie :
+
+   ![Exemple de sortie XML en JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Transformer du XML en texte
+  
+  Voici le modèle Liquid utilisé pour cet exemple :
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Voici des exemples d’entrée et de sortie :
+
+   ![Exemple de sortie XML en texte](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>étapes suivantes
 

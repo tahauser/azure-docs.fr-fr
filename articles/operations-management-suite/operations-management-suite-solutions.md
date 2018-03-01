@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Utilisation des solutions de gestion Azure (préversion)
 > [!NOTE]
@@ -36,7 +36,7 @@ Il existe plusieurs méthodes de localisation et d’installation de solutions d
 Les solutions de gestion fournies par Microsoft et les partenaires approuvés peuvent être installées à partir de la Place de marché Azure, dans le Portail Azure.
 
 1. Connectez-vous au portail Azure.
-2. Dans le volet gauche, sélectionnez **Autres services**.
+2. Dans le volet gauche, sélectionnez **Tous les services**.
 3. Faites défiler la liste jusqu’à **Solutions**, ou bien tapez *solutions* dans la boîte de dialogue **Filtre**.
 4. Cliquez sur le bouton **+ Ajouter** .
 5. Recherchez les solutions qui vous intéressent en parcourant la liste, en cliquant sur le bouton **Filtre**, ou encore en tapant dans la boîte **Rechercher partout**.
@@ -92,7 +92,7 @@ Vous pouvez vérifier le lien entre un espace de travail Log Analytics et un com
 Utilisez la procédure suivante pour afficher les solutions de gestion des espaces de travail liés à votre abonnement Azure.
 
 1. Connectez-vous au portail Azure.
-2. Dans le volet gauche, sélectionnez **Plus de services**.
+2. Dans le volet gauche, sélectionnez **Tous les services**.
 3. Faites défiler la liste jusqu’à **Solutions**, ou bien tapez *solutions* dans la boîte de dialogue **Filtre**.
 4. Les solutions installées dans tous vos espaces de travail sont listées.
 
@@ -108,7 +108,7 @@ Lorsqu’une solution de gestion est supprimée, toutes les ressources de la sol
 ## <a name="creating-a-management-solution"></a>Création d’une solution de gestion
 Une aide complète à la création de solutions de gestion est disponible dans [Création de solutions dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
 * Créez vos propres [solutions de gestion](operations-management-suite-solutions-creating.md).
 

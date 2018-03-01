@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Connexion à des sources de données locales à partir d’applications logiques avec la passerelle de données locale
 
@@ -58,26 +58,24 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 * L’installation de votre passerelle ne peut pas être revendiquée par une autre ressource de passerelle Azure. Vous ne pouvez associer l’installation de votre passerelle qu’à une seule ressource de passerelle. Une revendication se produit lorsque vous créez la ressource de passerelle de façon à ce que l’installation soit indisponible pour d’autres ressources.
 
-* La passerelle de données locale s’exécute comme un service Windows et est configurée pour utiliser `NT SERVICE\PBIEgwService` pour les informations d’identification de connexion au service Windows. Pour créer et gérer les ressources de la passerelle dans le portail Azure, le [compte de service Windows](../logic-apps/logic-apps-gateway-install.md) doit avoir au moins les autorisations **Collaborateur**. 
+* La passerelle de données locale fonctionne comme un service Windows ; elle est configurée pour utiliser `NT SERVICE\PBIEgwService` comme informations d’identification pour la connexion au service Windows. Pour créer et gérer les ressources de la passerelle dans le portail Azure, le [compte de service Windows](../logic-apps/logic-apps-gateway-install.md) doit avoir au moins les autorisations **Collaborateur**. 
 
   > [!NOTE]
   > Le compte de service Windows diffère du compte utilisé pour la connexion à des sources de données locales, et du compte professionnel ou scolaire Azure utilisé pour se connecter aux services cloud.
 
-## <a name="set-up-the-data-gateway-connection"></a>Configurer la connexion de passerelle de données
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Installer la passerelle de données locale
+## <a name="install-the-on-premises-data-gateway"></a>Installer la passerelle de données locale
 
 Si ce n’est déjà fait, suivez les [étapes d’installation de la passerelle de données locale](logic-apps-gateway-install.md). Avant de passer aux autres suivantes, vérifiez que vous avez installé la passerelle de données sur un ordinateur local.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Créer une ressource Azure pour la passerelle de données locale
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Créer une ressource Azure pour la passerelle de données locale
 
 Après avoir installé la passerelle sur un ordinateur local, vous devez créer votre passerelle de données en tant que ressource dans Azure. Cette étape associe également votre ressource de passerelle à votre abonnement Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). Veillez à utiliser l’adresse e-mail professionnelle ou scolaire Azure que vous avez utilisée pour installer la passerelle.
 
-2. Dans le menu Azure principal, choisissez **Nouveau** > **Enterprise Integration** > **Passerelle de données locale** comme illustré ici :
+2. Dans le menu Azure principal, choisissez **Créer une ressource** > **Intégration Entreprise** > **Passerelle de données locale** :
 
    ![Cherchez « Passerelle de données locale »](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -105,7 +103,7 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez créer 
     Pour ajouter la ressource de passerelle à votre tableau de bord Azure, choisissez **Épingler au tableau de bord**. 
     Lorsque vous êtes prêt, choisissez **Créer**.
 
-    Par exemple :
+    Par exemple : 
 
     ![Fournir des détails pour créer votre passerelle de données locale](./media/logic-apps-gateway-connection/createblade.png)
 
@@ -115,7 +113,7 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez créer 
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Connectez votre application logique à la passerelle de données locale
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Connectez votre application logique à la passerelle de données locale
 
 À présent que vous avez créé votre ressource de passerelle de données et associé votre abonnement Azure à cette ressource, créez une connexion entre votre application logique et la passerelle de données.
 
@@ -157,6 +155,7 @@ Après avoir créé une connexion de passerelle pour votre application logique, 
    > Si vos mises à jour ne prennent pas effet, essayez d’[arrêter et redémarrer la service Windows de passerelle](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Basculer ou supprimer votre ressource de passerelle de données locale
 
 Pour créer une autre ressource de passerelle, associer votre passerelle à une autre ressource ou supprimer la ressource de passerelle, vous pouvez effectivement supprimer celle-ci sans que cela affecte l’installation de la passerelle. 
@@ -166,11 +165,12 @@ Pour créer une autre ressource de passerelle, associer votre passerelle à une 
 3. Choisissez **Passerelle de données locale**, puis, dans la barre d’outils des ressources, choisissez **Supprimer**.
 
 <a name="faq"></a>
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Sécuriser vos applications logiques](./logic-apps-securing-a-logic-app.md)
 * [Exemples et scénarios courants pour les applications logiques](./logic-apps-examples-and-scenarios.md)

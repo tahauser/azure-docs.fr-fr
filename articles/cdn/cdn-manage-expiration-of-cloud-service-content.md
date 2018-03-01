@@ -3,8 +3,8 @@ title: "Gérer l’expiration de contenu web dans Azure Content Delivery Network
 description: "Découvrez comment gérer l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET ou d’IIS dans le réseau de distribution de contenu (CDN) Azure."
 services: cdn
 documentationcenter: .NET
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Gérer l’expiration de contenu web dans Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 Les fichiers d’un serveur web d’origine accessible à tous peuvent être mis en cache dans Azure Content Delivery Network (CDN) jusqu’à l’expiration de leur durée de vie (TTL). La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article explique comment définir les en-têtes `Cache-Control` pour la fonctionnalité Web Apps de Microsoft Azure App Service, Services cloud Azure, les applications ASP.NET et les sites IIS (Internet Information Services), qui sont tous configurés de façon similaire. Vous pouvez définir l’en-tête `Cache-Control` à l’aide de fichiers de configuration ou par programme. 
 
-Vous pouvez également contrôler les paramètres de cache à partir du portail Azure, en définissant les [règles de mise en cache CDN](cdn-caching-rules.md). Si vous avez configuré une ou plusieurs règles de mise en cache, puis défini leur comportement sur **Remplacer** ou **Ignorer le cache**, les paramètres de mise en cache fournis à l’origine décrits dans cet article sont ignorés. Pour plus d’informations sur les concepts généraux de mise en cache, consultez la section [Fonctionnement de la mise en cache](cdn-how-caching-works.md).
+Vous pouvez également contrôler les paramètres de cache à partir du portail Azure, en définissant les [règles de mise en cache CDN](cdn-caching-rules.md). Si vous avez créé une ou plusieurs règles de mise en cache, puis défini leur comportement sur **Remplacer** ou **Ignorer le cache**, les paramètres de mise en cache fournis à l’origine décrits dans cet article sont ignorés. Pour plus d’informations sur les concepts généraux de mise en cache, consultez la section [Fonctionnement de la mise en cache](cdn-how-caching-works.md).
 
 > [!TIP]
 > Vous pouvez choisir de ne pas définir de durée de vie sur un fichier. Dans ce cas, Azure CDN applique automatiquement une durée de vie par défaut de sept jours, sauf si vous avez configuré des règles de mise en cache dans le portail Azure. Cette valeur TTL par défaut s’applique uniquement aux optimisations de remise web générales. Pour optimiser les fichiers volumineux, la durée de vie par défaut est de 1 jour, et pour les optimisations du streaming multimédia, la durée de vie par défaut est de 1 an.
@@ -36,16 +36,64 @@ Vous pouvez également contrôler les paramètres de cache à partir du portail 
 > Pour plus d’informations sur la façon dont Azure CDN accélère l’accès aux fichiers et à d’autres ressources, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
 > 
 
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Définition d’en-têtes Cache-Control à l’aide de règles de mise en cache CDN
+La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serveur web consiste à utiliser des règles de mise en cache dans le portail Azure. Pour plus d’informations sur les règles de mise en cache CDN, consultez [Contrôler le comportement de mise en cache d’Azure Content Delivery Network au moyen de règles de mise en cache](cdn-caching-rules.md).
+
+> [!NOTE] 
+> Les règles de mise en cache sont disponibles uniquement pour les profils **Azure CDN Verizon Standard** et **Azure CDN Akamai Standard**. Pour les profils **Azure CDN Verizon Premium**, vous devez utiliser le [moteur de règles d’Azure CDN](cdn-rules-engine.md) dans le portail de **gestion** pour une fonctionnalité similaire.
+
+**Pour accéder à la page des règles de mise en cache CDN** :
+
+1. Dans le portail Azure, sélectionnez un profil CDN, puis sélectionnez un point de terminaison pour le serveur web.
+
+2. Dans le volet gauche, sous Paramètres, sélectionnez **Règles de mise en cache**.
+
+   ![Bouton Règles de mise en cache CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
+
+   La page **Règles de mise en cache** s’affiche.
+
+   ![Page de mise en cache du CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
+
+
+**Pour définir les en-têtes Cache-Control du serveur web à l’aide de règles de mise en cache générales :**
+
+1. Sous **Règles de mise en cache générales**, définissez **Comportement de mise en cache des chaînes de requête** sur **Ignorer les chaînes de requête**, puis définissez **Comportement de mise en cache** sur **Remplacer**.
+      
+2. Pour **Durée d’expiration du cache**, entrez 3 600 dans la zone **Secondes** ou 1 dans la zone **Heures**. 
+
+   ![Exemple de règles de mise en cache générales CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
+
+   Cette règle de mise en cache générale définit une durée de mise en cache d’une heure et affecte toutes les requêtes au point de terminaison. Elle se substitue à tout en-tête HTTP `Cache-Control` ou `Expires` qui sont envoyés par le serveur d’origine spécifié par le point de terminaison.   
+
+3. Sélectionnez **Enregistrer**.
+
+**Pour définir les en-têtes Cache-Control d’un fichier de serveur web à l’aide de règles de mise en cache personnalisées :**
+
+1. Sous **Règles de mise en cache personnalisées**, créez deux conditions de correspondance :
+
+     a. Pour la première condition de correspondance, définissez **Condition de correspondance** sur **Chemin**, puis entrez `/webfolder1/*` pour **Valeur(s) de correspondance**. Définissez **Comportement de mise en cache** sur **Remplacer**, puis entrez 4 dans le champ **Heures**.
+
+     b. Pour la deuxième condition de correspondance, définissez **Condition de correspondance** sur **Chemin**, puis entrez `/webfolder1/file1.txt` pour **Valeur(s) de correspondance**. Définissez **Comportement de mise en cache** sur **Remplacer**, puis entrez 2 dans le champ **Heures**.
+
+    ![Exemple de règles de mise en cache personnalisées CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
+
+    La première règle de mise en cache personnalisée définit une durée de mise en cache de quatre heures pour tous les fichiers du dossier `/webfolder1` présent sur le serveur d’origine spécifié par votre point de terminaison. La deuxième règle remplace la première règle pour le fichier `file1.txt` uniquement, et définit une durée de mise en cache de deux heures pour celui-ci.
+
+2. Sélectionnez **Enregistrer**.
+
+
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Définition d’en-têtes Cache-Control à l’aide de fichiers de configuration
-Pour le contenu statique, tel que les images et les feuilles de style, vous pouvez contrôler la fréquence de mise à jour en modifiant les fichiers de configuration **applicationHost.config** ou **web.config** de votre application web. L’élément `<system.webServer>/<staticContent>/<clientCache>` dans l’un des fichiers définit l’en-tête `Cache-Control` pour votre contenu.
+Pour le contenu statique, tel que les images et les feuilles de style, vous pouvez contrôler la fréquence de mise à jour en modifiant les fichiers de configuration **applicationHost.config** ou **web.config** de votre application web. Pour définir l’en-tête `Cache-Control` pour votre contenu, utilisez l’élément `<system.webServer>/<staticContent>/<clientCache>` dans l’un des fichiers.
 
 ### <a name="using-applicationhostconfig-files"></a>Utilisation des fichiers ApplicationHost.config
 Le fichier **ApplicationHost.config** est le fichier racine du système de configuration IIS. Les paramètres de configuration du fichier **applicationHost.config** affectent toutes les applications sur le site, mais sont remplacés par les paramètres des fichiers **web.config** existants pour une application web.
 
 ### <a name="using-webconfig-files"></a>Utilisation de fichiers Web.config
-Avec un fichier **Web.config**, vous pouvez personnaliser le comportement de l’ensemble de votre application web ou un répertoire spécifique de celle-ci. En général, vous avez au moins un fichier **Web.config** dans le dossier racine de votre application web. Pour chaque fichier **web.config** d’un dossier spécifique, les paramètres de configuration affectent tous les éléments du dossier et de tous ses sous-dossiers, sauf s’ils sont remplacés au niveau sous-dossier par un autre fichier **Web.config**. Par exemple, vous pouvez définir un élément `<clientCache>` dans un fichier **Web.config** dans le dossier racine de votre application web pour mettre en cache tout le contenu statique de votre application web pendant trois jours. Vous pouvez également ajouter un fichier **Web.config** dans un sous-dossier avec un contenu plus variable (par exemple, `\frequent`) et définir son élément `<clientCache>` pour mettre en cache le contenu du sous-dossier pendant 6 heures. Il en résulte que le contenu de l’ensemble du site web est mis en cache pendant trois jours, à l’exception du contenu du répertoire `\frequent` qui est mis en cache pendant six heures seulement.  
+Avec un fichier **Web.config**, vous pouvez personnaliser le comportement de l’ensemble de votre application web ou un répertoire spécifique de celle-ci. En général, vous avez au moins un fichier **Web.config** dans le dossier racine de votre application web. Pour chaque fichier **web.config** d’un dossier spécifique, les paramètres de configuration affectent tous les éléments du dossier et de ses sous-dossiers, sauf s’ils sont remplacés au niveau sous-dossier par un autre fichier **Web.config**. 
 
-L’exemple de code XML suivant montre comment configurer l’élément `<clientCache>` dans un fichier de configuration pour spécifier un âge maximal de trois jours :  
+Par exemple, vous pouvez définir un élément `<clientCache>` dans un fichier **Web.config** dans le dossier racine de votre application web pour mettre en cache tout le contenu statique de votre application web pendant trois jours. Vous pouvez également ajouter un fichier **Web.config** dans un sous-dossier avec un contenu plus variable (par exemple, `\frequent`) et définir son élément `<clientCache>` pour mettre en cache le contenu du sous-dossier pendant 6 heures. Il en résulte que le contenu de l’ensemble du site web est mis en cache pendant trois jours, à l’exception du contenu du répertoire `\frequent` qui est mis en cache pendant six heures seulement.  
+
+L’exemple de fichier de configuration XML suivant montre comment configurer l’élément `<clientCache>` pour spécifier un âge maximal de trois jours :  
 
 ```xml
 <configuration>

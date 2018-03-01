@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -145,7 +145,7 @@ Pour permettre la résolution de noms entre le réseau virtuel et les ressources
 
 2. Configurez le réseau virtuel pour utiliser le serveur DNS personnalisé.
 
-3. Recherchez le suffixe DNS qu’Azure a affecté à votre réseau virtuel. Cette valeur est similaire à `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Pour plus d’informations sur la recherche de suffixe DNS, voir la section [Exemple : DNS personnalisé](#example-dns).
+3. Recherchez le suffixe DNS qu'Azure à affecté à votre réseau virtuel. Cette valeur est similaire à `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Pour plus d’informations sur la recherche de suffixe DNS, voir la section [Exemple : DNS personnalisé](#example-dns).
 
 4. Configurez le transfert entre les serveurs DNS. La configuration dépend du type de réseau distant.
 
@@ -299,6 +299,7 @@ Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis 
     | &nbsp; | Est des États-Unis | 13.82.225.233</br>40.71.175.99 | 443 | Trafic entrant |
     | &nbsp; | Centre-Nord des États-Unis | 157.56.8.38</br>157.55.213.99 | 443 | Trafic entrant |
     | &nbsp; | Centre-Ouest des États-Unis | 52.161.23.15</br>52.161.10.167 | 443 | Trafic entrant |
+    | &nbsp; | États-Unis de l’Ouest | 13.64.254.98</br>23.101.196.19 | 443 | Trafic entrant |
     | &nbsp; | Ouest des États-Unis 2 | 52.175.211.210</br>52.175.222.222 | 443 | Trafic entrant |
 
     Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).

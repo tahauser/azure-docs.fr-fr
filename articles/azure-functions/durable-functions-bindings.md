@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -172,7 +172,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 ## <a name="orchestration-client"></a>Client d’orchestration
 
-La liaison du client d’orchestration vous permet d’écrire des fonctions qui interagissent avec les fonctions d’orchestrateur. Par exemple, vous pouvez agir sur les instances d’orchestration de l’une des manières suivantes :
+La liaison du client d’orchestration vous permet d’écrire des fonctions qui interagissent avec les fonctions d’orchestrateur. Par exemple, vous pouvez agir sur les instances de l’orchestration de l’une des manières suivantes :
 * Les démarrer.
 * Interroger leur état.
 * Les arrêter.

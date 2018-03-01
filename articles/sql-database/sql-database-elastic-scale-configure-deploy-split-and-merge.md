@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Déployer un service de fractionnement et de fusion
 L’outil de fractionnement et de fusion vous permet de déplacer les données entre les différentes bases de données partitionnées. Consultez [Déplacement de données entre des bases de données cloud montées en charge](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -34,13 +34,13 @@ L’outil de fractionnement et de fusion vous permet de déplacer les données e
 
 Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les dll clientes nécessaires) dans le sous-répertoire **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, vérifiez que le paramètre **Autoriser l’accès aux services Azure** a la valeur **Activé**. Cliquez sur l’icône « Enregistrer ».
    
    ![Services autorisés][1]
-3. Créez un compte de Stockage Azure qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Données + stockage** et **Stockage**.
-4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion.  Accédez au portail Azure. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Compute**, **Service cloud** et **Créer**. 
+3. Créez un compte de Stockage Azure qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure. Dans la barre de gauche, cliquez sur **Créer une ressource**, sur **Données + Stockage**, puis sur **Stockage**.
+4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion.  Accédez au portail Azure. Dans la barre de gauche, cliquez successivement sur **Créer une ressource**, puis sur **Compute**, **Service cloud** et **Créer**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configurer votre service de fractionnement et de fusion
 ### <a name="split-merge-service-configuration"></a>Configuration du service de fractionnement/fusion

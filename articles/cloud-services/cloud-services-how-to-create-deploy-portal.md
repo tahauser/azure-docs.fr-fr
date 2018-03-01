@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Création et déploiement d’un service cloud
 Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
@@ -59,15 +59,15 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 ## <a name="create-and-deploy"></a>Création et déploiement
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Nouveau >Calculer**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
+2. Cliquez sur **Créer une ressource > Compute**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. Dans le nouveau panneau **Service cloud**, entrez une valeur pour le **nom DNS**.
+3. Dans le nouveau volet **Service cloud**, entrez une valeur pour le **nom DNS**.
 4. Créez un **groupe de ressources** ou sélectionnez-en un.
 5. Sélectionnez un **emplacement**.
-6. Cliquez sur **Package**. Le panneau **Télécharger un package** s’affiche. Renseignez les champs obligatoires. Si l’un de vos rôles contient une seule et même instance, vérifiez que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
+6. Cliquez sur **Package**. Cette opération ouvre le volet **Charger un package**. Renseignez les champs obligatoires. Si l’un de vos rôles contient une seule et même instance, vérifiez que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
 7. Vérifiez que l’option **Démarrer le déploiement** est sélectionnée.
-8. Cliquez sur **OK** pour fermer le panneau **Télécharger un package**.
+8. Cliquez sur **OK** pour fermer le volet **Charger un package**.
 9. Si vous n’avez aucun certificat à ajouter, cliquez sur **Créer**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 ## <a name="upload-a-certificate"></a>Téléchargement d'un certificat
 Si votre package de déploiement a été [configuré pour utiliser des certificats](cloud-services-configure-ssl-certificate-portal.md#modify), vous pouvez charger le certificat maintenant.
 
-1. Sélectionnez **Certificats** et, dans le panneau **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **mot de passe** pour le certificat.
-2. Cliquez sur **Joindre un certificat**, puis sur **OK** dans le panneau **Ajouter des certificats**.
-3. Cliquez sur **Créer** dans le panneau **Service cloud**. Lorsque le déploiement atteint l'état **Ready** , vous pouvez passer aux étapes suivantes.
+1. Sélectionnez **Certificats** et, dans le volet **Ajouter des certificats**, sélectionnez le fichier .pfx du certificat SSL et indiquez le **mot de passe** pour le certificat.
+2. Cliquez sur **Joindre un certificat**, puis sur **OK** dans le volet **Ajouter des certificats**.
+3. Cliquez sur **Créer** dans le volet **Service cloud**. Lorsque le déploiement atteint l'état **Ready** , vous pouvez passer aux étapes suivantes.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
@@ -91,7 +91,7 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).

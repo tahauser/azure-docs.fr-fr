@@ -1,30 +1,12 @@
----
-title: "Codes d’erreur SQL : erreur de connexion de base de données | Microsoft Docs"
-description: "En savoir plus sur les codes d’erreur SQL pour les applications clientes SQL Database, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales. "
-keywords: "code d’erreur sql, accès sql, erreur de connexion de base de données, codes d’erreur sql"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ ---
+title: Codes d’erreur SQL : Erreur de connexion de base de données | Microsoft Docs description: 'En savoir plus sur les codes d’erreur SQL pour les applications clientes SQL Database, tels que les erreurs courantes de connexion de base de données, les problèmes de copie de base de données et les erreurs générales. ' keywords: code d’erreur sql, accès à sql, erreur de connexion de base de données, codes d’erreur sql services: sql-database documentationcenter: '' author: stevestein manager: jhubbard editor: ''
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
-Cet article répertorie les codes d’erreur SQL pour les applications clientes SQL Database, y compris les erreurs de connexion de base de données, les erreurs temporaires, les erreurs de gouvernance des ressources, les problèmes de copie de base de données, le pool élastique et d’autres erreurs. La plupart des catégories sont spécifiques à Azure SQL Database et ne s'appliquent pas à Microsoft SQL Server.
+Cet article répertorie les codes d’erreur SQL pour les applications clientes SQL Database, y compris les erreurs de connexion de base de données, les erreurs temporaires, les erreurs de gouvernance des ressources, les problèmes de copie de base de données, le pool élastique et d’autres erreurs. La plupart des catégories sont spécifiques à Azure SQL Database et ne s'appliquent pas à Microsoft SQL Server. Voir aussi [Messages d’erreur système](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erreurs de connexion de base de données et erreurs temporaires
 Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de connexion, et autres erreurs temporaires, que vous pouvez rencontrer quand votre application tente d’accéder à SQL Database. Pour obtenir des didacticiels sur la façon de se connecter à la base de données SQL Azure, consultez [Connexion à la base de données SQL Azure](sql-database-libraries.md).
@@ -52,7 +34,7 @@ Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.N
 ### <a name="transient-fault-error-codes"></a>Codes d’erreur pour les erreurs temporaires
 Les erreurs suivantes sont temporaires et doivent être relancées dans la logique d’application : 
 
-| Code d'erreur | Niveau de gravité | Description |
+| Code d'erreur | Niveau de gravité | DESCRIPTION |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. |
 | 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur SQL Database vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. |
@@ -66,7 +48,7 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 ## <a name="database-copy-errors"></a>Erreurs de copie de base de données
 Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans la base de données SQL Azure. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
 
-| Code d'erreur | Niveau de gravité | Description |
+| Code d'erreur | Niveau de gravité | DESCRIPTION |
 | ---:| ---:|:--- |
 | 40635 |16 |Le client avec l'adresse IP’%.&#x2a;ls’ est temporairement désactivé. |
 | 40637 |16 |La copie de base de données est actuellement désactivée. |
@@ -83,7 +65,7 @@ Les erreurs suivantes peuvent survenir lors de la copie d’une base de données
 | 40571 |16 |La copie de base de données a échoué en raison d'une erreur interne. Supprimez la base de données cible et réessayez ultérieurement. |
 
 ## <a name="resource-governance-errors"></a>Erreurs de gouvernance des ressources
-Les erreurs suivantes sont causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple :
+Les erreurs suivantes sont causées par une utilisation excessive des ressources avec Azure SQL Database. Par exemple : 
 
 * Votre transaction a été ouverte trop longtemps.
 * Votre transaction comporte trop de verrous.
@@ -94,7 +76,7 @@ Rubriques connexes :
 
 * Des informations plus détaillées sont disponibles ici : [Limites de ressources d’Azure SQL Database](sql-database-service-tiers.md).
 
-| Code d'erreur | Niveau de gravité | Description |
+| Code d'erreur | Niveau de gravité | DESCRIPTION |
 | ---:| ---:|:--- |
 | 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers.md). |
 | 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers.md). |
@@ -141,7 +123,7 @@ Rubriques connexes :
 ## <a name="general-errors"></a>Erreurs générales.
 Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 
-| Code d'erreur | Niveau de gravité | Description |
+| Code d'erreur | Niveau de gravité | DESCRIPTION |
 | ---:| ---:|:--- |
 | 15006 |16 |(Connexion de l’administrateur) n’est pas un nom valide, car il contient des caractères non valides. |
 | 18452 |14 |La connexion a échoué. La connexion provient d'un domaine non approuvé et ne peut pas être utilisée avec l’authentification Windows.%.&#x2a;ls (Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.) |
@@ -209,7 +191,7 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 | 45168 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations DB CRUD simultanées pour un serveur unique (par exemple, créer la base de données). Le serveur spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées. Réessayez ultérieurement. |
 | 45169 |16 |Le système Azure SQL est en cours de chargement et place une limite supérieure sur les opérations CRUD simultanées pour un abonnement unique (par exemple, créer le serveur). L'abonnement spécifié dans le message d'erreur a dépassé le nombre maximal de connexions simultanées, et la demande a été rejetée. Réessayez ultérieurement. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur les [Fonctionnalités Azure SQL Database](sql-database-features.md).
 * En savoir plus sur les [Niveaux de service](sql-database-service-tiers.md).
 

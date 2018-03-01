@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -163,7 +163,7 @@ Assurez-vous que toutes vos ressources sont configurées avec des paramètres de
 
 ![Panneau Journaux de diagnostic dans le portail](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Vous devrez peut-être cliquer sur « Plus de services » pour trouver la section Moniteur.
+Vous devrez peut-être cliquer sur « Tous les services » pour trouver la section Monitor.
 
 Dans cette section, vous pouvez afficher et filtrer toutes les ressources qui prennent en charge les paramètres de diagnostic pour voir si les diagnostics y sont activés. Vous pouvez également explorer pour voir si plusieurs paramètres sont définis sur une ressource et vérifier quel compte de stockage, espace de noms des concentrateurs d’événements et/ou espace de travail Log Analytics vers lesquels sont diffusées les données.
 
@@ -174,7 +174,7 @@ L’ajout d’un paramètre de diagnostic permet d’afficher le panneau Paramè
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Services, catégories et schémas pris en charge pour les journaux de diagnostic de ressources
 [Consultez cet article](monitoring-diagnostic-logs-schema.md) pour obtenir la liste complète des services pris en charge et des catégories de journaux et des schémas utilisés par ces services.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modifier les paramètres de diagnostic des ressources via l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Protection des données personnelles dans les documents avec les outils de rapport Azure
 
@@ -40,7 +40,7 @@ La compagnie doit protéger la confidentialité des données personnelles des em
 
 Dans le cadre de sa stratégie de sécurité de défense en profondeur, un objectif de l’entreprise vise à effectuer le suivi de tous les accès aux données personnelles et de leur traitement, ainsi qu’à vérifier que la documentation des protections adéquates de la confidentialité des données personnelles est en place et fonctionne.
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 Microsoft Azure offre des outils de surveillance, de journalisation et de diagnostic complets pour faciliter le suivi et l’enregistrement des activités et événements associés à l’accès et au traitement des données personnelles, au flux géographique des données et à l’accès par des tiers aux données personnelles. Étant donné que la sécurité des données personnelles dans le cloud est une responsabilité partagée, Microsoft fournit également à ses clients ce qui suit :
 
@@ -144,7 +144,7 @@ Il existe plusieurs façons d’utiliser les données dans le journal d’activi
 
 - Vous pouvez interroger les données à l’aide de l’API REST Azure Monitor, de commandes CLI, d’applets de commande [PowerShell](https://docs.microsoft.com/powershell/) ou du SDK .NET.
 
-Pour démarrer avec Azure Monitor, sélectionnez **Autres services** dans le portail Azure.
+Pour prendre en main Azure Monitor, sélectionnez **Tous les services** dans le portail Azure.
 
 1. Faites défiler jusqu’à **Monitor** dans la section **Surveillance et gestion**.
 

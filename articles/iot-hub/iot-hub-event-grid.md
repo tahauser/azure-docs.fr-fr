@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions - Préversion
 
@@ -31,17 +31,17 @@ Azure IoT Hub s’intègre à Azure Event Grid pour vous permettre d’envoyer d
 L’intégration d’Event Grid est en préversion publique. Elle est donc disponible dans un nombre limité de régions. L’intégration fonctionne pour les hubs IoT situés dans les régions suivantes :
 
 * Centre des États-Unis
-* États-Unis de l’Est
-* États-Unis de l’Est 2
+* Est des États-Unis
+* Est des États-Unis 2
 * Centre-Ouest des États-Unis
 * États-Unis de l’Ouest
-* États-Unis de l’Ouest 2
+* Ouest des États-Unis 2
 
 ## <a name="event-types"></a>Types d’événements
 
 IoT Hub publie les types d’événements suivants : 
 
-| Type d'événement | Description |
+| Type d'événement | DESCRIPTION |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publié quand un appareil est inscrit auprès d’un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publié quand un appareil est supprimé d’un hub IoT. | 
@@ -107,7 +107,7 @@ Pour obtenir une description détaillée de chaque propriété, consultez [Sché
 
 ## <a name="filter-events"></a>Filtrer les événements
 
-Les abonnements aux événements IoT Hub peuvent filtrer les événements en fonction du nom de l’appareil et du type d’événement. Les filtres d’objet dans Event Grid reposent sur les correspondances de **préfixé** et de **suffixe**, afin que les événements dont l’objet correspond soient remis à l’abonné. 
+Les abonnements aux événements IoT Hub peuvent filtrer les événements en fonction du nom de l’appareil et du type d’événement. Les filtres d’objets dans Event Grid fonctionnent d’après des correspondances de **préfixe** et de **suffixe**. Le filtre utilise un opérateur `AND`. Ainsi, les événements avec un objet qui correspond à la fois au préfixe et au suffixe sont remis à l’abonné. 
 
 L’objet des événements IoT utilise le format suivant :
 

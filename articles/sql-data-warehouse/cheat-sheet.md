@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Aide-mémoire pour Azure SQL Data Warehouse
 Cet aide-mémoire vous procure des conseils et des bonnes pratiques à suivre pour créer vos solutions Azure SQL Data Warehouse. Avant de démarrer, découvrez chaque étape en détail dans la section [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Modèles et anti-modèles de charges de travail Azure SQL Data Warehouse), qui définit sans ambiguïté SQL Data Warehouse.
@@ -121,7 +121,7 @@ Enfin, si vous utilisez le niveau Calcul optimisé, chaque classe de ressources 
 Découvrez plus en détail comment utiliser les [classes de ressources et la concurrence].
 
 ## <a name="lower-your-cost"></a>Réduire vos coûts
-Une fonctionnalité clé de SQL Data Warehouse est la possibilité de suspension lorsque vous ne l’utilisez pas, ce qui permet d’arrêter la facturation des ressources de calcul. Une autre fonctionnalité clé est la possibilité de mettre à l’échelle les ressources. La suspension et la mise à l’échelle peuvent s’effectuer via le portail Azure ou des commandes PowerShell.
+Une fonctionnalité clé de SQL Data Warehouse est la possibilité de [gérer des ressources de calcul](sql-data-warehouse-manage-compute-overview.md). Vous pouvez suspendre l’entrepôt de données lorsque vous ne l’utilisez pas, ce qui permet d’arrêter la facturation des ressources de calcul. Vous pouvez faire évoluer les ressources pour répondre à vos exigences de performances. Pour suspendre, utilisez le [portail Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Pour mettre à l’échelle, utilisez le [portail Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) ou une [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Vous pouvez maintenant effectuer une mise à l’échelle automatique à tout moment à l’aide d’Azure Functions :
 

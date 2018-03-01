@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance
 
@@ -31,12 +31,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Répondre à une alarme
 > * Mettre à jour le microprogramme de vos appareils
 > * Organiser vos ressources
+> * Arrêter et démarrer les appareils simulés
 
 La vidéo suivante offre une présentation pas à pas de la solution de surveillance à distance :
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Pour effectuer ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -62,7 +63,7 @@ Contoso utilise différents types d’appareils connectés. Ces appareils, qui r
 
 Le tableau suivant récapitule les types d’appareils provisionnés :
 
-| Type d’appareil        | Télémétrie                                  | properties                                  | Balises                    | Méthodes                                                                                      |
+| Type d’appareil        | Télémétrie                                  | Propriétés                                  | Balises                    | Méthodes                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller (Refroidisseur)            | Temperature, Humidity, Pressure (Température, Humidité, Pression)            | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Floor, Campus (Emplacement, Étage, Campus) | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure (Redémarrage, Mise à jour du microprogramme, Déclenchement de la soupape de sécurité, Augmentation de la pression)                          |
 | Prototyping device (Appareil de prototypage) | Temperature, Pressure, Geo-location (Température, Pression, Géolocalisation)        | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Mode (Emplacement, Mode)          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase (Redémarrage, Mise à jour du microprogramme, Déplacement de l’appareil, Arrêt de l’appareil, Relâchement de la température, Augmentation de la température) |
@@ -230,7 +231,17 @@ Vous pouvez utiliser les valeurs des étiquettes pour créer des filtres.
 
 L’opérateur Contoso peut à présent interroger les appareils en fonction de l’équipe d’exploitation sans avoir besoin d’apporter de modifications aux appareils.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="stop-simulated-devices"></a>Arrêter les appareils simulés
+
+Vous pouvez utiliser le menu Paramètres pour arrêter les appareils simulés. Cela aide à réduire les coûts de test et d’exploration de la solution. Pour démarrer ou arrêter les appareils simulés :
+
+1. Choisissez l’icône **Paramètres**.
+
+1. Activez ou désactivez le bouton bascule **En cours d’exécution** :
+
+    ![Menu Paramètres](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
@@ -239,6 +250,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Répondre à une alarme
 > * Mettre à jour le microprogramme de vos appareils
 > * Organiser vos ressources
+> * Arrêter et démarrer les appareils simulés
 
 La solution de surveillance à distance n’ayant plus de secrets pour vous, nous vous suggérons d’en découvrir les fonctionnalités avancées :
 

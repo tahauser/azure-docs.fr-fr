@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 SQL Database fournit trois options pour la récupération de base de données à l’aide des [sauvegardes de base de données automatisées](sql-database-automated-backups.md) et des [sauvegardes depuis la rétention à long terme](sql-database-long-term-retention.md). Vous pouvez effectuer une restauration à partir d’une sauvegarde de base de données vers :
@@ -34,7 +34,7 @@ SQL Database fournit trois options pour la récupération de base de données à
 
 Une base de données restaurée implique un coût de stockage supplémentaire dans les conditions suivantes : 
 - La restauration de P11-P15 vers S4-S12 ou P1-P6 si la taille maximale de la base de données est supérieure à 500 Go.
-- La restauration de P1-P6 ou PRS1-PRS6 vers S4-S12 si la taille maximale de la base de données est supérieure à 250 Go.
+- La restauration de P1-P6 vers S4-S12 si la taille maximale de la base de données est supérieure à 250 Go.
 
 Un coût supplémentaire s’applique, car la taille maximale de la base de données restaurée est supérieure à la quantité de stockage incluse pour le niveau de performance, et le stockage configuré au-delà de la quantité incluse est facturé en plus.  Pour les détails de la tarification du stockage supplémentaire, consultez la page [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse. Pour plus d’informations sur les tailles de stockage de base de données et la modification de la taille maximale d’une base de données, consultez [Limites de ressources d’une base de données unique](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

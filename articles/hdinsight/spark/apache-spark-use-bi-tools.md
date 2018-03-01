@@ -15,23 +15,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI utilisant des outils de visualisation de données avec Azure HDInsight
 
-Découvrez comment utiliser [Microsoft Power BI](http://powerbi.microsoft.com) et une [Table](http://www.tableau.com) pour visualiser des données dans le cluster Apache Spark sur Azure HDInsight.
+Découvrez comment utiliser [Microsoft Power BI](http://powerbi.microsoft.com) pour visualiser des données dans le cluster Apache Spark sur Azure HDInsight.
 
 ## <a name="prerequisites"></a>configuration requise
 
 * **Terminez l’article [Exécuter des requêtes interactives sur des clusters Spark dans HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI** : [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) et [abonnement d’évaluation à Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facultatif).
-* **Table** : [Tableau Desktop](http://www.tableau.com/products/desktop) et [pilote ODBC Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Vérifier les données
@@ -183,47 +182,49 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres visuels au rapport et les épingler au même tableau de bord. Pour plus d’informations sur les rapports et tableaux de bord, consultez [Rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) et [Tableaux de bord dans le service Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Utiliser Tableau Desktop 
+<!--
+## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
-> Cette section s’applique uniquement aux clusters Spark 1.5.2 créés dans Azure HDInsight.
+> This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
 >
 >
 
-1. Installez [Tableau Desktop](http://www.tableau.com/products/desktop) sur l’ordinateur que vous utilisez pour exécuter ce didacticiel Apache Spark BI.
+1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Vérifiez que l’ordinateur est également équipé du pilote ODBC de Microsoft Spark. Pour installer le pilote, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 
-1. Lancez Tableau Desktop. Dans le volet gauche, dans la liste de serveurs auxquels se connecter, cliquez sur **Spark SQL**. Si Spark SQL n’est pas répertorié par défaut dans le volet gauche, cliquez sur **Autres serveurs**pour l’afficher.
-2. Dans la boîte de dialogue de connexion à Spark SQL, entrez les valeurs telles qu’indiquées dans la capture d’écran, puis cliquez sur **OK**.
+1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
+2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
-    ![Se connecter à un cluster pour Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Se connecter à un cluster pour Apache Spark BI")
+    ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    La liste déroulante d’authentification contient l’option **Windows Microsoft Azure HDInsight Service** uniquement si vous avez installé le [Pilote ODBC de Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) sur l’ordinateur.
-3. Dans l’écran suivant, dans la liste déroulante **Schéma**, cliquez sur l’icône **Rechercher**, puis sur **default**.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
-    ![Rechercher un schéma pour Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Rechercher un schéma pour Apache Spark BI")
-4. Pour le champ **Table**, cliquez de nouveau sur l’icône **Rechercher** pour dresser la liste de toutes les tables Hive disponibles dans le cluster. La table **hvac** créée précédemment à l’aide du bloc-notes doit être indiquée.
+    ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
+4. For the **Table** field, click the **Find** icon again to list all the Hive tables available in the cluster. You should see the **hvac** table you created earlier using the notebook.
 
-    ![Rechercher un tableau pour Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Rechercher un tableau pour Apache Spark BI")
-5. Effectuez un glisser-déplacer de la table vers la zone supérieure située à droite. Tableau importe les données et affiche le schéma mis en exergue par l’encadré rouge.
+    ![Find table for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Find table for Apache Spark BI")
+5. Drag and drop the table to the top box on the right. Tableau imports the data and displays the schema as highlighted by the red box.
 
-    ![Ajouter des tables à Tableau pour Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Ajouter des tables à Tableau pour Apache Spark BI")
-6. Cliquez sur l’onglet **Sheet1** en bas à gauche. Réalisez une visualisation qui affiche la moyenne des températures cibles et réelles de tous les bâtiments à chaque date. Faites glisser **Date** et **Building ID** vers **Columns** et **Actual Temp**/**Target Temp** vers **Rows**. Sous **Marks**, sélectionnez **Area** pour utiliser une carte de zone pour la visualisation de données Spark.
+    ![Add tables to Tableau for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Add tables to Tableau for Apache Spark BI")
+6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
-     ![Ajouter des champs pour une visualisation de données Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Ajouter des champs pour une visualisation de données Spark")
-7. Par défaut, les champs de température sont affichés en tant qu’agrégat. Si vous préférez afficher les températures moyennes, vous pouvez le faire à partir de la liste déroulante, comme le montre la capture d’écran ci-dessous :
+     ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
-    ![Prendre une moyenne de températures pour une visualisation de données Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Prendre une moyenne de températures pour une visualisation de données Spark")
+    ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. Vous pouvez également superposer les cartes des températures pour mieux comprendre la différence entre les températures cibles et réelles. Déplacez la souris vers le coin de la carte inférieure jusqu’à ce qu’une poignée s’affiche dans un cercle rouge. Faites glisser la carte vers l’autre carte située au-dessus, puis relâchez la souris lorsque la poignée s’affiche dans un rectangle rouge.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
-    ![Fusionner des cartes pour une visualisation de données Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Fusionner des cartes pour une visualisation de données Spark")
+    ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
-     La visualisation des données doit changer comme illustré dans la capture d’écran :
+     Your data visualization should change as shown in the screenshot:
 
-    ![Sortie de tableau pour une visualisation de données Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Sortie de tableau pour une visualisation de données Spark")
-9. Cliquez sur **Save** pour enregistrer la feuille de calcul. Vous pouvez créer des tableaux de bord et leur ajouter une ou plusieurs feuilles.
+    ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
+9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## <a name="next-steps"></a>étapes suivantes
 

@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Forum aux questions sur l’intégration des journaux Azure
-Cet article contient les réponses à certaines questions fréquemment posées sur l’intégration des journaux Azure. 
+
+Cet article contient les réponses à certaines questions fréquemment posées sur l’intégration des journaux Azure.
+
+>[!IMPORTANT]
+>La méthode recommandée pour intégrer les journaux Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
 
 Azure Log Integration est un service du système d’exploitation Windows que vous pouvez utiliser pour intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
@@ -34,11 +38,11 @@ Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Az
 Elle est actuellement disponible dans les versions commerciales d’Azure et dans Azure Government, mais n’est pas disponible en Chine ni en Allemagne.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
-Exécutez la commande **azlog source list**.
+Exécutez la commande **AzLlog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Comment puis-je savoir de quel abonnement proviennent les journaux d’intégration Azure ?
 
-Dans le cas des journaux d’audit qui sont placés dans les répertoires **AzureResourcemanagerJson**, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux dans le dossier **AzureSecurityCenterJson**. Par exemple :
+Dans le cas des journaux d’audit qui sont placés dans les répertoires **AzureResourcemanagerJson**, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux dans le dossier **AzureSecurityCenterJson**. Par exemple : 
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -47,7 +51,7 @@ Les noms des journaux d’audit Azure Active Directory incluent l’ID de locata
 Le nom des journaux de diagnostic qui sont lus à partir d’un Event Hub ne comprend pas l’ID d’abonnement. Toutefois, il comprend le nom convivial spécifié lors de la création de la source Event Hub. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Comment puis-je mettre à jour la configuration du proxy ?
-Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure, ouvrez le fichier **AZLOG. EXE. CONFIGURATION** dans **c:\Program Files\Microsoft Azure Log Integration**. Mettez à jour le fichier de manière à y inclure la section **defaultProxy** avec l’adresse de proxy de votre organisation. Une fois la mise à jour effectuée, arrêtez et démarrez le service à l’aide des commandes **net stop azlog** et **net start azlog**.
+Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure, ouvrez le fichier **AZLOG. EXE. CONFIGURATION** dans **c:\Program Files\Microsoft Azure Log Integration**. Mettez à jour le fichier de manière à y inclure la section **defaultProxy** avec l’adresse de proxy de votre organisation. Une fois la mise à jour effectuée, arrêtez et démarrez le service à l’aide des commandes **net stop AzLog** et **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ L’XML de l’événement a les métadonnées suivantes, notamment l’ID d’a
 ![XML de l’événement][1]
 
 ## <a name="error-messages"></a>messages d'erreur
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Lors de l’exécution de la commande **azlog createazureid**, pourquoi le message d’erreur suivant est-il généré ?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Pourquoi le message d’erreur suivant s’affiche-t-il quand j’exécute la commande ```AzLog createazureid``` ?
 Error:
 
   *Échec de l’application AAD - Locataire 72f988bf-86f1-41af-91ab-2d7cd011db37 - Raison = « Interdit » - Message = « Privilèges insuffisants pour terminer l’opération ». (Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = ’Forbidden’ - Message = ’Insufficient privileges to complete the operation.’)*
