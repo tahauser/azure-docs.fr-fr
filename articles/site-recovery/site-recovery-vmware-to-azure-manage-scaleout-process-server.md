@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 02/22/2018
 ms.author: anoopkv
-ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c2f8c6a10ca5098956de2402925bd9422212f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-a-scale-out-process-server"></a>Gérer un serveur de traitement de montée en puissance parallèle
 
 Un serveur de traitement de montée en puissance parallèle fait office de coordinateur pour le transfert de données entre les services Site Recovery et votre infrastructure locale. Cet article explique comment installer, configurer et gérer un serveur de traitement de montée en puissance parallèle.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Vous trouverez ci-dessous la configuration recommandée pour le matériel, le logiciel et le réseau nécessaire pour configurer un serveur de traitement de montée en puissance parallèle.
 
 > [!NOTE]

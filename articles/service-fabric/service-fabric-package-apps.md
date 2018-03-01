@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0db49b9bd50c640175292671f813d23d960b52e1
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 Cet article explique comment empaqueter une application Service Fabric et la préparer pour le déploiement.
@@ -205,7 +205,7 @@ Pour provisionner le package, utilisez un provisionnement externe, ce qui néces
 >[!NOTE]
 > Le provisionnement basé sur le chemin relatif du magasin d’images ne prend pas actuellement en charge les fichiers `sfpkg`. Le `sfpkg` ne doit donc pas être copié dans le magasin d’images.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application
 
 [Gestion des paramètres d’application pour plusieurs environnements][11] décrit comment configurer les paramètres et les variables d’environnement pour différentes instances d’application.
