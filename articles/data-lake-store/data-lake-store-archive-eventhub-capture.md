@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Utiliser Azure Data Lake Store pour capturer des données Event Hubs
 
 Découvrez comment utiliser Azure Data Lake Store pour capturer les données reçues par Azure Event Hubs.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -48,17 +48,17 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     a. Cliquez sur **Explorateur de données**, sélectionnez la racine du compte Data Lake Store, puis cliquez sur **Accès**.
 
-    ![Affecter des autorisations pour la racine du compte Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Affecter des autorisations pour la racine du compte Data Lake Store")
+    ![Affecter des autorisations pour la racine de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Affecter des autorisations pour la racine de Data Lake Store")
 
     b. Sous **Accès**, cliquez sur **Ajouter**, cliquez sur **Sélectionner un utilisateur ou un groupe**, puis recherchez `Microsoft.EventHubs`. 
 
-    ![Affecter des autorisations pour la racine du compte Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Affecter des autorisations pour la racine du compte Data Lake Store")
+    ![Affecter des autorisations pour la racine de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Affecter des autorisations pour la racine de Data Lake Store")
     
     Cliquez sur **Sélectionner**.
 
     c. Sous **Affecter des autorisations**, cliquez sur **Sélectionner des autorisations**. Définissez **Autorisations** à **Exécuter**. Définissez **Ajouter à** sur **Ce dossier et tous ses enfants**. Définissez **Ajouter en tant que** sur **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut**.
 
-    ![Affecter des autorisations pour la racine du compte Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Affecter des autorisations pour la racine du compte Data Lake Store")
+    ![Affecter des autorisations pour la racine de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Affecter des autorisations pour la racine de Data Lake Store")
 
     Cliquez sur **OK**.
 

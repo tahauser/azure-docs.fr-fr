@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1e9d5ca475424c99b30c62252f4b0abc9bd09078
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 0f3e8f00b1cee1141277f4dee21fabf993e69ba0
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio | Microsoft Docs
 
@@ -29,7 +29,7 @@ Découvrez comment utiliser Data Lake Tools pour Visual Studio (aussi appelé A
 
 Data Lake Tools pour Visual Studio peut être utilisé pour accéder à Data Lake Analytics et à HDInsight.  Pour plus d’informations sur Data Lake Tools, consultez le [Didacticiel : Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-**Configuration requise**
+**Composants requis**
 
 Pour suivre ce didacticiel et utiliser Data Lake Tools dans Visual Studio, vous avez besoin des éléments suivants :
 
@@ -253,7 +253,7 @@ Data Lake Tools pour Visual Studio prennent en charge la création et la soumiss
 * Actuellement, si les résultats sont lancés avec des valeurs NULL, ils ne sont pas affichés. Nous avons résolu ce problème. Si vous êtes bloqué sur ce problème, contactez l'équipe du support technique.
 * Le script HQL créé par Visual Studio est encodé selon le paramètre de région locale de l’utilisateur. Il peut ne pas s’exécuter correctement si l’utilisateur charge le script dans le cluster sous forme binaire.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à établir une connexion à des clusters HDInsight à partir de Visual Studio à l’aide du package Data Lake (HDInsight) Tools et à exécuter des requêtes Hive. Pour plus d'informations, consultez les pages suivantes :
 
 * [Utilisation de Hadoop Hive dans HDInsight](hdinsight-use-hive.md)

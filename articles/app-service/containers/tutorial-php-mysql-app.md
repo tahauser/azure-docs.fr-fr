@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Créer une application web PHP et MySQL dans Azure App Service sur Linux
 
@@ -320,7 +320,7 @@ Dans cette étape, vous allez déployer l’application PHP connectée à MySQL 
 L’application Laravel démarre dans le répertoire _/public_. L’image par défaut Docker PHP pour App Service utilise Apache, et ne vous permet pas de personnaliser `DocumentRoot` pour Laravel. Toutefois, vous pouvez utiliser `.htaccess` pour réécrire toutes les requêtes pour pointer vers _/public_ au lieu du répertoire racine. Dans le répertoire racine, l’élément `.htaccess` a déjà été ajouté à cet effet. Ainsi, votre application Laravel est prête à être déployée.
 
 > [!NOTE] 
-> Si vous préférez ne pas utiliser la réécriture _.htaccess_, vous pouvez à la place déployer votre application Laravel avec une [image Docker personnalisée](quickstart-custom-docker-image.md).
+> Si vous préférez ne pas utiliser la réécriture _.htaccess_, vous pouvez à la place déployer votre application Laravel avec une [image Docker personnalisée](quickstart-docker-go.md).
 >
 >
 

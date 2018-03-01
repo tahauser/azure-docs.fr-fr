@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Fichiers de configuration du service d’expérimentation Azure Machine Learning
 
@@ -76,7 +76,7 @@ Azure Machine Learning Workbench utilise le même environnement conda sans recon
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
 Ce fichier Spécifie le nom de l’application Spark lorsque vous soumettez un script PySpark et des packages Spark à installer. Vous pouvez également spécifier un référentiel Maven public, ainsi qu’un package Spark figurant dans ce référentiel.
 
-Voici un exemple :
+Voici un exemple : 
 
 ```yaml
 configuration:
@@ -166,8 +166,8 @@ _« az ml experiment submit foo.runconfig »_ exécute automatiquement la comm
 **Environment Variables** : cette section permet aux utilisateurs de définir des variables d’environnement dans le cadre de séries de tests. L’utilisateur peut spécifier des variables d’environnement à l’aide de paires nom-valeur au format suivant :
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Ces variables d’environnement sont accessibles dans le code de l’utilisateur. Par exemple, ce code Python imprime la variable d’environnement nommée « EXAMPLE_ENV_VAR ».
@@ -210,5 +210,5 @@ Suite à cette substitution, l’exemple de code suivant lit la source de donné
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur la [configuration du service d’expérimentation](experimentation-service-configuration.md).

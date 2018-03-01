@@ -9,17 +9,17 @@ editor:
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 2ea4dc75c6285379d7a7eb3e85d28c89ae520dc8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 95cc85f0c742d465ab1ed68d6c29b61a6919dd5b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Démarrage rapide : Connexion des solutions de sécurité à Security Center
 
@@ -29,7 +29,7 @@ Ce démarrage rapide vous montre comment :
 - Connecter une solution de sécurité à Security Center à l’aide des journaux CEF
 - Valider la connexion avec la solution de sécurité
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/free/).
 
 Pour effectuer ce démarrage rapide, vous devez utiliser le niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
@@ -39,7 +39,7 @@ Vous avez également besoin d’une [machine Linux](https://docs.microsoft.com/a
 ## <a name="connect-solution-using-cef"></a>Connecter une solution à l’aide du format CEF
 
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
-2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. **Security Center - Vue d’ensemble** s’ouvre.
+2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
     ![Sélectionnez Centre de sécurité](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
 
@@ -72,19 +72,19 @@ Avant de suivre les étapes suivantes, vous devrez attendre que Syslog démarre 
 L’exemple suivant montre le résultat de ces étapes : ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Les autres démarrages rapides et didacticiels de cette collection reposent sur ce démarrage rapide. Si vous envisagez d’utiliser les didacticiels et démarrages rapides suivants, continuez d’exécuter le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire ou si vous voulez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement ou la stratégie que vous voulez pour revenir au niveau Gratuit. La **Stratégie de sécurité** s’ouvre.
-3. Sous **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour changer le niveau d’abonnement de Standard à Gratuit.
+2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
+3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
+4. Sélectionnez **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
 5. Sélectionnez **Enregistrer**.
 
-Si vous voulez désactiver le provisionnement automatique :
+Si vous voulez désactiver l’approvisionnement automatique :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
 2. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Sous **Stratégie de sécurité : collecte de données**, sélectionnez **Désactiver** sous **Intégration** pour désactiver le provisionnement automatique.
+3. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Désactivé** sous **Intégration** pour désactiver l’approvisionnement automatique.
 4. Sélectionnez **Enregistrer**.
 
 >[!NOTE]

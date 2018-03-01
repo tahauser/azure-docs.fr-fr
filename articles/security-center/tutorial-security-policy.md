@@ -9,17 +9,17 @@ editor:
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: 102e160b706ad8fb8ee12ae4cac8cda51b06a991
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Didacticiel : définir et évaluer les stratégies de sécurité
 Security Center garantit la conformité aux exigences de l’entreprise et de sécurité réglementaires à l’aide de stratégies de sécurité, afin de définir la configuration souhaitée de vos charges de travail. Une fois les stratégies pour vos abonnements Azure définies et adaptées au type de charge de travail ou à la sensibilité de vos données, Security Center peut fournir des recommandations de sécurité pour votre ordinateur, la mise en réseau, SQL et le stockage, et les ressources d’application. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -30,8 +30,8 @@ Security Center garantit la conformité aux exigences de l’entreprise et de s�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
-Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez être au niveau de tarification Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pour les 60 premiers jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide tout au long de la mise à niveau vers Standard.
+## <a name="prerequisites"></a>configuration requise
+Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="configure-security-policy"></a>Configurer une stratégie de sécurité
 Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Les stratégies de sécurité sont constituées de recommandations que vous pouvez activer ou désactiver en fonction des exigences de sécurité de cet abonnement. Pour modifier la stratégie de sécurité par défaut, vous devez avoir le rôle de propriétaire, de collaborateur ou d’administrateur de la sécurité de l’abonnement.
@@ -70,19 +70,19 @@ Attendez que Security Center traite ces stratégies et génère des recommandati
   La page **Applications** contient des recommandations pour le déploiement de pare-feu d’applications web et des instructions générales pour le renforcement de l’application. Si vous n’avez pas de machine virtuelle ou d’ordinateur avec des applications web s’exécutant sur Internet Information Services (IIS), vous ne verrez pas ces recommandations.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Les autres démarrages rapides et didacticiels de cette collection reposent sur ce démarrage rapide. Si vous envisagez de continuer à travailler avec les didacticiels et démarrages rapides suivants, poursuivez l’exécution du niveau Standard et conserver l’approvisionnement automatique activé. Si vous n’envisagez pas de continuer ou si vous souhaitez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement ou la stratégie que vous souhaitez pour revenir au niveau gratuit. **Stratégie de sécurité** s’ouvre.
-3. Dans la section **Composants de la stratégie**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour changer le niveau d’un abonnement de Standard à Gratuit.
+2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
+3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
+4. Sélectionnez **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
 5. Sélectionnez **Enregistrer**.
 
-Si vous souhaitez désactiver l’approvisionnement automatique :
+Si vous voulez désactiver l’approvisionnement automatique :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
 2. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Désactiver** sous **Intégration** pour désactiver l’approvisionnement automatique.
+3. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Désactivé** sous **Intégration** pour désactiver l’approvisionnement automatique.
 4. Sélectionnez **Enregistrer**.
 
 >[!NOTE]
