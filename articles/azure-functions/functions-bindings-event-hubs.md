@@ -23,12 +23,20 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/27/2018
 =======
+<<<<<<< HEAD
+ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/27/2018
+=======
 ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
 ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/14/2018
 >>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 

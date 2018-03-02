@@ -15,6 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 <<<<<<< HEAD
 ms.date: 02/27/2018
+=======
+<<<<<<< HEAD
+ms.date: 02/27/2018
 ms.author: carlrab
 ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
@@ -23,13 +26,18 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
 =======
 ms.date: 02/12/2018
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ms.author: carlrab
-ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
+<<<<<<< HEAD
+ms.lasthandoff: 02/28/2018
+=======
 ms.lasthandoff: 02/21/2018
 >>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de ressources de base de données SQL Azure
 

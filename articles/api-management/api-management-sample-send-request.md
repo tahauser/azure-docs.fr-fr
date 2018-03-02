@@ -21,12 +21,20 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
 =======
+<<<<<<< HEAD
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/28/2018
+=======
 ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/21/2018
 >>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
@@ -293,6 +301,8 @@ Le service de gestion des API Azure offre des stratégies flexibles que vous pou
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 ## <a name="watch-a-video-overview-of-these-policies"></a>Regarder une vidéo de présentation de ces stratégies.
 Pour plus d’informations sur les stratégies [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) et [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) abordées dans cet article, regardez la vidéo suivante :
 
@@ -301,3 +311,4 @@ Pour plus d’informations sur les stratégies [send-one-way-request](https://ms
 > 
 
 >>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
