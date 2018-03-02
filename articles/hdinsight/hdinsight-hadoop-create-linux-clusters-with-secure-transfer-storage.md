@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Créer un cluster Hadoop à l’aide de comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
 La fonctionnalité [Transfert sécurisé requis](../storage/common/storage-require-secure-transfer.md) améliore la sécurité de votre compte de stockage Azure en appliquant toutes les demandes à votre compte via une connexion sécurisée. Cette fonctionnalité et le schéma wasbs sont uniquement pris en charge par les clusters HDInsight 3.6 ou version ultérieure. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Abonnement Azure**: pour créer un compte d’essai gratuit d’une durée d’un mois, accédez à [azure.microsoft.com/free](https://azure.microsoft.com/free).
@@ -45,7 +45,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
 
 2. Suivez les instructions pour créer le cluster avec les spécifications suivantes : 
 
-    - Indiquez HDInsight version 3.6.  La version par défaut est 3.5. La version 3.6 ou une version ultérieure est requise.
+    - Indiquez HDInsight version 3.6.  La version 3.6 ou une version ultérieure est requise.
     - Indiquez un compte de stockage doté du transfert sécurisé.
     - Utilisez un nom court pour le compte de stockage.
     - Le compte de stockage et le conteneur d’objets blob doivent être créés au préalable. 
@@ -66,7 +66,7 @@ Plusieurs options vous permettent d’ajouter des comptes de stockage dotés du 
 - Créez un cluster à l’aide du [portail Azure](https://portal.azure.com) et indiquez le compte de stockage lié.
 - Utilisez l’action de script pour ajouter des comptes de stockage doté du transfert sécurisé à un cluster HDInsight existant.  Pour plus d’informations, consultez [Ajouter des comptes de stockage supplémentaires à HDInsight](hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à créer un cluster HDInsight et à activer le transfert sécurisé pour les comptes de stockage.
 
 Pour en savoir plus sur l’analyse des données avec HDInsight, consultez les articles suivants :

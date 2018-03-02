@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Créer des applications de Machine Learning Apache Spark sur Azure HDInsight
 
@@ -28,9 +28,9 @@ Découvrez comment créer une application de Machine Learning Apache Spark à l
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) est une bibliothèque de Machine Learning de Spark constituée d’utilitaires et d’algorithmes d’apprentissage courants, notamment la classification, la régression, le clustering, le filtrage collaboratif, la réduction de dimensionnalité, ainsi que les primitives d’optimisation sous-jacentes.
 
-**Configuration requise :**
+## <a name="prerequisites"></a>Configuration requise :
 
-Vous devez disposer des éléments suivants :
+Vous devez disposer de l’élément suivant :
 
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,7 +181,7 @@ Dans cette application, vous utilisez un [pipeline ML](https://spark.apache.org/
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Dans la première ligne de la prédiction, vous pouvez voir que pour un système HVAC avec l’ID 20 et une ancienneté du système de 25 ans, le bâtiment sera chaud (**prediction=1,0**). La première valeur de DenseVector (0,49999) correspond à la prédiction 0.0, et la seconde valeur (0,5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1,0**.
+   Dans la première ligne de la prédiction, vous pouvez voir que pour un système HVAC avec l’ID 20 et une ancienneté de 25 ans, le bâtiment est chaud (**prediction=1.0**). La première valeur de DenseVector (0,49999) correspond à la prédiction 0.0, et la seconde valeur (0,5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1,0**.
 10. Arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 
 ## <a name="anaconda"></a>Utiliser une bibliothèque scikit-learn Anaconda pour le Machine Learning Spark
@@ -193,7 +193,6 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 ### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark : utilisez Spark dans HDInsight pour créer des applications de streaming en continu en temps réel](apache-spark-eventhub-streaming.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications
@@ -201,7 +200,7 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 * [Exécution de travaux à distance avec Livy sur un cluster Spark](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)
+* [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)

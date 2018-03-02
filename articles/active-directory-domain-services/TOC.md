@@ -1,8 +1,11 @@
+# [Documentation des services de domaine Azure AD ](index.md)
+
 # Vue d'ensemble
 ## [Présentation d’Azure AD Domain Services](active-directory-ds-overview.md)
 ## Est-il adapté pour vous ?
 ### [Comparer avec Windows Server AD](active-directory-ds-comparison.md)
 ### [Comparer avec la jonction Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
+## [Nouveautés](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Caractéristiques](active-directory-ds-features.md)
 ## [Scénarios](active-directory-ds-scenarios.md)
 ## [Fonctionnement de la synchronisation](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
 
 # Procédures
+## [Vérifier l’intégrité d’un domaine managé](active-directory-ds-check-health.md)
 ## [Utiliser Azure Active Directory Domain Services dans les abonnements Azure CSP](active-directory-ds-csp.md)
 ## [Activer les services de domaine Azure AD à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Joindre un domaine géré
@@ -28,7 +32,7 @@
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrer DNS sur un domaine géré](active-directory-ds-admin-guide-administer-dns.md)
-### [Vérifier l’intégrité de votre domaine](active-directory-ds-check-health.md)
+
 ### Configurer le protocole LDAP sécurisé pour un domaine géré
 #### [Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tâche 2 : Exporter le certificat LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0a4d8958c0bbbe8b0242bfe8943d01ef66afec74
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery  
 
@@ -154,7 +154,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Devises prises en charge
 Le Planificateur de déploiement Azure Site Recovery peut générer le rapport de coût avec une des devises suivantes.
 
-|Devise|Nom||Devise|Nom||Devise|Nom|
+|Devise|NOM||Devise|NOM||Devise|NOM|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentin ($)||AUD|Dollar australien ($)||BRL|Real brésilien (R$)|
 |CAD|Dollar canadien ($)||CHF|Franc suisse (chf)||DKK|Couronne danoise (kr)|
@@ -165,5 +165,5 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur la protection des [machines virtuelles de VMware vers Azure à l’aide d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).

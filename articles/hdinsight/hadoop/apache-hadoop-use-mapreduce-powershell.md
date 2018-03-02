@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: cfed3617f20074f361629c65f14ce38c1012c702
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Exécution à distance des travaux MapReduce avec Hadoop sur HDInsight à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécut
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
 
-## <a id="powershell"></a>Exécution d’une tâche MapReduce avec Azure PowerShell
+## <a id="powershell"></a>Exécuter une tâche MapReduce
 
 Azure PowerShell propose des *applets de commande* qui vous permettent d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, PowerShell effectue des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 

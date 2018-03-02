@@ -9,17 +9,17 @@ editor:
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: b6adf4bec2d9f92ee3cde9c73a03beb5a58c3f3f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 2eb6a2ea2cd9aa70c5b4f60ab2786b21d8996c29
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Didacticiel : Répondre aux incidents de sécurité
 Security center analyse continuellement vos charges de travail de cloud hybride à l’aide d’analyses avancées et d’informations sur les menaces pour vous avertir des activités malveillantes. En outre, vous pouvez intégrer des alertes à partir d’autres produits et services de sécurité dans Security Center et créer des alertes personnalisées en fonction de vos propres indicateurs ou sources d’informations. Une fois une alerte générée, une action rapide est nécessaire pour examiner et résoudre la situation. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -31,7 +31,7 @@ Security center analyse continuellement vos charges de travail de cloud hybride 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="triage-security-alerts"></a>Trier les alertes de sécurité
@@ -76,19 +76,19 @@ Vous pouvez utiliser les fonctionnalités de recherche dans Security Center pour
 Pour effectuer une recherche, ouvrez le tableau de bord **Security Center**, cliquez sur **Recherche** dans le volet de navigation de gauche, sélectionnez l’espace de travail contenant les entités sur lesquelles vous souhaitez effectuer des recherches, saisissez la requête de recherche, et cliquez sur le bouton de recherche.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Les autres démarrages rapides et didacticiels de cette collection reposent sur ce démarrage rapide. Si vous envisagez d’utiliser les didacticiels et démarrages rapides suivants, continuez d’exécuter le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire ou si vous voulez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement ou la stratégie que vous voulez pour revenir au niveau Gratuit. La **Stratégie de sécurité** s’ouvre.
-3. Sous **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour changer le niveau d’abonnement de Standard à Gratuit.
+2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
+3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
+4. Sélectionnez **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
 5. Sélectionnez **Enregistrer**.
 
-Si vous voulez désactiver le provisionnement automatique :
+Si vous voulez désactiver l’approvisionnement automatique :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
 2. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Sous **Stratégie de sécurité : collecte de données**, sélectionnez **Désactiver** sous **Intégration** pour désactiver le provisionnement automatique.
+3. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Désactivé** sous **Intégration** pour désactiver l’approvisionnement automatique.
 4. Sélectionnez **Enregistrer**.
 
 >[!NOTE]

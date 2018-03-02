@@ -1,10 +1,10 @@
 ---
 title: "Créer une connexion entre des réseaux virtuels (classiques) : portail Azure | Microsoft Docs"
-description: "Comment interconnecter des réseaux virtuels Azure à l’aide de PowerShell et du portail Azure."
+description: "Interconnectez des réseaux virtuels Azure à l’aide de PowerShell et du portail Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement classique et au portail Azure. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
+Cet article vous aide à créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement classique et au portail Azure. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -67,7 +67,7 @@ Pour plus d’informations sur les connexions de réseau virtuel à réseau virt
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer cet exercice, téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Nous utilisons le portail pour la plupart des étapes, mais vous devez utiliser PowerShell pour créer les connexions entre les réseaux virtuels. Vous ne pouvez pas créer des connexions à l’aide du portail Azure.
+Avant de commencer cet exercice, téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview). Nous utilisons le portail pour la plupart des étapes, mais vous devez utiliser PowerShell pour créer les connexions entre les réseaux virtuels. Vous ne pouvez pas créer des connexions à l’aide du portail Azure.
 
 ## <a name="plan"></a>Étape 1 : planifier vos plages d’adresses IP
 
@@ -80,7 +80,7 @@ Le tableau suivant présente un exemple de la définition de vos réseaux virtu
 | Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Est des États-Unis |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Ouest des États-Unis |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |États-Unis de l’Ouest |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="vnetvalues"></a>Étape 2 : créer les réseaux virtuels
 
@@ -142,7 +142,7 @@ Le site local de chaque réseau virtuel correspond à l’autre réseau virtuel.
 | Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Est des États-Unis |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Ouest des États-Unis |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |États-Unis de l’Ouest |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Recherchez TestVNet1 dans le portail Azure. Dans la section **Connexions VPN** de la page, cliquez sur **Passerelle**.
 
@@ -213,7 +213,7 @@ Lorsque vous créez des réseaux virtuels classiques dans le portail Azure, le n
 
 Dans les étapes suivantes, vous allez vous connecter à votre compte Azure et télécharger et afficher le fichier de configuration réseau pour obtenir les valeurs nécessaire pour établir les connexions.
 
-1. Téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+1. Téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 
 2. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
@@ -287,5 +287,5 @@ Dans les exemples ci-dessous, notez que la clé partagée est exactement identiq
 * Tous les tunnels VPN du réseau virtuel, y compris les VPN de point à site, partagent la bande passante disponible pour la passerelle VPN, ainsi que le même contrat SLA concernant le temps d’activité des passerelles VPN dans Azure.
 * Le trafic de réseau virtuel à réseau virtuel circule sur la dorsale principale d’Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vérifiez vos connexions. Voir [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md).

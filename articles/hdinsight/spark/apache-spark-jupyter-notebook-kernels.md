@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight 
 
@@ -33,7 +33,7 @@ Les clusters Spark HDInsight fournissent des noyaux que vous pouvez utiliser ave
 
 Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les avantages de leur utilisation.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -80,7 +80,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
    
     Le tableau suivant répertorie les différentes commandes magiques disponibles par le biais des noyaux.
 
-   | Commande magique | Exemple | Description |
+   | Commande magique | exemples | DESCRIPTION |
    | --- | --- | --- |
    | help |`%%help` |Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
    | info |`%%info` |Génère des informations de session pour le point de terminaison Livy actuel |
@@ -88,7 +88,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Exécute une requête Hive sur sqlContext. Si le paramètre `-o` est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/) . |
    | local |`%%local`<br>`a=1` |Tout le code dans les lignes suivantes est exécuté localement. Le code doit être un code Python2 valide, même s’il ne correspond pas au noyau que vous utilisez. Donc, même si vous avez sélectionné les noyaux **PySpark3** ou **Spark** en créant le bloc-notes, si vous utilisez la commande magique `%%local` dans une cellule, cette cellule doit uniquement comporter un code Python2 valide. |
    | journaux |`%%logs` |Génère les journaux de la session Livy en cours. |
-   | delete |`%%delete -f -s <session number>` |Supprime une session spécifique du point de terminaison Livy actuel. Notez que vous ne pouvez pas supprimer la session qui est lancée pour le noyau lui-même. |
+   | delete |`%%delete -f -s <session number>` |Supprime une session spécifique du point de terminaison Livy actuel. Vous ne pouvez pas supprimer la session qui est lancée pour le noyau. |
    | cleanup |`%%cleanup -f` |Supprime toutes les sessions pour le point de terminaison Livy actuel, y compris la session de ce bloc-notes. L’indicateur de forçage -f est obligatoire. |
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
 ## <a name="parameters-supported-with-the-sql-magic"></a>Paramètres pris en charge avec la commande magique %%sql
 La commande magique `%%sql` prend en charge différents paramètres qui vous permettent de contrôler le type de sortie que vous recevez quand vous exécutez des requêtes. Le tableau suivant répertorie les paramètres de sortie.
 
-| Paramètre | Exemple | Description |
+| Paramètre | exemples | DESCRIPTION |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Utilisez ce paramètre pour conserver le résultat de la requête dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/) . Le nom de la variable dataframe est le nom de variable que vous spécifiez. |
 | -q |`-q` |Utilisez ce paramètre pour désactiver les visualisations pour la cellule. Si vous ne voulez pas visualiser automatiquement le contenu d’une cellule et préférez simplement capturer le contenu comme une trame de données, utilisez `-q -o <VARIABLE>`. Si vous souhaitez désactiver les visualisations sans capturer les résultats (par exemple, pour exécuter une requête SQL, comme une instruction `CREATE TABLE`), utilisez `-q` sans spécifier d’argument `-o`. |
@@ -108,7 +108,7 @@ La commande magique `%%sql` prend en charge différents paramètres qui vous per
 | -r |`-r <FRACTION>` |Ici, **FRACTION** est un nombre à virgule flottante compris entre 0,0 et 1,0. Si l’exemple de méthode de la requête SQL est `sample`, le noyau échantillonne de façon aléatoire la fraction spécifiée des éléments du jeu de résultats. Par exemple, si vous exécutez une requête SQL avec les arguments `-m sample -r 0.01`, 1 % des lignes de résultat sont échantillonnées de façon aléatoire. |
 | -n |`-n <MAXROWS>` |**MAXROWS** est une valeur entière. Le noyau limite le nombre de lignes de la sortie au nombre défini par **MAXROWS**. Si **MAXROWS** est un nombre négatif comme **-1**, le nombre de lignes dans le jeu de résultats n’est pas limité. |
 
-**Exemple :**
+**Exemple :**
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
@@ -159,17 +159,16 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 ### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](apache-spark-eventhub-streaming.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>Créer et exécuter des applications
+### <a name="create-and-run-applications"></a>Création et exécution d’applications
 * [Créer une application autonome avec Scala](apache-spark-create-standalone-application.md)
-* [Exécuter des tâches à distance avec Livy sur un cluster Spark](apache-spark-livy-rest-interface.md)
+* [Exécution de travaux à distance avec Livy sur un cluster Spark](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)

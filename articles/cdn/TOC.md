@@ -1,4 +1,6 @@
-# [Vue d’ensemble](cdn-overview.md)
+# [Documentation CDN](index.md)
+
+# [Vue d'ensemble](cdn-overview.md)
 ## [Présentation d’Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
 # Prise en main

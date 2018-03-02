@@ -1,3 +1,5 @@
+# [Documentation sur la facturation Azure](index.md)
+
 # Prise en main
 ## [Éliminer les coûts imprévus](billing-getting-started.md)
 ## [Créer des services inclus dans un compte gratuit](billing-create-free-services-included-free-account.md)
@@ -47,7 +49,7 @@
 ### [Aucun abonnement trouvé](billing-no-subscriptions-found.md)
 ### [Désactivation de l’affichage des coûts d’entreprise](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-# Référence
+# Informations de référence
 ## [Présentation de l’API](billing-usage-rate-card-overview.md)
 ## [Présentation de l’API de création de rapports d’entreprise](billing-enterprise-api.md)
 ## [Facturer REST](/rest/api/billing)

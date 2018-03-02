@@ -1,19 +1,19 @@
 ---
-title: "Bibliothèques de connexions de la base de données Azure pour PostgreSQL | Microsoft Docs"
+title: "Bibliothèques de connexions de la base de données Azure pour PostgreSQL"
 description: "Cet article décrit plusieurs bibliothèques et pilotes que les développeurs peuvent utiliser lorsqu’ils codent des applications pour se connecter à une base de données Azure pour PostgreSQL et l’interroger."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/28/2018
+ms.openlocfilehash: 7f0dd217a124f530ba009c9a5588691f604827e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliothèques de connexions de la base de données Azure pour PostgreSQL
 Cet article liste les bibliothèques et les pilotes qui sont à la disposition des développeurs pour développer des applications qui se connectent à Azure Database pour PostgreSQL et l’interrogent.
@@ -34,7 +34,7 @@ La plupart des bibliothèques clientes de langages qui permettent de se connecte
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interface principale du langage C | Inclus |
 | C++ | [libpqxx](http://pqxx.org/) | Interface C++ remaniée | [Télécharger](http://pqxx.org/download/software/) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Lisez ces guides de démarrage rapide pour savoir comment se connecter à Azure Database for PostgreSQL et l’interroger dans le langage de votre choix :
 
 [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

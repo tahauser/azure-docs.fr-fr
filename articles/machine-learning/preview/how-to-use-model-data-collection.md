@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Collecter les données de modèle à l’aide d’une collecte de données
 
@@ -88,7 +88,7 @@ Pour pouvoir utiliser la collecte de données de modèle, vous devez apporter le
 Pour afficher les données collectées dans le stockage d’objets blob :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **Plus de services**.
+2. Sélectionnez **Tous les services**.
 3. Dans la zone de recherche, saisissez **Comptes de stockage**, puis appuyez sur la touche Entrée.
 4. Dans le panneau de recherche **Comptes de stockage**, sélectionnez la ressource **Compte de stockage**. Pour déterminer votre compte de stockage, utilisez les étapes suivantes :
 

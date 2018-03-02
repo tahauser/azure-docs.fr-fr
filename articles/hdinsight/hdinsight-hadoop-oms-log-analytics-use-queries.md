@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: da7b83846418bfe5f95b126d4f5f7b34d3a7b35d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Interroger Azure Log Analytics pour surveiller les clusters HDInsight
 
@@ -29,7 +29,7 @@ Découvrez certains scénarios d’utilisation de base d’Azure Log Analytics p
 * [Rechercher des messages de journal spécifiques](#search-for-specific-log-messages)
 * [Créer des alertes d’événement](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Vous devez avoir configuré un cluster HDInsight pour utiliser Azure Log Analytics. Pour obtenir des instructions, consultez [Utiliser Azure Log Analytics avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 

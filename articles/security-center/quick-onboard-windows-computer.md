@@ -9,26 +9,27 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour des ressources qui s’exécutent en dehors d’Azure, par exemple, en local ou dans d’autres clouds, en approvisionnant Microsoft Monitoring Agent.
 
 Ce guide de démarrage rapide explique comment installer Microsoft Monitoring Agent sur un ordinateur Windows.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-Vous devez utiliser le niveau tarifaire Standard de Security Center pour pouvoir suivre ce guide de démarrage rapide. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau Standard de Security Center gratuitement pendant 60 jours.
+Vous devez utiliser le niveau tarifaire Standard de Security Center pour commencer ce guide de démarrage rapide. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau Standard de Security Center gratuitement pendant 60 jours.
 
 ## <a name="add-new-windows-computer"></a>Ajouter un nouvel ordinateur Windows
 
@@ -73,7 +74,7 @@ Vous devez maintenant installer le fichier téléchargé sur l’ordinateur cibl
 
 Lorsque vous avez terminé, **Microsoft Monitoring Agent** apparaît dans le **Panneau de configuration**. Vous pouvez vérifier votre configuration et vous assurer que l’agent est connecté.
 
-Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des ordinateurs Windows](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
+Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des ordinateurs Windows](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
 
 Vous pouvez maintenant effectuer le monitoring de vos machines virtuelles Azure et de vos ordinateurs extérieurs à Azure en un seul et même endroit. La fenêtre **Calcul** affiche une vue d’ensemble de toutes les machines virtuelles et de tous les ordinateurs, ainsi que des recommandations. Chaque colonne représente un ensemble de recommandations. La couleur correspond à l’état de sécurité actuel de l’ordinateur ou de la machine virtuelle pour une recommandation donnée. Security Center met également en évidence les éventuelles détections d’alertes de sécurité pour ces ordinateurs.
 

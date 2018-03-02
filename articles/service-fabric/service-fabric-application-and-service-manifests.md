@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
 Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -70,7 +70,7 @@ Le manifeste de service définit de manière déclarative le type de service et 
 
 Le fichier exécutable spécifié par **EntryPoint** est généralement l’hôte de service à exécution longue. **SetupEntryPoint** est un point d'entrée privilégié qui s'exécute avec les mêmes informations d'identification que Service Fabric (généralement le compte *LocalSystem* ) avant tout autre point d'entrée.  La présence d’un point d’entrée de configuration distinct évite d’avoir à exécuter l’hôte de service avec des privilèges élevés pendant de longues périodes de temps. Le fichier exécutable spécifié par **EntryPoint** est exécuté une fois que **SetupEntryPoint** se termine correctement. En cas d’interruption ou de défaillance du processus, le processus résultant fait l’objet d’une surveillance et est redémarré (à partir de **SetupEntryPoint**).  
 
-**SetupEntryPoint** est généralement utilisé lorsque vous exécutez un fichier exécutable avant le démarrage du service ou si vous effectuez une opération avec des privilèges élevés. Par exemple :
+**SetupEntryPoint** est généralement utilisé lorsque vous exécutez un fichier exécutable avant le démarrage du service ou si vous effectuez une opération avec des privilèges élevés. Par exemple : 
 
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
@@ -176,7 +176,7 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Empaquetez une application](service-fabric-package-apps.md) et préparez-la pour le déploiement.
 - [Déployer et supprimer des applications](service-fabric-deploy-remove-applications.md).
 - [Configurer les paramètres et les variables d’environnement pour différentes instances d’application](service-fabric-manage-multiple-environment-app-configuration.md).

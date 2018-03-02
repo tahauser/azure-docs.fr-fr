@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 02/22/2018
 ms.author: krnese
-ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: eb837858fe81fa1f2d4966051bd4b7b068defe8b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Déployer le service Mobilité avec Azure Automation DSC pour la réplication de machines virtuelles
 Dans Operations Management Suite, nous fournissons une solution complète de sauvegarde et de récupération d’urgence que vous pouvez exploiter dans le cadre de votre plan de continuité d’activité.
@@ -47,7 +47,7 @@ Cet article fournit un exemple de la manière dont vous pouvez utiliser Configur
 * le service Mobilité et l’agent de machine virtuelle Azure sont déployés sur les machines Windows que vous souhaitez protéger ;
 * le service Mobilité et l’agent de machine virtuelle Azure sont toujours en cours d’exécution lorsqu’Azure est la cible de réplication.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * Un référentiel pour stocker l’installation requise
 * Un référentiel pour stocker la phrase secrète requise pour s’enregistrer avec le serveur d’administration
 
@@ -355,7 +355,7 @@ Vous pouvez instancier votre propre serveur collecteur DSC dans votre environnem
 
 Notez que, dans cet exemple, il existe un paramètre ajouté pour le nom de l’ordinateur. Les fichiers distants se trouvent maintenant sur un partage distant qui doit être accessible par les machines que vous souhaitez protéger. La fin du script promulgue la configuration, puis commence à appliquer la configuration DSC à l’ordinateur cible.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 Assurez-vous que le module PowerShell xPSDesiredStateConfiguration est installé. Pour les machines Windows sur lesquelles WMF 5.0 est installé, vous pouvez installer le module xPSDesiredStateConfiguration en exécutant l’applet de commande suivante sur les machines cibles :
 
 ```powershell
@@ -508,5 +508,5 @@ $RGDeployArgs = @{
 New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Après avoir déployé les agents du Service Mobilité, vous pouvez [activer la réplication](site-recovery-vmware-to-azure.md) des machines virtuelles.

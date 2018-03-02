@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: dfe9efdb57a0ce2506abd251267f39020568d081
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Hive avec Hadoop dans HDInsight à l’aide de REST
 
@@ -28,24 +28,58 @@ ms.lasthandoff: 01/18/2018
 
 Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hive avec Hadoop sur un cluster Azure HDInsight.
 
-[Curl](http://curl.haxx.se/) est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes. L’utilitaire [jq](http://stedolan.github.io/jq/) est utilisé pour traiter les données JSON renvoyées à partir de demandes REST.
+## <a name="prerequisites"></a>configuration requise
 
-> [!NOTE]
-> Si vous êtes déjà familiarisé avec l’utilisation de serveurs Hadoop sous Linux, mais que vous découvrez HDInsight, consultez le document [Informations sur l’utilisation de Hadoop sur HDInsight sous Linux](../hdinsight-hadoop-linux-information.md).
+* Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
-## <a id="curl"></a>Exécuter des requêtes Hive
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* Client REST. Ce document utilise des exemples Windows PowerShell et [Curl](http://curl.haxx.se/).
+
+    > [!NOTE]
+    > Azure PowerShell fournit des applets de commande dédiées pour utiliser Hive dans HDInsight. Pour plus d’informations, consultez le document [Exécution de requêtes Hive avec PowerShell](apache-hadoop-use-hive-powershell.md).
+
+Ce document utilise également Windows PowerShell et [Jq](http://stedolan.github.io/jq/) pour traiter les données JSON retournées par les requêtes REST.
+
+## <a id="curl"></a>Exécuter une requête Hive
 
 > [!NOTE]
 > Lorsque vous utilisez cURL ou toute autre communication REST avec WebHCat, vous devez authentifier les requêtes en fournissant le nom d’utilisateur et le mot de passe de l’administrateur du cluster HDInsight.
 >
-> Pour les commandes de cette section, remplacez **admin** par l’utilisateur pour l’authentification auprès du cluster. Remplacez **CLUSTERNAME** par le nom de votre cluster. Quand vous y êtes invité, entrez le mot de passe du compte d’utilisateur.
->
 > L’API REST est sécurisée à l’aide de l’ [authentification de base](http://en.wikipedia.org/wiki/Basic_access_authentication). Pour aider à vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur, procédez toujours aux requêtes via le protocole HTTP sécurisé (HTTPS).
 
-1. À partir d’une ligne de commande, exécutez la commande suivante pour vérifier que vous pouvez vous connecter à votre cluster HDInsight.
+1. Pour définir la connexion de cluster qui est utilisée par les scripts de ce document, utilisez l’une des commandes suivantes :
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. Pour définir le nom du cluster, utilisez l’une des commandes suivantes :
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. Pour vérifier que vous pouvez vous connecter à votre cluster HDInsight, utilisez l’une des commandes suivantes :
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    ```
+    
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
+       -Credential $creds `
+       -UseBasicParsing
+    $resp.Content
     ```
 
     La réponse reçue est similaire au texte suivant :
@@ -56,13 +90,20 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-    * **-u** : le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande.
-    * **-G**: indique que la requête correspond à une opération GET.
+    * `-u` : nom d’utilisateur et mot de passe utilisés pour authentifier la requête.
+    * `-G` : indique que la requête correspond à une opération GET.
 
-   Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur. Vous pouvez également prendre connaissance de la version de Hive à l'aide de la commande suivante :
+   Le début de l’URL (`https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`) est le même pour toutes les requêtes. Le chemin (`/status`) indique que la requête doit retourner l’état de WebHCat (également appelé Templeton) au serveur. Vous pouvez également prendre connaissance de la version de Hive à l'aide de la commande suivante :
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
+       -Credential $creds `
+       -UseBasicParsing
+    $resp.Content
     ```
 
     Cette requête renvoie une réponse similaire au texte suivant :
@@ -71,83 +112,72 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
     ```
 
-2. Utilisez la commande suivante pour créer une table nommée **log4jLogs** :
+4. Utilisez la commande suivante pour créer une table nommée **log4jLogs** :
 
     ```bash
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
+    echo $JOBID
     ```
 
-    Les paramètres suivants sont utilisés avec cette demande :
+    ```powershell
+    $reqParams = @{"user.name"="admin";"execute"="set hive.execution.engine=tez;DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
+    ```
 
-   * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
+    Cette requête utilise la méthode POST, qui envoie des données dans le cadre de la requête à l’API REST. Les valeurs de données suivantes sont envoyées avec la requête :
 
-     * **user.name** : l’utilisateur qui exécute la commande.
-     * **execute** : les instructions HiveQL qui doivent être exécutées.
-     * **statusdir**: le répertoire dans lequel les statuts de cette tâche sont écrits.
+     * `user.name` : utilisateur qui exécute la commande.
+     * `execute` : instructions HiveQL qui doivent être exécutées.
+     * `statusdir`: répertoire dans lequel l’état de cette tâche est écrit.
 
    Ces instructions effectuent les opérations suivantes :
    
-   * **DROP TABLE** : si la table existe déjà, elle est supprimée.
-   * **CREATE EXTERNAL TABLE** : crée une table externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
+   * `DROP TABLE` : si la table existe déjà, elle est supprimée.
+   * `CREATE EXTERNAL TABLE` : crée une nouvelle table externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
      > [!NOTE]
      > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, par exemple, par un processus de téléchargement de données automatisé ou une autre opération MapReduce.
      >
      > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
-   * **ROW FORMAT** : le mode de formatage des données. Les champs de chaque journal sont séparés par un espace.
-   * **STORED AS TEXTFILE LOCATION** : l’endroit où sont stockées les données (répertoire example/data) et indique qu’elles sont stockées sous forme de texte.
-   * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
+   * `ROW FORMAT` : formatage des données. Les champs de chaque journal sont séparés par un espace.
+   * `STORED AS TEXTFILE LOCATION` : emplacement de stockage des données (répertoire example/data) stockées sous forme de texte.
+   * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
      > [!NOTE]
      > Notez que les espaces entre les instructions HiveQL sont remplacés par le caractère `+` lorsqu'ils sont utilisés avec Curl. Les valeurs citées qui contiennent un espace, tel que le séparateur, ne doivent pas être remplacées par `+`.
 
-   * **INPUT__FILE__NAME LIKE ’%25.log’** : cette instruction limite la recherche aux seuls fichiers se terminant par .log.
+      Cette commande retourne un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche.
 
-     > [!NOTE]
-     > Notez que `%25` est la forme codée de l’URL de %, donc la condition réelle est `like '%.log'`. La valeur % doit être une URL encodée, car elle est traitée comme un caractère spécial dans les URL.
-
-   Cette commande retourne un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche.
-
-    ```json
-       {"id":"job_1415651640909_0026"}
-    ```
-
-3. Pour vérifier le statut de la tâche, utilisez la commande suivante :
+5. Pour vérifier le statut de la tâche, utilisez la commande suivante :
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    Remplacez **JOBID** par la valeur retournée à l’étape précédente. Par exemple, si la valeur de retour était `{"id":"job_1415651640909_0026"}`, le **JOBID** est `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     Si la tâche est terminée, l’état est **TERMINÉ**.
 
-   > [!NOTE]
-   > Cette requête Curl renvoie un document JSON (JavaScript Object Notation) avec des informations sur la tâche. Jq est utilisé pour récupérer uniquement la valeur d’état.
-
-4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans notre cas : **/example/curl**. Cette adresse stocke le résultat dans le répertoire **exemple/curl** dans le stockage par défaut du cluster.
+6. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans notre cas `/example/rest`. Cette adresse stocke le résultat dans le répertoire `example/curl` dans le stockage en cluster par défaut.
 
     Vous pouvez répertorier et télécharger ces fichiers à l’aide de l' [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Pour plus d’informations sur l’utilisation de l’interface CLI Azure avec Stockage Azure, consultez le document [Utiliser Azure CLI 2.0 avec Stockage Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
-
-5. Utilisez les instructions suivantes pour créer une table « interne » nommée **errorLogs**:
-
-    ```bash
-    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
-    ```
-
-    Ces instructions effectuent les opérations suivantes :
-
-   * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Cette instruction crée une table interne, qui est stockée dans l’entrepôt de données Hive et gérée par Hive.
-
-     > [!NOTE]
-     > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
-
-   * **STORED AS ORC** : stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
-   * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
-   * **SELECT** : sélectionne toutes les lignes de la nouvelle table **errorLogs**.
-
-6. Utilisez l'identificateur de la tâche renvoyé pour vérifier l'état de la tâche. Une fois la tâche terminée, utilisez la CLI Azure, comme indiqué précédemment, pour télécharger et afficher les résultats. La sortie doit comporter trois lignes, qui contiennent toutes la valeur **ERROR**.
 
 ## <a id="nextsteps"></a>Étapes suivantes
 

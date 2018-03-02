@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Comment créer une tâche de traitement d’analyse de données pour Stream Analytics
 La ressource de niveau supérieur dans Azure Stream Analytics est une tâche Stream Analytics.  Elle se compose d'une ou plusieurs sources de données d'entrée, une requête exprimant la transformation de données et une ou plusieurs cibles de sortie où les résultats sont écrits. Ensemble, ces éléments permettent à l’utilisateur de traiter l’analyse des données dans différents scénarios de données de diffusion en continu.
 
 Pour utiliser Stream Analytics, commencez par créer une tâche Stream Analytics.  Notez que cette action n'a aucune incidence de facturation tant que la tâche n'a pas démarré.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Nouveau** > **Données + Analytique** > **Tâche Stream Analytics**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+2. Sélectionnez **Créer une ressource** > **Données + Analytique** > **tâche Stream Analytics**.
 3. Sélectionnez **Créer**.
    
 3. Spécifiez la configuration souhaitée pour la tâche Stream Analytics.
@@ -47,10 +47,10 @@ La création de la tâche Stream Analytics peut prendre plusieurs minutes. Pour 
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

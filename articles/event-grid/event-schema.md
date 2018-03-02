@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -30,7 +30,7 @@ L’exemple suivant montre les propriétés qui sont utilisées par tous les éd
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ Par exemple, voici le schéma publié pour un événement de stockage Blob Azure
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Propriétés d’événement
 
 Tous les événements contiennent les mêmes données de niveau supérieur suivantes :
@@ -92,7 +92,9 @@ Pour connaître les propriétés de l’objet de données, consultez la source d
 
 * [Abonnements Azure (opérations de gestion)](event-schema-subscriptions.md)
 * [Stockage Blob](event-schema-blob-storage.md)
-* [Event Hubs](event-schema-event-hubs.md)
+* [Concentrateurs d'événements](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Groupes de ressources (opérations de gestion)](event-schema-resource-groups.md)
 
 Pour les rubriques personnalisées, l’éditeur d’événements détermine l’objet de données. Les données de premier niveau doivent contenir les mêmes champs que les événements standard définis par les ressources. Lors de la publication d’événements dans les rubriques personnalisées, pensez à modéliser l’objet de vos événements pour faciliter le routage et le filtrage.

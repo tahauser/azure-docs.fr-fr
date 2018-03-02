@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice de prise en charge pour la réplication sur un site secondaire avec Azure Site Recovery
 
@@ -67,60 +67,60 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-Association de cartes réseau | Oui | Oui
-VLAN | Oui | Oui
-IPv4 | Oui | Oui
-IPv6 | Non | Non
+Association de cartes réseau | OUI | OUI
+VLAN | OUI | OUI
+IPv4 | OUI | OUI
+IPv6 | Non  | Non 
 
 ### <a name="guest-vms"></a>MV invitées
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-Association de cartes réseau | Non | Non
-IPv4 | Oui | Oui
-IPv6 | Non | Non
-Adresse IP statique (Windows) | Oui | Oui
-Adresse IP statique (Linux) | Oui | Oui
-Plusieurs cartes réseau | Oui | Oui
+Association de cartes réseau | Non  | Non 
+IPv4 | OUI | OUI
+IPv6 | Non  | Non 
+Adresse IP statique (Windows) | OUI | OUI
+Adresse IP statique (Linux) | OUI | OUI
+Plusieurs cartes réseau | OUI | OUI
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Stockage
 
 ### <a name="host-storage"></a>Stockage hôte
 
 **Stockage (hôte)** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-NFS | Oui | N/A
-SMB 3.0 | N/A | Oui
-SAN (ISCSI) | Oui | Oui
-Chemins d’accès multiples (MPIO) | Oui | Oui
+NFS | OUI | N/A
+SMB 3.0 | N/A | OUI
+SAN (ISCSI) | OUI | OUI
+Chemins d’accès multiples (MPIO) | OUI | OUI
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-VMDK | Oui | N/A
+VMDK | OUI | N/A
 VHD/VHDX | N/A | Oui (jusqu’à 16 disques)
-Machine virtuelle de 2e génération | N/A | Oui
-Disque de cluster partagé | Oui  | Non
-Disque chiffré | Non | Non
-UEFI| Oui | N/A
-NFS | Non | Non
-SMB 3.0 | Non | Non
-RDM | Oui | N/A
-Disque > 1 To | Oui | Oui
-Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui | Oui
-Espaces de stockage | Non | Oui
-Ajout/suppression de disque à chaud | Oui | Non
-Exclure le disque | Oui | Oui
-Chemins d’accès multiples (MPIO) | N/A | Oui
+Machine virtuelle de 2e génération | N/A | OUI
+Disque de cluster partagé | OUI  | Non 
+Disque chiffré | Non  | Non 
+UEFI| OUI | N/A
+NFS | Non  | Non 
+SMB 3.0 | Non  | Non 
+RDM | OUI | N/A
+Disque > 1 To | OUI | OUI
+Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI | OUI
+Espaces de stockage | Non  | OUI
+Ajout/suppression de disque à chaud | OUI | Non 
+Exclure le disque | OUI | OUI
+Chemins d’accès multiples (MPIO) | N/A | OUI
 
 ## <a name="vaults"></a>Coffres
 
 **Action** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non | Non
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non | Non
+Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non  | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non  | Non 
 
 ## <a name="provider-and-agent"></a>Fournisseur et agent
 
@@ -130,7 +130,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 **Service de mobilité** | Coordonne la réplication entre les serveurs VMware locaux ou les serveurs physiques et le site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer  | N/A (disponible sur le portail) | N/A
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](tutorial-vmm-to-vmm.md)
 - [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](tutorial-vmware-to-vmware.md)

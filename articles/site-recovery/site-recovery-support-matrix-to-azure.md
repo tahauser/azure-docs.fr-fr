@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
@@ -76,8 +76,8 @@ Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur)\*
 >
 > Dans les distributions Linux, seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de la distribution sont pris en charge.
 >
-> Les mises à niveau sur des versions majeures d’une distribution Linux sur une machine virtuelle VMware ou un serveur physique protégé par Azure Site Recovery ne sont pas prises en charge. Lors de la mise à niveau du système d’exploitation sur des versions majeures (par exemple, CentOS 6.* vers CentOS 7.*), désactivez la réplication pour la machine, mettez à niveau le système d’exploitation sur la machine, puis activez à nouveau la réplication.
-> 
+> Les mises à niveau sur des versions majeures d’une distribution Linux sur une machine virtuelle VMware ou un serveur physique protégé par Azure Site Recovery ne sont pas prises en charge. Lors de la mise à niveau du système d’exploitation sur des versions majeures (par exemple, CentOS 6.\* vers CentOS 7.\*), désactivez la réplication pour la machine, mettez à niveau le système d’exploitation sur la machine, puis activez à nouveau la réplication.
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versions du noyau Ubuntu prises en charge pour les serveurs VMware/physiques
@@ -166,7 +166,7 @@ Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC Pow
 VMDK | OUI | N/A
 VHD/VHDX | N/A | OUI
 Machine virtuelle de 2e génération | N/A | OUI
-EFI/UEFI| Migration vers Azure pour Windows Server 2012 et versions ultérieures uniquement. </br></br> ** Voir la remarque à la fin du tableau.  | OUI
+EFI/UEFI| Migration vers Azure pour Windows Server 2012 et les dernières versions des machines virtuelles VMware uniquement. </br></br> ** Voir la remarque à la fin du tableau.  | OUI
 Disque de cluster partagé | Non  | Non 
 Disque chiffré | Non  | Non 
 NFS | Non  | N/A
@@ -182,10 +182,11 @@ Exclure le disque | OUI | OUI
 Chemins d’accès multiples (MPIO) | N/A | OUI
 
 > [!NOTE]
-> ** Les machines virtuelles VMware à démarrage UEFI ou serveurs physiques exécutant Windows Server 2012 ou version ultérieure peuvent être migrés vers Azure. Les restrictions suivantes s’appliquent.
+> ** Les machines virtuelles VMware à démarrage UEFI exécutant Windows Server 2012 ou une version ultérieure peuvent être migrées vers Azure. Les restrictions suivantes s’appliquent.
 > - Migration vers Azure uniquement. Restauration automatique vers le site VMware local non prise en charge.
 > - 4 partitions maximum sont prises en charge sur le disque du système d’exploitation du serveur.
 > - Requiert la version du service Azure Site Recovery mobilité 9.13 ou version ultérieure.
+> - Pas de prise en charge pour les serveurs physiques.
 
 **Azure Storage** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---

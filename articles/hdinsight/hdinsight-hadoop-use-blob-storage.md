@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 0c1b192dc8481448252b6bc2e3801d6a6f3daa0d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7e60e33330357d08d69e3372fd3eea1aadb4a141
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -38,10 +38,10 @@ Le stockage Azure est une solution de stockage à la fois robuste et polyvalente
 > 
 > | Type de compte de stockage | Niveau de stockage | Pris en charge avec HDInsight |
 > | ------- | ------- | ------- |
-> | Compte de stockage à usage général | Standard | __Oui__ |
-> | &nbsp; | Premium | Non |
-> | Compte de stockage d’objets blob | À chaud | Non |
-> | &nbsp; | À froid | Non |
+> | Compte de stockage à usage général | standard | __Oui__ |
+> | &nbsp; | Premium | Non  |
+> | Compte de stockage d’objets blob | À chaud | Non  |
+> | &nbsp; | À froid | Non  |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Veuillez noter que le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux avant de supprimer le conteneur.
 
@@ -211,7 +211,7 @@ Utilisez la commande suivante pour répertorier les cmdlets relatives aux objets
 #### <a name="upload-files"></a>Charger des fichiers
 Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
-#### <a name="download-files"></a>Téléchargement de fichiers
+#### <a name="download-files"></a>Télécharger des fichiers
 Le script suivant télécharge un objet blob de blocs vers le dossier actuel. Avant d'exécuter le script, remplacez le répertoire par un dossier sur lequel vous disposez d'accès en écriture.
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -299,7 +299,7 @@ Lorsque vous créez un cluster HDInsight, vous spécifiez le compte de stockage 
 > [!WARNING]
 > L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à utiliser un stockage Azure compatible avec HDFS avec HDInsight. Ceci vous permet de créer des solutions à long terme et évolutives d’acquisition et d’archivage de données et d’utiliser HDInsight pour déverrouiller les informations des données structurées et non structurées stockées.
 
 Pour plus d'informations, consultez les pages suivantes :

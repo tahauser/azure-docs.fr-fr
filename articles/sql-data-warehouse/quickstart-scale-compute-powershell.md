@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
 
-Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell. Montez en puissance le calcul pour obtenir de meilleures performances, ou réduisez-le pour diminuer les coûts. 
+Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell. [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -69,7 +69,7 @@ Suivez ces étapes pour rechercher des informations sur l’emplacement de votre
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
 
-Dans SQL Data Warehouse, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités de l’entrepôt de données. [Créer et connecter - portail](create-data-warehouse-portal.md) a créé **mySampleDataWarehouse** et l’a initialisé avec 400 DWU. Les étapes suivantes ajustent les DWU pour **mySampleDataWarehouse**.
+Dans SQL Data Warehouse, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités Data Warehouse Unit. Le guide [Créer et connecter – Portail](create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU pour **mySampleDataWarehouse**.
 
 Pour modifier les unités de l’entrepôt de données (DWU), utilisez l’applet de commande PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). L’exemple suivant définit les unités de l’entrepôt de données sur DW300 pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **myResourceGroup** sur le serveur  **mynewserver-20171113**.
 
@@ -116,7 +116,7 @@ ZoneRedundant                 : False
 Vous pouvez ensuite vérifier **l’état** de la base de données. Dans ce cas, vous pouvez voir que la base de données est en ligne.  Lorsque vous exécutez cette commande, vous devriez recevoir une valeur d’état En ligne, Suspension, Reprise, Mise à l’échelle ou Suspendu.
 
 ## <a name="next-steps"></a>étapes suivantes
-Vous avez appris à mettre à l’échelle le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
+Vous savez maintenant mettre à l’échelle le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
 
 > [!div class="nextstepaction"]
 >[Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

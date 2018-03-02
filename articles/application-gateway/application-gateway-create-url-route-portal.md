@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
@@ -120,7 +120,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
 
 1. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
-2. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGateayBackendPool**.
+2. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGatewayBackendPool**.
 3. Cliquez sur **Ajouter une cible** pour ajouter *myVM1* à appGatewayBackendPool.
 
     ![Ajouter des serveurs principaux](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

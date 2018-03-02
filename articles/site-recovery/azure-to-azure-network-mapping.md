@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mapper des réseaux virtuels dans différentes régions Azure
 
@@ -70,7 +70,7 @@ Si le mappage réseau est déjà survenu, vous ne pouvez pas changer le réseau 
 
 
 ## <a name="subnet-selection"></a>Sélection de sous-réseau
-Le sous-réseau de la machine virtuelle cible est sélectionné en fonction du nom du sous-réseau de la machine virtuelle source. S’il existe sur le réseau cible un sous-réseau portant le même nom que la machine virtuelle source, il sera défini pour la machine virtuelle cible. S’il n’y a aucun sous-réseau du même nom sur le réseau cible, le premier sous-réseau dans l’ordre alphabétique est défini comme sous-réseau cible. 
+Le sous-réseau de la machine virtuelle cible est sélectionné en fonction du nom du sous-réseau de la machine virtuelle source. S’il existe sur le réseau cible un sous-réseau portant le même nom que la machine virtuelle source, il sera défini pour la machine virtuelle cible. S’il n’y a aucun sous-réseau du même nom sur le réseau cible, le premier sous-réseau dans l’ordre alphabétique est défini comme sous-réseau cible.
 
 Pour modifier le sous-réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.
 

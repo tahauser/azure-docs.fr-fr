@@ -7,29 +7,29 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Déployer la solution préconfigurée de surveillance à distance
 
 Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Vous déployez la solution à partir du site azureiotsuite.com. Vous pouvez également déployer la solution à l’aide de l’interface CLI. Pour en savoir plus sur cette option, consultez la rubrique [Deploy a preconfigured solution from the command line](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line) (Déployer une solution préconfigurée à partir de la ligne de commande).
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configuration de la solution préconfigurée
 > * Déploiement de la solution préconfigurée
 > * Connexion à la solution préconfigurée
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
@@ -80,9 +80,9 @@ Lorsque le processus d’approvisionnement est terminé, vous pouvez vous connec
 
 1. Le tableau de bord des solutions de surveillance à distance s’affiche dans votre navigateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configuration de la solution préconfigurée

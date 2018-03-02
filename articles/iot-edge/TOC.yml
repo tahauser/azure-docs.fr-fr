@@ -5,6 +5,7 @@
     - name: À propos d’Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Déployer sur le routeur edge - Linux/Mac
       href: quickstart-linux.md

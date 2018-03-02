@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -59,6 +59,11 @@ Afin de prouver que vous êtes propriétaire du point de terminaison, renvoyez l
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Sécurité de la remise des événements
+
+Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Configurez l’un de ces paramètres de requête comme un secret, par exemple, un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token) que le Webhook peut utiliser pour identifier l’événement qui est envoyé par Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.
+
+Lorsque vous modifiez l’abonnement aux événements, les paramètres de requête ne sont pas affichés ni retournés, sauf si le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) est utilisé dans [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Enfin, il est important de noter qu’Azure Event Grid ne prend en charge que les points de terminaison HTTPS webhook.
 

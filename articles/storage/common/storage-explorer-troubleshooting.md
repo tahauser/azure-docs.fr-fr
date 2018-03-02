@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
-L’Explorateur de stockage Microsoft Azure (préversion) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux. L’application peut se connecter aux comptes de stockage hébergés sur Azure, les clouds souverains et Azure Stack.
+L’Explorateur Stockage Microsoft Azure (préversion) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux. L’application peut se connecter aux comptes de stockage hébergés sur Azure, sur les clouds nationaux et sur Azure Stack.
 
 Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Explorateur de stockage.
 
@@ -59,7 +59,7 @@ Quand l’Explorateur de stockage rencontre l’un de ces problèmes, il ne peut
 
 6. Ouvrez l’Explorateur de stockage, cliquez sur **Modifier** > **Certificats SSL** > **Importer les certificats**, puis utilisez le sélecteur de fichiers pour rechercher, sélectionner et ouvrir les fichiers .cer que vous avez créés.
 
-Si vous ne trouvez aucun certificat auto-signé à l’aide de la procédure ci-dessus, contactez-nous au moyen de l’outil de commentaires pour obtenir de l’aide.
+Si vous ne trouvez aucun certificat auto-signé à l’aide des étapes précédentes, contactez-nous par l’intermédiaire de l’outil de commentaires pour obtenir de l’aide.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>Impossible de récupérer les abonnements
 
@@ -73,7 +73,7 @@ Si vous ne parvenez pas à récupérer vos abonnements après vous être connect
 
 - Essayez de supprimer et de rajouter le compte.
 
-- Essayez de supprimer les fichiers suivants de votre répertoire racine (autrement dit, C:\Users\ContosoUser), puis de rajouter le compte :
+- Essayez de supprimer les fichiers suivants de votre répertoire racine (autrement dit, C:\Users\ContosoUser), puis de rajouter le compte :
 
     - .adalcache
 
@@ -116,7 +116,7 @@ Si vous ne pouvez pas supprimer un compte, ou que le lien de réauthentification
     - ~/.config/StorageExplorer pour Linux
 
 > [!NOTE]
->  Vous devez entrer à nouveau toutes vos informations d’identification si vous supprimez ces fichiers.
+>  Après avoir supprimé les fichiers mentionnés précédemment, vous devrez vous reconnecter à vos comptes.
 
 ## <a name="proxy-issues"></a>Problèmes de proxy
 
@@ -173,15 +173,23 @@ Si vous vous connectez à un service à l’aide d’une URL SAP et que vous ren
 
 - Si l’URL SAP est basée sur une stratégie d’accès, vérifiez que cette dernière n’a pas été révoquée.
 
-Si vous avez accidentellement attaché une URL SAS non valide et que vous n’avez pas pu la détacher, effectuez les étapes suivantes :
+Si vous avez procédé accidentellement à un attachement au moyen d’une URL SAS non valide, sans parvenir ensuite à un détachement, effectuez les étapes suivantes :
 1.  Lors de l’exécution de l’Explorateur de stockage, appuyez sur F12 pour ouvrir la fenêtre Outils de développement.
 2.  Cliquez sur l’onglet Application, puis cliquez sur Stockage local > file:// dans l’arborescence à gauche.
-3.  Recherchez la clé associée au type de service de l’URI SAS problématique. Par exemple, si l’URI SAS incorrecte concerne un conteneur d’objets blob, recherchez la clé nommée « StorageExplorer_AddStorageServiceSAS_v1_blob ».
+3.  Recherchez la clé associée au type de service de l’URI SAS problématique. Par exemple, si l’URI SAS incorrect concerne un conteneur d’objets blob, recherchez la clé nommée `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  La valeur de la clé doit être un tableau JSON. Recherchez l’objet associé à l’URI incorrecte, et supprimez-le.
 5.  Appuyez sur Ctrl+R pour recharger l’Explorateur de stockage.
 
+## <a name="linux-dependencies"></a>Dépendances Linux
 
-## <a name="next-steps"></a>Étapes suivantes
+Pour les distributions Linux autres que Ubuntu 16.04, vous devez peut-être installer manuellement quelques dépendances. En général, les packages suivants sont nécessaires :
+* libgconf-2-4
+* libsecret
+* GCC à jour
+
+En fonction de votre distribution, vous devez peut-être installer d’autres packages. Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage contiennent des étapes propres à certaines distributions.
+
+## <a name="next-steps"></a>étapes suivantes
 
 Si aucune des solutions ne convient, soumettez votre problème au moyen de l’outil de commentaires avec votre e-mail, en indiquant le maximum de détails sur le problème afin que nous puissions vous contacter pour le résoudre.
 

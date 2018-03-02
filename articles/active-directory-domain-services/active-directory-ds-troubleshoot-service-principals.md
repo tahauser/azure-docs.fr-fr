@@ -12,28 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/19/2018
 ms.author: ergreenl
-ms.openlocfilehash: e6144a4018f7fbe7dbf7b4693e3f41884e4a80a2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7388bb291f665f195355a01d19a82cba9ed453eb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-ad-domain-services---troubleshooting-service-principal-configuration"></a>Services de domaine Azure AD - Résolution des problèmes de configuration du principal de service
+# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Résoudre les problèmes liés à une configuration de principal de service non valide pour votre domaine managé
 
-Pour travailler sur, gérer et mettre à jour votre domaine, Microsoft utilise divers [principaux de service](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects) pour communiquer avec votre annuaire. Si un d’entre eux est mal configuré ou supprimé, cela peut provoquer une interruption de votre service.
+Cet article vous aide à résoudre les erreurs liées à la configuration du principal de service qui entraînent l’affichage du message d’alerte suivant :
 
-## <a name="aadds102-service-principal-not-found"></a>AADDS102 : Principal de service introuvable
+## <a name="alert-aadds102-service-principal-not-found"></a>Alerte AADDS102 : Principal de service introuvable
+**Message d’alerte :**  *Un principal du service requis pour qu’Azure AD Domain Services fonctionne correctement a été supprimé de votre locataire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine managé.*
 
-**Message d'alerte :**
+Les [principaux de service](../active-directory/develop/active-directory-application-objects.md) sont des applications que Microsoft utilise pour gérer, mettre à jour et maintenir votre domaine managé. S’ils sont supprimés, ils interrompent la capacité de Microsoft à travailler sur votre domaine. 
 
-*Un principal de service requis pour que les services de domaine Azure AD fonctionnent correctement a été supprimé de votre annuaire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.*
 
-Les principaux de service sont des applications que Microsoft utilise pour gérer, mettre à jour et maintenir votre domaine géré. S’ils sont supprimés, ils interrompent la capacité de Microsoft à travailler sur votre domaine. Utilisez les étapes suivantes pour déterminer les services principaux qui doivent être recréés.
+## <a name="check-for-missing-service-principals"></a>Vérifier les principaux de service manquants
+Suivez les étapes ci-dessous pour déterminer les principaux de services qui doivent être recréés :
 
 1. Accédez à la page [Applications d’entreprise - Toutes les applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) dans le portail Azure.
-2. Dans la liste déroulante Afficher, sélectionnez **Toutes les applications** et cliquez sur **Appliquer**.
+2. Dans la liste déroulante **Afficher**, sélectionnez **Toutes les applications**, puis cliquez sur **Appliquer**.
 3. Dans le tableau suivant, recherchez chaque ID d’application en collant l’ID dans la zone de recherche et en appuyant sur Entrée. Si les résultats de recherche sont vides, vous devez recréer le principal du service en suivant les étapes décrites dans la colonne « Résolution ».
 
 | ID de l'application | Résolution : |
@@ -43,50 +44,51 @@ Les principaux de service sont des applications que Microsoft utilise pour gére
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Réinscrire l’espace de noms Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Principaux de service avec correction autonome](#service-principals-that-self-correct) |
 
-### <a name="recreate-a-missing-service-principal-with-powershell"></a>Recréer un principal de service manquant avec PowerShell
+## <a name="recreate-a-missing-service-principal-with-powershell"></a>Recréer un principal de service manquant avec PowerShell
+Suivez ces étapes si un principal de service avec l’ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` est absent de votre annuaire Azure AD.
 
-*Suivez ces étapes pour les ID manquants : 2565bd9d-da50-47d4-8b85-4c97f669dc36*
-
-**Correction :**
-
-Vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Correction :** Vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Pour résoudre ce problème, saisissez les commandes suivantes dans une fenêtre PowerShell :
-1. Install-Module AzureAD
-2. Import-Module AzureAD
-3. Saisissez la commande PowerShell suivante pour vérifier si le principal du service requis pour Azure AD Domain Services est absent de votre annuaire Azure AD :
-      ```PowerShell
-      Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
-      ```
-4. Créez le principal de service en saisissant la commande PowerShell suivante :
-     ```PowerShell
-     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
-     ```
-5. Après avoir créé le principal de service manquant, attendez deux heures et vérifiez l’intégrité de votre domaine.
+1. Installez le module Azure AD PowerShell, puis importez-le.
+    
+    ```powershell 
+    Install-Module AzureAD
+    Import-Module AzureAD
+    ```
+    
+2. Saisissez la commande PowerShell suivante pour vérifier si le principal du service requis pour Azure AD Domain Services est absent de votre annuaire Azure AD :
+    
+    ```powershell
+    Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
+    ```
+    
+3. Créez le principal de service en saisissant la commande PowerShell suivante :
+
+    ```powershell
+    New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+    ```
+    
+4. Après avoir créé le principal de service manquant, attendez deux heures, puis vérifiez l’intégrité de votre domaine managé.
 
 
-### <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Réinscrivez l’espace de noms Microsoft AAD via le portail Azure
+## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Réinscrivez l’espace de noms Microsoft AAD via le portail Azure
+Suivez ces étapes si un principal de service avec l’ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` ou ```abba844e-bc0e-44b0-947a-dc74e5d09022``` est absent de votre annuaire Azure AD.
 
-*Suivez ces étapes pour les ID manquants : 443155a6-77f3-45e3-882b-22b3a8d431fb et abba844e-bc0e-44b0-947a-dc74e5d09022*
-
-**Correction :**
-
-Pour restaurer les services de domaine sur votre annuaire, procédez comme suit :
+**Correction :** Pour restaurer les services de domaine dans votre annuaire, effectuez les étapes suivantes :
 
 1. Accédez à la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) dans le portail Azure.
 2. Choisissez l’abonnement dans la table qui est associée à votre domaine géré
 3. À l’aide de la navigation de gauche, choisissez **Fournisseurs de ressources**
 4. Recherchez « Microsoft.AAD » dans la table et cliquez sur **Réinscrire**
-5. Pour vérifier que votre alerte est résolue, affichez votre page d’alerte d’intégrité deux heures plus tard.
+5. Pour vérifier que l’alerte est résolue, attendez deux heures, puis consultez la page de contrôle d’intégrité de votre domaine managé.
 
 
-### <a name="service-principals-that-self-correct"></a>Principaux de service avec correction autonome
+## <a name="service-principals-that-self-correct"></a>Principaux de service avec correction autonome
+Suivez ces étapes si un principal de service avec l’ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` est absent de votre annuaire Azure AD.
 
-*Suivez ces étapes pour les ID manquants : d87dcbc6-a371-462e-88e3-28ad15ec4e64*
+**Correction :** Azure AD Domain Services peut détecter à quel moment le principal de service est devenu manquant ou mal configuré, ou à quel moment il a été supprimé. Le service recrée automatiquement ce principal de service. Vérifiez l’intégrité de votre domaine managé au bout de deux heures pour être sûr que le principal de service a été recréé.
 
-**Correction :**
-
-Microsoft peut déterminer lorsque des principaux de service spécifiques sont manquants, mal configurés ou supprimés. Pour remettre le service en état rapidement, Microsoft recrée les principaux de service lui-même. Vérifiez l’intégrité de votre domaine au bout de deux heures pour vous assurer que le principal a été recréé.
 
 ## <a name="contact-us"></a>Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](active-directory-ds-contact-us.md).

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7013cb48738d4dccb328728fe1e47b3f43bff4f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Utiliser une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux, pour accéder à Azure Resource Manager
 
@@ -55,7 +55,7 @@ Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](ht
 
 Pour ce didacticiel, vous commencez par créer une machine virtuelle Linux. Vous pouvez également choisir d’utiliser une machine virtuelle existante.
 
-1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 2. Sélectionnez **Compute**, puis sélectionnez **Ubuntu Server 16.04 LTS**.
 3. Saisissez les informations de la machine virtuelle. Dans **Type d’authentification**, sélectionnez **Clé publique SSH** ou **Mot de passe**. Les informations d’identification créées vous permettent de vous connecter à la machine virtuelle.
 

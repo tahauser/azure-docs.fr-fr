@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
@@ -31,8 +31,8 @@ Vous pouvez également ajouter des actions. La fonctionnalité Logic Apps d’Az
 Dans ce didacticiel, vous allez apprendre à créer une application logique qui utilise l’algorithme de cluster automatique Analytics pour regrouper des attributs dans les données pour une application web. Ce flux envoie automatiquement les résultats par courrier électronique. Il s’agit d’un exemple de la façon dont vous pouvez utiliser Application Insights Analytics et Logic Apps ensemble. 
 
 ### <a name="step-1-create-a-logic-app"></a>Étape 1 : Créer une application logique
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le volet **Nouveau**, sélectionnez **Web + mobile**, puis **Application logique**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Cliquez sur **Créer une ressource**, sélectionnez **Web + Mobile**, puis sélectionnez **Application logique**.
 
     ![Fenêtre Nouvelle application logique](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -129,9 +129,9 @@ Lorsque votre application logique s’exécute, les destinataires que vous avez 
 
 ![Message électronique de l’application logique](./media/automate-with-logic-apps/flow9.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-- Apprenez-en plus sur la création de [requêtes Analytics](app-insights-analytics-using.md).
+- Découvrez la création de [requêtes Analytics](app-insights-analytics-using.md).
 - Découvrez plus en détail les [applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

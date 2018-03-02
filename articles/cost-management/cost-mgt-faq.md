@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Forum aux questions pour Azure Cost Management
 
@@ -116,9 +116,9 @@ Pour ajouter des comptes CSP supplémentaires à une entité, sélectionnez **MS
 
 Vous pouvez avoir plusieurs comptes Azure utilisant des devises différentes. Toutefois, les rapports de coût dans Cloudyn n’affichent pas plus d’un type de devise par rapport.
 
-Si vous disposez de plusieurs abonnements avec des devises différentes, une entité parente et ses devises d’entité enfant sont affichées avec le symbole **$**. La bonne pratique que nous suggérons est d’éviter d’utiliser des devises différentes dans la même hiérarchie d’entité. En d’autres termes, tous vos abonnements organisés dans une structure d’entités doivent utiliser la même devise.
+Si vous disposez de plusieurs abonnements avec des devises différentes, une entité parente et ses devises d’entité enfant sont affichées en dollars USD (**$**). La bonne pratique que nous suggérons est d’éviter d’utiliser des devises différentes dans la même hiérarchie d’entité. En d’autres termes, tous vos abonnements organisés dans une structure d’entités doivent utiliser la même devise.
 
-Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entreprise et la présente correctement dans les rapports.  En revanche, Cloudyn affiche uniquement le symbole **$** pour les comptes Azure directs web et les comptes CSP.
+Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entreprise et la présente correctement dans les rapports.  En revanche, Cloudyn affiche uniquement les dollars USD (**$**) pour les comptes Azure directs web et les comptes CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Que sont les chronologies d’actualisation des données de Cloudyn ?
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer l’accélération automatique de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -83,7 +83,7 @@ La configuration de l’accélération automatique de la connexion sur une appli
 
 1. Création d’une stratégie de découverte du domaine d’accueil pour l’accélération automatique.
 
-2. Recherche du principal de service auquel attacher la stratégie.
+2. Localisation du principal de service auquel attacher la stratégie.
 
 3. Attachement de la stratégie au principal de service. Les stratégies éventuellement créées dans un locataire demeurent sans effet tant qu’elles ne sont pas attachées à une entité. 
 
@@ -135,7 +135,7 @@ Nous allons utiliser des applets de commande PowerShell Azure AD dans le cadre d
 
 - Répertorier les applications pour lesquelles une stratégie est configurée.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies sur des principaux de service d’application dans Azure AD.
 
 1.  Pour commencer, téléchargez la dernière préversion des applets de commande Azure AD PowerShell. 

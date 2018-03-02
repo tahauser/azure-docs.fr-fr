@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Résoudre des problèmes d’itinéraire à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Si l’exemple utilise uniquement les itinéraires système, les mêmes étapes 
 Pour afficher les itinéraires agrégés qui s’appliquent à une machine virtuelle, procédez comme suit :
 
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com. L’opération *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Cliquez sur **Autres services**, puis sur **Machines virtuelles** dans la liste qui s’affiche.
+2. Cliquez sur **Tous les services**, puis sur **Machines virtuelles** dans la liste qui s’affiche.
 3. Sélectionnez une machine virtuelle à dépanner dans la liste qui s’affiche. Un panneau de machine virtuelle avec des options s’affiche.
 4. Cliquez sur **Diagnostiquer et résoudre les problèmes**, puis sélectionnez un problème courant. Pour cet exemple, le problème **Je ne peux pas me connecter à ma machine virtuelle Windows** est sélectionné.
 
@@ -97,7 +97,7 @@ Pour d’autres scénarios de dépannage relatifs à l’évaluation du tunnelin
 Si le flux de trafic réseau est affecté pour une carte réseau particulière, vous pouvez afficher la liste complète des itinéraires effectifs sur une carte réseau directement. Pour afficher les itinéraires agrégés appliqués à une carte réseau, procédez comme suit :
 
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
-2. Cliquez sur **Autres services**, puis sur **Interfaces réseau**.
+2. Cliquez sur **Tous les services**, puis sur **Interfaces réseau**.
 3. Recherchez dans la liste le nom d’une carte réseau ou sélectionnez-le dans la liste qui s’affiche. Dans cet exemple, la carte **VM1-NIC1** est sélectionnée.
 4. Sélectionnez **Itinéraires effectifs** dans le panneau **Interface réseau**, comme illustré dans l’image suivante :
 
@@ -117,7 +117,7 @@ Pour cet exemple, un itinéraire défini par l’utilisateur (*UDRoute*) est sp�
 Pour afficher les itinéraires agrégés d’une table d’itinéraires, procédez comme suit :
 
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
-2. Cliquez sur **Autres services**, puis sur **Tables d’itinéraires**.
+2. Cliquez sur **Tous les services**, puis sur **Tables d’itinéraires**.
 3. Recherchez dans la liste la table d’itinéraires dont vous souhaitez afficher les itinéraires agrégés, puis sélectionnez-la. Dans cet exemple, la table **UDRouteTable** est sélectionnée. Un panneau pour la table d’itinéraires sélectionnée s’affiche, comme illustré dans l’image suivante :
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Vue d’ensemble de la surveillance réseau Azure
 
@@ -31,7 +31,7 @@ Cet article présente la surveillance au niveau des ressources et la surveillanc
 * [**Network Watcher**](#network-watcher) - La surveillance basée sur des scénarios est fournie avec les fonctionnalités de Network Watcher. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
 * [**Surveillance des ressources**](#network-resource-level-monitoring) - La surveillance au niveau des ressources se compose de quatre fonctionnalités : journaux de diagnostic, mesures, résolution des problèmes et intégrité des ressources. Toutes ces fonctionnalités sont conçues au niveau des ressources réseau.
 
-## <a name="network-watcher"></a>Network Watcher
+## <a name="network-watcher"></a>Network Watcher
 
 Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure.
 
@@ -46,7 +46,7 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 * **[Résolution des problèmes de connexion et de passerelle de réseau virtuel](network-watcher-troubleshoot-manage-rest.md)** - Offre la possibilité de résoudre les problèmes associés aux connexions et passerelles de réseau virtuel.
 * **[Limites d’abonnement réseau](#network-subscription-limits)** - Vous permet d’afficher l’utilisation des ressources réseau par rapport aux limites.
 * **[Configuration du journal de diagnostic](#diagnostic-logs)** - Fournit un seul volet pour activer ou désactiver les journaux de diagnostic pour les ressources réseau dans un groupe de ressources.
-* **[Connectivité (préversion)](network-watcher-connectivity-overview.md)** - Vérifie la possibilité d’établir une connexion TCP directe à partir d’une machine virtuelle à un point de terminaison.
+* **[Résolution des problèmes de connexion](network-watcher-connectivity-overview.md)** - Vérifie la possibilité d’établir une connexion TCP directe à partir d’une machine virtuelle à un point de terminaison donné enrichi avec le contexte Azure.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Contrôle d’accès basé sur les rôles dans Network Watcher
 
@@ -104,7 +104,7 @@ Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage co
 
 ![journaux][logs]
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le panneau de résolution des problèmes, une expérience dans le portail, est proposé pour les ressources réseau dès aujourd’hui pour diagnostiquer les problèmes courants associés à une ressource individuelle. Cette expérience est disponible pour les ressources réseau suivantes : ExpressRoute, passerelle VPN, Application Gateway, journaux de sécurité réseau, itinéraires, DNS, équilibrage de charge et Traffic Manager. Pour plus d’informations sur la résolution des problèmes au niveau des ressources, consultez [Diagnostiquer et résoudre les problèmes avec la résolution des problèmes Azure](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
 
@@ -114,7 +114,7 @@ Le panneau de résolution des problèmes, une expérience dans le portail, est p
 
 L’intégrité d’une ressource réseau est fournie régulièrement. Ces ressources incluent la passerelle VPN et le tunnel VPN. L’intégrité des ressources est accessible sur le portail Azure. Pour en savoir plus sur l’intégrité des ressources, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Après avoir découvert Network Watcher, vous pouvez apprendre à :
 

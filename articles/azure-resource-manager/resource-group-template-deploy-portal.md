@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
@@ -47,7 +47,7 @@ Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.c
 
 Une fois votre groupe de ressources créé, vous pouvez y déployer des ressources à partir de Marketplace. Marketplace fournit des solutions prédéfinies pour les scénarios courants.
 
-1. Pour démarrer un déploiement, sélectionnez **Nouveau**.
+1. Pour démarrer un déploiement, sélectionnez **Créer une ressource**.
 
    ![Nouvelle ressource](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ Une fois votre groupe de ressources créé, vous pouvez y déployer des ressourc
 
 Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l’infrastructure de votre solution. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Pour déployer un modèle personnalisé grâce au portail, sélectionnez **Nouveau**, puis recherchez le **Déploiement de modèle** jusqu’à ce que vous puissiez le sélectionner dans les options.
+1. Pour déployer un modèle personnalisé grâce au portail, sélectionnez **Créer une ressource**, puis recherchez le **Déploiement de modèle** jusqu’à ce que vous puissiez le sélectionner dans les options.
 
    ![Rechercher un déploiement de modèle](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -131,7 +131,7 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 
    ![Déployer un modèle enregistré](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour récupérer un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).

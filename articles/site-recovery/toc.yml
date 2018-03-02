@@ -24,13 +24,13 @@
         - name: Préparer Azure
           href: tutorial-prepare-azure.md
         - name: Préparer des machines virtuelles VMware sur site
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Configurer une récupération d'urgence
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Exécuter une simulation de récupération d'urgence
           href: tutorial-dr-drill-azure.md
         - name: Exécuter un basculement et une restauration automatique
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Machines virtuelles Hyper-V
       items:
         - name: Préparer Azure
@@ -50,9 +50,9 @@
         - name: Préparer Azure pour la réplication d’un site local
           href: tutorial-prepare-azure.md
         - name: Migrer des machines sur site vers Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: Migrer des instances AWS vers Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Migrer des machines virtuelles Azure vers une autre région
           href: azure-to-azure-tutorial-migrate.md
 - name: Concepts
@@ -62,11 +62,11 @@
         - name: Architecture Azure vers Azure
           href: azure-to-azure-architecture.md
         - name: Architecture VMware vers Azure
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Architecture Hyper-V vers Azure
           href: hyper-v-azure-architecture.md
         - name: Architecture de serveur physique vers Azure
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Architecture Hyper-V vers un site secondaire
           href: hyper-v-vmm-architecture.md
     - name: Matrice de prise en charge des exigences
@@ -114,11 +114,11 @@
         - name: Récupération d’urgence des machines virtuelles Azure après la migration vers Azure
           href: azure-to-azure-replicate-after-migration.md
         - name: Récupération d’urgence des serveurs physiques vers Azure
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
           href: hyper-v-vmm-disaster-recovery.md
         - name: Récupération d’urgence des machines virtuelles VMware et des serveurs physiques vers un site secondaire
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Effectuer un exercice de récupération d'urgence vers Azure
           href: site-recovery-test-failover-to-azure.md
         - name: Exécuter une simulation de récupération d’urgence des machines virtuelles Hyper-V vers un site secondaire
@@ -236,7 +236,7 @@
         - name: Configurer la réplication Hyper-V vers Azure (sans VMM) à l’aide de PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Configurer la réplication Hyper-V vers Azure (avec VMM) à l’aide de PowerShell
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: Configurer la réplication Hyper-V vers un site VMM secondaire à l’aide de PowerShell
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: Charges de travail
@@ -290,7 +290,7 @@
         - name: Basculement sur les problèmes Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Problèmes de reprotection et de restauration automatique
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Surveiller Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Informations de référence

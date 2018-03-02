@@ -1,3 +1,5 @@
+# [Documentation Azure Active Directory](index.md)
+
 # Vue d'ensemble
 ## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [Configuration](active-directory-application-config-content-map.md)
 ##### [Connexion](active-directory-application-sign-in-content-map.md)
 ##### [Approvisionnement](active-directory-application-provisioning-content-map.md)
+###### [Vérifier qu’un utilisateur est approvisionné](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [L’approvisionnement prend beaucoup de temps](application-provisioning-when-will-provisioning-finish.md)
+###### [Comment configurer l’approvisionnement des utilisateurs](application-provisioning-config-how-to.md)
+###### [Problème de configuration de l’approvisionnement](application-provisioning-config-problem.md)
+###### [Problème d’enregistrement des informations d’identification de l’administrateur](application-provisioning-config-problem-storage-limit.md)
+###### [Aucun utilisateur n’est en cours d’approvisionnement](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Les mauvais utilisateurs sont en cours d’approvisionnement](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Gestion de l’accès](active-directory-application-access-content-map.md)
 ##### [Volet d’accès](active-directory-application-access-panel-content-map.md)
 ##### [Proxy d’application](active-directory-application-proxy-content-map.md)

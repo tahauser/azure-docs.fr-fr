@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -49,10 +49,10 @@ Pour plus d’informations sur la façon de configurer une application de foncti
 
 Pour installer une extension à partir du portail Azure, accédez à un modèle ou à une liaison qui y fait référence. Créez une fonction, puis dans l’écran de sélection de modèle, choisissez le scénario de « Microsoft Graph ». Sélectionnez l’un des modèles à partir de ce scénario. Vous pouvez également accéder à l’onglet « Intégrer » d’une fonction existante et sélectionner l’une des liaisons décrites dans cet article.
 
-Dans les deux cas, un avertissement s’affiche, qui spécifie l’extension à installer. Cliquez sur **Installer** pour obtenir de l’extension.
+Dans les deux cas, un avertissement s’affiche, qui spécifie l’extension à installer. Cliquez sur **Installer** pour obtenir de l’extension. Chaque extension ne doit être installée qu’une seule fois par application de fonction. 
 
 > [!Note] 
-> Chaque extension ne doit être installée qu’une seule fois par application de fonction. Le processus d’installation dans le portail peut prendre jusqu'à 10 minutes d’un plan de consommation.
+> Le processus d’installation dans le portail peut prendre jusqu'à 10 minutes d’un plan de consommation.
 
 Si vous utilisez Visual Studio, vous pouvez obtenir les extensions en installant les packages NuGet suivants :
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)

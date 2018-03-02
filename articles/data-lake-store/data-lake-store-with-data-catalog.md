@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 93de6a574b306e3fd8959454709e84a57ee4fc10
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Référencer des données de Data Lake Store dans Azure Data Catalog
 Dans cet article, vous allez découvrir comment intégrer Azure Data Lake Store à Azure Data Catalog, pour rendre vos données détectable au sein d’une organisation en l’intégrant à Data Catalog. Pour plus d’informations sur le catalogage des données, consultez [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Pour comprendre les scénarios dans lesquels vous pouvez utiliser Data Catalog, consultez [Scénarios courants d’Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md).
-* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Pour ce didacticiel, créons un compte Data Lake Store appelé **datacatalogstore**.
+* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Pour ce didacticiel, créons un compte Data Lake Store appelé **datacatalogstore**.
 
     Une fois que vous avez créé le compte, chargez-y un exemple de jeu de données. Pour ce didacticiel, chargeons tous les fichiers .csv sous le dossier **AmbulanceData** dans le [dépôt Git Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Vous pouvez utiliser différents clients, comme [Explorateur de stockage Azure](http://storageexplorer.com/), pour charger des données dans un conteneur d’objets blob.
 * **Azure Data Catalog**. Votre organisation doit déjà avoir un catalogue de données Azure créé pour votre organisation. Un seul catalogue est autorisé pour chaque organisation.

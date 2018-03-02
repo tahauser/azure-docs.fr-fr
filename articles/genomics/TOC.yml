@@ -1,6 +1,6 @@
 - name: Documentation Microsoft Genomics
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Microsoft Genomics ?
       href: overview-what-is-genomics.md

@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Configuration de Python dans Azure App Service Web Apps
 Ce didacticiel décrit les options relatives à la création et à la configuration d’une application Python compatible WSGI (Web Server Gateway Interface) de base dans [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ La Place de marché Azure propose des modèles pour les frameworks Bottle, Djang
 ## <a name="web-app-creation-on-azure-portal"></a>Création d’applications web sur le portail Azure
 Ce didacticiel part du principe que vous disposez d’un abonnement Azure et d’un accès au portail Azure.
 
-Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com).  Cliquez sur le bouton NOUVEAU dans l’angle supérieur gauche, puis cliquez sur **Web + mobile** > **Application web**.
+Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure](https://portal.azure.com). Dans l’angle supérieur gauche, cliquez sur **Créer une ressource** > **Web + Mobile** > **Application web**.
 
 ## <a name="git-publishing"></a>Publication Git
 Configurez la publication Git de votre nouvelle application web en suivant les instructions de l’article [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md). Ce didacticiel utilise Git pour créer, gérer et publier votre application web Python dans Azure App Service.
@@ -44,7 +44,7 @@ Configurez la publication Git de votre nouvelle application web en suivant les i
 Une fois la publication Git configurée, un dépôt Git est créé et associé à votre application web. L’URL du dépôt est affichée et peut être utilisée pour envoyer des données depuis l’environnement de développement local vers le cloud. Pour publier des applications via Git, vérifiez qu’un client Git est également installé et suivez les instructions fournies pour envoyer le contenu de votre application web vers Azure App Service.
 
 ## <a name="application-overview"></a>Vue d’ensemble de l’application
-Dans les sections suivantes, les fichiers qui suivent sont créés. Ils doivent être placés à la racine du dépôt Git.
+Dans les sections suivantes, les fichiers qui suivent sont créés. Ils doivent être placés à la racine du référentiel Git.
 
     app.py
     requirements.txt
@@ -54,7 +54,7 @@ Dans les sections suivantes, les fichiers qui suivent sont créés. Ils doivent 
 
 
 ## <a name="wsgi-handler"></a>Gestionnaire WSGI
-WSGI est une norme Python décrite par [PEP 3333](http://www.python.org/dev/peps/pep-3333/) qui définit une interface entre le serveur web et Python. Elle fournit une interface normalisée pour la rédaction de diverses applications et frameworks web à l'aide de Python. Des frameworks web Python connus utilisent aujourd’hui WSGI. Azure App Service Web Apps vous offre la prise en charge de ces frameworks. Les utilisateurs avancés peuvent même créer leur propre framework à condition que le gestionnaire personnalisé suive les instructions de la spécification WSGI.
+WSGI est une norme Python décrite par [PEP 3333](http://www.python.org/dev/peps/pep-3333/) qui définit une interface entre le serveur web et Python. Elle fournit une interface normalisée pour la rédaction de diverses applications et infrastructures Web à l'aide de Python. Des infrastructures Web Python connues utilisent aujourd’hui WSGI. Azure App Service Web Apps vous offre la prise en charge de ces infrastructures. En outre, les utilisateurs experts peuvent même créer leur propre infrastructure à condition que le gestionnaire personnalisé suive les instructions de la spécification WSGI.
 
 Voici un exemple de `app.py` définissant un gestionnaire personnalisé :
 
@@ -78,7 +78,7 @@ Bien que l’exemple d’application précédent ne requière aucun package exte
 
 Pour faciliter la gestion des dépendances des packages externes, le déploiement Azure Git prend en charge la création d’environnements virtuels.
 
-Lorsqu’Azure détecte un fichier requirements.txt à la racine du dépôt, il crée automatiquement un environnement virtuel nommé `env`. Cette opération intervient uniquement lors du premier déploiement ou lors de tout déploiement faisant suite à la modification du runtime Python sélectionné.
+Lorsqu’Azure détecte un fichier requirements.txt à la racine du référentiel, il crée automatiquement un environnement virtuel nommé `env`. Cette opération intervient uniquement lors du premier déploiement ou lors de tout déploiement faisant suite à la modification du runtime Python sélectionné.
 
 Vous souhaitez probablement créer un environnement virtuel local pour le développement, sans pour autant l’inclure à votre dépôt Git.
 
@@ -349,7 +349,7 @@ Contenu de `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Résolution des problèmes - Environnement virtuel
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
 > [!NOTE]

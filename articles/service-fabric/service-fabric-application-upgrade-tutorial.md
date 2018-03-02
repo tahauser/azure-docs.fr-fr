@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Didacticiel sur la mise à niveau d'une application Service Fabric à l'aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Dans quelques minutes, tous les domaines de mise à jour seront mis à niveau (t
 
 Vous souhaiterez peut-être essayer de modifier les versions et de passer de la version 2.0.0 à la version 3.0.0 en guise d'exercice, voire même de revenir de la version 2.0.0 à la version 1.0.0. Amusez-vous avec les délais d'attente et les stratégies de contrôle d'intégrité pour vous familiariser avec ceux-ci. Lors du déploiement sur un cluster Azure par opposition à un cluster local, les paramètres utilisés peuvent être différents. Nous vous recommandons de définir les délais d’attente de manière plus restrictive.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
 
 Contrôlez les mises à niveau de votre application à l’aide des [paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).

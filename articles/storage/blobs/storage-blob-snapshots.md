@@ -2,23 +2,17 @@
 title: "Création d’un instantané en lecture seule d’un objet blob dans le stockage Azure | Microsoft Docs"
 description: "Apprenez à créer un instantané d’un objet blob pour sauvegarder ses données à un moment donné. Découvrez comment les instantanés sont facturés et comment les utiliser pour réduire les frais de capacité."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
-ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Création d’un instantané d’objet blob
 
@@ -171,7 +165,7 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Vous trouverez plus d’informations sur l’utilisation des captures instantanées de disque de machine virtuelle (VM) dans [Sauvegarder les disques de machines virtuelles Azure non gérés avec des captures instantanées incrémentielles](../../virtual-machines/windows/incremental-snapshots.md)
 

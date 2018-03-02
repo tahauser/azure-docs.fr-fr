@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure
 Cet article présente les étapes pour sauvegarder et restaurer des machines virtuelles à l’aide de Sauvegarde Azure. Il fournit également des détails sur les scénarios pris en charge, les composants requis et les étapes de dépannage en cas d’erreur.
@@ -48,7 +48,7 @@ Cet article présente les étapes pour sauvegarder et restaurer des machines vir
 Utilisez les étapes suivantes pour définir un objectif de sauvegarde, définir une stratégie, configurer des éléments et déclencher une sauvegarde.
 
 ### <a name="configure-backup"></a>Configurer une sauvegarde
-1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape suivante. Si vous n’avez aucun coffre Recovery Services ouvert, mais que vous vous trouvez dans le portail Azure, sélectionnez **Parcourir** dans le menu **Hub**.
+1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape suivante. Si vous n’avez aucun coffre Recovery Services ouvert, mais que vous vous trouvez dans le portail Azure, sélectionnez **Tous les services**.
 
    a. Dans la liste des ressources, tapez **Recovery Services**.
 
@@ -98,7 +98,7 @@ Si vous avez déjà des machines virtuelles en cours de sauvegarde dans un coffr
 
 ## <a name="provide-permissions-to-backup"></a>Fournir des autorisations à Sauvegarde Azure
 Utilisez les étapes suivantes pour fournir à Azure Sauvegarde Azure des autorisations d’accès appropriées au coffre de clés et lui permettre d’effectuer la sauvegarde des machines virtuelles chiffrée.
-1. Sélectionnez **Plus de services** et recherchez **Coffres de clés**.
+1. Sélectionnez **Tous les services**, puis recherchez **Coffres de clés**.
 
     ![Coffres de clés](./media/backup-azure-vms-encryption/search-key-vault.png)
     

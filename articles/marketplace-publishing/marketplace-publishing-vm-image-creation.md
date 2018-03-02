@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -127,7 +127,7 @@ Il est vivement recommandé de développer votre disque dur virtuel dans le clou
 
 **Se connecter via RDP à l’aide du [Portail Microsoft Azure][link-azure-portal]**
 
-1. Sélectionnez **Parcourir** > **Machines virtuelles**.
+1. Sélectionnez **Tous les services** > **Machines virtuelles**.
 2. Le panneau Machines virtuelles s’ouvre. Assurez-vous que la machine virtuelle à laquelle vous voulez vous connecter est en cours d’exécution, puis sélectionnez-la dans la liste des machines virtuelles déployées.
 3. Un panneau s’ouvre, qui décrit la machine virtuelle sélectionnée. Dans la partie supérieure, cliquez sur **Se connecter**.
 4. Vous êtes invité à entrer les nom d’utilisateur et mot de passe que vous avez spécifiés lors du déploiement.
@@ -136,7 +136,7 @@ Il est vivement recommandé de développer votre disque dur virtuel dans le clou
 
 Pour télécharger un fichier de bureau à distance sur une machine locale, utilisez l’[applet de commande Get-AzureRemoteDesktopFile][link-technet-2]. Pour utiliser cette applet de commande, vous devez connaître les noms du service et de la machine virtuelle. Si vous avez créé la machine virtuelle à partir du [Portail Microsoft Azure][link-azure-portal], ces informations sont disponibles sous Propriétés de la machine virtuelle :
 
-1. Dans le Portail Microsoft Azure, sélectionnez **Parcourir** > **Machines virtuelles**.
+1. Dans le Portail Microsoft Azure, sélectionnez **Tous les services** > **Machines virtuelles**.
 2. Le panneau Machines virtuelles s’ouvre. Sélectionnez la machine virtuelle que vous avez déployée.
 3. Un panneau s’ouvre, qui décrit la machine virtuelle sélectionnée.
 4. Cliquez sur **Propriétés**.
@@ -214,7 +214,6 @@ Pour déployer une machine virtuelle à partir d’une image de machine virtuell
 
 1. Accédez à **Nouveau** > **Calcul** > **Machine virtuelle** > **De la galerie**.
 
-    ![drawing][img-manage-vm-new]
 2. Accédez à **Mes images**, puis sélectionnez l’image de machine virtuelle à partir de laquelle déployer une machine virtuelle :
 
    1. Sélectionnez celle-ci avec soin, car l’affichage **Mes images** répertorie les images de système d’exploitation et les images de machine virtuelle.

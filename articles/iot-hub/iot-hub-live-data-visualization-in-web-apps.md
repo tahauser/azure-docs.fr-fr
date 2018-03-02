@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualiser en temps réel des données de capteur à partir de votre Azure IoT Hub en utilisant la fonctionnalité Web Apps d’Azure App Service
 
@@ -34,7 +34,7 @@ Ce didacticiel explique comment visualiser en temps réel des données de capteu
 ## <a name="what-you-do"></a>Procédure
 
 - Créez une application web dans le portail Azure.
-- Préparez votre instance IoT Hub pour l’accès aux données via l’ajout d’un groupe de consommateurs.
+- Préparation de votre instance IoT Hub pour l’accès aux données via l’ajout d’un groupe de consommateurs.
 - Configurez l’application web pour lire des données de capteur à partir de votre IoT Hub.
 - Chargez une application web qui sera hébergée par l’application web.
 - Ouvrez l’application web pour afficher des données de température et d’humidité en temps réel à partir de votre IoT Hub.
@@ -49,7 +49,7 @@ Ce didacticiel explique comment visualiser en temps réel des données de capteu
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-1. Dans le [portail Azure](https://ms.portal.azure.com/), cliquez sur **Nouveau** > **Web + Mobile** > **Application web**.
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** > **Web + Mobile** > **Application web**.
 2. Saisissez un nom de tâche unique, vérifiez l’abonnement, spécifiez un groupe de ressources et un emplacement, sélectionnez **Épingler au tableau de bord**, puis cliquez sur **Créer**.
 
    Nous vous recommandons de sélectionner le même emplacement que celui de votre groupe de ressources. Cela accélère le traitement et réduit le coût de transfert de données.
@@ -115,7 +115,7 @@ Vous devriez alors voir les données de température et d’humidité en temps r
 > [!NOTE]
 > Vérifiez que l’exemple d’application s’exécute correctement sur votre appareil. Si ce n’est pas le cas, vous obtiendrez un graphique vide ; vous pouvez consulter les didacticiels sous [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous avez correctement utilisé votre application web pour visualiser en temps réel des données de capteur à partir de votre IoT Hub.
 
 Pour découvrir une autre façon de visualiser des données dans votre IoT Hub, voir [Visualiser des données de capteur en temps réel depuis Azure IoT Hub à l’aide de Power BI](iot-hub-live-data-visualization-in-power-bi.md).

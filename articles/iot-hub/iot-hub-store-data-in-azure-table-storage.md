@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Enregistrer les messages IoT Hub qui contiennent des données de capteurs dans un stockage Blob Azure
 
@@ -43,9 +43,9 @@ Vous allez découvrir comment créer un compte de stockage Azure et une applicat
   - Un hub IoT associé à votre abonnement 
   - Une application fonctionnelle qui envoie des messages à votre hub IoT
 
-## <a name="create-an-azure-storage-account"></a>Création d'un compte de stockage Azure
+## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
-1. Sur le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** > **Stockage** > **Compte de stockage** > **Créer**.
+1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** > **Stockage** > **Compte de stockage** > **Créer**.
 
 2. Entrez les informations nécessaires sur le compte de stockage :
 
@@ -98,7 +98,7 @@ Cliquez sur **Ajouter** dans le volet Itinéraires et attribuez un nom à l’it
 
    Vous devriez voir les messages envoyés par votre appareil à votre IoT Hub consignés dans le conteneur d’objets blob.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous venez de créer votre compte de stockage Azure et d’acheminer les messages à partir de IoT Hub vers un conteneur d’objets blob de ce compte de stockage.
 

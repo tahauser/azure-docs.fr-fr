@@ -3,7 +3,7 @@ title: "Configurer l’adressage IP pour se connecter après le basculement vers
 description: "Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles Azure après le basculement depuis un site local avec Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
-author: prateek9us
+author: mayanknayar
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2017
-ms.author: pratshar
-ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/27/2018
+ms.author: manayar
+ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurer l’adressage IP pour se connecter après le basculement vers Azure
 
@@ -36,7 +36,7 @@ Cet article porte sur les points suivants :
 Lorsque vous planifiez votre stratégie de basculement et de réplication, l’une des questions clés est de savoir comment se connecter à la machine virtuelle Azure après le basculement. Deux options s’offrent à vous lors de la conception de votre stratégie réseau pour les machines virtuelles Azure réplica :
 
 - **Utiliser une adresse IP différente** : vous pouvez choisir d’utiliser une autre plage d’adresses IP pour le réseau de la machine virtuelle Azure répliquée. Dans ce scénario la machine virtuelle reçoit une nouvelle adresse IP après le basculement, et une mise à jour DNS est nécessaire.
-- **Conserver la même adresse IP** : vous souhaiterez peut-être utiliser la même plage d’adresses IP que celle du site principal local pour le réseau Azure après le basculement. Conserver les mêmes adresses IP simplifie la récupération en réduisant les problèmes liés au réseau après le basculement. Toutefois, lorsque vous effectuez une réplication vers Azure, vous devez mettre à jour des itinéraires avec le nouvel emplacement des adresses IP après le basculement. 
+- **Conserver la même adresse IP** : vous souhaiterez peut-être utiliser la même plage d’adresses IP que celle du site principal local pour le réseau Azure après le basculement. La conservation des mêmes adresses IP simplifie la récupération en réduisant les problèmes liés au réseau après le basculement. Toutefois, lorsque vous effectuez une réplication vers Azure, vous devez mettre à jour des itinéraires avec le nouvel emplacement des adresses IP après le basculement.
 
 ## <a name="retaining-ip-addresses"></a>Conservation des adresses IP
 
@@ -86,11 +86,7 @@ Outre la connexion de réseau virtuel à réseau virtuel, après le basculement,
 
 ## <a name="assigning-new-ip-addresses"></a>Affectation de nouvelles adresses IP
 
-Cet [article de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explique comment configurer le service d’infrastructure réseau Azure lorsqu’il n’est pas nécessaire de conserver les adresses IP après le basculement. Il commence par une description de l’application, aborde la procédure de configuration des services de mise en réseau locaux et se conclut par des informations sur l’exécution des basculements. 
+Cet [article de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explique comment configurer le service d’infrastructure réseau Azure lorsqu’il n’est pas nécessaire de conserver les adresses IP après le basculement. Il commence par une description de l’application, aborde la procédure de configuration des services de mise en réseau locaux et se conclut par des informations sur l’exécution des basculements.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Exécuter un basculement](site-recovery-failover.md)
-
-
-
-

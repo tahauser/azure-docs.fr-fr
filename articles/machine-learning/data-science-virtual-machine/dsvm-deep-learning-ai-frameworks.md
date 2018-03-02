@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
@@ -67,7 +67,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
-| Éditions DSVM prises en charge      | Linux     |
+| Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Caffe est installé dans `/opt/caffe`.    |
 | Liens vers des exemples      | Des exemples sont inclus dans `/opt/caffe/examples`.      |
 | Outils connexes sur la machine virtuelle DSVM      | Caffe2      |
@@ -87,7 +87,7 @@ Une nouvelle fenêtre de navigateur s’ouvre avec les exemples de bloc-notes.
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
-| Éditions DSVM prises en charge      | Linux     |
+| Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Caffe2 est installé dans `/opt/caffe2`. Il est également disponible pour l’environnement conda Python 2.7 (_root_).     |
 | Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus.     |
 | Outils connexes sur la machine virtuelle DSVM      | Caffe      |
@@ -114,7 +114,7 @@ Sur un terminal, activez la version de Python souhaitée (_root_ ou _py35_), ex�
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond pour H2O      |
-| Éditions DSVM prises en charge      | Linux     |
+| Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Deep Water est installé dans `/dsvm/tools/deep_water`.   |
 | Liens vers des exemples      | Des exemples sont disponibles par le biais du serveur Deep Water.      |
 | Outils connexes sur la machine virtuelle DSVM      | H2O, Sparkling Water      |
@@ -145,7 +145,7 @@ Ensuite, ouvrez un navigateur et connectez-vous à `http://localhost:54321`.
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Système d’apprentissage profond de NVIDIA permettant une formation rapide des modèles d’apprentissage profond.      |
-| Éditions DSVM prises en charge      | Linux     |
+| Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | DIGITS est installé dans `/dsvm/tools/DIGITS` et disponible en tant que service appelé _digits_.   |
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
 
@@ -173,7 +173,7 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
-| Éditions DSVM prises en charge      | Linux     |
+| Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Theano est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_).   |
 | Outils connexes sur la machine virtuelle DSVM      | Keras      |
 | Comment l’utiliser/l’exécuter ?    | Sur un terminal, activez la version de Python souhaitée (root ou py35), exécutez python, puis importez Theano. Dans Jupyter, sélectionnez le noyau Python 2.7 ou 3.5, puis importez Theano.  |
@@ -185,7 +185,42 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
-| Éditions DSVM prises en charge      | Linux     |
+| Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Torch est installé dans `/dsvm/tools/torch`. PyTorch est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_).   |
 | Liens vers des exemples      | Des exemples Torch se trouvent dans `/dsvm/samples/torch`. Des exemples PyTorch se trouvent dans `/dsvm/samples/pytorch`.      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Éditions DSVM prises en charge      | Linux     |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | PyTorch est installé dans l’environnement Python 3.5 (_py35_).   |
+| Liens vers des exemples      | Des exemples de bloc-notes Jupyter sont inclus, et vous trouverez aussi des exemples dans /dsvm/samples/pytorch.      |
+| Outils connexes sur la machine virtuelle DSVM      | Torch      |
+
+### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
+
+Sur un terminal, exécutez _python_, puis importez torch. Dans Jupyter, sélectionnez le noyau Python 3.5, puis importez torch.
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Qu’est-ce que c’est ?   | Un serveur pour créer des points de terminaison HTTP pour les modèles MXNet et ONNX.      |
+| Éditions DSVM prises en charge      | Linux     |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | _mxnet-model-server_ est disponible sur le terminal.   |
+| Liens vers des exemples      | Recherchez des exemples mis à jour dans la page [MXNet Model Server](https://github.com/awslabs/mxnet-model-server).    |
+| Outils connexes sur la machine virtuelle DSVM      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow Serving
+
+|    |           |
+| ------------- | ------------- |
+| Qu’est-ce que c’est ?   | Un serveur pour exécuter l’inférence sur un modèle TensorFlow.      |
+| Éditions DSVM prises en charge      | Linux     |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | _tensorflow_model_server_ est disponible sur le terminal.   |
+| Liens vers des exemples      | D’autres exemples sont disponibles [en ligne](https://www.tensorflow.org/serving/).      |
+| Outils connexes sur la machine virtuelle DSVM      | TensorFlow      |

@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: cbe2f2d17f309e01e831aa9ee31e01e044896d10
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse sur le Portail Azure
 
-Mettez à l’échelle le calcul dans Azure SQL Data Warehouse sur le Portail Azure. Montez en charge le calcul pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
+Mettez à l’échelle le calcul dans Azure SQL Data Warehouse sur le Portail Azure. [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

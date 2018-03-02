@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9d8d5f1019b1db255c7aa6937c6d3eebed363378
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ed604209a8db4f2b39d433eb9596064da6104145
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
 
@@ -39,7 +42,7 @@ Pour suivre ce didacticiel :
 Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
-2. Cliquez sur **Nouveau** > **Surveillance + gestion** > **Sauvegarde et Site Recovery**.
+2. Cliquez sur **Créer une ressource** > **Surveillance + Gestion** > **Backup and Site Recovery**.
 3. Dans **Nom**, indiquez un nom convivial permettant d’identifier le coffre. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources ou sélectionnez-en un. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Pour accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord**, puis sur **Créer**.

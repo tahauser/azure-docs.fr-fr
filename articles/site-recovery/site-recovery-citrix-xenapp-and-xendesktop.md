@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Répliquer un déploiement Citrix XenApp et XenDesktop multiniveau à l’aide d’Azure Site Recovery
 
@@ -32,7 +32,7 @@ Une solution de récupération d’urgence satisfaisante doit autoriser la modé
 Ce document fournit des instructions pas à pas pour la création d’une solution de récupération d’urgence pour vos déploiements locaux de Citrix XenApp sur les plateformes Hyper-V et VMware vSphere. Il décrit également comment effectuer un test de basculement (exercice de récupération d’urgence) et un basculement non planifié vers Azure à l’aide de plans de récupération, ainsi que les configurations prises en charge et les prérequis.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -62,9 +62,9 @@ Pour les besoins de cet article, des déploiements de Citrix sur des machines vi
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Non compris | Oui
-**VMware** | Non compris | Oui
-**Serveur physique** | Non compris | Oui
+**Hyper-V** | Non compris | OUI
+**VMware** | Non compris | OUI
+**Serveur physique** | Non compris | OUI
 
 ### <a name="versions"></a>Versions
 Les clients peuvent déployer des composants XenApp en tant que machines virtuelles s’exécutant sur Hyper-V ou VMware ou en tant que serveurs physiques. Azure Site Recovery peut protéger des déploiements physiques et virtuels sur Azure.
@@ -74,7 +74,7 @@ XenApp 7.7 ou ultérieur étant pris en charge dans Azure, seuls les déploieme
 
 1. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de serveur pour délivrer des applications XenApp publiées et des postes de travail XenApp publiés sont prises en charge.
 
-2. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de bureau pour fournir une infrastructure VDI (Virtual Desktop Infrastructure) pour des postes de travail virtuels clients, notamment Windows 10, ne sont pas prises en charge. En effet, la récupération automatique du système ne prend pas en charge la récupération des ordinateurs où s’exécutent des systèmes d’exploitation de bureau.  De plus, certains systèmes d’exploitation de bureau virtuels clients (par exemple Windows 7) ne sont pas encore pris en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
+2. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de bureau pour fournir une infrastructure VDI (Virtual Desktop Infrastructure) pour des postes de travail virtuels clients, notamment Windows 10, ne sont pas prises en charge. En effet, la récupération automatique du système ne prend pas en charge la récupération des ordinateurs où s’exécutent des systèmes d’exploitation de bureau.  De plus, certains systèmes d’exploitation de bureau virtuels clients (par exemple Windows 7) ne sont pas encore prises en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
 
 3.  Azure Site Recovery ne peut pas répliquer et protéger les clones MCS ou PVS locaux existants.
 Vous devez recréer ces clones à l’aide de l’approvisionnement Azure ARM à partir du Delivery Controller.
@@ -195,6 +195,6 @@ Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un tes
 
 Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur la réplication des déploiements Citrix XenApp et XenDesktop, consultez [ce livre blanc](https://aka.ms/citrix-xenapp-xendesktop-with-asr). Examinez les conseils pour [répliquer d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

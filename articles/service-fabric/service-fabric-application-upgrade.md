@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
 Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-and-service-manifests.md) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
@@ -47,23 +47,23 @@ Le mode que nous recommandons pour la mise à niveau d’application est le mode
 Le mode manuel non surveillé nécessite une intervention manuelle après chaque mise à niveau sur un domaine de mise à jour pour lancer la mise à niveau sur le domaine de mise à jour suivant. Aucune vérification de l'intégrité de Service Fabric n'est effectuée. L'administrateur effectue les vérifications d'intégrité ou d'état avant de commencer la mise à niveau dans le domaine de mise à jour suivant.
 
 ## <a name="upgrade-default-services"></a>Mettre à niveau les services par défaut
-Il est possible de mettre à niveau les services par défaut dans l’application Service Fabric pendant le processus de mise à niveau d’une application. Les services par défaut sont définis dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md). Les règles standard de mise à niveau des services par défaut sont les suivantes :
+Certains paramètres de service par défaut définis dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) peuvent aussi être mis à niveau dans le cadre d’une mise à niveau de l’application. Seuls les paramètres de service qui prennent une modification par le biais de [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) peuvent être modifiés dans le cadre d’une mise à niveau. Le comportement de modification des services par défaut au cours de la mise à niveau de l’application est le suivant :
 
-1. Les services par défaut du nouveau [manifeste de l’application](service-fabric-application-and-service-manifests.md) qui n’existent pas dans le cluster sont créés.
+1. Les services par défaut du nouveau manifeste de l’application qui n’existent pas déjà dans le cluster sont créés.
+2. Les services par défaut qui existent dans les manifestes de l’application précédent et nouveau sont mis à jour. Les paramètres du service par défaut dans le nouveau manifeste de l’application remplacent ceux du service existant. La mise à niveau de l’application est restaurée automatiquement en cas d’échec de la mise à jour d’un service par défaut.
+3. Les services par défaut qui n’existent pas dans le nouveau manifeste de l’application sont supprimés s’ils existent dans le cluster. **Notez que la suppression d’un service par défaut entraîne la suppression de l’état de tout ce service, et que cette opération est définitive.**
+
+Quand vous restaurez une mise à niveau de l’application, les paramètres de service par défaut sont rétablis à leurs valeurs d’avant le démarrage de la mise à niveau, mais les services supprimés ne peuvent pas être recréés avec leur ancien état.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur true pour activer les règles suivantes. Cette fonctionnalité est prise en charge à partir de la version 5.5.
-
-2. Les services par défaut présents à la fois dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) précédent et dans la nouvelle version sont mis à jour. Les descriptions de service dans la nouvelle version remplaceraient celles qui se trouvent déjà dans le cluster. La mise à niveau de l’application serait restaurée automatiquement en cas d’échec de mise à jour des services par défaut.
-3. Les services par défaut présents dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) précédent et non dans la nouvelle version sont supprimés. **Notez qu’il n’est pas possible de rétablir les services par défaut supprimés.**
-
-Lorsqu’une mise à niveau d’application est restaurée, les services par défaut sont rétablis à l’état précédant le début de la mise à niveau. Mais les services supprimés ne peuvent plus être créés.
+> Le paramètre de configuration de cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur *true* pour activer les règles 2) et 3) ci-dessus (mise à jour et suppression de service par défaut). Cette fonctionnalité est prise en charge à partir de Service Fabric version 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Organigramme de la mise à niveau d'application
 L’organigramme suivant ce paragraphe peut vous aider à comprendre le processus de mise à niveau d’une application Service Fabric. En particulier, le flux indique dans quelle mesure les délais, notamment *HealthCheckStableDuration*, *HealthCheckRetryTimeout* et *UpgradeHealthCheckInterval*, déterminent l’échec ou la réussite de la mise à niveau dans un domaine de mise à jour donné.
 
 ![Processus de mise à niveau d'une application Service Fabric][image]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.

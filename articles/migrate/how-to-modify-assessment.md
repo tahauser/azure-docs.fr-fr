@@ -4,40 +4,41 @@ description: "Décrit comment configurer et exécuter une évaluation de la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 8babdbc30e062c7b289e90a674cec3222943e48d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-an-assessment"></a>Personnaliser une évaluation
 
-[Azure Migrate](migrate-overview.md) crée des évaluations avec des paramètres par défaut. Après avoir créé une évaluation, vous pouvez modifier ces paramètres par défaut en suivant les instructions indiquées dans cet article.
+[Azure Migrate](migrate-overview.md) crée des évaluations avec des propriétés par défaut. Après avoir créé une évaluation, vous pouvez modifier les propriétés par défaut en suivant les instructions indiquées dans cet article.
 
 
-## <a name="edit-assessment-values"></a>Modifier les valeurs d’évaluation
+## <a name="edit-assessment-properties"></a>Modifier les propriétés d’évaluation
 
-1. Dans la page **Évaluations** du projet Azure Migrate, sélectionnez l’évaluation et cliquez sur **Modifier des propriétés**.
-2. Modifiez les paramètres en fonction du tableau ci-dessous.
+1. Dans la page **Évaluations** du projet de migration, sélectionnez l’évaluation et cliquez sur **Modifier des propriétés**.
+2. Modifiez les propriétés conformément au tableau suivant :
 
     **Paramètre** | **Détails** | **Par défaut**
     --- | --- | ---
     **Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer. |  Ouest des États-Unis 2 est l’emplacement par défaut.
-    **Redondance du stockage** | Type de stockage que les machines virtuelles Azure utilisent après la migration. | Seule la réplication [Stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) est prise en charge.
-    **Facteur de confort** | Le facteur de confort est une mémoire tampon qui est utilisée pendant l’évaluation. Il permet de prendre en compte des éléments tels que l’utilisation occasionnelle, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future. | Le paramètre par défaut est 1.3x.
-    **Historique des performances** | Durée passée à l’évaluation de l’historique des performances. | La valeur par défaut est un mois.
-    **Utilisation en centile** | Valeur de centile à prendre en compte pour l’historique des performances. | La valeur par défaut est 95 %.
-    **Niveau tarifaire** | Vous pouvez spécifier le [niveau tarifaire](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) d’une machine virtuelle.  | Par défaut le niveau [Standard](../virtual-machines/windows/sizes-general.md) est utilisé.
-    **Offer** | [Offres Azure](https://azure.microsoft.com/support/legal/offer-details/) qui s’appliquent. | [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) est la valeur par défaut.
+    **Redondance du stockage** | Type de redondance du stockage que les machines virtuelles Azure utiliseront après la migration. | La valeur par défaut est [Stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). Azure Migrate prend uniquement en charge les évaluations basées sur des disques managés, et les disques managés prennent uniquement en charge le stockage LRS. Par conséquent, la propriété ne comporte pour le moment que l’option LRS. 
+    **Critère de dimensionnement** | Critère utilisé par Azure Migrate pour dimensionner correctement les machines virtuelles pour Azure. Vous pouvez effectuer un dimensionnement *en fonction des performances* ou dimensionner les machines virtuelles *comme localement*, sans tenir compte de l’historique des performances. | Le dimensionnement en fonction des performances est l’option par défaut.
+    **Historique des performances** | Durée à prendre en compte pour évaluer les performances des machines virtuelles. Cette propriété s’applique uniquement quand le critère de dimensionnement est le *dimensionnement en fonction des performances*. | La valeur par défaut est une journée.
+    **Utilisation en centile** | Valeur de centile du jeu d’échantillons de performances devant être pris en compte pour le dimensionnement adéquat. Cette propriété s’applique uniquement quand le critère de dimensionnement est le *dimensionnement en fonction des performances*.  | La valeur par défaut est le 95e centile.
+    **Niveau tarifaire** | Vous pouvez spécifier le [niveau tarifaire (de base/standard)](../virtual-machines/windows/sizes-general.md) des machines virtuelles Azure cibles. Par exemple, si vous envisagez de migrer un environnement de production, vous pouvez prendre en compte le niveau Standard, qui fournit des machines virtuelles avec une faible latence, mais est sans doute plus coûteux. En revanche, dans un environnement de développement et de test, vous pouvez prendre en compte le niveau de base, qui fournit des machines virtuelles avec une latence plus élevée, moins coûteuses. | Par défaut le niveau [Standard](../virtual-machines/windows/sizes-general.md) est utilisé.
+    **Facteur de confort** | Azure Migrate considère une mémoire tampon (facteur de confort) au cours de l’évaluation. Cette mémoire tampon est appliquée sur des données d’utilisation de l’ordinateur pour les machines virtuelles (processeur, mémoire, disque et réseau). Le facteur de confort prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à 2 cœurs. Toutefois, avec un facteur de confort de 2.0x, le résultat est une machine virtuelle de 4 cœurs. | Le paramètre par défaut est 1.3x.
+    **Offer** | [Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) pour laquelle vous êtes inscrit. | [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) est la valeur par défaut.
     **Devise** | Devise de facturation. | La valeur par défaut est le dollar américain.
-    **Remise (%)** | Remise propre à un abonnement cumulable avec toute autre offre. | Le paramètre par défaut est 0 %.
-    **Azure Hybrid Use Benefit** | Indique si vous êtes inscrit à [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Si la valeur est Oui, les prix non-Microsoft Azure sont envisagés pour les machines virtuelles Windows. | La valeur par défaut est Oui.
+    **Remise (%)** | Remise propre à un abonnement cumulable avec l’offre Azure. | Le paramètre par défaut est 0 %.
+    **Azure Hybrid Benefit** | Spécifiez si vous disposez de Software Assurance et que vous êtes éligible à [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Si la valeur est Oui, les prix non-Microsoft Azure sont envisagés pour les machines virtuelles Windows. | La valeur par défaut est Oui.
 
 3. Cliquez sur **Enregistrer** pour mettre à jour l’évaluation.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

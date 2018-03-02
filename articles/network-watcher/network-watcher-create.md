@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb1e3f9a93d18e949cb42ac0a4e09129cfe414f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Créer une instance d’Azure Network Watcher
 
@@ -29,7 +29,7 @@ Network Watcher est un service régional qui vous permet de surveiller et de dia
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Créer un Network Watcher dans le portail
 
-Accédez à **Plus de services** > **Mise en réseau** > **Network Watcher**. Vous pouvez sélectionner tous les abonnements pour lesquels vous souhaitez activer Network Watcher. Cette action crée un Network Watcher dans chaque région disponible.
+Accédez à **Tous les services** > **Mise en réseau** > **Network Watcher**. Vous pouvez sélectionner tous les abonnements pour lesquels vous souhaitez activer Network Watcher. Cette action crée un Network Watcher dans chaque région disponible.
 
 ![créer un Network Watcher][1]
 
@@ -73,7 +73,7 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez une instance de Network Watcher, découvrez les fonctionnalités disponibles :
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 3bf8ff367fcf88c76c2dc711a6daeffdcb3258b7
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4065c08e647ff708e1d8c4fa52563da7f83ef0c1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installer des applications personnalisées Hadoop sur Azure HDInsight
 
@@ -30,11 +30,11 @@ Une application HDInsight est une application que les utilisateurs peuvent insta
 
 Autres articles associés :
 
-* [Install custom HDInsight applications](hdinsight-apps-install-applications.md)(Installer des applications HDInsight personnalisées) : découvrez comment installer une application HDInsight sur vos clusters.
-* [Publish HDInsight applications](hdinsight-apps-publish-applications.md)(Publier des applications HDInsight) : découvrez comment publier vos applications HDInsight personnalisées sur Azure Marketplace.
+* [Installer des applications HDInsight](hdinsight-apps-install-applications.md): découvrez comment installer une application HDInsight sur vos clusters.
+* [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
 
 ## <a name="install-hdinsight-applications"></a>Install custom HDInsight applications
@@ -79,7 +79,7 @@ Vous pouvez vérifier l’état de l’application sur le portail Azure pour val
 
 **Pour accéder au portail Hue**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Clusters HDInsight** dans le menu de gauche.  Si vous ne le voyez pas, cliquez sur **Parcourir**, puis sur **Clusters HDInsight**.
 3. Cliquez sur le cluster dans lequel vous avez installé l’application.
 4. Dans le panneau **Paramètres**, cliquez sur **Applications** sous la catégorie **Général**. Vous devriez voir **hue** dans le panneau **Applications installées**.
@@ -111,7 +111,7 @@ Il existe plusieurs façons de supprimer des applications HDInsight.
 ### <a name="use-portal"></a>Utilisation du portail
 **Pour supprimer une application à l’aide du portail**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Clusters HDInsight** dans le menu de gauche.  Si vous ne le voyez pas, cliquez sur **Parcourir**, puis sur **Clusters HDInsight**.
 3. Cliquez sur le cluster dans lequel vous avez installé l’application.
 4. Dans le panneau **Paramètres**, cliquez sur **Applications** sous la catégorie **Général**. Vous devriez voir une liste des applications installées. Dans ce didacticiel, **hue** apparaît dans le panneau **Applications installées**.
@@ -126,7 +126,7 @@ Vous pouvez utiliser Azure PowerShell pour supprimer le cluster ou le groupe de 
 ### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 Vous pouvez utiliser l’interface de ligne de commande Azure pour supprimer le cluster ou le groupe de ressources. Consultez la section [Supprimer des clusters à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md#delete-clusters).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment développer des applications Resource Manager pour le déploiement d’applications HDInsight.
 * [Install custom HDInsight applications](hdinsight-apps-install-applications.md)(Installer des applications HDInsight personnalisées) : découvrez comment installer une application HDInsight sur vos clusters.
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md)(Publier des applications HDInsight) : découvrez comment publier vos applications HDInsight personnalisées sur Azure Marketplace.

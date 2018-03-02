@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: "Azure\_PowerShell"
       href: app-service-powershell-samples.md
+    - name: Modèles Resource Manager
+      href: app-service-rm-template-samples.md
 - name: Concepts
   items:
     - name: Fonctionnement d’App Service
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Créer des environnements intermédiaires
           href: web-sites-staged-publishing.md
+        - name: Conseils relatifs aux modèles Resource Manager
+          href: web-sites-rm-template-guidance.md
     - name: Mapper un domaine personnalisé
       items:
         - name: Acheter un domaine

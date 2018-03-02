@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 08/21/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 168d3422978fd26e85111ed09f911cc420f0a3a9
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d6eb3ed9114a597389dbe1a521e083c2cacbb724
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Linux
 
@@ -43,7 +43,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location westeurope
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -88,7 +88,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-Sortie :
+Output:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -171,7 +171,7 @@ Utilisez la commande [kubectl create](https://kubernetes.io/docs/user-guide/kube
 kubectl create -f azure-vote.yml
 ```
 
-Sortie :
+Output:
 
 ```bash
 deployment "azure-vote-back" created

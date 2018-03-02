@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c10362fa1d5d9e4316dd94a3d08c9e1fcd3eb985
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Conseils sur la récupération d’urgence des données dans Azure Data Lake Store
 
@@ -42,7 +42,7 @@ Pour éviter toute suppression accidentelle, nous vous recommandons de définir 
 
 Les organisations peuvent également activer la [journalisation des diagnostics](data-lake-store-diagnostic-logs.md) pour leur compte Azure Data Lake Store afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations sur les auteurs potentiels d’une suppression ou d’une mise à jour de fichier.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 

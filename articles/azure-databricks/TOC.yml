@@ -19,7 +19,7 @@
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/'
     - name: Dépassement de capacité de la pile
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'

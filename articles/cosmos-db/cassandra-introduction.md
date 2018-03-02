@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Présentation de Apache Cassandra API pour Azure Cosmos DB
 
@@ -64,7 +64,7 @@ L’API Cassandra vous permet d’interagir avec les données stockées dans la 
 
 Si vous avez déjà un abonnement Azure, vous pouvez vous inscrire pour participer au programme API Cassandra (préversion) dans le [portail Azure](https://aka.ms/cosmosdb-cassandra-signup).  Si vous débutez avec Azure, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free) qui vous donnera 12 mois d’accès à Azure Cosmos DB. Procédez comme suit pour demander l’accès au programme API Cassandra (préversion).
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Bases de données** > **Azure Cosmos DB**. 
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**. 
 
 2. Dans la page Nouveau compte, sélectionnez **Cassandra** dans la zone API. 
 
@@ -88,7 +88,7 @@ Une fois que vous avez rejoint le programme en préversion, suivez les démarrag
 * [Démarrage rapide : Créer une application web Cassandra avec .NET et Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Démarrage rapide : Créer une application web Cassandra avec Python et Azure Cosmos DB](create-cassandra-python.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Des informations sur l’API Cassandra d’Azure Cosmos DB sont intégrées dans l’ensemble de la documentation Azure Cosmos DB, mais voici quelques points qui vous aideront à démarrer :
 

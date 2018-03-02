@@ -1,3 +1,5 @@
+# [Documentation Services cloud](index.md)
+
 # Vue d'ensemble
 ## [Présentation de Services cloud](cloud-services-choose-me.md)
 ## [Création de packages et fichiers de configuration de service cloud](cloud-services-model-and-package.md)

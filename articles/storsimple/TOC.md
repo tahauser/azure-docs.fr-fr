@@ -1,3 +1,5 @@
+# [Documentation StorSimple](index.md)
+
 # Baie virtuelle StorSimple
 
 ## Vue d'ensemble

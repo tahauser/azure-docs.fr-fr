@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory
 > [!NOTE]
@@ -114,8 +114,8 @@ Une fois les étapes requises terminées, nous sommes désormais prêts à confi
 
 ## <a name="launch-copy-wizard"></a>Lancer l’Assistant Copie
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **+ NOUVEAU** en haut à gauche, sur **Intelligence et analyse**, puis sur **Data Factory**.
-3. Dans le panneau **Nouvelle fabrique de données** :
+2. Cliquez sur **Créer une ressource** en haut à gauche, cliquez sur **Intelligence + analyse**, puis sur **Data Factory**.
+3. Dans le volet **Nouvelle fabrique de données** :
 
    1. Entrez **LoadIntoSQLDWDataFactory** pour le **nom**.
        Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomLoadIntoSQLDWDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « LoadIntoSQLDWDataFactory » n'est pas disponible**. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.  

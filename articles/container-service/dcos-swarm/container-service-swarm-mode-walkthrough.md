@@ -6,18 +6,18 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: d56c0b466cec1df41fb86bbc89843e783513e9a4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3c06aaa09366df89ad73cb60780511d2087d5994
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>Déployer le cluster Docker CE
 
-Dans ce guide de démarrage rapide, un cluster Docker CE est déployé à l’aide d’Azure CLI. Une application à plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est ensuite déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
+Dans ce guide de démarrage rapide, un cluster Docker CE est déployé à l’aide d’Azure CLI. Une application de plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
 
 Docker CE est en version préliminaire sur Azure Container Service et **ne doit pas être utilisé pour des charges de travail de production**.
 
@@ -35,7 +35,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location ukwest
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -73,7 +73,7 @@ Pour suivre ce guide de démarrage rapide, vous avez besoin du nom de domaine co
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
-Sortie :
+Output:
 
 ```bash
 Master                                                               Agent
@@ -123,7 +123,7 @@ Exécutez la commande [docker stack deploy](https://docs.docker.com/engine/refer
 docker stack deploy azure-vote --compose-file azure-vote.yaml
 ```
 
-Sortie :
+Output:
 
 ```bash
 Creating network azure-vote_default

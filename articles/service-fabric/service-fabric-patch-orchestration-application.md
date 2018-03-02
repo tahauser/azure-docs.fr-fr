@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 L’application d’orchestration des correctifs est une application Azure Service Fabric qui automatise les mises à jour correctives du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt.
 
-L’application d’orchestration des correctifs offre les avantages suivants :
+L’application d’orchestration des correctifs offre les fonctionnalités suivantes :
 
 - **Installation automatique de mise à jour du système d’exploitation**. Des mises à jour du système d’exploitation sont téléchargées et installées automatiquement. Les nœuds de cluster sont redémarrés en fonction des besoins sans temps d’arrêt du cluster.
 
@@ -50,7 +56,7 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > [!NOTE]
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de Windows Update pour chaque nœud.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -64,12 +70,12 @@ Le service de gestion des réparations est activé par défaut pour les clusters
 Vous pouvez activer le gestionnaire des réparations à partir du portail Azure au moment de la configuration du cluster. Sélectionnez l’option **Inclure le gestionnaire de réparation** sous **Fonctionnalités complémentaires** lors de la configuration du cluster.
 ![Image représentant l’activation du gestionnaire des réparations à partir du portail Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
-Vous pouvez également utiliser le [modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour activer le service de gestion des réparations sur les clusters Service Fabric nouveaux et existants. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les exemples de modèles, soit créer un modèle Resource Manager personnalisé. 
+##### <a name="azure-resource-manager-deployment-model"></a>Modèle de déploiement Azure Resource Manager
+Vous pouvez également utiliser le [modèle de déploiement Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) pour activer le service de gestion des réparations sur les clusters Service Fabric nouveaux et existants. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les exemples de modèles, soit créer un modèle de déploiement Azure Resource Manager personnalisé. 
 
-Pour activer le service de gestion des réparations à l’aide du [modèle Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm), procédez comme suit :
+Pour activer le service de gestion des réparations à l’aide du [modèle de déploiement Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) :
 
-1. Tout d’abord, vérifiez que `apiversion` est défini sur `2017-07-01-preview` pour la ressource `Microsoft.ServiceFabric/clusters`, comme dans l’extrait de code suivant. Si ce n’est pas le cas, vous devez mettre à jour `apiVersion` en définissant la valeur `2017-07-01-preview` :
+1. Commencez par vérifier que `apiversion` a la valeur `2017-07-01-preview` pour la ressource `Microsoft.ServiceFabric/clusters`. Si ce n’est pas le cas, vous devez mettre à jour `apiVersion` en affectant la valeur `2017-07-01-preview` ou une valeur supérieure :
 
     ```json
     {
@@ -141,13 +147,13 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |MaxResultsToCache    |long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> - Le nombre de nœuds est 20. <br> - Le nombre de mises à jour par mois effectuées sur un nœud est 5. <br> - Le nombre maximal de résultats par opération est 10. <br> - Les résultats des trois derniers mois doivent être stockés. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).
 |LogsDiskQuotaInMB   |long  <br> (Par défaut : 1024)               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
-| WUQuery               | string<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | Bool <br> (Par défaut : True)                 | Cet indicateur permet l’installation des mises à jour du système d’exploitation Windows.            |
+| WUQuery               | chaîne<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+| InstallWindowsOSOnlyUpdates | Booléen <br> (Par défaut : True)                 | Cet indicateur permet l’installation des mises à jour du système d’exploitation Windows.            |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : 90)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | WURescheduleCount     | Int <br> (Par défaut : 5)                  | Nombre maximal de fois que le service replanifie une mise à jour Windows en cas d’échec persistant d’une opération.          |
 | WURescheduleTimeInMinutes | Int <br>(Par défaut : 30) | Intervalle auquel le service replanifie une mise à jour de Windows en cas d’échec persistant. |
-| WUFrequency           | Chaîne de valeurs séparées par des virgules (par défaut : « Hebdomadaire, Mercredi, 7:00:00 »).     | Fréquence d’installation des mises à jour Windows Update. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ,HH:MM:SS, par exemple, Mensuelle, 5,12:22:32. <br> -   Hebdomadaire, JOUR,HH:MM:SS, par exemple, Hebdomadaire, Mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune  indique que les mises à jour Windows Update ne doivent pas être effectuées.  <br><br> Il est à noter que toutes les heures sont exprimées en UTC.|
-| AcceptWindowsUpdateEula | Bool <br>(Par défaut : true) | Lorsque cet indicateur est défini, l’application accepte le contrat de licence utilisateur final de Windows Update pour le compte du propriétaire de l’ordinateur.              |
+| WUFrequency           | Chaîne de valeurs séparées par des virgules (par défaut : « Hebdomadaire, Mercredi, 7:00:00 »).     | Fréquence d’installation des mises à jour Windows Update. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ,HH:MM:SS, par exemple, Mensuelle, 5,12:22:32. <br> -   Hebdomadaire, JOUR, HH:MM:SS, par exemple, Hebdomadaire, mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune  indique que les mises à jour Windows Update ne doivent pas être effectuées.  <br><br> Notez que les heures sont exprimées en UTC.|
+| AcceptWindowsUpdateEula | Booléen <br>(Par défaut : true) | Lorsque cet indicateur est défini, l’application accepte le contrat de licence utilisateur final de Windows Update pour le compte du propriétaire de l’ordinateur.              |
 
 > [!TIP]
 > Si vous souhaitez qu’une mise à jour Windows Update ait lieu immédiatement, définissez `WUFrequency` par rapport à l’heure de déploiement de l’application. Par exemple, supposons que vous disposez d’un cluster de test de cinq nœuds et que vous prévoyez de déployer l’application vers 17 heures UTC. Si vous estimez que la mise à niveau ou le déploiement de l’application nécessite au maximum 30 minutes, définissez WUFrequency sur « Quotidienne, 17:30:00 ».
@@ -271,9 +277,9 @@ Si le service NT Agent du nœud est inactif sur un nœud, un rapport d’intégr
 
 Si le service de gestion des réparations est introuvable sur le cluster, un rapport d’intégrité de niveau avertissement est généré concernant le service Coordinateur.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-Q : **Pourquoi mon cluster présente-t-il un état d’erreur lorsque l’application d’orchestration des correctifs est en cours d’exécution ?**
+Q. **Pourquoi mon cluster présente-t-il un état d’erreur lorsque l’application d’orchestration des correctifs est en cours d’exécution ?**
 
 R. Pendant le processus d’installation, l’application d’orchestration des correctifs désactive ou redémarre des nœuds, ce qui peuvent entraîner une dégradation temporaire de l’intégrité du cluster.
 
@@ -300,14 +306,14 @@ Q. **Pourquoi la mise à jour corrective des clusters prend-elle autant de temps
 R. Le temps dont l’application d’orchestration des correctifs a besoin dépend principalement des facteurs suivants :
 
 - La stratégie du service Coordinateur. 
-  - La stratégie par défaut, `NodeWise` a pour effet d’appliquer la mise à jour corrective à un seul nœud à la fois. Dans le cas de clusters de grande taille, nous recommandons d’utiliser la stratégie `UpgradeDomainWise` pour accélérer la mise à jour corrective de tous les clusters.
+  - La stratégie par défaut, `NodeWise` a pour effet d’appliquer la mise à jour corrective à un seul nœud à la fois. En cas de cluster plus grand, nous vous recommandons d’utiliser la stratégie `UpgradeDomainWise` pour accélérer la mise à jour corrective de tous les clusters.
 - Le nombre de mises à jour disponibles pour téléchargement et installation. 
 - La durée moyenne nécessaire pour télécharger et installer une mise à jour, qui ne devrait pas dépasser quelques heures.
 - Les performances de la machine virtuelle et la bande passante réseau.
 
-Q : **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
+Q. **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 
-R : Certaines mises à jour de produits doivent être archivées dans l’historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
+R. Certaines mises à jour de produits apparaissent uniquement dans leur historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 
@@ -315,7 +321,7 @@ R : Certaines mises à jour de produits doivent être archivées dans l’histo
 
 - L’application d’orchestration des correctifs collecte des données de télémétrie pour effectuer le suivi de l’utilisation et des performances. La télémétrie de l’application suit la valeur du paramètre de télémétrie du runtime Service Fabric (activé par défaut).
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Un nœud ne se réactive pas
 

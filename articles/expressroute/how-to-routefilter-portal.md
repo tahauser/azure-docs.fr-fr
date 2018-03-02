@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour l’homologation Microsoft : portail Azure
 > [!div class="op_single_selector"]
 > * [portail Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
+> * [interface de ligne de commande Azure](how-to-routefilter-cli.md)
 > 
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
@@ -92,7 +92,7 @@ Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans
 Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit être de type « Autoriser ». Cette règle peut être associée à une liste des valeurs de communauté BGP.
 
 ### <a name="1-create-a-route-filter"></a>1. Créer un filtre de routage
-Vous pouvez créer un filtre de routage en sélectionnant l'option permettant de créer une ressource. Cliquez sur **Nouveau** > **Mise en réseau** > **RouteFilter**, comme illustré dans l’image suivante :
+Vous pouvez créer un filtre de routage en sélectionnant l'option permettant de créer une ressource. Cliquez sur **Créer une ressource** > **Mise en réseau** > **RouteFilter**, comme illustré dans l’image suivante :
 
 ![Créer un filtre de routage](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

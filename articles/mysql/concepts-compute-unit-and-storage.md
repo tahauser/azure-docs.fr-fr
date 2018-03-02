@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Présentation des unités de calcul dans Azure Database pour MySQL
 Cette rubrique explique les concepts d’unités de calcul et ce qui se passe quand la charge de travail atteint le nombre maximal d’unités de calcul.
@@ -42,5 +42,5 @@ Si votre charge de travail atteint les limites maximales des unités de calcul o
 
 Si votre charge de travail atteint les limites maximales du nombre de connexions, des erreurs explicites sont déclenchées. Pour plus d’informations sur les limites des ressources, consultez [Limitations dans Azure Database pour MySQL](concepts-limits.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les niveaux tarifaires, consultez [Niveaux tarifaires d’Azure Database pour MySQL](./concepts-service-tiers.md).

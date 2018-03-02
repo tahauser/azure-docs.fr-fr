@@ -2,7 +2,7 @@
 title: "Script PowerShell - Déployer le runtime d’intégration Azure-SSIS | Microsoft Docs"
 description: "Ce script PowerShell crée un runtime d’intégration Azure-SSIS qui peut exécuter des packages SSIS dans le cloud."
 services: data-factory
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: spelluru
-ms.openlocfilehash: 94839decb082121e3e11d7c6041422ca1bea8861
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: douglasl
+ms.openlocfilehash: 959432378d49e18fbb567ea164c2608bfa02956d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script PowerShell - Déployer le runtime d’intégration Azure-SSIS
 
@@ -45,7 +45,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Ce script utilise les commandes suivantes :
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Créer une fabrique de données. |
@@ -56,7 +56,7 @@ Ce script utilise les commandes suivantes :
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 

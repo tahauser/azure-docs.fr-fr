@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health fournit en temps voulu des informations personnalisées lorsque des problèmes touchant les services Azure ont une incidence sur vos services.  Cette fonctionnalité vous aide également à vous préparer aux maintenances planifiées à venir.
@@ -32,8 +32,13 @@ Service Health suit trois types d’événements d’intégrité qui peuvent avo
     ![Événements Service Health](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Prise en main de Service Health
-Pour lancer votre tableau de bord Service Health, sélectionnez la vignette Service Health dans le tableau de bord du portail. Si vous avez supprimé la vignette ou utilisez un tableau de bord personnalisé, recherchez Service Health dans Plus de services (en bas à gauche de votre tableau de bord).
+Pour lancer votre tableau de bord Service Health, sélectionnez la vignette Service Health dans le tableau de bord du portail. 
+
 ![Prise en main de Service Health](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Si vous avez supprimé la vignette ou utilisez un tableau de bord personnalisé, recherchez Service Health dans **Tous les services** (en haut à gauche de votre tableau de bord).
+
+![Prise en main de Service Health](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Afficher les problèmes actuels qui ont une incidence sur vos services
 La vue **Problèmes liés aux services** affiche tous les problèmes touchant actuellement les services Azure qui ont une incidence sur vos ressources. Vous pouvez savoir quand le problème a commencé et quels services et régions sont concernés. Vous pouvez également accéder aux informations les plus récentes pour comprendre ce qui est fait pour résoudre le problème. 

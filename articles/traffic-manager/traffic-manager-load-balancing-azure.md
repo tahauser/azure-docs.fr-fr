@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
@@ -63,8 +63,8 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : créer un profil Traffic Manager
 
-1. Dans le portail Azure, cliquez sur **Nouveau**, puis recherchez « profil Traffic Manager » sur le Marketplace.
-2. Sur le panneau **Créer un profil Traffic Manager**, saisissez les informations de base suivantes :
+1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
+2. Entrez les informations de base suivantes :
 
   * **Nom** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
   * **Méthode de routage** : sélectionnez la stratégie de la méthode de routage du trafic. Pour en savoir plus sur les différentes méthodes , voir [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md).
@@ -78,7 +78,7 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
 ### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
 
-1. Dans le volet de gauche du portail Azure, cliquez sur **Nouveau** > **Mise en réseau** > **Application Gateway**.
+1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Application Gateway**.
 2. Indiquez ensuite les informations de base suivantes sur la passerelle Application Gateway :
 
   * **Nom** : nom de la passerelle Application Gateway.
@@ -100,15 +100,15 @@ Au moment de choisir le pool principal, une passerelle Application Gateway conf
 
 1. À partir de votre groupe de ressources, accédez à l’instance de la passerelle Application Gateway créée aux étapes de la section précédente.
 2. Sous **Paramètres**, sélectionnez **Pools principaux**, puis cliquez sur **Ajouter** pour ajouter les machines virtuelles à associer avec les pools principaux de niveau web.
-3. Dans le panneau **Ajouter un pool principal**, saisissez le nom du pool principal et toutes les adresses IP des machines résidant dans le pool. Dans ce scénario, nous connectons deux pools de serveurs principaux de machines virtuelles.
+3. Entrez le nom du pool principal et toutes les adresses IP des machines résidant dans le pool. Dans ce scénario, nous connectons deux pools de serveurs principaux de machines virtuelles.
 
-  ![Panneau Ajouter un pool principal d’Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  ![Ajouter un pool principal, dans Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Dans la section **Paramètres** de la passerelle Application Gateway, sélectionnez **Règles**, puis cliquez sur le bouton **Basé sur le chemin** pour ajouter une règle.
 
   ![Bouton Basé sur le chemin de la zone Règles de la passerelle Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. Dans le panneau **Ajouter une règle basée sur le chemin**, configurez la règle en fournissant les informations décrites ci-après.
+5. Configurez la règle en fournissant les informations décrites ci-après.
 
    Paramètres de base :
 
@@ -138,13 +138,13 @@ Dans ce scénario, Traffic Manager est connecté à des instances Application 
 
   ![Bouton Ajouter de la zone Points de terminaison Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. Sur le panneau **Ajouter un point de terminaison**, créez un point de terminaison en saisissant les informations suivantes :
+3. Créez un point de terminaison en entrant les informations suivantes :
 
   * **Type** : sélectionnez le type de point de terminaison pour l’équilibrage de charge. Dans ce scénario, sélectionnez **Point de terminaison Azure**, car nous le connectons aux instances Application Gateway configurées précédemment.
   * **Nom** : saisissez le nom du point de terminaison.
   * **Type de ressource cible** : sélectionnez **Adresse IP publique** et, sous **Ressource cible**, sélectionnez l’adresse IP publique de la passerelle Application Gateway configurée précédemment.
 
-   ![Panneau Ajouter un point de terminaison de Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   ![Ajouter un point de terminaison, dans Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Vous pouvez désormais tester votre configuration en y accédant avec le DNS de votre profil Traffic Manager (dans cet exemple : TrafficManagerScenario.trafficmanager.net). Vous pouvez renvoyer des demandes, mettre en service ou hors service les machines virtuelles et serveurs web créés dans différentes régions, puis modifier les paramètres du profil Traffic Manager pour tester votre configuration.
 
@@ -156,8 +156,8 @@ Si votre cluster de bases de données à haute disponibilité utilise SQL Serve
 
 Pour en savoir plus sur la configuration d’un équilibrage de charge interne, voir [Créer un équilibreur de charge interne dans le portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. Dans le volet de gauche du portail Azure, cliquez sur **Nouveau** > **Mise en réseau** > **Équilibrage de charge**.
-2. Dans le panneau **Créer un équilibreur de charge**, choisissez un nom pour votre équilibrage de charge.
+1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
+2. Choisissez un nom pour votre équilibreur de charge.
 3. Définissez le **type** sur **Interne** et choisissez le réseau et le sous-réseau virtuels appropriés dans lesquels l’équilibrage de charge doit résider.
 4. Sous **Attribution d’adresses IP**, sélectionnez **Dynamique** ou **Statique**.
 5. Sous **Groupe de ressources**, choisissez le groupe de ressources de l’équilibrage de charge.
@@ -169,18 +169,18 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 1. À partir de votre groupe de ressources, recherchez l’équilibrage de charge créé lors des étapes précédentes.
 2. Sous **Paramètres**, cliquez sur **Pools principaux**, puis cliquez sur **Ajouter** pour ajouter un pool principal.
 
-  ![Panneau Ajouter un pool principal de Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  ![Ajouter un pool principal, dans Équilibreur de charge](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. Dans le panneau **Ajouter un pool principal**, saisissez le nom du pool principal.
+3. Entrez le nom du pool principal.
 4. Ajoutez des ordinateurs individuels ou un jeu de disponibilité pour le pool principal.
 
 #### <a name="configure-a-probe"></a>Configurer une sonde
 
 1. Dans votre équilibrage de charge, sélectionnez **Paramètres**, puis **Sondes**, et cliquez sur **Ajouter** pour ajouter une sonde.
 
- ![Panneau Ajouter une sonde de Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ ![Ajouter une sonde, dans Équilibreur de charge](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. Dans le panneau **Ajouter une sonde**, saisissez le nom de la sonde.
+2. Entrez le nom de la sonde.
 3. Sélectionnez le **protocole** de la sonde. Pour une base de données, vous choisirez sans doute une sonde TCP plutôt qu’une sonde HTTP. Pour en savoir plus sur les sondes d’équilibrage de charge, voir [Sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Saisissez la valeur **Port** de votre base de données à utiliser au moment d’accéder à la sonde.
 5. Sous **Intervalle**, spécifiez la fréquence de sondage de l’application.
@@ -190,7 +190,7 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 #### <a name="configure-the-load-balancing-rules"></a>Configurer des règles d’équilibrage de charge
 
 1. Dans la section **Paramètres** de l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter** pour créer une règle.
-2. Dans le panneau **Ajouter une règle d’équilibrage de charge**, saisissez le **nom** de la règle d’équilibrage de charge.
+2. Entrez le **Nom** pour la règle d’équilibrage de charge.
 3. Choisissez une valeur pour l’**adresse IP frontale** de l’équilibrage de charge, ainsi que les options **Protocole** et **Port**.
 4. Sous **Port principal**, spécifiez le port à utiliser dans le pool principal.
 5. Sélectionnez le **pool principal** et la **sonde** créés lors des étapes précédentes pour leur appliquer la règle.
@@ -201,11 +201,11 @@ Pour en savoir plus sur la configuration d’un équilibrage de charge interne, 
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Étape 5 : connecter des machines virtuelles de niveau web à l’équilibrage de charge
 
-Nous allons maintenant configurer l’adresse IP et le port frontal de l’équilibrage de charge dans les applications s’exécutant sur vos machines virtuelles de niveau web pour les connexions de base de données éventuelles. Cette configuration est propre aux applications qui s’exécutent sur ces machines virtuelles. Pour configurer l’adresse IP et le port de destination, consultez la documentation de l’application. Pour trouver l’adresse IP du serveur frontal, dans le portail Azure, accédez au pool d’adresses IP frontales dans le panneau **Paramètres d’équilibrage de charge**.
+Nous allons maintenant configurer l’adresse IP et le port frontal de l’équilibrage de charge dans les applications s’exécutant sur vos machines virtuelles de niveau web pour les connexions de base de données éventuelles. Cette configuration est propre aux applications qui s’exécutent sur ces machines virtuelles. Pour configurer l’adresse IP et le port de destination, consultez la documentation de l’application. Pour trouver l’adresse IP du serveur frontal, dans le portail Azure, accédez au pool d’adresses IP frontales dans le volet **Paramètres d’équilibrage de charge**.
 
 ![Volet de navigation Pool d’IP du serveur principal de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)

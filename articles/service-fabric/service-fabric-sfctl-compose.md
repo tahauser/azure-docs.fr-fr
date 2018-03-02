@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Permet de créer, de supprimer et de gérer les déploiements Docker Compose.
@@ -160,10 +160,9 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 | --- | --- |
 |   --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h                    | Affiche ce message d’aide et quitte.|
- |   --output -o                  | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.
-                                   Valeur par défaut : json.|
- |   --query                      | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
- |   --verbose                    | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+|   --output -o                  | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv. Valeur par défaut : json.|
+|   --query                      | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+|   --verbose                    | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.

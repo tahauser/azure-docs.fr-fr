@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 ### <a name="prerequisites"></a>configuration requise
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versions prises en charge par ServiceNow : Jakarta, Istanbul, Helsinki, Geneva
+- Versions prises en charge par ServiceNow : Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **Les administrateurs ServiceNow doivent procéder comme suit dans leur instance ServiceNow** :
 - Générer l’ID client et la clé secrète client pour le produit ServiceNow. Pour plus d’informations sur la génération d’ID client et de secret, consultez les informations suivantes :
 
+    - [Configurer OAuth pour Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Configurer OAuth pour Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurer OAuth pour Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurer OAuth pour Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

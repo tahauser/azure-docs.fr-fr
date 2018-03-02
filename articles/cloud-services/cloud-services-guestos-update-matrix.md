@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 2/27/2018
 ms.author: raiye
-ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -143,7 +143,7 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_2017801-01 |29 janvier 2018 |Billet 3.59 |TBD |
+| WA-GUEST-OS-3.57_201801-01 |29 janvier 2018 |Billet 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |4 janvier 2018 |Publication 3.58 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |

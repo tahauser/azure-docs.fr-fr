@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/23/2018
 ms.author: barbkess
-ms.openlocfilehash: f8b4e29595c6a71696cf2c4939ad4c6c096a28b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30dede32b35f995f89e2946af34da10353f55212
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul pour un entrepôt Azure SQL Data Warehouse sur le Portail Azure
-Suspendez le calcul dans un entrepôt Azure SQL Data Warehouse afin de réduire les coûts. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
+Suspendez le calcul dans un entrepôt Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -39,7 +39,7 @@ Pour réduire les coûts, vous pouvez interrompre et reprendre des ressources de
 Suivez les étapes ci-dessous pour suspendre un entrepôt de données SQL.
 
 1. Cliquez sur **Bases de données SQL** sur la page de gauche du Portail Azure.
-2. Sélectionnez **mySampleDataWarehouse** sur la **Cases de données SQL**. L’entrepôt de données s’ouvre. 
+2. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre. 
 3. Sur la page **mySampleDataWarehouse**, **l’État** est **En ligne**.
 
     ![Calcul en ligne](media/pause-and-resume-compute-portal/compute-online.png)
@@ -60,7 +60,7 @@ Suivez les étapes ci-dessous pour suspendre un entrepôt de données SQL.
 Suivez les étapes ci-dessous pour reprendre un entrepôt de données SQL.
 
 1. Cliquez sur **Bases de données SQL** sur la page de gauche du Portail Azure.
-2. Sélectionnez **mySampleDataWarehouse** sur la **Cases de données SQL**. L’entrepôt de données s’ouvre. 
+2. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre. 
 3. Sur la page **mySampleDataWarehouse**, **l’État** est **Suspendu**.
 
     ![Calcul hors ligne](media/pause-and-resume-compute-portal/compute-offline.png)
@@ -85,7 +85,7 @@ Les unités Data Warehouse Unit et les données stockées dans votre entrepôt d
 
 Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
@@ -99,7 +99,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 
 ## <a name="next-steps"></a>étapes suivantes
-Vous venez de suspendre et de reprendre le calcul de votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
+Vous venez de suspendre et de reprendre le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
 
 > [!div class="nextstepaction"]
 >[Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

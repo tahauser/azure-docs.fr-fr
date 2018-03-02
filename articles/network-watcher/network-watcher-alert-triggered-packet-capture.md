@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1b3da4d6e4593f3c71995ef9331fcea2d5b6ec19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -32,7 +32,7 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 
 ![Scénario][scenario]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
@@ -65,7 +65,7 @@ Ce scénario :
 
 La première étape consiste à créer une fonction Azure pour traiter l’alerte et créer une capture de paquets.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Nouveau** > **Compute** > **Function App**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Compute** > **Function App**.
 
     ![Création d’une application de fonction][1-1]
 
@@ -77,7 +77,7 @@ La première étape consiste à créer une fonction Azure pour traiter l’alert
     |**Abonnement**|[Votre abonnement] L’abonnement dans lequel créer l’application de fonction.||
     |**Groupe de ressources**|PacketCaptureRG|Le groupe de ressources qui contiendra l’application de fonction.|
     |**Plan d’hébergement**|Plan de consommation| Le type de plan qu’utilise votre application de fonction. Deux options sont disponibles : Consommation ou Plan Azure App Service. |
-    |**Emplacement**|Centre des États-Unis| La région dans laquelle créer l’application de fonction.|
+    |**Lieu**|Centre des États-Unis| La région dans laquelle créer l’application de fonction.|
     |**Compte de stockage**|{généré automatiquement}| Le compte de stockage dont Azure Functions a besoin pour le stockage général.|
 
 3. Dans le panneau **Function App PacketCaptureExample**, sélectionnez **Fonctions** > **Fonction personnalisée** >**+**.
@@ -342,7 +342,7 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
 
   |**Paramètre** | **Valeur** | **Détails** |
   |---|---|---|
-  |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
+  |**Name**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
   |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.||
   |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|
@@ -368,7 +368,7 @@ Une fois la capture téléchargée, vous pouvez l’afficher à l’aide de n’
 - [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment afficher vos captures de paquets en consultant l’article [Packet capture analysis with Wireshark (Analyse de la capture de paquets avec Wireshark)](network-watcher-deep-packet-inspection.md).
 

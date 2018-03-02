@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 12/06/2017
+ms.date: 02/27/2018
 ms.author: barbkess
-ms.openlocfilehash: 3b39e87946f3787c71872c7b98db419f1f239e7a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 533907ccbae5db3b68ede2ee1b226e663a04cb64
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restauration d’un Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -154,7 +154,7 @@ $GeoRestoredDatabase.status
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions d’Azure SQL Database, consultez la rubrique [Vue d’ensemble de la continuité des activités Azure SQL Database][Azure SQL Database business continuity overview].
 
 <!--Image references-->

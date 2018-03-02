@@ -1,4 +1,4 @@
-
+# [Documentation Scheduler](index.md)
 
 # Vue d'ensemble
 ## [Présentation d'Azure Scheduler](scheduler-intro.md)
@@ -20,7 +20,7 @@
 ## Sécuriser
 ### [Authentification sortante](scheduler-outbound-authentication.md)
 
-# Référence
+# Informations de référence
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
@@ -30,7 +30,7 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=scheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 
 

@@ -3,8 +3,8 @@ title: "Qu’est-ce qu’Azure Stack ? | Microsoft Docs"
 description: "Azure Stack vous permet de tester les services Azure dans votre centre de données."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 950ba44c0b7eb80c9b0a3c69a9fca03cd244576d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d1e1752f934e61bbb60c0c934a80b564896a36
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="what-is-azure-stack"></a>Qu’est-ce qu’Azure Stack ?
 
@@ -32,11 +33,11 @@ Les systèmes intégrés Azure Stack sont disponibles par le biais d’un parten
 Le Kit de développement Microsoft Azure Stack est un déploiement à un seul nœud d’Azure Stack qui vous permet de découvrir et d’évaluer Azure Stack.  Vous pouvez également utiliser le Kit de développement Azure Stack comme environnement de développement, où vous pouvez développer à l’aide d’API et d’outils cohérents avec Azure.  Le Kit de développement Azure Stack n’est pas destiné à être utilisé en tant qu’environnement de production.
 
 Le Kit de développement Azure Stack présente les limitations suivantes :
-* Il est associé à un seul fournisseur d’identité Azure Active Directory ou des services de fédération Active Directory (AD FS). Vous pouvez créer plusieurs utilisateurs dans ce répertoire et attribuer des abonnements à chaque utilisateur.
+* Le Kit de développement Azure Stack est associé à un seul fournisseur d’identité Azure Active Directory ou des services de fédération Active Directory (AD FS). Vous pouvez créer plusieurs utilisateurs dans ce répertoire et attribuer des abonnements à chaque utilisateur.
 * Avec tous les composants déployés sur une seule machine, les ressources physiques disponibles sont limitées pour les ressources client. Cette configuration n’est pas destinée à l’évaluation des performances ou de la mise à l’échelle.
 * Les scénarios de mise en réseau sont limités en raison de l’exigence d’hôte/de carte d’interface réseau unique.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Principaux concepts et fonctionnalités](azure-stack-key-features.md)
 
 [Azure Stack : une extension d’Azure (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)

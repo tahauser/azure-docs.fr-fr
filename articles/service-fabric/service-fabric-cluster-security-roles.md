@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Contrôle d’accès en fonction du rôle pour les clients de Service Fabric
 Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.  
@@ -101,7 +101,7 @@ Le contrôle d’accès administrateur a également accès aux opérations préc
 ## <a name="changing-default-settings-for-client-roles"></a>Modification des paramètres par défaut des rôles clients
 Dans le fichier du manifeste de cluster, vous pouvez fournir au client des capacités d’administration, si nécessaire. Vous pouvez modifier les valeurs par défaut en accédant à l’option **Paramètres de structure** durant la [création du cluster](service-fabric-cluster-creation-via-portal.md) et en fournissant les paramètres ci-dessus dans les champs **nom**, **admin**, **utilisateur** et **valeur**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)
 
 [Création d’un cluster Service Fabric](service-fabric-cluster-creation-via-portal.md)

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Mettre à l’échelle vos déploiements Jenkins pour répondre à la demande avec des agents de machines virtuelles Azure
 
@@ -33,9 +33,9 @@ Ce didacticiel présente les procédures suivantes :
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
-* Un abonnement Azure
+* Abonnement Azure
 * Un serveur maître Jenkins. Si vous n’en possédez pas, consultez le [guide de démarrage rapide](install-jenkins-solution-template.md) pour en configurer un dans Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -91,7 +91,7 @@ Ce didacticiel présente les procédures suivantes :
             }
      ```
 
-    Le principal du service finalisé doit utiliser le champ `id` pour **Subscription ID** (ID d’abonnement), la valeur `appId` pour **Client ID** (ID client), `password` pour **Client Secret** (Clé secrète du client) et une URL pour **OAuth 2.0 Token Endpoint** (Point de terminaison de jeton OAuth 2.0) de `https://login.windows.net/<tenant_value>`. Sélectionnez **Add** (Ajouter) pour ajouter le principal du service, puis configurez le plug-in de sorte qu’il utilise les informations d’identification nouvellement créées.
+    Le principal du service finalisé doit utiliser le champ `id` pour **Subscription ID** (ID d’abonnement), la valeur `appId` pour **Client ID** (ID client), `password` pour **Client Secret** (Clé secrète du client) et `tenant` pour **Tenant ID** (ID de locataire). Sélectionnez **Add** (Ajouter) pour ajouter le principal du service, puis configurez le plug-in de sorte qu’il utilise les informations d’identification nouvellement créées.
 
     ![Configurer le principal du service Azure](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -142,7 +142,7 @@ Sélectionnez **Verify Template** (Vérifier le modèle) pour vérifier la confi
 
 ![Sortie de la console](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [CI/CD vers Azure App Service](java-deploy-webapp-tutorial.md)

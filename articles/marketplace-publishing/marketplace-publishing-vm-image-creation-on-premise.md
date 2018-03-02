@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Développer une image de machine virtuelle locale pour Azure Marketplace
 Nous vous recommandons fortement de développer les disques durs virtuels (VHD) Azure directement dans le cloud à l’aide du protocole RDP. Toutefois, si nécessaire, vous pouvez télécharger un disque dur virtuel et le développer à l’aide d’une infrastructure locale.  
@@ -34,7 +34,7 @@ Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure]
 1. Accédez à **Parcourir** > **Machines virtuelles**, puis sélectionnez la machine virtuelle déployée.
 2. Sous **Configurer**, sélectionnez la vignette **Disques** qui ouvre le panneau Disques.
    
-   ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
+   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
 3. Sélectionnez le **disque de système d’exploitation**, qui ouvre un autre panneau indiquant les propriétés du disque, y compris l’emplacement du disque dur virtuel.
 4. Copiez cette URL d’objet blob.
    
@@ -92,12 +92,12 @@ Pour créer un compte de stockage, vous pouvez utiliser le [portail Microsoft Az
 
 **Créer un compte de stockage à partir du portail Microsoft Azure**
 
-1. Cliquez sur **Nouveau**.
+1. Cliquez sur **Créer une ressource**.
 2. Sélectionnez **Stockage**.
 3. Renseignez le nom du compte de stockage et sélectionnez un emplacement.
    
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
-4. Cliquez sur **Create**.
+4. Cliquez sur **Créer**.
 5. Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir** > **Comptes de stockage**. Dans le panneau Compte de stockage, sélectionnez le compte de stockage créé.
 6. Sélectionnez **Conteneurs**.
    
@@ -146,6 +146,6 @@ Utilisez l’applet de commande [Add-AzureVhd](http://msdn.microsoft.com/library
 Avec [l’outil en ligne de commande Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilisez la commande suivante : azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## <a name="see-also"></a>Voir aussi
-* [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
+* [Création d’une image de machine virtuelle pour la Place de Marché](marketplace-publishing-vm-image-creation.md)
 * [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
