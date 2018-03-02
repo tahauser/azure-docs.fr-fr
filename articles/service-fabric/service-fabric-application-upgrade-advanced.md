@@ -12,10 +12,6 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-<<<<<<< HEAD
-ms.date: 2/23/2018
-=======
-<<<<<<< HEAD
 ms.date: 2/23/2018
 ms.author: subramar;chackdan
 ms.openlocfilehash: 1bb3a5e215e3a664cf67727255840696c7f58e8c
@@ -23,20 +19,6 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/24/2018
-=======
-ms.date: 2/5/2018
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
-ms.author: subramar;chackdan
-ms.openlocfilehash: 1bb3a5e215e3a664cf67727255840696c7f58e8c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-<<<<<<< HEAD
-ms.lasthandoff: 02/24/2018
-=======
-ms.lasthandoff: 02/09/2018
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau d’une application Service Fabric : rubriques avancées
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Ajout ou suppression de types de services pendant la mise à niveau d’une application
