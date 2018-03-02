@@ -7,6 +7,10 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
+<<<<<<< HEAD
+ms.date: 02/27/2018
+=======
+<<<<<<< HEAD
 ms.date: 02/27/2018
 ms.author: manayar
 ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
@@ -14,6 +18,20 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
+=======
+ms.date: 02/13/2018
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
+ms.author: manayar
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+<<<<<<< HEAD
+ms.lasthandoff: 02/28/2018
+=======
+ms.lasthandoff: 02/21/2018
+>>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
+>>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
 
