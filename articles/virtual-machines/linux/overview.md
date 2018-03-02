@@ -1,4 +1,4 @@
----
+﻿---
 title: "Vue d’ensemble des machines virtuelles Linux dans Azure | Microsoft Docs"
 description: "Décrit les services de calcul, de stockage et de mise en réseau Azure à l’aide de machines virtuelles Linux."
 services: virtual-machines-linux
@@ -125,7 +125,7 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 * [Présentation d’Azure Container Service](../../container-service/container-service-intro.md)
 * [Déploiement d’un cluster Azure Container Service](../../container-service/dcos-swarm/container-service-deployment.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez maintenant une vue d’ensemble de Linux sur Azure.  L’étape suivante consiste à aller plus loin et créer quelques machines virtuelles.
 
 * [Explorez la liste croissante d’exemples de scripts pour les tâches courantes via AzureCLI](cli-samples.md)
