@@ -22,6 +22,7 @@
 ## [Vérifier l’intégrité d’un domaine managé](active-directory-ds-check-health.md)
 ## [Utiliser Azure Active Directory Domain Services dans les abonnements Azure CSP](active-directory-ds-csp.md)
 ## [Activer les services de domaine Azure AD à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Vérifier l’intégrité de votre domaine](active-directory-ds-check-health.md)
 ## Joindre un domaine géré
 ### [Machine virtuelle Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Machine virtuelle Windows Server issue du modèle](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrer DNS sur un domaine géré](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Configurer le protocole LDAP sécurisé pour un domaine géré
 #### [Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tâche 2 : Exporter le certificat LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
