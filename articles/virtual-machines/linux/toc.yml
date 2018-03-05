@@ -108,6 +108,8 @@
           href: disk-scalability-targets.md
         - name: Sauvegarde et récupération d’urgence pour les disques
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Résoudre les problèmes de disques durs virtuels attachés
+          href: troubleshoot-vhds.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique

@@ -33,7 +33,7 @@
 ### [Connexion avec Power BI](analysis-services-connect-pbi.md)
 ### [Créer un fichier .odc](analysis-services-odc.md)
 ## Didacticiels
-### [1 - Créer un exemple de modèle](analysis-services-create-sample-model.md)
+### [1 - Ajouter un exemple de modèle](analysis-services-create-sample-model.md)
 ### [Modélisation de données - didacticiel Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Créer un projet de modèle tabulaire](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Obtenir des données](tutorials/aas-lesson-2-get-data.md)
