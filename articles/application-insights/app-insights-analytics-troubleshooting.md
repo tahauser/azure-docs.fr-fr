@@ -24,7 +24,7 @@ Des problèmes avec [Application Insights Analytics](app-insights-analytics.md)?
 
 ## <a name="limits"></a>Limites
 * Les résultats de requête sont actuellement limités à une seule semaine de données d’historique.
-* Navigateurs que nous testons : dernières versions d’Internet Explorer, Chrome et Edge.
+* Navigateurs que nous testons : dernières versions d’Internet Explorer, Chrome et Microsoft Edge.
 
 ## <a name="known-incompatible-browser-extensions"></a>Extensions du navigateur incompatibles connues
 * Ghostery
@@ -54,7 +54,7 @@ Une erreur d’authentification s’est produite (lors de l’authentification o
 2. Avez-vous utilisé un favori, un signet ou un lien enregistré pour ouvrir le portail Analytics ? Vous êtes-vous connecté avec des informations d’identification différentes de celles utilisées pour enregistrer le lien ?
 3. Essayez d’utiliser une fenêtre de navigateur privée/anonyme (après avoir fermé toutes les fenêtres de ce type). Vous devrez fournir vos informations d’identification. 
 4. Ouvrez une autre fenêtre de navigateur (standard) et accédez à [Azure](https://portal.azure.com). Déconnectez-vous. Ouvrez ensuite votre lien et connectez-vous avec les informations d’identification correctes.
-5. Les utilisateurs Edge et Internet Explorer peuvent également obtenir cette erreur lorsque les paramètres de la zone de confiance ne sont pas pris en charge.
+5. Les utilisateurs Microsoft Edge et Internet Explorer peuvent également obtenir cette erreur lorsque les paramètres de la zone de confiance ne sont pas pris en charge.
    
     Vérifiez que le [portail Analytics](https://analytics.applicationinsights.io) et le [portail Azure Active Directory](https://portal.azure.com) se trouvent dans la même zone de sécurité :
    

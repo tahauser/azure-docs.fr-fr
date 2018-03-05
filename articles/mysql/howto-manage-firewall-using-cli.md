@@ -9,30 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 02/28/2018
 ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
-=======
-<<<<<<< HEAD
-ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
-=======
-ms.date: 02/12/2018
-ms.openlocfilehash: 77254d91bcfa7cbd6070e3baeb98fd7cc5ad44cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs de gérer l’accès à un serveur Azure Database pour MySQL à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble des pare-feu Azure Database pour MySQL, consultez la rubrique [Règles de pare-feu d’Azure Database pour MySQL](./concepts-firewall-rules.md)
@@ -78,67 +60,27 @@ Cette commande génère un code à utiliser lors de l’étape suivante.
    Notez l’attribut de nom dans la liste ; il servira à spécifier le serveur MySQL sur lequel vous allez travailler. Si nécessaire, vérifiez les informations permettant d’utiliser l’attribut de nom et ce serveur pour vérifier que le nom est correct. Utilisez la commande [az mysql server show](/cli/azure/mysql/server#az_mysql_server_show).
 
    ```azurecli-interactive
-<<<<<<< HEAD
    az mysql server show --resource-group myresourcegroup --name mydemoserver
-=======
-<<<<<<< HEAD
-   az mysql server show --resource-group myresourcegroup --name mydemoserver
-=======
-   az mysql server show --resource-group myResourceGroup --name mydemoserver
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Répertorier les règles de pare-feu d’un serveur Azure Database pour MySQL 
 À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Utilisez la commande [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list).  Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non dans le commutateur **--name**. 
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
 La sortie répertorie les règles éventuelles au format JSON (par défaut). Vous pouvez utiliser le commutateur **--output table** pour générer les résultats dans un format tabulaire plus lisible.
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
-```
-La sortie répertorie les règles éventuelles au format JSON (par défaut). Vous pouvez utiliser le commutateur **--output table** pour générer les résultats dans un format tabulaire plus lisible.
-```azurecli-interactive
-az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
-=======
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver
-```
-La sortie répertorie les règles éventuelles au format JSON (par défaut). Vous pouvez utiliser le commutateur **--output table** pour générer les résultats dans un format tabulaire plus lisible.
-```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver --output table
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Créer une règle de pare-feu sur un serveur Azure Database pour MySQL
 À l’aide du nom du serveur Azure pour MyQL et du nom du groupe de ressources, créez une nouvelle règle de pare-feu sur le serveur. Utilisez la commande [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Indiquez le nom de la règle, ainsi que les adresses IP de début et de fin de la règle (pour fournir un accès à une plage d’adresses IP).
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
-=======
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ```
 
 Pour autoriser une seule adresse IP à accéder au serveur, fournissez des adresses IP de début et de fin identiques, comme dans cet exemple.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
-=======
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ```
 
 Pour autoriser les applications à partir d’adresses IP Azure à se connecter à votre Azure Database pour MySQL, fournissez l’adresse IP 0.0.0.0 comme adresse IP de début et adresse IP de fin, comme dans cet exemple.
@@ -155,15 +97,7 @@ En cas de réussite, la sortie de chaque commande de création affiche les déta
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Mettre à jour une règle de pare-feu sur un serveur Azure Database pour MySQL 
 À l’aide du nom du serveur Azure pour MySQL et du nom du groupe de ressources, mettez à jour une règle de pare-feu existante sur le serveur. Utilisez la commande [az mysql server firewall update](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update). Indiquez le nom de la règle de pare-feu existante comme entrée, ainsi que les adresses IP de début et de fin à mettre à jour.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
-=======
-az mysql server firewall-rule update --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ```
 En cas de réussite, la sortie de la commande affiche les détails de la règle de pare-feu que vous avez mise à jour au format JSON (par défaut). En cas d’échec, la sortie affiche un texte de message d’erreur.
 
@@ -173,30 +107,14 @@ En cas de réussite, la sortie de la commande affiche les détails de la règle 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Afficher les détails d’une règle de pare-feu sur un serveur Azure Database pour MySQL
 À l’aide du nom du serveur Azure pour MySQL et du nom du groupe de ressources, affichez les détails d’une règle de pare-feu existante sur le serveur. Utilisez la commande [az mysql server firewall show](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show). Indiquez le nom de la règle de pare-feu existante comme entrée.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-az mysql server firewall-rule show --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ```
 En cas de réussite, la sortie de la commande affiche les détails de la règle de pare-feu que vous avez spécifiée au format JSON (par défaut). En cas d’échec, la sortie affiche un texte de message d’erreur.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Supprimer une règle de pare-feu sur un serveur Azure Database pour MySQL
 À l’aide du nom du serveur Azure pour MySQL et du nom du groupe de ressources, supprimez une règle de pare-feu existante du serveur. Utilisez la commande [az mysql server firewall delete](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete). Indiquez le nom de la règle de pare-feu existante.
 ```azurecli-interactive
-<<<<<<< HEAD
 az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-<<<<<<< HEAD
-az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-=======
-az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
->>>>>>> 6f9bf0a156ddeaa1d6172929a24761c62aae8984
 ```
 En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, le texte du message d’erreur s’affiche.
 
