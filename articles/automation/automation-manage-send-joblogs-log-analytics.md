@@ -69,7 +69,7 @@ Pour rechercher Le *Nom* de votre compte Automation, sélectionnez votre compte 
 
 Une fois ce script exécuté, les enregistrements s’affichent dans Log Analytics dans les 10 minutes suivant l’écriture des nouveaux JobLogs ou JobStreams.
 
-Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Vérifier la configuration
 Pour vous assurer que votre compte Automation envoie des journaux à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante :
