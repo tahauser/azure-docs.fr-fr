@@ -1,22 +1,22 @@
 ---
-title: "Versions prises en charge dans une base de données Azure pour MySQL | Microsoft Docs"
+title: Versions prises en charge dans Azure Database pour MySQL
 description: "Décrit les versions prises en charge des bases de données Azure pour MySQL."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: dc9f98218a95f1f24a45f208b0da7b945f4c9663
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 02/28/2018
+ms.openlocfilehash: 1ee0326148be08d6bb151acad5f8e472b25a2a8b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
-La base de données Azure pour MySQL a été développée à partir de MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur InnoDB.  Azure Database pour MySQL prend actuellement en charge les versions suivantes :
+Azure Database for MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur InnoDB.  Azure Database pour MySQL prend actuellement en charge les versions suivantes :
 
 ## <a name="mysql-version-5635"></a>MySQL version 5.6.35
 Consultez la [documentation] MySQL (https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html) pour en savoir plus sur les améliorations et les correctifs apportés à MySQL 5.6.35.
@@ -25,8 +25,8 @@ Consultez la [documentation] MySQL (https://dev.mysql.com/doc/relnotes/mysql/5.6
 Consultez la [documentation] MySQL (https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-18.html) pour en savoir plus sur les améliorations et les correctifs apportés à MySQL 5.7.18.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
-La base de données Azure pour MySQL gère automatiquement les correctifs pour les mises à jour de version mineures. En préversion publique, les mises à niveau de version majeures ne sont pas possibles pour le moment. Par exemple, la mise à niveau de MySQL 5.6 à MySQL 5.7 n’est pas prise en charge.
+La base de données Azure pour MySQL gère automatiquement les correctifs pour les mises à jour de version mineures. Les mises à niveau de version majeures, par exemple  de MySQL 5.6 à MySQL 5.7 ne sont pas prises en charge.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](./concepts-service-tiers.md).
+Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](./concepts-pricing-tiers.md).

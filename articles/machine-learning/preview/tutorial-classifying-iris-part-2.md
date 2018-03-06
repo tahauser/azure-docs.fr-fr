@@ -1,23 +1,23 @@
 ---
-title: "Générer un modèle pour les services Azure Machine Learning (version préliminaire) | Microsoft Docs"
+title: "Didacticiel de génération d’un modèle pour les services Azure Machine Learning (préversion) | Microsoft Docs"
 description: "Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (préversion) de bout en bout. Cela fait partie de deux et traite l’expérimentation."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Classification d’Iris, partie 2 : générer un modèle
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Didacticiel de classification d’Iris, partie 2 : générer un modèle
 Les services Azure Machine Learning (version préliminaire) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
 Ce didacticiel est le deuxième d’une série de trois. Dans cette partie du didacticiel, vous utilisez les services Azure Machine Learning (version préliminaire) pour :
@@ -33,6 +33,8 @@ Ce didacticiel est le deuxième d’une série de trois. Dans cette partie du di
 > * Exécuter des scripts dans un environnement Azure HDInsight cloud.
 
 Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>configuration requise
 Terminez la première partie de cette série de didacticiels. Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Azure Machine Learning et installer l’application Azure Machine Learning Workbench avant de commencer les étapes de ce didacticiel.
@@ -374,6 +376,10 @@ Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Déc
    >Lorsque vous effectuez une exécution sur un cluster HDInsight distant, vous pouvez également afficher les détails de l’exécution du travail YARN (Yet Another Resource Negotiator) à l’adresse `https://<cluster_name>.azurehdinsight.net/yarnui` à l’aide du compte d’utilisateur `admin`.
 
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>étapes suivantes
 Dans cette deuxième partie de la série de trois didacticiels, vous avez appris à utiliser les services Azure Machine Learning pour effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ Dans cette deuxième partie de la série de trois didacticiels, vous avez appris
 Vous êtes prêt à passer à la troisième partie de la série. Maintenant que vous avez créé le modèle de régression logistique, déployons-le en tant que service web en temps réel.
 
 > [!div class="nextstepaction"]
-> [Déployer un modèle](tutorial-classifying-iris-part-3.md)
+> [Didacticiel 3 - Classification d’Iris : déployer des modèles](tutorial-classifying-iris-part-3.md)

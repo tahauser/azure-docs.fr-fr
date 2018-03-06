@@ -1,19 +1,19 @@
 ---
-title: "Procédure de configuration des paramètres de serveur dans Azure Database pour MySQL | Microsoft Docs"
+title: "Guide pratique pour configurer les paramètres de serveur dans Azure Database pour MySQL"
 description: "Cet article décrit comment configurer les paramètres de serveur MySQL dans Azure Database pour MySQL à l’aide du portail Azure."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 02/28/2018
+ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure
 
@@ -22,10 +22,14 @@ Azure Database pour MySQL prend en charge la configuration de certains paramètr
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Accéder à Paramètres du serveur sur le portail Azure
 1. Connectez-vous au portail Azure, puis recherchez votre serveur Azure Database pour MySQL.
 2. Sous la section **Paramètres**, cliquez sur **Paramètres du serveur** pour ouvrir la page Paramètres du serveur correspondant à Azure Database pour MySQL.
-3. Recherchez les paramètres que vous devez ajuster. Examinez la colonne **Description** pour comprendre la fonction et les valeurs autorisées. 
-4. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
-
 ![Page Paramètres du serveur du portail Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Recherchez les paramètres que vous devez ajuster. Examinez la colonne **Description** pour comprendre la fonction et les valeurs autorisées. 
+![Bouton déroulant Énumérer](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+![Enregistrer ou annuler les modifications](./media/howto-server-parameters/4-save_parameters.png)
+5. Si vous avez enregistré de nouvelles valeurs pour les paramètres, vous pouvez toujours rétablir toutes les valeurs par défaut en sélectionnant **Rétablir toutes les valeurs par défaut**.
+![Rétablir toutes les valeurs par défaut](./media/howto-server-parameters/5-reset_parameters.png)
+
 
 ## <a name="list-of-configurable-server-parameters"></a>Liste des paramètres de serveur configurables
 
@@ -34,14 +38,27 @@ La liste des paramètres de serveur pris en charge s’allonge en permanence. Ut
 ## <a name="nonconfigurable-server-parameters"></a>Paramètres de serveur non configurables
 Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont pas configurables et dépendent de votre [niveau tarifaire](concepts-service-tiers.md). 
 
-| **Niveau tarifaire** | **Pool de mémoires tampons InnoDB (Mo)** | **Nombre maximal de connexions** |
-| :------------------------ | :-------- | :----------- |
-| De base 50 | 1 024 | 50 | 
-| De base 100  | 2560 | 100 | 
-| Standard 100 | 2560 | 200 | 
-| Standard 200 | 5120 | 400 | 
-| Standard 400 | 10240 | 800 | 
-| Standard 800 | 20480 | 1 600 |
+|**Niveau tarifaire**| **Génération de calcul**|**vCore(s)**|**Pool de mémoires tampons InnoDB (Mo)**| **Nombre maximal de connexions**|
+|---|---|---|---|--|
+|De base| Gen 4| 1| 1 024| 50 |
+|De base| Gen 4| 2| 2560| 100 |
+|De base| Gen 5| 1| 1 024| 50 |
+|De base| Gen 5| 2| 2560| 100 |
+|Usage général| Gen 4| 2| 2560| 200|
+|Usage général| Gen 4| 4| 5120| 400|
+|Usage général| Gen 4| 8| 10240| 800|
+|Usage général| Gen 4| 16| 20480| 1 600|
+|Usage général| Gen 4| 32| 40960| 3200|
+|Usage général| Gen 5| 2| 2560| 200|
+|Usage général| Gen 5| 4| 5120| 400|
+|Usage général| Gen 5| 8| 10240| 800|
+|Usage général| Gen 5| 16| 20480| 1 600|
+|Usage général| Gen 5| 32| 40960| 3200|
+|Mémoire optimisée| Gen 5| 2| 7168| 600|
+|Mémoire optimisée| Gen 5| 4| 15360| 1250|
+|Mémoire optimisée| Gen 5| 8| 30720| 2 500|
+|Mémoire optimisée| Gen 5| 16| 62464| 5 000|
+|Mémoire optimisée| Gen 5| 32| 125952| 10000| 
 
 Ces paramètres de serveur ne sont pas configurables dans le système :
 
@@ -54,5 +71,5 @@ Ces paramètres de serveur ne sont pas configurables dans le système :
 
 Tous les autres paramètres de serveur sont définis sur leurs valeurs MySQL par défaut pour les versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) et [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md).

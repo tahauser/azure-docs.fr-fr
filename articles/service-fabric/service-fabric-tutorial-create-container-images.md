@@ -1,13 +1,13 @@
 ---
 title: "Créer des images conteneurs pour Azure Service Fabric | Microsoft Docs"
-description: "Découvrez comment créer des images conteneurs pour une application Service Fabric à conteneur multiples."
+description: "Dans ce didacticiel, vous découvrez comment créer des images conteneurs pour une application Service Fabric à conteneurs multiples."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: Docker, conteneurs, microservices, Service Fabric, Azure
+keywords: Docker, Containers, Conteneurs, Microservices, Service Fabric, Azure
 ms.assetid: 
 ms.service: service-fabric
 ms.topic: tutorial
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-container-images-for-service-fabric"></a>Créer des images conteneurs pour Service Fabric
+# <a name="tutorial-create-container-images-for-service-fabric"></a>Didacticiel : Créer des images conteneurs pour Service Fabric
 
 Ce didacticiel est la première partie d’une série qui montre comment utiliser des conteneurs dans un cluster Service Fabric Linux. Dans le premier didacticiel, vous allez préparer une application à conteneurs multiples afin de pouvoir l’utiliser avec Service Fabric. Dans les didacticiels suivants, ces images seront utilisées dans le cadre d’une application Service Fabric. Ce didacticiel vous montre comment effectuer les opérations suivantes : 
 
@@ -133,7 +133,7 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Sortie :
+Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -164,7 +164,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 Une fois le marquage effectué, exécutez « docker images » pour vérifier l’opération.
 
 
-Sortie :
+Output:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -194,7 +194,7 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Sortie :
+Output:
 
 ```bash
 Result

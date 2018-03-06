@@ -1,22 +1,22 @@
 ---
-title: "Autoriser l’accès dans la Gestion des coûts Azure | Microsoft Docs"
-description: "Autorisez l’accès aux données de gestion des coûts avec des comptes d’utilisateur qui définissent les niveaux d’accès aux entités."
+title: "Didacticiel : Autoriser l’accès dans Azure Cost Management | Microsoft Docs"
+description: "Dans ce didacticiel, vous allez apprendre à autoriser l’accès aux données de gestion des coûts avec des comptes d’utilisateur qui définissent les niveaux d’accès aux entités."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Autoriser l’accès aux données de gestion des coûts
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Didacticiel : Autoriser l’accès aux données de gestion des coûts
 
 L’accès aux données de gestion des coûts est assuré par une gestion des utilisateurs ou des entités. Les comptes d’utilisateur Cloudyn déterminent l’accès aux *entités* et aux fonctions d’administration. Il existe deux types d’accès : administrateur et utilisateur. Sauf modifié par utilisateur, l’accès administrateur concède à l’utilisateur un accès non restreint à toutes les fonctions du portail Cloudyn, notamment la gestion des utilisateurs, la gestion des listes de destinataires et l’accès aux entités racines pour toutes les données d’entité. L’accès utilisateur permet aux utilisateurs finaux d’afficher et de créer des rapports à travers l’accès dont ils disposent aux données d’entité.
 
@@ -29,7 +29,12 @@ Quand vous avez inscrit votre contrat ou compte Azure, un compte avec l’autori
 > * Créer un utilisateur avec un accès utilisateur
 > * Créer des entités
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+## <a name="prerequisites"></a>configuration requise
+
+- Vous devez disposer d’un compte Azure.
+- Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
 
 ## <a name="create-a-user-with-admin-access"></a>Créer un utilisateur avec un accès administrateur
 
@@ -83,7 +88,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer un utilisateur avec un accès utilisateur
 > * Créer des entités
 
-Passez au didacticiel suivant pour apprendre à prévoir les dépenses à partir des données historiques.
+Si vous n’avez pas déjà activé l’accès de l’API Azure Resource Manager pour vos comptes, consultez l’article suivant.
 
 > [!div class="nextstepaction"]
-> [Prévoir les dépenses futures](tutorial-forecast-spending.md)
+> [Activer des abonnements et comptes Azure](activate-subs-accounts.md)

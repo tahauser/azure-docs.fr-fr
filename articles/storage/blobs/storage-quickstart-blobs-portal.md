@@ -1,23 +1,21 @@
 ---
-title: "Démarrage rapide Azure - Transférer des objets vers/à partir du stockage Blob Azure à l’aide du portail Azure | Microsoft Docs"
-description: "Découvrez comment utiliser le portail Azure pour charger, télécharger et répertorier des objets blob dans le stockage Blob Azure."
+title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide du portail Azure | Microsoft Docs"
+description: "Dans le cadre de ce démarrage rapide, vous utilisez le portail Azure pour créer un compte de stockage et un conteneur. Ensuite, vous utilisez le portail Azure pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: f647a5b78ee2fa362c4dea6ee9003ac56e0f7f7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>Transférer des objets vers/à partir du stockage Blob Azure à l’aide du portail Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure
 
 Dans ce démarrage rapide, vous apprenez à utiliser le [portail Azure](https://portal.azure.com/) pour créer un conteneur dans le stockage Azure, ainsi que pour charger et télécharger des objets blob de blocs dans ce conteneur.
 

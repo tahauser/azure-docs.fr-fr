@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1c07fa40964fdcbae6ec1cbbbf77094753956cf1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Sauvegarder des machines virtuelles Linux dans Azure
 
@@ -172,5 +172,5 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant pour en savoir plus sur la surveillance des machines virtuelles.
 
 > [!div class="nextstepaction"]
-> [Surveiller les machines virtuelles](tutorial-monitoring.md)
+> [Gouverner les machines virtuelles](tutorial-govern-resources.md)
 

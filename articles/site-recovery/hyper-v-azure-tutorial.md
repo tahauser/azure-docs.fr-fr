@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b946964c162f47a283c37c6eae7e7152e27b6033
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -36,7 +36,7 @@ Avant de commencer, [examinez l’architecture](concepts-hyper-v-to-azure-archit
 ## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
 
-1. Dans **Tous les services** > **Coffres Recovery Services**, cliquez sur le nom du coffre que nous avons préparé dans le didacticiel précédent, **ContosoVMVault**.
+1. Dans **Tous les services** > **Coffres Recovery Services**, sélectionnez le coffre que nous avons préparé dans le didacticiel précédent, **ContosoVMVault**.
 2. Dans **Prise en main**, cliquez sur **Site Recovery**. Cliquez ensuite sur **Préparer l’infrastructure**
 3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
 4. Dans **Où voulez-vous répliquer vos machines**, sélectionnez **Dans Azure**.
@@ -49,7 +49,7 @@ Avant de commencer, [examinez l’architecture](concepts-hyper-v-to-azure-archit
 Pour configurer l’environnement source, vous ajoutez des hôtes Hyper-V sur un site Hyper-V, téléchargez et installez le fournisseur Azure Site Recovery et l’agent Azure Recovery Services, et inscrivez le site Hyper-V dans le coffre. 
 
 1. Dans **Préparer l’infrastructure**, cliquez sur **Source**.
-2. Cliquez sur **+Site Hyper-V** et spécifiez le nom du site que nous avons créé dans le didacticiel précédent, **ContosoHyperVSite**.
+2. Cliquez sur **+Site Hyper-V** et spécifiez le nom du site créé dans le didacticiel précédent, **ContosoHyperVSite**.
 3. Cliquez sur **+Serveur Hyper-V**.
 4. Téléchargez le fichier de configuration du fournisseur.
 5. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lorsque vous exécuterez le programme d’installation du fournisseur. Une fois générée, la clé reste valide pendant 5 jours.
@@ -68,7 +68,7 @@ Exécutez le fichier de configuration de fournisseur (AzureSiteRecoveryProvider.
 5. Dans **Paramètres de proxy**, sélectionnez **Se connecter directement à Azure Site Recovery sans proxy**.
 6. Dans **Inscription**, une fois que le serveur est inscrit dans le coffre, cliquez sur **Terminer**.
 
-Les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans **Infrastructure Site Recovery** > **Hôtes Hyper-V**. Cette opération peut prendre jusqu’à 30 minutes.
+Les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans **Infrastructure Site Recovery** > **Hôtes Hyper-V**. Ce processus peut prendre jusqu’à 30 minutes.
 
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
@@ -83,6 +83,9 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurer une stratégie de réplication
+
+> [!NOTE]
+> Concernant Hyper-V pour les stratégies de réplication Azure, l’option de fréquence de copie de 15 minutes passe à 5 minutes, et des paramètres de fréquence de copie de 30 secondes. Les stratégies de réplication utilisant une fréquence de copie de 15 minutes utiliseront automatiquement une fréquence de copie de 5 minutes. Les options de fréquence de copie de 5 minutes et de 30 secondes offrent de meilleures performances de réplication et de meilleurs objectifs de point de récupération par rapport à une fréquence de copie de 15 minutes, avec un impact minimal sur le volume de transfert de données et l’utilisation de la bande passante.
 
 1. Cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication** > **+Créer et associer**.
 2. Dans **Créer et associer une stratégie**, indiquez le nom de la stratégie, **ContosoReplicationPolicy**.

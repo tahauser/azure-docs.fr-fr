@@ -1,19 +1,19 @@
 ---
-title: "Création et gestion des règles de pare-feu MySQL dans Azure Database pour MySQL | Microsoft Docs"
+title: "Créer et gérer des règles de pare-feu MySQL dans Azure Database pour MySQL"
 description: "Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: d0852f59d6463a4e73bfb2ca75b285701a897864
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 6475c5c3ecb43352a8ef8db8fe1c023a16cd8a3d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du Portail Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur Azure Database pour MySQL à partir d’une adresse IP ou d’une plage d’adresses IP spécifiée. 
@@ -57,6 +57,6 @@ Répétez les étapes pour gérer les règles de pare-feu.
 * Pour supprimer une règle existante, cliquez sur les points de suspension [...], puis sur **Supprimer**. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - De même, vous pouvez utiliser un script pour [créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide d’Azure CLI](howto-manage-firewall-using-cli.md).
 - Pour vous aider à vous connecter à un serveur Azure Database pour MySQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](./concepts-connection-libraries.md)

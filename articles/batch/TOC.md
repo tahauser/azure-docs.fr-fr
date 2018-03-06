@@ -42,12 +42,13 @@
 
 ## Créer et gérer des pools
 ### [Mettre automatiquement à l’échelle les nœuds de calcul](batch-automatic-scaling.md)
-### [Machines virtuelles nécessitant beaucoup de ressources système](batch-pool-compute-intensive-sizes.md)
+### [Choisir une taille de VM pour les nœuds de calcul](batch-pool-vm-sizes.md)
 ### [Configurer l’accès aux nœuds de calcul](pool-endpoint-configuration.md)
 ### [Créer un pool avec une image personnalisée](batch-custom-images.md)
 ### [Créer un pool dans un réseau virtuel](batch-virtual-network.md)
-### [Nœuds de calcul Linux](batch-linux-nodes.md)
-### [Machines virtuelles de faible priorité](batch-low-pri-vms.md)
+### [Utiliser des VM nécessitant beaucoup de ressources système](batch-pool-compute-intensive-sizes.md)
+### [Utiliser des nœuds de calcul Linux](batch-linux-nodes.md)
+### [Utiliser des machines virtuelles de faible priorité](batch-low-pri-vms.md)
 
 ## Gérer des travaux et des tâches
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)

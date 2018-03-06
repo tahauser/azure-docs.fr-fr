@@ -1,26 +1,26 @@
 ---
-title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MySQL | Microsoft Docs
+title: Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MySQL
 description: "Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
 Utilisez Azure Database pour MySQL afin de restaurer une base de données de serveur à une date antérieure couvrant une période de 7 à 35 jours.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -32,7 +32,7 @@ Pour utiliser ce guide pratique, il vous faut :
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Quand vous utilisez Azure Database pour MySQL, le service de base de données crée automatiquement une sauvegarde du service toutes les cinq minutes. 
 
-Pour le niveau De base, les sauvegardes sont disponibles pendant 7 jours. Pour le niveau Standard, les sauvegardes sont disponibles pendant 35 jours. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour MySQL](concepts-service-tiers.md).
+Pour le niveau De base, les sauvegardes sont disponibles pendant 7 jours. Pour le niveau Standard, les sauvegardes sont disponibles pendant 35 jours. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour MySQL](concepts-pricing-tiers.md).
 
 À l’aide de cette fonctionnalité de sauvegarde automatique, vous pouvez restaurer le serveur et ses bases de données à une date ou un état antérieur.
 
@@ -46,16 +46,16 @@ Pour restaurer le serveur, utilisez la commande [az mysql server restore](/cli/a
 Pour restaurer le serveur, à l’invite de commande de l’interface Azure CLI, entrez la commande suivante :
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 La commande `az mysql server restore` requiert les paramètres suivants :
-| Paramètre | Valeur suggérée | Description  |
+| Paramètre | Valeur suggérée | DESCRIPTION  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
-| name | myserver-restored | Nom du serveur créé par la commande de restauration. |
+| Nom | myserver-restored | Nom du serveur créé par la commande de restauration. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Sélectionnez un état antérieur auquel effectuer la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`. Vous pouvez également utiliser le format UTC Zulu, par exemple, `2017-04-13T13:59:00Z`. |
-| source-server | myserver4demo | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
+| source-server | mydemoserver | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 
 Lorsque vous restaurez un serveur à un état antérieur, un nouveau serveur est créé. Le serveur d’origine et ses bases de données à l’état spécifié sont copiés sur le nouveau serveur.
 
@@ -65,5 +65,5 @@ La commande `az mysql server restore` est synchrone. Une fois le serveur restaur
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
-## <a name="next-steps"></a>Étapes suivantes
-[Bibliothèques de connexions de la base de données Azure pour MySQL](concepts-connection-libraries.md)
+## <a name="next-steps"></a>étapes suivantes
+[Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)
