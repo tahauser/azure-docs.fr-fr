@@ -1,22 +1,22 @@
 ---
-title: "Gérer les coûts à l’aide d’Azure Cost Management | Microsoft Docs"
-description: "Gérer les coûts en utilisant des rapports de récupération des données de facturation, de facturation interne et d’allocation des coûts."
+title: "Didacticiel : Gérer les coûts à l’aide d’Azure Cost Management | Microsoft Docs"
+description: "Dans ce didacticiel, vous allez apprendre à gérer les coûts en utilisant des rapports de récupération des données de facturation, de facturation interne et d’allocation des coûts."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Gérer les coûts à l’aide d’Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Didacticiel : Gérer les coûts à l’aide d’Azure Cost Management
 
 Vous gérez les coûts et générez des rapports de récupération des données de facturation dans Azure Cost Management par Cloudyn en allouant les coûts en fonction des balises. Le processus d’allocation des coûts affecte des coûts à vos ressources cloud consommées. Les coûts sont entièrement alloués quand toutes les ressources sont classées avec des balises. Une fois les coûts alloués, vous pouvez fournir à vos utilisateurs des informations de récupération des données de facturation ou de facturation interne sous la forme de rapports et de tableaux de bord. Toutefois, de nombreuses ressources peuvent ne pas être identifiées ou identifiables avec une balise quand vous commencez à utiliser Cost Management.
 
@@ -27,6 +27,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Utiliser des balises personnalisées pour allouer les coûts.
 > * Créer des rapports de récupération des données de facturation et de facturation interne.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+## <a name="prerequisites"></a>configuration requise
+
+- Vous devez disposer d’un compte Azure.
+- Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Utiliser des balises personnalisées pour allouer les coûts
 
@@ -122,7 +129,7 @@ Dans ce didacticiel, vous avez appris à :
 
 
 
-Pour en savoir plus sur la prise en main de Cloudyn et l’utilisation de ses fonctionnalités, passez à la documentation de Cloudyn.
+Passez au didacticiel suivant pour en savoir plus sur le contrôle de l’accès aux données.
 
 > [!div class="nextstepaction"]
-> [Documentation de Cloudyn](https://support.cloudyn.com/hc/)
+> [Contrôler l'accès aux données](tutorial-user-access.md)

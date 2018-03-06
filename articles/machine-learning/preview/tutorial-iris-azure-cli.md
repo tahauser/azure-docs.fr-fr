@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
-Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
+Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
 
 Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interface de ligne de commande (CLI) dans les fonctionnalités Azure Machine Learning en préversion pour : 
 > [!div class="checklist"]
@@ -28,14 +28,16 @@ Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interfac
 > * Promouvoir et inscrire un modèle formé
 > * Déployer un service web pour évaluer de nouvelles données
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
 ## <a name="prerequisites"></a>configuration requise
-- Vous avez besoin d’un accès à un abonnement Azure et des autorisations adéquates pour créer des ressources dans cet abonnement. 
-- Vous devez installer l’application Azure Machine Learning Workbench en suivant la procédure indiquée dans [Guide de démarrage rapide sur l’installation et la création](quickstart-installation.md). 
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+- Un accès à un abonnement Azure et des autorisations adéquates pour créer des ressources dans cet abonnement. 
+  
+  Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-  >[!NOTE]
-  >Vous devez uniquement installer Azure Machine Learning Workbench localement. Il vous suffit de suivre les étapes décrites dans les sections intitulées Installer Azure Machine Learning Workbench, puisque vous allez effectuer les étapes de création du compte et de création d’un projet en utilisant la ligne de commande, comme indiqué dans cet article.
+- Une application Azure Machine Learning Workbench installée comme décrit dans [Créer des comptes en préversion Azure Machine Learning et installer Azure Machine Learning Workbench](quickstart-installation.md). 
+
+  >[!IMPORTANT]
+  >Ne créez pas les comptes de service Azure Machine Learning, car vous le ferez à l’aide de l’interface de ligne de commande dans cet article.
  
 ## <a name="getting-started"></a>Prise en main
 L’interface de ligne de commande (CLI) Azure Machine Learning vous permet d’effectuer toutes les tâches nécessaires à un flux de travail de science des données complet. Vous pouvez accéder à des outils CLI des manières suivantes :
@@ -51,7 +53,7 @@ Cliquez sur le lien **Fenêtre de ligne de commande** dans la boîte de dialogue
 Si vous avez déjà accès à un compte d’expérimentation, vous pouvez vous y connecter. Ouvrez ensuite la fenêtre de ligne de commande en cliquant sur le menu **Fichier** --> **Ouvrir l’invite de commandes**.
 
 ### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Option 3. Activer l’interface de ligne de commande Azure ML dans une fenêtre de ligne de commande de votre choix
-Vous pouvez également activer l’interface de ligne de commande Azure ML dans n’importe quelle fenêtre de ligne de commande. Il vous suffit de lancer une fenêtre de commande et d’entrer les commandes suivantes :
+Vous pouvez également activer l’interface de ligne de commande Azure ML dans n’importe quelle fenêtre de ligne de commande. Pour ce faire, ouvrez une fenêtre de commande et entrez les commandes suivantes :
 
 ```sh
 # Windows Command Prompt
@@ -66,12 +68,12 @@ PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 Pour rendre la modification permanente, vous pouvez utiliser `SETX` sur Windows. Pour macOS, vous pouvez utiliser `setenv`.
 
 >[!TIP]
->Vous pouvez activer l’interface de ligne de commande Azure dans votre fenêtre de terminal préférée en définissant les variables d’environnement ci-dessus.
+>Vous pouvez activer l’interface de ligne de commande Azure dans votre fenêtre de terminal préférée en définissant les variables d’environnement précédentes.
 
 ## <a name="step-1-log-in-to-azure"></a>Étape 1. Connexion à Azure
-La première étape consiste à ouvrir l’interface de ligne de commande à partir de l’application AMLWorkbench (Fichier > Ouvrir l’invite de commandes). Ainsi, nous sommes sûrs d’utiliser l’environnement python approprié et de disposer des commandes de l’interface de ligne de commande (CLI) ML. 
+La première étape consiste à ouvrir l’interface de ligne de commande à partir de l’application AMLWorkbench (Fichier > Ouvrir l’invite de commandes). Ainsi, vous êtes sûr d’utiliser l’environnement Python approprié et de disposer des commandes de l’interface de ligne de commande ML. 
 
-Ensuite, nous devons définir le bon contexte dans votre CLI pour accéder à des ressources Azure et les gérer.
+Ensuite, vous pouvez définir le bon contexte dans votre interface de ligne de commande pour accéder à des ressources Azure et les gérer.
  
 ```azure-cli
 # log in
@@ -85,7 +87,8 @@ $ az account set -s <subscription id or name>
 ```
 
 ## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Étape 2. Créer un compte et un espace de travail Azure Machine Learning - Expérimentation
-Nous commençons par créer un compte d’expérimentation et un espace de travail. Consultez [Concepts Azure Machine Learning](overview-general-concepts.md) pour plus d’informations sur les comptes d’expérimentation et les espaces de travail.
+
+Au cours de cette étape, vous créez un compte d’expérimentation et un espace de travail. Consultez [Concepts Azure Machine Learning](overview-general-concepts.md) pour plus d’informations sur les comptes d’expérimentation et les espaces de travail.
 
 > [!NOTE]
 > Les comptes d’expérimentation nécessitent un compte de stockage, lequel est utilisé pour stocker les résultats de vos exécutions d’expérimentations. Le nom du compte de stockage doit être globalement unique dans Azure car une URL y est associée. Si vous ne spécifiez pas un compte de stockage existant, le nom de votre compte d’expérimentation sert à créer un compte de stockage. Veillez à utiliser un nom unique, sans quoi vous obtenez une erreur semblable à celle-ci : _« Le compte de stockage portant le nom \<nom_compte_stockage> est déjà pris. »_ Autrement, vous pouvez utiliser l’argument `--storage` pour fournir un compte de stockage existant.
@@ -105,7 +108,7 @@ az ml workspace create --name <workspace name> --account <experimentation accoun
 ```
 
 ## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Étape 2.a. (facultative) Partager un espace de travail avec un collaborateur
-Ici, nous expliquons comment partager l’accès à un espace de travail avec un collègue. Les étapes permettant de partager l’accès à un compte d’expérimentation ou à un projet sont identiques. Seule la façon d’obtenir l’ID de ressource Azure a besoin d’être mise à jour.
+Ici, vous pouvez découvrir comment partager l’accès à un espace de travail avec un collègue. Les étapes permettant de partager l’accès à un compte d’expérimentation ou à un projet sont identiques. Seule la façon d’obtenir l’ID de ressource Azure a besoin d’être mise à jour.
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -136,7 +139,7 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Créer un projet associé à un dépôt Git cloud
-Nous pouvons créer un projet associé à un dépôt Git VSTS (Visual Studio Team Service). Chaque fois qu’une expérience est soumise, un instantané de l’ensemble du dossier du projet est validé dans le dépôt Git distant. Pour plus d’informations, consultez [Utilisation d’un dépôt Git avec un projet Azure Machine Learning Workbench](using-git-ml-project.md).
+Vous pouvez créer un projet associé à un référentiel Git VSTS (Visual Studio Team Service). Chaque fois qu’une expérience est soumise, un instantané de l’ensemble du dossier du projet est validé dans le dépôt Git distant. Pour plus d’informations, consultez [Utilisation d’un dépôt Git avec un projet Azure Machine Learning Workbench](using-git-ml-project.md).
 
 > [!NOTE]
 > Azure Machine Learning prend uniquement en charge les dépôts Git vides créés dans VSTS.
@@ -148,7 +151,7 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 > Si vous obtenez une erreur qui stipule que l’URL du dépôt n’est peut-être pas valide ou que l’utilisateur n’a peut-être pas accès, vous pouvez créer un jeton de sécurité dans VSTS (sous _Sécurité_, _Ajouter des jetons d’accès personnels_) et utiliser l’argument `--vststoken` lors de la création de votre projet. 
 
 ### <a name="sample_create"></a>Créer un projet à partir d’un exemple
-Dans cet exemple, nous allons créer un projet à l’aide d’un exemple de projet comme modèle.
+Dans cet exemple, vous créez un projet à l’aide d’un exemple de projet comme modèle.
 
 ```azure-cli
 # List the project samples, find the Classifying Iris sample
@@ -160,10 +163,10 @@ az ml project create --name <project name> --workspace <workspace name> --accoun
 Une fois que votre projet est créé, utilisez la commande `cd` pour entrer dans le répertoire du projet.
 
 ## <a name="step-4-run-the-training-experiment"></a>Étape 4. Exécuter l’expérimentation de formation 
-Les étapes ci-dessous partent du principe que vous avez un projet qui utilise l’exemple Iris (consultez [Créer un projet à partir d’un exemple en ligne](#sample_create)).
+Les étapes ci-dessous partent du principe que vous avez un projet qui utilise l’exemple Iris (consultez [Créer un projet à partir d’un exemple](#sample_create)).
 
 ### <a name="prepare-your-environment"></a>Préparation de votre environnement 
-Pour l’exemple Iris, nous devons installer matplotlib.
+Pour l’exemple Iris, vous devez installer matplotlib.
 
 ```azure-cli
 $ pip install matplotlib
@@ -189,10 +192,10 @@ La commande suivante liste toutes les exécutions précédentes qui ont eu lieu.
 ```azure-cli
 $ az ml history list -o table
 ```
-L’exécution de la commande ci-dessus affiche la liste de toutes les exécutions qui appartiennent à ce projet. Vous pouvez voir que les mesures des taux de précision et de régularisation sont également listées. Ainsi, vous identifiez facilement la meilleure exécution dans la liste.
+L’exécution de la commande précédente affiche la liste de toutes les exécutions qui appartiennent à ce projet. Vous pouvez voir que les mesures des taux de précision et de régularisation sont également listées. Ainsi, vous identifiez facilement la meilleure exécution dans la liste.
 
 ## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Étape 5.a. Afficher la pièce jointe créée par une exécution donnée 
-Pour afficher la pièce jointe associée à une exécution donnée, nous pouvons utiliser la commande info de l’historique des exécutions. Recherchez l’ID d’une exécution spécifique dans la liste ci-dessus.
+Pour afficher la pièce jointe associée à une exécution donnée, vous pouvez utiliser la commande info de l’historique des exécutions. Recherchez l’ID d’une exécution spécifique dans la liste précédente.
 
 ```azure-cli
 $ az ml history info --run <run id> --artifact driver_log
@@ -206,7 +209,7 @@ $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
 ## <a name="step-6-promote-artifacts-of-a-run"></a>Étape 6. Promouvoir les artefacts d’une exécution 
-L’une de nos exécutions présente un meilleur AUC, nous voulons donc l’utiliser pour créer un service web d’évaluation à déployer en production. Pour cela, nous devons d’abord promouvoir les artefacts dans une ressource.
+L’une des exécutions présente un meilleur AUC, c’est donc celle à utiliser pour créer un service web d’évaluation à déployer en production. Pour cela, vous devez d’abord promouvoir les artefacts dans une ressource.
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
@@ -215,14 +218,14 @@ $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name 
 Cette opération crée un dossier `assets` dans votre répertoire de projet avec un fichier `model.pkl.link`. Ce fichier de liaison est utilisé pour faire référence à une ressource promue.
 
 ## <a name="step-7-download-the-files-to-be-operationalized"></a>Étape 7. Télécharger les fichiers à opérationnaliser
-Nous devons maintenant télécharger le modèle promu et l’utiliser pour créer notre service web de prédiction. 
+Téléchargez le modèle promu et utilisez-le pour créer notre service web de prédiction. 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## <a name="step-8-setup-your-model-management-environment"></a>Étape 8 : Configurer votre environnement de gestion des modèles 
-Nous créons un environnement pour déployer des services web. Nous pouvons exécuter le service web sur l’ordinateur local à l’aide de Docker. Ou bien, déployez-le sur un cluster ACS pour les opérations à grande échelle. 
+## <a name="step-8-set-up-your-model-management-environment"></a>Étape 8 : Configurer votre environnement de gestion des modèles 
+Créez un environnement pour déployer des services web. Vous pouvez exécuter le service web sur l’ordinateur local à l’aide de Docker. Ou bien, déployez-le sur un cluster ACS pour les opérations à grande échelle. 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -239,14 +242,14 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 ```
 
 ## <a name="step-10-create-a-web-service"></a>Étape 10. Création d’un service web
-Ensuite, nous créons un service web qui retourne une prédiction en utilisant le modèle que nous avons déployé. 
+Créez un service web qui renvoie une prédiction en utilisant le modèle que vous avez déployé. 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## <a name="step-10-run-the-web-service"></a>Étape 10. Exécuter le service web
-À l’aide de l’ID de service web issu de la sortie de l’étape précédente, nous pouvons appeler le service web et le tester. 
+## <a name="step-11-run-the-web-service"></a>Étape 11. Exécuter le service web
+À l’aide de l’ID de service web issu de la sortie de l’étape précédente, appelez le service web et testez-le. 
 
 ```azure-cli
 # Get web service usage infomration
@@ -256,22 +259,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## <a name="deleting-all-the-resources"></a>Suppression de toutes les ressources 
-Terminons ce didacticiel en supprimant toutes les ressources que nous avons créées, sauf si vous souhaitez continuer à les utiliser. 
+## <a name="step-12-deleting-all-the-resources"></a>Étape 12. Suppression de toutes les ressources 
+Terminons ce didacticiel en supprimant toutes les ressources créées, sauf si vous souhaitez continuer à les utiliser. 
 
-Pour cela, nous supprimons simplement le groupe de ressources qui contient toutes nos ressources. 
+Pour cela, supprimez le groupe de ressources qui contient les ressources. 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités Azure Machine Learning en préversion pour : 
+Dans ce didacticiel, vous avez appris à utiliser Azure Machine Learning pour : 
 > [!div class="checklist"]
 > * Configurer un compte d’expérimentation, puis créer un espace de travail
 > * Créer des projets
 > * Envoyer des expérimentations à plusieurs cibles de calcul
 > * Promouvoir et inscrire un modèle formé
 > * Créer un compte de gestion des modèles pour la gestion des modèles
-> * Créer un environnement pour déployer un service web
+> * Créer un environnement pour déployer des services web
 > * Déployer un service web et l’évaluer avec de nouvelles données

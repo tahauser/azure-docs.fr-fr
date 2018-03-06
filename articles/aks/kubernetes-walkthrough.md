@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
@@ -39,6 +39,7 @@ Une fois celui-ci inscrit, vous êtes prêt à créer un cluster Kubernetes avec
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Créez un groupe de ressources avec la commande [az group create][az-group-create]. Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
+Lorsque vous créez un groupe de ressources, vous êtes invité à spécifier un emplacement. Il s’agit de l’emplacement où résideront vos ressources dans Azure. Il n’y a que quelques emplacements disponibles, car ACS est en préversion. Ces emplacements sont les suivants `eastus, westeurope, centralus, canadacentral, canadaeast`.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
@@ -46,7 +47,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location eastus
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -88,13 +89,13 @@ Pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes, ex
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
+Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster. Notez que cela peut mettre quelques minutes à apparaître.
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-Sortie :
+Output:
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, incluant les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote.
+Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, incluant les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. L’image fournie est un exemple d’application, mais vous pouvez en savoir plus la [création d’image](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) et le [déploiement vers Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) pour utiliser la vôtre.
 
-Créez un fichier nommé `azure-vote.yaml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de vi ou de Nano comme si vous travailliez sur un système virtuel ou physique.
+Créez un fichier nommé `azure-vote.yaml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de vi ou de Nano comme si vous travailliez sur un système virtuel ou physique. Si vous travaillez en local, vous pouvez utiliser Visual Studio Code pour créer ce fichier en exécutant la commande `code azure-vote.yaml`.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -174,7 +175,7 @@ Utilisez la commande [kubectl create][kubectl-create] pour exécuter l’applica
 kubectl create -f azure-vote.yaml
 ```
 
-Sortie :
+Output:
 
 ```
 deployment "azure-vote-back" created
@@ -231,7 +232,7 @@ Dans ce guide de démarrage rapide, vous avez déployé un cluster Kubernetes et
 Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au didacticiel sur le cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Gérer un cluster AKS][aks-tutorial] :
+> [Didacticiel ACS][aks-tutorial] :
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

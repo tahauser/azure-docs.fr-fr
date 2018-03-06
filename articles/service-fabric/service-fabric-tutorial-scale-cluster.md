@@ -1,6 +1,6 @@
 ---
 title: "Mettre à l’échelle un cluster Azure Service Fabric | Microsoft Docs"
-description: "Découvrez comment effectuer une mise à l’échelle rapide d’un cluster Service Fabric."
+description: "Dans ce didacticiel, vous découvrez comment effectuer une mise à l’échelle rapide d’un cluster Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Mettre à l’échelle un cluster Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Didacticiel : mettre à l’échelle un cluster Service Fabric
 
 Ce didacticiel constitue la deuxième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce didacticiel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
 

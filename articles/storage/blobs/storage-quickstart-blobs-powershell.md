@@ -1,27 +1,21 @@
 ---
-title: "Démarrage rapide Azure - Transférer des objets à destination/à partir du Stockage Blob Azure à l’aide PowerShell | Microsoft Docs"
-description: "Apprenez rapidement à transférer des objets à destination/à partir du stockage Blob Azure à l’aide de PowerShell"
+title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Azure PowerShell | Microsoft Docs"
+description: "Dans le cadre de ce démarrage rapide, vous utilisez Azure PowerShell pour créer un compte de stockage et un conteneur. Ensuite, vous utilisez PowerShell pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur."
 services: storage
-documentationcenter: storage
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ffed1eea8d159ccd05331d741624d8bc9e84b50
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transférer des objets à destination/à partir du Stockage Blob Azure à l’aide d’Azure PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Azure PowerShell
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide décrit en détail l’utilisation de PowerShell pour transférer des fichiers entre un disque local et le Stockage Blob Azure.
 

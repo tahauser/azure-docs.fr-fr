@@ -1,6 +1,6 @@
 ---
 title: Monitorage et diagnostics des conteneurs Windows dans Azure Service Fabric | Microsoft Docs
-description: "Configurez le monitorage et les diagnostics du conteneur Windows orchestré sur Azure Service Fabric."
+description: "Dans ce didacticiel, vous configurez le monitorage et les diagnostics du conteneur Windows orchestré sur Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,24 +15,24 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Effectuer le monitorage des conteneurs Windows sur Service Fabric avec OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Didacticiel : surveiller des conteneurs Windows sur Service Fabric avec OMS
 
 Il s’agit de la troisième partie d’un didacticiel, qui vous guide dans la configuration d’OMS pour effectuer le monitorage de vos conteneurs Windows orchestrés sur Service Fabric.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * configurer OMS pour votre cluster Service Fabric ;
 > * utiliser un espace de travail OMS pour afficher et interroger des journaux à partir de vos conteneurs et de vos nœuds ;
 > * configurer l’Agent OMS pour collecter des mesures sur les conteneurs et les nœuds.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel, vous devez :
 - disposer d’un cluster sur Azure, ou en [créer un avec ce didacticiel](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ;
 - [y déployer une application en conteneur](service-fabric-host-app-in-a-container.md).
@@ -230,9 +230,9 @@ Revenez sur le Portail Azure et **actualisez** votre solution de monitorage des 
 ![Compteurs de performances 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * configurer OMS pour votre cluster Service Fabric ;
