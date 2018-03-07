@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight 
 
@@ -135,7 +135,11 @@ Vous pouvez ouvrir le Notebook **00 - [READ ME FIRST] Spark Magic Kernel Feature
 
 ## <a name="where-are-the-notebooks-stored"></a>Où sont stockés les blocs-notes ?
 
-Les Notebooks Jupyter sont enregistrés dans le compte de stockage associé au cluster, dans le dossier **/HdiNotebooks** .  Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir du compte de stockage.  Par exemple, si vous utilisez Jupyter pour créer un dossier **myfolder** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `/HdiNotebooks/myfolder/mynotebook.ipynb` au sein du compte de stockage.  L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter.  Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
+Si votre cluster utilise le stockage Azure comme compte de stockage par défaut, les bloc-notes Jupyter sont enregistrés dans le compte de stockage sous le dossier **/HdiNotebooks**.  Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir du compte de stockage.  Par exemple, si vous utilisez Jupyter pour créer un dossier **myfolder** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `/HdiNotebooks/myfolder/mynotebook.ipynb` au sein du compte de stockage.  L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter.  Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
+
+> [!NOTE]
+> Les clusters HDInsight qui ont Azure Data Lake Store comme stockage par défaut ne stockent pas les bloc-notes dans le stockage associé.
+>
 
 Les blocs-notes sont enregistrés dans le compte de stockage dans un mode compatible avec HDFS. Si vous utilisez SSH dans le cluster, vous pouvez donc exécuter des commandes de gestion des fichiers telles que celles de l’extrait de code suivant :
 
@@ -143,8 +147,7 @@ Les blocs-notes sont enregistrés dans le compte de stockage dans un mode compat
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-En cas de problèmes d’accès au compte de stockage pour le cluster, les Notebooks sont également enregistrés sur le nœud principal `/var/lib/jupyter`.
+Que le cluster utilise le stockage Azure ou Azure Data Lake Store comme compte de stockage par défaut, les bloc-notes sont aussi enregistrés sur le nœud principal du cluster à l’emplacement `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Navigateur pris en charge
 

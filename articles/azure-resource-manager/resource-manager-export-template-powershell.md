@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6e36e12717eea61477f55d2d98c00bff31ec643
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exporter des modèles Azure Resource Manager avec PowerShell
 
@@ -25,14 +25,14 @@ Resource Manager vous permet d’exporter un modèle Resource Manager à partir 
 
 Il est important de noter qu’il existe deux façons différentes d’exporter un modèle :
 
-* Vous pouvez exporter le modèle actuel que vous avez utilisé pour un déploiement. Le modèle exporté inclut l’ensemble des paramètres et des variables exactement comme ils apparaissent dans le modèle d’origine. Cette approche est utile lorsque vous avez besoin de récupérer un modèle.
-* Vous pouvez exporter le modèle qui représente l’état actuel du groupe de ressources. Le modèle exporté n’est pas basé sur un modèle utilisé pour le déploiement. Au lieu de cela, il crée un modèle qui est un instantané du groupe de ressources. Le modèle exporté a probablement de nombreuses valeurs codées en dur et pas autant de paramètres que vous pourriez généralement définir. Cette approche est utile lorsque vous avez modifié le groupe de ressources. Vous devez maintenant capturer le groupe de ressources en tant que modèle.
+* Vous pouvez exporter le **modèle réel que vous avez utilisé pour un déploiement**. Le modèle exporté inclut l’ensemble des paramètres et des variables exactement comme ils apparaissent dans le modèle d’origine. Cette approche est utile lorsque vous avez besoin de récupérer un modèle.
+* Vous pouvez exporter un **modèle généré qui représente l’état actuel du groupe de ressources**. Le modèle exporté n’est pas basé sur un modèle utilisé pour le déploiement. Au lieu de cela, il crée un modèle qui est un « instantané » ou une « sauvegarde » du groupe de ressources. Le modèle exporté a probablement de nombreuses valeurs codées en dur et pas autant de paramètres que vous pourriez généralement définir. Cette option permet de redéployer les ressources sur le même groupe de ressources. Pour utiliser ce modèle pour un autre groupe de ressources, vous devrez peut-être le modifier de façon significative.
 
 Cette rubrique illustre les deux approches.
 
 ## <a name="deploy-a-solution"></a>Déployer une solution
 
-Afin d’illustrer ces deux approches pour l’exportation d’un modèle, commençons par le déploiement d’une solution dans votre abonnement. Si vous disposez déjà d’un groupe de ressources dans votre abonnement que vous voulez exporter, il est inutile de déployer cette solution. Toutefois, le reste de cet article fait référence au modèle pour cette solution. L’exemple de script déploie un compte de stockage.
+Afin d’illustrer ces deux approches pour l’exportation d’un modèle, commençons par le déploiement d’une solution dans votre abonnement. Si, dans votre abonnement, vous disposez déjà d’un groupe de ressources que vous voulez exporter, il est inutile de déployer cette solution. Toutefois, le reste de cet article fait référence au modèle pour cette solution. L’exemple de script déploie un compte de stockage.
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
@@ -61,7 +61,7 @@ Ouvrez le fichier et notez qu’il s’agit exactement du même modèle que celu
 
 ## <a name="export-resource-group-as-template"></a>Exporter un groupe de ressources en tant que modèle
 
-Au lieu de récupérer un modèle à partir de l’historique de déploiement, vous pouvez récupérer un modèle qui représente l’état actuel d’un groupe de ressources à l’aide de la commande [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Vous utilisez cette commande lorsque vous avez effectué de nombreuses modifications dans votre groupe de ressources et qu’aucun modèle existant ne représente toutes les modifications.
+Au lieu de récupérer un modèle à partir de l’historique de déploiement, vous pouvez récupérer un modèle qui représente l’état actuel d’un groupe de ressources à l’aide de la commande [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Vous utilisez cette commande lorsque vous avez effectué de nombreuses modifications dans votre groupe de ressources et qu’aucun modèle existant ne représente toutes les modifications. Il s’agit d’un instantané du groupe de ressources, qui vous permet de refaire un déploiement sur le même groupe de ressources. Pour utiliser le modèle exporté pour d’autres solutions, vous devez le modifier considérablement.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
@@ -217,7 +217,7 @@ Votre modèle doit maintenant ressembler à ceci :
 
 Redéployez le modèle modifié.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour plus d’informations sur l’utilisation du portail pour exporter un modèle, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 * Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).

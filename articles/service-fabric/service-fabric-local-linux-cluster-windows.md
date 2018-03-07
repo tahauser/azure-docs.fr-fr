@@ -14,22 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurer un cluster Linux Service Fabric sur votre machine de développement Windows
 
 Ce document explique comment configurer une infrastructure Linux Service Fabric locale sur des machines de développement Windows. La configuration d'un cluster Linux local est utile pour tester rapidement les applications ciblées pour les clusters Linux mais développées sur une machine Windows.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Les clusters Service Fabric basés sur Linux ne s'exécutent pas nativement sous Windows. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM
 * Dernière version de [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Accès à [l’image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) de conteneur Docker pour Service Fabric One-box
 
 >[!TIP]
 > * Vous pouvez suivre les étapes indiquées dans la [documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) officielle de Docker pour installer Docker sur Windows. 
@@ -42,7 +41,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
 1. Extrayez l’image du référentiel Docker Hub :
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. Mettez à jour la configuration du démon Docker sur votre ordinateur hôte avec les informations suivantes, puis redémarrez le démon Docker : 
@@ -58,11 +57,11 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
 3. Démarrez une instance de conteneur Service Fabric One-Box avec l’image :
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * Le fait de nommer votre instance de conteneur vous permet de la gérer plus facilement. 
-    > * Si votre application écoute sur certains ports, il doit être spécifié à l’aide de balises -p supplémentaires. Par exemple, si votre application écoute sur le port 8080, exécutez docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
+    > * Si votre application écoute sur certains ports, il doit être spécifié à l’aide de balises -p supplémentaires. Par exemple, si votre application écoute sur le port 8080, exécutez docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox
 
 4. Connectez-vous au conteneur Docker en mode SSH interactif :
 
@@ -82,7 +81,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     > [!NOTE]
     > Le plug-in Eclipse n’est actuellement pas pris en charge sous Windows. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Prise en main d'[Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Consulter d’autres [exemples Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

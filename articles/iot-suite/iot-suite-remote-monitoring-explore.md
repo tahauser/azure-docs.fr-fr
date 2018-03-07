@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance
 
@@ -63,7 +63,7 @@ Contoso utilise différents types d’appareils connectés. Ces appareils, qui r
 
 Le tableau suivant récapitule les types d’appareils provisionnés :
 
-| Type d’appareil        | Télémétrie                                  | Propriétés                                  | Balises                    | Méthodes                                                                                      |
+| Type d’appareil        | Télémétrie                                  | properties                                  | Balises                    | Méthodes                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller (Refroidisseur)            | Temperature, Humidity, Pressure (Température, Humidité, Pression)            | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Floor, Campus (Emplacement, Étage, Campus) | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure (Redémarrage, Mise à jour du microprogramme, Déclenchement de la soupape de sécurité, Augmentation de la pression)                          |
 | Prototyping device (Appareil de prototypage) | Temperature, Pressure, Geo-location (Température, Pression, Géolocalisation)        | Type, Firmware version, Model (Type, Version du microprogramme, Modèle)               | Location, Mode (Emplacement, Mode)          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase (Redémarrage, Mise à jour du microprogramme, Déplacement de l’appareil, Arrêt de l’appareil, Relâchement de la température, Augmentation de la température) |
@@ -114,7 +114,7 @@ Dans la page **Maintenance**, vous pouvez afficher les détails de la règle qui
 
     ![Page Maintenance affichant la liste des alarmes qui ont été déclenchées](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. La première alarme dans la liste est la plus récente. Cliquez sur l’alarme **Chiller Pressure** (Pression de refroidissement) pour afficher les appareils et les données de télémétrie associés. Les données de télémétrie montrent un pic de pression pour le refroidisseur :
+1. La première alarme dans la liste est la plus récente. Cliquez sur l’alarme **Chiller Pressure Too High** (Pression de refroidissement trop haute) pour afficher les appareils et les données de télémétrie associés. Les données de télémétrie montrent des pics de pression pour le refroidisseur :
 
     ![Page Maintenance affichant les données de télémétrie de l’alarme sélectionnée](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Pour effectuer les tâches de gestion d’appareil nécessaires, utilisez la pag
 
     ![Sélectionner un appareil dans la page des appareils](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Cliquez sur le bouton **Planifier**, puis choisissez **Firmware update** (Mise à jour de microprogramme). Renseignez les champs **Nom de la tâche** et **Firmware URI** (URI du microprogramme). Choisissez **Appliquer** pour que le travail s’exécuter maintenant :
+1. Cliquez sur le bouton **Planifier**, puis choisissez **Firmware update** (Mise à jour de microprogramme). Renseignez les champs **Job name** (Nom de la tâche) et **Firmware Version** (Version du microprogramme) et **Firmware URI** (URI du microprogramme). Choisissez **Apply** (Appliquer) pour que le travail s’exécute maintenant :
 
     ![Planifier la mise à jour du microprogramme sur l’appareil](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Avec les appareils simulés, vous pouvez utiliser l’URL de votre choix dans le champ **Firmware URI** (URI du microprogramme). Les appareils simulés n’accèdent pas à l’URL.
+    > Avec les appareils simulés, vous pouvez utiliser l’URL de votre choix dans le champ **Firmware URI** (URI du microprogramme) et une valeur quelconque pour **Firmware Version** (Version du microprogramme). Les appareils simulés n’accèdent pas à l’URL.
 
 1. Notez le nombre d’appareils concernés par le travail, puis choisissez **Appliquer** :
 
@@ -241,7 +241,7 @@ Vous pouvez utiliser le menu Paramètres pour arrêter les appareils simulés. C
 
     ![Menu Paramètres](media/iot-suite-remote-monitoring-explore/settings.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

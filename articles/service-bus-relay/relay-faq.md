@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -76,14 +76,13 @@ L’envoi d’un message à un Service Bus Relay est traité comme un envoi « 
 Les relais ouverts à l’aide de la liaison WCF **netTCPRelay** traitent les messages non pas en tant que messages individuels, mais en tant que flux de données transitant par le système. Lorsque vous utilisez cette liaison, seuls l’expéditeur et l’écouteur peuvent voir la trame des messages envoyés et reçus. Pour les relais qui utilisent la liaison **netTCPRelay**, toutes les données sont traitées comme un flux pour le calcul des messages facturables. Dans ce cas, Service Bus calcule la quantité totale de données envoyées ou reçues via chaque relais sur une base de 5 minutes. Ensuite, il divise cette quantité totale de données par 64 Ko pour déterminer le nombre de messages facturables pour ce relais pendant cette période.
 
 ## <a name="quotas"></a>Quotas
-| Nom du quota | Étendue | type | Comportement en cas de dépassement | Valeur |
-| --- | --- | --- | --- | --- |
-| Écouteurs simultanés sur un relais |Entité |statique |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
-| Écouteurs Relay simultanés |Pour tout le système |statique |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |2 000 |
-| Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Pour tout le système |statique |- |5 000 |
-| Points de terminaison Relay par espace de noms de service |Pour tout le système |statique |- |10 000 |
-| Taille de message pour les relais [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) et [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Pour tout le système |statique |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |
-| Taille de message pour les relais [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) et [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Pour tout le système |statique |- |Illimité |
+| Nom du quota | Étendue |  Notes | Valeur |
+| --- | --- | --- | --- |
+| Écouteurs simultanés sur un relais |Entité |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
+| Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Espace de noms |- |5 000 |
+| Points de terminaison Relay par espace de noms de service |Espace de noms |- |10 000 |
+| Taille de message pour les relais [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) et [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Espace de noms |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |
+| Taille de message pour les relais [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) et [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Espace de noms |Aucune limite concernant la taille des messages. |Illimité |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Relay a-t-il des quotas d’utilisation ?
 Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel qui est calculé avec tous les abonnements d’un client. Nous sommes conscients que vos besoins peuvent parfois dépasser ces limites. Vous pouvez contacter le service clientèle à tout moment pour nous faire part de vos besoins afin que nous puissions ajuster ces limites de manière appropriée. Pour Service Bus, les quotas d’utilisation d’agrégation sont les suivants :

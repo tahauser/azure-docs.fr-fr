@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure
 Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier les définitions des rôles intégrés. Toutefois, vous pouvez créer des [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md) en fonction des besoins spécifiques de votre entreprise.
@@ -51,6 +51,7 @@ Cet article traite uniquement des différents rôles qui existent aujourd’hui.
 | [Collaborateur BizTalk](#biztalk-contributor) |Gérer BizTalk Services |
 | [Collaborateur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) |Gérer les bases de données ClearDB MySQL |
 | [Collaborateur](#contributor) |Gérer tout sauf les accès |
+| [Rôle de lecteur de compte Cosmos DB](#cosmos-db-account-reader-role) |Lire les données de comptes Azure Cosmos DB |
 | [Collaborateurs de fabrique de données](#data-factory-contributor) |Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 | [Utilisateur de DevTest Labs](#devtest-labs-user) |Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virtuelles |
 | [Contributeur de Zone DNS](#dns-zone-contributor) |Peut gérer des enregistrements et zones DNS |
@@ -311,6 +312,19 @@ Gérer tout sauf les accès
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Impossible de supprimer des rôles et des affectations de rôles |
 | Microsoft.Authorization/*/Write |Impossible de créer des rôles et des affectations de rôles |
+
+### <a name="cosmos-db-account-reader-role"></a>Rôle de lecteur de compte Cosmos DB
+Lire les données de comptes Azure Cosmos DB. Consultez [Collaborateur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB.
+
+| **Actions** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Lire les rôles et les attributions de rôle, lire les autorisations accordées à chaque utilisateur|
+|Microsoft.DocumentDB/*/read|Lire n’importe quelle collection|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Lire le volet de clés en lecture seule|
+|Microsoft.Insights/Metrics/read|Lire les métriques de compte|
+|Microsoft.Insights/MetricDefinitions/read|Lire les définitions de métriques|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Lire les groupes de ressources|
+|Microsoft.Support/*|Créer et gérer les tickets de support|
 
 ### <a name="data-factory-contributor"></a>Collaborateurs de fabrique de données
 Créer et gérer des fabriques de données ainsi que leurs ressources enfants

@@ -1,5 +1,5 @@
 ---
-title: "Connecter Excel à Hadoop à l’aide du pilote ODBC Hive - Azure HDInsight | Microsoft Docs"
+title: "Connecter Excel à Hadoop à l’aide du pilote ODBC Hive - Azure HDInsight | Documents Microsoft"
 description: "Découvrez comment configurer et utiliser le pilote ODBC Microsoft Hive pour Excel afin d’interroger des données dans des clusters HDInsight à partir de Microsoft Excel."
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connecter Excel à Hadoop dans Azure HDInsight avec le pilote ODBC Microsoft Hive
 
@@ -46,7 +46,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installation du pilote ODBC Microsoft Hive
 Téléchargez et installez le pilote ODBC Microsoft Hive à partir du [Centre de téléchargement][hive-odbc-driver-download].
 
-Ce pilote peut être installé sur les versions 32 bits ou 64 bits de Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 et Windows Server 2012. Le pilote autorise la connexion à Azure HDInsight (versions 1.6 et ultérieures) et à Azure HDInsight Emulator (v.1.0.0.0 et versions ultérieures). Vous allez installer la version correspondant à celle de l’application dans laquelle vous utilisez le pilote ODBC. Pour les besoins de ce didacticiel, le pilote utilisé est celui d’Office Excel.
+Ce pilote peut être installé sur les versions 32 bits ou 64 bits de Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 et Windows Server 2012. Le pilote autorise une connexion à Azure HDInsight. Vous allez installer la version correspondant à celle de l’application dans laquelle vous utilisez le pilote ODBC. Pour les besoins de ce didacticiel, le pilote utilisé est celui d’Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Création d’une source de données ODBC Hive
 La procédure suivante explique comment créer une source de données ODBC Hive.
@@ -104,7 +104,7 @@ Les étapes ci-dessous décrivent comment importer des données d’une table Hi
 Dans cet article, vous avez appris à utiliser le pilote ODBC Microsoft Hive pour extraire des données du service HDInsight dans Excel. De la même façon, vous pouvez extraire les données du service HDInsight dans la base de données SQL. Il est également possible de télécharger des données dans un service HDInsight. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
-* [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
+* [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

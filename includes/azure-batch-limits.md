@@ -1,10 +1,13 @@
 | **Ressource** | **Limite par défaut** | **Limite maximale** |
 | --- | --- | --- |
-| Comptes Batch par région et par abonnement | 3 |50 |
-| Cœurs dédiés par compte Batch | 20 | N/A<sup>1</sup> |
-| Cœurs à priorité basse par compte Batch | 20 | N/A<sup>2</sup> |
-| Travaux et planifications de travaux actifs<sup>3</sup> par compte Batch | 20 | 5000<sup>4</sup> |
-| Pools par compte Batch | 20 | 2 500 |
+| Comptes Batch par région et par abonnement | 1 à 3 |50 |
+| Cœurs dédiés par compte Batch | 10 à 100 | N/A<sup>1</sup> |
+| Cœurs à priorité basse par compte Batch | 10 à 100 | N/A<sup>2</sup> |
+| Travaux et planifications de travaux actifs<sup>3</sup> par compte Batch | 20 à 100 | 5000<sup>4</sup> |
+| Pools par compte Batch | 20 à 100 | 2 500 |
+
+> [!NOTE]
+> Les limites par défaut varient selon le type d’abonnement que vous utilisez pour créer un compte Batch. Les quotas de cœurs affichés correspondent aux comptes Batch en mode service Batch.
 
 <sup>1</sup> Vous pouvez augmenter le nombre de cœurs dédiés par compte Batch, mais le nombre maximal n’est pas spécifié. Contactez l'assistance clientèle Azure pour discuter des possibilités d'augmentation.
 

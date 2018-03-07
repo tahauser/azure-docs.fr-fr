@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Forum aux questions (FAQ) Azure Disk Encryption
 
@@ -49,10 +49,11 @@ Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encr
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Disque de système d’exploitation et de données |
 | Ubuntu | 14.04.5-DAILY-LTS | Disque de système d’exploitation et de données |
-| RHEL | 7.3 | Disque de système d’exploitation et de données |
-| RHEL | 7,2 | Disque de système d’exploitation et de données |
-| RHEL | 6.8 | Disque de système d’exploitation et de données |
-| RHEL | 6.7 | Disque de données |
+| RHEL | 7.4 | Disque de données* |
+| RHEL | 7.3 | Disque de données* |
+| RHEL | 7,2 | Disque de données* |
+| RHEL | 6.8 | Disque de données* |
+| RHEL | 6.7 | Disque de données* |
 | CentOS | 7.3 | Disque de système d’exploitation et de données |
 | CentOS | 7.2n | Disque de système d’exploitation et de données |
 | CentOS | 6.8 | Disque de système d’exploitation et de données |
@@ -67,6 +68,8 @@ Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encr
 | SLES | HPC 12 | Disque de données |
 | SLES | Priority:11-SP4 | Disque de données |
 | SLES | 11 SP4 | Disque de données |
+
+* __ADE est pris en charge pour les disques de données RHEL. L’implémentation actuelle d’ADE fonctionne avec les disques de système d’exploitation, mais elle n’est pas prise en charge conjointement. Microsoft et Red Hat fonctionnent tous les deux sur une solution conjointement prise en charge. Entre-temps, vous pouvez consulter le livre blanc ADE concernant le chiffrement des disques de système d’exploitation Linux, [disponible ici](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **Q :** comment puis-je commencer à utiliser Azure Disk Encryption ?
 

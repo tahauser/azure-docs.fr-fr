@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -131,7 +131,7 @@ Pour rechercher et afficher dans votre application logique des événements tels
 
 5. Dans la zone de recherche, spécifiez un champ que vous souhaitez trouver, puis appuyez sur **Entrée**. Lorsque vous commencez à taper, OMS affiche les correspondances possibles et les opérations que vous pouvez utiliser. 
 
-   Par exemple, pour rechercher les 10 principaux événements qui se sont produits, entrez et sélectionner la requête de recherche suivante : **Category=WorkflowRuntime |top 10**
+   Par exemple, pour rechercher les 10 principaux événements qui se sont produits, entrez et sélectionnez la requête de recherche suivante : **search Category == WorkflowRuntime | limit 10**
 
    ![Entrer une chaîne de recherche](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

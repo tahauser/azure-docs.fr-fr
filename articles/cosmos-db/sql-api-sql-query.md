@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Requêtes SQL pour Azure Cosmos DB
 
@@ -937,7 +937,7 @@ Le tableau suivant présente la liste des fonctions d’agrégation prises en ch
 Il est également possible d’effectuer des agrégations sur les résultats d’une itération de tableau. Pour en savoir plus, consultez la section relative à [l’itération de tableaux dans les requêtes](#Iteration).
 
 > [!NOTE]
-> Lorsque vous utilisez l’Explorateur de requêtes du portail Azure, notez que les requêtes d’agrégation peuvent renvoyer les résultats partiellement agrégés sur une page de requête. Les kits de développement logiciel (SDK) génèrent une valeur cumulée unique sur toutes les pages. 
+> Lorsque vous utilisez l’Explorateur de données du portail Azure, notez que les requêtes d’agrégation peuvent renvoyer les résultats partiellement agrégés sur une page de requête. Les kits de développement logiciel (SDK) génèrent une valeur cumulée unique sur toutes les pages. 
 > 
 > Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du SDK .NET 1.12.0, du SDK .NET Core 1.1.0 ou du SDK Java 1.9.5 ou version ultérieure.    
 >

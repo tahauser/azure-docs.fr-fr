@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses IP publiques accessibles en externe affectées à un petit ensemble de services Azure Stack et, éventuellement, à des machines virtuelles clientes. Des certificats pour infrastructure à clé publique avec des noms DNS appropriés pour ces points de terminaison d’infrastructure publique Azure Stack sont requis pendant le déploiement Azure Stack. Cet article fournit des informations sur :
@@ -27,6 +27,7 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 - Les certificats requis pour déployer Azure Stack
 - Le processus d’obtention de certificats correspondants à ces spécifications
 - Comment préparer, valider et utiliser ces certificats pendant le déploiement
+
 > [!NOTE]
 > Au cours du déploiement, vous devez copier les certificats dans le dossier de déploiement correspondant au fournisseur d’identité (Azure AD ou AD FS). Si vous utilisez un seul certificat pour tous les points de terminaison, vous devez copier ce fichier de certificat dans chaque dossier de déploiement, comme indiqué dans les tableaux ci-dessous. La structure des dossiers est prédéfinie dans la machine virtuelle de déploiement et se trouve sous : C:\CloudDeployment\Setup\Certificates. 
 
@@ -37,6 +38,7 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - L’algorithme de signature de certificat ne peut pas être SHA1, car il doit être plus sécurisé. 
 - Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. 
 - Les fichiers pfx de certificat doivent avoir une valeur « Signature numérique » et « KeyEncipherment » dans le champ « Utilisation de la clé ».
+- Dans le champ « Utilisation avancée de la clé », les fichiers pfx de certificat doivent avoir les valeurs « Authentification du serveur (1.3.6.1.5.5.7.3.1) » et « Authentification du client (1.3.6.1.5.5.7.3.2) ».
 - Les mots de passe de tous les fichiers pfx de certificat doivent être identiques au moment du déploiement
 - Assurez-vous que les noms d’objets et les autres noms de l’objet de tous les certificats correspondent aux spécifications décrites dans cet article afin d’éviter un échec des déploiements.
 

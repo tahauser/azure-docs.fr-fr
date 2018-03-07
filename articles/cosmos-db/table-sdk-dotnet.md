@@ -1,5 +1,5 @@
 ---
-title: "Kit de développement logiciel (SDK) et ressources de l’API .NET Table Azure Cosmos DB | Microsoft Docs"
+title: "Kit SDK et ressources de l’API .NET Table Azure Cosmos DB | Microsoft Docs"
 description: "Découvrez l’API Table Azure Cosmos DB, notamment les dates de publication, les dates de retrait et les modifications apportées à chaque version."
 services: cosmos-db
 documentationcenter: .net
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/21/2018
 ms.author: mimig
-ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -29,14 +29,14 @@ ms.lasthandoff: 02/09/2018
 
 |   |   |
 |---|---|
-|**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://aka.ms/acdbtablenuget)|
+|**Téléchargement du kit SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Documentation de l’API**|[Documentation de référence sur l’API .NET](https://aka.ms/acdbtableapiref)|
 |**Démarrage rapide**|[Azure Cosmos DB : Créer une application avec .NET et l’API Table](create-table-dotnet.md)|
 |**Didacticiel**|[Azure Cosmos DB : Développer avec l’API Table dans .NET](tutorial-develop-table-dotnet.md)|
-|**Infrastructure actuellement prise en charge**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Infrastructure actuellement prise en charge**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
-> Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.
+> Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les kits SDK mis à la disposition générale pour l’API Table.
 >
 
 ## <a name="release-notes"></a>Notes de publication
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-L’utilisation de la préversion du package [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) a été déconseillée ; il doit être remplacé par le package [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Le kit de développement logiciel (SDK) WindowsAzure.Storage-PremiumTable sera retiré le 15 novembre 2018 ; à compter de cette date, les requêtes envoyées au kit de développement logiciel (SDK) ne seront plus autorisées.
+L’utilisation de la préversion du package [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) a été déconseillée ; il doit être remplacé par le package [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Le kit SDK WindowsAzure.Storage-PremiumTable sera retiré le 15 novembre 2018 ; à compter de cette date, les requêtes envoyées au kit SDK ne seront plus autorisées.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
 

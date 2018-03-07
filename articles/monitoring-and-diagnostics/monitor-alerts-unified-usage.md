@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Créer, afficher et gérer des alertes à l’aide d’Azure Monitor - Alerts (préversion)
 
@@ -28,7 +28,7 @@ Cet article explique comment configurer des alertes à l’aide de la nouvelle i
 - Critères : condition spécifique ou logique qui, une fois détectée (signal), doit déclencher une action
 - Action : appel spécifique est envoyé au récepteur d’une notification (courrier électronique, SMS, webhook, etc.)
 
-Alerts (préversion) utilise le terme **alertes de journal** pour décrire les alertes où le signal est une requête personnalisée basée sur [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). La fonctionnalité d’alerte de métrique appelée [alertes Métrique en temps quasi réel](monitoring-near-real-time-metric-alerts.md) dans l’expérience d’alerte existante est dénommée **Alertes Métrique** dans Alerts (préversion). Dans *Alertes Métrique*, certains types de ressources fournissent des [métriques multidimensionnelles](monitoring-metric-charts.md) pour une ressource Azure spécifique. Par conséquent, les alertes pour ces ressources peuvent être rendues plus spécifiques à l’aide de filtres supplémentaires appliqué à des dimensions. Ces alertes sont appelées **Alertes Métrique multidimensionnelles**.
+Alerts (préversion) utilise le terme **alertes de journal** pour décrire les alertes où le signal est une requête personnalisée basée sur [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Azure Application Insights](../application-insights/app-insights-analytics.md). La fonctionnalité d’alerte de métrique appelée [alertes Métrique en temps quasi réel](monitoring-near-real-time-metric-alerts.md) dans l’expérience d’alerte existante est dénommée **Alertes Métrique** dans Alerts (préversion). Dans *Alertes Métrique*, certains types de ressources fournissent des [métriques multidimensionnelles](monitoring-metric-charts.md) pour une ressource Azure spécifique. Par conséquent, les alertes pour ces ressources peuvent être rendues plus spécifiques à l’aide de filtres supplémentaires appliqué à des dimensions. Ces alertes sont appelées **Alertes Métrique multidimensionnelles**.
 Azure Alerts (préversion) fournit également une vue unifiée pour toutes vos règles d’alerte et la possibilité de les gérer un emplacement unique, y compris l’affichage de toutes les alertes non résolues. En savoir plus sur les fonctionnalités d’[Azure Alerts (préversion) - Vue d’ensemble](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
@@ -81,16 +81,13 @@ Vous trouverez ci-dessous un guide détaillé pour l’utilisation d’Azure Ale
 
     ![Configurer une logique de signal pour une métrique multidimensionnelle](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertes de journal* : assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics*/*Application Insights*. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics*/*Application Insights*.
+8. *Alertes de journal* : assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics* ou *Application Insights*. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics* ou *Application Insights*.
 
    ![Sélectionner une ressource : recherche de journal personnalisée](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > L’**Aperçu des alertes** répertorie les recherches de journal enregistrées en tant que type de signal - Journal (requête enregistrée), quand la ressource choisie est Log Analytics.
-   Vous pouvez perfectionner votre requête dans Log Analytique et les enregistrer en vue d’un usage futur. Pour plus d’informations, voir [Utilisation d’une recherche de journal dans Log Analytics](../log-analytics/log-analytics-log-searches.md). Vous pouvez ensuite créer des règles d’alerte basées directement sur ces requêtes, comme indiqué dans l’écran d’exemple suivant avec des recherches enregistrées :
-
-   ![Sélectionner une ressource : recherche de journal personnalisée](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Les listes Alerts (préversion) peuvent importer une requête analytique en tant que type de signal - **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent donc perfectionner votre requête dans Analytics et l’enregistrer pour l’utiliser ultérieurement dans Alerts. Pour en savoir plus sur l’enregistrement de requêtes, consultez la section relative à [l’utilisation des recherches de journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md) ou aux [requêtes partagées dans Application Insights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Alertes de journal* : une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche le message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
@@ -141,7 +138,7 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 
 2. Le **tableau de bord Alerts (préversion)** s’affiche. Il contient toutes les alertes Azure unifiées et rassemblées dans un ![tableau de bord d’alertes](./media/monitoring-overview-unified/alerts-preview-overview.png) unique.
 3. De gauche à droite, le tableau de bord affiche les éléments suivants (cliquez pour afficher la liste détaillée) :
-    - *Alertes déclenchées* : nombre d’alertes correspondant à la logique et déclenchées
+    - *Alertes déclenchées* : nombre d’alertes correspondant à la logique et déclenchées
     - *Nombre total de règles d’alerte* : nombre de règles d’alerte créées et, implicitement, nombre d’alertes actuellement activées
 4. La liste de toutes les alertes déclenchées est affichée : l’utilisateur peut cliquer pour voir les détails.
 5. Pour rechercher des alertes spécifiques, vous pouvez utiliser les options de liste déroulante (en haut) pour filtrer les *abonnements, groupes de ressources et/ou ressources*. Pour les alertes non résolues, utilisez l’option de *filtrage d’alerte* pour rechercher un mot clé en fonction *du nom, des critères d’alerte, du groupe de ressources et de la ressource cible*.

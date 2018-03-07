@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Pour créer le projet sans référentiel Git local, utilisez l’option `--no-source-control [-n]`.
+
+## <a name="register-extensions"></a>Inscrire des extensions
+
+Dans la version 2.x du runtime Azure Functions, vous devez inscrire explicitement les [extensions de liaison](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que vous utilisez dans votre application de fonction. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 
@@ -311,6 +319,10 @@ Par exemple, pour appeler une fonction déclenchée par HTTP et passer un corps 
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Consultation locale des fichiers journaux
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publication dans Azure
 

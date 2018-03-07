@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Didacticiel : Intégration d’Azure AD à Rollbar
 
@@ -32,7 +32,7 @@ L’intégration de Rollbar dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD à Rollbar, vous avez besoin des éléments suivants :
 
@@ -149,11 +149,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Cliquez sur **Enregistrer**.
 
-11. Après avoir cliqué sur le bouton Enregistrer, l’écran se présente comme suit. Procédez comme suit dans cette section :
+11. Après avoir cliqué sur le bouton Enregistrer, l’écran se présente comme suit :
     
     ![Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Pour exécuter l’étape suivante, vous devez d’abord vous ajouter vous-même comme utilisateur dans l’application Rollbar dans Azure.
+    a. Si vous voulez que tous les utilisateurs s’authentifient via Azure, cliquez sur **log in via your identity provider (Se connecter via votre fournisseur d’identité)** pour vous authentifier une nouvelle fois via Azure.  
 
-    a. Cochez la case **Demander la connexion via un fournisseur d’identité SAML**.
+    b.  Une fois que vous êtes revenu sur l’écran, sélectionnez la case à cocher **Demander la connexion via un fournisseur d’identité SAML**.
 
     b. Cliquez sur **Enregistrer**.
 

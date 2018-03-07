@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Réglage distribué d’hyperparamètres à l’aide d’Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ La recherche par grille à l’aide de la validation croisée peut être longue.
 * Une copie d’[Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée conformément au [guide de démarrage rapide d’installation et de création](./quickstart-installation.md) pour installer Workbench et créer des comptes.
 * Ce scénario part du principe que vous exécutez Azure ML Workbench sur Windows 10 ou MacOS avec le moteur Docker installé localement. 
 * Pour exécuter le scénario avec un conteneur Docker distant, configurez la machine virtuelle de science des données (DSVM) Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 28 Go de mémoire. Les instances D4 de machines virtuelles ont cette capacité. 
-* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster Azure HDInsight en suivant ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Nous vous recommandons d’avoir un cluster avec au moins :
-    - six nœuds de travail
+* Pour exécuter ce scénario avec un cluster Spark, provisionnez le cluster HDInsight Spark en suivant ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Nous vous recommandons d’utiliser un cluster avec la configuration suivante dans les nœuds d’en-tête et worker :
+    - quatre nœuds worker
     - huit cœurs
-    - 28 Go de mémoire dans les nœuds d’en-tête et de travail. Les instances D4 de machines virtuelles ont cette capacité.       
-    - Nous vous recommandons de modifier les paramètres suivants pour optimiser les performances du cluster :
-        - spark.executor.instances
-        - spark.executor.cores
-        - spark.executor.memory 
+    - 28 Go de mémoire  
+      
+  Les instances D4 de machines virtuelles ont cette capacité. 
 
-Vous pouvez suivre ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) et modifier les définitions dans la section « Valeurs Spark par défaut personnalisées ».
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Résolution des problèmes** : votre abonnement Azure peut avoir un quota défini quant au nombre de cœurs pouvant être utilisés. Le portail Azure ne permet pas de créer un cluster avec un nombre total de cœurs dépassant ce quota. Pour connaître ce quota, dans le portail Azure, accédez à la section des abonnements, cliquez sur l’abonnement utilisé pour déployer un cluster, puis cliquez sur **Utilisation+quotas**. Les quotas sont généralement définis par région Azure. Vous pouvez choisir de déployer le cluster Spark dans une région dans laquelle vous disposez de cœurs libres suffisants. 
 
 * Créez un compte de stockage Azure utilisé pour stocker le jeu de données. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage.
 
@@ -118,7 +113,7 @@ avec l’adresse IP, le nom d’utilisateur et le mot de passe de la machine vir
 
 Pour configurer l’environnement Spark, exécutez dans l’interface CLI
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 avec le nom, le nom d’utilisateur SSH et le mot de passe du cluster. La valeur par défaut du nom d’utilisateur SSH est `sshuser`, sauf si vous l’avez modifiée durant la configuration du cluster. Le nom du cluster est disponible dans la section Propriétés de la page de votre cluster sur le portail Azure :
 
@@ -126,14 +121,20 @@ avec le nom, le nom d’utilisateur SSH et le mot de passe du cluster. La valeur
 
 Nous utilisons le package spark-sklearn pour utiliser Spark comme environnement d’exécution pour le réglage distribué d’hyperparamètres. Nous avons modifié le fichier spark_dependencies.yml pour installer ce package quand l’environnement d’exécution Spark est utilisé :
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ dans la fenêtre de l’interface CLI.
 Étant donné que l’environnement local est trop petit pour le calcul de tous les ensembles de fonctionnalités, nous basculons vers une machine virtuelle de science des données avec une plus grande capacité de mémoire. L’exécution sur une machine virtuelle de science des données s’effectue dans le conteneur Docker managé par AML Workbench. Cette machine virtuelle de science des données nous permet de calculer toutes les fonctionnalités, d’effectuer l’apprentissage des modèles et de régler les hyperparamètres (voir la section suivante). Le fichier singleVM.py a un code de calcul de fonctionnalités et de modélisation complet. Dans la section suivante, nous expliquerons comment exécuter singleVM.py sur une machine virtuelle de science des données distante. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Réglage d’hyperparamètres avec une machine virtuelle de science des données
-Nous utilisons l’implémentation [xgboost](https://anaconda.org/conda-forge/xgboost) [1] de boosting d’arbres de décision. Nous utilisons le package [scikit-learn](http://scikit-learn.org/) pour régler les hyperparamètres de xgboost. Bien que xgboost ne fasse pas partie du package scikit-learn, il implémente l’API scikit-learn et peut donc être utilisé conjointement avec les fonctions de réglage d’hyperparamètres de scikit-learn. 
+Nous utilisons l’implémentation [xgboost](https://anaconda.org/conda-forge/xgboost) [1] de boosting d’arbres de décision. Nous utilisons aussi le package [scikit-learn](http://scikit-learn.org/) pour régler les hyperparamètres de xgboost. Bien que xgboost ne fasse pas partie du package scikit-learn, il implémente l’API scikit-learn et peut donc être utilisé conjointement avec les fonctions de réglage d’hyperparamètres de scikit-learn. 
 
-Xgboost a huit hyperparamètres :
+Xgboost possède huit hyperparamètres, décrits [ici](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md) :
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost a huit hyperparamètres :
 * learning_rate
 * colsample\_by_level
 * subsample
-* Vous trouverez une description de ces hyperparamètres à l’adresse
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* objective  
+ 
 Nous commençons par utiliser une machine virtuelle de science des données et régler les hyperparamètres à partir d’une petite grille de valeurs candidates :
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Cette grille contient quatre combinaisons de valeurs d’hyperparamètres. Nous utilisons une validation croisée à 5 plis, ce qui donne lieu à 4 x 5 = 20 exécutions de xgboost. Pour mesurer les performances des modèles, nous utilisons l’indicateur de performances de perte logarithmique négative. Le code suivant recherche dans la grille les valeurs d’hyperparamètres qui optimisent la perte logarithmique négative de validation croisée. Le code utilise également ces valeurs pour effectuer l’apprentissage du modèle final sur le jeu d’apprentissage complet :
+Cette grille contient quatre combinaisons de valeurs d’hyperparamètres. Nous utilisons une validation croisée à 5 plis, ce qui donne lieu à 4 x 5 = 20 exécutions de xgboost. Pour mesurer les performances des modèles, nous utilisons l’indicateur de performances de perte logarithmique négative. Le code suivant recherche dans la grille les valeurs d’hyperparamètres qui optimisent la perte logarithmique négative de validation croisée. Le code utilise également ces valeurs pour effectuer l’apprentissage du modèle final sur le jeu d’apprentissage complet :
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Nous utilisons un cluster Spark pour monter en puissance parallèle le réglage 
 
 Cette grille contient 16 combinaisons de valeurs d’hyperparamètres. Étant donné que nous utilisons une validation croisée à 5 plis, nous exécutons xgboost 16 x 5 = 80 fois.
 
-Le package scikit-learn n’offre pas de prise en charge native du réglage d’hyperparamètres avec un cluster Spark. Heureusement, le package [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) de Databricks comble cette lacune. Ce package fournit la fonction GridSearchCV qui a pratiquement la même API que la fonction GridSearchCV dans scikit-learn. Pour utiliser spark-sklearn et procéder au réglage d’hyperparamètres avec Spark, nous devons nous connecter pour créer le contexte Spark
+Le package scikit-learn n’offre pas de prise en charge native du réglage d’hyperparamètres avec un cluster Spark. Heureusement, le package [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) de Databricks comble cette lacune. Ce package fournit la fonction GridSearchCV qui a pratiquement la même API que la fonction GridSearchCV dans scikit-learn. Pour utiliser spark-sklearn et procéder au réglage d’hyperparamètres avec Spark, nous devons créer un contexte Spark :
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Hadoop Windows dans HDInsight à l'aide du portail Azure
 
@@ -294,7 +294,7 @@ La console de la requête HDInsight inclut les fonctionnalités suivantes :
     ![Interface utilisateur YARN du portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Exécuter des requêtes Hive
-Pour exécuter des tâches Hive à partir du portail, cliquez sur **Éditeur Hive** dans la console de requête HDInsight. Voir [Ouvrir la console de requête HDInsight](#open-hdinsight-query-console).
+Pour exécuter des travaux Hive à partir du portail, cliquez sur **Éditeur Hive** dans la console de requête HDInsight. Voir [Ouvrir la console de requête HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 Pour surveiller les tâches à partir du portail, cliquez sur **Historique des tâches** dans la console de requête HDInsight. Voir [Ouvrir la console de requête HDInsight](#open-hdinsight-query-console).
@@ -356,7 +356,7 @@ Pour vous connecter au cluster à l’aide du Bureau à distance et utiliser la 
 
     Pour plus d’informations sur les commandes Hadoop, consultez la rubrique [Référence aux commandes Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Sur la capture d’écran précédente, le numéro de la version d’Hadoop est intégré au nom du dossier. Il peut être modifié en fonction de la version des composants Hadoop installés sur le cluster. Vous pouvez utiliser des variables d'environnement Hadoop pour faire référence à ces dossiers. Par exemple : 
+Sur la capture d’écran précédente, le numéro de la version d’Hadoop est intégré au nom du dossier. Il peut changer en fonction de la version des composants Hadoop installés sur le cluster. Vous pouvez utiliser des variables d'environnement Hadoop pour faire référence à ces dossiers. Par exemple : 
 
     cd %hadoop_home%
     cd %hive_home%

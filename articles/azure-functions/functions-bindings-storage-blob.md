@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+La chaîne `{name}` dans le chemin d’accès du déclencheur d’objet blob `samples-workitems/{name}` crée une [expression de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) que vous pouvez utiliser dans le code de fonction pour accéder au nom de fichier de l’objet blob déclencheur. Pour plus d’informations, consultez la section [Modèles de nom d’objet blob](#trigger---blob-name-patterns) dans la suite de cet article.
+
 Pour plus d’informations sur l’attribut `BlobTrigger`, consultez [Déclencheur - attributs](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
@@ -79,14 +81,16 @@ Voici les données de liaison dans le fichier *function.json* :
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-La section [configuration](#trigger---configuration) décrit ces propriétés.
+La chaîne `{name}` dans le chemin d’accès du déclencheur d’objet blob `samples-workitems/{name}` crée une [expression de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) que vous pouvez utiliser dans le code de fonction pour accéder au nom de fichier de l’objet blob déclencheur. Pour plus d’informations, consultez la section [Modèles de nom d’objet blob](#trigger---blob-name-patterns) dans la suite de cet article.
+
+Pour plus d’informations sur les propriétés du fichier *function.json*, consultez la section [Configuration](#trigger---configuration) qui décrit ces propriétés.
 
 Voici le code Script C# qui lie à `Stream` :
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
 
-L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et dans un [code JavaScript] (functions-reference-node.md) qui utilise la liaison. La fonction écrit un journal lorsqu’un objet blob est ajouté ou mis à jour dans le conteneur `samples-workitems`.
+L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et un [code JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit un journal lorsqu’un objet blob est ajouté ou mis à jour dans le conteneur `samples-workitems`.
 
 Voici le fichier *function.json* :
 
@@ -124,14 +128,16 @@ Voici le fichier *function.json* :
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-La section [configuration](#trigger---configuration) décrit ces propriétés.
+La chaîne `{name}` dans le chemin d’accès du déclencheur d’objet blob `samples-workitems/{name}` crée une [expression de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) que vous pouvez utiliser dans le code de fonction pour accéder au nom de fichier de l’objet blob déclencheur. Pour plus d’informations, consultez la section [Modèles de nom d’objet blob](#trigger---blob-name-patterns) dans la suite de cet article.
+
+Pour plus d’informations sur les propriétés du fichier *function.json*, consultez la section [Configuration](#trigger---configuration) qui décrit ces propriétés.
 
 Voici le code JavaScript :
 
@@ -214,12 +220,13 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
-Dans C# et Script C#, accédez aux données d’objets blob en utilisant un paramètre de méthode comme `T paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
+En langage C# et dans un script C#, vous pouvez utiliser les types de paramètres suivants pour l’objet blob déclencheur :
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* Un objet POCO sérialisable au format JSON
 * `ICloudBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
 * `CloudBlockBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
 * `CloudPageBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
@@ -227,9 +234,9 @@ Dans C# et Script C#, accédez aux données d’objets blob en utilisant un para
 
 Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
 
-Si des objets blob de texte sont attendus, vous pouvez lier au type `string`. Ceci est recommandé uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus loin dans cet article.
+La liaison avec `string`, `Byte[]` ou POCO est recommandée uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus loin dans cet article.
 
-Dans JavaScript, accédez aux données de l’objet blob d’entrée en utilisant `context.bindings.<name>`.
+Dans JavaScript, accédez aux données de l’objet blob d’entrée en utilisant `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Déclencheur - modèles de nom d’objet blob
 
@@ -276,13 +283,28 @@ Si l’objet blob est nommé *{20140101}-soundfile.mp3*, la valeur de la variabl
 
 Le déclencheur d’objet blob fournit plusieurs propriétés de métadonnées. Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ces valeurs ont la même sémantique que le type [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-
 |Propriété  |type  |DESCRIPTION  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Chemin de l’objet blob déclencheur.|
 |`Uri`|`System.Uri`|URI de l’objet blob pour l’emplacement principal.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Propriétés système de l’objet blob. |
 |`Metadata` |`IDictionary<string,string>`|Métadonnées définies par l’utilisateur pour l’objet blob.|
+
+Par exemple, les exemples JavaScript et Script C# suivants enregistrent le chemin d’accès à l’objet blob déclencheur, notamment le conteneur :
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Déclencheur - reçus d’objet blob
 
@@ -316,9 +338,9 @@ Le déclencheur de blob utilise une file d’attente en interne. Le nombre maxim
 
 [Le plan de consommation](functions-scale.md#how-the-consumption-plan-works) limite une application de fonction sur une machine virtuelle (VM) à 1,5 Go de mémoire. La mémoire est utilisée par chaque instance de la fonction qui s’exécutent simultanément et par le runtime de fonctions lui-même. Si une fonction déclenchée par blob charge le blob entier en mémoire, la mémoire maximale utilisée par cette fonction uniquement pour les blobs est 24 fois la taille maximale du blob. Par exemple, une application de fonction avec trois fonctions déclenchées par blob et les paramètres par défaut aurait une concurrence par machine virtuelle maximale de 3 fois 24 = 72 appels de fonction.
 
-Les fonctions JavaScript chargent le blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string`.
+Les fonctions JavaScript chargent le blob entier en mémoire et les fonctions C# le font si vous faites la liaison avec `string`, `Byte[]` ou POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Déclencheur - interrogation pour les grands conteneurs
+## <a name="trigger---polling"></a>Déclencheur : interrogation
 
 Si le conteneur d’objets blob surveillé contient plus de 10 000 objets blob, le runtime Functions recherche les objets blob nouveaux ou modifiés dans les fichiers journaux. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, les [journaux de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux peuvent être omis. Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -498,12 +520,12 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="input---usage"></a>Entrée - utilisation
 
-Dans les bibliothèques de classes et le script C#, accédez à l’objet blob à l’aide d’un paramètre de méthode du type `Stream paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
+En langage C# et dans un script C#, vous pouvez utiliser les types de paramètres suivants pour la liaison d’entrée d’objet blob :
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
@@ -513,9 +535,9 @@ Dans les bibliothèques de classes et le script C#, accédez à l’objet blob �
 
 Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
 
-Si vous lisez des objets blob de texte, vous pouvez lier à un type `string`. Ce type est recommandé uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`.
+La liaison à `string` ou `Byte[]` est recommandée uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus haut dans cet article.
 
-Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.bindings.<name>`.
+Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Sortie
 
@@ -709,7 +731,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-Dans les bibliothèques de classes et le script C#, accédez à l’objet blob à l’aide d’un paramètre de méthode du type `Stream paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
+En langage C# et dans un script C#, vous pouvez utiliser les types de paramètres suivants pour la liaison de sortie d’objet blob :
 
 * `TextWriter`
 * `out string`
@@ -725,9 +747,12 @@ Dans les bibliothèques de classes et le script C#, accédez à l’objet blob �
 
 Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
 
-Si vous lisez des objets blob de texte, vous pouvez lier à un type `string`. Ce type est recommandé uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`.
+Dans les fonctions asynchrones, utilisez la valeur de retour ou `IAsyncCollector` au lieu d’un paramètre `out`.
 
-Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.bindings.<name>`.
+La liaison à `string` ou `Byte[]` est recommandée uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus haut dans cet article.
+
+
+Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 

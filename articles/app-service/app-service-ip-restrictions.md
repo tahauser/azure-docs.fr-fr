@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 22e05af889b4e792dcc6f6fc438e8a58674b9f0e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrictions d’adresse IP statique avec Azure App Service #
 
@@ -26,7 +26,7 @@ Les restrictions d’adresse IP permettent de définir une liste d’adresses IP
 
 Quand une demande à destination de l’application est générée à partir d’un client, l’adresse IP est recherchée dans la liste d’autorisation. Si l’adresse IP ne figure pas dans la liste, l’application renvoie un code d’état [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 
-Les restrictions IP sont définies dans le fichier web.config que votre application consomme lors de l’exécution. Dans certaines circonstances, un module peut être exécuté avant la logique de restrictions IP dans le pipeline HTTP. Dans ce cas, la requête échoue avec un autre code d’erreur HTTP.
+Les restrictions d’adresse IP sont définies dans le fichier web.config que votre application consomme au moment de l’exécution (plus précisément, les restrictions sont insérées dans un ensemble d’adresses IP autorisées dans le fichier applicationHost.config, donc si vous ajoutez aussi un ensemble d’adresses IP autorisées dans le fichier web.config, celles-ci ont prioritaires). Dans certaines circonstances, un module peut être exécuté avant la logique de restrictions IP dans le pipeline HTTP. Dans ce cas, la requête échoue avec un autre code d’erreur HTTP.
 
 Les restrictions d’adresse IP sont évaluées sur les mêmes instances de plan App Service que celles assignées à votre application.
 

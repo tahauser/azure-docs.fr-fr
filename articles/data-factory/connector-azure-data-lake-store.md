@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d4f5123ff47bbe1e4d88acdaef004dcecd2f3512
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Lake Store à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,6 +37,9 @@ Plus précisément, ce connecteur Azure Data Lake Store prend en charge ce qui s
 - Copie de fichiers à l’aide de l’authentification de **principal du service** ou de l’authentification **MSI (Managed Service Identity)**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
+> [!IMPORTANT]
+> Si vous copiez des données à l’aide du runtime d’intégration auto-hébergé, configurez le pare-feu d’entreprise pour autoriser le trafic sortant vers `<ADLS account name>.azuredatalakestore.net` et `login.microsoftonline.com/<tenant>/oauth2/token` sur le port 443. Ce dernier est le service d’émission de jeton de sécurité (STS) Azure avec lequel le runtime d’intégration doit communiquer pour obtenir le jeton d’accès.
+
 ## <a name="get-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -51,7 +54,6 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur : **AzureDataLakeStore**. | OUI |
 | dataLakeStoreUri | Informations à propos du compte Azure Data Lake Store. Cette information prend un des formats suivants : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | OUI |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI |
 | subscriptionId | ID d’abonnement Azure auquel appartient le compte Data Lake Store. | Requis pour le récepteur |
 | nom_groupe_ressources | Nom du groupe de ressources Azure auquel appartient le compte Data Lake Store. | Requis pour le récepteur |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
@@ -80,6 +82,7 @@ Les propriétés prises en charge sont les suivantes :
 |:--- |:--- |:--- |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI |
 
 **Exemple :**
 
@@ -132,7 +135,6 @@ Dans Azure Data Factory, il n’est pas nécessaire de spécifier de propriété
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"
         },

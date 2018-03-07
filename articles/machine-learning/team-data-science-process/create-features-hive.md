@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -31,7 +31,7 @@ Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de don
 
 Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -93,14 +93,14 @@ Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Cette requête Hive suppose que le champ *&#60;datetime>* est au format d’horodatage par défaut.
+Cette requête Hive suppose que *<datetime field>* est au format d’horodatage par défaut.
 
 Si un champ d’horodatage n’est pas au format par défaut, il faut d’abord le convertir en horodatage Unix puis en chaîne d’horodatage au format par défaut. Une fois l’horodatage au format par défaut, les utilisateurs peuvent appliquer les FDU d’horodatage intégrées pour extraire des fonctionnalités.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Dans cette requête, si le *&#60;champ DateHeure>* suit le modèle *03/26/2015 12:04:39*, le *’&#60;modèle du champ DateHeure>’* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
+Dans cette requête, si *<datetime field>* suit le modèle *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* doit être `'MM/dd/yyyy HH:mm:ss'`. Pour le tester, les utilisateurs peuvent exécuter :
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -143,7 +143,7 @@ La liste complète des FDU Hive intégrées est disponible dans la section **Fon
 ## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 
-1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple :
+1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple : 
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;

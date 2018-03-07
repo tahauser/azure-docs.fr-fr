@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copier des données de Hive à l’aide d’Azure Data Factory 
 
@@ -48,7 +48,7 @@ Les propriétés prises en charge pour le service lié Hive sont les suivantes :
 | host | Adresse IP ou nom d’hôte du serveur Hive, séparé par « ; » pour plusieurs hôtes (uniquement quand serviceDiscoveryMode est activé).  | OUI |
 | port | Port TCP utilisé par le serveur Hive pour écouter les connexions clientes.  | Non  |
 | serverType | Type du serveur Hive. <br/>Valeurs autorisées : **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Non  |
-| thriftTransportProtocol | Protocole de transport à utiliser dans la couche Thrift. <br/>Valeurs autorisées : **Binary**, **SASL**, **HTTP ** | Non  |
+| thriftTransportProtocol | Protocole de transport à utiliser dans la couche Thrift. <br/>Valeurs autorisées : **Binary**, **SASL**, **HTTP** | Non  |
 | authenticationType | Méthode d’authentification utilisée pour accéder au serveur Hive. <br/>Valeurs autorisées : **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | OUI |
 | serviceDiscoveryMode | Valeur true pour indiquer l’utilisation du service ZooKeeper, valeur false dans le cas contraire.  | Non  |
 | zooKeeperNameSpace | Espace de noms sur ZooKeeper sous lequel les 2 nœuds du serveur Hive sont ajoutés.  | Non  |

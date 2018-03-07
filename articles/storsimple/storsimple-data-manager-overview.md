@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Microsoft Azure StorSimple utilise le stockage cloud pour étendre la solution locale, et hiérarchise automatiquement les données sur le stockage local et le cloud. Les données sont stockées dans le cloud dans un format dédupliqué et compressé, de façon à maximiser l’efficacité et à réduire les coûts. Étant au format StorSimple, elles ne sont pas directement utilisables par d’autres applications cloud.
 
@@ -56,9 +56,9 @@ StorSimple Data Manager est disponible dans les sept régions suivantes :
 
 Toutefois, StorSimple Data Manager peut permettre de transformer les données dans les régions suivantes : 
 
-![Régions disponibles pour les données](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Régions disponibles pour les données](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-La seconde liste est plus longue, car le déploiement de ressources dans l’une des régions de la première est capable d’élargir le processus de transformation aux régions de la seconde. Par conséquent, tant que vos données se trouvent dans l’une des 26 régions, vous pouvez les transformer à l’aide de ce service.
+La seconde liste est plus longue, car le déploiement de ressources dans l’une des régions de la première est capable d’élargir le processus de transformation aux régions de la seconde. Par conséquent, tant que vos données se trouvent dans l’une des 19 régions, vous pouvez les transformer à l’aide de ce service.
 
 
 ## <a name="choosing-a-region"></a>Choisir une région

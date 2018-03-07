@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 Désormais disponible : [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB. Pour en savoir plus, consultez [Estimation des besoins de débit](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Azure Cosmos DB étant une base de données multimodèle, il est important de no
 ## <a name="request-units-and-request-charges"></a>Unités de requête et frais de requête
 Azure Cosmos DB offre des performances élevées et prévisibles en *réservant* des ressources pour répondre aux besoins de débit de votre application.  Étant donné que les schémas d’accès et de charge des applications changent au fil du temps, Azure Cosmos DB vous permet de facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.
 
-Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application.  Chaque opération dans Azure Cosmos DB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. L’Explorateur de requêtes est également un outil merveilleux pour tester le cœur d’une requête.
+Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit : vous *réservez* une quantité d’unités de requête garantie accessible par seconde à votre application.  Chaque opération dans Azure Cosmos DB (écriture d’un document, exécution d’une requête, mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde.  Autrement dit, chaque opération entraîne des *frais de requête*, exprimés en *unités de requête*.  Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. L’Explorateur de données dans le portail Azure est également un outil merveilleux pour tester le cœur d’une requête.
 
 Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique les unités de requête et les performances prévisibles avec Azure Cosmos DB.
 
@@ -190,9 +190,7 @@ L’utilisation de l’outil est simple :
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Utiliser l’en-tête de réponse de frais de requête Azure Cosmos DB
-Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour la requête. L’en-tête est également accessible via les kits SDK Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.  Pour les requêtes, l’Explorateur de requêtes Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
-
-![Examen des frais d’unités de requête dans l’Explorateur de requête][1]
+Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour la requête. L’en-tête est également accessible via les kits SDK Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.  Pour les requêtes, l’Explorateur de données Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
 
 Ainsi, une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application, puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde.  Veillez à mesurer et à inclure également les requêtes courantes et l’utilisation des scripts Azure Cosmos DB.
 
@@ -346,19 +344,18 @@ Si vous utilisez des requêtes LINQ et le SDK .NET Client, la plupart du temps v
 Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de requêtes, le comportement par défaut peut ne pas suffire, et le client générera dans l’application une exception DocumentClientException avec le code d’état 429. Dans ce cas, vous pourriez traiter le comportement et la logique de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou accroître le débit réservé pour le conteneur.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API pour MongoDB
-Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le backend interrompt la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
+Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur le débit réservé avec les bases de données Azure Cosmos DB, explorez ces ressources :
 
-* [Tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
+* [Tarification de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Partitionnement, clés de partition et mise à l’échelle dans Azure Cosmos DB](partition-data.md)
 
 Pour en savoir plus sur Azure Cosmos DB, consultez la [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) relative à Azure Cosmos DB. 
 
 Pour commencer avec le test des performances et de la mise à l’échelle avec Azure Cosmos DB, consultez [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

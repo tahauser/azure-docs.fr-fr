@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dd3e5904ee21ee74da5adaa65abd7865a82c8b36
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Exécution des tâches MapReduce avec Hadoop sur HDInsight avec REST
 
@@ -33,23 +33,46 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
 ## <a id="prereq"></a>Configuration requise
 
 * Un cluster Hadoop sur HDInsight
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell ou [Curl](http://curl.haxx.se/) et [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Exécution de tâches MapReduce à l'aide de Curl
+## <a id="curl"></a>Exécuter une tâche MapReduce
 
 > [!NOTE]
 > Lorsque vous utilisez Curl ou toute autre communication REST avec WebHCat, vous devez authentifier les requêtes en fournissant le nom d’utilisateur et le mot de passe d’administrateur de cluster HDInsight. Vous devez utiliser le nom du cluster dans l’URI utilisé pour envoyer les requêtes au serveur.
 >
-> Pour les commandes de cette section, remplacez **admin** par l’utilisateur pour l’authentification auprès du cluster. Remplacez **CLUSTERNAME** par le nom de votre cluster. Lorsque vous y êtes invité, indiquez le mot de passe du compte de l’utilisateur.
->
 > L’API REST est sécurisée à l’aide de l’ [authentification d’accès de base](http://en.wikipedia.org/wiki/Basic_access_authentication). Vous devez toujours effectuer les requêtes à l’aide de HTTPS pour vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur.
 
-
-1. À partir d’une ligne de commande, exécutez la commande suivante pour vérifier que vous pouvez vous connecter à votre cluster HDInsight.
+1. Pour définir la connexion de cluster qui est utilisée par les scripts de ce document, utilisez l’une des commandes suivantes :
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. Pour définir le nom du cluster, utilisez l’une des commandes suivantes :
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. À partir d’une ligne de commande, exécutez la commande suivante pour vérifier que vous pouvez vous connecter à votre cluster HDInsight.
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
+        -Credential $creds `
+        -UseBasicParsing
+    $resp.Content
     ```
 
     La réponse reçue est similaire au JSON suivant :
@@ -63,10 +86,28 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
 
    Le début de l’URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes.
 
-2. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
+4. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
 
     ```bash
-    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
+    echo $JOBID
+    ```
+
+    ```powershell
+    $reqParams = @{}
+    $reqParams."user.name" = "admin"
+    $reqParams.jar = "/example/jars/hadoop-mapreduce-examples.jar"
+    $reqParams.class = "wordcount"
+    $reqParams.arg = @()
+    $reqParams.arg += "/example/data/gutenberg/davinci.txt"
+    $reqparams.arg += "/example/data/output"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/mapreduce/jar" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     La fin de l’URI (/mapreduce/jar) indique à WebHCat que cette demande lance une tâche MapReduce à partir d’une classe dans un fichier jar. Les paramètres utilisés dans cette commande sont les suivants :
@@ -79,22 +120,32 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des tâches MapR
 
    Cette commande doit retourner un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche :
 
-       {"id":"job_1415651640909_0026"}
+       job_1415651640909_0026
 
-3. Pour vérifier le statut de la tâche, utilisez la commande suivante :
+5. Pour vérifier le statut de la tâche, utilisez la commande suivante :
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    Remplacez **JOBID** par la valeur retournée à l’étape précédente. Par exemple, si la valeur de retour était `{"id":"job_1415651640909_0026"}`, le JOBID sera `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     Si la tâche est terminée, l’état est `SUCCEEDED`.
 
    > [!NOTE]
    > Cette requête Curl renvoie un document JSON avec des informations sur la tâche. Jq est utilisé pour récupérer uniquement la valeur d’état.
 
-4. Lorsque l’état de la tâche passe à `SUCCEEDED`, vous pouvez récupérer les résultats depuis le Stockage Blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans cet exemple, l’emplacement est `/example/curl`. Cette adresse stocke le résultat de la tâche dans le stockage par défaut du cluster : `/example/curl`.
+6. Lorsque l’état de la tâche passe à `SUCCEEDED`, vous pouvez récupérer les résultats depuis le Stockage Blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans cet exemple, l’emplacement est `/example/curl`. Cette adresse stocke le résultat de la tâche dans le stockage par défaut du cluster : `/example/curl`.
 
 Vous pouvez répertorier et télécharger ces fichiers à l’aide de l’[interface Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Pour plus d’informations sur l’utilisation des objets blob à partir de l’interface CLI Azure, consultez le document [Utiliser Azure CLI 2.0 avec Stockage Azure](../../storage/common/storage-azure-cli.md#create-and-manage-blobs).
 

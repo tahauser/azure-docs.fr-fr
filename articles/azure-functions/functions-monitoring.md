@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 20b12da7dedb9c5ac76a09785b68fb384789c2d7
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -157,11 +157,11 @@ L’enregistreur d’événements d’Azure Functions inclut également un *nive
 |------------|---|
 |Trace       | 0 |
 |Déboguer       | 1 |
-|Informations | 2 |
+|Information | 2 |
 |Avertissement     | 3 |
-|Erreur       | 4 |
-|Critique    | 5 |
-|Aucune        | 6 |
+|Error       | 4 |
+|Critique    | 5. |
+|Aucun        | 6. |
 
 Le niveau de journal `None` est expliqué dans la section suivante. 
 
@@ -354,6 +354,7 @@ Voici un exemple de code C# qui utilise [l’API de télémétrie personnalisée
 using System;
 using System.Net;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.WebJobs;
 using System.Net.Http;
@@ -391,25 +392,45 @@ namespace functionapp0915
 
             // Set name to query string or body data
             name = name ?? data?.name;
-
-            telemetry.Context.Operation.Id = context.InvocationId.ToString();
-            telemetry.Context.Operation.Name = "cs-http";
-            if (!String.IsNullOrEmpty(name))
-            {
-                telemetry.Context.User.Id = name;
-            }
-            telemetry.TrackEvent("Function called");
-            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
-            telemetry.TrackDependency("Test Dependency", 
-                "swapi.co/api/planets/1/", 
-                start, DateTime.UtcNow - start, true);
-
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, userName);
+            telemetry.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, userName);
+            telemetry.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, userName);
+            telemetry.TrackDependency(dependency);
+            
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
                     "Please pass a name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
-    }
+        
+        // This correllates all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
 }
 ```
 
@@ -460,7 +481,7 @@ Le paramètre `tagOverrides` définit `operation_Id` sur l’identificateur d’
 
 ## <a name="known-issues"></a>Problèmes connus
 
-### <a name="dependencies"></a>Dépendances
+### <a name="dependencies"></a>Les dépendances
 
 Les dépendances de la fonction vis-à-vis d’autres services n’apparaissent pas automatiquement, mais vous pouvez écrire du code personnalisé pour les afficher. L’exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#custom-telemetry-in-c-functions) montre comment faire. L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui ressemble à ceci :
 
@@ -503,6 +524,10 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
 Pour plus d’informations, consultez [Diffusion en continu des journaux](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+
+### <a name="viewing-log-files-locally"></a>Consultation locale des fichiers journaux
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="next-steps"></a>étapes suivantes
 

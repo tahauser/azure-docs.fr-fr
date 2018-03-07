@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages
 
@@ -214,7 +214,7 @@ Actuellement, les comparaisons ne sont prises en charge qu’entre types primiti
 
 ## <a name="get-started-with-jobs-queries"></a>Bien démarrer avec les requêtes de travaux
 
-Les [travaux][lnk-jobs] constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque jumeau d’appareil contient les informations des travaux auxquels il participe dans un regroupement nommé **jobs**.
+Les [travaux][lnk-jobs] constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque jumeau d’appareil contient les informations des travaux auxquels il participe dans un regroupement nommé **travaux**.
 Sous forme logique,
 
 ```json
@@ -298,27 +298,27 @@ IoT Hub suppose la représentation JSON suivante d’en-têtes de message pour l
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Les propriétés système du message ont pour préfixe le symbole `'$'`.
-Les propriétés de l’utilisateur sont toujours accessibles par leur nom. Si un nom de propriété d’utilisateur coïncide avec une propriété système (telle que `$to`), la propriété de l’utilisateur est récupérée avec l’expression `$to`.
-Vous pouvez toujours accéder à la propriété système à l’aide de crochets `{}` : par exemple, vous pouvez utiliser l’expression `{$to}` pour accéder à la propriété système `to`. Les noms de propriétés entre crochets récupèrent toujours la propriété système correspondante.
+Les propriétés de l’utilisateur sont toujours accessibles par leur nom. Si un nom de propriété d’utilisateur coïncide avec une propriété système (telle que `$contentType`), la propriété de l’utilisateur est récupérée avec l’expression `$contentType`.
+Vous pouvez toujours accéder à la propriété système à l’aide de crochets `{}` : par exemple, vous pouvez utiliser l’expression `{$contentType}` pour accéder à la propriété système `contentType`. Les noms de propriétés entre crochets récupèrent toujours la propriété système correspondante.
 
 N’oubliez pas que les noms de propriété respectent la casse.
 
@@ -350,12 +350,58 @@ Reportez-vous à la section [Expression et conditions][lnk-query-expressions] po
 
 IoT Hub peut effectuer le routage en fonction du contenu du corps du message seulement si le corps du message se présente sous un format JSON adéquat encodé en UTF-8, UTF-16 ou UTF-32. Affectez `application/json` comme type de contenu du message. Définissez l’un des encodages UTF pris en charge dans les en-têtes de message comme encodage du contenu. Si l’un des en-têtes n’est pas spécifié, IoT Hub n’essaie d’évaluer aucune expression de requête impliquant le corps de message. Si votre message n’est pas un message JSON ou s’il ne spécifie pas le type de contenu et l’encodage du contenu, vous pouvez toujours utiliser le routage des messages pour acheminer le message en fonction des en-têtes de message.
 
+L’exemple suivant montre comment créer un message avec un corps JSON correctement formé et encodé :
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 Vous pouvez utiliser `$body` dans l’expression de requête pour acheminer le message. Vous pouvez utiliser une référence de corps simple, une référence de tableau de corps ou plusieurs références de corps dans l’expression de requête. Votre expression de requête peut également combiner une référence de corps avec une référence d’en-tête de message. Par exemple, toutes les expressions de requête suivantes sont valides :
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

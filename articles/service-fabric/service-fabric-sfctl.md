@@ -12,16 +12,16 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23adc7fa6ee53d1c5edd10b2772f8825dbcef2a8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 7c8563539ca8507f05fa99fdeffbf511b1540a6a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl"></a>sfctl 
-Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 6.0. Les commandes suivent le modèle nom-verbe. Pour plus d’informations, consultez les sous-groupes suivants.
+Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 6.1. Les commandes suivent le modèle nom-verbe. Pour plus d’informations, consultez les sous-groupes suivants.
 
 ## <a name="subgroups"></a>Sous-groupes
 |Sous-groupe|DESCRIPTION|
@@ -33,6 +33,7 @@ Commandes permettant de gérer les clusters et entités Service Fabric. Cette v
 | [is](service-fabric-sfctl-is.md)      | Interroge et envoie des commandes vers le service d’infrastructure.|
 | [node](service-fabric-sfctl-node.md)    | Permet de gérer les nœuds qui forment un cluster.|
 | [partition](service-fabric-sfctl-partition.md)  | Interroge et gère des partitions pour tout service.|
+| propriété  | Stocke et interroge des propriétés avec des noms Service Fabric.|
 | [rpm](service-fabric-sfctl-rpm.md)        | Interroge et envoie des commandes vers le service gestionnaire de réparation.|
 | [replica](service-fabric-sfctl-replica.md) | Permet de gérer les réplicas qui font partie des partitions de service.|
 | [service](service-fabric-sfctl-service.md) | Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.|

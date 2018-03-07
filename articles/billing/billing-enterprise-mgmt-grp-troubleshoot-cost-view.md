@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Résoudre les problèmes liés aux vues des coûts d’entreprise 
 
 Dans les inscriptions d’entreprise, plusieurs paramètres peuvent empêcher les utilisateurs au sein de l’inscription d’afficher les coûts.  Ces paramètres sont gérés par l’administrateur en charge de l’inscription, ou par le partenaire si l’inscription n’a pas été achetée directement auprès de Microsoft.  Cet article vous aide à comprendre quels sont les paramètres et dans quelle mesure ils impactent l’inscription. Ces paramètres sont indépendants des [rôles RBAC Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Cette fonctionnalité est disponible en préversion privée. [Inscrivez-vous ici](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) pour joindre votre inscription à la préversion.     
 
 ## <a name="enabling-access-to-costs"></a>Activation de l’accès aux coûts
 
@@ -47,4 +45,3 @@ L’affichage du message d’erreur « La ressource n'est pas disponible » quan
 
 Contactez l’administrateur de l’abonnement ou du groupe d’administration pour obtenir l’accès.  
 * Pour les abonnements, reportez-vous au document [Contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) afin de déterminer le rôle requis.
-* Pour les groupes d’administration, l’accès RBAC sera bientôt disponible. Contactez l’administrateur de votre portail d’entreprise pour obtenir un accès.   

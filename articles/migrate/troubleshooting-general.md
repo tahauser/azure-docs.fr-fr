@@ -4,13 +4,13 @@ description: "Fournit une vue d'ensemble des problèmes connus dans le service A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -31,7 +31,7 @@ Si vous utilisez un proxy de pare-feu basé sur une URL pour contrôler la conne
 
 **Le collecteur ne peut pas se connecter au projet à l'aide de l'ID du projet et de la clé copiée sur le portail.**
 
-Assurez-vous d'avoir copié et collé les bonnes informations. Pour résoudre ce problème, installez Microsoft Monitoring Agent (MMA) comme suit :
+Assurez-vous d'avoir copié et collé les bonnes informations. Pour résoudre les problèmes, installez Microsoft Monitoring Agent (MMA) et vérifiez si la MMA peut se connecter au projet de la manière suivante :
 
 1. Sur la machine virtuelle du collecteur, téléchargez [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Pour démarrer l’installation, double-cliquez sur le fichier téléchargé.
@@ -58,7 +58,7 @@ Oui, chaque clé de projet se termine par « == ». Le collecteur chiffre la c
 
 Cela peut se produire si le niveau de paramétrage des statistiques sur le serveur vCenter est inférieur à 3. Au niveau 3 ou supérieur, vCenter stocke l'historique des performances de la machine virtuelle pour le calcul, le stockage et le réseau. À un niveau inférieur à 3, vCenter ne stocke pas les données de stockage et de réseau, mais uniquement les données d'UC et de mémoire. Dans ce scénario, les données de performances s'affichent comme des zéros dans Azure Migrate, et Azure Migrate fournit une recommandation de taille pour les disques et les réseaux en fonction des métadonnées collectées sur les machines sur site.
 
-Pour activer la collecte des données de performances des disques et du réseau, définissez le niveau de paramétrage des statistiques sur 3. Puis attendez au moins une journée pour découvrir votre environnement et l'évaluer. 
+Pour activer la collecte des données de performances des disques et du réseau, définissez le niveau de paramétrage des statistiques sur 3. Puis, attendez au moins une journée pour découvrir votre environnement et l'évaluer. 
 
 **J'ai installé des agents et utilisé la visualisation de dépendance pour créer des groupes. Maintenant, après le basculement, les machines affichent l'action « Installer l'agent » au lieu de « Afficher les dépendances ».**
 * Après un basculement planifié ou non planifié, les machines sur site sont désactivées et les machines équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente. Elles peuvent acquérir une adresse IP différente selon que l'utilisateur a choisi de conserver ou non l'adresse IP sur site. Si les adresses MAC et IP diffèrent, Azure Migrate n'associe pas les machines sur site avec les données de dépendance Service Map et demande à l'utilisateur d'installer des agents au lieu d'afficher les dépendances.
@@ -69,9 +69,9 @@ Pour activer la collecte des données de performances des disques et du réseau,
 
 **Problème** | **Correctif**
 --- | ---
-Type de démarrage non pris en charge | Sélectionnez BIOS avant d'exécuter une migration.
+Type de démarrage non pris en charge | Azure ne prend pas en charge les machines virtuelles associées au type de démarrage EFI. Il est recommandé de convertir le type de démarrage en BIOS avant d’exécuter une migration. <br/><br/>Vous pouvez utiliser [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) pour effectuer la migration de ces machines virtuelles, car il convertira leur type de démarrage en BIOS pendant la migration.
 Le nombre de disques dépasse la limite autorisée | Supprimez les disques non utilisés de la machine avant la migration.
-La taille du disque dépasse la limite autorisée | Réduisez la taille du disque à moins de 4 To avant la migration. 
+La taille du disque dépasse la limite autorisée | Azure prend en charge les disques dont la taille ne dépasse pas 4 To. Réduisez la taille du disque à moins de 4 To avant la migration. 
 Disque indisponible dans l'emplacement spécifié | Assurez-vous que le disque se trouve dans votre emplacement cible avant la migration.
 Disque indisponible pour la redondance spécifiée | Le disque doit utiliser le type de stockage de redondance défini dans les paramètres d'évaluation (LRS par défaut).
 Impossible de déterminer l'adéquation du disque en raison d'une erreur interne | Essayez de créer une nouvelle évaluation pour le groupe. 
@@ -83,12 +83,15 @@ Impossible de déterminer l'adéquation pour un ou plusieurs disques en raison d
 Impossible de déterminer l'adéquation pour un ou plusieurs adaptateurs réseau en raison d'une erreur interne | Essayez de créer une nouvelle évaluation pour le groupe.
 Nous n'avons pas trouvé de machine virtuelle correspondant au niveau de performance de stockage requis | Les performances de stockage (IOPS/débit) requises pour la machine dépassent la prise en charge des machines virtuelles Azure. Réduisez les besoins de stockage de la machine avant la migration.
 Nous n'avons pas trouvé de machine virtuelle correspondant au niveau de performance réseau requis | Les performances réseau (entrée/sortie) requises pour la machine dépassent la prise en charge des machines virtuelles Azure. Réduisez les exigences de mise en réseau de la machine. 
-Nous n'avons pas trouvé de machine virtuelle correspondant au niveau de tarification indiqué | Vérifiez les paramètres du niveau de tarification. 
+Nous n’avons pas trouvé de machine virtuelle dans le niveau de prix indiqué | Si le niveau de prix défini est Standard, envisagez de réduire la taille de la machine virtuelle avant la migration vers Azure. Si le niveau de dimensionnement est De base, envisagez de faire passer le niveau de prix de l’évaluation à Standard. 
 Nous n'avons pas trouvé de machine virtuelle dans l'emplacement spécifié | Utilisez un emplacement cible différent avant la migration.
-Problèmes de prise en charge du système d'exploitation Linux | Assurez-vous que vous exécutez la version 64 bits de ces [systèmes d'exploitation](../virtual-machines/linux/endorsed-distros.md) pris en charge.
-Problèmes de prise en charge du système d'exploitation Windows | Vérifiez que vous exécutez un système d’exploitation pris en charge. [En savoir plus](concepts-assessment-calculation.md#azure-suitability-analysis)
-Système d'exploitation inconnu. | Vérifiez que le système d'exploitation spécifié dans vCenter est correct et répétez le processus de découverte.
-Nécessite un abonnement Visual Studio. | Les systèmes d'exploitation clients Windows sont uniquement pris en charge par les abonnements Visual Studio (MSDN).
+Système d’exploitation inconnu | Le système d’exploitation spécifié de la machine virtuelle est « Autre » dans vCenter Server, ce qui explique pourquoi Azure Migrate ne peut pas déterminer si la machine virtuelle est prête pour Azure. Vérifiez que le système d’exploitation s’exécutant dans la machine est [pris en charge](https://aka.ms/azureoslist) par Azure avant de procéder à sa migration.
+Systèmes d’exploitation Windows pris en charge sous condition | Le système d’exploitation n’est plus pris en charge et a besoin d’un programme Custom Support Agreement (CSA) pour bénéficier d’une [prise en charge dans Azure](https://aka.ms/WSosstatement). Envisagez de mettre à niveau le système d’exploitation avant la migration vers Azure.
+Systèmes d’exploitation Windows non pris en charge | Azure ne prend en charge que [certaines versions du système d’exploitation Windows](https://aka.ms/WSosstatement). Envisagez de mettre à niveau le système d’exploitation de la machine avant la migration vers Azure. 
+Systèmes d’exploitation Linux approuvés sous condition | Azure n’approuve que [certaines versions du système d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). Envisagez de mettre à niveau le système d’exploitation de la machine avant la migration vers Azure.
+Systèmes d’exploitation Linux non approuvés | La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est assurée par Azure. Envisagez de mettre à niveau le système d’exploitation vers une [version approuvée de Linux](../virtual-machines/linux/endorsed-distros.md) avant la migration vers Azure.
+Nombre de bits du système d’exploitation non pris en charge | Les machines virtuelles dotées d’un système d’exploitation 32 bits peuvent démarrer dans Azure, mais il est recommandé de mettre à niveau le système d’exploitation de la machine virtuelle de 32 bits à 64 bits avant la migration vers Azure.
+Nécessite un abonnement Visual Studio. | Le système d’exploitation de client Windows qui s’exécute dans la machine n’est pris en charge que dans l’abonnement Visual Studio.
 
 
 ## <a name="collect-logs"></a>Collecter les journaux

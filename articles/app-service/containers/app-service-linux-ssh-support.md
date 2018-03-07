@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Prise en charge SSH pour Azure App Service sur Linux
 
@@ -29,7 +29,7 @@ App Service sur Linux assure la prise en charge SSH dans le conteneur d’applic
 
 ![Piles d’exécution](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Vous pouvez également utiliser SSH avec vos images Docker personnalisées en incluant le serveur SSH dans le cadre de l’image et en le configurant comme indiqué dans cette rubrique.
+Vous pouvez également utiliser SSH avec vos images Docker personnalisées en incluant le serveur SSH dans le cadre de l’image et en le configurant comme indiqué dans cet article.
 
 ## <a name="making-a-client-connection"></a>Établissement d’une connexion avec un client
 
@@ -49,7 +49,7 @@ Si vous n’êtes pas déjà authentifié, vous devez le faire à l’aide de vo
 
 Pour qu’une image Docker personnalisée prenne en charge la communication entre le conteneur et le client dans le portail Azure, procédez comme suit pour votre image Docker.
 
-Cette procédure est affichée dans le dépôt Azure App Service en tant [qu’exemple](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Cette procédure est affichée dans le référentiel Azure App Service en tant qu’[exemple](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Incluez l’installation `openssh-server` dans [l’instruction `RUN`](https://docs.docker.com/engine/reference/builder/#run) au sein du fichier Dockerfile de votre image et définissez le mot de passe du compte racine sur `"Docker!"`.
 
@@ -65,7 +65,7 @@ Cette procédure est affichée dans le dépôt Azure App Service en tant [qu’e
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Ajoutez une [instruction `COPY`](https://docs.docker.com/engine/reference/builder/#copy) au fichier Dockerfile pour copier un fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur notre fichier sshd_config dans le dépôt GitHub Azure-App-Service [ici](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Ajoutez une [instruction `COPY`](https://docs.docker.com/engine/reference/builder/#copy) au fichier Dockerfile pour copier un fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur le fichier sshd_config dans le référentiel GitHub Azure-App-Service [ici](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > Le fichier *sshd_config* doit inclure les éléments suivants pour éviter que la connexion échoue : 
@@ -82,28 +82,30 @@ Cette procédure est affichée dans le dépôt Azure App Service en tant [qu’e
     EXPOSE 2222 80
     ```
 
-1. Veillez à [démarrer le service ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) à l’aide d’un script d’interpréteur de commandes dans le répertoire */bin*.
+1. Veillez à démarrer le service SSH à l’aide d’un script shell (voir exemple dans [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Le fichier Dockerfile utilise le [l’instruction `CMD`](https://docs.docker.com/engine/reference/builder/#cmd) pour exécuter le script.
+Le fichier Dockerfile utilise le [l’instruction `ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint) pour exécuter le script.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour plus d’informations sur Web App pour conteneurs, consultez les liens suivants. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Vous pouvez poser des questions et signaler vos préoccupations sur le [forum Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Guide pratique pour utiliser une image Docker personnalisée pour Web App pour conteneurs](quickstart-custom-docker-image.md)
+Pour plus d’informations sur Web App pour conteneurs, consultez :
+
+* [Guide pratique pour utiliser une image Docker personnalisée pour Web App pour conteneurs](quickstart-docker-go.md)
 * [Utiliser .NET Core dans Azure App Service sur Linux](quickstart-dotnetcore.md)
 * [Utiliser Ruby dans Azure App Service sur Linux](quickstart-ruby.md)
-* [Forum aux questions sur Azure App Service Web App pour conteneurs](app-service-linux-faq.md)
+* [Forum aux questions sur Azure App Service Web App for Containers](app-service-linux-faq.md)

@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -127,6 +127,8 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 ## <a name="limitations"></a>Limites
 
 Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+
+- Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application web vers un serveur disposant de règles de pare-feu de réseau virtuel, vous devez **autoriser tous les services Azure** sur le serveur.
 
 - Dans le pare-feu pour votre base de données SQL Database, chaque règle de réseau virtuel fait référence à un sous-réseau. Tous ces sous-réseaux référencés doivent être hébergés dans la même région géographique qui héberge la base de données SQL Database.
 

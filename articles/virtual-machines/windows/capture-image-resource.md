@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -65,7 +65,7 @@ Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge p
 La création d’une image directement à partir de la machine virtuelle permet de s’assurer qu’elle comprend tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et tous les disques de données. Cet exemple montre comment créer une image gérée à partir d’une machine virtuelle qui utilise des disques gérés.
 
 
-Avant de commencer, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
+Avant de commencer, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer. (Utilisez `Get-Module` pour vérifier la version dont vous disposez.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
