@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Connexion à des sources de données locales à partir d’applications logiques avec la passerelle de données locale
 
@@ -75,7 +75,7 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez créer 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). Veillez à utiliser l’adresse e-mail professionnelle ou scolaire Azure que vous avez utilisée pour installer la passerelle.
 
-2. Dans le menu Azure principal, choisissez **Créer une ressource** > **Intégration Entreprise** > **Passerelle de données locale** :
+2. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration Entreprise** > **Passerelle de données locale**.
 
    ![Cherchez « Passerelle de données locale »](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -107,9 +107,10 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez créer 
 
     ![Fournir des détails pour créer votre passerelle de données locale](./media/logic-apps-gateway-connection/createblade.png)
 
-    Pour trouver ou afficher votre passerelle de données à tout moment, dans le menu Azure principal, accédez à **Autres services** > **Enterprise Integration** > **Passerelles de données locales**.
+    Pour rechercher ou consulter votre passerelle de données à tout moment, dans le menu principal Azure, choisissez **Tous les services**. 
+    Dans la zone de recherche, entrez « passerelles de données locales », puis choisissez **Passerelles de données locales**.
 
-    ![Accédez à « Autres services », « Enterprise Integration », « Passerelles de données locales »](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Recherche sur « Passerelle de données locale »](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

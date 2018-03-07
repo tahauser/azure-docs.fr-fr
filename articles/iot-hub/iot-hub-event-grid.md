@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions - Préversion
 
@@ -28,14 +28,7 @@ Azure IoT Hub s’intègre à Azure Event Grid pour vous permettre d’envoyer d
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-L’intégration d’Event Grid est en préversion publique. Elle est donc disponible dans un nombre limité de régions. L’intégration fonctionne pour les hubs IoT situés dans les régions suivantes :
-
-* Centre des États-Unis
-* Est des États-Unis
-* Est des États-Unis 2
-* Centre-Ouest des États-Unis
-* États-Unis de l’Ouest
-* Ouest des États-Unis 2
+L’intégration Event Grid est disponible pour les hubs IoT situés dans les régions où Event Grid est pris en charge. Pour consulter la dernière liste des régions, reportez-vous à [Présentation d’Azure Event Grid][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Types d’événements
 
@@ -125,7 +118,7 @@ Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiqu
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Suivre le didacticiel d’événements IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 * [En savoir plus sur Event Grid][lnk-eg-overview]

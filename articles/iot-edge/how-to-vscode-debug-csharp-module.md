@@ -9,16 +9,16 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Utiliser Visual Studio Code pour déboguer un module C# avec Azure IoT Edge
 Cet article fournit des instructions détaillées pour l’utilisation de [Visual Studio Code](https://code.visualstudio.com/) comme principal outil de développement pour déboguer vos modules Azure IoT Edge.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 Ces didacticiels partent du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows ou Linux comme machine de développement. Votre appareil IoT Edge peut être un autre appareil physique, ou vous pouvez simuler votre appareil IoT Edge sur votre machine de développement.
 
 Avant de commencer ce guide, effectuez le didacticiel suivant :
@@ -47,7 +47,7 @@ Avant de commencer ce guide, effectuez le didacticiel suivant :
 
 2. Dans `launch.json`, accédez à la section **Debug IoT Edge Custom Module (.NET Core)** (Déboguer le module personnalisé IoT Edge). Sous **pipeArgs**, renseignez `<container_name>`. Il doit s’agir de `filtermodule` dans ce didacticiel.
 
-    ![Capture d’écran de la fenêtre de débogage de Visual Studio Code](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Capture d’écran de VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Accédez à **Program.cs**. Ajoutez un point d’arrêt dans `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Appuyez à nouveau sur **F5** et sélectionnez le processus à attacher. Dans ce didacticiel, le nom du processus doit être `FilterModule.dll`.
@@ -59,7 +59,7 @@ Avant de commencer ce guide, effectuez le didacticiel suivant :
 > [!NOTE]
 > L’exemple précédent montre comment déboguer des modules .NET Core IoT Edge sur des conteneurs. Il repose sur la version de débogage de `Dockerfile.debug`, qui inclut VSDBG (le débogueur en ligne de commande .NET Core) dans votre image de conteneur lors de sa création. Une fois le débogage de vos modules C# terminé, nous vous recommandons d’utiliser ou de personnaliser directement `Dockerfile` sans VSDBG pour les modules IoT Edge prêts à l’emploi.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez créé un module IoT Edge et vous l’avez déployé pour le débogage. Vous avez commencé à le déboguer dans Visual Studio Code. Pour en savoir plus sur les autres scénarios quand vous développez Azure IoT Edge dans Visual Studio Code, consultez : 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
@@ -66,17 +66,17 @@ Vous pouvez filtrer les recommandations pour accéder aux informations qui vous 
 
     ![Critères de filtre de recherche d’Advisor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Répéter ou ignorer les recommandations d’Advisor
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Reporter ou ignorer les recommandations d’Advisor
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Accédez à la recommandation que vous souhaitez répéter ou ignorer.
+2. Accédez à la recommandation que vous souhaitez reporter ou ignorer.
 
 3. Cliquez sur la recommandation.
 
-4. Cliquez sur **Répéter**. 
+4. Cliquez sur **Reporter**. 
 
-5. Spécifiez une période de répétition ou sélectionnez **Jamais** pour faire disparaître la recommandation.
+5. Spécifiez une période de report ou sélectionnez **Jamais** pour faire disparaître la recommandation.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Exclure des abonnements ou des groupes de ressources d’Advisor
 

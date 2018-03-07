@@ -21,7 +21,7 @@ Si vous n’avez pas déjà ajouté votre application web en tant que point de t
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Cliquez sur **Valider** pour enregistrer la configuration du nom de domaine.
-6. Lorsque vous cliquez sur **Valider** , Azure lance le flux de travail de vérification du domaine. Ce processus vérifie la propriété du domaine ainsi que la disponibilité du nom du domaine, vous signale la réussite ou le détail de l’échec de l’opération et vous fournit des instructions de résolution des éventuelles erreurs.    
+6. Lorsque vous cliquez sur **Valider** , Azure lance le flux de travail de vérification du domaine. Ce processus vérifie la propriété du domaine ainsi que la disponibilité du nom du domaine, et signale la réussite de l’opération ou son échec, auquel cas des informations détaillées et des instructions de résolution de l’erreur en question sont fournies.    
 7. Lorsque la validation a été correctement effectuée, le bouton **Ajouter un nom d’hôte** est activé, et vous êtes alors en mesure d’attribuer un nom d’hôte. Entrez votre nom de domaine personnalisé dans un navigateur. Vous devriez voir votre application s’exécuter sous votre nom de domaine personnalisé. 
    
    Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **Noms de domaine** de votre application web.

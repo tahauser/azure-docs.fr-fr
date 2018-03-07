@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -145,15 +145,14 @@ Si la synchronisation échoue sur un serveur :
 <a id="replica-not-ready"></a>**La synchronisation échoue, avec cette erreur : « 0x80c8300f - Le réplica n’est pas prêt à effectuer l’opération requise »**  
 Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. En principe, la synchronisation démarre à la fin du travail de détection des modifications exécuté sur le partage de fichiers Azure (ce travail peut prendre jusqu’à 24 heures).
 
-<a id="broken-sync-files"></a>**Résoudre les problèmes de synchronisation de fichiers isolés**  
-Si la synchronisation de certains fichiers échoue :
-1. Dans l’observateur d’événements, examinez les journaux des événements opérationnels et de diagnostic, situés sous Applications et Services\Microsoft\FileSync\Agent.
-2. Vérifiez que les fichiers concernés ne contiennent pas de descripteurs ouverts.
 
     > [!NOTE]
-    > Azure File Sync capture régulièrement des instantanés VSS pour synchroniser les fichiers ayant des descripteurs ouverts.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Le déplacement de ressources vers un autre abonnement et le déplacement vers un autre locataire Azure AD ne sont actuellement pas pris en charge.  Si l’abonnement est déplacé vers un autre locataire, le partage de fichiers Azure devient inaccessible à notre service en raison du changement de propriété. Si le locataire est modifié, vous devez supprimer les points de terminaison de serveur et le point de terminaison cloud (consultez la section « Gestion du groupe de synchronisation » pour savoir comment nettoyer le partage de fichiers Azure en vue de sa réutilisation), puis recréer le groupe de synchronisation.
+
+<a id="doesnt-have-enough-free-space"></a>**Erreur « This PC doesn’t have enough free space » (Ce PC n’a pas assez d’espace libre)**  
+Si le portail affiche l’état « This PC doesn’t have enough free space » (Ce PC n’a pas suffisamment d’espace libre), le problème provient peut-être du fait qu’il reste moins de 1 Go d’espace libre sur le volume.  Par exemple, pour un volume de 1,5 Go, la synchronisation pourra seulement utiliser 0,5 Go. Si vous rencontrez ce problème, augmentez la taille du volume utilisé pour le point de terminaison du serveur.
 
 ## <a name="cloud-tiering"></a>Hiérarchisation cloud 
 Il existe deux chemins d’accès dédiés aux défaillances dans la hiérarchisation cloud :

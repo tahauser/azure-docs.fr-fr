@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Classes de ressources pour la gestion des charges de travail
 Conseils d’utilisation des classes de ressources pour gérer le nombre de requêtes concurrentes exécutées simultanément et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 La classe de ressources de l’administrateur de service est fixe et ne peut pas être modifiée.  L’administrateur de service est l’utilisateur créé pendant le processus d’approvisionnement.
+
+> [!NOTE]
+> Les utilisateurs ou groupes définis en tant qu’administrateur Active Directory sont également administrateurs de service.
+>
+>
 
 ### <a name="default-resource-class"></a>Classe de ressources par défaut
 Par défaut, chaque utilisateur appartient à la petite classe de ressources, **smallrc**. 
@@ -501,7 +506,7 @@ GO
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Pour plus d’informations sur la façon dont des classes de ressources plus élevées peuvent améliorer la qualité des index cluster columnstore, voir [Optimiser la qualité du rowgroup pour columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->

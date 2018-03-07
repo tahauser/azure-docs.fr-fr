@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Utiliser Draft avec Azure Container Service (AKS)
 
@@ -27,28 +27,7 @@ Les étapes détaillées dans ce document supposent que vous ayez créé un clus
 
 Vous avez également besoin d'un registre Docker privé dans Azure Container Registry (ACR). Pour obtenir des instructions sur le déploiement d’une instance ACR, consultez [Démarrage rapide d’Azure Container Registry][acr-quickstart].
 
-## <a name="install-helm"></a>Installer Helm
-
-L’interface CLI Helm est un client qui s’exécute sur votre système de développement et vous permet de démarrer, d’arrêter et de gérer des applications avec des graphiques Helm.
-
-Pour installer l’interface CLI Helm sur un Mac, utilisez `brew`. Pour connaître les autres options d’installation, consultez [Installation de Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Sortie :
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm doit également être installé dans votre cluster AKS. Pour plus d’informations sur l’installation de Helm, consultez [Use Helm with Azure Container Service and Kubernetes][aks-helm] (Utiliser Helm avec Azure Container Service et Kubernetes).
 
 ## <a name="install-draft"></a>Installer Draft
 
@@ -60,7 +39,7 @@ Pour installer l’interface CLI Draft sur un Mac, utilisez `brew`. Pour connaî
 brew install draft
 ```
 
-Sortie :
+Output:
 
 ```
 ==> Installing draft from azure/draft
@@ -129,7 +108,7 @@ Utilisez la commande `draft create` pour démarrer le processus. Cette commande 
 draft create
 ```
 
-Sortie :
+Output:
 
 ```
 --> Draft detected the primary language as Java with 92.205567% certainty.
@@ -142,7 +121,7 @@ Pour exécuter l’application sur un cluster Kubernetes, utilisez la commande `
 draft up
 ```
 
-Sortie :
+Output:
 
 ```
 Draft Up Started: 'open-jaguar'
@@ -162,7 +141,7 @@ Dans certains cas, le téléchargement de l’image de conteneur et le démarrag
 draft connect
 ```
 
-Sortie :
+Output:
 
 ```
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
@@ -239,7 +218,7 @@ Pour afficher l’application, accédez à l’adresse IP externe.
 curl 52.175.224.118
 ```
 
-Sortie :
+Output:
 
 ```
 Hello World, I'm Java
@@ -291,7 +270,7 @@ Enfin, affichez l’application pour voir les mises à jour.
 curl 52.175.224.118
 ```
 
-Sortie :
+Output:
 
 ```
 Hello World, I'm Java - Draft Rocks!
@@ -307,10 +286,10 @@ Pour plus d’informations sur l'utilisation de Draft, consultez la documentatio
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

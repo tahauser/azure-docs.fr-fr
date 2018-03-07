@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -43,7 +43,51 @@ Lorsque vous développez des fonctions à l’aide de Visual Studio pour créer 
 
 Pour plus d’informations sur les liaisons en préversion ou approuvées pour la production, consultez [Langages pris en charge](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Exemple : déclencheur de file d’attente et liaison de sortie de table
+## <a name="register-binding-extensions"></a>Inscrire des extensions de liaison
+
+Dans la version 2.x du runtime Azure Functions, vous devez inscrire explicitement les [extensions de liaison](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que vous utilisez dans votre application de fonction. 
+
+Les extensions sont fournies sous la forme de packages NuGet, où le nom du package commence généralement par [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La façon d’installer et d’inscrire des extensions de liaison dépend de la façon dont vous développez vos fonctions : 
+
++ [En local dans C# à l’aide de Visual Studio ou de VS Code](#precompiled-functions-c)
++ [En local avec Azure Functions Core Tools](#local-development-azure-functions-core-tools)
++ [Dans le portail Azure](#azure-portal-development) 
+
+Dans la version 2.x, il existe un ensemble de liaisons qui ne sont pas fournies en tant qu’extensions. Vous n’avez pas besoin d’enregistrer d’extensions pour les déclencheurs et les liaisons suivants : HTTP, minuteur et stockage Azure. 
+
+Pour plus d’informations sur la façon de configurer une application de fonction pour utiliser la version 2.x du runtime de Functions, consultez [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md). La version 2.x du runtime Fonctions est actuellement en préversion. 
+
+Les versions de package indiquées dans cette section sont fournies uniquement comme exemples. Consultez le [site NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) pour déterminer quelle version d’une extension donnée est requise par les autres dépendances dans votre application de fonction.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Développement C# en local avec Visual Studio ou VS Code 
+
+Lorsque vous utilisez Visual Studio ou Visual Studio Code pour développer localement des fonctions en C#, vous devez simplement ajouter le package NuGet pour l’extension. 
+
++ **Visual Studio** : utilisez les outils du gestionnaire de package NuGet. La commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) suivante permet d’installer l’extension Microsoft Azure Cosmos DB à partir de la console du Gestionnaire de package :
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code** : vous pouvez installer des packages à partir de l’invite de commandes à l’aide de la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans l’interface CLI .NET, comme suit :
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Azure Functions Core Tools pour le développement local
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Développement sur le portail Azure
+
+Lorsque vous créez une fonction ou lorsque vous ajoutez une liaison à une fonction existante, vous êtes averti quand l’extension pour le déclencheur ou la liaison en cours d’ajout nécessite une inscription.   
+
+Lorsqu’un avertissement s’affiche pour l’extension spécifique en cours d’installation, cliquez sur **Installer** pour inscrire l’extension. Vous n’avez besoin d’installer chaque extension qu’une seule fois pour une application de fonction donnée. 
+
+>[!Note] 
+>Le processus d’installation dans le portail peut prendre jusqu'à 10 minutes d’un plan de consommation.
+
+## <a name="example-trigger-and-binding"></a>Exemple de liaison et déclencheur
 
 Imaginons que vous souhaitiez écrire une nouvelle ligne dans Stockage Table Azure à chaque fois qu’un nouveau message s’affiche dans Stockage File d’attente Azure. Ce scénario peut être implémenté à l’aide d’un déclencheur Stockage de file d’attente Azure et d’une liaison de sortie Stockage Table. 
 
@@ -72,7 +116,7 @@ Voici un fichier *function.json* pour ce scénario.
 
 Le premier élément du tableau `bindings` est le déclencheur Stockage de file d’attente. Les propriétés `type` et `direction` identifient le déclencheur. La propriété `name` identifie le paramètre de fonction qui reçoit le contenu du message de la file d’attente. Le nom de la file d’attente à surveiller se trouve dans `queueName`, et la chaîne de connexion dans le paramètre d’application identifié par `connection`.
 
-Le deuxième élément du tableau `bindings` est la liaison de sortie de Stockage Table Azure. Les propriétés `type` et `direction` identifient la liaison. La propriété `name` spécifie de quelle façon la fonction fournira la nouvelle ligne de table, dans ce cas à l’aide de la valeur de retour de fonction. Le nom de la table se trouve dans `tableName`, et la chaîne de connexion dans le paramètre d’application identifié par `connection`.
+Le deuxième élément du tableau `bindings` est la liaison de sortie de Stockage Table Azure. Les propriétés `type` et `direction` identifient la liaison. La propriété `name` spécifie de quelle façon la fonction fournit la nouvelle ligne de table, dans ce cas à l’aide de la valeur de retour de fonction. Le nom de la table se trouve dans `tableName`, et la chaîne de connexion dans le paramètre d’application identifié par `connection`.
 
 Pour afficher et modifier le contenu de *function.json* dans le portail Azure, cliquez sur l’option **Éditeur avancé** dans l’onglet **Intégrer** de votre fonction.
 
@@ -124,7 +168,7 @@ function generateRandomId() {
 }
 ```
 
-Dans une bibliothèque de classes, les mêmes informations de déclencheur et de liaison &mdash; noms de file d’attente et de tables, comptes de stockage, paramètres de fonction pour l’entrée et la sortie &mdash; sont fournies par les attributs :
+Dans une bibliothèque de classes, les mêmes informations de déclencheur et de liaison &mdash; noms de file d’attente et de tables, comptes de stockage, paramètres de fonction pour l’entrée et la sortie &mdash; sont fournies par les attributs et non par un fichier .json. Voici un exemple :
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -162,12 +206,53 @@ Tous les déclencheurs et liaisons ont une propriété `direction` dans le fichi
 
 Lorsque vous utilisez des [attributs dans une bibliothèque de classes](functions-dotnet-class-library.md) pour configurer les déclencheurs et les liaisons, la direction est fournie dans un constructeur d’attribut ou déduite du type du paramètre.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Utilisation du type de retour de fonction pour retourner une seule sortie
+## <a name="using-the-function-return-value"></a>Utilisation de la valeur de retour de la fonction
 
-L’exemple précédent montre comment utiliser la valeur de retour de la fonction pour fournir la sortie à une liaison, ce qui est spécifié dans *function.json* à l’aide de la valeur spéciale `$return` pour la propriété `name`. (Cela n’est pris en charge que dans les langages qui ont une valeur de retour, tels que les scripts C#, JavaScript et F#.) Si une fonction comporte plusieurs liaisons de sortie, utilisez `$return` pour une seule des liaisons de sortie. 
+Dans les langages qui proposent une valeur de retour, vous pouvez lier une liaison de sortie à la valeur de retour :
+
+* Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
+* Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
+
+Si vous avez besoin d’écrire plusieurs éléments, utilisez un [objet collecteur](functions-reference-csharp.md#writing-multiple-output-values) au lieu de la valeur de retour. S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un seul d’entre eux.
+
+Consultez l’exemple propre à un langage particulier :
+
+* [C#](#c-example)
+* [Script C# (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>Exemple en code C#
+
+Voici du code C# qui utilise la valeur de retour pour une liaison de sortie, suivie d’un exemple asynchrone :
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Exemple de script C#
+
+Voici la liaison de sortie dans le fichier *function.json* :
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +261,9 @@ L’exemple précédent montre comment utiliser la valeur de retour de la foncti
 }
 ```
 
-Les exemples ci-dessous montrent comment les types de retour sont utilisés avec des liaisons de sortie dans un script C#, JavaScript et F#.
+Voici le code d’un script C#, suivi d’un exemple asynchrone :
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +273,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +281,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>Exemple F#
+
+Voici la liaison de sortie dans le fichier *function.json* :
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Voici le code F# :
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>Exemple JavaScript
+
+Voici la liaison de sortie dans le fichier *function.json* :
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Dans JavaScript, la valeur de retour apparaît dans le second paramètre pour `context.done` :
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>Liaison de propriété Datatype
@@ -232,13 +343,32 @@ Pour les langages dont le type est dynamique, tels que JavaScript, utilisez la p
 
 Les autres options pour `dataType` sont `stream` et `string`.
 
-## <a name="resolving-app-settings"></a>Résolution des paramètres de l’application
+## <a name="binding-expressions-and-patterns"></a>Modèles et expressions de liaison
 
-En tant que meilleure pratique, les chaînes de connexion et les secrets doivent être gérés avec des paramètres de l’application, plutôt qu’avec des fichiers de configuration. Cela limite l’accès à ces secrets et permet de stocker *function.json* en toute sécurité dans un référentiel de contrôle de code source public.
+Les *expressions de liaison* sont l’une des fonctionnalités les plus puissantes des déclencheurs et liaisons. Dans le fichier *function.json* ainsi que dans les paramètres et le code de la fonction, vous pouvez utiliser des expressions qui sont remplacées par des valeurs provenant de diverses sources.
+
+La plupart des expressions sont identifiées par les accolades qui les entourent. Par exemple, dans une fonction de déclencheur de file d’attente, `{queueTrigger}` correspond au texte du message de file d’attente. Si la propriété `path` pour une liaison de sortie d’objet blob est `container/{queueTrigger}` et que la fonction est déclenchée par un message de file d’attente `HelloWorld`, alors un objet blob nommé `HelloWorld` est créé.
+
+Types d’expressions de liaison
+
+* [Paramètres de l’application](#binding-expressions---app-settings)
+* [Nom du fichier de déclencheur](#binding-expressions---trigger-file-name)
+* [Métadonnées de déclencheur](#binding-expressions---trigger-metadata)
+* [Charges utiles JSON](#binding-expressions---json-payloads)
+* [Nouveau GUID](#binding-expressions---create-guids)
+* [Date et heure actuelles](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Expression de liaison - Paramètres d’application
+
+En tant que meilleure pratique, les chaînes de connexion et les secrets doivent être gérés avec des paramètres de l’application, plutôt qu’avec des fichiers de configuration. Cela limite l’accès à ces secrets et permet de stocker des fichiers tels que *function.json* en toute sécurité dans des référentiels de contrôle de code source public.
 
 Les paramètres de l’application sont également utiles lorsque vous souhaitez modifier la configuration en fonction de l’environnement. Par exemple, dans un environnement de test, vous pourriez vouloir surveiller une autre file d’attente ou un autre conteneur Stockage Blob.
 
-Les paramètres de l’application sont résolus à chaque fois qu’une valeur est placée entre des signes de pourcentage, comme `%MyAppSetting%`. Veuillez noter que la propriété `connection` des déclencheurs et liaisons est un cas spécial et résout automatiquement les valeurs en tant que paramètres de l’application. 
+Les expressions de liaison de paramètres d’application ne sont pas identifiées comme les autres expressions de liaison : elles sont entourées de signes de pourcentage et non d’accolades. Par exemple, si le chemin de liaison de sortie d’objet blob est `%Environment%/newblob.txt` et que la valeur du paramètre d’application `Environment` est `Development`, un objet blob sera créé dans le conteneur `Development`.
+
+Lorsqu’une fonction s’exécute localement, les valeurs des paramètres de l’application proviennent du fichier *local.settings.json*.
+
+Veuillez noter que la propriété `connection` des déclencheurs et liaisons est un cas spécial et résout automatiquement les valeurs en tant que paramètres de l’application, sans les signes de pourcentage. 
 
 L’exemple suivant est un déclencheur de stockage de file d’attente Azure qui utilise un paramètre d’application `%input-queue-name%` pour définir la file d’attente sur laquelle effectuer le déclenchement.
 
@@ -268,9 +398,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Propriétés de métadonnées de déclencheur
+### <a name="binding-expressions---trigger-file-name"></a>Expressions de liaison - Nom du fichier de déclencheur
 
-En plus de la charge utile de données fournie par un déclencheur (par exemple, le message de file d’attente qui a déclenché une fonction), plusieurs déclencheurs fournissent des valeurs de métadonnées supplémentaires. Ces valeurs peuvent être utilisées comme paramètres d’entrée dans C# et F# ou comme propriétés sur l’objet `context.bindings` dans JavaScript. 
+Le `path` pour un objet blob de déclencheur peut être un modèle qui vous permet de faire référence au nom de l’objet blob de déclenchement dans d’autres liaisons et codes de fonction. Le modèle peut également inclure des critères de filtre qui indiquent les objets blob qui peuvent déclencher un appel de fonction.
+
+Par exemple, dans la liaison de déclencheur d’objet blob suivante, le modèle `path` est `sample-images/{filename}`, ce qui crée une expression de liaison nommée `filename` :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+L’expression `filename` peut ensuite être utilisée dans une liaison de sortie pour spécifier le nom de l’objet blob en cours de création :
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Le code de fonction peut accéder à cette même valeur en utilisant `filename` comme nom de paramètre :
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+La même possibilité d’utiliser des modèles et des expressions de liaison s’applique aux attributs dans les bibliothèques de classes. Dans l’exemple suivant, les paramètres de constructeur d’attribut sont les mêmes valeurs `path` que les exemples de *function.json* précédents : 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+Vous pouvez également créer des expressions pour certaines parties du nom de fichier comme l’extension. Pour plus d’informations sur l’utilisation des expressions et des modèles dans la chaîne du chemin d’accès à l’objet blob, consultez l’article sur la [référence de liaison de stockage blob](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Expressions de liaison - Métadonnées de déclencheur
+
+En plus de la charge utile de données fournie par un déclencheur (par exemple, le contenu du message de file d’attente qui a déclenché une fonction), plusieurs déclencheurs fournissent des valeurs de métadonnées supplémentaires. Ces valeurs peuvent être utilisées comme paramètres d’entrée dans C# et F# ou comme propriétés sur l’objet `context.bindings` dans JavaScript. 
 
 Par exemple, un déclencheur Stockage File d’attente Azure prend en charge les propriétés suivantes :
 
@@ -304,112 +500,11 @@ Ces valeurs de métadonnées sont accessibles dans les propriétés de fichier *
 
 Les détails des propriétés de métadonnées pour chaque déclencheur sont décrits dans l’article de référence correspondante. Pour obtenir un exemple, consultez [Métadonnées de déclencheur de file d’attente](functions-bindings-storage-queue.md#trigger---message-metadata). La documentation est également disponible dans l’onglet **Intégrer** du portail, dans la section **Documentation** située sous la zone de configuration de liaison.  
 
-## <a name="binding-expressions-and-patterns"></a>Modèles et expressions de liaison
+### <a name="binding-expressions---json-payloads"></a>Expressions de liaison - Charges utiles JSON
 
-Les *expressions de liaison* sont l’une des fonctionnalités les plus puissantes des déclencheurs et liaisons. Dans la configuration d’une liaison, vous pouvez définir des modèles d’expression qui peuvent ensuite être utilisés dans d’autres liaisons ou dans votre code. Des métadonnées de déclencheur peuvent également être utilisées dans les expressions de liaison, comme indiqué dans la section précédente.
+Lorsque la charge utile d’un déclencheur est JSON, vous pouvez faire référence à ses propriétés dans la configuration pour d’autres liaisons dans la même fonction et dans le code de la fonction.
 
-Par exemple, imaginons que vous vouliez redimensionner des images d’un conteneur Stockage Blob donné, et ce, de manière similaire au modèle **Redimensionnement d’image** de la page **Nouvelle fonction** dans le portail Azure (voir le scénario **Exemples**). 
-
-Voici la définition *function.json* :
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Veuillez noter que le paramètre `filename` est utilisé dans la définition du déclencheur d’objet blob et dans la liaison de sortie d’objet blob. Ce paramètre peut également être utilisé dans le code de fonction.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-La même possibilité d’utiliser des modèles et des expressions de liaison s’applique aux attributs dans les bibliothèques de classes. Par exemple, voici une fonction de redimensionnement d’image dans une bibliothèque de classes :
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>Créer des GUID
-
-L’expression de liaison `{rand-guid}` crée un GUID. L’exemple suivant utilise un GUID pour créer un nom d’objet blob unique : 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Heure actuelle
-
-L’expression de liaison `DateTime` se résout en `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Effectuer des liaisons à des propriétés d’entrée personnalisées
-
-Les expressions de liaison peuvent également référencer des propriétés définies dans la charge utile du déclencheur. Par exemple, vous souhaiterez peut-être effectuer une liaison dynamique vers un fichier Stockage Blob à partir d’un nom de fichier fourni dans un webhook.
-
-Par exemple, le *function.json* suivant utilise une propriété appelée `BlobName` provenant de la charge utile du déclencheur :
+L’exemple suivant illustre le fichier *function.json* pour une fonction de Webhook qui reçoit un nom d’objet blob dans JSON : `{"BlobName":"HelloWorld.txt"}`. Une liaison d’entrée d’objet blob lit l’objet blob et la liaison de sortie HTTP retourne le contenu de l’objet blob dans la réponse HTTP. Notez que la liaison d’entrée d’objet blob obtient le nom de l’objet blob en faisant directement référence à la propriété `BlobName` (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -424,7 +519,7 @@ Par exemple, le *function.json* suivant utilise une propriété appelée `BlobNa
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +531,7 @@ Par exemple, le *function.json* suivant utilise une propriété appelée `BlobNa
 }
 ```
 
-Pour y parvenir dans C# et F #, vous devez définir un objet POCO qui définit les champs qui seront désérialisés dans la charge utile du déclencheur.
+Pour que cela fonctionne en C# et F#, vous avez besoin d’une classe qui définit les champs à désérialiser, comme dans l’exemple suivant :
 
 ```csharp
 using System.Net;
@@ -458,7 +553,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-Dans JavaScript, la désérialisation JSON est effectuée automatiquement et vous pouvez directement utiliser les propriétés.
+Dans JavaScript, la désérialisation JSON est effectuée automatiquement.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +571,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Configuration de la liaison des données lors de l’exécution
+#### <a name="dot-notation"></a>Notation par points
 
-Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison impératif, par opposition aux liaisons déclaratives dans *function.json*, et des attributs. La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Pour plus d’informations, voir [Liaison lors de l’exécution via des liaisons impératives](functions-reference-csharp.md#imperative-bindings) dans la référence du développeur C#.
+Si certaines des propriétés de votre charge utile JSON sont des objets dotés de propriétés, vous pouvez y faire référence directement à l’aide de la notation par points. Par exemple, supposons que votre JSON ressemble à l’exemple qui suit :
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+Vous pouvez faire référence directement à `FileName` par l’expression `BlobName.FileName`. Avec ce format JSON, voici ce à quoi la propriété `path` de l’exemple précédent ressemblerait :
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+En C#, vous avez besoin de deux classes :
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Expressions de liaison - Création de GUIDS
+
+L’expression de liaison `{rand-guid}` crée un GUID. Le chemin d’accès à l’objet blob suivant dans un fichier `function.json` crée un objet blob avec un nom similaire à ce qui suit : *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Expressions de liaison - Heure actuelle
+
+L’expression de liaison `DateTime` se résout en `DateTime.UtcNow`. Le chemin d’accès à l’objet blob suivant dans un fichier `function.json` crée un objet blob avec un nom similaire à ce qui suit : *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Liaison au runtime
+
+Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison impératif, par opposition aux liaisons déclaratives dans *function.json*, et des attributs. La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Pour plus d’informations, consultez les [informations de référence pour les développeurs C#](functions-dotnet-class-library.md#binding-at-runtime) ou les [informations de référence pour les développeurs de scripts C#](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>Schéma de fichier function.json
 
@@ -490,7 +643,7 @@ Le schéma de fichier *function.json* est disponible à l’adresse [http://json
 
 Pour obtenir des liens vers toutes les rubriques d’erreur pertinentes pour les divers services pris en charge par Azure Functions, voir la section [Codes d’erreur de liaison](functions-bindings-error-pages.md#binding-error-codes) de la rubrique de présentation [Gestion des erreurs dans Azure Functions](functions-bindings-error-pages.md).  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur une liaison spécifique, consultez les articles suivants :
 

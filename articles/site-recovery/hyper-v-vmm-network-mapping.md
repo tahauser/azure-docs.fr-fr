@@ -1,25 +1,24 @@
 ---
-title: "À propos du mappage réseau pour la réplication des machines virtuelles Hyper-V de clouds VMM avec Site Recovery | Microsoft Docs"
+title: "À propos du mappage réseau pour la réplication des machines virtuelles Hyper-V (avec VMM) dans Azure à l’aide de Site Recovery | Microsoft Docs"
 description: "Décrit la façon de configurer le mappage réseau pour la réplication des machines virtuelles Hyper-V managées dans des clouds VMM, avec Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>À propos du mappage réseau pour les machines virtuelles Hyper-V avec la réplication VMM 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Préparer le mappage réseau pour la réplication de machines virtuelles Hyper-V sur Azure
 
 
-Cet article vous aide à comprendre et à planifier un mappage réseau lors de la réplication des machines virtuelles Hyper-V de clouds VMM (System Center Virtual Machine Manager), à l’aide du [service Azure Site Recovery](site-recovery-overview.md).
+Cet article vous aide à comprendre et à préparer un mappage réseau pour la réplication de machines virtuelles Hyper-V de clouds System Center Virtual Machine Manager (VMM) vers Azure ou vers un site secondaire, à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
 
-Un mappage réseau est utilisé lors de la réplication de machines virtuelles Hyper-V managées dans un cloud VMM, vers un cloud VMM secondaire ou vers Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Préparer le mappage réseau pour la réplication vers Azure
 
@@ -123,4 +122,5 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 ## <a name="next-steps"></a>étapes suivantes
 
-[En savoir plus sur](hyper-v-vmm-networking.md) l’adressage IP après le basculement sur un site VMM secondaire.
+- [En savoir plus sur](hyper-v-vmm-networking.md) l’adressage IP après le basculement sur un site VMM secondaire.
+- [En savoir plus](concepts-on-premises-to-azure-networking.md) sur l’adressage IP après le basculement vers Azure

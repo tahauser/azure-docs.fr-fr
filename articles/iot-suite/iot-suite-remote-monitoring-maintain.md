@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Dépanner et corriger les problèmes d’un appareil
 
@@ -24,13 +24,13 @@ Ce didacticiel vous montre comment utiliser la page **Maintenance** dans la solu
 
 Contoso fait le test d’un nouvel appareil **Prototype** sur le terrain. En tant qu’opérateur de Contoso, vous remarquerez pendant le test que l’appareil **Prototype** déclenche de façon inattendue une alerte de température dans le tableau de bord. Vous devez commencer à étudier le comportement de cet appareil **Prototype** défectueux.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 >[!div class="checklist"]
 > * Utiliser la page **Maintenance** pour examiner l’alarme
 > * Appeler une méthode d’appareil pour résoudre le problème
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -58,6 +58,8 @@ Pour accuser réception de l’alarme, sélectionnez les **Occurrences de l’al
 
 ![Accuser réception des alarmes](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Lorsque vous accusez réception de l’alarme, l’état de l’occurrence devient **Réception confirmée**.
+
 Dans la liste, vous pouvez voir l’appareil **Prototype** chargé de déclencher l’alarme de température :
 
 ![Liste des périphériques à l’origine de l’alarme](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -82,9 +84,9 @@ Pour afficher les détails d’un travail ou d’un appel de méthode en particu
 
 ![Affichage des détails d’une tâche](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, nous vous avons montré comment :
+Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

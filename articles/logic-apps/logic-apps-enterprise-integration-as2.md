@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Échangez des messages AS2 dans le cadre d’une intégration d’entreprise avec Logic Apps
 
@@ -40,23 +40,22 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure").  
 
-2.  Dans le menu de gauche, sélectionnez **Tous les services**. Dans la zone de recherche, entrez **intégration** comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+2. Dans le menu principal Azure, sélectionnez **Tous les services**. Entrez « intégration » dans la zone de recherche, puis sélectionnez **Comptes d’intégration**.
 
-    > [!TIP]
-    > Si vous ne voyez pas l’option **Tous les services**, vous devez commencer par développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
+   ![Chercher votre compte d’intégration](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![Tous les services, filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Si vous ne voyez pas l’option **Tous les services**, vous devez commencer par développer le menu. En haut du menu réduit, sélectionnez **Afficher les étiquettes de texte**.
 
-3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
-Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  
+3. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
 
-    ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Choisissez la mosaïque **Contrats**. Si vous ne voyez pas la mosaïque Contrats, commencez par ajouter la mosaïque.
 
     ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Dans le panneau Contrats qui s’affiche, sélectionnez **Ajouter**.
+5. Sous **Contrats**, choisissez **Ajouter**.
 
     ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 
 ## <a name="find-your-created-agreement"></a>Comment retrouver le contrat que vous avez créé
 
-1.  Après avoir défini toutes les propriétés de votre contrat, dans le panneau **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir au panneau de votre compte d’intégration.
+1. Après avoir défini toutes les propriétés de votre contrat, sur la page **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir à votre compte d’intégration.
 
     Le contrat que vous venez d’ajouter s’affiche dans votre liste **Contrats**.
 
-2.  Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le panneau de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
+2. Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le menu de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
 
-    ![Sélectionner la mosaïque « Contrats » pour afficher tous les contrats](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Sélectionner la mosaïque « Contrats » pour afficher tous les contrats](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Afficher le swagger
 Consultez les [détails sur Swagger](/connectors/as2/). 

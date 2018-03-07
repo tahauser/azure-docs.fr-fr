@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Interroge et gère des partitions pour tout service.
@@ -48,7 +48,7 @@ Interroge et gère des partitions pour tout service.
 Permet d’obtenir l’intégrité de la partition Service Fabric spécifiée.
 
 Permet d’obtenir les informations d’intégrité de la partition spécifiée. EventsHealthStateFilter permet de filtrer la collection d’événements d’intégrité signalés dans le service en fonction de l’état d’intégrité.
-ReplicasHealthStateFilter permet de filtrer la collection d’objets ReplicaHealthState de la partition. Si vous spécifiez une partition qui n’existe pas dans le magasin d’intégrité, cette cmdlet retourne une erreur. .
+ReplicasHealthStateFilter permet de filtrer la collection d’objets ReplicaHealthState de la partition. Si vous spécifiez une partition qui n’existe pas dans le magasin d’intégrité, cette cmdlet retourne une erreur.
 
 ### <a name="arguments"></a>Arguments
 
@@ -101,7 +101,7 @@ Permet d’obtenir la liste des partitions d’un service Service Fabric. La r�
 
 |Argument|DESCRIPTION|
 | --- | --- |
-| --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
+| --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures, et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant.         Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --timeout -t        | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
@@ -162,7 +162,7 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer une partit
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 Cette API redémarre tout ou partie des réplicas ou instances de la partition spécifiée.
 
-Cette API est particulièrement utile pour tester le basculement. Si elle est utilisée pour cibler une partition de service sans état, l’API RestartPartitionMode doit être définie sur AllReplicasOrInstances. Appelez l’API GetPartitionRestartProgress à l’aide du même identifiant OperationId pour obtenir la progression. .
+Cette API est particulièrement utile pour tester le basculement. Si elle est utilisée pour cibler une partition de service sans état, l’API RestartPartitionMode doit être définie sur AllReplicasOrInstances. Appelez l’API GetPartitionRestartProgress à l’aide du même identifiant OperationId pour obtenir la progression.
 
 ### <a name="arguments"></a>Arguments
 
@@ -170,8 +170,8 @@ Cette API est particulièrement utile pour tester le basculement. Si elle est ut
 | --- | --- |
 | --operation-id [Requis]| GUID qui identifie un appel de cette API.  Celui-ci est transmis à l’API GetProgress correspondante.|
 | --partition-id [Requis]| Identité de la partition.|
-| --restart-partition-mode [Requis]| - Invalid : réservé.  N’est pas transmis à l’API. - AllReplicasOrInstances : tous les réplicas ou instances de la partition sont redémarrés à la fois. - OnlyActiveSecondaries : seuls les réplicas secondaires sont redémarrés. .|
-| --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
+| --restart-partition-mode [Requis]| Définit les partitions à redémarrer.|
+| --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures, et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --timeout -t                    | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux

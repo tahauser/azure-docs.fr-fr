@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
 
@@ -28,13 +28,16 @@ Toutes les fonctionnalités pour l’affectation de licences basée sur les grou
 > [!NOTE]
 > Avant de commencer à exécuter les applets de commande, veillez d’abord à vous connecter à votre client en exécutant l’applet de commande `Connect-MsolService`.
 
+>[!WARNING]
+>Ce code est fourni à titre d’exemple à des fins de démonstration. Si vous voulez l’utiliser dans votre environnement, testez-le au préalable à petite échelle ou dans un locataire de test distinct. Vous devez peut-être modifier le code pour répondre aux besoins spécifiques de votre environnement.
+
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Afficher les licences de produit attribuées à un groupe
 L’applet de commande [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) peut être utilisé pour récupérer l’objet de groupe et vérifier la propriété *Licences* : elle répertorie toutes les licences de produit actuellement affectées au groupe.
 ```
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-Sortie :
+Output:
 ```
 SkuPartNumber
 -------------
@@ -59,7 +62,7 @@ Get-MsolGroup | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-Sortie :
+Output:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Obtenir des statistiques sur les groupes avec des licences
-Vous pouvez rapporter des statistiques de base sur les groupes avec des licences. Dans l’exemple ci-dessous, nous indiquons le nombre total d’utilisateurs, le nombre d’utilisateurs ayant déjà des licences attribuées par le groupe et le nombre d’utilisateurs pour lesquels des licences n’ont pas pu être affectées par le groupe.
+Vous pouvez rapporter des statistiques de base sur les groupes avec des licences. Dans l’exemple ci-dessous, le script indique le nombre total d’utilisateurs, le nombre d’utilisateurs ayant déjà des licences attribuées par le groupe et le nombre d’utilisateurs pour lesquels des licences n’ont pas pu être affectées par le groupe.
 
 ```
 #get all groups with licenses
@@ -114,7 +117,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-Sortie :
+Output:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -133,7 +136,7 @@ Pour rechercher les groupes qui contiennent des utilisateurs pour lesquels des l
 ```
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-Sortie :
+Output:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -159,7 +162,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-Sortie :
+Output:
 ```
 ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
@@ -167,7 +170,7 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Obtenir tous les utilisateurs avec des erreurs de licence dans le client entier
 
-Pour répertorier tous les utilisateurs qui ont des erreurs de licence à partir d’un ou plusieurs groupes, le script suivant peut être utilisé. Ce script répertoriera une ligne par utilisateur et par erreur de licence, ce qui vous permet d’identifier clairement la source de chaque erreur.
+Le script suivant peut être utilisé pour répertorier tous les utilisateurs qui ont des erreurs de licence à partir d’un ou plusieurs groupes. Ce script imprime une ligne par utilisateur et par erreur de licence, ce qui vous permet d’identifier clairement la source de chaque erreur.
 
 > [!NOTE]
 > Ce script énumère tous les utilisateurs dans le client, ce qui peut ne pas être optimal pour les locataires volumineux.
@@ -185,7 +188,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-Sortie :
+Output:
 
 ```
 UserName         UserId                               GroupId                              LicenseError
@@ -290,7 +293,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-Sortie :
+Output:
 ```
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
 --------                             -----       ---------------- -----------------
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Suppression des licences directes pour les utilisateurs avec des licences de groupe
 L’objectif de ce script consiste à supprimer les licences directes inutiles des utilisateurs qui héritent déjà de la même licence auprès d’un groupe ; par exemple, dans le cadre d’une [transition vers l’affectation de licences basée sur les groupes](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Il est important de commencer par confirmer que les licences directes à supprimer n’activent pas davantage de fonctionnalités de service que les licences héritées. Dans le cas contraire, la suppression de la licence directe peut désactiver l’accès aux services et données pour les utilisateurs. Actuellement, il n’est pas possible de vérifier avec PowerShell les services qui sont activés par licence héritée et ceux qui le sont pas licence directe. Dans le script, nous allons spécifier le niveau minimal de services dont nous savons qu’ils héritent de groupes, et nous allons effectuer la vérification par rapport à cette valeur.
+> Il est important de commencer par confirmer que les licences directes à supprimer n’activent pas davantage de fonctionnalités de service que les licences héritées. Dans le cas contraire, la suppression de la licence directe peut désactiver l’accès aux services et données pour les utilisateurs. Actuellement, il n’est pas possible de vérifier avec PowerShell les services qui sont activés par licence héritée et ceux qui le sont pas licence directe. Dans le script, nous allons spécifier le niveau minimal de services dont nous savons qu’ils héritent de groupes, puis effectuer une vérification pour avoir la certitude que les utilisateurs ne risquent pas de perdre accidentellement l’accès aux services.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -465,7 +468,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 #END: executing the script
 ```
 
-Sortie :
+Output:
 ```
 UserId                               OperationResult                                                                                
 ------                               ---------------                                                                                

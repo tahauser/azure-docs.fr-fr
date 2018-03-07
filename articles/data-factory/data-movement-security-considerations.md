@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,8 +150,8 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 | `*.servicebus.windows.net`    | 443, 80        | Requis par le runtime d’intégration auto-hébergé pour se connecter aux services de déplacement des données dans Data Factory. |
 | `*.core.windows.net`          | 443            | Utilisé par le runtime d’intégration auto-hébergé pour se connecter au compte de stockage Azure lorsque vous utilisez la fonctionnalité de [copie intermédiaire](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Requis par le runtime d’intégration auto-hébergé pour se connecter au service Azure Data Factory. |
-| `*.database.windows.net`      | 1433           | (Facultatif) nécessaire lorsque votre destination est Azure SQL Database ou Azure SQL Data Warehouse. Utilisez la fonctionnalité de copie intermédiaire pour copier des données vers Azure SQL Database/Azure SQL Data Warehouse sans ouvrir le port 1433. |
-| `*.azuredatalakestore.net`    | 443            | (Facultatif) nécessaire lorsque votre destination est Azure Data Lake Store. |
+| `*.database.windows.net`      | 1433           | (FACULTATIF) nécessaire lorsque vous effectuez une opération de copie depuis/vers Azure SQL Database/Azure SQL Data Warehouse. Utilisez la fonctionnalité de copie intermédiaire pour copier des données vers Azure SQL Database/Azure SQL Data Warehouse sans ouvrir le port 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (FACULTATIF) nécessaire lorsque vous effectuez une opération de copie depuis/vers un magasin Azure Data Lake. |
 
 > [!NOTE] 
 > Vous devrez peut-être gérer les ports/domaines autorisés au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure SQL Data Warehouse et Azure Data Lake Store comme exemples.   

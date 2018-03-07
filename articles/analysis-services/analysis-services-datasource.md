@@ -13,82 +13,100 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
-Les serveurs Azure Analysis Services prennent en charge la connexion aux données sources dans le cloud et en local au sein de votre organisation. Des sources de données supplémentaires prises en charge sont ajoutées en permanence. Vérifiez ces données régulièrement. 
 
-Les sources de données actuellement prises en charge sont les suivantes :
+Les sources de données et connecteurs affichés dans Obtenir des données ou l’Assistant Importation dans Visual Studio concernent à la fois Azure Analysis Services et SQL Server Analysis Services. Cependant, toutes les sources de données et tous les connecteurs indiqués ne sont pas pris en charge dans Azure Analysis Services. Les types de sources de données auxquelles vous pouvez vous connecter dépendent de nombreux facteurs tels que le niveau de compatibilité du modèle, les connecteurs de données disponibles, le type d’authentification, les fournisseurs et la prise en charge de la passerelle de données locale. 
 
-| Cloud  |
-|---|
-| Stockage Blob Azure*  |
-| Base de données SQL Azure  |
-| Azure Data Warehouse |
+## <a name="azure-data-sources"></a>Sources de données Azure
 
+|Source de données  |En mémoire  |DirectQuery  |
+|---------|---------|---------|
+|Base de données SQL Azure     |   OUI      |    OUI      |
+|Azure SQL Data Warehouse     |   OUI      |   OUI       |
+|Stockage Blob Azure*     |   OUI       |    Non       |
+|Stockage de tables Azure*    |   OUI       |    Non       |
+|Azure Cosmos DB (Bêta)*     |  OUI        |  Non         |
+|Azure Data Lake Store*     |   OUI       |    Non       |
+|Azure HDInsight HDFS*     |     OUI     |   Non        |
+|Azure HDInsight Spark (Bêta)*     |   OUI       |   Non        |
+|Azure Database pour MySQL (Version préliminaire)*     |   OUI       |   Non       |
+|Azure Database pour PostgreSQL (Version préliminaire)*     | OUI         |  Non        |
+||||
 
-| Local  |   |   |   |
-|---|---|---|---|
-| Base de données Access  | Dossier* | Oracle Database  | Base de données Teradata |
-| Active Directory*  | Document JSON*  | Base de données PostgreSQL*  |Table XML* |
-| Analysis Services  | Lignes issues d’un fichier binaire*  | SAP HANA*  |
-| Système de plateforme d’analyse  | MySQL Database  | SAP Business Warehouse*  | |
-| Dynamics CRM*  | Flux OData*  | SharePoint*  |
-| Classeur Excel  | Requête ODBC  | Base de données SQL  |
-| Exchange*  | OLE DB  | Base de données Sybase  |
+\* Modèles Tabular 1400 uniquement.
 
-\* Modèles Tabular 1400 uniquement. 
+**Fournisseur**   
+Les modèles en mémoire et DirectQuery qui se connectent aux sources de données Azure utilisent le fournisseur de données .NET Framework pour SQL Server.
+
+## <a name="on-premises-data-sources"></a>Sources de données locales
+
+La connexion aux sources de données locales requiert une passerelle locale. Lorsque vous utilisez une passerelle, vérifiez que des fournisseurs 64 bits sont installés.
+
+### <a name="in-memory-and-directquery"></a>En mémoire et DirectQuery
+
+|Source de données | Fournisseur en mémoire | Fournisseur DirectQuery |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
+| SQL Server Data Warehouse |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
+| Oracle |Fournisseur Microsoft OLE DB pour Oracle, Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET | |
+| Teradata |Fournisseur OLE DB pour Teradata, Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET | |
+| | | |
+
+\* Modèles Tabular 1400 uniquement.
+
+### <a name="in-memory-only"></a>En mémoire uniquement
 
 > [!IMPORTANT]
-> La connexion aux sources de données sur site nécessite une [passerelle de données locale](analysis-services-gateway.md) installée sur un ordinateur dans votre environnement.
+> Le test des fournisseurs pour les sources de données suivantes est en cours. 
 
-## <a name="data-providers"></a>Fournisseurs de données
+|Source de données  |  
+|---------|---------|
+|Base de données Access     |  
+|Active Directory*     |  
+|Analysis Services     | 
+|Système de plateforme d’analyse     |  
+|Dynamics CRM*     |  
+|Classeur Excel     | 
+|Exchange*     |  
+|Dossier*     | 
+|Document JSON*     |  
+|Lignes issues d’un fichier binaire*     | 
+|MySQL Database     | 
+|Flux OData*     | 
+|Requête ODBC     | 
+|OLE DB     |  
+|Base de données PostgreSQL*    | 
+|SAP HANA*    |   
+|SAP Business Warehouse*    |  
+|SharePoint*     |   
+|Base de données Sybase     |  
+|Table XML*    |  
+|||
+ 
+\* Modèles Tabular 1400 uniquement.
 
-Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur.
+## <a name="specifying-a-different-provider"></a>Spécifier un autre fournisseur
 
-Pour les modèles de données qui se connectent à une source de données cloud comme Azure SQL Database, si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez voir le message d’erreur : **« Le fournisseur 'SQLNCLI11.1' n’est pas inscrit »**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et que vous utilisez des fournisseurs natifs, vous pouvez voir le message d’erreur : **« Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMITE' »**.
-
-Les fournisseurs de source de données suivants sont pris en charge pour les modèles de données en mémoire ou DirectQuery lors de la connexion à des sources de données locales ou dans le cloud :
-
-### <a name="cloud"></a>Cloud
-| **Source de données** | **En mémoire** | **DirectQuery** |
-|  --- | --- | --- |
-| Azure SQL Data Warehouse |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server |
-| Base de données SQL Azure |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
-
-### <a name="on-premises-via-gateway"></a>Local (via une passerelle)
-|**Source de données** | **En mémoire** | **DirectQuery** |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |Fournisseur de données .NET Framework pour SQL Server |
-| SQL Server |Fournisseur Microsoft OLE DB pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
-| SQL Server |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
-| Oracle |Fournisseur Microsoft OLE DB pour Oracle |Fournisseur de données Oracle pour .NET | |
-| Oracle |Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET | |
-| Teradata |Fournisseur OLE DB pour Teradata |Fournisseur de données Teradata pour .NET | |
-| Teradata |Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET | |
-| Système de plateforme d’analyse |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
-
-> [!NOTE]
-> Vérifiez que des fournisseurs 64 bits sont installés lors de l’utilisation d’une passerelle locale.
-> 
-> 
+Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez avoir le message d’erreur suivant : **Le fournisseur 'SQLNCLI11.1' n’est pas inscrit**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et si vous utilisez des fournisseurs natifs, vous pouvez avoir le message d’erreur suivant : **Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMIT'**.
 
 Lorsque vous migrez un modèle tabulaire SQL Server Analysis Services local vers Azure Analysis Services, il peut être nécessaire de modifier le fournisseur.
 
-**Pour spécifier un fournisseur de source de données**
+**Pour spécifier un fournisseur**
 
 1. Dans SSDT > **Explorateur de modèles tabulaires** > **Sources de données**, cliquez sur une connexion de source de données, puis cliquez sur **Modifier la source de données**.
 2. Dans **Modifier la connexion**, cliquez sur **Avancé** pour ouvrir la fenêtre de propriétés avancées.
 3. Dans **Définir les propriétés avancées** > **Fournisseurs**, sélectionnez le fournisseur approprié.
 
 ## <a name="impersonation"></a>Emprunt d’identité
-Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans SSDT ou SSMS.
+Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio SSDT ou SSMS.
 
 Pour les sources de données locales :
 
@@ -100,6 +118,6 @@ Pour les sources de données cloud :
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
 ## <a name="next-steps"></a>étapes suivantes
-Si vous disposez de sources de données locales, veillez à installer la [Passerelle locale](analysis-services-gateway.md).   
-Pour en savoir plus sur la gestion de votre serveur dans SSDT ou SSMS, consultez [Gérer votre serveur](analysis-services-manage.md).
+[Passerelle locale](analysis-services-gateway.md)   
+[Gérer votre serveur](analysis-services-manage.md)   
 

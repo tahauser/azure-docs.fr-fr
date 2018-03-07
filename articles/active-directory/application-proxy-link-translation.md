@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD
 
@@ -27,7 +27,7 @@ Le Proxy d’application Azure AD rend vos applications locales disponibles pour
 
 La meilleure façon de vous assurer que des liens fonctionnent de la même manière à l’intérieur et à l’extérieur de votre réseau d’entreprise est de configurer les URL externes de vos applications comme les URL internes. Utilisez [des domaines personnalisés](active-directory-application-proxy-custom-domains.md) pour configurer vos URL externes et utiliser votre nom de domaine d’entreprise plutôt que le domaine de proxy d’application par défaut.
 
-Si vous ne pouvez pas utiliser des domaines personnalisés dans votre client, la fonctionnalité de traduction de liens du Proxy d’application permet à vos liens de fonctionner quel que soit l’emplacement de vos utilisateurs. Lorsque vous avez des applications qui indiquent directement les points de terminaison internes ou des ports, vous pouvez mapper ces URL internes aux URL de Proxy d’application externes publiées. Lorsque la traduction de liens est activée et que le Proxy d’application procède à des recherches via des balises HTML, CSS et JavaScript sélectionnées pour les liens internes publiées. Ensuite, le service de Proxy d’application les traduit afin que vos utilisateurs bénéficient d’une expérience sans interruption.
+Si vous ne pouvez pas utiliser des domaines personnalisés dans votre client, la fonctionnalité de traduction de liens du Proxy d’application permet à vos liens de fonctionner quel que soit l’emplacement de vos utilisateurs. Lorsque vous avez des applications qui indiquent directement les points de terminaison internes ou des ports, vous pouvez mapper ces URL internes aux URL de Proxy d’application externes publiées. Lorsque la traduction de lien est activée, et que le proxy d’application effectue des recherches dans le code HTML et CSS pour les liens internes publiés, le service de proxy d’application traduit les liens afin que vos utilisateurs obtiennent une expérience sans interruption.
 
 >[!NOTE]
 >La fonctionnalité de traduction de liens est destinée aux clients qui, pour une raison quelconque, ne peuvent pas utiliser de domaines personnalisés dans les mêmes URL internes et externes pour leurs applications. Avant d’activer cette fonctionnalité, consultez si [des domaines personnalisés dans le Proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md) peuvent vous être utiles.
@@ -64,7 +64,7 @@ Lorsque vous activez la traduction de lien pour l’application Profits, les lie
 Pour améliorer les performances et la sécurité, certains liens ne sont pas traduits :
 
 - Les liens non inclus dans des balises de code. 
-- Liens hors de HTML, CSS et JavaScript. 
+- Liens dans un code autre que HTML ou CSS. 
 - Liens internes ouverts à partir d’autres programmes. Les liens envoyés par e-mail ou message instantané ou inclus dans d’autres documents, ne sont pas traduits. Les utilisateurs doivent savoir comment accéder à l’URL externe.
 
 Si vous avez besoin de prendre en charge un de ces deux scénarios, vous pouvez utiliser les mêmes URL internes et externes, ce qui élimine le besoin de traduction de liens.  
@@ -84,7 +84,7 @@ Maintenant, lorsque les utilisateurs accèdent à cette application, le proxy re
 
 ## <a name="send-feedback"></a>Envoyer des commentaires
 
-Nous souhaitons votre aide pour que cette fonctionnalité fonctionne pour toutes vos applications. Nous recherchons plus de 30 balises dans HTML et CSS et envisageons les cas JavaScript à prendre en charge. Si vous disposez d’un exemple de liens générés qui ne sont pas en cours de traduction, envoyez un extrait de code aux [Commentaires du Proxy d’application](mailto:aadapfeedback@microsoft.com). 
+Nous souhaitons votre aide pour que cette fonctionnalité fonctionne pour toutes vos applications. Nous recherchons plus de 30 balises dans le code HTML et CSS. Si vous disposez d’un exemple de liens générés qui ne sont pas en cours de traduction, envoyez un extrait de code aux [Commentaires du Proxy d’application](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>étapes suivantes
 [Utilisez des domaines personnalisés avec le Proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md) pour que les URL interne et externe soit identiques

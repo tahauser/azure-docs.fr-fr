@@ -1,6 +1,6 @@
 ---
 title: "Gérer les serveurs et les coffres Azure Recovery Services | Microsoft Docs"
-description: "Ce didacticiel vous apprend à gérer les serveurs et les coffres Azure Recovery Services."
+description: "Découvrez dans cet article comment gérer les serveurs et les coffres Azure Recovery Services."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Surveiller et gérer les serveurs et les coffres Azure Recovery services pour les ordinateurs Windows
 
@@ -120,7 +120,7 @@ Pour choisir les colonnes que vous souhaitez voir apparaître dans l’alerte, c
 >
 
 ## <a name="manage-backup-items"></a>Gérer les éléments de sauvegarde
-Vous pouvez désormais gérer les sauvegardes locales depuis le portail de gestion. Dans la section Sauvegarde du tableau de bord, la vignette **Éléments de sauvegarde** affiche le nombre d’éléments de sauvegarde protégés dans le coffre.
+Vous pouvez désormais gérer les sauvegardes locales depuis le portail de gestion. Dans la section Sauvegarde du tableau de bord, la mosaïque **Éléments de sauvegarde** affiche le nombre d’éléments de sauvegarde protégés dans le coffre.
 
 Dans la mosaïque Éléments de sauvegarde, cliquez sur **File-Folders** (Dossiers de fichiers).
 
@@ -308,7 +308,7 @@ R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réd
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Par exemple :<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
-* Pour en savoir plus sur Sauvegarde Azure, consultez [Vue d’ensemble de Sauvegarde Azure](backup-introduction-to-azure-backup.md)
-* Consultez le [forum sur Sauvegarde Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
+* Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)

@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)
 
 Microsoft R Server sur Azure HDInsight contrôle le mode d’exécution des appels en définissant le contexte de calcul. Cet article présente les options disponibles pour spécifier si l’exécution est mise en parallèle, et comment, sur les différents cœurs du nœud périphérique ou du cluster HDInsight.
 
-Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
+Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de RevoScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de RevoScaleR.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server dans Azure HDInsight
-[Microsoft R Server sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités d’analyse sur R. Il peut utiliser les données stockées dans un conteneur HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "stockage Blob Azure"), un magasin Data Lake ou le système de fichiers Linux local. Dans la mesure où R Server repose sur la version open source de R, les applications R créées peuvent appliquer n’importe quels packages R open source parmi plus de 8 000. Elles peuvent également utiliser les routines de [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), le package d’analyse du Big Data de Microsoft fourni avec R Server.  
+[Microsoft R Server sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités d’analyse sur R. Il peut utiliser les données stockées dans un conteneur HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "stockage Blob Azure"), un magasin Data Lake ou le système de fichiers Linux local. Dans la mesure où R Server repose sur la version open source de R, les applications R créées peuvent appliquer n’importe quels packages R open source parmi plus de 8 000. Elles peuvent également utiliser les routines de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), le package d’analyse du Big Data de Microsoft fourni avec R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextes de calcul pour un nœud de périmètre
-En général, un script R exécuté dans R Server sur le nœud de périmètre s’exécute au sein de l’interpréteur R sur ce nœud. L’exception concerne ces étapes qui appellent une fonction ScaleR. Les appels ScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont est défini le contexte de calcul ScaleR.  Lorsque le script R est exécuté à partir d’un nœud périphérique, les valeurs possibles du contexte de calcul sont les suivantes :
+En général, un script R exécuté dans R Server sur le nœud de périmètre s’exécute au sein de l’interpréteur R sur ce nœud. L’exception concerne ces étapes qui appellent une fonction RevoScaleR. Les appels RevoScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont est défini le contexte de calcul RevoScaleR.  Lorsque le script R est exécuté à partir d’un nœud périphérique, les valeurs possibles du contexte de calcul sont les suivantes :
 
 - local séquentiel (*local*)
 - local parallèle (*localpar*)
 - Map Reduce
 - Spark
 
-Les options *local* et *localpar* diffèrent uniquement par la façon dont les appels **rxExec** sont exécutés. Elles exécutent toutes les deux d’autres appels de fonction rx de manière parallèle entre tous les cœurs disponibles, sauf indication contraire par le biais de l’option **numCoresToUse** ScaleR, par exemple, `rxOptions(numCoresToUse=6)`. Les options d’exécution parallèle offrent des performances optimales.
+Les options *local* et *localpar* diffèrent uniquement par la façon dont les appels **rxExec** sont exécutés. Elles exécutent toutes les deux d’autres appels de fonction rx de manière parallèle entre tous les cœurs disponibles, sauf indication contraire par le biais de l’option **numCoresToUse** RevoScaleR, par exemple, `rxOptions(numCoresToUse=6)`. Les options d’exécution parallèle offrent des performances optimales.
 
 Le tableau suivant récapitule les différentes options de contexte de calcul permettant de définir le mode d’exécution des appels :
 
@@ -72,13 +72,13 @@ Compte tenu de ces principes, la section suivante propose quelques règles gén�
 * N’utilisez le contexte de calcul MapReduce que si vous rencontrez un problème insurmontable avec le contexte de calcul Spark, car il est en général plus lent.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Aide en ligne sur rxSetComputeContext
-Pour obtenir plus d’informations et des exemples de contextes de calcul ScaleR, consultez l’aide en ligne dans R sur la méthode rxSetComputeContext, par exemple :
+Pour obtenir plus d’informations et des exemples de contextes de calcul RevoScaleR, consultez l’aide en ligne dans R sur la méthode rxSetComputeContext, par exemple :
 
     > ?rxSetComputeContext
 
-Vous pouvez également vous reporter à [ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) (Guide des traitements distribués ScaleR) disponible dans la bibliothèque [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx).
+Vous pouvez également consulter la section [Distributed computing overview](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) (Vue d’ensemble de l’informatique distribuée) dans la [documentation Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez découvert les options disponibles pour spécifier si l’exécution est mise en parallèle, et comment, sur les différents cœurs du nœud périphérique ou du cluster HDInsight. Pour plus d’informations sur l’utilisation de R Server avec des clusters HDInsight, consultez les rubriques suivantes :
 
 * [Vue d’ensemble : R Server sur HDInsight (version préliminaire)](r-server-overview.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertes de journal dans Azure Monitor - Alerts (préversion)
 Cet article décrit en détail le fonctionnement des règles d’alerte des requêtes Analytics dans Azure Alerts (préversion) et décrit les différences entre les divers types de règles d’alerte de journal.
@@ -27,11 +27,20 @@ Actuellement, Azure Alerts (préversion) prend en charge les alertes de journal
 
 > [!WARNING]
 
-> Actuellement, les alertes de journal dans Azure Alerts (préversion) ne prennent pas en charge les requêtes portant sur plusieurs espaces de travail ou applications.
+> Actuellement, l’alerte de journal dans Azure Alerts (préversion) ne prend pas en charge les requêtes portant sur plusieurs espaces de travail ou applications.
+
+Les utilisateurs peuvent également perfectionner leurs requêtes dans la plateforme Analytics de leur choix dans Azure, puis les *importer pour les utiliser dans Alerts (en version préliminaire) en enregistrant la requête*. Procédure à suivre :
+- Pour Application Insights : accédez au portail Analytics, puis validez la requête et ses résultats. Enregistrez-la ensuite sous un nom unique dans *Requêtes partagées*.
+- Pour Log Analytics : accédez à Recherche dans les journaux, puis validez la requête et ses résultats. Enregistrez-la ensuite sous un nom unique dans n’importe quelle catégorie.
+
+Lorsque vous [créez une alerte de journal dans Alerts (version préliminaire)](monitor-alerts-unified-usage.md), la requête enregistrée est alors répertoriée en tant que type de signal **Journal (Requête enregistrée)**, comme illustré dans l’exemple ci-dessous : ![Requête enregistrée importée dans Alerts](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> L’utilisation de la commande **Journal (Requête enregistrée)** permet d’effectuer une importation dans Alerts. Par conséquent, les modifications effectuées par la suite dans Analytics ne seront pas reflétées dans les règles d’alerte enregistrés, et inversement.
 
 ## <a name="log-alert-rules"></a>Règles d'alerte de journal
 
-Les alertes créées par Azure Alerts (préversion) exécutent automatiquement des requêtes de journal à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus (comme l’exécution de runbooks) de façon proactive, à l’aide de [groupes d’actions](monitoring-action-groups.md).  Les différents types de règles d’alerte utilisent une logique différente pour effectuer cette analyse.
+Les alertes créées par Azure Alerts (préversion) exécutent automatiquement des requêtes de journal à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus, comme l’envoi de données à une application externe à l’aide d’un [webhook json](monitor-alerts-unified-log-webhook.md), de façon proactive, en utilisant les [Groupes d’actions](monitoring-action-groups.md). Les différents types de règles d’alerte utilisent une logique différente pour effectuer cette analyse.
 
 Les règles d’alerte sont définies par les détails suivants :
 
@@ -47,24 +56,26 @@ Chaque règle d’alerte Log Analytics appartient à l’un des deux types exist
 
 Les différences entre les types de règles d’alerte sont présentées ci-dessous.
 
-- La règle d’alerte **Nombre de résultats** crée toujours une alerte unique, tandis que la règle d’alerte **Mesure métrique** crée une alerte pour chaque objet dépassant le seuil.
+- La règle d’alerte **Nombre de résultats crée toujours une alerte unique, tandis que la règle d’alerte **Mesure métrique** crée une alerte pour chaque objet dépassant le seuil.
 - Les règles d’alerte **Nombre de résultats** créent une alerte quand le seuil est dépassé une seule fois. Les règles d’alerte **Mesure métrique** peuvent créer une alerte lorsque le seuil est dépassé un certain nombre de fois au cours d’un intervalle de temps spécifique.
 
 ## <a name="number-of-results-alert-rules"></a>Règles d’alerte Nombre de résultats
-Les règles d’alerte **Nombre de résultats** créent une alerte unique lorsque le nombre d’enregistrement renvoyés par la requête de recherche dépasse le seuil spécifié.
+Les règles d’alerte **Nombre de résultats** créent une alerte unique lorsque le nombre d’enregistrement renvoyés par la requête de recherche dépasse le seuil spécifié. Ce type de règle d’alerte est idéal pour la gestion des événements, par exemple les journaux des événements Windows, les journaux Syslog, la réponse WebApp et les journaux personnalisés.  Vous pouvez créer une alerte quand un événement d’erreur particulier est créé, ou quand plusieurs événements d’erreur sont créés dans une fenêtre de temps spécifique.
 
-**Seuils** : le seuil pour une règle d’alerte **Nombre de résultats** est supérieur ou inférieur à une valeur particulière.  Si le nombre d’enregistrements renvoyés par cette recherche dans les journaux satisfait à ce critère, une alerte est créée.
+**Seuils** : le seuil pour une règle d’alerte **Nombre de résultats est supérieur ou inférieur à une valeur particulière.  Si le nombre d’enregistrements renvoyés par cette recherche dans les journaux satisfait à ce critère, une alerte est créée.
 
-### <a name="scenarios"></a>Scénarios
-
-#### <a name="events"></a>Événements
-Ce type de règle d’alerte est idéal pour la gestion des événements, par exemple les journaux des événements Windows, les journaux Syslog et les journaux personnalisés.  Vous pouvez créer une alerte quand un événement d’erreur particulier est créé, ou quand plusieurs événements d’erreur sont créés dans une fenêtre de temps spécifique.
-
-Pour associer une alerte à un seul événement, définissez le nombre de résultats sur une valeur supérieure à 0, et la fréquence et la fenêtre de temps sur 5 minutes.  Cette configuration exécute la requête toutes les 5 minutes et vérifie si un événement spécifique a été créé depuis la dernière exécution de la requête.  Une fréquence plus longue peut rallonger le temps qui s’écoule entre l’événement collecté et l’alerte créée.
-
-Certaines applications peuvent consigner une erreur occasionnelle qui ne doit pas nécessairement déclencher une alerte.  Par exemple, l’application peut recommencer le processus à l’origine de l’événement d’erreur et voir sa nouvelle tentative couronnée de succès.  Dans ce cas, la création de l’alerte ne se justifie que si plusieurs événements sont créés dans une fenêtre de temps spécifique.  
+Pour déclencher une alerte sur un événement unique, définissez le nombre de résultats sur une valeur supérieure à 0 et vérifiez si un événement spécifique a été créé depuis la dernière exécution de la requête. Certaines applications peuvent consigner une erreur occasionnelle qui ne doit pas nécessairement déclencher une alerte.  Par exemple, l’application peut recommencer le processus à l’origine de l’événement d’erreur et voir sa nouvelle tentative couronnée de succès.  Dans ce cas, la création de l’alerte ne se justifie que si plusieurs événements sont créés dans une fenêtre de temps spécifique.  
 
 Dans certains cas, vous pouvez créer une alerte en l’absence d’événement.  Par exemple, un processus peut enregistrer des événements réguliers pour indiquer qu’il fonctionne correctement.  S’il ne consigne pas un de ces événements dans une fenêtre de temps spécifique, une alerte doit être créée.  Dans ce cas, vous devez définir le seuil sur une valeur **inférieure à 1**.
+
+### <a name="example"></a>exemples
+Imaginez que vous cherchiez à savoir à quel moment votre application web renvoie aux utilisateurs une réponse avec le code 500, autrement dit une erreur interne au serveur. Il conviendrait de créer une règle d’alerte paramétrée comme suit :  
+**Requête :** requests | where resultCode == "500"<br>
+**Fenêtre de temps :**  30 minutes<br>
+**Fréquence des alertes :** 5 minutes<br>
+**Valeur de seuil :** supérieure à 0<br>
+
+L’alerte exécute alors la requête toutes les 5 minutes, avec 30 minutes de données, pour rechercher tous les enregistrements associés à un code de résultat 500. Si un enregistrement est trouvé, elle déclenche l’alerte et exécute l’action configurée.
 
 ## <a name="metric-measurement-alert-rules"></a>Règles d’alerte Mesure métrique
 
@@ -74,7 +85,7 @@ Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet
 
 > [!NOTE]
 
-> La fonction d’agrégation dans une requête doit être nommée/appelée AggregatedValue et fournir une valeur numérique.
+> La fonction d’agrégation dans une requête doit être nommée/appelée AggregatedValue et fournir une valeur numérique. 
 
 
 **Champ de groupe** : un enregistrement avec une valeur agrégée est créé pour chaque instance de ce champ, et une alerte peut être générée pour chacun.  Par exemple, si vous souhaitez générer une alerte pour chaque ordinateur, vous pourriez utiliser **by Computer**.   
@@ -84,6 +95,8 @@ Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet
 > Pour la mesure de métriques, les règles d’alerte basées sur Application Insights, vous pouvez spécifier le champ de regroupement des données. Pour ce faire, utilisez l’option **Agréger sur** dans la définition de règle.   
 
 **Intervalle** : définit l’intervalle de temps pendant lequel les données sont agrégées.  Par exemple, si vous avez spécifié **5 minutes**, un enregistrement est créé pour chaque instance du champ de groupe agrégé à intervalles de 5 minutes sur la fenêtre de temps spécifiée pour l’alerte.
+> [!NOTE]
+> Une fonction Bin doit être utilisée dans la requête. Par ailleurs, si des intervalles de temps inégaux sont produits pour la fenêtre temporelle à l’aide de la fonction Bin, Alert utilisera plutôt la fonction bin_at pour garantir un point fixe
 
 **Seuil** : le seuil des règles d’alerte Mesure métrique est défini par une valeur d’agrégation et un nombre de violations.  Si un point de données de la recherche dans les journaux dépasse cette valeur, elle est considérée comme une violation.  Si le nombre de violations pour un objet dans les résultats dépasse la valeur spécifiée, une alerte est créée pour cet objet.
 
@@ -104,6 +117,8 @@ Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 d
 
 
 ## <a name="next-steps"></a>étapes suivantes
+* Comprendre les [actions Webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md)
 * [Consulter une présentation d’Azure Alerts (préversion)](monitoring-overview-unified-alerts.md)
 * En savoir plus sur l’[utilisation d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md)
+* En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)
 * En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md).    

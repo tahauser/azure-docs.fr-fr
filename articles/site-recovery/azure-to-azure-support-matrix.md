@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
 
@@ -153,8 +153,8 @@ Disque temporaire | Toujours exclus de la réplication | Le disque temporaire es
 Taux de modification des données sur le disque | Maximum de 10 Mbits/s par disque pour le stockage Premium, et 2 Mbits/s par disque pour le stockage Standard | Si le taux moyen de modification des données sur le disque est en permanence supérieur à 10 Mbits/s (pour Premium) et 2 Mbits/s (pour Standard), la réplication ne peut pas suivre. Toutefois, s’il s’agit d’une rafale de données occasionnelle, que le taux de modification des données est supérieur à 10 Mbits/s (pour Premium) et 2 Mbits/s (pour Standard) pendant un certain laps de temps et qu’il redescend par la suite, la réplication peut rattraper le retard. Dans ce cas, certains points de récupération pourront être légèrement différés.
 Disques sur des comptes de stockage Standard | Prise en charge |
 Disques sur des comptes de stockage Premium | Prise en charge | Si une machine virtuelle a des disques répartis sur des comptes de stockage Standard et Premium, vous pouvez sélectionner un compte de stockage cible différent pour chaque disque afin d’être sûr d’avoir la même configuration de stockage dans la région cible.
-Disques gérés Standard | Non pris en charge |  
-Disques gérés Premium | Non pris en charge |
+Disques gérés Standard | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. Actuellement, les clouds pour le secteur public ne sont pas pris en charge.  |  
+Disques gérés Premium | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. Actuellement, les clouds pour le secteur public ne sont pas pris en charge. |
 Espaces de stockage | Prise en charge |         
 Chiffrement au repos (SSE) | Prise en charge | Pour les comptes de stockage du cache et cible, vous pouvez sélectionner un compte de stockage compatible SSE.     
 Azure Disk Encryption (ADE) | Non pris en charge |
