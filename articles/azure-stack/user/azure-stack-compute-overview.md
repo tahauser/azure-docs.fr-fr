@@ -2,16 +2,17 @@
 title: "Présentation des machines virtuelles Azure Stack"
 description: En savoir plus sur les machines virtuelles Azure Stack
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
@@ -22,7 +23,7 @@ Une machine virtuelle Azure Stack est un type de ressource informatique évoluti
 
 Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, sans devoir gérer les machines ou clusters individuellement. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
 
-Les machines virtuelles Azure Stack peuvent être utilisées de différentes manières. Par exemple :
+Les machines virtuelles Azure Stack peuvent être utilisées de différentes manières. Par exemple : 
 
 * **Développement et test** : les machines virtuelles Azure Stack permettent de créer rapidement et facilement un ordinateur avec une configuration spécifique requise pour encoder et tester une application.
 
@@ -65,7 +66,7 @@ Azure Stack fournit une place de marché à utiliser avec différentes versions 
 Le tableau suivant présente différents moyens de rechercher les informations relatives à une image :
 
 
-|Méthode|Description|
+|Méthode|DESCRIPTION|
 |---------|---------|
 |Portail Azure Stack|Les valeurs sont spécifiées automatiquement pour vous lorsque vous sélectionnez une image à utiliser.|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -87,14 +88,14 @@ Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 Les ressources figurant dans le tableau suivant sont utilisées par la machine virtuelle et doivent exister ou être créées lors de sa création.
 
 
-|Ressource|Requis|Description|
+|Ressource|Obligatoire|DESCRIPTION|
 |---------|---------|---------|
-|Groupe de ressources|Oui|La machine virtuelle doit être contenue dans un groupe de ressources.|
-|Compte de stockage|Oui|La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage.|
-|Réseau virtuel|Oui|La machine virtuelle doit faire partie d’un réseau virtuel.|
-|Adresse IP publique|Non|La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance.|
-|Interface réseau|Oui|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|
-|Disques de données|Non|La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage.|
+|Groupe de ressources|OUI|La machine virtuelle doit être contenue dans un groupe de ressources.|
+|Compte de stockage|OUI|La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage.|
+|Réseau virtuel|OUI|La machine virtuelle doit faire partie d’un réseau virtuel.|
+|Adresse IP publique|Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance.|
+|interface réseau|OUI|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|
+|Disques de données|Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage.|
 
 ## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?
 
@@ -118,7 +119,7 @@ Les machines virtuelles peuvent être gérées à l’aide d’un portail sur na
 Le tableau suivant indique différents moyens d’obtenir des informations sur une machine virtuelle.
 
 
-|Méthode|Description|
+|Méthode|DESCRIPTION|
 |---------|---------|
 |Portail Azure Stack|Dans le menu Hub, cliquez sur Machines virtuelles, puis sélectionnez la machine virtuelle dans la liste. Sur la page de la machine virtuelle, vous pouvez consulter les informations de vue d’ensemble, fixer des valeurs et surveiller les métriques.|
 |Azure PowerShell|La gestion des machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations sur l’utilisation de PowerShell, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
@@ -128,6 +129,6 @@ Le tableau suivant indique différents moyens d’obtenir des informations sur u
 
 Vous pouvez utiliser le bouton **Se connecter** dans le portail Azure Stack pour vous connecter à votre machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
 

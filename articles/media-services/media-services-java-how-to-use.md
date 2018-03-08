@@ -14,18 +14,18 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: bbfe7fedb1d5216b8a159faa9543ade74176181f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Prise en main du Kit de développement logiciel du client Java pour Azure Media Services
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel Java.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Les éléments suivants sont requis pour suivre ce didacticiel :
 
@@ -66,6 +66,7 @@ Vous pouvez créer une application Azure AD et obtenir les valeurs de configurat
 
 Le code repose également sur un fichier vidéo stocké localement. Vous devez modifier le code pour fournir votre propre fichier local à télécharger.
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -298,7 +299,7 @@ Le code repose également sur un fichier vidéo stocké localement. Vous devez m
             }
         }
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

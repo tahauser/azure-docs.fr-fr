@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 98517b546fe5a00ad17d8478e94bc78a012c2de8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f88a9a732099f2bd63f46d3f45e5ff96f7441f03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Prendre en main la diffusion de contenus à la demande à l’aide du Kit de développement logiciel (SDK) .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel (SDK) .NET Azure Media Services.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -95,6 +95,7 @@ La fonction **Main** appelle des méthodes qui seront définies ultérieurement 
 > [!NOTE]
 > Vous obtiendrez des erreurs de compilation tant que vous n’aurez pas ajouté de définitions pour toutes les fonctions qui sont définies plus loin dans cet article.
 
+```csharp
     class Program
     {
         // Read values from the App.config file.
@@ -145,7 +146,7 @@ La fonction **Main** appelle des méthodes qui seront définies ultérieurement 
             Console.ReadLine();
         }
         }
-    
+```
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Créer un nouvel élément et charger un fichier vidéo
 
@@ -167,6 +168,7 @@ Dans l’exemple suivant, nous spécifions **None** pour les options de l’él�
 
 Ajoutez la méthode suivante à la classe Program.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -181,7 +183,7 @@ Ajoutez la méthode suivante à la classe Program.
 
         return inputAsset;
     }
-
+```
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
 Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s’appellent des travaux et chaque Travail se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource.
@@ -196,6 +198,7 @@ Une fois la tâche terminée, vous pourrez diffuser votre élément multimédia 
 
 Ajoutez la méthode suivante à la classe Program.
 
+```csharp
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
@@ -229,6 +232,7 @@ Ajoutez la méthode suivante à la classe Program.
 
         return outputAsset;
     }
+```
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publier l'élément et obtenir les URL de diffusion et de téléchargement progressif
 
@@ -261,6 +265,7 @@ Le code suivant utilise les extensions du Kit de développement logiciel (SDK) M
 
 Ajoutez la méthode suivante à la classe Program.
 
+```csharp
     static public void PublishAssetGetURLs(IAsset asset)
     {
         // Publish the output asset by creating an Origin locator for adaptive streaming,
@@ -325,6 +330,7 @@ Ajoutez la méthode suivante à la classe Program.
 
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
+```
 
 ## <a name="test-by-playing-your-content"></a>Tester en lisant votre contenu
 
