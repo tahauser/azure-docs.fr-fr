@@ -12,27 +12,24 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e0e50cdb987f2632d11753940327d1a88be4f3ab
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 99cf221b08fc613c000dda4e5cc4855634091f55
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) d’appareil Java pour le service d’approvisionnement d’appareil Azure IoT Hub
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device.md)
-> * [Java](quick-create-simulated-device-tpm-java.md)
-> * [C#](quick-create-simulated-device-tpm-csharp.md)
-> * [Python](quick-create-simulated-device-tpm-python.md)
+
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
 Ces étapes indiquent comment créer un appareil simulé sur votre ordinateur de développement exécutant le système d’exploitation Windows, comment exécuter le simulateur Windows TPM en tant que [Module de sécurité matériel (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de l’appareil et comment utiliser l’exemple de code pour connecter cet appareil au service d’approvisionnement d’appareil et à votre IoT hub. 
 
-Veillez à compléter les étapes décrites dans la section relative à la [configuration du service d’approvisionnement d’appareil Azure IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer.
+Avant de continuer, veillez à réaliser les étapes décrites dans la section [Configuration du service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
 
 
 ## <a name="prepare-the-environment"></a>Préparer l’environnement 
 
-1. Assurez-vous que le [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) est bien installé sur votre machine.
+1. Assurez-vous que le [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) est bien installé sur votre ordinateur.
 
 1. Téléchargez et installez [Maven](https://maven.apache.org/install.html).
 
@@ -69,7 +66,7 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
 
     ![Informations DPS](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Modifiez `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` pour inclure votre _étendue de l’ID_ et _point de terminaison global de service d’approvisionnement_ notés plus tôt.  
+1. Modifiez `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` pour inclure les valeurs _ID scope_ (Étendue de l’ID) et _Provisioning Service Global Endpoint_ (Point de terminaison global du service d’approvisionnement) notées précédemment.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -128,12 +125,12 @@ Si vous envisagez de continuer à manipuler et explorer l’exemple de client d�
 
 1. Fermez la fenêtre de sortie de l’exemple de client d’appareil sur votre machine.
 1. Fermez la fenêtre du simulateur TPM sur votre machine.
-1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre service Device Provisioning. Ouvrez le panneau **Gérer les inscriptions** pour votre service, puis cliquez sur l’onglet **Inscriptions individuelles**. Sélectionnez *l’ID D’INSCRIPTION* de l’appareil inscrit à l’aide de ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure. 
-1. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Ouvrez le panneau **Appareils IoT** pour votre hub, sélectionnez *l’ID D’APPAREIL* de l’appareil inscrit au cours ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre service Device Provisioning. Ouvrez le panneau **Gérer les inscriptions** pour votre service, puis cliquez sur l’onglet **Inscriptions individuelles**. Sélectionnez l’*ID D’INSCRIPTION* de l’appareil inscrit dans ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure. 
+1. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Ouvrez le panneau **IoT Devices** (Appareils IoT) pour votre hub, sélectionnez *l’ID D’APPAREIL* de l’appareil inscrit dans ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure.
 
 ## <a name="next-steps"></a>étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un appareil simulé TPM sur votre machine et l’avez approvisionné vers votre IoT Hub à l’aide du service d’approvisionnement d’appareil Azure IoT Hub. Pour savoir comment inscrire un appareil TPM par programmation, continuez jusqu’au démarrage rapide traitant de l’inscription d’un appareil TPM par programmation. 
+Dans ce démarrage rapide, vous avez créé un appareil simulé TPM sur votre machine et l’avez approvisionné vers votre hub IoT à l’aide du service IoT Hub Device Provisioning. Pour savoir comment inscrire un appareil TPM au moyen d’un programme, poursuivez avec le démarrage rapide correspondant. 
 
 > [!div class="nextstepaction"]
-> [Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK (Inscrire l’appareil TPM auprès du service d’approvisionnement d’appareil Azure IoT Hub)](quick-enroll-device-tpm-java.md)
+> [Démarrage rapide : Inscrire l’appareil TPM auprès du service IoT Hub Device Provisioning](quick-enroll-device-tpm-java.md)

@@ -3,22 +3,21 @@ title: "Connecter l’Explorateur Stockage à un abonnement Azure Stack"
 description: "Découvrir comment connecter l’Explorateur Stockage à un abonnement Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: xiaofmao
-ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bad4b6b0d829fb68dc25e84406a453071a36476a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connecter l’Explorateur Stockage à un abonnement Azure Stack
 
@@ -98,7 +97,7 @@ Vous êtes maintenant prêts à connecter l’Explorateur Stockage à un abonnem
 
     ![Liste des comptes de stockage, y compris les comptes d’abonnement Azure Stack][31]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Bien démarrer avec l’Explorateur Stockage (préversion)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md)
 
