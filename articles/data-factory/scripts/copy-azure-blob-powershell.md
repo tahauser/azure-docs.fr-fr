@@ -2,7 +2,7 @@
 title: "Script PowerShell : copier des données dans le cloud à l’aide d’Azure Data Factory | Microsoft Docs"
 description: "Ce script PowerShell copie des données d’un emplacement dans un Stockage Blob Azure vers un autre dans le même Stockage Blob Azure."
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: spelluru
-ms.openlocfilehash: c564491e0f30e0e898bc03eecb29710edeb267f6
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: jingwang
+ms.openlocfilehash: cb452735b2f8f855a43d12c0fd50973baa3150fd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données dans le cloud
 
@@ -24,7 +24,7 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob à la fois comme magasins de données **source** et **récepteur**. Si vous ne possédez pas de compte de stockage Azure, consultez [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour en créer un. 
 * Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. Vous pouvez utiliser des outils tels que l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie.
 
@@ -53,7 +53,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Ce script utilise les commandes suivantes : 
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Créer une fabrique de données. |
@@ -65,7 +65,7 @@ Ce script utilise les commandes suivantes :
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 

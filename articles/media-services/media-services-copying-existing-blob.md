@@ -1,6 +1,6 @@
 ---
 title: "Copie d’objets blob d’un compte de stockage dans un élément multimédia Azure Media Services | Microsoft Docs"
-description: "Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services. Cet exemple utilise les extensions du kit SDK Azure Media Services pour .NET."
+description: "Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services. Cet exemple utilise les extensions de kit de développement logiciel (SDK) Azure Media Services pour .NET."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copie d’objets blob dans un élément multimédia Media Services
 Cet article montre comment copier des objets blob à partir d’un compte de stockage dans un nouvel élément multimédia Azure Media Services (AMS) à l’aide des [extensions du kit SDK Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -39,7 +39,7 @@ L’article présente deux exemples de code :
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copier des blob entre deux comptes AMS  
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Deux comptes Media Services. Consultez l’article [Création d’un compte Media Services](media-services-portal-create-account.md).
 
@@ -51,7 +51,7 @@ Vous pouvez suivre les étapes décrites dans cet article ou télécharger un ex
 1. Configurez votre environnement de développement comme décrit dans [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 2. Ajoutez la section appSettings au fichier .config et mettez à jour les valeurs en fonction de vos comptes Media Services, du compte de stockage de destination et de l’ID de l’élément multimédia source.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ Vous pouvez suivre les étapes décrites dans cet article ou télécharger un ex
 
 Le code suivant utilise la méthode d’extension **IAsset.Copy** pour copier tous les fichiers de l’élément multimédia source dans l’élément multimédia cible à l’aide d’une seule extension.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copier des objets blob d’un compte de stockage dans un compte AMS 
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 - Un compte de stockage à partir duquel vous souhaitez copier des blobs.
 - Un compte AMS dans lequel vous souhaitez copier des blobs.
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Configurez votre environnement de développement comme décrit dans [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 2. Ajoutez la section appSettings au fichier .config et mettez à jour les valeurs en fonction de votre stockage source et des comptes AMS de destination.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -189,7 +189,7 @@ Le code suivant copie des blobs d’un compte de stockage dans un élément mult
 >[!NOTE]
 >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,9 +371,10 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
-## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez désormais encoder vos éléments multimédias chargés. Pour plus d'informations, consultez [Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure](media-services-portal-encode.md).
+## <a name="next-steps"></a>étapes suivantes
+
+Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
 
 Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche de codage à partir d’un fichier entrant dans le conteneur configuré. Pour plus d’informations, consultez [cet exemple](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 

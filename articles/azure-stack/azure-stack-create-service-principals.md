@@ -3,21 +3,21 @@ title: "Créer un principal de service pour Azure Stack | Microsoft Docs"
 description: "Explique comment créer un principal de service utilisable avec le contrôle d’accès en fonction du rôle dans Azure Resource Manager pour gérer l’accès aux ressources."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fournir l’accès des applications à Azure Stack
 
@@ -83,9 +83,9 @@ Requirements:
 Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
 
 
-|Paramètre|Description|Exemple|
+|Paramètre|DESCRIPTION|exemples|
 |---------|---------|---------|
-|Nom|Nom du compte SPN|MyAPP|
+|NOM|Nom du compte SPN|MyAPP|
 |ClientCertificates|Tableau d’objets de certificat|Certificat X509|
 |ClientRedirectUris<br>(facultatif)|URI de redirection de l’application|         |
 
@@ -111,7 +111,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 2. Quand Automation a terminé, il affiche les informations nécessaires pour utiliser le SPN. 
 
-   Par exemple :
+   Par exemple : 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -160,7 +160,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 Maintenant que vous avez créé un principal de service et que vous lui avez attribué un rôle, vous pouvez commencer à l’utiliser au sein de votre application pour accéder aux ressources Azure Stack.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Ajouter des utilisateurs pour ADFS](azure-stack-add-users-adfs.md)
 [Gérer les autorisations des utilisateurs](azure-stack-manage-permissions.md)

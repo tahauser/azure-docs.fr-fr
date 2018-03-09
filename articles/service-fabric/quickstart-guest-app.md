@@ -9,22 +9,22 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 304d22c14f6877138213db14333773f1e293c57a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Héberger une application Node.js sur Microsoft Azure Service Fabric
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
 
@@ -125,7 +125,7 @@ Une fois que votre service a été publié, testez-le dans un navigateur web.
 
 Tout d’abord, ouvrez le portail Azure et recherchez votre service Service Fabric.
 
-Consultez le panneau Vue d’ensemble de l’adresse du service. Utilisez le nom de domaine de la propriété _Point de terminaison de connexion du client_. Par exemple, `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Consultez le panneau Vue d’ensemble de l’adresse du service. Utilisez le nom de domaine de la propriété _Point de terminaison de connexion du client_. Par exemple : `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Panneau Vue d’ensemble de Service Fabric sur le portail Azure][overview]
 
@@ -135,7 +135,7 @@ Accédez à cette adresse où vous verrez la réponse `HELLO WORLD`.
 
 N’oubliez pas de supprimer toutes les ressources que vous avez créées pour ce démarrage rapide, car celles-ci vous sont facturées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Apprenez-en davantage sur les [exécutables invités](service-fabric-deploy-existing-app.md).
 
 <!-- Image References -->

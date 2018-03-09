@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 7aa58b9a0fe4ca9e162722d277a951f8ac25013a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -26,6 +26,7 @@ ms.lasthandoff: 12/18/2017
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
+> * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -38,7 +39,7 @@ ms.lasthandoff: 12/18/2017
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
+|**Bien démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication

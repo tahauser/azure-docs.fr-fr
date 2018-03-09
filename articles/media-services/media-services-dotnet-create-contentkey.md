@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8700370dfb577cca95327caa923e2ef893165735
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-contentkeys-with-net"></a>Création de ContentKeys avec .NET
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ Les ressources chiffrées doivent être associées à des **ContentKey**. Cet ar
 ## <a name="contentkeytype"></a>ContentKeyType
 Une des valeurs que vous devez définir lors de la création d’une clé de contenu est le type de clé de contenu. Choisissez une des valeurs suivantes. 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -66,10 +67,12 @@ Une des valeurs que vous devez définir lors de la création d’une clé de con
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
 L’extrait de code suivant crée une clé de contenu du type de chiffrement d’enveloppe. Il associe ensuite la clé à l’élément multimédia spécifié.
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -98,15 +101,16 @@ L’extrait de code suivant crée une clé de contenu du type de chiffrement d�
         return randomBytes;
     }
 
-appel
+call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>Créer une ContentKey de type commun
 L’extrait de code suivant crée une clé de contenu du type de chiffrement commun. Il associe ensuite la clé à l’élément multimédia spécifié.
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -137,10 +141,10 @@ L’extrait de code suivant crée une clé de contenu du type de chiffrement com
 
         return returnValue;
     }
-appel
+call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
-
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

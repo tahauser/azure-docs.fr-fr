@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
@@ -78,14 +78,14 @@ La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 04
 ## <a name="supported-expression-rule-operators"></a>Opérateurs de règle d’expression pris en charge
 Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
 
-| Opérateur | Syntaxe |
+| Operator | Syntaxe |
 | --- | --- |
 | Non égal à |-ne |
 | Égal à |-eq |
 | Ne commence pas par |-notStartsWith |
 | Commence par |-startsWith |
 | Ne contient pas |-notContains |
-| Contient |-contains |
+| Contains |-contains |
 | Ne correspond pas |-notMatch |
 | Correspond |-match |
 | Dans | -in |
@@ -102,7 +102,7 @@ Tous les opérateurs sont répertoriés ci-dessous par priorité, de la plus fai
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
 Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union. Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à vos besoins.
-Par exemple :
+Par exemple : 
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -137,7 +137,7 @@ Opérateurs autorisés
 * -eq
 * -ne
 
-| Propriétés | Valeurs autorisées | Usage |
+| properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
@@ -156,7 +156,7 @@ Opérateurs autorisés
 * -in
 * -notIn
 
-| Propriétés | Valeurs autorisées | Usage |
+| properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | city |Toute valeur de chaîne ou *null* |(user.city -eq "value") |
 | country |Toute valeur de chaîne ou *null* |(user.country -eq "value") |
@@ -191,7 +191,7 @@ Opérateurs autorisés
 * -contains
 * -notContains
 
-| Propriétés | Valeurs autorisées | Usage |
+| properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | otherMails |Toute valeur de chaîne. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -202,11 +202,11 @@ Opérateurs autorisés
 * -any (respectée lorsqu’au moins un élément de la collection correspond à la condition)
 * -all (respectée lorsque tous les éléments de la collection correspondent à la condition)
 
-| Propriétés | Valeurs | Usage |
+| properties | Valeurs | Usage |
 | --- | --- | --- |
 | assignedPlans |Chaque objet de la collection affiche les propriétés de chaînes suivantes : capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -et assignedPlan.capabilityStatus -eq "Enabled") |
 
-Les propriétés à valeurs multiples sont des collections d’objets du même type. Vous pouvez utiliser les opérateurs -any et -all pour appliquer respectivement une condition à un ou tous les objets de la collection. Par exemple :
+Les propriétés à valeurs multiples sont des collections d’objets du même type. Vous pouvez utiliser les opérateurs -any et -all pour appliquer respectivement une condition à un ou tous les objets de la collection. Par exemple : 
 
 assignedPlans est une propriété à valeurs multiples qui répertorie tous les plans de service assignés à l’utilisateur. L’expression ci-dessous sélectionne les utilisateurs dont le plan de service Exchange Online (Plan 2) est également dans l’état activé :
 
@@ -270,7 +270,7 @@ Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un re
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Utilisation d’attributs pour créer des règles pour les objets d’appareil
 Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés.
 
- Attribut d’appareil  | Valeurs | Exemple
+ Attribut d’appareil  | Valeurs | exemples
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob Iphone”)
@@ -357,7 +357,7 @@ Pour rendre un groupe dynamique :
 ```
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes dans Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

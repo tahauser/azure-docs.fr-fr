@@ -1,10 +1,25 @@
--- titre : Protéger un backend d’API web avec Azure Active Directory et Gestion des API | Microsoft Docs description : Apprenez à protéger un backend d’API web avec Azure Active Directory et Gestion des API.
-services: api-management documentationcenter: '' author: juliako manager: cfowler editor: ''
-
-ms.service: api-management ms.workload: mobile ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 10/30/2017 ms.author: apimpm
 ---
-
-# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger un backend d’API web avec Azure Active Directory et Gestion des API
+title: "Protéger un serveur d’API Web back-end avec Azure Active Directory et Gestion des API | Microsoft Docs"
+description: "Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API."
+services: api-management
+documentationcenter: 
+author: juliako
+manager: cfowler
+editor: 
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/30/2017
+ms.author: apimpm
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/02/2018
+---
+# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 
 Cette rubrique montre comment générer un backend d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API.  
 
@@ -18,7 +33,7 @@ Dans cet exemple, un répertoire nommé **APIMDemo** est créé avec un domaine 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Création d’un service API web protégé par Azure Active Directory
-Dans cette étape, un backend d’API web est créé à l’aide de Visual Studio 2013. Pour créer un projet d’API web dans Visual Studio, cliquez sur **Fichier**->**Nouveau**->**Projet**, puis choisissez **Application web ASP.NET** à partir de la liste **web** de modèles. 
+Dans cette étape, un serveur principal d’API web est créé à l’aide de Visual Studio 2013. Pour créer un projet d’API web dans Visual Studio, cliquez sur **Fichier**->**Nouveau**->**Projet**, puis choisissez **Application web ASP.NET** à partir de la liste **web** de modèles. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -141,8 +156,8 @@ Pour publier le projet sur Azure, cliquez droit sur le projet **APIMAADDemo** da
 
 ![Publier un site web][api-management-web-publish]
 
-## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Accorder des autorisations à l’application du service backend Azure AD
-Une nouvelle application pour le service backend est créée dans votre répertoire Azure AD dans le cadre du processus de configuration et de publication de votre projet d’API web.
+## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Accord d’autorisations à l’application de service du serveur principal Azure AD
+Une nouvelle application pour le service principal est créée dans votre répertoire Azure AD dans le cadre du processus de configuration et de publication de votre projet d’API web.
 
 ![Application][api-management-aad-backend-app]
 
@@ -166,7 +181,7 @@ Les API sont configurées à partir du portail des éditeurs d’API, accessible
 
 Il est possible d’ [ajouter manuellement des opérations aux API](api-management-howto-add-operations.md), ou bien de les importer. Dans cette vidéo, à partir de 6’40’’, les opérations sont importées au format Swagger.
 
-Créez un fichier nommé `calcapi.json` avec le contenu suivant et enregistrez-le sur votre ordinateur. Vérifiez que l’attribut `host` pointe vers le backend de votre API web. Dans cet exemple, `"host": "apimaaddemo.azurewebsites.net"` est utilisé.
+Créez un fichier nommé `calcapi.json` avec le contenu suivant et enregistrez-le sur votre ordinateur. Vérifiez que l’attribut `host` pointe vers le serveur principal de votre API web. Dans cet exemple, `"host": "apimaaddemo.azurewebsites.net"` est utilisé.
 
 ```json
 {
@@ -326,7 +341,7 @@ Procédez comme suit pour configurer l’API de calculatrice.
 Une fois l’API importée, la page Résumé de l’API s’affiche dans le portail des éditeurs.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Appel de l’API sans succès à partir du portail de développement
-À ce stade, l’API a été importée dans Gestion des API, mais ne peut pas encore être appelée avec succès là partir du portail des développeurs, car le service backend est protégé par l’authentification Azure AD. 
+À ce stade, l’API a été importée dans Gestion des API, mais ne peut pas encore être appelée avec succès là partir du portail des développeurs, car le service du serveur principal est protégé par l’authentification Azure AD. 
 
 Cliquez sur **Portail des développeurs** en haut à droite du portail de publication.
 
@@ -344,7 +359,7 @@ Cliquez sur **Envoyer** et observez l’état de réponse obtenu, à savoir **40
 
 ![Envoyer][api-management-dev-portal-send-401]
 
-La demande n’est pas autorisée, car l’API du backend est protégée par Azure Active Directory. Avant d’appeler correctement l’API, le portail des développeurs doit être configuré afin d’autoriser les développeurs utilisant OAuth 2.0. Ce processus est décrit dans les sections suivantes.
+La demande n’est pas autorisée, car l’API du serveur principal est protégée par Azure Active Directory. Avant d’appeler correctement l’API, le portail des développeurs doit être configuré afin d’autoriser les développeurs utilisant OAuth 2.0. Ce processus est décrit dans les sections suivantes.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Inscription du portail des développeurs en tant qu’application AAD
 La première étape de la configuration du portail des développeurs pour autoriser les développeurs utilisant OAuth 2.0 consiste à inscrire le portail des développeurs en tant qu’application AAD. 
@@ -435,7 +450,7 @@ Cliquez sur l’icône de recherche, saisissez **APIM** dans le champ Commençan
 
 ![Ajout d’autorisations][api-management-aad-add-app-permissions]
 
-Cliquez sur **Autorisations déléguées** pour **APIMAADDemo**, cochez la case **Accès à APIMAADDemo**, puis cliquez sur **Enregistrer**. Cela permet à l’application du portail des développeurs d’accéder au service backend.
+Cliquez sur **Autorisations déléguées** pour **APIMAADDemo**, cochez la case **Accès à APIMAADDemo**, puis cliquez sur **Enregistrer**. Cela permet à l’application du portail des développeurs d’accéder au service du serveur principal.
 
 ![Ajout d’autorisations][api-management-aad-add-delegated-permissions]
 
@@ -467,11 +482,11 @@ Cliquez sur **Envoyer** et observez l’**État de la réponse** obtenu, à savo
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>Configuration d’une application de bureau pour appeler l’API
 
-Configuration d’une application de bureau simple pour appeler l’API La première étape consiste à enregistrer l’application de bureau dans Azure AD et à lui donner accès au répertoire et au service backend. 
+Configuration d’une application de bureau simple pour appeler l’API La première étape consiste à enregistrer l’application de bureau dans Azure AD et à lui donner accès au répertoire et au service du serveur principal. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configuration d’une stratégie de validation JWT pour autoriser des demandes
 
-Utilisez la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au backend.
+Utilisez la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au serveur principal.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -488,7 +503,7 @@ Pour plus d’informations, consultez [Cloud Cover Episode 177: More API Managem
 
 ## <a name="next-steps"></a>étapes suivantes
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
-* Pour les autres méthodes permettant de sécuriser votre service backend, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
+* Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 

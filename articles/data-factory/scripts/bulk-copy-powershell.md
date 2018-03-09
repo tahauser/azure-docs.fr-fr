@@ -2,7 +2,7 @@
 title: "Script PowerShell - Copier des données en bloc avec Azure Data Factory | Microsoft Docs"
 description: "Ce script PowerShell montre comment utiliser Azure Data Factory pour copier en bloc les données d’une banque de données source dans une banque de données de destination."
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
-ms.openlocfilehash: c8044d70a7c793d865884223081433e49f014f7b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: jingwang
+ms.openlocfilehash: f8a66f3daab9b57723f67a60fa195e53333f3b8d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Script PowerShell - Copier plusieurs tables en bloc avec Azure Data Factory
 
@@ -50,7 +50,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Ce script utilise les commandes suivantes : 
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Créer une fabrique de données. |
@@ -62,7 +62,7 @@ Ce script utilise les commandes suivantes :
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 

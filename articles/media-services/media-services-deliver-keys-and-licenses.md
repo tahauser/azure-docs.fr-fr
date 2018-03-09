@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilisation d’Azure Media Services pour fournir des licences DRM ou des clés AES
 Azure Media Services vous permet de recevoir, d’encoder, d’ajouter une protection de contenu et de diffuser votre contenu. Pour plus d’informations, consultez [Utiliser le chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md). Certains clients souhaitent utiliser Media Services uniquement pour fournir des licences et/ou des clés et encoder, chiffrer et diffuser à l’aide de leurs serveurs locaux. Cet article décrit comment vous pouvez utiliser Media Services pour fournir des licences PlayReady et/ou Widevine et exécuter les autres opérations avec vos serveurs locaux. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Media Services fournit un service de remise de licences DRM (gestion des droits numériques) PlayReady et Widevine, et de clés AES-128. Media Services fournit également des API qui vous permettent de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM, qui s’appliquent quand un utilisateur lit un contenu DRM protégé. Quand un utilisateur demande le contenu protégé, l’application de lecteur demande une licence du service de licence Media Services. Si la licence est autorisée, le service de licence Media Services la remet au lecteur. Les licences PlayReady et Widevine contiennent la clé de déchiffrement qui peut être utilisée par le lecteur client pour déchiffrer et diffuser le contenu.
 
 Media Services prend en charge plusieurs méthodes d’autorisation des utilisateurs effectuant des demandes de clé ou de licence. Vous configurez la stratégie d’autorisation de la clé de contenu. La stratégie peut avoir une ou plusieurs restrictions. Les stratégies peuvent être ouvertes ou à restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats SWT (Simple Web Token) et JWT (JSON Web Token).
@@ -48,7 +48,7 @@ Pour télécharger l’exemple décrit dans cet article, consultez [Utiliser Azu
 ## <a name="net-code-example"></a>Exemple de code .NET
 L’exemple de code suivant montre comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Pour configurer votre serveur local, vous avez besoin d’une clé de contenu, de l’ID de la clé et de l’URL d’acquisition de licence. Après avoir configuré votre serveur local, vous pouvez diffuser à partir de votre propre serveur de streaming. Étant donné que le flux chiffré pointe vers un serveur de licences Media Services, votre lecteur demande une licence de Media Services. Si vous choisissez l’authentification par jeton, le serveur de licences Media Services valide le jeton que vous avez envoyé via HTTPS. Si le jeton est valide, le serveur de licences remet la licence à votre lecteur. L’exemple de code suivant montre uniquement comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Si vous souhaitez fournir des clés AES-128, vous devez créer une clé de contenu d’enveloppe et obtenir une URL d’acquisition de clé. Pour plus d’informations, consultez [Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés](media-services-protect-with-aes128.md).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

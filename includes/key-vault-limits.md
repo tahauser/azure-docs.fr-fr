@@ -13,6 +13,6 @@ Secrets, clés de compte de stockage géré et transactions de coffre :
 | Toutes les transactions |2000 |
 |
 
-Consultez la page [Aide sur la limitation de requêtes Azure Key Vault](../key-vault/key-vault-ovw-throttling.md) pour plus d’informations sur la façon de gérer la limitation en cas de dépassement de ces limites.
+Consultez la page [Aide sur la limitation de requêtes Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md) pour plus d’informations sur la façon de gérer la limitation en cas de dépassement de ces limites.
 
 <sup>1</sup> La limite d’abonnement pour tous les types de transaction est fixée à 5x par limite de coffre de clés. Par exemple, HSM - autres transactions par abonnement sont limitées à 5000 transactions en 10 secondes par abonnement.

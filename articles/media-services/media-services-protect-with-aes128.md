@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/05/2018
 
 Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation de la clé de contenu peut comporter une ou plusieurs restrictions d’autorisation, ouvertes ou à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [SWT (Simple Web Tokens)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) et [JWT (JSON Web Token)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3). Pour plus d’informations, consultez [Configurer la stratégie d’autorisation de clé de contenu](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-Pour tirer parti du chiffrement dynamique, vous devez avoir un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse (Smooth Streaming) à débit binaire multiple. Vous devez également configurer la stratégie de remise pour l'élément (décrite plus loin dans cet article). Ensuite, en fonction du format spécifié dans l'URL de diffusion en continu, le serveur de diffusion en continu à la demande s'assure que le flux est livré conformément au protocole choisi. Par conséquent, vous devez stocker et payer uniquement les fichiers dans un format de stockage unique. Media Services crée et fournit la réponse appropriée aux demandes du client.
+Pour tirer parti du chiffrement dynamique, vous devez avoir un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse (Smooth Streaming) à débit binaire multiple. Vous devez également configurer la stratégie de remise pour l'élément (décrite plus loin dans cet article). Ensuite, en fonction du format spécifié dans l’URL de diffusion en continu, le serveur de diffusion en continu à la demande s’assure que le flux est livré conformément au protocole choisi. Par conséquent, vous devez stocker et payer uniquement les fichiers dans un format de stockage unique. Media Services crée et fournit la réponse appropriée aux demandes du client.
 
 Cet article est utile pour les développeurs travaillant sur des applications qui fournissent du contenu multimédia protégé. L’article vous montre comment configurer le service de remise des clés avec des stratégies d'autorisation, afin que seuls les clients autorisés puissent recevoir les clés de chiffrement. Elle vous montre également comment utiliser le chiffrement dynamique.
 
@@ -111,10 +111,10 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 * Le protocole de remise de l’élément multimédia (par exemple, MPEG DASH, HLS, Smooth Streaming ou tous).
 * Le type de chiffrement dynamique (par exemple, AES Envelope) ou aucun chiffrement dynamique. 
 
-Pour plus d'informations, consultez [Configuration de la stratégie de distribution d’un élément multimédia](media-services-dotnet-configure-asset-delivery-policy.md).
+Pour plus d'informations, consultez la section [Configuration de la stratégie de distribution d’un élément multimédia](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ## <a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
-Vous devrez fournir aux utilisateurs l'URL de diffusion en continu pour Smooth Streaming, DASH ou HLS.
+Vous devrez fournir aux utilisateurs l’URL de diffusion en continu pour Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
 > Si vous ajoutez ou mettez à jour la stratégie de distribution de votre élément multimédia, vous devez supprimer tout localisateur existant et en créer un nouveau.
@@ -126,6 +126,7 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 ## <a name="get-a-test-token"></a>Obtenir un test de jeton
 Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé.
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,6 +137,7 @@ Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la st
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
 Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
 
@@ -145,6 +147,7 @@ Dans l'étape précédente, vous avez construit l'URL qui pointe vers un fichier
 ### <a name="manifest-files"></a>Fichiers manifeste
 Le client doit extraire la valeur de l'URL (qui contient également l'ID de la clé de contenu [kid]) à partir du fichier manifeste. Ensuite, le client essaie d'obtenir la clé de chiffrement à partir du service de distribution des clés. Le client doit également extraire la valeur IV et l’utiliser pour déchiffrer le flux. L’extrait de code suivant indique <Protection> l’élément du manifeste Smooth Streaming :
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ Le client doit extraire la valeur de l'URL (qui contient également l'ID de la c
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 Dans le cas de HLS, le manifeste racine est divisé en fichiers de segment. 
 
@@ -191,6 +195,7 @@ Si vous ouvrez l’un des fichiers de segment dans un éditeur de texte (par exe
 
 Le code suivant montre comment envoyer une requête au service de distribution des clés Media Services à l'aide d'un Uri (extrait du manifeste) de remise de clé et d'un jeton. (Cet article ne traite pas de l'obtention de jetons Simple Web à partir d'un service de jeton sécurisé.)
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,6 +235,7 @@ Le code suivant montre comment envoyer une requête au service de distribution d
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>Protéger votre contenu avec AES-128 en utilisant .NET
 
@@ -239,8 +245,10 @@ Le code suivant montre comment envoyer une requête au service de distribution d
 
 2. Ajoutez les éléments suivants à appSettings, comme défini dans votre fichier app.config :
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>Exemple
 
@@ -251,7 +259,9 @@ Remplacez le code dans votre fichier Program.cs par le code présenté dans cett
 
 Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

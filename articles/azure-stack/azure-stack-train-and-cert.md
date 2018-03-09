@@ -2,21 +2,22 @@
 title: Formation et certification Azure Stack
 description: "Découvrez les possibilités de certification de formation Azure Stack"
 services: azure-stack
-author: vhorne
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
+ms.date: 02/28/2018
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: 50e1a4f5aa1ba5ad901506407d30e04df7449719
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3ac1d83c4f40bd8bbd072486489b72de73084ade
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Formation et certification Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Les opportunités de formation et de certification suivantes sont disponibles pour vous aider à découvrir Azure Stack et à démontrer votre maîtrise d’Azure Stack.
 
@@ -29,6 +30,6 @@ Les opportunités de formation et de certification suivantes sont disponibles po
 ## <a name="certification"></a>Certification
 Les certifications Azure Stack sont en cours de développement. Revenez consulter cette section ultérieurement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Documentation sur Azure Stack](https://docs.microsoft.com/azure/azure-stack/)

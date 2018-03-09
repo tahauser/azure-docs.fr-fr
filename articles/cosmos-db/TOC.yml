@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: Utilisation des préférences de lecture
               href: mongodb-readpreference.md
+            - name: Indexation
+              href: mongodb-indexing.md
             - name: Prise en charge de la fonctionnalité MongoDB
               href: mongodb-feature-support.md
             - name: Séries de didacticiels sur Angular

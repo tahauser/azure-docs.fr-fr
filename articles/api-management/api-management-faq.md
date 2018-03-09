@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -122,7 +122,7 @@ Vous pouvez obtenir votre adresse IP (ou vos adresses, dans le cas d’un déplo
 Pour savoir comment configurer un serveur d’autorisation OAuth 2.0 avec la sécurité Active Directory Federation Services (AD FS), consultez [Utilisation d’AD FS dans Gestion des API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>Quelle méthode de routage la gestion des API utilise-t-elle lors de déploiements sur plusieurs emplacements géographiques ?
-Le service Gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#priority) lors de déploiements sur plusieurs emplacements géographiques. Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour en savoir plus sur les méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+Le service Gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#performance) lors de déploiements sur plusieurs emplacements géographiques. Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour en savoir plus sur les méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Puis-je utiliser un modèle Azure Resource Manager pour créer une instance de service Gestion des API ?
 Oui. Consultez les modèles de démarrage rapide [Service Gestion des API Azure](http://aka.ms/apimtemplate).

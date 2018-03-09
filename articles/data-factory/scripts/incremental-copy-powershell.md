@@ -2,7 +2,7 @@
 title: "Script PowerShell - Charger de façon incrémentielle des données à l’aide d’Azure Data Factory | Microsoft Docs"
 description: "Ce script PowerShell montre comment utiliser Azure Data Factory pour copier de façon incrémentielle les données d’une base de données Azure SQL Database dans un stockage Blob Azure."
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
-ms.openlocfilehash: 36a8c8c4ed83a56dfd0f487ec4bcf030e3890ef6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: jingwang
+ms.openlocfilehash: daa7368de4b6f063f6e461909dd69eb1d79e7d62
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script PowerShell - Charger de façon incrémentielle des données à l’aide d’Azure Data Factory
 Cet exemple de script PowerShell charge uniquement les enregistrements nouveaux ou mis à jour à partir d’un magasin de données source dans un magasin de données récepteur, après la copie initiale complète des données de la source vers le récepteur.  
@@ -49,7 +49,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Ce script utilise les commandes suivantes : 
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Créer une fabrique de données. |
@@ -61,7 +61,7 @@ Ce script utilise les commandes suivantes :
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 

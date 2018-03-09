@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Forum aux questions sur le Cache Redis Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour Cache Redis Azure.
@@ -246,9 +246,7 @@ Vous pouvez utiliser les commandes répertoriées dans [Commandes Redis](http://
 * Vous pouvez aussi utiliser les outils de ligne de commande Redis. Pour ce faire, effectuez les étapes suivantes :
 * Téléchargez les [outils de ligne de commande Redis](https://github.com/MSOpenTech/redis/releases/).
 * Connectez-vous au cache avec `redis-cli.exe`. Transmettez le point de terminaison du cache à l’aide du commutateur -h et la clé à l’aide de -a, comme indiqué dans l’exemple suivant :
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > Les outils de ligne de commande Redis ne fonctionnent pas avec le port SSL, mais vous pouvez utiliser un utilitaire comme `stunnel` pour connecter en toute sécurité les outils au port SSL en suivant les instructions du billet de blog [Annonce du fournisseur d’état de session ASP.NET pour la version préliminaire de Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).

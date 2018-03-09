@@ -2,7 +2,7 @@
 title: "Script PowerShell : copier des données en local dans Azure à l’aide de Data Factory | Microsoft Docs"
 description: "Ce script PowerShell copie des données depuis une base de données SQL Server locale vers un stockage Blob Azure."
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: spelluru
-ms.openlocfilehash: 7f062a58482ad72e3dd3844431205502b4c44786
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: jingwang
+ms.openlocfilehash: bf84603c587b7bee5d0f69355ff9c1375ed7e60c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données en local dans Azure
 
@@ -24,7 +24,7 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 - **SQL Server**. Dans cet exemple, vous allez utiliser une base de données SQL Server locale comme magasin de données **source**.
 - **Compte Stockage Azure**. Dans cet exemple, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
@@ -76,7 +76,7 @@ Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceG
 
 Ce script utilise les commandes suivantes : 
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Créer une fabrique de données. |
@@ -89,7 +89,7 @@ Ce script utilise les commandes suivantes :
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 

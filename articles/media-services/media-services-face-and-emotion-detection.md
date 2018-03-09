@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
 ## <a name="overview"></a>Vue d'ensemble
@@ -64,21 +64,24 @@ Face Detector utilise des techniques de fragmentation (où les métadonnées peu
 ### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante est uniquement valable pour la détection faciale.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
-| Nom de l’attribut | Description |
+| Nom de l’attribut | DESCRIPTION |
 | --- | --- |
 | Mode |Fast : traitement rapide, mais moins précis (par défaut).|
 
 ### <a name="json-output"></a>Sortie JSON
 L’exemple suivant de sortie JSON a été tronqué.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ L’exemple suivant de sortie JSON a été tronqué.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection d’émotion
 ### <a name="input-video"></a>Vidéo d’entrée
@@ -133,6 +136,7 @@ L’exemple suivant de sortie JSON a été tronqué.
 ### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante spécifie la création d’un JSON en fonction de la détection d’émotion.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,10 +145,11 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
-| Nom de l’attribut | Description |
+| Nom de l’attribut | DESCRIPTION |
 | --- | --- |
 | Mode |Faces : détection faciale uniquement.<br/>PerFaceEmotion : retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
 | AggregateEmotionWindowMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes. |
@@ -161,6 +166,7 @@ Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fe
 ### <a name="json-output"></a>Sortie JSON
 Sortie JSON pour l’émotion agrégée (tronquée) :
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,8 +317,9 @@ Sortie JSON pour l’émotion agrégée (tronquée) :
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 * Les formats de fichier vidéo d’entrée pris en charge incluent WMV, MOV et MP4.
 * Les visages sont détectables selon une plage de tailles allant de 24 x 24 à 2 048 x 2 048 pixels. Les visages en dehors de cette plage ne sont pas détectés.
 * Pour chaque vidéo, le nombre maximal de visages retourné est de 64.
@@ -324,19 +331,21 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
 2. Créer un travail avec une tâche de détection faciale basée sur un fichier de configuration qui contient la présélection JSON suivante : 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Télécharger les fichiers JSON de sortie. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>exemples
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe27577b73c26731647a217c249913d8332c0c59
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 8604863b9394c5af9494c47f821601441ecee308
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/27/2018
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
+> * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -45,7 +46,7 @@ ms.lasthandoff: 02/27/2018
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Bien démarrer**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
