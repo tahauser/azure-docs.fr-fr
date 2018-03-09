@@ -3,7 +3,7 @@ title: "Ajouter un utilisateur Azure Active Directory B2B Collaboration à un r�
 description: "Ajouter un utilisateur invité à un rôle dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63281ed7e5560d82ce33648aa626a9566346be2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory
 
@@ -38,11 +39,11 @@ Les utilisateurs Azure Active Directory (Azure AD) B2B Collaboration sont ajout�
 
 ![rôle administrateur limité](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)
 * [Groupes dynamiques et B2B Collaboration](active-directory-b2b-dynamic-groups.md)

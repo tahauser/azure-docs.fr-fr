@@ -3,7 +3,7 @@ title: Configurer des applications SaaS pour B2B Collaboration dans Azure Active
 description: Code et exemples PowerShell pour Azure Active Directory B2B Collaboration
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: dc0bb3950f30b2ea676de406538e3a463ad21429
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: e2206ca8ddee867b9ea48911f70793010989ad69
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurer des applications SaaS pour B2B Collaboration
 
@@ -100,7 +101,7 @@ Vous pouvez autoriser les utilisateurs à authentifier les utilisateurs invités
 
 À l’instar des invités Dropbox, les invités Box doivent utiliser leur invitation reçue de l’application Box.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les articles suivants sur Azure AD B2B Collaboration :
 

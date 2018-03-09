@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuration de la télémétrie Azure Media Services avec .NET
 
@@ -42,21 +42,25 @@ Les étapes suivantes sont nécessaires pour activer la télémétrie :
 - Obtenez les informations d’identification du compte de stockage associé au compte Media Services. 
 - Créez un point de terminaison de notification avec **EndPointType** défini sur **AzureTable** et endPointAddress pointant vers la table de stockage.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - Créez un paramètre de configuration de la surveillance pour les services que vous souhaitez surveiller. Pas plus d’un paramètre de configuration de la surveillance n’est autorisé. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
-## <a name="consuming-telemetry-information"></a>Informations sur l’utilisation de la télémétrie
+## <a name="consuming-telemetry-information"></a>informations sur l’utilisation de la télémétrie
 
 Pour plus d’informations sur l’utilisation de la télémétrie, consultez [cet](media-services-telemetry-overview.md) article.
 
@@ -66,13 +70,15 @@ Pour plus d’informations sur l’utilisation de la télémétrie, consultez [c
 
 2. Ajoutez l’élément suivant aux **appSettings** définis dans votre fichier app.config :
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
-## <a name="example"></a>Exemple  
+## <a name="example"></a>exemples  
     
 L’exemple suivant montre comment activer la télémétrie pour le compte AMS spécifié et comment interroger les métriques à l’aide du SDK .NET Azure Media Services.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -219,7 +225,7 @@ namespace AMSMetrics
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

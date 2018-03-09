@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 ms.openlocfilehash: af0670a44937bb14df9afc206ea4601c0b9289a2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="azure-ad-domain-services"></a>Services de domaine Azure AD
 ## <a name="features"></a>Caractéristiques
@@ -27,7 +27,7 @@ Les fonctionnalités suivantes sont disponibles dans les domaines gérés des se
 * **Expérience de déploiement simple :** vous pouvez activer les services de domaine Azure AD pour votre client Azure AD en quelques clics. Que votre client Azure AD soit un client cloud ou qu’il soit synchronisé avec votre annuaire local, votre domaine géré peut être configuré rapidement.
 * **Prise en charge de la jonction de domaine :** vous pouvez facilement joindre des ordinateurs au domaine dans le réseau virtuel Azure où votre domaine géré est disponible. La jonction de domaine sur les systèmes d’exploitation serveur et client Windows fonctionne en toute transparence par rapport aux domaines pris en charge par les services de domaine Azure AD. Vous pouvez également recourir aux outils de jonction de domaine automatisée par rapport à ces domaines.
 * **Une instance de domaine par annuaire Azure AD :** vous pouvez créer un seul domaine Active Directory par annuaire Azure AD.
-* **Création de domaines avec des noms personnalisés :** vous pouvez créer des domaines avec des noms personnalisés (par exemple, « contoso100.com ») à l’aide des services de domaine Azure AD. Vous pouvez utiliser des noms de domaine vérifiés ou non vérifiés. Si vous le souhaitez, vous pouvez également créer un domaine avec le suffixe de domaine intégré (c’est-à-dire, * .onmicrosoft.com) proposé par votre annuaire Azure AD.
+* **Création de domaines avec des noms personnalisés :** vous pouvez créer des domaines avec des noms personnalisés (par exemple, « contoso100.com ») à l’aide des services de domaine Azure AD. Vous pouvez utiliser des noms de domaine vérifiés ou non vérifiés. Si vous le souhaitez, vous pouvez également créer un domaine avec le suffixe de domaine intégré (c’est-à-dire, *.onmicrosoft.com) proposé par votre annuaire Azure AD.
 * **Intégration à Azure AD :** vous n’avez pas besoin de configurer ou de gérer la réplication sur les services de domaine Azure AD. Les comptes d’utilisateur, les appartenances aux groupes et les informations d’identification (mots de passe) issus de votre annuaire Azure AD sont automatiquement disponibles dans les services de domaine Azure AD. Les nouveaux utilisateurs ou groupes ou les modifications apportées aux attributs dans votre client Azure AD ou dans votre annuaire local sont automatiquement synchronisés avec les services de domaine Azure AD.
 * **Authentification NTLM et Kerberos :** grâce à la prise en charge de l’authentification NTLM et Kerberos, vous pouvez déployer des applications qui reposent sur l’authentification intégrée de Windows.
 * **Utilisation de vos informations d’identification/mots de passe d’entreprise :** les mots de passe des utilisateurs dans votre client Azure AD fonctionnent avec les services de domaine Azure AD. Les utilisateurs peuvent utiliser leurs informations d’identification d’entreprise pour joindre des machines à des domaines, se connecter de manière interactive ou via le bureau à distance et s’authentifier sur le domaine géré.

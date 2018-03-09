@@ -3,7 +3,7 @@ title: "Traiter des jeux de données volumineux à l’aide de Data Factory et d
 description: "Décrit comment traiter de grandes quantités de données dans un pipeline Azure Data Factory en utilisant la capacité de traitement parallèle d’Azure Batch."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -598,7 +598,7 @@ Les services liés relient des magasins de données ou des services de calcul à
 #### <a name="step-3-create-datasets"></a>Étape 3 : Créer les jeux de données
 Dans cette étape, vous allez créer des jeux de données pour représenter les données d’entrée et de sortie.
 
-#### <a name="create-the-input-dataset"></a>Création du jeu de données d’entrée
+#### <a name="create-the-input-dataset"></a>Créer le jeu de données d’entrée
 1. Dans Data Factory Editor, sélectionnez le bouton **Nouveau jeu de données** dans la barre d’outils. Sélectionnez **Stockage Blob Azure** dans la liste déroulante.
 
 2. Remplacez le script JSON affiché dans le volet droit par le script JSON suivant :

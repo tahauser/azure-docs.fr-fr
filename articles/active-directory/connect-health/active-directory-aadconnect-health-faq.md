@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -128,12 +128,7 @@ L’inscription de l’agent Health peut échouer pour les raisons suivantes :
 
 **Q : Je reçois le message d’alerte suivant : « Les données du service de contrôle d’intégrité ne sont pas à jour ». Comment puis-je résoudre ce problème ?**
 
-Le service Azure AD Connect Health génère cette alerte lorsqu’il ne reçoit pas tous les points de données du serveur au cours des deux dernières heures. Le déclenchement de cette alerte peut avoir plusieurs origines.
-
-* L’agent ne peut pas communiquer avec les points de terminaison requis, car un pare-feu bloque le trafic. Cela est particulièrement courant sur les serveurs proxy d’application web. Assurez-vous que vous avez autorisé les communications sortantes vers les ports et les points de terminaison requis. Pour plus d’informations, voir la [section sur les composants requis](active-directory-aadconnect-health-agent-install.md#requirements).
-* Les communications sortantes sont soumises à une inspection SSL par la couche réseau. Cela entraîne le remplacement du certificat que l’agent utilise par l’entité/le serveur d’inspection, et il est impossible de charger les données vers le service Azure AD Connect Health.
-* Vous pouvez utiliser la commande de connectivité intégrée à l’agent. [En savoir plus](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Les agents prennent également en charge la connectivité sortante via un proxy HTTP non authentifié. [En savoir plus](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Le service Azure AD Connect Health génère cette alerte lorsqu’il ne reçoit pas tous les points de données du serveur au cours des deux dernières heures. [En savoir plus](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Questions sur les opérations
 **Q : Dois-je activer l’audit sur les serveurs proxy d’application web ?**

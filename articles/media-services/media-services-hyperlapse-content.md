@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Fichiers multimédia hyperlapse avec Azure Media Hyperlapse
 Azure Media Hyperlapse est un processeur multimédia (MP) qui crée des vidéos exceptionnelles image par image accélérées (time-lapse) à partir d'un contenu de caméra à la première personne (first-person camera) ou d'action.  L'équivalent cloud du [bureau Microsoft Research Hyperlapse Pro et Hyperlapse Mobile pour les applications téléphoniques](http://aka.ms/hyperlapse), Microsoft Hyperlapse pour Azure Media Services, utilise la mise à l'échelle massive de traitement de supports multimédia Azure Media Services pour une évolutivité horizontale et une mise en parallèle du traitement en bloc d'Hyperlapse.
@@ -38,7 +38,7 @@ Vous devez tout d'abord charger votre fichier d'entrée souhaité dans Azure Med
 ### <a id="configuration"></a>Configuration de la présélection pour Hyperlapse
 Une fois votre contenu dans votre compte Media Services, vous devez construire la présélection de votre configuration.  Le tableau suivant décrit les champs spécifiés par l'utilisateur :
 
-| Champ | Description |
+| Champ | DESCRIPTION |
 | --- | --- |
 | StartFrame |L'image à partir de laquelle le traitement avec Microsoft Hyperlapse doit commencer. |
 | NumFrames |Le nombre d'images à traiter |
@@ -47,7 +47,7 @@ Une fois votre contenu dans votre compte Media Services, vous devez construire l
 Voici un exemple de fichier de configuration conforme au format XML et JSON :
 
 **Présélection XML :**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ Voici un exemple de fichier de configuration conforme au format XML et JSON :
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **Présélection JSON :**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,6 +74,7 @@ Voici un exemple de fichier de configuration conforme au format XML et JSON :
             "Stabilize":false
         }
     }
+```
 
 ### <a id="sample_code"></a> Microsoft Hyperlapse avec le kit de développement logiciel .NET
 La méthode suivante charge un fichier multimédia en tant qu'élément multimédia et crée une tâche avec le processeur multimédia Azure Media Hyperlapse.
@@ -85,6 +87,7 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Types de fichiers pris en charge
 * MP4 
