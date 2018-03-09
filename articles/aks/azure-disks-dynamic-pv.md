@@ -97,7 +97,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus en détail les volumes persistants Kubernetes utilisant des disques Azure.
 
