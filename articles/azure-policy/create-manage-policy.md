@@ -394,7 +394,7 @@ Si vous prévoyez de continuer avec les didacticiels suivants, ne nettoyez pas l
 2. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) que vous venez de créer.
 3. Cliquez sur les points de suspension à la fin de la définition ou de l’affectation, puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez effectué avec succès les opérations suivantes :
 
