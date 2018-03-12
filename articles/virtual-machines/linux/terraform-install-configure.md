@@ -1,4 +1,4 @@
----
+﻿---
 title: "Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure | Microsoft Docs"
 description: "Découvrez comment installer et configurer Terraform pour créer des ressources Azure."
 services: virtual-machines-linux
