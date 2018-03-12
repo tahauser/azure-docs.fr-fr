@@ -8,6 +8,8 @@
       href: overview.md
     - name: "Qu’est-ce que la machine virtuelle d’apprentissage approfondi\_?"
       href: deep-learning-dsvm-overview.md
+    - name: "Qu’est-ce que la machine virtuelle de science des données\_Geo AI ?"
+      href: geo-ai-dsvm-overview.md
 - name: Prise en main
   items:
     - name: Créer une machine virtuelle de science des données Windows
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Créer une machine virtuelle d’apprentissage approfondi
       href: provision-deep-learning-dsvm.md
+    - name: "Créer la machine virtuelle de science des données\_Geo AI"
+      href: provision-geo-ai-dsvm.md
 - name: Procédures
   items:
     - name: Utiliser une machine virtuelle de science des données Windows
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Utiliser une machine virtuelle d’apprentissage approfondi
       href: use-deep-learning-dsvm.md
+    - name: "Utiliser une machine virtuelle de science des données\_Geo AI"
+      href: use-geo-ai-dsvm.md
 - name: Informations de référence
   expanded: true
   items:

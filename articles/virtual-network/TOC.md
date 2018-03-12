@@ -27,7 +27,8 @@
 ### [Groupes de sécurité réseau](virtual-networks-nsg.md)
 
 ## Déployer
-### [Réseaux virtuels](virtual-networks-create-vnet-arm-pportal.md)
+### Réseaux virtuels
+#### [Portail Azure](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [interface de ligne de commande Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Modèle](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Itinéraires définis par l’utilisateur
-#### [Portail Azure](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+### Tables de routage
+#### [Portail Azure](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [interface de ligne de commande Azure](tutorial-create-route-table-cli.md)
 #### [Modèle](virtual-network-create-udr-arm-template.md)
 #### Classique
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [interface de ligne de commande Azure](virtual-network-create-udr-classic-cli.md)
 
 ### Homologation de réseaux virtuels
-#### [Même mode de déploiement - même abonnement](virtual-network-create-peering.md)
+#### Même mode de déploiement - même abonnement
+##### [Portail Azure](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [interface de ligne de commande Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Même mode de déploiement - mêmes abonnements](create-peering-different-subscriptions.md)
 #### [Mode de déploiement différent - même abonnement](create-peering-different-deployment-models.md)
 #### [Mode de déploiement différent - mêmes abonnements](create-peering-different-deployment-models-subscriptions.md)
