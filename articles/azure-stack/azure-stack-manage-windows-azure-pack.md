@@ -3,8 +3,8 @@ title: "Gérer des machines virtuelles Windows Azure Pack à partir d’Azure St
 description: "Découvrez comment gérer des machines virtuelles Windows Azure Pack à partir du portail utilisateur dans Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Gérer des machines virtuelles Windows Azure Pack à partir d’Azure Stack
 
-*S’applique à : Kit de développement Azure Stack*
+*S’applique au Kit de développement Azure Stack*
 
 Dans le Kit de développement Azure Stack, vous pouvez activer l’accès aux machines virtuelles du locataire s’exécutant sur Windows Azure Pack à partir du portail utilisateur Azure Stack. Les utilisateurs peuvent utiliser le portail Azure Stack pour gérer leurs réseaux virtuels et machines virtuelles IaaS existants. Ces ressources sont disponibles sur Windows Azure Pack dans les composants SPF (Service Provider Foundation) et VMM (Virtual Machine Manager) sous-jacents. Plus précisément, les utilisateurs peuvent :
 
@@ -65,7 +65,7 @@ Quand un utilisateur se sert du portail Azure Stack pour effectuer une action qu
 
 Dans l’environnement du Kit de développement, Windows Azure Pack et Azure Stack ont des fournisseurs d’identité indépendants. Les utilisateurs qui accèdent à ces deux environnements à partir du portail Azure Stack doivent avoir le même nom d’utilisateur principal (UPN) dans les deux fournisseurs d’identité. Par exemple, le compte *azurestackadmin@azurestack.local* doit également exister dans le service STS pour Windows Azure Pack. Là où les services AD FS ne sont pas configurés pour prendre en charge les relations d’approbation sortante, vous allez établir une approbation des composants Windows Azure Pack (API locataire) sur l’instance Azure Stack des services AD FS.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 ### <a name="download-the-windows-azure-pack-connector"></a>Télécharger le connecteur Windows Azure Pack
 Dans le [Centre de téléchargement Microsoft](https://aka.ms/wapconnectorazurestackdlc), téléchargez le fichier .exe et extrayez-le sur votre ordinateur local. Ensuite, copiez le contenu sur un ordinateur pouvant accéder à votre environnement Windows Azure Pack.
@@ -93,7 +93,7 @@ Avant de configurer le connecteur Windows Azure Pack, vous devez activer le mode
 Pour activer le mode multicloud, vous devez exécuter le script Add-AzurePackConnector.ps1 après le déploiement d’Azure Stack. Le tableau suivant décrit les paramètres du script.
 
 
-|  Paramètre | Description | Exemple |   
+|  Paramètre | DESCRIPTION | exemples |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | URI des connecteurs Windows Azure Pack. Ces URI doivent correspondre aux portails du locataire Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Par défaut, la valeur du port est 40005.) |  
 | AzureStackCloudName | Étiquette représentant le cloud Azure Stack local.| "AzureStack" |
@@ -179,7 +179,7 @@ Pour cette préversion, utilisez le connecteur Windows Azure Pack uniquement dan
 
     f. Pour terminer la configuration de ces trois services, exécutez le script **Configure-WapConnector.ps1** pour mettre à jour les paramètres du fichier Web.config.
 
-    |  Paramètre | Description | Exemple |   
+    |  Paramètre | DESCRIPTION | exemples |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Nom de domaine complet du portail du locataire Windows Azure Pack | tenant.contoso.com | 
     | TenantAPIFQDN | Nom de domaine complet de l’API locataire Windows Azure Pack | tenantapi.contoso.com  |
@@ -214,7 +214,7 @@ Pour cette préversion, utilisez le connecteur Windows Azure Pack uniquement dan
     f.  Répétez l’étape 2 sur n’importe quelle autre machine virtuelle exécutant l’API locataire.
 3. À partir d’**une seule** des machines virtuelles d’API locataire, exécutez le script Configure-TrustAzureStack.ps1 pour ajouter une relation d’approbation entre l’API locataire et l’instance AD FS sur Azure Stack. Vous devez utiliser un compte disposant d’un accès sysadmin à la base de données Microsoft.MgmtSvc.Store. Le script a les paramètres suivants :
 
-    | Paramètre | Description | Exemple |
+    | Paramètre | DESCRIPTION | exemples |
     | --------- | ------------| ------- |
    | SqlServer | Nom du serveur SQL qui contient la base de données Microsoft.MgmtSvc.Store. Ce paramètre est obligatoire. | SQLServer | 
    | DataFile | Fichier de sortie généré précédemment lors de la configuration du mode multicloud Azure Stack. Ce paramètre est obligatoire. | AzurePack-06-27-15-50.txt | 
@@ -230,7 +230,7 @@ Pour cette préversion, utilisez le connecteur Windows Azure Pack uniquement dan
        -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
   ```
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 L’exemple suivant montre un déploiement complet du connecteur Windows Azure Pack sur une configuration Azure Stack à nœud unique et deux installations de Windows Azure Pack Express. (Chaque installation Express se trouve sur un seul ordinateur, avec les exemples de noms *wapcomputer1* et *wapcomputer2*.)
 
 ```powershell
@@ -277,5 +277,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Pour plus d’informations sur les problèmes connus, consultez [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Utilisation des portails administrateur et utilisateur dans Azure Stack](azure-stack-manage-portals.md)

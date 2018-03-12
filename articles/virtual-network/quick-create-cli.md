@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Créer un réseau virtuel à l’aide d’Azure CLI
 
-Dans cet article, vous allez apprendre à créer un réseau virtuel. Une fois le réseau virtuel créé, déployez deux machines virtuelles dans le réseau virtuel et communiquez en privé entre elles.
+Dans cet article, vous allez apprendre à créer un réseau virtuel. Une fois le réseau virtuel créé, déployez deux machines virtuelles dans le réseau virtuel pour tester la communication réseau en privé entre elles.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Pour trouver la version installée, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour trouver la version installée, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -66,9 +66,11 @@ Un ou plusieurs préfixes d’adresse sont affectés à tous les réseaux virtue
 
 Le préfixe d’adresse (**addressPrefix**) *10.0.0.0/24* fait partie des informations retournées pour le sous-réseau *default* spécifié dans la commande. Un réseau virtuel contient zéro ou plusieurs sous-réseaux. La commande a créé un sous-réseau unique nommé *default*, mais aucun préfixe d’adresse n’a été spécifié pour le sous-réseau. Quand un préfixe d’adresse n’est pas spécifié pour un réseau virtuel ou sous-réseau, Azure définit par défaut 10.0.0.0/24 comme préfixe d’adresse pour le premier sous-réseau. Le sous-réseau englobe donc 10.0.0.0-10.0.0.254, mais seule la plage 10.0.0.4-10.0.0.254 est disponible car Azure réserve les quatre premières adresses (0-3) et la dernière adresse de chaque sous-réseau.
 
-## <a name="create-virtual-machines"></a>Créer des machines virtuelles
+## <a name="test-network-communication"></a>Test de communication réseau
 
-Un réseau virtuel permet à plusieurs types de ressources Azure de communiquer en privé. Une machine virtuelle est l’un des types de ressource que vous pouvez déployer dans un réseau virtuel. Créez deux machines virtuelles dans le réseau virtuel. Celles-ci vous serviront à valider et à comprendre comment les machines virtuelles communiquent dans un réseau virtuel lors d’une étape ultérieure.
+Un réseau virtuel permet à plusieurs types de ressources Azure de communiquer en privé. Une machine virtuelle est l’un des types de ressource que vous pouvez déployer dans un réseau virtuel. Créez deux machines virtuelles dans le réseau virtuel pour pouvoir valider ultérieurement la communication en privé entre elles.
+
+### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVm1*. Si des clés SSH n’existent pas déjà dans un emplacement de clé par défaut, la commande les crée. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`. L’option `--no-wait` crée la machine virtuelle en arrière-plan. Vous pouvez donc passer à l’étape suivante.
 
@@ -110,7 +112,7 @@ La création de la machine virtuelle prend quelques minutes. Une fois la machine
 
 Dans l’exemple, vous pouvez constater que l’adresse IP privée (**privateIpAddress**) est *10.0.0.5*. Azure DHCP affecte automatiquement *10.0.0.5* à la machine virtuelle durant la création, car il s’agit de la prochaine adresse disponible dans le sous-réseau *default*. Veuillez noter **publicIpAddress**. Cette adresse est utilisée pour accéder à la machine virtuelle à partir d’Internet dans une étape ultérieure. L’adresse IP publique n’est affectée ni à partir du réseau virtuel ni à partir des préfixes d’adresse de sous-réseau. Les adresses IP publiques sont affectées à partir d’un [pool d’adresses affecté à chaque région Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si Azure a connaissance de l’adresse IP publique qui est affectée à une machine virtuelle, le système d’exploitation en cours d’exécution dans une machine virtuelle l’ignore.
 
-## <a name="connect-to-a-virtual-machine"></a>Connexion à une machine virtuelle
+### <a name="connect-to-a-virtual-machine"></a>Connexion à une machine virtuelle
 
 Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle *myVm2*. Remplacez `<publicIpAddress>` par l’adresse IP publique de votre machine virtuelle. Dans l’exemple ci-dessus, l’adresse IP est *40.68.254.142*.
 
@@ -118,7 +120,7 @@ Utilisez la commande suivante pour créer une session SSH avec la machine virtue
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>Valider la communication
+### <a name="validate-communication"></a>Valider la communication
 
 Utilisez la commande suivante pour vérifier la communication avec *myVm1* à partir de *myVm2* :
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 Vous recevez quatre réponses de bing.com. Par défaut, toute machine virtuelle dans un réseau virtuel prend en charge les communications sortantes à destination d’Internet.
 
+Quittez la session SSH vers votre machine virtuelle.
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe et toutes les ressources qu’il contient. Quittez la session SSH sur votre machine virtuelle, puis supprimez les ressources.
+Quand vous n’avez plus besoin d’un groupe de ressources, utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe et toutes les ressources qu’il contient :
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>étapes suivantes
 
-Dans cet article, vous avez déployé un réseau virtuel par défaut avec un sous-réseau et deux machines virtuelles. Pour découvrir comment créer un réseau virtuel personnalisé avec plusieurs sous-réseaux et effectuer des tâches de gestion de base, passez au didacticiel couvrant la création d’un réseau virtuel personnalisé et sa gestion.
-
+Dans cet article, vous avez déployé un réseau virtuel par défaut avec un sous-réseau. Pour découvrir comment créer un réseau virtuel personnalisé avec plusieurs sous-réseaux, passez au didacticiel couvrant la création d’un réseau virtuel personnalisé.
 
 > [!div class="nextstepaction"]
-> [Créer et gérer un réseau virtuel personnalisé](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Créer un réseau virtuel personnalisé](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

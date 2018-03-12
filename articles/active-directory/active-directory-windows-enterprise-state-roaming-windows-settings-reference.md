@@ -49,7 +49,7 @@ Les groupes de paramètres suivants sont disponibles pour les utilisateurs finau
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
-La synchronisation de groupes de paramètres pour le navigateur Edge (favoris, liste de lecture) peut être activée ou désactivée par les utilisateurs finaux dans le menu Paramètres du navigateur Edge.
+La synchronisation de groupes de paramètres pour le navigateur Microsoft Edge (favoris, liste de lecture) peut être activée ou désactivée par les utilisateurs finaux dans le menu Paramètres du navigateur Microsoft Edge.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
@@ -86,8 +86,8 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Personnalisation du bureau**: paramètres de la barre des tâches (position, masquage automatique, etc.) |sync |X |Thème |
 | **Personnalisation du bureau**: disposition de l’écran d’accueil |X |backup | |
 | **Appareils**: imprimantes partagées auxquelles vous êtes connectées |X |X |Autres |
-| **Navigateur Edge**: liste de lecture |sync |sync |Interne |
-| **Navigateur Edge**: favoris |sync |sync |Interne |
+| **Navigateur Microsoft Edge**: liste de lecture |sync |sync |Interne |
+| **Navigateur Microsoft Edge**: favoris |sync |sync |Interne |
 | **Navigateur Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : URL entrées <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Navigateur Edge** : paramètres de la barre des favoris <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |

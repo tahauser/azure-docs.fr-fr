@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
 
@@ -33,18 +33,19 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> Assurez-vous que le paramètre « Autoriser l’accès aux services Azure » est défini sur « ON » dans les paramètres du pare-feu de votre serveur SQL. Cette option fournit l’accès à l’éditeur de requête SQL pour vos bases de données et les entrepôts de données.
+
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Se connecter à l’aide de l’authentification SQL
-> [!NOTE]
-> Assurez-vous que le paramètre « Autoriser l’accès aux services Azure » est défini sur « ON » dans les paramètres du pare-feu de votre serveur SQL. Cette option fournit l’accès à l’éditeur de requête SQL pour vos bases de données et les entrepôts de données.
 
 1. Cliquez sur **Bases de données SQL** depuis le menu de gauche et cliquez sur la base de données que vous souhaitez interroger.
 
-2. Sur la page de base de données SQL de votre base de données, recherchez **Explorateur de données (préversion)** dans le menu de gauche et cliquez dessus.
+2. Sur la page Bases de données SQL de votre base de données, recherchez **Éditeur de requête (préversion)** dans le menu de gauche et cliquez dessus.
 
     ![rechercher un éditeur de requête](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

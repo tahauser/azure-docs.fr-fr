@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8c327599585e67ccc6ebdf849d3e9cf9b95e7398
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Traiter les e-mails et les pièces jointes à l’aide d’une application logique
 
@@ -205,7 +205,7 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
-1. Dans le menu principal d’Azure, choisissez **Nouveau** > **Intégration Entreprise** > **Application logique**.
+1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration Entreprise** > **Application logique**.
 
    ![Créer une application logique](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 

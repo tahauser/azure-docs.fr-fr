@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK .NET Azure Cosmos DB pour l’API SQL : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/13/2018
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
+> * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -45,7 +46,7 @@ ms.lasthandoff: 02/13/2018
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
+<tr><td>**Bien démarrer**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +54,10 @@ ms.lasthandoff: 02/13/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
+
+* Correction du bogue qui apparaît dans certaines conditions de concurrence et qui génère des erreurs « Microsoft.Azure.Documents.NotFoundException : la session de lecture n’est pas disponible pour le jeton de session d’entrée » par intermittence lors de l’utilisation du niveau de cohérence Session.
+
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
 * Régression corrigée où FeedOptions.MaxItemCount = -1 levait une exception System.ArithmeticException : taille de la page est négative.
@@ -285,6 +290,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.20.2](#1.20.2) |21 février 2018 |--- |
 | [1.20.1](#1.20.1) |05 février 2018 |--- |
 | [1.19.1](#1.19.1) |16 novembre 2017 |--- |
 | [1.19.0](#1.19.0) |10 novembre 2017 |--- |

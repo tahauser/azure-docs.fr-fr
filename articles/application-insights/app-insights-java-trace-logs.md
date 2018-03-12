@@ -13,19 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: mbullwin
-<<<<<<< HEAD
 ms.openlocfilehash: fae3269e21d0f760ae77a70333047306c07c2961
 ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/28/2018
-=======
-ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
->>>>>>> 0f02f5588ee70a680277c7b418afcbadb70ec391
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.

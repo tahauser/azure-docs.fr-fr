@@ -1,24 +1,24 @@
 ---
-title: "Migration d’une base de données par importation et exportation dans Azure Database pour PostgreSQL | Microsoft Docs"
+title: "Migrer une base de données par importation et exportation dans Azure Database pour PostgreSQL"
 description: "Décrit comment extraire une base de données PostgreSQL dans un fichier de script et importer les données dans la base de données cible à partir de ce fichier."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ddbfd9ef8b2ae4c3c851afc18b010b234b654c81
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 02/28/2018
+ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migration de votre base de données PostgreSQL par exportation et importation
+# <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrer votre base de données PostgreSQL par exportation et importation
 Vous pouvez utiliser [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) pour extraire une base de données PostgreSQL dans un fichier de script et [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour importer les données dans la base de données cible à partir de ce fichier.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md) avec des règles de pare-feu autorisant l’accès et la base de données sous-jacente.
 - Utilitaire de ligne de commande [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) installé
@@ -41,10 +41,10 @@ Vous pouvez utiliser la ligne de commande psql et le paramètre --dbname (-d) po
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-Cet exemple utilise l’utilitaire psql et un fichier de script nommé **testdb.sql** de l’étape précédente pour importer les données dans la base de données **mypgsqldb** sur le serveur cible **mypgserver-20170401.postgres.database.azure.com**.
+Cet exemple utilise l’utilitaire psql et un fichier de script nommé **testdb.sql** de l’étape précédente pour importer les données dans la base de données **mypgsqldb** sur le serveur cible **mydemoserver.postgres.database.azure.com**.
 ```bash
-psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
+psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour migrer une base de données PostgreSQL par vidage et restauration, consultez la rubrique [Migration de votre base de données PostgreSQL par vidage et exportation](howto-migrate-using-dump-and-restore.md)

@@ -8,18 +8,18 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
 Avec le [Catalogue de services Kubernetes][kubernetes-service-catalog], Open Service Broker pour Azure (OSBA) permet aux développeurs d’utiliser des services gérés par Azure dans Kubernetes. Ce guide se concentre sur le déploiement du Catalogue de services Kubernetes, d’Open Service Broker pour Azure (OSBA) et d’applications qui utilisent des services gérés par Azure à l’aide de Kubernetes.
 
-## <a name="prerequisites"></a>Composants requis
-* Un abonnement Azure
+## <a name="prerequisites"></a>configuration requise
+* Abonnement Azure
 
 * Azure CLI 2.0 : vous pouvez [l’installer localement][azure-cli-install] ou l’utiliser dans [Azure Cloud Shell][azure-cloud-shell].
 
@@ -70,51 +70,23 @@ v1beta1.storage.k8s.io               10
 
 L’étape suivante consiste à installer [Open Service Broker pour Azure][open-service-broker-azure], qui inclut le catalogue des services gérés par Azure. Exemples de services Azure disponibles : Azure Database pour PostgreSQL, Azure Redis Cache, Azure Database pour MySQL, Azure Cosmos DB, Azure SQL Database, etc.
 
-Commençons par ajouter le référentiel Helm Open Service Broker pour Azure :
+Commencez par ajouter le référentiel Helm Open Service Broker pour Azure :
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Créez un [principal de service][create-service-principal] avec la commande Azure CLI suivante :
+Utilisez ensuite le script suivant pour créer un [Principal de service][create-service-principal] et renseignez plusieurs variables. Ces variables sont utilisées lors de l’exécution du graphique Helm pour installer Service Broker.
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
+AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
+AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
+AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
+AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-Le résultat doit ressembler à ce qui suit. Prenez note des valeurs `appId`, `password` et `tenant`, que vous utiliserez à l’étape suivante.
-
-```JSON
-{
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
-}
-```
-
-Définissez les variables d’environnement suivantes avec les valeurs ci-dessus :
-
-```azurecli-interactive
-AZURE_CLIENT_ID=<appId>
-AZURE_CLIENT_SECRET=<password>
-AZURE_TENANT_ID=<tenant>
-```
-
-À présent, obtenez votre ID d’abonnement Azure :
-
-```azurecli-interactive
-az account show --query id --output tsv
-```
-
-De nouveau, définissez la variable d’environnement suivante avec la valeur ci-dessus :
-
-```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
-```
-
-À présent que vous avez renseigné ces variables d’environnement, exécutez la commande suivante pour installer Open Service Broker pour Azure à l’aide du graphique Helm :
+Maintenant que vous avez renseigné ces variables d’environnement, exécutez la commande suivante pour installer Service Broker.
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
@@ -180,7 +152,7 @@ Répertoriez les secrets installés :
 kubectl get secrets -n wordpress -o yaml
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En suivant cet article, vous avez déployé le Catalogue de services dans un cluster Azure Container Service (AKS). Vous avez utilisé Open Service Broker pour Azure pour déployer une installation WordPress qui utilise des services gérés par Azure, dans ce cas Azure Database pour MySQL.
 

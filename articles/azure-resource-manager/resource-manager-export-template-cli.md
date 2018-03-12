@@ -11,13 +11,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exporter des modèles Azure Resource Manager avec Azure CLI
 
@@ -25,8 +25,8 @@ Resource Manager vous permet d’exporter un modèle Resource Manager à partir 
 
 Il est important de noter qu’il existe deux façons différentes d’exporter un modèle :
 
-* Vous pouvez exporter le modèle actuel que vous avez utilisé pour un déploiement. Le modèle exporté inclut l’ensemble des paramètres et des variables exactement comme ils apparaissent dans le modèle d’origine. Cette approche est utile lorsque vous avez besoin de récupérer un modèle.
-* Vous pouvez exporter le modèle qui représente l’état actuel du groupe de ressources. Le modèle exporté n’est pas basé sur un modèle utilisé pour le déploiement. Au lieu de cela, il crée un modèle qui est un instantané du groupe de ressources. Le modèle exporté a probablement de nombreuses valeurs codées en dur et pas autant de paramètres que vous pourriez généralement définir. Cette approche est utile lorsque vous avez modifié le groupe de ressources. Vous devez maintenant capturer le groupe de ressources en tant que modèle.
+* Vous pouvez exporter le **modèle réel que vous avez utilisé pour un déploiement**. Le modèle exporté inclut l’ensemble des paramètres et des variables exactement comme ils apparaissent dans le modèle d’origine. Cette approche est utile lorsque vous avez besoin de récupérer un modèle.
+* Vous pouvez exporter un **modèle généré qui représente l’état actuel du groupe de ressources**. Le modèle exporté n’est pas basé sur un modèle utilisé pour le déploiement. Au lieu de cela, il crée un modèle qui est un « instantané » ou une « sauvegarde » du groupe de ressources. Le modèle exporté a probablement de nombreuses valeurs codées en dur et pas autant de paramètres que vous pourriez généralement définir. Cette option permet de redéployer les ressources sur le même groupe de ressources. Pour utiliser ce modèle pour un autre groupe de ressources, vous devrez peut-être le modifier de façon significative.
 
 Cette rubrique illustre les deux approches.
 
@@ -55,13 +55,13 @@ Il retourne le modèle. Copiez le JSON et enregistrez-le dans un fichier. Notez 
 
 ## <a name="export-resource-group-as-template"></a>Exporter un groupe de ressources en tant que modèle
 
-Au lieu de récupérer un modèle à partir de l’historique de déploiement, vous pouvez récupérer un modèle qui représente l’état actuel d’un groupe de ressources à l’aide de la commande [az group export](/cli/azure/group#az_group_export). Vous utilisez cette commande lorsque vous avez effectué de nombreuses modifications dans votre groupe de ressources et qu’aucun modèle existant ne représente toutes les modifications.
+Au lieu de récupérer un modèle à partir de l’historique de déploiement, vous pouvez récupérer un modèle qui représente l’état actuel d’un groupe de ressources à l’aide de la commande [az group export](/cli/azure/group#az_group_export). Vous utilisez cette commande lorsque vous avez effectué de nombreuses modifications dans votre groupe de ressources et qu’aucun modèle existant ne représente toutes les modifications. Il s’agit d’un instantané du groupe de ressources, qui vous permet de refaire un déploiement sur le même groupe de ressources. Pour utiliser le modèle exporté pour d’autres solutions, vous devez le modifier considérablement.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Il retourne le modèle. Copiez le JSON et enregistrez-le dans un fichier. Notez qu’il est différent du modèle dans GitHub. Il a des paramètres différents et aucune variable. La référence (SKU) de stockage et l’emplacement sont codés en dur dans des valeurs. L’exemple suivant montre le modèle exporté, mais votre modèle a un nom de paramètre légèrement différent :
+Il retourne le modèle. Copiez le JSON et enregistrez-le dans un fichier. Notez qu’il est différent du modèle dans GitHub. Le modèle a des paramètres différents et aucune variable. La référence (SKU) de stockage et l’emplacement sont codés en dur dans des valeurs. L’exemple suivant montre le modèle exporté, mais votre modèle a un nom de paramètre légèrement différent :
 
 ```json
 {

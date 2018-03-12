@@ -14,6 +14,7 @@
 # Procédure
 ## Planifier et concevoir
 ### [Remarques relatives à la conception](virtual-machine-scale-sets-design-overview.md)
+### [Comprendre les ID d’instance](virtual-machine-scale-sets-instance-ids.md)
 
 ## Créer un modèle
 ### [En savoir plus sur les modèles de groupes identiques](virtual-machine-scale-sets-mvss-start.md)

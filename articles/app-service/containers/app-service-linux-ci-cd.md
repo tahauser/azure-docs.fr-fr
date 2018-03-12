@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Déploiement continu avec Web App pour conteneurs
 
@@ -34,14 +34,14 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 Vous pouvez activer la fonctionnalité de déploiement continu avec [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) et en exécutant la commande suivante
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 Dans le **[portail Azure](https://portal.azure.com/)**, cliquez sur l’option **App Service** sur le côté gauche de la page.
 
 Cliquez sur le nom de l’application pour laquelle vous souhaitez configurer le déploiement continu Docker Hub.
 
-Dans **Paramètres de l’application**, ajoutez un paramètre d’application nommé `DOCKER_ENABLE_CI` avec la valeur `true`.
+Dans **Conteneur Docker**, sélectionnez Activé, puis cliquez sur Enregistrer pour activer le déploiement continu.
 
 ![insérer une image de Paramètres de l’application](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ Dans **Paramètres de l’application**, ajoutez un paramètre d’application n
 Vous pouvez obtenir l’URL du Webhook avec [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) et en exécutant la commande suivante
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 Pour l’URL du Webhook, vous devez disposer du point de terminaison suivant : `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
@@ -83,12 +83,12 @@ Pour l’URL du webhook, vous devez fournir l’URL obtenue à l’**étape 3**.
 
 Lorsque l’image est mise à jour, l’application web est mise à jour automatiquement avec la nouvelle image.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Qu’est-ce qu’Azure App Service sur Linux ?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Utiliser .NET Core dans Azure App Service sur Linux](quickstart-dotnetcore.md)
 * [Utiliser Ruby dans Azure App Service sur Linux](quickstart-ruby.md)
-* [Guide pratique pour utiliser une image Docker personnalisée pour Web App pour conteneurs](quickstart-custom-docker-image.md)
-* [Forum aux questions sur Azure App Service Web App pour conteneurs](./app-service-linux-faq.md)
-* [Gérer Web App pour conteneurs avec Azure CLI 2.0](./app-service-linux-cli.md)
+* [Guide pratique pour utiliser une image Docker personnalisée pour Web App pour conteneurs](quickstart-docker-go.md)
+* [Forum aux questions sur Azure App Service Web App for Containers](./app-service-linux-faq.md)
+* [Gérer Web App for Containers à l’aide d’Azure CLI 2.0](./app-service-linux-cli.md)

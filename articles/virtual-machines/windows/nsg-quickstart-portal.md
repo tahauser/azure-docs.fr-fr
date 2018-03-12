@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -62,7 +62,7 @@ Les commandes rapides vous permettent d’être opérationnel avec le trafic ent
 
 Pour les applications Web hautement disponibles, vous devez placer vos machines virtuelles derrière un équilibreur de charge Azure. L’équilibreur de charge répartit le trafic entre les machines virtuelles, avec un groupe de sécurité réseau qui assure le filtrage du trafic. Pour plus d’informations, consultez [Guide pratique pour équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible](tutorial-load-balancer.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HTTP. Vous trouverez plus d’informations sur la création d’environnements plus détaillés dans les articles suivants :
 
 * [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)

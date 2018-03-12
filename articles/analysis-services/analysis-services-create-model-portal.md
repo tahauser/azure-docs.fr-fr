@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Créer un modèle dans le portail Azure
 
@@ -27,15 +27,19 @@ La fonctionnalité de concepteur Web Azure Analysis Services (aperçu) dans le p
 
 N’oubliez pas que le concepteur Web est en **aperçu**. Malgré l’ajout permanent de nouvelles fonctionnalités, les fonctionnalités disponibles en préversion sont limitées. Pour un développement et un test de modèles plus avancés, utilisez plutôt Visual Studio (SSDT) et SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="before-you-begin"></a>Avant de commencer
 
 - Un serveur Azure Analysis Services au niveau Standard ou Développeur. Les modèles créés à l’aide du concepteur web sont en mode DirectQuery, uniquement pris en charge par ces niveaux.
 - Un fichier Azure SQL Database, Azure SQL Data Warehouse ou Power BI Desktop (.pbix) comme source de données. Les modèles créés à partir de fichiers Power BI Desktop prennent en charge les sources de données Azure SQL Database, Azure SQL Data Warehouse, Oracle et Teradata.
 - Un compte et un mot de passe SQL Server pour se connecter aux sources de données Azure SQL Database ou Azure SQL Data Warehouse.
 
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Pour créer un modèle tabulaire
 
-1. Dans le panneau **Vue d’ensemble** > **Concepteur web** de votre serveur, cliquez sur **Ouvrir**.
+1. Sur votre serveur, dans **Vue d’ensemble** > **Concepteur web**, cliquez sur **Ouvrir**.
 
     ![Créer un modèle dans le portail Azure](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

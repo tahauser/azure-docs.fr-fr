@@ -194,25 +194,15 @@
   items:
     - name: Questions fréquentes (FAQ)
       href: frequently-asked-questions.md
-    - name: Problèmes connus et dépannage
+    - name: Problèmes et dépannage
       href: known-issues-and-troubleshooting-guide.md
-    - name: Documentation sur le processus TDSP (Team Data Science Process)
-      href: ../team-data-science-process/overview.md
-    - name: Documentation sur la machine virtuelle Science des données
-      href: ../data-science-virtual-machine/overview.md
+    - name: Support et formations
+      href: support-for-aml-services.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: vidéos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Forum de commentaires
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Options de support
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: TDSP (Team Data Science Process)
+      href: ../team-data-science-process/overview.md

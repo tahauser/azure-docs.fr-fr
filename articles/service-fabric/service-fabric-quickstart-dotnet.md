@@ -1,6 +1,6 @@
 ---
 title: "Créer une application Service Fabric .NET dans Azure | Microsoft Docs"
-description: "Créez une application .NET pour Azure à l’aide de l’exemple de démarrage rapide de Service Fabric."
+description: "Dans le cadre de ce démarrage rapide, vous créez une application .NET pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ff9860ee2313c20b4a30e1b4410327e03e6dfcc6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5187aadf686a49f6d78fc4f5c2b2c42487e56c13
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>Créer une application Service Fabric dans Azure
+# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Démarrage rapide : créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
 
 Ce démarrage rapide montre comment déployer votre première application .NET sur Service Fabric. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster.
@@ -94,9 +94,9 @@ Lorsque vous votez dans l’application, les événements suivants se produisent
 Lors du débogage d’application dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Vous avez la possibilité d’adapter votre expérience de débogage à votre scénario. Dans cette application, les données sont stockées dans notre service backend à l’aide d’un dictionnaire fiable. Visual Studio supprime l’application par défaut lorsque vous arrêtez le débogueur. La suppression de l’application a pour effet de supprimer également les données dans le service principal. Pour rendre les données persistantes entre les sessions de débogage, vous pouvez modifier le **Mode de débogage de l'application** en tant que propriété sur le projet **Voting** dans Visual Studio.
 
 Pour examiner ce qui se produit dans le code, procédez comme suit :
-1. Ouvrez le fichier **/VotingWeb/Controllers/VotesController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 47). Vous pouvez rechercher le fichier dans l’Explorateur de solutions dans Visual Studio.
+1. Ouvrez le fichier **/VotingWeb/Controllers/VotesController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 69). Vous pouvez rechercher le fichier dans l’Explorateur de solutions dans Visual Studio.
 
-2. Ouvrez le fichier **/VotingData/Controllers/VoteDataController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 50).
+2. Ouvrez le fichier **/VotingData/Controllers/VoteDataController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 54).
 
 3. Revenez en arrière dans le navigateur, puis cliquez sur une option de vote ou ajoutez une nouvelle option de vote. Vous avez atteint le premier point d’arrêt dans le contrôleur d’api du service frontal web.
     - Il s’agit de l’emplacement où le JavaScript dans le navigateur envoie une demande au contrôleur d’API web dans le service frontal.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady
 Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) à l’aide des formats suivants :  
@@ -146,10 +146,12 @@ Les considérations suivantes s'appliquent :
 1. Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 2. Ajoutez les éléments suivants aux **appSettings** définis dans votre fichier app.config :
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 L’exemple suivant illustre la possibilité d’utiliser Media Services pour distribuer votre contenu chiffré avec FairPlay. Cette fonctionnalité a été introduite dans le Kit de développement logiciel (SDK) Azure Media Services pour .NET version 3.6.0. 
 
@@ -160,7 +162,7 @@ Remplacez le code dans votre fichier Program.cs par le code présenté dans cett
 
 Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

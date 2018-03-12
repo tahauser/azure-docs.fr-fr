@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6704ddc24db8415051a6064bbde79a6fc527871a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/07/2018
 ---
-# <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
+# <a name="prepare-target-physical-to-azure"></a>Préparer la cible (physique vers Azure)
 > [!div class="op_single_selector"]
 > * [VMware vers Azure](./site-recovery-prepare-target-vmware-to-azure.md)
 > * [Physique vers Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 Cet article décrit comment préparer votre environnement Azure pour lancer la réplication des serveurs physiques (x64) exécutant Windows ou Linux vers Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 L’article suppose que :
 - Vous avez créé un coffre Recovery Services pour protéger vos serveurs physiques. Vous pouvez créer un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
@@ -48,5 +48,5 @@ Une fois les validations terminées avec succès, cliquez sur OK pour passer à 
 
 Si vous n’avez pas de compte de stockage Resource Manager ou de réseau virtuel compatible, vous pouvez en créer un en cliquant sur le bouton **+ Compte de stockage** ou sur le bouton **+ Réseau** en haut de la page.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Configurer les paramètres de réplication](./site-recovery-setup-replication-settings-vmware.md)

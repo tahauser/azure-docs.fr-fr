@@ -1,6 +1,6 @@
 ---
 title: "Créer une application de conteneur Microsoft Azure Service Fabric sur Linux | Microsoft Docs"
-description: "Créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric.  Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric."
+description: "Dans ce guide de démarrage rapide, créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric.  Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric."
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Déployer une application conteneur Azure Service Fabric Linux sur Azure
+# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Démarrage rapide : déployer une application conteneur Azure Service Fabric Linux sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
 
 Ce démarrage rapide montre comment déployer des conteneurs Linux sur un cluster Service Fabric. Une fois le déploiement terminé, vous disposez d’une application de vote composée d’un serveur web frontal Python et d’un serveur principal Redis en cours d’exécution dans un cluster Service Fabric. 

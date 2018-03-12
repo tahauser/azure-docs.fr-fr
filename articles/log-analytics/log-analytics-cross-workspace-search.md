@@ -1,6 +1,6 @@
 ---
-title: "Exécuter des requêtes sur différents espaces de travail Azure Log Analytics | Microsoft Docs"
-description: "Cet article explique comment interroger plusieurs espaces de travail et une application App Insights spécifique dans votre abonnement."
+title: Effectuer des recherches dans les ressources avec Azure Log Analytics | Microsoft Docs
+description: "Cet article explique comment interroger les ressources à partir de plusieurs espaces de travail et d’une application App Insights incluse dans votre abonnement."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 403448995c28ff7172d2c3abbf3b9d67341017b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5485b1634013c73b58932aafa6e17d636558715d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="how-to-perform-queries-across-multiple-log-analytics-workspaces"></a>Guide pratique pour exécuter des requêtes sur différents espaces de travail Log Analytics
+# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Effectuer des recherches dans des journaux inter-ressources dans Log Analytics  
 
-Avant, avec Azure Log Analytics, vous pouviez analyser les données uniquement dans l’espace de travail actif, ce qui limitait la capacité à interroger plusieurs espaces de travail définis dans l’abonnement.  
+Avant, avec Azure Log Analytics, vous pouviez analyser les données uniquement dans l’espace de travail actif, ce qui limitait votre capacité à interroger plusieurs espaces de travail définis dans votre abonnement.  De plus, vos recherches ne pouvaient porter que sur les éléments de télémétrie recueillis par votre application web avec Application Insights directement dans Application Insights ou à partir de Visual Studio.  Cela compliquait aussi l’analyse simultanée des données opérationnelles et d’application en mode natif.   
 
-Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Log Analytics, mais également des données d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.  Ce type de requête n’est possible que sur le [Portail avancé](log-analytics-log-search-portals.md#advanced-analytics-portal), et non sur le Portail Azure.  
+Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Log Analytics, mais également des données d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.  Ce type de requête est possible seulement sur le [Portail avancé](log-analytics-log-search-portals.md#advanced-analytics-portal), pas sur le portail Azure.  
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Interrogation de plusieurs espaces de travail Log Analytics à partir d’Application Insights
 Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()). Pour une application Application Insights, utilisez l’identificateur [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
 
-Par exemple, la première requête retourne les nombres synthétiques de mises à jour requises par leur classement dans la table Update à partir de l’espace de travail actif et d’un autre espace de travail nommé *contosoretail-it*.  Le deuxième exemple de requête retourne le nombre de demandes effectuées par rapport à une application nommée *fabrikamapp* dans Application Insights. 
-
 ### <a name="identifying-workspace-resources"></a>Identification des ressources d’espace de travail
+Dans les exemples suivants, des requêtes sont exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des mises à jour nécessaires d’après leur classement dans la table Update de l’espace de travail actif et d’un autre espace de travail nommé *contosoretail-it*. 
+
 Il est possible d’identifier un espace de travail de plusieurs manières :
 
 * Nom de la ressource : il s’agit d’un nom convivial de l’espace de travail, parfois appelé *nom du composant*. 
@@ -39,7 +39,7 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >L’identification d’un espace de travail par son nom suppose que celui-ci soit unique parmi tous les abonnements accessibles. Si plusieurs applications portent le nom spécifié, la requête échoue en raison de l’ambiguïté. Dans ce cas, vous devez utiliser l’un des autres identificateurs.
+    >L’identification d’un espace de travail par nom suppose une unicité entre tous les abonnements accessibles. Si plusieurs applications portent le nom spécifié, la requête échoue en raison de l’ambiguïté. Dans ce cas, vous devez utiliser l’un des autres identificateurs.
 
 * Nom qualifié : il s’agit du « nom complet » de l’espace de travail, composé du nom de l’abonnement, du groupe de ressources et du nom du composant au format suivant : *nomAbonnement/groupeRessources/nomComposant*. 
 
@@ -51,16 +51,17 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
 
 * ID de l’espace de travail : il s’agit de l’identificateur unique et immuable affecté à chaque espace de travail, représenté sous la forme d’un identificateur global unique (GUID).
 
-    `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
+    `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
 * ID de ressource Azure : c’est l’identité unique de l’espace de travail, définie par Azure. Vous utilisez l’ID de ressource quand le nom de la ressource est ambigu.  Pour les espaces de travail, le format est : */subscriptions/idAbonnement/resourcegroups/groupeRessources/providers/microsoft.OperationalInsights/workspaces/nomComposant*.  
 
     Par exemple : 
     ``` 
-    workspace("/subscriptions/e427267-5645-4c4e-9c67-3b84b59a6982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
     ```
 
 ### <a name="identifying-an-application"></a>Identification d’une application
+L’exemple suivant retourne un décompte synthétique des demandes adressées à une application nommée *fabrikamapp* dans Application Insights. 
 
 Vous pouvez identifier une application dans Application Insights avec l’expression *app(Identifier)*.  L’argument *Identifier* spécifie l’application à l’aide de l’un éléments suivants :
 
@@ -78,13 +79,13 @@ Vous pouvez identifier une application dans Application Insights avec l’expres
 
 * ID : GUID de l’application.
 
-    `app("b438b4f6-912a-46d5-9cb1-b44069212ab4").requests | count`
+    `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
 * ID de ressource Azure : identité unique de l’application, définie par Azure. Vous utilisez l’ID de ressource quand le nom de la ressource est ambigu. Le format est le suivant : */subscriptions/ID_abonnement/resourcegroups/Groupe_Ressources/providers/microsoft. OperationalInsights/components/Nom_Composant*.  
 
     Par exemple : 
     ```
-    app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
 ## <a name="next-steps"></a>étapes suivantes

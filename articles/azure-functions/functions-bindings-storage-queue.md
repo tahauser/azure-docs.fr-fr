@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -234,16 +234,16 @@ Dans JavaScript, utilisez `context.bindings.<name>` pour accéder à la charge u
 
 ## <a name="trigger---message-metadata"></a>Déclencheur - métadonnées de message
 
-Le déclencheur de file d’attente fournit plusieurs propriétés de métadonnées. Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les valeurs ont la même sémantique que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonnées](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les valeurs ont la même sémantique que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propriété|type|DESCRIPTION|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Charge utile de file d’attente (s’il s’agit d’une chaîne valide). Si la charge utile du message de file d’attente est une chaîne, `QueueTrigger` a la même valeur que la variable nommée par la propriété `name` dans *function.json*.|
 |`DequeueCount`|`int`|Nombre de fois que ce message a été enlevé de la file d’attente.|
-|`ExpirationTime`|`DateTimeOffset?`|Heure à laquelle le message expire.|
+|`ExpirationTime`|`DateTimeOffset`|Heure à laquelle le message expire.|
 |`Id`|`string`|ID de message de la file d’attente.|
-|`InsertionTime`|`DateTimeOffset?`|Heure à laquelle le message a été ajouté à la file d’attente.|
-|`NextVisibleTime`|`DateTimeOffset?`|Heure à laquelle le message sera de nouveau visible.|
+|`InsertionTime`|`DateTimeOffset`|Heure à laquelle le message a été ajouté à la file d’attente.|
+|`NextVisibleTime`|`DateTimeOffset`|Heure à laquelle le message sera de nouveau visible.|
 |`PopReceipt`|`string`|Réception pop du message.|
 
 ## <a name="trigger---poison-messages"></a>Déclencheur - messages incohérents
@@ -251,6 +251,18 @@ Le déclencheur de file d’attente fournit plusieurs propriétés de métadonn�
 En cas d’échec d’une fonction de déclenchement de file d’attente, Azure Functions réessaie la fonction jusqu’à cinq fois (première tentative comprise) pour un message de file d’attente donné. Si les cinq tentatives échouent, le runtime Functions ajoute un message à une file d’attente nommée *&lt;nom_file_d’attente_d’origine>-poison*. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire.
 
 Pour gérer manuellement les messages incohérents, vérifiez la propriété [dequeueCount](#trigger---message-metadata) dans le message de file d’attente.
+
+## <a name="trigger---polling-algorithm"></a>Déclencheur : algorithme d’interrogation
+
+Le déclencheur de file d’attente implémente un algorithme d’interruption exponentiel et aléatoire pour réduire l’effet de l’interrogation de file d’attente inactive sur les coûts de transactions de stockage.  Quand un message est détecté, le runtime attend deux secondes, puis vérifie s’il existe un autre message ; quand aucun message n’est détecté, il attend environ quatre secondes avant de réessayer. Après plusieurs échecs de tentatives d’obtention d’un message de file d’attente, le temps d’attente continue à augmenter jusqu’à ce qu’il atteigne le délai d’attente maximal par défaut (une minute). La durée d’attente maximale est configurable via la propriété `maxPollingInterval` dans le [fichier host.json](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Déclencheur : concurrence
+
+Lorsque plusieurs messages de file d’attente attendent, le déclencheur de file d’attente récupère un lot de messages et appelle les instances de fonction simultanément pour les traiter. Par défaut, la taille de lot est de 16. Quand le nombre de messages en cours de traitement descend à 8, le runtime obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par fonction sur une machine virtuelle est de 24. Cette limite s’applique séparément à chaque fonction déclenchée par une file d’attente sur chaque machine virtuelle. Si votre application de fonction est étendue à plusieurs machines virtuelles, chaque machine virtuelle attend des déclencheurs et essaie d’exécuter les fonctions. Par exemple, si une application de fonction est étendue à 3 machines virtuelles, le nombre maximal d’instances simultanées d’une fonction déclenché par une file d’attente est par défaut de 72.
+
+La taille du lot et le seuil d’obtention d’un nouveau lot sont configurables dans le [fichier host.json](functions-host-json.md#queues). Si vous souhaitez minimiser l’exécution en parallèle des fonctions déclenchées par une file d’attente dans une application de fonction, vous pouvez définir la taille du lot sur 1. Ce paramètre évite les opérations simultanées uniquement pendant l’exécution de votre application de fonction sur une machine virtuelle unique. 
+
+Le déclencheur de la file d’attente empêche automatiquement une fonction de traiter un message de file d’attente plusieurs fois ; les fonctions ne doivent pas nécessairement être écrites pour être idempotent.
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 

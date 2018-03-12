@@ -1,24 +1,24 @@
 ---
-title: "Création et gestion des règles de pare-feu dans Azure Database pour PostgreSQL | Microsoft Docs"
+title: "Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL"
 description: "Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure"
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 137d3f7f45a1865cc7eb76ef3b066960f61d6b2f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: bef927cff49d957728a2a12362786d48d60e61b7
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur Azure Database pour PostgreSQL à partir d’une adresse IP spécifiée ou d’une plage d’adresses IP. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - Un serveur [Création d’une base de données Azure pour PostgreSQL](quickstart-create-server-database-portal.md)
 

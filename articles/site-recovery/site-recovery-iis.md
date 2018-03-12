@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7ed7df2451a44075a79f514cf67efbf479a2ebb1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Répliquer une application web multiniveau basée sur IIS à l’aide de Site Recovery
 
@@ -41,7 +41,7 @@ Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes�
 * [Effectuer un test de basculement vers Azure](site-recovery-test-failover-to-azure.md)
 * [Procéder à un basculement vers Azure](site-recovery-failover.md)
 * [Répliquer un contrôleur de domaine](site-recovery-active-directory.md)
-* [Répliquer SQL Server](site-recovery-sql.md)
+* [Réplication de SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Modèles de déploiement
 Une application web IIS suit généralement l’un des modèles de déploiement suivants :

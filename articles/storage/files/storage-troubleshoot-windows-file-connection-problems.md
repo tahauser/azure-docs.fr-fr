@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -164,6 +164,12 @@ Utilisez l'une des solutions suivantes :
 
 -   Montez le lecteur depuis le compte utilisateur qui dispose de l’application. Vous pouvez utiliser un outil tel que PsExec.
 - Transmettez le nom et la clé du compte de stockage dans les paramètres de nom d’utilisateur et de mot de passe de la commande Net use.
+- Utilisez la commande cmdkey pour ajouter les informations d’identification dans le Gestionnaire d’informations d’identification. Effectuez cette procédure à partir d’une ligne de commande dans le contexte du compte de service, via une connexion interactive ou avec RunAs.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Mappez le partage directement sans l’aide d’une lettre de lecteur mappée. Certaines applications ne se reconnectent pas correctement à la lettre de lecteur. Il est donc conseillé d’utiliser le chemin d’accès UNC complet qui est plus fiable. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Après avoir suivi ces instructions, vous pourriez recevoir le message d’erreur suivant en exécutant Net use sur le compte de service réseau ou système : « Erreur système 1312. Une session ouverte spécifiée n’existe pas. Il se peut qu’elle ait été déjà fermée. » Si cela se produit, vérifiez que le nom d’utilisateur transmis à Net use inclut des informations de domaine (par exemple : « [nom du compte de stockage].file.core.windows.net »).
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Copier des données de ServiceNow avec Azure Data Factory (version bêta)
 
@@ -114,11 +114,11 @@ Pour copier des données à partir de ServiceNow, définissez le type de source 
 
 Notez les points suivants lorsque vous spécifiez le schéma et une colonne pour ServiceNow dans la requête :
 
-- **Schéma :** ServiceNow devoir spécifier le schéma en tant qu’élément `Actual` ou `Display` ; vous pouvez le voir comme paramètre de `sysparm_display_value` ayant la valeur true ou false lors de l’appel de [l’API RESTful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Colonne :** le nom de la colonne de la valeur réelle est `[columne name]_value` alors qu’elle est `[columne name]_display_value` pour la valeur affichée.
+- **Schéma :** spécifiez le schéma en tant qu’élément `Actual` ou `Display` dans la requête ServiceNow. Vous pouvez le voir comme paramètre de `sysparm_display_value` ayant la valeur true ou false lors de l’appel des [API RESTful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Colonne :** le nom de la colonne de la valeur réelle sous le schéma `Actual` est `[columne name]_value`, alors que la valeur affichée sous le schéma `Display` est `[columne name]_display_value`. Le nom de colonne doit correspondre au schéma utilisé dans la requête.
 
 **Exemple de requête :**
-`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` OR `SELECT distinct col_value, col_display_value FROM Display.alm_asset`.
+`SELECT col_value FROM Actual.alm_asset` OR `SELECT col_display_value FROM Display.alm_asset`.
 
 **Exemple :**
 

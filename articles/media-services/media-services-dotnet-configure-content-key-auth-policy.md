@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 39782bd687c9c1b50699c05e61e57d9c767a8d32
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e215b21c8010bce6fb2a6ac540ba925f4c1a79a2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
  Vous pouvez utiliser Microsoft Azure Media Services pour fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits ou de la [gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Avec Media Services, vous pouvez également diffuser des flux DASH chiffrés avec Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC).
 
 Media Services fournit également un service de remise de clés/de licences à partir duquel les clients peuvent obtenir des clés AES ou des licences PlayReady/Widevine pour lire le contenu chiffré.
@@ -56,7 +56,7 @@ Pour plus d’informations, consultez les articles suivants :
 La restriction ouverte signifie que le système fournit la clé à toute personne effectuant une demande de clé. Cette restriction peut être utile à des fins de test.
 
 L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu :
-
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
         // Create ContentKeyAuthorizationPolicy with Open restrictions
@@ -92,14 +92,14 @@ L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute 
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
     }
-
+```
 
 ### <a name="token-restriction"></a>Restriction à jeton
 Cette section décrit comment créer une stratégie d’autorisation de clé de contenu et l’associer à la clé de contenu. La stratégie d’autorisation décrit les conditions d’autorisation devant être remplies pour déterminer si l’utilisateur est autorisé à recevoir la clé. Par exemple, la liste des clés de vérification contient-elle la clé avec laquelle le jeton a été signé ?
 
 Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML suivant :
-
-#### <a name="token-restriction-schema"></a>Schéma de restriction par jeton
+```csharp
+#### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -146,12 +146,12 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
       </xs:complexType>
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
-
+```
 Quand vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres de clé de vérification, émetteur et audience principaux. La clé de vérification principale contient le jeton avec lequel la clé a été signée. L’émetteur est le service STS qui émet le jeton. Le public (parfois appelé l’étendue) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
 Quand vous utilisez le Kit SDK Media Services pour .NET, vous pouvez utiliser la classe TokenRestrictionTemplate pour générer le jeton de restriction.
 L’exemple suivant crée une stratégie d’autorisation avec une restriction par jeton. Dans cet exemple, le client doit présenter un jeton contenant une clé de signature (VerificationKey), un émetteur de jeton et les revendications requises.
-
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -205,10 +205,10 @@ L’exemple suivant crée une stratégie d’autorisation avec une restriction p
 
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
-
+```
 #### <a name="test-token"></a>Jeton de test
 Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé, procédez comme suit :
-
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -224,7 +224,7 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
     Console.WriteLine();
-
+```
 
 ## <a name="playready-dynamic-encryption"></a>Chiffrement dynamique PlayReady
 Media Services vous permet de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent quand un utilisateur tente de lire un contenu protégé. 
@@ -238,6 +238,7 @@ La restriction ouverte signifie que le système fournit la clé à toute personn
 
 L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu :
 
+```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
 
@@ -274,10 +275,12 @@ L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute 
         contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
         contentKey = contentKey.UpdateAsync().Result;
     }
+```
 
 ### <a name="token-restriction"></a>Restriction à jeton
 Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML présenté dans la section [Schéma de restriction par jeton](#token-restriction-schema).
 
+```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
         string tokenTemplateString = GenerateTokenRequirements();
@@ -383,20 +386,25 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
 
         return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
     }
-
+```
 
 Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d'autorisation de clé, consultez la section [Jeton de test](#test-token). 
 
 ## <a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
+```csharp
     public enum ContentKeyRestrictionType
     {
         Open = 0,
         TokenRestricted = 1,
         IPRestricted = 2,
     }
+```
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+```csharp 
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -404,14 +412,18 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
       BaselineHttp = 2,
       Widevine = 3
     }
+```
 
 ### <a id="TokenType"></a>TokenType
+
+```csharp
     public enum TokenType
     {
         Undefined = 0,
         SWT = 1,
         JWT = 2,
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

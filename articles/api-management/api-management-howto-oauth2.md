@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 De nombreuses API prennent en charge [OAuth 2.0](http://oauth.net/2/) pour sécuriser les API et assurer que seuls les utilisateurs valides y ont accès et peuvent accéder uniquement aux ressources pour lesquelles ils y sont autorisés. Pour utiliser la console de développement interactive de Gestion des API Azure avec ces API, le service vous permet de configurer votre instance de service pour travailler avec votre API compatible OAuth 2.0.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"> </a>Prérequis
 Ce guide explique comment configurer votre instance de service Gestion des API pour utiliser l'autorisation OAuth 2.0 dans des comptes de développeur, mais n'explique pas comment configurer un fournisseur OAuth 2.0. La configuration de chaque fournisseur OAuth 2.0 est différente, bien que la procédure soit similaire et que les informations requises pour configurer OAuth 2.0 dans votre instance de service Gestion des API soient identiques. Cette rubrique inclut des exemples d'utilisation de Azure Active Directory en tant que fournisseur OAuth 2.0.
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Lorsque **Code d'autorisation** est sélectionné, une fenêtre contextuelle s'a
 > 
 > 
 
-![de connexion][api-management-oauth2-signin]
+![Se connecter][api-management-oauth2-signin]
 
 Une fois que vous êtes connecté, les **En-têtes de demandes`Authorization : Bearer` sont renseignés avec un en-tête** qui autorise la demande.
 
@@ -131,12 +131,9 @@ Une fois que vous êtes connecté, les **En-têtes de demandes`Authorization : B
 
 À présent, vous pouvez configurer les valeurs souhaitées pour les paramètres restants, puis soumettre la demande. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des API, regardez la vidéo suivante et l’article qui l’ [accompagne](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

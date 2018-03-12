@@ -1,6 +1,6 @@
 ---
 title: "Créer un cluster Windows Service Fabric dans Azure | Microsoft Docs"
-description: "Découvrez comment déployer un cluster Windows Service Fabric dans un réseau virtuel Azure existant à l’aide de PowerShell."
+description: "Dans ce didacticiel, vous découvrez comment déployer un cluster Windows Service Fabric dans un réseau virtuel Azure existant à l’aide de PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7418e0420b14f044bac253046a8971d1263e45b3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Didacticiel : déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
 Ce didacticiel est la première partie d’une série d’étapes. Vous allez apprendre à déployer un cluster Service Fabric exécutant Windows dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) et un [groupe de sécurité réseau virtuel](../virtual-network/virtual-networks-nsg.md) à l’aide de PowerShell et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications.  Pour créer un cluster Linux à l’aide de l’interface de ligne de commande Azure, consultez la page [Créer un cluster Linux sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Ce didacticiel décrit un scénario de production.  Si vous souhaitez créer rapidement un petit cluster à des fins de test, consultez [Créer un cluster Service Fabric de test à trois nœuds](./scripts/service-fabric-powershell-create-test-cluster.md).

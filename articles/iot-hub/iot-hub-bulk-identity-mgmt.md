@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gestion de vos identités d’appareil IoT Hub en bloc
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Pour utiliser la classe **RegistryManager** dans votre code C#, ajoutez le package NuGet **Microsoft.Azure.Devices** à votre projet. La classe **RegistryManager** se trouve dans l’espace de noms **Microsoft.Azure.Devices**.
 
-Vous pouvez utiliser la classe **RegistryManager** pour interroger l’état de la **tâche** à l’aide des métadonnées **JobProperties** retournées.
+Vous pouvez utiliser la classe **RegistryManager** pour interroger l’état de la **tâche** à l’aide des métadonnées **JobProperties** retournées. Pour créer une instance de la classe **RegistryManager**, utilisez la méthode **CreateFromConnectionString** :
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Pour obtenir la chaîne de connexion de votre IoT Hub dans le portail Azure :
+
+- Accédez à votre hub IoT.
+- Sélectionnez **Stratégies d’accès partagé**.
+- Sélectionnez une stratégie en tenant compte des autorisations requises.
+- Copiez la chaîne de connexion dans le panneau situé sur le côté droit de l’écran.
 
 L’extrait de code C# suivant indique comment envoyer des interrogations toutes les cinq secondes pour voir si la tâche a terminé son exécution :
 

@@ -13,36 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
-La vidéo suivante montre comment générer un serveur principal d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API.  Cet article fournit une vue d’ensemble et des informations supplémentaires pour les étapes mentionnées dans la vidéo. Cette vidéo 24 minutes vous montre comment faire pour :
 
-* générer un serveur principal d’API Web et le protéger avec AAD (début à 1:30) ;
-* importer l’API dans Gestion des API (début à 7:10) ;
-* configurer le portail des développeurs pour l’appel de l’API (début à 9:09) ;
-* configurer une application de bureau pour l’appel de l’API (début à 18:08) ;
-* configurer une stratégie de validation JWT pour l’autorisation préalable des demandes (début à 20:47).
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+Cette rubrique montre comment générer un backend d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API.  
 
 ## <a name="create-an-azure-ad-directory"></a>Création d’un répertoire Azure AD
-Pour protéger votre backend d’API web à l’aide d’Azure Active Directory, vous devez disposer d’un locataire AAD. Dans cette vidéo, un locataire nommé **APIMDemo** est utilisé. Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau**->**App Services**->**Active Directory**->**Répertoire**->**Création personnalisée**. 
+Pour protéger votre backend d’API web à l’aide d’Azure Active Directory, vous devez d’abord disposer d’un locataire AAD. Pour créer un client AAD, ouvrez une session dans le [portail Azure Classic](https://manage.windowsazure.com), puis cliquez sur **Nouveau**->**App Services**->**Active Directory**->**Répertoire**->**Création personnalisée**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-Dans cet exemple, un répertoire nommé **APIMDemo** est créé avec un domaine par défaut nommé **DemoAPIM.onmicrosoft.com**. Ce répertoire est utilisé tout au long de la vidéo.
+Dans cet exemple, un répertoire nommé **APIMDemo** est créé avec un domaine par défaut nommé **DemoAPIM.onmicrosoft.com**. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Création d’un service API web protégé par Azure Active Directory
-Dans cette étape, un serveur principal d’API web est créé à l’aide de Visual Studio 2013. Cette étape de la vidéo démarre à 1’30’’. Pour créer un projet d’API web dans Visual Studio, cliquez sur **Fichier**->**Nouveau**->**Projet**, puis choisissez **Application web ASP.NET** à partir de la liste **web** de modèles. Dans cette vidéo, le projet est nommé **APIMAADDemo**. Cliquez sur **OK** pour créer le projet. 
+Dans cette étape, un serveur principal d’API web est créé à l’aide de Visual Studio 2013. Pour créer un projet d’API web dans Visual Studio, cliquez sur **Fichier**->**Nouveau**->**Projet**, puis choisissez **Application web ASP.NET** à partir de la liste **web** de modèles. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -75,7 +66,6 @@ Dans cet exemple, un nouveau **Plan App Service** nommé **APIMAADDemo** est sp�
 Cliquez sur **OK** pour configurer l’application web et créer le projet.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Ajout d’un code au projet d’API web
-L’étape suivante de la vidéo explique comment ajouter un code au projet d’API web. Cette étape démarre à 4’35’’.
 
 Dans cet exemple, l’API web implémente un service de calcul de base à l’aide d’un modèle et d’un contrôleur. Pour ajouter le modèle de service, cliquez avec le bouton droit sur **Modèles** dans l’**Explorateur de solutions** et choisissez **Ajouter** puis **Classe**. Nommez la classe `CalcInput` , puis cliquez sur **Ajouter**.
 
@@ -161,14 +151,13 @@ public class CalcController : ApiController
 Appuyez sur **F6** pour générer et vérifier la solution.
 
 ## <a name="publish-the-project-to-azure"></a>Publication du projet sur Azure
-Dans cette étape, un projet Visual Studio est publié sur Azure. Cette étape de la vidéo démarre à 5’45’’.
 
 Pour publier le projet sur Azure, cliquez droit sur le projet **APIMAADDemo** dans Visual Studio et choisissez **Publier**. Conservez les paramètres par défaut dans la boîte de dialogue **Publier le site web** et cliquez sur **Publier**.
 
 ![Publier un site web][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Accord d’autorisations à l’application de service du serveur principal Azure AD
-Une nouvelle application pour le service principal est créée dans votre répertoire Azure AD dans le cadre du processus de configuration et de publication de votre projet d’API web. Dans cette étape de la vidéo, qui commence à 6’13’’, des autorisations sont accordées au serveur principal d’API web.
+Une nouvelle application pour le service principal est créée dans votre répertoire Azure AD dans le cadre du processus de configuration et de publication de votre projet d’API web.
 
 ![Application][api-management-aad-backend-app]
 
@@ -352,7 +341,7 @@ Procédez comme suit pour configurer l’API de calculatrice.
 Une fois l’API importée, la page Résumé de l’API s’affiche dans le portail des éditeurs.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Appel de l’API sans succès à partir du portail de développement
-À ce stade, l’API a été importée dans Gestion des API, mais ne peut pas encore être appelée avec succès là partir du portail des développeurs, car le service du serveur principal est protégé par l’authentification Azure AD. Cela est démontré dans la vidéo à partir de 7’40’’ en procédant comme suit.
+À ce stade, l’API a été importée dans Gestion des API, mais ne peut pas encore être appelée avec succès là partir du portail des développeurs, car le service du serveur principal est protégé par l’authentification Azure AD. 
 
 Cliquez sur **Portail des développeurs** en haut à droite du portail de publication.
 
@@ -373,9 +362,9 @@ Cliquez sur **Envoyer** et observez l’état de réponse obtenu, à savoir **40
 La demande n’est pas autorisée, car l’API du serveur principal est protégée par Azure Active Directory. Avant d’appeler correctement l’API, le portail des développeurs doit être configuré afin d’autoriser les développeurs utilisant OAuth 2.0. Ce processus est décrit dans les sections suivantes.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Inscription du portail des développeurs en tant qu’application AAD
-La première étape de la configuration du portail des développeurs pour autoriser les développeurs utilisant OAuth 2.0 consiste à inscrire le portail des développeurs en tant qu’application AAD. Cela est expliqué à partir de 8’27’’ dans la vidéo.
+La première étape de la configuration du portail des développeurs pour autoriser les développeurs utilisant OAuth 2.0 consiste à inscrire le portail des développeurs en tant qu’application AAD. 
 
-Accédez au locataire Azure AD créé à la première étape de cette vidéo (dans cet exemple, **APIMDemo**) et accédez à l’onglet **Applications**.
+Accédez au locataire Azure AD. Dans cet exemple, sélectionnez **APIMDemo** et accédez à l’onglet **Applications**.
 
 ![Nouvelle application][api-management-aad-new-application-devportal]
 
@@ -394,7 +383,7 @@ Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion 
 ![Nouvelle application][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Configuration du serveur d’autorisation OAuth 2.0 dans Gestion des API
-La prochaine étape consiste à configurer le serveur d’autorisation OAuth 2.0 dans Gestion des API Cette étape est illustrée dans la vidéo à partir de 9’43’’.
+La prochaine étape consiste à configurer le serveur d’autorisation OAuth 2.0 dans Gestion des API 
 
 Cliquez sur **Sécurité** dans le menu Gestion des API de gauche, cliquez sur **OAuth 2.0**, puis cliquez sur **Ajouter au serveur d’autorisation**.
 
@@ -466,7 +455,7 @@ Cliquez sur **Autorisations déléguées** pour **APIMAADDemo**, cochez la case 
 ![Ajout d’autorisations][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>Activation de l’autorisation de l’utilisateur OAuth 2.0 pour l’API de calcul
-Maintenant que le serveur OAuth 2.0 est configuré, vous pouvez le spécifier dans les paramètres de sécurité pour votre API. Cette étape est illustrée dans la vidéo à partir de 14’30’’.
+Maintenant que le serveur OAuth 2.0 est configuré, vous pouvez le spécifier dans les paramètres de sécurité pour votre API. 
 
 Cliquez sur **API** dans le menu situé à gauche et cliquez sur **Calculatrice** pour afficher et configurer ses paramètres.
 
@@ -477,7 +466,7 @@ Accédez à l’onglet **Sécurité**, activez la case à cocher **OAuth 2.0**,
 ![API de calcul][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Appel réussi de l’API de calcul à partir du portail des développeurs
-Maintenant que l’autorisation OAuth 2.0 est configurée sur l’API, ses opérations peuvent être appelées avec succès à partir du portail des développeurs. Cette étape est illustrée dans la vidéo à partir de 15’00’’.
+Maintenant que l’autorisation OAuth 2.0 est configurée sur l’API, ses opérations peuvent être appelées avec succès à partir du portail des développeurs. 
 
 Revenez à l’opération **Ajouter deux entiers** du service de calculatrice dans le portail des développeurs et cliquez sur **Essayer**. Observez le nouvel élément dans la section **Autorisation** correspondant au serveur d’autorisation que vous venez d’ajouter.
 
@@ -492,10 +481,12 @@ Cliquez sur **Envoyer** et observez l’**État de la réponse** obtenu, à savo
 ![API de calcul][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>Configuration d’une application de bureau pour appeler l’API
-La procédure suivante dans la vidéo commence à 16’30’’ et illustre la configuration d’une application de bureau simple pour appeler l’API. La première étape consiste à enregistrer l’application de bureau dans Azure AD et à lui donner accès au répertoire et au service du serveur principal. À 18’25’’, vous pouvez voir une démonstration de l’application de bureau appelant une opération sur l’API de calcul.
+
+Configuration d’une application de bureau simple pour appeler l’API La première étape consiste à enregistrer l’application de bureau dans Azure AD et à lui donner accès au répertoire et au service du serveur principal. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configuration d’une stratégie de validation JWT pour autoriser des demandes
-La procédure finale de la vidéo commence à 20’48’’ et vous montre comment utiliser la stratégie [Valider un JWT](api-management-access-restriction-policies.md#ValidateJWT) pour autoriser des demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au serveur principal.
+
+Utilisez la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les demandes en validant les jetons d’accès de chaque demande entrante. Si la demande n’est pas validée par la stratégie Valider un JWT, la demande est bloquée par Gestion des API et n’est pas transmise au serveur principal.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +499,7 @@ La procédure finale de la vidéo commence à 20’48’’ et vous montre comme
 </validate-jwt>
 ```
 
-Pour une autre démonstration de la configuration et l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) et rendez-vous directement à 13’50’’. Rendez-vous directement à 15’00’’ pour afficher les stratégies configurées dans l’éditeur de stratégies, puis à 18’50’’ pour une démonstration de l’appel d’une opération à partir du portail des développeurs avec et sans le jeton d’autorisation requis.
+Pour plus d’informations, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) et avancez jusqu’à 13:50. Rendez-vous directement à 15’00’’ pour afficher les stratégies configurées dans l’éditeur de stratégies, puis à 18’50’’ pour une démonstration de l’appel d’une opération à partir du portail des développeurs avec et sans le jeton d’autorisation requis.
 
 ## <a name="next-steps"></a>étapes suivantes
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.

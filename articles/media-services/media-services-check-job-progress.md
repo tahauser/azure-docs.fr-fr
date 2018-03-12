@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f81153f4fb51e474e0f8cc1e26ad866079a88ca7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-job-progress-using-net"></a>Surveiller la progression des travaux à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -33,6 +33,7 @@ Lorsque vous exécutez des travaux, vous avez généralement besoin de faire app
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Définir le gestionnaire d’événements StateChanged pour surveiller la progression des tâches
 L'exemple de code suivant définit un gestionnaire d'événements StateChanged. Ce dernier suit la progression du travail et fournit l'état mis à jour, selon l'état. Le code définit également la méthode LogJobStop. Cette méthode d'assistance journalise les détails de l'erreur.
 
+```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
         Console.WriteLine("Job state changed event:");
@@ -107,7 +108,7 @@ L'exemple de code suivant définit un gestionnaire d'événements StateChanged. 
     {
         return jobID.Replace(":", "_");
     }
-
+```
 
 
 ## <a name="next-step"></a>Étape suivante

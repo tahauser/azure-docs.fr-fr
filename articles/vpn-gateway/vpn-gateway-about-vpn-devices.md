@@ -56,7 +56,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Check Point |Passerelle de sécurité |R77.30 |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guide de configuration*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemples de configuration**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Exemples de configuration](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Exemples de configuration\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Cisco |Meraki |N/A |Non compatible |Non compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 et versions ultérieures |[Guide de configuration](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatible |
 | F5 |Série BIG-IP |12.0 |[Guide de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guide de configuration](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -78,7 +78,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 >
 > (*) Les versions Cisco ASA 8.4+ ajoutent la prise en charge IKEv2. Elles peuvent se connecter à la passerelle VPN Azure à l’aide de la stratégie IPsec/IKE personnalisée avec l’option « UsePolicyBasedTrafficSelectors ». Reportez-vous à cet [article sur les procédures](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
-> (**) Les routeurs de la série ISR 7200 prennent uniquement en charge les VPN basés sur des stratégies.
+> (\*\*) Les routeurs de la série ISR 7200 prennent uniquement en charge les VPN basés sur des stratégies.
 
 ## <a name="additionaldevices"></a>Périphériques VPN non validés
 

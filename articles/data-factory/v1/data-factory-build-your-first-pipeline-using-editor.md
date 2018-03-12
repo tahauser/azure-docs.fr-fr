@@ -3,9 +3,9 @@ title: "Créer votre première fabrique de données Azure (portail Azure) | Micr
 description: "Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Pour créer une fabrique de données, procédez comme suit :
 8. Sélectionnez **Créer**.
 
    > [!IMPORTANT]
-   > Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
+   > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
    >
    >
 9. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** :    
@@ -260,7 +260,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
     ![Arborescence avec les services liés](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
-Dans cette étape, vous créez votre premier pipeline avec une activité HDInsight Hive. La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1). La tranche de sortie est produite mensuellement. La propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c’est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans l’extrait de code JSON suivant sont expliquées à la fin de cette section.
+Dans cette étape, vous créez votre premier pipeline avec une activité HDInsight Hive. La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1). La tranche de sortie est produite mensuellement. La propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c’est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne produit pas de sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans l’extrait de code JSON suivant sont expliquées à la fin de cette section.
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau pipeline**.
 

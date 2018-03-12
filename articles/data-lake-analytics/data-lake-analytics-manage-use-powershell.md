@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des travaux et des éléments de catalogue à l'aide d'Azure PowerShell. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour créer un compte Data Lake Analytics, vous devez connaître les éléments suivants :
 
@@ -99,13 +99,13 @@ Obtenez les détails relatifs à un compte.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Vérifiez l’existence d’un compte Data Lake Analytics spécifique. La cmdlet retourne `True` ou `False`.
+Vérifiez l’existence d’un compte Data Lake Analytics spécifique. La cmdlet retourne `$true` ou `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Vérifiez l’existence d’un compte Data Lake Store spécifique. La cmdlet retourne `True` ou `False`.
+Vérifiez l’existence d’un compte Data Lake Store spécifique. La cmdlet retourne `$true` ou `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -155,8 +155,6 @@ Supprimez une règle de pare-feu.
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-
-
 Autorisez des adresses IP Azure.
 
 ```powershell
@@ -172,7 +170,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Azure Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+* [Stockage Azure](../storage/common/storage-introduction.md)
 
 Quand vous créez un compte Analytics, vous devez désigner un compte Data Lake Store comme source de données par défaut. Le compte Data Lake Store par défaut est utilisé pour stocker les métadonnées du travail et les journaux d'audit du travail. Après la création d'un compte Data Lake Analytics, vous pouvez ajouter des comptes Data Lake Store et/ou des comptes de stockage supplémentaires. 
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>Envoyer un fichier en tant que script U-SQL
 
 ```powershell
@@ -258,15 +255,13 @@ La sortie comprend les travaux en cours et ceux qui ont été terminés récemme
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>Répertorier les N premiers travaux
 
-### <a name="list-a-specific-number-of-jobs"></a>Lister un nombre spécifique de travaux
-
-Par défaut, la liste des travaux est triée en fonction de l’heure d’envoi. Par conséquent, les travaux envoyés le plus récemment s’affichent en premier. Par défaut, le compte ADLA garde en mémoire les travaux pendant 180 jours, mais la cmdlet AdlJob-Ge ne retourne par défaut que les 500 premiers travaux. Utilisez le paramètre -Top pour lister un nombre spécifique de travaux.
+Par défaut, la liste des travaux est triée en fonction de l’heure d’envoi. Par conséquent, les travaux envoyés le plus récemment s’affichent en premier. Par défaut, le compte ADLA garde en mémoire les travaux pendant 180 jours, mais l’applet de commande AdlJob-Ge ne retourne par défaut que les 500 premiers travaux. Utilisez le paramètre -Top pour lister un nombre spécifique de travaux.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Lister les travaux en fonction de la valeur de la propriété du travail
 
@@ -297,8 +292,8 @@ Utilisez le `-Result` paramètre pour détecter si les travaux terminés se sont
 
 * Annulé
 * Échec
-* Aucune
-* Réussi
+* Aucun
+* Succeeded
 
 ``` powershell
 # List Successful jobs.
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 # List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
-
 
 Le `-Submitter` paramètre vous permet d’identifier qui a envoyé une tâche.
 
@@ -338,7 +332,6 @@ Utilisez l’ `Get-AdlJobPipeline` applet de commande pour afficher les tâches 
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
@@ -682,7 +675,7 @@ Enregistrez le texte suivant en tant que fichier `.json`, puis utilisez le scrip
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Prise en main de Data Lake Analytics à l’aide du [portail Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)
 * Gérer Azure Data Lake Analytics à l’aide du [portail Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) 

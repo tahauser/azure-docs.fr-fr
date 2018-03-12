@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 11c0a583ab671b27a5c5a65c4bb36032a8582466
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Didacticiel Hadoop : prise en main de Hadoop dans HDInsight
 
-Apprenez à créer des clusters [Hadoop](http://hadoop.apache.org/) et exécuter des tâches Hive dans HDInsight. [Apache Hive](https://hive.apache.org/) est le composant le plus populaire de l’écosystème Hadoop. HDInsight est actuellement fournie avec [sept types de cluster](apache-hadoop-introduction.md#overview). Chaque type de cluster prend en charge un ensemble de composants bien spécifiques. Tous les types de cluster prennent en charge Hive. Pour obtenir la liste des composants pris en charge dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight](../hdinsight-component-versioning.md)  
+Apprenez à créer des clusters [Hadoop](http://hadoop.apache.org/) et exécuter des tâches Hive dans HDInsight. [Apache Hive](https://hive.apache.org/) est le composant le plus populaire de l’écosystème Hadoop. HDInsight est actuellement fournie avec [sept types de cluster](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster prend en charge un ensemble de composants bien spécifiques. Tous les types de cluster prennent en charge Hive. Pour obtenir la liste des composants pris en charge dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight](../hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -45,16 +45,16 @@ Le modèle Resource Manager utilisé dans ce didacticiel se trouve dans [GitHub]
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Entrez ou sélectionnez les valeurs suivantes :
-   
-    ![Prise en main de HDInsight sous Linux - Utilisation du modèle Resource Manager sur le portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template (Déployer un cluster Hadoop dans HDInsight à l’aide du portail Azure et d’un modèle de gestionnaire de groupes de ressources)").
-   
+
     * **Abonnement** : sélectionnez votre abonnement Azure.
     * **Groupe de ressources** : créez un groupe de ressources ou sélectionnez-en un.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. 
     * **Emplacement** : sélectionnez l’emplacement Azure où vous souhaitez créer votre cluster.  Choisissez un emplacement proche de vous pour obtenir des performances optimales. 
     * **Type du cluster** : pour les besoins de ce didacticiel, sélectionnez **hadoop**.
-    * **Nom de cluster** : saisissez le nom du cluster Hadoop. Étant donné que tous les clusters HDInsight partagent le même espace de noms DNS, ce nom doit être unique. Le nom peut comporter jusqu’à 59  caractères, dont des lettres, des chiffres et des traits d’union. Notez que le premier caractère et le dernier caractère du nom ne peuvent pas être des traits d’union.
-    * **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est **admin**.
-    * **Nom d’utilisateur SSH et mot de passe** : le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez le renommer. 
+    * **Nom de cluster** : saisissez le nom du cluster Hadoop. Étant donné que tous les clusters HDInsight partagent le même espace de noms DNS, ce nom doit être unique. Le nom peut comporter jusqu’à 59 caractères, dont des lettres, des chiffres et des traits d’union. Notez que le premier caractère et le dernier caractère du nom ne peuvent pas être des traits d’union.
+    * **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est **admin**. Le mot de passe doit comporter au moins 10 caractères et inclure au moins un chiffre, une lettre majuscule, une lettre minuscule et un caractère non alphanumérique (à l’exception de ’ " ` \). 
+    * **Nom d’utilisateur SSH et mot de passe** : le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez renommer le nom d’utilisateur SSH.  Le mot de passe SSH de l’utilisateur a les mêmes exigences que le mot de passe de connexion du cluster.   
+   
+    ![Prise en main de HDInsight sous Linux - Utilisation du modèle Resource Manager sur le portail](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template (Déployer un cluster Hadoop dans HDInsight à l’aide du portail Azure et d’un modèle de gestionnaire de groupes de ressources)").
      
     Certaines propriétés ont été codées en dur dans le modèle.  Vous pouvez configurer ces valeurs à partir du modèle.
     
@@ -124,9 +124,11 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 
 **Pour supprimer le cluster et/ou le compte de stockage par défaut**
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À partir du tableau de bord du portail, cliquez sur la vignette portant le nom du groupe de ressources que vous avez utilisé lors de la création du cluster.
-3. Cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources contenant le cluster et le compte de stockage par défaut. Vous pouvez également cliquer sur le nom du cluster dans la vignette **Ressources**, puis sur **Supprimer**. Notez que la suppression du groupe de ressources aura pour effet de supprimer le compte de stockage. Si vous souhaitez conserver le compte de stockage, choisissez de supprimer uniquement le cluster.
+1. Revenez à l’onglet du navigateur dans lequel se trouve le portail Azure. Vous devez être sur la page de vue d’ensemble du cluster. Vous pouvez cliquer sur **Supprimer** si vous souhaitez uniquement supprimer le cluster, mais conserver le compte de stockage par défaut :
+
+    ![HDInsight suppression du cluster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "Suppression du cluster HDInsight")
+1. Sur la droite, cliquez sur le nom de groupe de ressources (en surbrillance dans la capture d’écran précédente) pour ouvrir la page de groupe de ressources.
+2. Cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources contenant le cluster et le compte de stockage par défaut. Vous pouvez également cliquer sur le nom du cluster dans la vignette **Ressources**, puis sur **Supprimer**. Notez que la suppression du groupe de ressources aura pour effet de supprimer le compte de stockage. Si vous souhaitez conserver le compte de stockage, choisissez de supprimer uniquement le cluster.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

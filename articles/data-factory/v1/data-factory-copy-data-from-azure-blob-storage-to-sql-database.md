@@ -3,9 +3,9 @@ title: "Copie de données à partir du Stockage Blob vers une base de données S
 description: "Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données depuis Blob Storage vers une base de données SQL Azure."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3135c8bf6316125a164c06630bc7607a92621b26
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Didacticiel : Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory
 > [!div class="op_single_selector"]

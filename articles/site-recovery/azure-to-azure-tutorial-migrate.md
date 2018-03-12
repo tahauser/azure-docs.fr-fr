@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrer des machines virtuelles Azure vers une autre région
 
@@ -123,7 +124,8 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 2. Dans **Basculement**, sélectionnez **Dernier**. Le paramètre de clé de chiffrement ne s’applique pas à ce scénario.
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
-5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration et interrompt la réplication pour la machine virtuelle.
+5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Valider**. Cette étape termine le processus de migration.
+6. Une fois la validation terminée, cliquez sur **Désactiver la réplication**.  Cette étape arrête la réplication de la machine virtuelle.
 
 
 

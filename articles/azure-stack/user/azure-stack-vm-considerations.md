@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considérations relatives aux machines virtuelles dans Azure Stack
 
@@ -41,19 +41,25 @@ Les machines virtuelles sont des ressources de calcul évolutives et à la deman
 |Groupes identiques de machines virtuelles |Prise en charge du dimensionnement automatique des instances|Pas de prise en charge du dimensionnement automatique des instances.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles
+Azure impose des limites de ressources de plusieurs façons pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si vous n’appliquez pas de limites sur la consommation de ressources des locataires, l’expérience de ces derniers peut être compromise quand un voisin bruyant consomme des ressources de façon excessive. 
+- Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place. Les limites dans Azure Stack correspondent aux limites dans Azure.  
+- Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage. 
+- Pour les machines virtuelles avec plusieurs disques de données joints, le débit maximal de chaque disque de données individuel est de 500 E/S par seconde pour les disques HHD et de 2 300 E/S par seconde pour les disques SSD.
 
-Azure Stack prend en charge les formats suivants :
+Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack, ainsi que leur configuration :
 
-| type | Taille | Plage de tailles prises en charge |
-| --- | --- | --- |
-|Usage général |De base A|A0 - A4|
-|Usage général |Standard A|A0 - A7|
-|Usage général |Série D|D1 - D4|
-|Usage général |Série Dv2|D1_v2 - D5_v2|
-|Usage général |Série DS|DS1 - DS4|
-|Usage général |Séries DSv2|DS1_v2 - DS5_v2|
-|Mémoire optimisée|Série DS|DS11 - DS14|
-|Mémoire optimisée |Séries DSv2|DS11_v2 - DS14_v2|
+| type           | Taille          | Plage de tailles prises en charge |
+| ---------------| ------------- | ------------------------ |
+|Usage général |De base A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Usage général |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Usage général |Série D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Usage général |Série Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Usage général |Série DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Usage général |Séries DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Mémoire optimisée|Série D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Mémoire optimisée|Série DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Mémoire optimisée|Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Mémoire optimisée|Séries DSv2 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Par exemple, cette cohérence inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances d’une même taille de machine virtuelle dans Azure Stack dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
 

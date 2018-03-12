@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>Conformité RGPD et Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ Azure AD Connect Health est classé dans la catégorie **Processeur de données*
 
 ## <a name="data-retention-policy"></a>Stratégie de conservation des données
 Azure AD Connect Health ne génère pas de rapports, n’effectue pas d’analyses et ne fournit pas d’insights au-delà de 30 jours. Par conséquent, Azure AD Connect Health ne stocke pas, ne traite pas et ne conserve pas de données au-delà de 30 jours. Cette conception est conforme aux réglementations RGPD, aux réglementations de Microsoft concernant la conformité, ainsi qu’aux stratégies de conservation des données Azure AD. 
+
+Les serveurs sur lesquels il existe des alertes d’**erreur** **Les données du Service de contrôle d’intégrité ne sont pas à jour** pendant plus de 30 jours consécutifs suggèrent qu’aucune donnée n’a atteint Connect Health pendant cet intervalle de temps. Ces serveurs sont désactivés et n’apparaissent pas dans le portail Connect Health. Pour les réactiver, vous devez désinstaller et [réinstaller l’agent d’intégrité](active-directory-aadconnect-health-agent-install.md). Notez que cette désactivation ne s’applique pas aux **avertissements** avec le même type d’alerte. Les avertissements indiquent qu’il manque une partie des données en provenance du serveur pour lequel vous voulez être alerté. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Désactiver la collecte et la surveillance des données dans Azure AD Connect Health
 Azure AD Connect Health vous permet d’arrêter la collecte des données pour chaque serveur surveillé ou pour une instance d’un service surveillé. Par exemple, vous pouvez arrêter la collecte des données pour chaque serveur ADFS qui est surveillé à l’aide d’Azure AD Connect Health. Vous pouvez également arrêter la collecte de données pour l’intégralité d’une instance ADFS qui est surveillée par Azure AD Connect Health. Dans ce cas, les serveurs correspondants sont supprimés du portail Azure AD Connect Health, après l’arrêt de la collecte de données. 
@@ -53,7 +55,7 @@ Si vous arrêtez la collecte et la surveillance des données pour un serveur sur
 - Toutes les données appartenant à l’instance du service surveillé sont supprimées, conformément à la stratégie de conservation des données de Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Désactiver la collecte et la surveillance des données pour un serveur surveillé
-Regardez [comment supprimer un serveur d’Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Regardez [comment supprimer un serveur d’Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Désactiver la collecte et la surveillance des données pour une instance d’un service surveillé
 Regardez [comment supprimer une instance de service d’Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

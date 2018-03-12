@@ -3,7 +3,7 @@ title: "Événements planifiés pour les machines virtuelles Linux dans Azure | 
 description: "Planifiez des événements en utilisant le service de métadonnées Azure pour vos machines virtuelles Linux."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
-author: zivraf
+author: ericrad
 manager: timlt
 editor: 
 tags: 
@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
-ms.openlocfilehash: ae9955253647f3277729e7905baf7bb07645de42
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.date: 02/22/2018
+ms.author: ericrad
+ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Service de métadonnées Azure : Événements planifiés (préversion) pour les machines virtuelles Linux
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Linux
 
-> [!NOTE] 
-> Les préversions sont à votre disposition, à condition que vous acceptiez les conditions d’utilisation. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-Événements planifiés sont un sous-service du service de métadonnées Azure. Il permet à votre application de disposer de suffisamment de temps pour se préparer à la maintenance des machines virtuelles. Il fournit des informations sur les événements de maintenance à venir (par exemple, les redémarrages), afin que votre application puisse s’y préparer et limiter les interruptions de service. Il est disponible pour tous les types de machines virtuelles Azure, notamment PaaS et IaaS sur Windows et Linux. 
+Événements planifiés est un service de métadonnées Azure qui permet à votre application de disposer de suffisamment de temps pour se préparer à la maintenance des machines virtuelles. Il fournit des informations sur les événements de maintenance à venir (par exemple, les redémarrages), afin que votre application puisse s’y préparer et limiter les interruptions de service. Il est disponible pour tous les types de machines virtuelles Azure, notamment PaaS et IaaS sur Windows et Linux. 
 
 Pour plus d’informations sur les événements planifiés sur Windows, consultez [Événements planifiés pour les machines virtuelles Windows](../windows/scheduled-events.md).
+
+> [!Note] 
+> Le service Événements planifiés est mis à la disposition générale dans toutes les régions Azure. Consultez la section [Version et disponibilité dans la région](#version-and-region-availability) pour obtenir des informations sur la version la plus récente.
 
 ## <a name="why-use-scheduled-events"></a>Pourquoi utiliser le service Événements planifiés ?
 
@@ -62,47 +61,39 @@ Les événements planifiés sont remis à :
 
 Par conséquent, vérifiez le champ `Resources` de l’événement pour identifier les machines virtuelles concernées.
 
-### <a name="discover-the-endpoint"></a>Découvrir le point de terminaison
-Pour les machines virtuelles compatibles avec les réseaux virtuels, le point de terminaison complet de la dernière version des événements planifiés est : 
+### <a name="endpoint-discovery"></a>Découverte de point de terminaison
+Pour les machines virtuelles compatibles avec le réseau virtuel, le service de métadonnées est disponible à partir d’une adresse IP non routable statique, `169.254.169.254`. Le point de terminaison complet de la dernière version des événements planifiés est : 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-Si une machine virtuelle est créée au sein d’un réseau virtuel, le service de métadonnées est disponible à partir d’une adresse IP statique non routable, `169.254.169.254`.
 Si la machine virtuelle n’est pas créée au sein d’un réseau virtuel, ce qui est habituellement le cas pour les services cloud et les machines virtuelles classiques, une logique supplémentaire est nécessaire pour découvrir l’adresse IP à utiliser. Reportez-vous à cet exemple pour savoir comment [découvrir le point de terminaison hôte](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### <a name="versioning"></a>Contrôle de version 
+### <a name="version-and-region-availability"></a>Version et disponibilité dans la région
 Les versions du service Événements planifiés sont gérées. Ces versions sont obligatoires et la version actuelle est `2017-08-01`.
 
-| Version | Notes de publication | 
-| - | - | 
-| 2017-08-01 | <li> Suppression du trait de soulignement ajouté au début des noms de ressources pour les machines virtuelles IaaS<br><li>Spécification d’en-tête de métadonnées appliquée à toutes les requêtes | 
-| 2017-03-01 | <li>Préversion publique
+| Version | Type de version | Régions | Notes de publication | 
+| - | - | - | - | 
+| 2017-08-01 | Disponibilité générale | Tous | <li> Suppression du trait de soulignement ajouté au début des noms de ressources pour les machines virtuelles IaaS<br><li>Spécification d’en-tête de métadonnées appliquée à toutes les requêtes | 
+| 2017-03-01 | VERSION PRÉLIMINAIRE | Tous | <li>Version initiale
 
 
 > [!NOTE] 
 > Les préversions précédentes du service Evénements planifiés prenaient en charge {latest} en tant que version de l’api. Ce format n’est plus pris en charge et sera déconseillé à l’avenir.
 
-### <a name="use-headers"></a>Utilisation des en-têtes
-Quand vous interrogez le service de métadonnées, vous devez fournir l’en-tête `Metadata:true` pour garantir que la requête n’a pas été redirigée involontairement. L’en-tête `Metadata:true` est obligatoire pour toutes les requêtes d’événements planifiés. L’absence d’en-tête dans la requête génère une réponse « Requête incorrecte » du service de métadonnées.
+### <a name="enabling-and-disabling-scheduled-events"></a>Activation et désactivation du service Événements planifiés
+Le service Événements planifiés est activé pour votre service la première fois que vous faites une requête d’événements. Attendez-vous à ce que la réponse à votre première demande ait un retard pouvant atteindre deux minutes.
 
-### <a name="enable-scheduled-events"></a>Activer des événements planifiés
-La première fois que vous effectuez une requête d’événements planifiés, Azure active implicitement la fonctionnalité sur votre machine virtuelle. Par conséquent, prévoyez un retard pouvant atteindre deux minutes dans la réponse à votre premier appel.
-
-> [!NOTE]
-> Les événements planifiés sont désactivés automatiquement pour votre service si celui-ci n’appelle pas le point de terminaison pendant une journée. Une fois les événements planifiés désactivés pour votre service, aucun événement ne sera créé pour la maintenance lancée par l’utilisateur.
+Le service Événements planifiés est désactivé pour votre service, s’il ne fait aucune requête pendant 24 heures.
 
 ### <a name="user-initiated-maintenance"></a>Maintenance lancée par l’utilisateur
 La maintenance de machine virtuelle lancée par l’utilisateur via le portail Azure, l’API, l’interface de ligne de commande ou PowerShell entraîne un événement planifié. Cela vous permet de tester la logique de préparation de la maintenance dans votre application et à cette dernière de se préparer à la maintenance lancée par l’utilisateur.
 
 Si vous redémarrez une machine virtuelle, un événement de type `Reboot` est planifié. Si vous redéployez une machine virtuelle, un événement de type `Redeploy` est planifié.
 
-> [!NOTE] 
-> Actuellement, vous pouvez planifier simultanément au plus 100 opérations de maintenance lancées par l’utilisateur.
-
-> [!NOTE] 
-> Actuellement, la maintenance lancée par l’utilisateur qui conduit à des événements planifiés n’est pas configurable. La possibilité de configuration est prévue pour une version ultérieure.
-
 ## <a name="use-the-api"></a>Utilisation de l’API
+
+### <a name="headers"></a>headers
+Quand vous interrogez le service de métadonnées, vous devez fournir l’en-tête `Metadata:true` pour garantir que la requête n’a pas été redirigée involontairement. L’en-tête `Metadata:true` est obligatoire pour toutes les requêtes d’événements planifiés. L’absence d’en-tête dans la requête génère une réponse « Requête incorrecte » du service de métadonnées.
 
 ### <a name="query-for-events"></a>Rechercher des événements
 Vous pouvez rechercher des événements planifiés en effectuant l’appel suivant :
@@ -130,7 +121,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
 }
 ```
 
-### <a name="event-properties"></a>Propriétés d’événement
+### <a name="event-properties"></a>Propriétés de l’événement
 |Propriété  |  DESCRIPTION |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -218,6 +209,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>étapes suivantes 
+- Regardez la vidéo sur le service [Événements planifiés sur Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) pour voir une démonstration. 
 - Passez en revue les exemples de code d’événements planifiés disponibles dans le [référentiel Github d’événements planifiés de métadonnées d’instance Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Apprenez-en davantage sur les API disponibles dans le [service de métadonnées d’instance](instance-metadata-service.md).
 - Découvrez plus d’informations sur la [maintenance planifiée pour les machines virtuelles Linux dans Azure](planned-maintenance.md).

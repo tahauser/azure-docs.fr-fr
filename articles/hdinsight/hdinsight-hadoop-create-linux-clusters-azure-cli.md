@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Créer des clusters HDInsight à l’aide de l’interface de ligne de commande Azure
 
@@ -29,19 +29,20 @@ ms.lasthandoff: 12/11/2017
 Les étapes de cette procédure présentent la création d’un cluster HDInsight 3.5 à l’aide d’Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Cette rubrique explique comment utiliser Azure CLI 1.0 pour créer un cluster HDInsight. Cette version de l’interface CLI est déconseillée, et la prise en charge de la création de clusters HDInsight n’a pas été ajoutée à Azure CLI 2.0.
+>
+> Vous pouvez aussi utiliser Azure PowerShell pour créer et gérer des clusters HDInsight. Pour plus d’informations, consultez le document [Créer des cluster HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
-
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Interface de ligne de commande Azure**. Les étapes décrites dans ce document ont été testées pour Azure CLI version 0.10.14.
+* **Azure CLI**. Les étapes décrites dans ce document ont été testées pour Azure CLI version 0.10.14.
 
     > [!IMPORTANT]
-    > Les étapes décrites dans ce document ne fonctionnent pas avec Azure CLI 2.0. Azure CLI 2.0 ne prend pas en charge la création d’un cluster HDInsight.
+    > Azure CLI 1.0 est déconseillé, et la prise en charge de la création de clusters HDInsight n’a pas été ajoutée à Azure CLI 2.0.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Connexion à votre abonnement Azure
 
@@ -127,7 +128,7 @@ Les étapes suivantes doivent être exécutées à partir d’une ligne de comma
 
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez créé un cluster HDInsight à l’aide de l’interface de ligne de commande Azure. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous :
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
@@ -29,15 +29,15 @@ Les clusters Azure HDInsight fournissent Hadoop dans un environnement Linux fami
 > [!IMPORTANT]
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
 
 * [cURL](https://curl.haxx.se/) : permet de communiquer avec les services Web.
 * [jq](https://stedolan.github.io/jq/) : permet d’analyser des documents JSON.
-* [Interface de ligne de commande Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (version préliminaire) - permet de gérer à distance les services Azure
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) : permet de gérer les services Azure à distance
 
-## <a name="users"></a>Users
+## <a name="users"></a>Utilisateurs
 
 Sauf s’il est [joint à un domaine](./domain-joined/apache-domain-joined-introduction.md), HDInsight doit être considéré comme un système **mono-utilisateur**. Un compte d’utilisateur SSH unique est créé avec le cluster, avec les autorisations de niveau administrateur. Des comptes SSH supplémentaires peuvent être créés, mais ils auront également l’accès administrateur au cluster.
 
@@ -275,7 +275,7 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 >
 > Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org) ; par exemple, [Hadoop](http://hadoop.apache.org/) ou [Spark](http://spark.apache.org/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Effectuer la migration de HDInsight Windows vers HDInsight Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)

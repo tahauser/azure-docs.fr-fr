@@ -1,6 +1,6 @@
 ---
 title: "Créer une application de conteneur Windows Azure Service Fabric | Microsoft Docs"
-description: "Créez votre première application de conteneur Windows sur Microsoft Azure Service Fabric."
+description: "Dans ce démarrage rapide, créez votre première application conteneur Windows sur Microsoft Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Déployer une application de conteneur Windows Service Fabric sur Azure
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Démarrage rapide : Déployer une application conteneur Windows Service Fabric sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
 
 L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Ce guide de démarrage rapide montre comment déployer une image de conteneur Docker préconstruite dans une application Service Fabric. Une fois terminé, vous disposerez de Windows Server 2016 Nano Server et d’un conteneur IIS en fonction. Ce guide de démarrage rapide décrit la procédure de déploiement d’un conteneur Windows. Consultez [ce guide de démarrage rapide](service-fabric-quickstart-containers-linux.md) si vous souhaitez déployer un conteneur Linux.
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > * Créer et placer l’application Service Fabric dans un package
 > * Déployer l’application de conteneur dans Azure
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Configuration requise
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
@@ -48,21 +48,25 @@ Démarrez Visual Studio en tant qu’administrateur.  Sélectionnez **Fichier** 
 
 Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
 
-Sélectionnez **Container** (Conteneur) dans la liste des **modèles de service**.
+Sélectionnez **Conteneur** dans les modèles **Conteneurs et applications hébergés**.
 
 Dans **Nom de l’image**, entrez « microsoft/iis:nanoserver », l’[image de base Windows Server Nano Server et IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Nommez votre service « MyContainerService », puis cliquez sur **OK**.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Configurer la communication et le mappage des ports de conteneur aux ports hôtes
-Le service a besoin d’un point de terminaison pour la communication.  Ajoutez maintenant le protocole, le port et le type à un `Endpoint` dans le fichier ServiceManifest.xml. Dans ce guide de démarrage rapide, le service en conteneur écoute le port 80 : 
+Le service a besoin d’un point de terminaison pour la communication.  Pour ce démarrage rapide, le service en conteneur écoute le port 80.  Dans l’Explorateur de solutions, ouvrez *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Mettez à jour le `Endpoint` existant dans le fichier ServiceManifest.xml, puis ajoutez le schéma de protocole, de port et d’URI : 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 Fournir `UriScheme` enregistre automatiquement le point de terminaison du conteneur avec le service Service Fabric Naming pour la découverte. Un exemple de fichier ServiceManifest.xml complet est fourni à la fin de cet article. 
 
-Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `PortBinding` dans `ContainerHostPolicies` dans le fichier ApplicationManifest.xml.  Dans ce guide de démarrage rapide,la valeur `ContainerPort` est 80 et la valeur `EndpointRef` est « MyContainerServiceTypeEndpoint » (le point de terminaison renseigné dans le manifeste du service).  Les demandes entrantes pour le service sur le port 80 sont mappées au port 80 dans le conteneur.  
+Configurez le mappage de ports de type port à hôte du conteneur afin que les requêtes entrantes envoyées vers le service sur le port 80 soient mappées au port 80 du conteneur.  Dans l’Explorateur de solutions, ouvrez *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* et spécifiez une stratégie `PortBinding` dans `ContainerHostPolicies`.  Dans ce guide de démarrage rapide,la valeur `ContainerPort` est 80 et la valeur `EndpointRef` est « MyContainerServiceTypeEndpoint » (le point de terminaison renseigné dans le manifeste du service).    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ Configurez le mappage port/hôte du conteneur en spécifiant une stratégie `Por
 Un exemple de fichier ApplicationManifest.xml complet est fourni à la fin de cet article.
 
 ## <a name="create-a-cluster"></a>Créer un cluster
-Pour déployer l’application sur un cluster dans Azure, vous pouvez choisir d’utiliser un cluster tiers ou de [créer votre propre cluster sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. 
+Pour déployer l’application sur un cluster dans Azure, vous pouvez choisir d’utiliser un cluster tiers. Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. 
 
 Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Le certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
 
@@ -108,7 +110,7 @@ N’oubliez pas l’empreinte numérique pour l’étape suivante.
 
 Faites un clic droit sur **MyFirstContainer** dans l’Explorateur de solutions et choisissez **Publier**. La boîte de dialogue Publier s’affiche.
 
-Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers dans le champ **Point de terminaison de connexion**. Par exemple : `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Cliquez sur **Paramètres de connexion avancés** et renseignez les informations suivantes.  Les valeurs *FindValue* et *ServerCertThumbprint* doivent correspondre à l’empreinte numérique du certificat installé lors de l’étape précédente. 
+Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers dans le champ **Point de terminaison de connexion**. Par exemple : `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Cliquez sur **Paramètres de connexion avancés** et vérifiez les informations des paramètres de connexion.  Les valeurs *FindValue* et *ServerCertThumbprint* doivent correspondre à l’empreinte numérique du certificat installé lors de l’étape précédente. 
 
 ![Boîte de dialogue Publier](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -204,7 +205,7 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
 </ApplicationManifest>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 > [!div class="checklist"]
 > * Placer un conteneur d’images Docker dans un package

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
@@ -30,10 +30,11 @@ Dans les didacticiels suivants, l’application Azure Vote est déployée sur le
 
 Dans les didacticiels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Activation de la préversion d’AKS pour votre abonnement Azure
+## <a name="enable-aks-preview"></a>Activer la préversion AKS
+
 Tant que AKS est en préversion, la création de nouveaux clusters exige un indicateur de fonctionnalité dans votre abonnement. Vous pouvez demander cette fonctionnalité pour les abonnements que vous souhaitez utiliser, quel qu’en soit le nombre. Utilisez la commande `az provider register` pour inscrire le fournisseur AKS :
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -73,14 +74,36 @@ Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get
 kubectl get nodes
 ```
 
-Sortie :
+Output:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 ```
 
 À l’issue du didacticiel, vous disposez d’un cluster ACS prêt pour les charges de travail. Dans les didacticiels suivants, une application à plusieurs conteneurs est déployée sur ce cluster, mise à l’échelle, mise à jour et surveillée.
+
+## <a name="configure-acr-authentication"></a>Configurer une authentification ACR
+
+L’authentification doit être configurée entre le cluster AKS et le registre ACR. Cela implique d’octroyer les droits appropriés à l’identité ACS pour extraire des images du registre ACR.
+
+Commencez par récupérer l’ID du principal du service configuré pour AKS. Mettez à jour le nom du groupe de ressources et le nom du cluster AKS pour qu’ils correspondent à votre environnement.
+
+```azurecli
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+Obtenez l’ID de ressource du registre ACR. Remplacez le nom du registre par celui de votre registre ACR, et le groupe de ressources par celui dans lequel se trouve le registre ACR.
+
+```azurecli
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+Créez l’attribution de rôle qui accorde l’accès approprié.
+
+```azurecli
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+```
 
 ## <a name="next-steps"></a>étapes suivantes
 

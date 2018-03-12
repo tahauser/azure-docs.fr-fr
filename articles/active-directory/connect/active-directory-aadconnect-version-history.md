@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
-` Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
+
+Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
 
 Voici la liste des rubriques connexes :
 
@@ -36,14 +37,12 @@ Autorisations requises | Pour plus d’informations sur les autorisations requis
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-État : version publiée à l’intention d’un panel de clients
-
+État : publié pour certains clients. Cette version est actuellement distribuée à une petite sélection aléatoire de locataires AADConnect qui ont activé la mise à niveau automatique. Nous augmenterons ce groupe de locataires dans les semaines à venir jusqu’à ce que 100 % de nos clients de mise à niveau automatique aient reçu cette version. Ensuite, nous publierons la version à des fins de téléchargement général dans le lien de téléchargement ci-dessus (publication actuellement prévue pour la mi-mars 2018).
 >[!NOTE]
 >Lorsque la mise à niveau vers cette nouvelle version s’exécute, elle déclenche automatiquement une synchronisation complète et une importation intégrale pour le Connecteur Azure AD, ainsi qu’une synchronisation complète pour le Connecteur AD. Étant donné que cette opération peut prendre un certain temps, selon la taille de votre environnement Azure AD Connect, assurez-vous que vous avez pris les mesures nécessaires pour que cette opération ne gêne pas vos activités, ou différez la mise à niveau jusqu’à ce que vous trouviez un moment opportun pour l’effectuer.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Problèmes résolus
-* Résolution du problème de fenêtre de synchronisation sur les tâches en arrière-plan pour la page Filtrage de partitions
 * Résolution du problème de fenêtre de synchronisation sur les tâches en arrière-plan pour la page Filtrage de partitions lors du passage à la page suivante
 
 * Correction d’un bogue qui entraînait une violation d’accès lors de l’action personnalisée ConfigDB

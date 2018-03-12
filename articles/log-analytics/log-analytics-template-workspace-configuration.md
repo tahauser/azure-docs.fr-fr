@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -31,7 +31,6 @@ Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-man
 * Collecter les compteurs de performances d’ordinateurs Linux et Windows
 * Collecter les événements de Syslog sur des ordinateurs Linux 
 * Collecter les événements des journaux des événements Windows
-* Collecter des journaux des événements personnalisés
 * Ajouter l’agent Log Analytics à une machine virtuelle Azure
 * Configurer Log Analytics pour indexer les données collectées à l’aide des diagnostics Azure
 
@@ -60,7 +59,6 @@ L’exemple de modèle suivant illustre comment :
 7. Collecter les événements Syslog d’ordinateurs Linux
 8. Collecter les événements d’erreur et d’avertissement du journal des événements d’application d’ordinateurs Windows
 9. Collecter le compteur de performances Mo de mémoire disponible d’ordinateurs Windows
-10. Collecter un journal personnalisé 
 11. Collecter les journaux IIS et les journaux des événements Windows écrits par les diagnostics Azure dans un compte de stockage
 
 ```json
@@ -295,61 +293,6 @@ L’exemple de modèle suivant illustre comment :
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -491,6 +434,6 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 * [Déployer un cluster Service Fabric et l’analyser avec un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
 * [Déployer un cluster Service Fabric et créer un espace de travail Log Analytics pour le surveiller](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
 

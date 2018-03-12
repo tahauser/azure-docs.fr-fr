@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: dd7e332eb1c935ee70a617124bd4d86e160366c7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 > 
 > 
 
-À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d’effectuer des opérations comme les suivantes : lecture d’une section d’une vidéo uniquement (au lieu de la vidéo entière), spécification d’un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l’appareil de votre client (au lieu de tous les rendus associés à l’élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
+À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d’effectuer des opérations comme les suivantes : lecture d’une section d’une vidéo uniquement (au lieu de la vidéo entière), spécification d’un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l’appareil de votre client (au lieu de tous les rendus associés à l’élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
 Pour plus d'informations sur les filtres et le manifeste dynamique, consultez [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md).
 
@@ -46,6 +46,7 @@ Les types suivants sont utilisés lors de la création de filtres :
 ## <a name="createupdatereaddelete-global-filters"></a>Création/Mise à jour/Lecture/Suppression de filtres globaux
 Le code suivant montre comment utiliser .NET pour créer, mettre à jour, lire et supprimer des filtres d’éléments multimédias.
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -70,11 +71,12 @@ Le code suivant montre comment utiliser .NET pour créer, mettre à jour, lire e
 
     // Delete
     filter.Delete();
-
+```
 
 ## <a name="createupdatereaddelete-asset-filters"></a>Création/Mise à jour/Lecture/Suppression de filtres d’éléments multimédia
 Le code suivant montre comment utiliser .NET pour créer, mettre à jour, lire et supprimer des filtres d’éléments multimédias.
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -100,7 +102,7 @@ Le code suivant montre comment utiliser .NET pour créer, mettre à jour, lire e
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Création d'URL de diffusion qui utilisent des filtres

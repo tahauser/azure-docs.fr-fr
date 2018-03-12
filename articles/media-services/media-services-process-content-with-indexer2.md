@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Vue d'ensemble
@@ -56,6 +56,7 @@ Lors de la création d’une tâche d’indexation avec **Azure Media Indexer 2 
 
 Le code JSON suivant définit les paramètres disponibles.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ Le code JSON suivant définit les paramètres disponibles.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Langues prises en charge
 Azure Media Indexer 2 Preview prend en charge la reconnaissance vocale pour les langues suivantes (lorsque vous spécifiez le nom de la langue dans la configuration de la tâche, utilisez un code à 4 caractères entre crochets, comme indiqué ci-dessous) :
@@ -96,29 +98,32 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
 2. Créer un travail avec une tâche d’indexation basée sur un fichier de configuration qui contient la présélection JSON suivante :
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Téléchargez les fichiers de sortie. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>exemples
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Échanger des messages EDIFACT pour l’intégration d’entreprise avec Logic Apps
 
@@ -32,65 +32,63 @@ Avant de pouvoir échanger des messages EDIFACT pour Azure Logic Apps, vous deve
 
 Voici les éléments dont vous avez besoin :
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md) déjà défini et associé à votre abonnement Azure  
+* Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) déjà défini et associé à votre abonnement Azure  
 * Au moins deux [partenaires](logic-apps-enterprise-integration-partners.md) déjà définis dans votre compte d’intégration
 
 > [!NOTE]
 > Lorsque vous créez un contrat, le contenu des messages que vous échangez avec le partenaire doit correspondre au type de contrat.
 
-Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md) et [ajouté des partenaires](logic-apps-enterprise-integration-partners.md), vous pouvez créer un contrat EDIFACT en procédant comme suit.
+Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) et [ajouté des partenaires](logic-apps-enterprise-integration-partners.md), vous pouvez créer un contrat EDIFACT en procédant comme suit.
 
 ## <a name="create-an-edifact-agreement"></a>Créer un contrat EDIFACT 
 
-1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). Dans le menu de gauche, cliquez sur **Tous les services**.
+1. Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). 
 
-    > [!TIP]
-    > Si vous ne voyez pas l’option **Tous les services**, vous devez d’abord développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
+2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
-    ![Dans le menu de gauche, sélectionnez « Tous les services ».](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Recherche du compte d’intégration](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. Dans la zone de recherche, entrez « intégration » comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+   > [!TIP]
+   > Si l’option **Tous les services** n’est pas visible, vous devez d’abord peut-être développer le menu. En haut du menu réduit, sélectionnez **Afficher les étiquettes de texte**.
 
-    ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous voulez créer le contrat.
 
-3. Dans le panneau **Comptes d’intégration** qui s’affiche, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
-Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tout sur les comptes d’intégration").  
+   ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Choisissez **Contrats**. Si vous ne voyez pas la mosaïque Contrats, commencez par ajouter la mosaïque.   
 
-4. Choisissez la mosaïque **Contrats**. Si vous ne voyez pas la mosaïque Contrats, commencez par ajouter la mosaïque.   
+   ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Dans la page Contrats, choisissez **Ajouter**.
 
-5. Dans le panneau Contrats qui s’affiche, sélectionnez **Ajouter**.
-
-    ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Sous **Ajouter**, entrez le **nom** de votre contrat. Pour le **type de contrat**, sélectionnez **EDIFACT**. Sélectionnez le **partenaire hôte**, **l’identité de l’hôte**, le **partenaire invité** et **l’identité de l’invité** pour votre contrat.
 
-    ![Renseigner les détails relatifs au contrat](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Renseigner les détails relatifs au contrat](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Propriété | DESCRIPTION |
-    | --- | --- |
-    | NOM |Nom du contrat. |
-    | Type de contrat | Doit être EDIFACT |
-    | Partenaire hôte |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
-    | Identité de l’hôte |Identificateur du partenaire hôte. |
-    | Partenaire invité |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
-    | identité de l’invité |Identificateur du partenaire invité. |
-    | Paramètres de réception |Ces propriétés s’appliquent à tous les messages reçus par un contrat. |
-    | Paramètres d’envoi |Ces propriétés s’appliquent à tous les messages envoyés par un contrat. |
+   | Propriété | DESCRIPTION |
+   | --- | --- |
+   | NOM |Nom du contrat. |
+   | Type de contrat | Doit être EDIFACT |
+   | Partenaire hôte |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
+   | Identité de l’hôte |Identificateur du partenaire hôte. |
+   | Partenaire invité |Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
+   | identité de l’invité |Identificateur du partenaire invité. |
+   | Paramètres de réception |Ces propriétés s’appliquent à tous les messages reçus par un contrat. |
+   | Paramètres d’envoi |Ces propriétés s’appliquent à tous les messages envoyés par un contrat. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configuration du traitement des messages reçus
 
 Maintenant que vous avez défini les propriétés du contrat, vous pouvez configurer la manière dont ce contrat identifie et traite les messages entrants reçus par votre partenaire par l’intermédiaire de ce contrat.
 
-1.  Sous **Ajouter**, sélectionnez **Paramètres de réception**.
+1. Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    L’option **Paramètres de réception** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, numéros de contrôle, validations et paramètres internes.
+   L’option **Paramètres de réception** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, numéros de contrôle, validations et paramètres internes.
 
-    ![Configurer les « Paramètres de réception »](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![Configurer les « Paramètres de réception »](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
 
@@ -211,7 +209,7 @@ outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 | Propriété | DESCRIPTION |
 | --- | --- |
 | UNB1.1 (identificateur système) |Sélectionnez le jeu de caractères EDIFACT à appliquer à l’échange sortant. |
-| SCHÉMA |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser, selon les descriptions de séparateurs suivantes. |
+| SCHÉMA |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser en fonction de leur description ci-dessous. |
 | Type d’entrée |Dans la liste déroulante, sélectionnez un type d’entrée. |
 | Séparateur de composants |Entrez un caractère unique pour séparer les éléments de données composites. |
 | Séparateur d'éléments de données |Entrez un caractère unique pour séparer les éléments de données simples au sein des éléments de données composites. |
@@ -240,13 +238,13 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
 ## <a name="find-your-created-agreement"></a>Comment retrouver le contrat que vous avez créé
 
-1.  Après avoir défini toutes les propriétés de votre contrat, dans le panneau **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir au panneau de votre compte d’intégration.
+1.  Après avoir défini toutes les propriétés de votre contrat, dans la page **Ajouter**, choisissez **OK** pour finaliser la création de votre contrat et revenir à votre compte d’intégration.
 
     Le contrat que vous venez d’ajouter s’affiche dans votre liste **Contrats**.
 
-2.  Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le panneau de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
+2.  Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le menu de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
 
-    ![Sélectionner la mosaïque « Contrats » pour afficher tous les contrats](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Afficher le fichier Swagger
 Pour afficher les détails Swagger du connecteur EDIFACT, voir [EDIFACT](/connectors/edifact/).

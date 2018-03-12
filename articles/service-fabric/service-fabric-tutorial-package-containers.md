@@ -1,6 +1,6 @@
 ---
 title: "Empaqueter et déployer une application de conteneurs Microsoft Azure Service Fabric | Microsoft Docs"
-description: "Découvrez comment générer une définition d’application Azure Service Fabric à l’aide de Yeoman et empaqueter l’application."
+description: "Dans ce didacticiel, vous découvrez comment générer une définition d’application Azure Service Fabric à l’aide de Yeoman et empaqueter l’application."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empaqueter et déployer des conteneurs en tant qu’application Service Fabric
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Didacticiel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric
 
 Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de génération de modèles (Yeoman) est utilisé pour générer une définition d’application Service Fabric. Cette application peut ensuite servir à déployer des conteneurs sur Service Fabric. Ce didacticiel vous montre comment effectuer les opérations suivantes : 
 

@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Permet de gérer les nœuds qui forment un cluster.
@@ -30,7 +30,7 @@ Permet de gérer les nœuds qui forment un cluster.
 |    disable       | Désactive un nœud de cluster Service Fabric avec l’intention de désactivation spécifiée.|
 |    enable        | Active un nœud de cluster Service Fabric actuellement désactivé.|
 |    health        | Permet d’obtenir l’intégrité d’un nœud Service Fabric.|
-|    info          | Permet d’obtenir la liste des nœuds du cluster Service Fabric.|
+|    info          | Permet d’obtenir des informations sur un nœud spécifique du cluster Service Fabric.|
 |    list          | Permet d’obtenir la liste des nœuds du cluster Service Fabric.|
 |    load          | Permet d’obtenir les informations de chargement d’un nœud Service Fabric.|
 |    remove-state  | Informe Service Fabric que l’état persistant d’un nœud a été définitivement supprimé ou perdu.|
@@ -50,7 +50,7 @@ Désactive un nœud de cluster Service Fabric avec l’intention de désactivat
 |Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
-| --deactivation-intent | Décrit l’intention ou le motif de la désactivation du nœud. Les valeurs possibles sont les suivantes. - Pause : indique que le nœud doit être suspendu. La valeur est égale à 1. - Restart : indique que l’intention est de redémarrer le nœud après une courte période de temps. La valeur est égale à 2. - RemoveData : indique que l’intention est de supprimer des données du nœud. La valeur est égale à 3. .|
+| --deactivation-intent | Décrit l’intention ou le motif de la désactivation du nœud. |
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -109,9 +109,9 @@ Permet d’obtenir l’intégrité d’un nœud Service Fabric. EventsHealthSta
 | --verbose                | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
-Permet d’obtenir la liste des nœuds du cluster Service Fabric.
+Permet d’obtenir des informations sur un nœud spécifique du cluster Service Fabric.
 
-Permet d’obtenir des informations sur un nœud spécifique du cluster Service Fabric. La réponse comprend le nom, l’état, l’ID, l’intégrité, la durée de fonctionnement et d’autres détails sur le nœud.
+Permet d’obtenir des informations sur un nœud spécifique du cluster Service Fabric. La réponse comprend le nom, l’état, l’ID, le niveau d’intégrité et d’autres détails sur le nœud.
 
 ### <a name="arguments"></a>Arguments
 
@@ -133,14 +133,14 @@ Permet d’obtenir des informations sur un nœud spécifique du cluster Service�
 ## <a name="sfctl-node-list"></a>sfctl node list
 Permet d’obtenir la liste des nœuds du cluster Service Fabric.
 
-Le point de terminaison Nodes retourne des informations sur les nœuds du cluster Service Fabric. La réponse comprend le nom, l’état, l’ID, l’intégrité, la durée de fonctionnement et d’autres détails sur le nœud.
+Permet d’obtenir la liste des nœuds du cluster Service Fabric. La réponse comprend le nom, l’état, l’ID, le niveau d’intégrité, la durée de fonctionnement et d’autres détails sur le nœud.
 
 ### <a name="arguments"></a>Arguments
 
 |Argument|DESCRIPTION|
 | --- | --- |
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse.      Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
-| --node-status-filter| Permet de filtrer les nœuds en fonction de NodeStatus. Seuls les nœuds qui correspondent à la valeur de filtre spécifiée sont retournés. Les valeurs possibles sont les suivantes. - default : cette valeur de filtre correspond à tous les nœuds, excepté ceux qui sont pourvus de l’état Inconnu ou Supprimé. - all : cette valeur de filtre correspond à tous les nœuds. - up : cette valeur de filtre correspond aux nœuds fonctionnels. - down : cette valeur de filtre correspond aux nœuds arrêtés. - enabling : cette valeur de filtre correspond aux nœuds qui sont en cours d’activation avec l’état Activation. - disabling : cette valeur de filtre correspond aux nœuds qui sont en cours de désactivation avec l’état Désactivation. - disabled : cette valeur de filtre correspond aux nœuds désactivés. - unknown : cette valeur de filtre correspond aux nœuds dont l’état est Inconnu. Un nœud est à l’état Inconnu si Service Fabric ne dispose pas d’informations faisant autorité sur ce nœud. Cela peut se produire si le système a connaissance d’un nœud lors de l’exécution. - removed : cette valeur de filtre correspond aux nœuds dont l’état est Supprimé. Ce sont les nœuds qui sont supprimés du cluster à l’aide de l’API RemoveNodeState. .      Default : valeur par défaut.|
+| --node-status-filter| Permet de filtrer les nœuds en fonction de NodeStatus. Seuls les nœuds qui correspondent à la valeur de filtre spécifiée sont retournés. Les valeurs possibles sont les suivantes. Default : valeur par défaut.|
 | --timeout -t     | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -156,7 +156,7 @@ Le point de terminaison Nodes retourne des informations sur les nœuds du cluste
 ## <a name="sfctl-node-load"></a>sfctl node load
 Permet d’obtenir les informations de chargement d’un nœud Service Fabric.
 
-Permet d’obtenir les informations de chargement d’un nœud Service Fabric.
+Permet de récupérer les informations sur le chargement d’un nœud Service Fabric pour toutes les mesures dont la charge ou la capacité est définie.
 
 ### <a name="arguments"></a>Arguments
 
@@ -203,7 +203,7 @@ Redémarre un nœud de cluster Service Fabric déjà démarré.
 Démarre ou arrête un nœud de cluster.
 
 Démarre ou arrête un nœud de cluster.  Un nœud de cluster est un processus, pas l’instance de système d’exploitation proprement dite.
-Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « Start ». Pour arrêter un nœud, définissez le paramètre NodeTransitionType sur « Stop ». Cette API démarre l’opération (lorsque l’API retourne du contenu, il se peut que le nœud n’ait pas encore terminé la transition). Appelez l’API GetNodeTransitionProgress avec le même identifiant OperationId pour obtenir la progression de l’opération. .
+Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « Start ». Pour arrêter un nœud, définissez le paramètre NodeTransitionType sur « Stop ». Cette API démarre l’opération (lorsque l’API retourne du contenu, il se peut que le nœud n’ait pas encore terminé la transition). Appelez l’API GetNodeTransitionProgress avec le même identifiant OperationId pour obtenir la progression de l’opération. 
 
 ### <a name="arguments"></a>Arguments
 
@@ -211,7 +211,7 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 | --- | --- |
 | --node-instance-id [Requis]| ID d’instance du nœud cible. Il peut être déterminé via l’API GetNodeInfo.|
 | --node-name [Requis]| Nom du nœud.|
-| --node-transition-type [Requis]| Indique le type de transition à effectuer.                       NodeTransitionType.Start démarre un nœud arrêté.                       NodeTransitionType.Stop arrête un nœud opérationnel. - Invalid : réservé.  N’est pas transmis à l’API. - Start : effectue la transition d’un nœud arrêté en nœud opérationnel. - Stop : effectue la transition d’un nœud opérationnel en nœud arrêté. .|
+| --node-transition-type [Requis]| Indique le type de transition à effectuer.                       NodeTransitionType.Start démarre un nœud arrêté.                       NodeTransitionType. Stop arrête un nœud opérationnel. |
 | --operation-id [Requis]| GUID qui identifie un appel de cette API.  Celui-ci est transmis à l’API GetProgress correspondante.|
 | --stop-duration-in-seconds [Requis]| Durée, en secondes, pendant laquelle conserver le nœud arrêté.  La valeur minimale est égale à 600 ; la valeur maximale est égale à 14400. À l’expiration de ce délai, le nœud redevient automatiquement opérationnel.|
 | --timeout -t                      | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|

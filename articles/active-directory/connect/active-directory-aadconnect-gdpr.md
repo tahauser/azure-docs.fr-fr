@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>Conformité à RGPD et Azure AD Connect 
 
@@ -33,7 +33,7 @@ La conformité au règlement général sur la protection des données des instal
 1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations
 2.  En garantissant qu’aucune donnée n’est conservée plus de 48 heures
 
-L’équipe Azure AD Connect recommande la deuxième option.  En effet, il s’agit, de loin, de la méthode la plus simple à implémenter et à gérer.
+L’équipe Azure AD Connect recommande la deuxième option, car elle est beaucoup plus facile à implémenter et à tenir à jour.
 
 Un serveur de synchronisation Azure AD Connect stocke les données suivantes, qui sont concernées par la conformité RGPD :
 1.  Données relatives à un individu stockées dans la **base de données Azure AD Connect**
@@ -70,7 +70,7 @@ Suivez les étapes ci-dessous pour planifier l’exécution de ce script toutes 
     ![Système](media\active-directory-aadconnect-gdpr\gdpr2.png)
 
 2.  Sous le titre Outils d’administration, cliquez sur **Tâches planifiées**.
-    ![Tâche](media\active-directory-aadconnect-gdpr\gdpr3.png)
+    ![Task](media\active-directory-aadconnect-gdpr\gdpr3.png)
 3.  Dans le Planificateur de tâches, cliquez avec le bouton droit sur **Bibliothèque du Planificateur de tâches**, puis cliquez sur **Créer une tâche de base...**
 4.  Entrez le nom de la nouvelle tâche, puis cliquez sur **Suivant**.
 5.  Sélectionnez **Tous les jours** pour le déclencheur, puis cliquez sur **Suivant**.

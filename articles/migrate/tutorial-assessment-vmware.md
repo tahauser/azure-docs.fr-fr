@@ -4,14 +4,14 @@ description: "Décrit comment découvrir et évaluer des machines virtuelles VMw
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/02/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -20,6 +20,7 @@ Le service [Azure Migrate](migrate-overview.md) évalue les charges de travail l
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+> * Créer un compte utilisé par Azure Migrate pour découvrir les machines virtuelles locales
 > * Créer un projet Azure Migrate.
 > * Configurer une machine virtuelle collector locale, pour découvrir les machines virtuelles VMware locales en vue de les évaluer.
 > * Regrouper les machines virtuelles et créer une évaluation.
@@ -39,16 +40,26 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 - **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA. 
 - **Paramètres de statistiques** : vous devez définir les paramètres de statistiques pour le serveur vCenter sur le niveau 3 avant de commencer le déploiement. Si le niveau appliqué est inférieur à 3, l’évaluation fonctionne, mais les données de performances pour le stockage et le réseau ne sont pas collectées. Dans ce cas, les recommandations de taille seront effectuées selon les données de performances pour le processeur et la mémoire, et selon les données de configuration pour les adaptateurs de disque et réseau. 
 
+## <a name="create-an-account-for-vm-discovery"></a>Créer un compte pour la découverte de machine virtuelle
+
+Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiquement les machines virtuelles à évaluer. Créez un compte VMware avec les propriétés suivantes. Vous devez spécifier ce compte pendant la configuration d’Azure Migrate.
+
+- Type d’utilisateur : au moins un utilisateur en lecture seule
+- Autorisations : objet de centre de données > Propager vers l’objet enfant, rôle = lecture seule
+- Détails : l’utilisateur est affecté au niveau du centre de données et a accès à tous les objets du centre de données.
+- Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’autorisation Propager vers l’objet enfant aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
+
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Création d’un projet
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource**.
-2. Recherchez **Azure Migrate**, puis sélectionnez le service **Azure Migrate (préversion)** dans les résultats de la recherche. Cliquez ensuite sur **Créer**.
+2. Recherchez **Azure Migrate**, puis sélectionnez le service **Azure Migrate** dans les résultats de la recherche. Cliquez ensuite sur **Créer**.
 3. Spécifiez un nom de projet et l’abonnement Azure pour le projet.
 4. Créez un groupe de ressources.
-5. Spécifiez l’emplacement dans lequel créer le projet, puis cliquez sur **Créer**. Vous ne pouvez créer un projet Azure Migrate que dans la région Centre des États-Unis pour cette préversion. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. L’emplacement spécifié pour le projet est utilisé uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales. 
+5. Spécifiez l’emplacement dans lequel créer le projet, puis cliquez sur **Créer**. Vous ne pouvez créer un projet Azure Migrate que dans la région Centre-Ouest ou Est des États-Unis. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. L’emplacement spécifié pour le projet est utilisé uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -73,6 +84,22 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
+
+    Pour OVA version 1.0.9.5
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+    
+    Pour OVA version 1.0.9.2
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
     
     Pour OVA version 1.0.8.59
 
@@ -181,13 +208,13 @@ Pour les machines virtuelles qui ne sont pas préparées ou qui sont préparées
 
 Les machines virtuelles pour lesquelles Azure Migrate ne peut pas identifier la préparation pour Azure (en raison de l’indisponibilité des données) sont marquées de la valeur Préparation inconnue.
 
-En plus de la préparation Azure et du dimensionnement, Azure Migrate suggère des outils que vous pouvez utiliser pour migrer la machine virtuelle. Si la machine est adaptée à la migration lift-and-shift, le service [Azure Site Recovery] est recommandé. Dans le cas d’un ordinateur de base de données, Azure Database Migration Service est recommandé.
+En plus de la préparation Azure et du dimensionnement, Azure Migrate suggère des outils que vous pouvez utiliser pour migrer la machine virtuelle. Cela requiert une découverte plus approfondie que dans l’environnement local. [En savoir plus](how-to-get-migration-tool.md) sur la procédure à suivre pour effectuer une découverte plus approfondie en installant des agents sur les machines locales. Si les agents ne sont pas installés sur les machines locales, la migration lift-and-shift est suggérée à l’aide [d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Si les agents sont installés sur la machine locale, Azure Migrate examine les processus exécutés à l’intérieur de la machine et indique si celle-ci est une machine de base de données ou non. Si la machine est une machine de base de données, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) est suggéré ; autrement Azure Site Recovery est suggéré en tant qu’outil de migration.
 
   ![Préparation de l’évaluation](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### <a name="monthly-cost-estimate"></a>Estimation des coûts mensuels
 
-Cette vue affiche le coût total du calcul et du stockage de l'exécution des machines virtuelles dans Azure avec les détails pour chaque machine. Les estimations des coûts sont calculées à partir des recommandations de taille pour une machine et ses disques suivant leurs performances et des propriétés de l’évaluation. 
+Cette vue affiche le coût total du calcul et du stockage de l'exécution des machines virtuelles dans Azure avec les détails pour chaque machine. Les estimations des coûts sont calculées en tenant compte des recommandations de taille d’Azure Migrate pour une machine, ses disques et les propriétés de l’évaluation. 
 
 > [!NOTE]
 > L'estimation des coûts fournie par Azure Migrate s'applique à l'exécution des machines virtuelles sur site en tant que machines virtuelles Azure Infrastructure as a service (IaaS). Azure Migrate ne tient pas compte des coûts Platform as a service (PaaS) ou Software as a service (SaaS). 
@@ -198,28 +225,28 @@ L’estimation des coûts mensuels de calcul et de stockage est agrégée pour t
 
 #### <a name="confidence-rating"></a>Niveau de confiance
 
-Chaque évaluation dans Azure Migrate est associée à un niveau de confiance allant de 1 étoile à 5 étoiles (1 étoile constituant la valeur la plus faible, et 5 étoiles constituant la valeur la plus élevée). Le niveau de confiance est assigné à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation. Il vous permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate. 
+Chaque évaluation dans Azure Migrate est associée à un niveau de confiance allant de 1 étoile à 5 étoiles (1 étoile constituant la valeur la plus faible, et 5 étoiles la valeur la plus élevée). Le niveau de confiance est assigné à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation. Le niveau de confiance d’une évaluation permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate. 
 
-Le niveau de confiance est utile lorsque vous effectuez un *dimensionnement basé sur les performances*, car tous les points de données ne sont pas forcément disponibles. Pour le *dimensionnement en l’état*, le niveau de confiance s’élève toujours à 5 étoiles, car Azure Migrate dispose de toutes les données nécessaires au dimensionnement de la machine virtuelle. 
+Le niveau de confiance est utile quand vous effectuez un *dimensionnement basé sur les performances*, car Azure Migrate peut ne pas disposer de suffisamment de points de données pour effectuer un dimensionnement basé sur l’utilisation. Pour le *dimensionnement local*, le niveau de confiance s’élève toujours à 5 étoiles, car Azure Migrate dispose de tous les points de données nécessaires au dimensionnement de la machine virtuelle. 
 
-Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des données d’utilisation relatives au processeur et à la mémoire. Pour chaque disque joint à la machine virtuelle, l’IOPS en lecture/écriture et le débit doivent respecter un dimensionnement basé sur les performances. De même, pour chaque carte réseau jointe à la machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni :
+Pour le dimensionnement basé sur les performances de la machine virtuelle, Azure Migrate a besoin des données d’utilisation relatives à l’UC et à la mémoire. Par ailleurs, pour chaque disque attaché à la machine virtuelle, les E/S par seconde en lecture/écriture et le débit sont des données nécessaires. De même, pour chaque carte réseau jointe à la machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni :
 
    **Disponibilité des points de données** | **Niveau de confiance**
    --- | ---
    0 %-20 % | 1 étoile
-   21 %-40 % | 2 étoiles
-   41 %-60 % | 3 étoiles
-   61 %-80 % | 4 étoiles
-   81 %-100 % | 5 étoiles
+   21 %-40 % | 2 étoiles
+   41 %-60 % | 3 étoiles
+   61 %-80 % | 4 étoiles
+   81 %-100 % | 5 étoiles
 
 Tous les points de données d’une évaluation peuvent ne pas être disponibles pour l’une des raisons suivantes :
-- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3 et l’évaluation présente un dimensionnement basé sur les performances en tant que critère de dimensionnement. Si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau est uniquement basée sur ce qui a été alloué localement. Pour le stockage, Azure Migrate recommande des disques standard, car il n’existe aucun moyen de déterminer si le disque présente un IOPS/débit élevé et nécessite des disques premium.
-- Le paramètre des statistiques dans vCenter Server a été défini au niveau 3 pour une courte durée, avant l’exécution de la découverte. Par exemple, si vous modifiez le niveau du paramètre des statistiques à 3 aujourd’hui et exécutez la découverte à l’aide de l’appliance de collecteur demain (après 24 heures), lorsque vous créez une évaluation pour une journée, vous disposez de tous les points de données. Mais si vous modifiez la durée des performances dans les propriétés de l’évaluation à un mois, le niveau de confiance chute, car le disque et les données de performances réseau du dernier mois un ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte. 
+- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3 et l’évaluation présente un dimensionnement basé sur les performances en tant que critère de dimensionnement. Si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Pour le stockage, Azure Migrate recommande des disques standard sans tenir compte des E/S par seconde/du débit du disque. Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure.
+- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte. 
 - Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vCenter Server ne disposera pas des données de performances pour cette période. 
 - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
 
 > [!NOTE]
-> Si le niveau de confiance d’une évaluation est inférieur à 3 étoiles, nous vous recommandons de faire passer le niveau des paramètres des statistiques vCenter Server à 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Si l’exemple précédent ne peut pas être effectué, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité et il est recommandé de basculer vers le *dimensionnement en l’état* en modifiant les propriétés de l’évaluation.
+> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Si l’exemple précédent ne peut pas être effectué, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité et il est recommandé de basculer vers le *dimensionnement Localement* en changeant les propriétés de l’évaluation.
  
 ## <a name="next-steps"></a>étapes suivantes
 

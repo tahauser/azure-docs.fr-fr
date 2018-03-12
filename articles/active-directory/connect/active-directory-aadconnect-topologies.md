@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -144,7 +144,9 @@ Dans cette topologie, un seul serveur de synchronisation Azure AD Connect est co
 
 Un domaine DNS peut être inscrit dans un seul locataire Azure AD. L’UPN (nom d’utilisateur principal) des utilisateurs dans l’instance Active Directory locale doit également être composé d’espaces de noms distincts. Par exemple, dans l’image précédente, trois suffixes d’UPN distincts sont inscrits dans l’instance Active Directory locale : contoso.com, fabrikam.com et wingtiptoys.com. Les utilisateurs dans chaque domaine Active Directory local utilisent un espace de noms différent.
 
-Il n’existe aucune solution GALSync entre les instances de locataire Azure AD. Le carnet d’adresses dans Exchange Online et Skype Entreprise affiche uniquement les utilisateurs du même locataire.
+>[!NOTE]
+>La synchronisation de la liste d’adresses globale (GalSync) n’est pas effectuée automatiquement dans cette topologie et nécessite une implémentation MIM personnalisée supplémentaire pour vérifier que chaque locataire dispose d’une liste d’adresses globale (LAG) complète dans Exchange Online et Skype Entreprise Online.
+
 
 Cette topologie comprend les restrictions suivantes pour les scénarios sinon pris en charge :
 

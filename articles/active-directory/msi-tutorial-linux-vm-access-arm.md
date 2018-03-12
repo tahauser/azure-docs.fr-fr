@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: fc44dcb2a869ff2048bc8a8d50f72f774fa0483a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 198087545e43b2e2a96d9bdec7c288f0699ca0e5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Utiliser une identité du service administré (MSI) pour une machine virtuelle Linux pour accéder à Azure Resource Manager
 

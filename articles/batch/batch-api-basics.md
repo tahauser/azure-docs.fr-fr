@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -171,13 +171,9 @@ Pour obtenir les informations de tarification des nœuds de calcul dédiés et �
 
 ### <a name="size-of-the-compute-nodes"></a>Taille des nœuds de calcul
 
-**Configuration de Cloud Services** sont répertoriées dans [Tailles de services cloud](../cloud-services/cloud-services-sizes-specs.md). Le service Batch prend en charge l’ensemble des tailles de services cloud, à l’exception de `ExtraSmall`, `STANDARD_A1_V2` et `STANDARD_A2_V2`.
+Lorsque vous créez un pool Azure Batch, vous avez le choix entre quasiment toutes les tailles et les familles de machine virtuelle disponibles dans Azure. Azure offre une plage de tailles de machines virtuelles pour différentes charges de travail, y compris des tailles de machines virtuelles spécialisées [HPC](../virtual-machines/linux/sizes-hpc.md) ou [compatibles GPU](../virtual-machines/linux/sizes-gpu.md). 
 
-Les tailles de nœud de calcul de la **configuration de machines virtuelles** sont répertoriées dans [Tailles des machines virtuelles dans Azure](../virtual-machines/linux/sizes.md) (Linux) et [Tailles des machines virtuelles dans Azure](../virtual-machines/windows/sizes.md) (Windows). Le service Batch prend en charge l’ensemble des tailles de machine virtuelle Azure, à l’exception de `STANDARD_A0` et de celles comprises dans Premium Storage (série `STANDARD_GS`, `STANDARD_DS`, et `STANDARD_DSV2`).
-
-Lorsque vous sélectionnez une taille de nœud de calcul, tenez compte des caractéristiques et des exigences des applications que vous allez exécuter sur les nœuds. Des aspects tels que la nature multithread de l’application et le volume de mémoire utilisé vous aideront à déterminer la taille de nœud la mieux adaptée et la plus rentable. La taille du nœud est souvent sélectionnée en supposant qu’une tâche s’exécutera sur un nœud à la fois. Cependant, plusieurs tâches (et par conséquent, plusieurs instances d’application) peuvent [s’exécuter en parallèle](batch-parallel-node-tasks.md) sur les nœuds de calcul lors de l’exécution du travail. Dans ce cas, il est courant de choisir une plus grande taille de nœud pour prendre en charge la demande accrue de l’exécution parallèle des tâches. Pour plus d’informations, consultez la section [Stratégie de planification de tâches](#task-scheduling-policy).
-
-Tous les nœuds du pool ont la même taille. Si vous prévoyez d’exécuter des applications dont la configuration système requise et/ou les niveaux de charge diffèrent, nous vous recommandons d’utiliser des pools distincts.
+Pour plus d’informations, consultez [Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch](batch-pool-vm-sizes.md).
 
 ### <a name="scaling-policy"></a>Stratégie de mise à l’échelle
 

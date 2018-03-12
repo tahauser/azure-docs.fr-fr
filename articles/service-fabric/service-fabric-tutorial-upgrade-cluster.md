@@ -1,6 +1,6 @@
 ---
 title: "Mettre à niveau un runtime Azure Service Fabric | Microsoft Docs"
-description: "Découvrez comment utiliser PowerShell pour mettre à niveau le runtime d’un cluster Service Fabric hébergé par Azure."
+description: "Dans ce didacticiel, vous découvrez comment utiliser PowerShell pour mettre à niveau le runtime d’un cluster Service Fabric hébergé par Azure."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Mettre à niveau le runtime d’un cluster Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric
 
 Ce didacticiel est la troisième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
 
@@ -30,7 +30,7 @@ Ce didacticiel est la troisième partie d’une série de didacticiels et vous m
 
 Si votre cluster exécute déjà le dernier runtime Service Fabric, vous n’avez pas besoin d’effectuer cette étape. Toutefois, vous pouvez utiliser cet article pour installer n’importe quel runtime pris en charge sur un cluster Azure Service Fabric.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Obtenir la version du cluster
@@ -43,7 +43,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * Mettre à niveau le runtime d’un cluster
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -192,7 +192,7 @@ sfctl cluster upgrade-status
 ```
 
 ## <a name="conclusion"></a>Conclusion
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Obtenir la version du runtime du cluster

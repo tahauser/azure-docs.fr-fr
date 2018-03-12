@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 03/01/2018
 ms.author: LuisCa
-ms.openlocfilehash: e40b69f97878a6072a64912f017f8e5621ba6e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec301869b08f9f3811c0536c85366619738945a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datamarket-is-now-deprecated"></a>DataMarket est à présent obsolète.
 
@@ -32,9 +32,3 @@ Les anciens clients de l’API DataMarket Analyse de texte doivent commencer à 
 L’API Analyse de texte Cognitive Services prend en charge les mêmes scénarios que la version antérieure de DataMarket, ainsi que d’autres scénarios tels que la détection de la langue et la détection de thèmes.
 
 
-## <a name="recommendations-api"></a>API Recommandations 
-
-Les anciens clients de l’API DataMarket Recommendations doivent commencer à utiliser l’[API Recommendations Cognitive Services](https://www.microsoft.com/cognitive-services/recommendations-api).
-L’API Recommendations Cognitive Services prend en charge les mêmes scénarios que la version antérieure de DataMarket, ainsi que d’autres scénarios tels que la prise en charge des lots et de meilleures métriques hors connexion afin d’évaluer la qualité des modèles. 
-
-Pour plus d’informations sur l’utilisation de l’API Recommandations Cognitive Services, consultez [Migrer vers l’API Recommendations Azure Cognitive Services](http://aka.ms/recomigrate).

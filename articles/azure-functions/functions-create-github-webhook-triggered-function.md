@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Créer une fonction déclenchée par un webhook GitHub
 
@@ -28,7 +28,7 @@ Apprenez à créer une fonction qui est déclenchée par une demande webhook HTT
 
 ![Fonction webhook GitHub déclenchée dans le Portail Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 + Un compte GitHub avec au moins un projet.
 + Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -77,11 +77,11 @@ Ensuite, vous créez le webhook dans votre référentiel GitHub.
 
     ![Définir l’URL et le secret du webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-| Paramètre | Valeur suggérée | Description |
+| Paramètre | Valeur suggérée | DESCRIPTION |
 |---|---|---|
 | **URL de charge utile** | Valeur copiée | Utilisez la valeur retournée par **<>/ Obtenir une fonction URL**. |
-| **Secret**   | Valeur copiée | Utilisez la valeur retournée par **<>/ Obtenir un secret GitHub**. |
 | **Type de contenu** | application/json | La fonction attend une charge utile JSON. |
+| **Secret**   | Valeur copiée | Utilisez la valeur retournée par **<>/ Obtenir un secret GitHub**. |
 | Déclencheurs d’événement | Je vais sélectionner les événements individuels | Nous voulons seulement déclencher des événements de problème sous forme de commentaire.  |
 | | Problème sous forme de commentaire |  |
 
@@ -105,9 +105,9 @@ Ensuite, vous créez le webhook dans votre référentiel GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Vous avez créé une fonction qui s’exécute lorsqu’une requête est reçue à partir d’un webhook GitHub.
+Vous avez créé une fonction qui est déclenchée lorsqu’une requête est reçue à partir d’un webhook GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

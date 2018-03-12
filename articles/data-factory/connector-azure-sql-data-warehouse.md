@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,15 @@ Vous pouvez copier des données d’Azure SQL Data Warehouse vers toute banque d
 
 Plus précisément, ce connecteur Azure SQL Data Warehouse prend en charge ce qui suit :
 
-- Copie de données en utilisant une authentification SQL.
+- Copie des données à l’aide de **l’authentification SQL** et de **l’authentification du jeton de l’application Azure Active Directory** avec le principal de service ou Managed Service Identity (MSI).
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
 - En tant que récepteur, chargement de données à l’aide de **PolyBase** ou d’une insertion en bloc. La première solution est **recommandée** pour améliorer les performances de copie.
+
+> [!IMPORTANT]
+> Veuillez noter que PolyBase prend uniquement en charge l’authentification SQL, pas l’authentification Azure Active Directory.
+
+> [!IMPORTANT]
+> Si vous copiez des données à l’aide du runtime d’intégration Azure, configurez le [pare-feu Azure SQL Server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de façon à ce qu’il [autorise les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Si vous copiez des données à l’aide d’un runtime d’intégration auto-hébergé, configurez le pare-feu Azure SQL Server de façon à ce qu’il autorise la plage d’adresses IP appropriée, notamment l’adresse IP de la machine qui est utilisée pour se connecter à Azure SQL Database.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -52,14 +58,21 @@ Les propriétés prises en charge pour le service lié Azure SQL Data Warehouse 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureSqlDW** | OUI |
-| connectionString |Spécifier les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété connectionString. Seule l’authentification de base est prise en charge. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| connectionString |Spécifier les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété connectionString. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, lorsque vous utilisez l’authentification AAD avec le principal de service. |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, lorsque vous utilisez l’authentification AAD avec le principal de service. |
+| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui, lorsque vous utilisez l’authentification AAD avec le principal de service. |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
+Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
 
-> [!IMPORTANT]
-> Configurez le [pare-feu Azure SQL Data Warehouse](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) et le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Data Warehouse à partir d’un emplacement situé en dehors d’Azure, y compris à partir de sources de données locales avec un runtime d’intégration auto-hébergé, configurez la plage d’adresses IP appropriée pour l’ordinateur qui envoie des données à Azure SQL Data Warehouse.
+- [Utilisation de l’authentification SQL](#using-sql-authentication)
+- [Utilisation de l’authentification du jeton d’application AAD : principal de service](#using-service-principal-authentication)
+- [Utilisation de l’authentification du jeton d’application AAD : Managed Service Identity](#using-managed-service-identity-authentication)
 
-**Exemple :**
+### <a name="using-sql-authentication"></a>Utilisation de l’authentification SQL
+
+**Exemple de service lié utilisant l’authentification SQL :**
 
 ```json
 {
@@ -70,6 +83,113 @@ Les propriétés prises en charge pour le service lié Azure SQL Data Warehouse 
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Utilisation de l’authentification de principal de service
+
+Pour utiliser l’authentification du jeton d’application AAD basée sur le principal de service, procédez comme suit :
+
+1. **[Créez une application Azure Active Directory dans le portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Prenez note du nom de l’application et des valeurs suivantes, qui vous permettent de définir le service lié :
+
+    - ID de l'application
+    - Clé de l'application
+    - ID client
+
+2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait. L’administrateur AAD peut être un utilisateur AAD ou un groupe AAD. Si vous accordez au groupe avec MSI un rôle d’administrateur, ignorez les étapes 3 et 4 ci-dessous, car l’administrateur a un accès total à la base de données.
+
+3. **Créez un utilisateur de base de données à relation contenant-contenu pour le principal de service** en vous connectant à l’entrepôt de données à partir duquel ou sur lequel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données à relation contenant-contenu [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour les utilisateurs SQL, par exemple, en exécutant ce qui suit :
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. Dans ADF, configurez un service lié Azure SQL Data Warehouse.
+
+
+**Exemple de service lié utilisant l’authentification du principal de service :**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Utilisation de l’authentification MSI (Managed Service Identity)
+
+Une fabrique de données peut être associée à une [identité de service managé (Managed Service Identity, MSI)](data-factory-service-identity.md) représentant la fabrique de données en question. Vous pouvez utiliser cette identité de service pour l’authentification Azure SQL Data Warehouse, ce qui permet à la fabrique en question d’accéder à votre entrepôt de données et de copier des données depuis ou vers celui-ci.
+
+Pour utiliser l’authentification du jeton d’application AAD basée sur une MSI, procédez comme suit :
+
+1. **Créez un groupe dans Azure AD et ajoutez la MSI de la fabrique comme membre du groupe**.
+
+    a. Recherchez l’identité du service de la fabrique de données sur le portail Azure. Accédez à votre fabrique de données -> Propriétés -> copiez **l’ID DE L’IDENTITÉ DU SERVICE**.
+
+    b. Installez le module [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2), connectez-vous à l’aide de la commande `Connect-AzureAD` et exécutez les commandes suivantes pour créer un groupe et ajouter la MSI de la fabrique de données en tant que membre.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Approvisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** pour votre Azure SQL Server sur le portail Azure, si ce n’est pas déjà fait.
+
+3. **Créez un utilisateur de base de données à relation contenant-contenu pour le groupe AAD** en vous connectant à l’entrepôt de données à partir duquel ou sur lequel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité AAD qui dispose au moins de l’autorisation MODIFIER UN UTILISATEUR et qui exécute le T-SQL suivant. En savoir plus sur l’utilisateur de base de données à relation contenant-contenu [ici](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Accordez les autorisations requises par le groupe AAD** comme vous le feriez d’habitude pour les utilisateurs SQL, par exemple, en exécutant ce qui suit :
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. Dans ADF, configurez un service lié Azure SQL Data Warehouse.
+
+**Exemple de service lié à l’aide de l’authentification MSI :**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -259,6 +379,9 @@ L’utilisation de **[PolyBase](https://docs.microsoft.com/sql/relational-databa
 
 * Si votre source de données se trouve dans **Stockage Blob Azure ou Azure Data Lake Store**, et si le format est compatible avec PolyBase, vous pouvez la copier directement vers Azure SQL Data Warehouse à l’aide de PolyBase. Consultez **[Copie directe à l’aide de PolyBase](#direct-copy-using-polybase)**.
 * Si votre banque de données sources et son format ne sont pas pris en charge à l’origine par PolyBase, vous pouvez utiliser la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-using-polybase)** à la place. Elle propose également un meilleur débit en convertissant les données dans un format compatible avec PolyBase et en stockant les données dans le stockage Blob Azure automatiquement. Il charge ensuite les données dans SQL Data Warehouse.
+
+> [!IMPORTANT]
+> Veuillez noter que PolyBase prend uniquement en charge l’authentification Azure SQL Data Warehouse, pas l’authentification Azure Active Directory.
 
 ### <a name="direct-copy-using-polybase"></a>Copie directe à l’aide de PolyBase
 

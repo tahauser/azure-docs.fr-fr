@@ -3,7 +3,7 @@ title: "Mappage des revendications d’utilisateur B2B Collaboration dans Azure 
 description: "référence de mappage des revendications pour Azure Active Directory B2B Collaboration"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
-ms.openlocfilehash: 439219087d0a5027c729e9d0e0ecb90bd2a9de3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 3fe75e96c153a7cbcad638d606d0fbc248bd983a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mappage des revendications d’utilisateur B2B Collaboration dans Azure Active Directory
 
@@ -36,11 +37,11 @@ Il existe deux raisons pour lesquelles vous devrez peut-être modifier les reven
 Pour plus d’informations sur la façon d’ajouter et de modifier les revendications, consultez cet article sur la personnalisation des revendications, [Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory](develop/active-directory-saml-claims-customization.md). Pour les utilisateurs B2B Collaboration, le mappage entre locataires de NameID et UPN est empêché pour des raisons de sécurité.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
 * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)

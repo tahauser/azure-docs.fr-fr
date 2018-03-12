@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/11/2018
+ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: baf93d4a2a4ba1e05bbf558d0c056fa3aa833fef
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -28,10 +28,14 @@ Azure Container Instances est disponible dans les régions suivantes avec les li
 
 | Lieu | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |
-| Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis, Asie du Sud-Est | Linux | 4 | 14 |
-| Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis, Asie du Sud-Est  | Windows | 4 | 14 |
+| Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis | Linux | 4 | 14 |
+| Asie du Sud-Est  | Linux | 1 | 1.5 |
+| Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis | Windows | 4 | 14 |
+| Asie du Sud-Est  | Windows | 2 | 3,5 |
 
 Les instances de conteneur créées dans les limites de ces ressources sont soumises à la disponibilité dans la région de déploiement. Quand une région a une charge importante, vous pouvez rencontrer un échec durant le déploiement des instances. Pour atténuer ce type d’échec de déploiement, essayez de déployer des instances avec des paramètres de mémoire et de processeur inférieurs, ou essayez d’effectuer le déploiement plus tard.
+
+Informez l’équipe des régions supplémentaires nécessaires ou des limites de mémoire/processeur augmentées à l’adresse [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 Pour plus d’informations sur la résolution des problèmes de déploiement d’instances de conteneur, consultez [Résoudre les problèmes de déploiement avec Azure Container Instances](container-instances-troubleshooting.md).
 

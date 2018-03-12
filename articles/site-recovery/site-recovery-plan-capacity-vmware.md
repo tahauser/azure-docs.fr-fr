@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planifier la capacité et la mise à l’échelle de la réplication VMware avec Azure Site Recovery
 
@@ -85,7 +85,7 @@ Après avoir utilisé [l’outil Deployment Planner](site-recovery-deployment-pl
 2. Dans le composant logiciel enfichable, cliquez sur **Modifier les propriétés**.
 
     ![Capture d’écran de l’option enfichable MMC d’Azure Backup pour modifier les propriétés](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Sous l’onglet **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 102 Mbits/s par seconde.
+3. Sous l’onglet **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1023 Mbits/s.
 
     ![Capture d’écran de la boîte de dialogue Propriétés d’Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 

@@ -1,22 +1,22 @@
 ---
-title: "Guide de démarrage rapide Azure - Transférer des objets vers/à partir de Stockage Blob Azure avec Go | Microsoft Docs"
-description: "Apprenez rapidement à transférer des objets vers/à partir du stockage blob Azure avec le langage Go"
+title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Go | Microsoft Docs"
+description: "Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Go, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur."
 services: storage
 author: seguler
-manager: jahogg
+manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 4ba9721dc12bc50b20ad85019b1df51a56b52ebc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-go"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Go
+
 Dans ce guide de démarrage rapide, vous apprenez à utiliser le langage de programmation Go pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
 ## <a name="prerequisites"></a>configuration requise

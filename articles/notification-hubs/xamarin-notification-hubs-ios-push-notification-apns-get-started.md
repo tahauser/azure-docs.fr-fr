@@ -15,16 +15,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: edb48cd8de9b1f7357c40cea73fa4b9a422cb8fa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38ad8a15fcc4077926e735e01f877a4ee66718ef
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-xamarinios-apps"></a>Prendre en main Azure Notification Hubs pour les applications Xamarin.iOS
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 > [!NOTE]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
@@ -82,7 +82,7 @@ Votre hub de notification est maintenant configuré pour APNS, et vous disposez 
 
 2. Entrez le nom de l’application et l’identifiant de votre organisation, puis appuyez sur **Suivant** et enfin sur **Créer**.
 
-3. Dans la vue des solutions, double-cliquez sur *Into.plist*. Ensuite, sous **Identité**, assurez-vous que l’identificateur de l’offre groupée correspond à celui utilisé lors de la création du profil d’approvisionnement. Sous **Signature**, vérifiez que votre compte de développeur est sélectionné sous **Team**, que l’option Automatically manage signing (Gérer automatiquement la signature) est activée et que votre certificat de signature et votre profil d’approvisionnement sont automatiquement sélectionnés.
+3. Dans la vue des solutions, double-cliquez sur *Info.plist*. Ensuite, sous **Identité**, assurez-vous que l’identificateur de l’offre groupée correspond à celui utilisé lors de la création du profil d’approvisionnement. Sous **Signature**, vérifiez que votre compte de développeur est sélectionné sous **Team**, que l’option Automatically manage signing (Gérer automatiquement la signature) est activée et que votre certificat de signature et votre profil d’approvisionnement sont automatiquement sélectionnés.
 
     ![Visual Studio : Configuration des applications iOS][32]
 

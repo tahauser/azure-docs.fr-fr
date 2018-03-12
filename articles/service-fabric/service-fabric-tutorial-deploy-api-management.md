@@ -1,6 +1,6 @@
 ---
 title: "Intégrer Azure Service Fabric à la Gestion des API | Microsoft Docs"
-description: "Apprenez à bien démarrer avec la Gestion des API Azure et Service Fabric."
+description: "Dans ce didacticiel, vous apprenez à démarrer rapidement avec la Gestion des API Azure et Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>déployer la Gestion des API avec Service Fabric.
+# <a name="tutorial-deploy-api-management-with-service-fabric"></a>Didacticiel : déployer la gestion des API avec Service Fabric
 Ce didacticiel est la quatrième partie de la série.  Le déploiement du service Gestion des API Azure avec Service Fabric représente un scénario avancé.  Le service Gestion des API est utile lorsque vous avez besoin de publier des API avec un ensemble complet de règles d’acheminement pour vos services Service Fabric principaux. Les applications cloud ont généralement besoin d’une passerelle frontale afin de fournir un point d’entrée unique pour les utilisateurs, les appareils ou d’autres applications. Dans Service Fabric, une passerelle peut être n’importe quel service sans état conçu pour l’entrée de trafic, comme une application ASP.NET Core, Event Hubs, IoT Hub ou Gestion des API Azure. 
 
 Il vous montre comment configurer la [Gestion des API Azure](../api-management/api-management-key-concepts.md) avec Service Fabric pour acheminer le trafic vers un service principal dans Service Fabric.  Lorsque vous avez terminé, vous avez déployé la Gestion des API sur un réseau virtuel et configuré une opération d’API pour qu’elle envoie le trafic aux services sans état principaux. Pour en savoir plus sur les scénarios de gestion des API Azure avec Service Fabric, consultez l’article [Vue d’ensemble](service-fabric-api-management-overview.md).

@@ -94,8 +94,6 @@
         - name: Services fiables (Reliable Services)
           href: service-fabric-reliable-services-introduction.md
           items:
-            - name: Cycle de vie de l’instance et du réplica
-              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Cycle de vie de Reliable Services - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Cycle de vie de Reliable Services - Java
@@ -147,6 +145,8 @@
           href: service-fabric-concepts-scalability.md
         - name: Disponibilité des services
           href: service-fabric-availability-services.md
+        - name: Cycle de vie de l’instance et du réplica
+          href: service-fabric-concepts-replica-lifecycle.md
         - name: Reconfiguration
           href: service-fabric-concepts-reconfiguration.md
         - name: Communication de service
@@ -160,6 +160,8 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Diagnostics du proxy inversé
               href: service-fabric-reverse-proxy-diagnostics.md
+            - name: ASP.NET Core
+              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Cycle de vie des applications
           href: service-fabric-application-lifecycle.md
           items:
@@ -387,8 +389,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: Configurer le proxy inverse pour une communication sécurisée
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: ASP.NET Core
-          href: service-fabric-reliable-services-communication-aspnetcore.md
+        - name: Générer un service ASP.NET Core
+          href: service-fabric-add-a-web-frontend.md
         - name: Configurer la sécurité
           items:
             - name: Gérer des secrets d’application
@@ -530,11 +532,7 @@
         - name: Se connecter à un cluster sécurisé
           href: service-fabric-connect-to-secure-cluster.md
         - name: Corriger des nœuds de cluster
-          items:
-            - name: Windows
-              href: service-fabric-patch-orchestration-application.md
-            - name: Linux
-              href: service-fabric-patch-orchestration-application-linux.md
+          href: service-fabric-patch-orchestration-application.md
     - name: Surveiller et diagnostiquer
       items:
         - name: OMS
@@ -584,9 +582,6 @@
           href: service-fabric-sfctl-store.md
     - name: API Java
       href: /java/api/overview/azure/servicefabric
-      items:
-        - name: API du client REST Java
-          href: service-fabric-java-rest-api-usage.md
     - name: .NET
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
@@ -604,7 +599,7 @@
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calculatrice de prix

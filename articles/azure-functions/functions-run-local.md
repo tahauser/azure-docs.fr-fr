@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -35,14 +35,6 @@ Si vous êtes un développeur Visual Studio C#, Azure Functions [s’intègre au
 
 >[!NOTE]  
 > Avant d’installer l’une ou l’autre des versions, vous devez [installer NodeJS](https://docs.npmjs.com/getting-started/installing-node), qui inclut npm. Pour la version 2.x des outils, seuls Node.js 8.5 et les versions ultérieures sont pris en charge. 
-
-### <a name="version-1x-runtime"></a>Runtime de la version 1.x
-
-La version d’origine des outils utilise le runtime de Functions 1.x. Cette version utilise .NET Framework et n’est prise en charge que sur les ordinateurs Windows. Pour installer les outils de la version 1.x, utilisez la commande suivante :
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Runtime de la version 2.x
 
@@ -65,10 +57,18 @@ Lorsque vous effectuez une installation sur Ubuntu, utilisez `sudo` comme suit 
 sudo npm install -g azure-functions-core-tools@core
 ```
 
-Lorsque vous procédez à une installation sur macOS et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
+Lorsque vous procédez à une installation sur OSX et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Runtime de la version 1.x
+
+La version d’origine des outils utilise le runtime de Functions 1.x. Cette version utilise .NET Framework et n’est prise en charge que sur les ordinateurs Windows. Pour installer les outils de la version 1.x, utilisez la commande suivante :
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Exécuter Azure Functions Core Tools
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Pour créer le projet sans référentiel Git local, utilisez l’option `--no-source-control [-n]`.
+
+## <a name="register-extensions"></a>Inscrire des extensions
+
+Dans la version 2.x du runtime Azure Functions, vous devez inscrire explicitement les [extensions de liaison](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que vous utilisez dans votre application de fonction. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 
@@ -311,6 +319,10 @@ Par exemple, pour appeler une fonction déclenchée par HTTP et passer un corps 
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Consultation locale des fichiers journaux
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publication dans Azure
 

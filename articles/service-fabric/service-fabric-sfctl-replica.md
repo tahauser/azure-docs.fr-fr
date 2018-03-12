@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Permet de gérer les réplicas qui font partie des partitions de service.
@@ -64,7 +64,7 @@ Permet d’obtenir les détails du réplica déployé sur un nœud Service Fabr
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état Service Fabric.
 
-Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealthStateFilter permet de filtrer la collection d’événements d’intégrité signalés dans le réplica en fonction de l’état d’intégrité. .
+Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealthStateFilter permet de filtrer la collection d’événements d’intégrité signalés dans le réplica en fonction de l’état d’intégrité.
 
 ### <a name="arguments"></a>Arguments
 
@@ -82,7 +82,7 @@ Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealth
 | --debug                  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                | Affiche ce message d’aide et quitte.|
 | --output -o              | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query                  | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query                  | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose                | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -96,7 +96,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --replica-id [Requis]| Identificateur du réplica.|
-| --continuation-token  | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
+| --continuation-token  | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -106,7 +106,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
 | --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
+| --query               | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list

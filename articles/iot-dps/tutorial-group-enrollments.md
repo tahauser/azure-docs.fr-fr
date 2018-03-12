@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé pour le service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) pour services et appareils Java et de groupes d’inscription
 
@@ -39,9 +39,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
     > Cette étape nécessite la boîte à outils [OpenSSL](https://www.openssl.org/), qui peut être générée et installée à partir d’une source ou téléchargée et installée à partir d’un [tiers](https://wiki.openssl.org/index.php/Binaries), par exemple [celui-ci](https://sourceforge.net/projects/openssl/). Si vous avez déjà créé vos certificats _racine_, _intermédiaires_ et de _périphérique_, vous pouvez ignorer cette étape.
     >
 
-1. Créez des informations sur les groupes d’inscription :
-
-    1. Exécutez **l’étape 1** et **l’étape 2** pour créer vos certificats _racine_ et _intermédiaires_.
+    1. Exécutez les deux premières étapes pour créer vos certificats _racines_ et _intermédiaires_.
 
     1. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service d'approvisionnement.
 
@@ -56,16 +54,16 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
         1. Sélectionnez le certificat que vous venez de créer :
             - Cliquez sur **Générer le code de vérification**. Copiez le code généré.
-            - Exécutez **l’étape 3**. Entrez le _code de vérification_ ou cliquez avec le bouton droit et collez-le dans la fenêtre PowerShell en cours d’exécution.  Appuyez sur **Entrée**.
+            - Exécutez l’étape de vérification. Entrez le _code de vérification_ ou cliquez avec le bouton droit et collez-le dans la fenêtre PowerShell en cours d’exécution.  Appuyez sur **Entrée**.
             - Sélectionnez le fichier **_verifyCert4.pem_** que vous venez de créer dans le portail Azure. Cliquez sur **Vérifier**.
 
             ![Valider le certificat](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Terminez en exécutant **l’étape 4** et **l’étape 5** pour créer vos certificats de périphérique et nettoyer les ressources.
+    1. Terminez en exécutant les étapes de création de vos certificats de périphérique et de nettoyage des ressources.
 
-> [!NOTE]
-> Lorsque vous créez des certificats de périphérique, veillez à utiliser uniquement des caractères alphanumériques minuscules et des traits d’union dans le nom de votre appareil.
->
+    > [!NOTE]
+    > Lorsque vous créez des certificats de périphérique, veillez à utiliser uniquement des caractères alphanumériques minuscules et des traits d’union dans le nom de votre appareil.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Créer une entrée d’inscription d’appareil

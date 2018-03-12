@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
-Cet article détaille la procédure permettant de configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
+Cet article détaille la procédure permettant de configurer les rapports pour Sauvegarde Azure à l’aide d’un coffre Recovery Services, et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 1. Les rapports de la Sauvegarde Azure sont pris en charge pour la sauvegarde de machines virtuelles Azure et de fichiers/dossiers dans le cloud à l’aide de l’agent Azure Recovery Services.

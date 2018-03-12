@@ -29,7 +29,7 @@ Les **Paramètres Windows** : les paramètres du PC intégrés au système d’e
 
 * Le *Thème* comprenant des fonctionnalités telles que les paramètres de thème du bureau et de la barre des tâches.
 * Les *paramètres Internet Explorer* comprenant les onglets récemment ouverts et les favoris.
-* Les *Paramètres du navigateur Edge*, tel que les favoris et la liste de lecture.
+* Les *Paramètres du navigateur Microsoft Edge*, tel que les favoris et la liste de lecture.
 * Les *Mots de passe* comprenant les mots de passe Internet, les profils Wi-Fi, etc.
 * Les *Préférences linguistiques* comprenant la disposition du clavier, la langue du système, la date et l’heure, etc.
 * Les *Options d’ergonomie* comprenant les thèmes à contraste élevé, le Narrateur et la Loupe.

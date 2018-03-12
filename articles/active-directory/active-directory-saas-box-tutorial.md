@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Didacticiel : Intégration d'Azure Active Directory à Box
 
@@ -32,7 +32,7 @@ L’intégration de Box dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD à Box, vous avez besoin des éléments suivants :
 
@@ -114,7 +114,6 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
      
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
-
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien de téléchargement du certificat](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Pour configurer l’authentification unique dans votre application, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) en lui fournissant le fichier XML téléchargé.
+6. Pour configurer l’authentification unique pour votre application, effectuez les étapes indiquées dans [Configuration personnelle de l’authentification unique](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
+
+> [!NOTE] 
+> Si vous ne pouvez pas activer les paramètres d’authentification unique pour votre compte Box, vous pouvez avoir besoin de contacter l’[équipe de support client Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) pour lui fournir le fichier XML téléchargé.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

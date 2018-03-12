@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b14d1729592b0b97d2616189c6e0ae4727ebaf91
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
 
@@ -77,7 +77,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
 Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Vault à l’identité de la machine virtuelle.   
 
-1. En haut de la barre de navigation gauche, sélectionnez **Créer une ressource** > **Sécurité + Identité** > **Key Vault**.  
+1. En haut de la barre de navigation de gauche, sélectionnez **Créer une ressource** > **Sécurité + Identité** > **Key Vault**.  
 2. Entrez un **Nom** pour le nouveau Key Vault. 
 3. Recherchez le Key Vault dans le même abonnement et le même groupe de ressources que la machine virtuelle créée précédemment. 
 4. Sélectionnez des **Stratégies d’accès** et cliquez sur le bouton **Ajouter un nouveau**. 

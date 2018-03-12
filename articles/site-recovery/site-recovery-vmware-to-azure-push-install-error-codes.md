@@ -1,6 +1,6 @@
 ---
 title: "Résolution des problèmes Azure Site Recovery depuis VMware vers Azure | Microsoft Docs"
-description: "Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure"
+description: "Corrigez les erreurs que vous rencontrez lorsque vous répliquez les machines virtuelles Azure."
 services: site-recovery
 author: anoopkv
 manager: gauravd
@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a03766f8a22399f7d72a01f8d744bfd1cef90ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
 Cet article décrit les problèmes courants que vous pouvez rencontrer lorsque vous tentez d’installer le service Mobilité d’Azure Site Recovery sur le serveur source en vue d’activer la protection.
 
 ## <a name="error-78007---the-requested-operation-could-not-be-completed"></a>Erreur 78007 - Impossible d’achever l’opération
-Cette erreur peut être levée par le service pour plusieurs raisons. Choisissez l’erreur du fournisseur correspondant pour procéder au dépannage.
+Cette erreur peut être signalée par le service pour plusieurs raisons. Choisissez l’erreur du fournisseur correspondant pour procéder au dépannage.
 
 * [Erreur 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
 * [Erreur 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
@@ -62,38 +62,38 @@ Cette erreur peut être levée par le service pour plusieurs raisons. Choisissez
 
 **Code d’erreur** | **Causes possibles** | **Recommandations propres à l’erreur**
 --- | --- | ---
-95213 </br>**Message** : échec de l’installation du service Mobilité sur la machine source %SourceIP avec le code d’erreur **EP0874**. <br> | La version du système d’exploitation sur la machine source n’est pas prise en charge. <br>| Assurez-vous que la version du système d’exploitation de la machine source est prise en charge. Examinez la [matrice de prise en charge](https://aka.ms/asr-os-support). </br> En outre, vérifiez que les [prérequis](https://aka.ms/pushinstallerror) suivants sont présents pour garantir le bon déroulement de l’installation Push.| 
+95213 </br>**Message** : Échec de l’installation Push du service Mobilité sur la machine source %SourceIP avec le code d’erreur **EP0874**. <br> | La version du système d’exploitation sur la machine source n’est pas prise en charge. <br>| Assurez-vous que la version du système d’exploitation de la machine source est prise en charge. Examinez la [matrice de prise en charge](https://aka.ms/asr-os-support). </br> En outre, vérifiez que les [prérequis](https://aka.ms/pushinstallerror) suivants sont présents pour garantir le bon déroulement de l’installation Push.| 
 
 
 ## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>Erreur 95108 - Impossible d’activer la protection (EP0859)
 
 **Code d’erreur** | **Causes possibles** | **Recommandations propres à l’erreur**
 --- | --- | ---
-95108 </br>**Message** : échec de l’installation Push du service de mobilité sur la machine source avec le code d’erreur **EP0859**. <br>| Soit les informations d’identification fournies pour installer le service Mobilité sont incorrectes, soit le compte d’utilisateur dispose de privilèges insuffisants <br>| Assurez-vous que les informations d’identification fournies sont les informations d’identification du compte **racine**. Pour ajouter ou modifier des informations d’identification de l’utilisateur, accédez au serveur de configuration, puis cliquez sur l’icône de raccourci « Cspsconfigtool » sur le Bureau. Cliquez sur « Gérer le compte » pour ajouter/modifier les informations d’identification.|
+95108 </br>**Message** : Échec de l’installation Push du service Mobilité sur la machine source avec le code d’erreur **EP0859**. <br>| Soit les informations d’identification fournies pour installer le service Mobilité sont incorrectes, soit le compte d’utilisateur ne dispose pas de privilèges suffisants. <br>| Assurez-vous que les informations d’identification fournies sont les informations d’identification du compte **racine**. Pour ajouter ou modifier des informations d’identification de l’utilisateur, accédez au serveur de configuration, puis sélectionnez l’icône de raccourci **Cspsconfigtool** sur le Bureau. Sélectionnez **Gérer le compte** pour ajouter ou modifier les informations d’identification.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Erreur 95265 - Impossible d’activer la protection (EP0902)
 
 **Code d’erreur** | **Causes possibles** | **Recommandations propres à l’erreur**
 --- | --- | ---
-95265 </br>**Message :** l’installation Push du service de mobilité sur la machine source a réussi mais la machine source requiert un redémarrage afin que certaines modifications système soient prises en compte. <br>| Une version antérieure du service mobilité a déjà été installée sur le serveur.| La réplication de la machine virtuelle se poursuit en toute transparence.<br> Redémarrez le serveur lors de votre prochaine fenêtre de maintenance afin de tirer profit des nouvelles améliorations du service de mobilité.|
+95265 </br>**Message :** L’installation Push du service Mobilité a été effectuée sur la machine source, mais la machine source (%SourceIP;) doit être redémarrée pour que certaines modifications système prennent effet. <br>| Une version antérieure du service mobilité a déjà été installée sur le serveur.| La réplication de la machine virtuelle se poursuit en toute transparence.<br> Redémarrez le serveur lors de votre prochaine fenêtre de maintenance afin de tirer profit des nouvelles améliorations du service Mobilité.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Erreur 95224 - Impossible d’activer la protection (EP0883)
 
 **Code d’erreur** | **Causes possibles** | **Recommandations propres à l’erreur**
 --- | --- | ---
-95224 </br>**Message :** échec de l’installation Push du service de mobilité sur la machine source %SourceIP avec le code d’erreur EP0883. Un redémarrage du système à partir d’une précédente installation/mise à jour est en attente.| Le système n’a pas été redémarré lors de la désinstallation d’une version antérieure/incompatible du service de mobilité.| Assurez-vous qu’aucune version du service de mobilité n’existe sur le serveur. <br> Redémarrez le serveur et réexécutez le travail d’activation de la protection|
+95224 </br>**Message :** Échec de l’installation Push du service Mobilité sur la machine source %SourceIP;. Code d’erreur : **EP0883**. Un redémarrage du système à partir d’une précédente installation ou mise à jour est en attente.| Le système n’a pas été redémarré après la désinstallation d’une version antérieure ou incompatible du service Mobilité.| Vérifiez qu’aucune version du service Mobilité ne se trouve sur le serveur. <br> Redémarrez le serveur, puis réexécutez la tâche d’activation de la protection.|
 
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Ressource pour résoudre les problèmes d’installation Push
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Résoudre les problèmes de partage de fichiers et d’impression
-*  [Activer ou désactiver le partage de fichiers avec la stratégie de groupe](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Comment activer le partage de fichiers et d’impression via le pare-feu Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
+* [Activer ou désactiver le partage de fichiers avec la stratégie de groupe](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Activer le partage de fichiers et d’impression via le Pare-feu Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Résoudre les problèmes WMI
 * [Test de base WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [Résolution des problèmes WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
-* [Résolution des problèmes avec des scripts et des Services WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
+* [Résolution des problèmes liés aux scripts et aux services WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>étapes suivantes
 

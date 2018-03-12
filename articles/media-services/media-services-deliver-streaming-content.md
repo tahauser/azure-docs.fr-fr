@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Publier du contenu Azure Media Services à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
 ### <a name="use-media-services-net-sdk"></a>Utilisation du Kit de développement logiciel (SDK) .NET de Media Services
 Création d’URL de diffusion 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Création d’URL de diffusion
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 Sorties :
 
@@ -111,6 +113,7 @@ Sorties :
 
 Génération d’URL de téléchargement progressif 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Génération d’URL de téléchargement progressif
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 Sorties :
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ Sorties :
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Utilisation des extensions du Kit de développement logiciel (SDK) Media Services pour .NET
 Le code suivant appelle les méthodes des extensions du Kit de développement logiciel (SDK) .NET, qui créent un localisateur et génèrent les URL Smooth Streaming, HLS et MPEG-DASH pour la diffusion en continu adaptative.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -174,7 +177,7 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Télécharger les éléments multimédias](media-services-deliver-asset-download.md)
 * [Configurer une stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
 

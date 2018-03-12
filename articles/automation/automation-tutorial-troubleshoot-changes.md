@@ -5,15 +5,15 @@ services: automation
 keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Déclencher un événement
 > * Afficher les modifications
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -46,38 +46,20 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 Pour ce didacticiel, vous devez d’abord activer Suivi des modifications et inventaire pour votre machine virtuelle. Si vous avez déjà activé une autre solution d’automatisation pour une machine virtuelle, cette étape n’est pas nécessaire.
 
-1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste.
-1. Dans le menu de gauche, sous la section **Opérations**, cliquez sur **Inventaire**. La page **Enable Change tracking and Inventory** (Activer le suivi des modifications et inventaire) s’ouvre.
+1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste
+1. Dans le menu de gauche, dans la section **OPÉRATIONS**, cliquez sur **Inventaire**. La page **Suivi des modifications** s’ouvre.
 
-Une validation est effectuée pour déterminer si l’option de suivi des modifications et inventaire est bien activée pour cette machine virtuelle.
-La validation inclut la vérification de l’existence d’un espace de travail Log Analytics et d’un compte Automation lié, et si la solution est dans l’espace de travail.
+![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) L’écran **Change Tracking** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
 
 Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme l’inventaire.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
-Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un worker hybride.
+Au cours de l’intégration, la machine virtuelle est approvisionnée avec le Microsoft Monitoring Agent (MMA) et un Worker hybride.
 Cet agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
-Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un Automation hybrid runbook worker.
 
-Si ces conditions préalables ne sont pas remplies, une bannière apparaît vous permettant d’activer la solution.
-
-![Bannière de configuration intégrée du suivi des modifications et de l’inventaire](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Pour activer la solution, cliquez sur la bannière.
-Si la validation n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
-
-* Espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automation](./automation-offering-get-started.md)
-* Un [worker runbook hybride](./automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
-
-L’écran **Change Tracking and Inventory** (Suivi des modifications et inventaire) s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
-
-![Fenêtre de la solution d’activation du suivi des modifications](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
-
-L’activation de la solution peut prendre jusqu'à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
+L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
 Une fois la solution activée, des informations sur les logiciels installés et les modifications apportées à la machine virtuelle sont envoyées à Log Analytics.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Utiliser le suivi des modifications dans Log Analytics
 
@@ -107,40 +89,47 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 1. Dans l’onglet **Registre Windows**, sélectionnez **Ajouter**.
     La fenêtre **Ajouter le Registre Windows pour le suivi des modifications**.
 
-   ![Ajouter un Registre pour le suivi des modifications](./media/automation-vm-change-tracking/change-add-registry.png)
+3. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
 
-2. Sous **Activé**, sélectionnez **True**.
-3. Dans la zone **Nom de l’élément**, entrez un nom convivial.
-4. (Facultatif) Dans la zone **Groupe**, entrez un nom de groupe.
-5. Dans la zone **Clé de Registre Windows**, entrez le nom de la clé de Registre que vous souhaitez suivre.
-6. Sélectionnez **Enregistrer**.
+|Propriété  |DESCRIPTION  |
+|---------|---------|
+|activé     | Détermine si le paramètre est appliqué.        |
+|Item Name     | Nom convivial du fichier à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
+|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ### <a name="add-a-windows-file"></a>Ajouter un fichier Windows
 
 1. Dans l’onglet **Fichiers Windows**, sélectionnez **Ajouter**. La fenêtre **Ajouter le fichier Windows pour le suivi des modifications**.
 
-   ![Ajouter un fichier Windows pour le suivi des modifications](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. Dans la fenêtre **Ajouter le fichier Windows pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
 
-2. Sous **Activé**, sélectionnez **True**.
-3. Dans la zone **Nom de l’élément**, entrez un nom convivial.
-4. (Facultatif) Dans la zone **Groupe**, entrez un nom de groupe.
-5. Dans la zone **Entrer le chemin**, entrez le chemin d’accès complet et le nom du fichier que vous souhaitez suivre.
-6. Sélectionnez **Enregistrer**.
+|Propriété  |DESCRIPTION  |
+|---------|---------|
+|activé     | Détermine si le paramètre est appliqué.        |
+|Item Name     | Nom convivial du fichier à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
+|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\myfile.txt ».       |
 
 ### <a name="add-a-linux-file"></a>Ajouter un fichier Linux
 
 1. Dans l’onglet **Fichiers Linux**, sélectionnez **Ajouter**. La fenêtre **Ajouter le fichier Linux pour le suivi des modifications**.
 
-   ![Ajouter un fichier Linux pour le suivi des modifications](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. Dans la fenêtre **Ajouter le fichier Linux pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
 
-2. Sous **Activé**, sélectionnez **True**.
-3. Dans la zone **Nom de l’élément**, entrez un nom convivial.
-4. (Facultatif) Dans la zone **Groupe**, entrez un nom de groupe.
-5. Dans la zone **Entrer le chemin**, entrez le chemin d’accès complet et le nom du fichier que vous souhaitez suivre.
-6. Dans la zone **Type de chemin**, sélectionnez **Fichier** ou **Répertoire**.
-7. Sous **Récursivité**, sélectionnez **Activé** pour suivre les modifications apportées au chemin d’accès spécifié et à tous les fichiers et chemins d’accès qui se trouvent sous ce dernier. Pour suivre uniquement le chemin d’accès ou fichier sélectionné, sélectionnez **Désactivé**.
-8. Sous **Utiliser sudo**, sélectionnez **Activé** pour suivre les fichiers qui nécessitent la commande `sudo` pour y accéder. Dans le cas contraire, sélectionnez **Désactivé**.
-9. Sélectionnez **Enregistrer**.
+|Propriété  |DESCRIPTION  |
+|---------|---------|
+|activé     | Détermine si le paramètre est appliqué.        |
+|Item Name     | Nom convivial du fichier à suivre.        |
+|Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
+|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « /etc/*.conf ».       |
+|Type de chemin d’accès     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
+|Recursion     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
+|Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
+|Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
+
+   > [!NOTE]   
+   > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
 
 ## <a name="enable-activity-log-connection"></a>Activer la connexion du journal d’activité
 
@@ -188,4 +177,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 Accédez ensuite à la vue d’ensemble de la solution de suivi des modifications et d’inventaire pour en savoir plus.
 
 > [!div class="nextstepaction"]
-> [Solution de gestion des changements et d’inventaire](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Solution de gestion des changements et d’inventaire](automation-change-tracking.md)

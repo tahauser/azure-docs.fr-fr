@@ -20,6 +20,10 @@
 ## [Sauvegarde et restauration](analysis-services-backup.md)
 ## [Actualiser avec l’API REST](analysis-services-async-refresh.md)
 ## [Configurer la montée en charge](analysis-services-scale-out.md)
+## Automatiser les tâches administratives
+### [Créer le principal du service - portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Créer le principal du service - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)
 ## Gestion des serveurs
 ### [Configurer un alias de nom de serveur](analysis-services-server-alias.md)
 ### [Gérer un serveur](analysis-services-manage.md)
@@ -33,7 +37,7 @@
 ### [Connexion avec Power BI](analysis-services-connect-pbi.md)
 ### [Créer un fichier .odc](analysis-services-odc.md)
 ## Didacticiels
-### [1 - Créer un exemple de modèle](analysis-services-create-sample-model.md)
+### [1 - Ajouter un exemple de modèle](analysis-services-create-sample-model.md)
 ### [Modélisation de données - didacticiel Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Créer un projet de modèle tabulaire](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Obtenir des données](tutorials/aas-lesson-2-get-data.md)

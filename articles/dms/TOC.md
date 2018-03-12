@@ -6,6 +6,7 @@
 
 # Didacticiels
 ## [Migration de SQL Server vers SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [Migration de SQL Server vers une instance gérée Azure SQL Database](tutorial-sql-server-to-managed-instance.md)
 
 # Procédures
 ## [Utiliser PowerShell pour la migration de SQL Server](howto-sql-server-to-azure-sql-powershell.md)
@@ -18,4 +19,5 @@
 ## [Tarification](https://aka.ms/dms-pricing)
 ## [Vue d’ensemble des composants requis](pre-reqs.md)
 ## [FORUM AUX QUESTIONS](faq.md)
-
+## [Mises à jour de service](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [Topologies de réseau pour les migrations d’instances gérées Azure SQL Database](resource-network-topologies.md)

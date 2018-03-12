@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -54,11 +54,11 @@ Cloud Shell est destiné aux cas d’usage interactif. De fait, les sessions non
 
 ### <a name="user-permissions"></a>Autorisations utilisateur
 
-Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors de votre répertoire `$Home` ou `clouddrive` ne sont pas conservées.
+Les autorisations sont définies en tant qu’utilisateurs standards sans accès sudo. Les installations en dehors du répertoire `$Home` ne sont pas conservées.
 
 ### <a name="editing-bashrc"></a>Modifier .bashrc
 
-Faites attention lorsque vous modifiez .bashrc, car cela peut entraîner des erreurs inattendues avec Bash dans Cloud Shell.
+Faites attention lorsque vous modifiez .bashrc : cela peut entraîner des erreurs inattendues dans Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limites de PowerShell
 
@@ -68,7 +68,7 @@ L’initialisation de PowerShell dans Azure Cloud Shell (préversion) peut prend
 
 ### <a name="no-home-directory-persistence"></a>Aucune persistance du répertoire $Home
 
-Les données écrites sur `$Home` par n’importe quelle application (telle que git, vim, etc.) ne sont pas conservées entre les sessions PowerShell. Consultez [ici](troubleshooting.md#powershell-resolutions) la solution de contournement.
+Les données écrites sur `$Home` par n’importe quelle application (telle que git, vim, etc.) ne sont pas conservées entre les sessions PowerShell. Consultez [ici](troubleshooting.md#powershell-troubleshooting) la solution de contournement.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
 

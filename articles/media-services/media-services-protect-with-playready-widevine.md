@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
 
@@ -29,12 +29,12 @@ ms.lasthandoff: 01/10/2018
 >
 
 > [!NOTE]
-> Pour obtenir la dernière version du kit SDK Java et développer des applications avec Java, consultez la section [Prise en main du Kit de développement logiciel du client Java pour Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Pour obtenir la dernière version du kit SDK Java et développer des applications avec Java, consultez [Prise en main du Kit SDK du client Java pour Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Pour télécharger le dernier kit SDK PHP pour Media Services, recherchez la version 0.5.7 du package Microsoft/WindowsAzure dans le [référentiel Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 
 ## <a name="overview"></a>Vue d'ensemble
 
- Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par [la gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Vous pouvez également l’utiliser pour diffuser des flux DASH chiffrés avec des licences Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC). Vous pouvez utiliser [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (en commençant par la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
+ Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par [la gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Vous pouvez également l’utiliser pour diffuser des flux DASH chiffrés avec des licences Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC). Vous pouvez utiliser le [SDK .NET Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (à compter de la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
 
 Media Services fournit un service de remise de licences DRM PlayReady et Widevine. Media Services fournit également des API qui vous permettent de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady ou Widevine, qui s’appliquent lorsqu’un utilisateur lit un contenu protégé. Lorsqu’un utilisateur demande un contenu DRM protégé, l’application de lecteur demande une licence du service de licence Media Services. Si l’application de lecteur est autorisée, le service de licence Media Services remet une licence au lecteur. Une licence PlayReady ou Widevine contient la clé de déchiffrement qui peut être utilisée par le lecteur client pour déchiffrer et diffuser le contenu.
 
@@ -68,7 +68,7 @@ Réalisez les étapes générales suivantes pour protéger vos éléments multim
 
 2. Encoder l’élément multimédia qui contient le fichier au débit adaptatif MP4 défini.
 
-3. Créer une clé de contenu et l’associer à l’élément multimédia encodé. Dans Media Services, la clé de contenu contient la clé de chiffrement de l’élément multimédia.
+3. Créer une clé de contenu et l’associer à l’élément multimédia encodé. Dans Media Services, la clé de contenu contient la clé de chiffrement de l'élément multimédia.
 
 4. Configurez la stratégie d'autorisation de la clé de contenu. Vous devez configurer la stratégie d’autorisation de clé de contenu. Le client doit répondre à la stratégie avant que la clé de contenu ne lui soit remise.
 
@@ -135,6 +135,7 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 ## <a name="get-a-test-token"></a>Obtenir un test de jeton
 Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la st
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
 
@@ -155,8 +156,10 @@ Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azureweb
 
 2. Ajoutez les éléments suivants aux **appSettings** définis dans votre fichier app.config :
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>exemples
 
@@ -171,7 +174,7 @@ Pour plus d’informations, consultez la section [Gérer des éléments multimé
 
 Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

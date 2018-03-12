@@ -4,13 +4,13 @@ description: "Décrit comment configurer et exécuter une évaluation de la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: 8babdbc30e062c7b289e90a674cec3222943e48d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="customize-an-assessment"></a>Personnaliser une évaluation
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
     **Paramètre** | **Détails** | **Par défaut**
     --- | --- | ---
-    **Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer. |  Ouest des États-Unis 2 est l’emplacement par défaut.
+    **Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/> À l’heure actuelle, Azure Migrate prend en charge les 30 régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre de l’Inde, Centre des États-Unis, Est de la Chine, Nord de la Chine, Asie-Pacifique, Est des États-Unis, Centre de l’Allemagne, Nord-Ouest de l’Allemagne, Est des États-Unis 2, Est du Japon, Ouest du Japon, Corée Centre, Sud de la Corée, Nord-Centre des États-Unis, Europe du Nord, Sud-Centre des États-Unis, Asie du Sud-Est, Inde du Sud, Royaume-Uni Sud, Royaume-Uni Ouest, Centre-Ouest des États-Unis, Europe de l’Ouest, Inde de l’Ouest, Ouest des États-Unis et Ouest des États-Unis 2. |  Ouest des États-Unis 2 est l’emplacement par défaut.
     **Redondance du stockage** | Type de redondance du stockage que les machines virtuelles Azure utiliseront après la migration. | La valeur par défaut est [Stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). Azure Migrate prend uniquement en charge les évaluations basées sur des disques managés, et les disques managés prennent uniquement en charge le stockage LRS. Par conséquent, la propriété ne comporte pour le moment que l’option LRS. 
     **Critère de dimensionnement** | Critère utilisé par Azure Migrate pour dimensionner correctement les machines virtuelles pour Azure. Vous pouvez effectuer un dimensionnement *en fonction des performances* ou dimensionner les machines virtuelles *comme localement*, sans tenir compte de l’historique des performances. | Le dimensionnement en fonction des performances est l’option par défaut.
     **Historique des performances** | Durée à prendre en compte pour évaluer les performances des machines virtuelles. Cette propriété s’applique uniquement quand le critère de dimensionnement est le *dimensionnement en fonction des performances*. | La valeur par défaut est une journée.

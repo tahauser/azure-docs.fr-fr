@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gérer les mises à jour Windows avec Azure Automation
 
@@ -65,12 +65,9 @@ Pour effectuer une action supplémentaire sur les machines virtuelles qui néces
 Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un runbook Worker hybride Automation.
 Cet agent est utilisé pour communiquer avec la machine virtuelle et pour obtenir des informations sur l’état des mises à jour.
 
-Si ces conditions préalables ne sont pas remplies, une bannière vous permettant d’activer la solution apparaît.
+Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
-![Bannière de configuration intégrée de la gestion des mises à jour](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-Pour activer la solution, cliquez sur la bannière.
-Si la validation n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
+Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
 
 * Espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * [Automation](./automation-offering-get-started.md)

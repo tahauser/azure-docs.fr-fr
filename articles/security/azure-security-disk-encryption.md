@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
@@ -26,7 +26,7 @@ Microsoft Azure s’engage fermement à préserver la confidentialité, la souve
 > [!NOTE]
 > Certaines recommandations peuvent entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou d’abonnement supplémentaires.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Azure Disk Encryption est une nouvelle fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. Azure Disk Encryption s’appuie sur la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) de Windows et la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux afin de fournir le chiffrement de volume pour le système d’exploitation et les disques de données. La solution est intégrée avec [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/), ce qui vous permet de contrôler et de gérer les clés et clés secrètes de chiffrement de disque dans votre abonnement Key Vault. Elle garantit également que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans votre stockage Azure.
 
 Azure Disk Encryption pour les machines virtuelles Iaas Windows et Linux est désormais à la **disponibilité générale** dans toutes les régions publiques Azure et les régions AzureGov pour les machines virtuelles standard et les machines virtuelles avec Stockage Premium.
@@ -141,34 +141,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 > [!NOTE]
 > Pour Windows Server 2008 R2, .NET Framework 4.5 doit être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption est pris en charge sur les versions et distributions de serveur Linux basées sur la Galerie Azure suivantes :
-
-| Distribution Linux | Version | Type de volume pris en charge pour le chiffrement|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disque de système d’exploitation et de données |
-| Ubuntu | 14.04.5-DAILY-LTS | Disque de système d’exploitation et de données |
-| Ubuntu | 12.10 | Disque de données |
-| Ubuntu | 12.04 | Disque de données |
-| RHEL | 7.4 | Disque de système d’exploitation et de données |
-| RHEL | 7.3 | Disque de système d’exploitation et de données |
-| RHEL | LVM 7.3 | Disque de système d’exploitation et de données |
-| RHEL | 7,2 | Disque de système d’exploitation et de données |
-| RHEL | 6.8 | Disque de système d’exploitation et de données |
-| RHEL | 6.7 | Disque de données |
-| CentOS | 7.3 | Disque de système d’exploitation et de données |
-| CentOS | 7.2n | Disque de système d’exploitation et de données |
-| CentOS | 6.8 | Disque de système d’exploitation et de données |
-| CentOS | 7.1 | Disque de données |
-| CentOS | 7.0 | Disque de données |
-| CentOS | 6.7 | Disque de données |
-| CentOS | 6.6 | Disque de données |
-| CentOS | 6.5 | Disque de données |
-| openSUSE | 13.2 | Disque de données |
-| SLES | 12 SP1 | Disque de données |
-| SLES | 12-SP1 (Premium) | Disque de données |
-| SLES | HPC 12 | Disque de données |
-| SLES | 11-SP4 (Premium) | Disque de données |
-| SLES | 11 SP4 | Disque de données |
+* Azure Disk Encryption est pris en charge uniquement sur les versions et les distributions de serveur Linux basées sur Azure Gallery.  Pour obtenir la liste des versions actuellement prises en charge, reportez-vous à la [FAQ Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requiert que votre coffre de clés et vos machines virtuelles se trouvent dans la même région et le même abonnement Azure.
 
@@ -1284,9 +1257,6 @@ Lorsque vous attachez le lecteur du système d’exploitation, exécutez les com
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Télécharger ce guide
-Vous pouvez télécharger ce guide à partir de la [Galerie TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Pour plus d’informations
 [Explorer Azure Disk Encryption avec Azure PowerShell - partie 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: Utilisation des préférences de lecture
               href: mongodb-readpreference.md
+            - name: Indexation
+              href: mongodb-indexing.md
             - name: Prise en charge de la fonctionnalité MongoDB
               href: mongodb-feature-support.md
             - name: Séries de didacticiels sur Angular
@@ -397,6 +399,8 @@
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: API SQL
       items:
+        - name: Java asynchrone
+          href: sql-api-sdk-async-java.md
         - name: Java
           href: sql-api-sdk-java.md
         - name: .NET

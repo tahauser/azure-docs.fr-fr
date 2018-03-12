@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 57d79abc4f82eec896639c1dcb11c25e4cb353f9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 781280dbe51a55f941e0048fe5dd2fbdc76ba74a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utiliser une identité du service administré (MSI) de machine virtuelle Windows pour accéder au Gestionnaire des ressources
 

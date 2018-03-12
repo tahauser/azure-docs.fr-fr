@@ -1,22 +1,25 @@
 ---
-title: "Réviser l’utilisation et les coûts dans la Gestion des coûts Azure | Microsoft Docs"
-description: "Révisez l’utilisation et les coûts pour effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes."
+title: "Didacticiel : Vérifier l’utilisation et les coûts dans Azure Cost Management | Microsoft Docs"
+description: "Dans ce didacticiel, vous vérifiez l’utilisation et les coûts pour effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Réviser l’utilisation et les coûts
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Didacticiel : Vérifier l’utilisation et les coûts
 
 La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coûts pour que vous puissiez effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes. Toutes les données d’utilisation et de coût sont affichées dans les rapports et tableaux de bord Cloudyn. Les exemples de ce didacticiel vous montrent comment réviser l’utilisation et les coûts à l’aide de tableaux de bord et rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -25,7 +28,12 @@ La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coû
 > * Détecter le manque d’efficacité au niveau de l’utilisation
 > * Créer des alertes pour dépenses inhabituelles ou excessives
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
+## <a name="prerequisites"></a>configuration requise
+
+- Vous devez disposer d’un compte Azure.
+- Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
 
 ## <a name="open-the-cloudyn-portal"></a>Ouvrir le portail Cloudyn
 
@@ -98,7 +106,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Créer des alertes pour dépenses inhabituelles ou excessives
 
 
-Passez au didacticiel suivant pour en savoir plus sur le contrôle de l’accès aux données.
+Passez au didacticiel suivant pour apprendre à prévoir les dépenses à partir des données historiques.
 
 > [!div class="nextstepaction"]
-> [Contrôler l'accès aux données](tutorial-user-access.md)
+> [Prévoir les dépenses futures](tutorial-forecast-spending.md)
