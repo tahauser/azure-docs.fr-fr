@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | ------------ | ---------------- | ------------------------------------------ |
     | **Identifiant** | Nom de base de données | ID unique de la base de données Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Cette rubrique utilise l’API de base de données de document.  |
-    | **Abonnement** | Abonnement Azure | Abonnement Azure  |
+    | **Abonnement** | Abonnement Azure | Abonnement sous lequel est créé ce nouveau compte Cosmos DB.  |
     | **Groupe de ressources** | myResourceGroup |  Utilisez le groupe de ressources existant qui contient votre application de fonction. |
     | **Lieu**  | WestEurope | Sélectionnez un emplacement près de votre application de fonction ou d’autres applications qui utilisent les documents stockés.  |
 

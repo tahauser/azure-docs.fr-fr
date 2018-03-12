@@ -60,7 +60,7 @@ Exécutez l’un des runbooks de didacticiel.
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Automation et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources pour le compte Automation, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez déployé un compte Automation, démarré un travail de runbook et affiché les résultats du travail. Pour en savoir plus sur Azure Automation, continuez en faisant le démarrage rapide pour créer votre premier runbook.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage chaud, froid et archive
 
@@ -83,7 +83,7 @@ Lorsqu’un objet blob est déplacé vers un niveau plus froid (chaud -> froid, 
 
 Si vous passez le niveau du compte de chaud à froid, vous sera facturé pour les opérations d’écriture (par 10 000) pour tous les objets blobs ne disposant pas d’un niveau configuré dans les comptes GPv2 uniquement. Ceci n’est pas facturé dans les comptes de stockage d’objets blob. Vous serez facturé pour les opérations d’écriture (par 10,000) et l’extraction de données (par Go) si vous passez votre compte de stockage d’objets blob ou GPv2 de froid à chaud. Des frais de suppression anticipée peut également s’appliquer pour tout objet blob déplacé hors du niveau froid ou archive.
 
-### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Suppression anticipée dans les niveaux froid et archive (à partir du 1er mars 2018)
+### <a name="cool-and-archive-early-deletion"></a>Suppression anticipée dans les niveaux Froid et Archive
 
 En plus des frais par Go et par mois, chaque objet blob déplacé dans le niveau froid (comptes GPv2 uniquement) est sujet à une période de suppression anticipée froide de 30 jours, et chaque objet blob déplacé dans le niveau archive est sujet à une période de suppression anticipée d’archive de 180 jours. Ces charges sont calculées au prorata. Par exemple, si un objet blob est déplacé en archive puis supprimé ou déplacé vers le niveau chaud après 45 jours, il vous sera facturé des frais de suppression anticipé équivalent à 135 (180 moins 45) jours de stockage de cet objet blob en archive.
 
@@ -177,7 +177,7 @@ Chaque objet blob est toujours facturé en fonction du niveau indiqué par la pr
 
 **Comment puis-je déterminer si je vais faire l’objet de frais de suppression anticipée lors de la suppression ou du déplacement d’un objet blob en dehors du niveau froid ou archive ?**
 
-Tout objet blob supprimé ou déplacé en dehors du niveau froid (comptes GPv2 uniquement) ou archive respectivement avant 30 jours et 180 jours fera l’objet de frais de suppression anticipée calculés au prorata (effectif le 1er mars 2018). Vous pouvez déterminer combien de temps un objet blob est resté au niveau froid ou archive en vérifiant la propriété d’objet blob **Access Tier Change Time** qui date le dernier changement de niveau. Voir la section [Suppression anticipée froid et archive](#cool-and-archive-early-deletion) pour plus de détails.
+Tout objet blob supprimé ou déplacé en dehors du niveau froid (comptes GPv2 uniquement) ou archive respectivement avant 30 jours et 180 jours fera l’objet de frais de suppression anticipée calculés au prorata. Vous pouvez déterminer combien de temps un objet blob est resté au niveau froid ou archive en vérifiant la propriété d’objet blob **Access Tier Change Time** qui date le dernier changement de niveau. Voir la section [Suppression anticipée froid et archive](#cool-and-archive-early-deletion) pour plus de détails.
 
 **Quels outils et kits de développement Azure prennent en charge la hiérarchisation au niveau de l’objet blob et le stockage archive ?**
 

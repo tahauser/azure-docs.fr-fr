@@ -145,7 +145,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez installé Terraform et configuré les informations d’identification Azure pour pouvoir démarrer le déploiement d’infrastructure dans votre abonnement Azure. Vous avez ensuite testé votre installation en créant un groupe de ressources Azure vide.
 

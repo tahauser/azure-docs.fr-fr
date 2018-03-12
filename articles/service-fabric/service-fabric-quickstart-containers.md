@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > * Créer et placer l’application Service Fabric dans un package
 > * Déployer l’application de conteneur dans Azure
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Configuration requise
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
@@ -205,7 +205,7 @@ Voici les manifestes d’application et de service complets utilisés dans ce gu
 </ApplicationManifest>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 > [!div class="checklist"]
 > * Placer un conteneur d’images Docker dans un package

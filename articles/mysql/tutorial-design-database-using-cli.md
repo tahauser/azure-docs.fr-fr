@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 779e6b48a20dd49967a189293ed37b07bc5e1cda
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a609bbdf70599d0cceaf988a9a0bef51bc28716d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Concevoir votre première base de données Azure pour MySQL
 
@@ -54,6 +54,26 @@ Ajoutez l’extension de gestion Azure Database pour MySQL mise à jour à l’a
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Vérifiez que vous avez installé la version d’extension appropriée. 
+```azurecli-interactive
+az extension list
+```
+
+Le retour JSON doit inclure les éléments suivants : 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Si la version 0.0.3 n’est pas retournée, exécutez la commande suivante pour mettre à jour l’extension : 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## <a name="create-an-azure-database-for-mysql-server"></a>Création d’un serveur Azure Database pour MySQL
 Créez un serveur Azure Database pour MySQL avec la commande az sql server create. Un serveur peut gérer plusieurs bases de données. En règle générale, une base de données distincte est utilisée pour chaque projet ou pour chaque utilisateur.
 

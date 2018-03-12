@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prérequis pour le déploiement Azure Stack
 
-*S’applique à : Kit de développement Azure Stack*
+*S’applique au Kit de développement Azure Stack*
 
-Avant de déployer le [Kit de développement](azure-stack-poc.md) Azure Stack, assurez-vous que votre ordinateur présente la configuration suivante :
+Avant de déployer le [Kit de développement Azure Stack (ASDK)](azure-stack-poc.md), assurez-vous que l’ordinateur hôte du kit développement répond aux exigences décrites dans cet article.
 
+> [!NOTE]
+> L’ASDK doit être installé sur un ordinateur hôte physique. L’installation de l’ASDK sur une machine virtuelle Azure n’est pas prise en charge.
 
 ## <a name="hardware"></a>Matériel
 | Composant | Minimale | Recommandé |
@@ -90,10 +92,10 @@ Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez prépare
    
    | **Compte Active Directory Azure** | **Pris en charge ?** |
    | --- | --- |
-   | Compte professionnel ou scolaire avec un abonnement Azure public valide |Oui |
-   | Compte Microsoft avec abonnement Azure public valide |Oui |
-   | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |Oui |
-   | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |Oui |
+   | Compte professionnel ou scolaire avec un abonnement Azure public valide |OUI |
+   | Compte Microsoft avec abonnement Azure public valide |OUI |
+   | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |OUI |
+   | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |OUI |
 
 ## <a name="network"></a>Réseau
 ### <a name="switch"></a>Switch
@@ -123,8 +125,7 @@ Assurez-vous que le serveur DHCP est disponible sur le réseau auquel la carte r
 Azure Stack nécessite un accès à Internet, directement ou via un proxy transparent. Azure Stack ne prend pas en charge la configuration d’un proxy web pour l’accès à Internet. L’adresse IP de l’hôte et la nouvelle adresse IP assignée à MAS-BGPNAT01 (par DHCP ou IP statique) doivent pouvoir accéder à Internet. Les ports 80 et 443 sont utilisés sous les domaines graph.windows.net et login.microsoftonline.com.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Télécharger le package de déploiement du Kit de développement Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Déployer le Kit de développement Azure Stack](azure-stack-run-powershell-script.md)
-

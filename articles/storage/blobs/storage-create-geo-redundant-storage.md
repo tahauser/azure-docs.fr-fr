@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Rendre vos données d’application hautement disponibles avec Stockage Azure
 
@@ -69,7 +69,7 @@ Suivez ces étapes pour créer un compte de stockage géographiquement redondant
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | Valeur unique pour votre compte de stockage |
    | **Modèle de déploiement** | Gestionnaire de ressources  | Le Gestionnaire des ressources contient les fonctionnalités les plus récentes.|
-   | **Type de compte** | Usage général | Pour plus d’informations sur les types de compte, consultez [Types de compte de stockage](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Type de compte** | StorageV2 | Pour plus d’informations sur les types de compte, consultez [Types de compte de stockage](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performances** | standard | Le type Standard est suffisant pour l’exemple de scénario. |
    | **Réplication**| Stockage géo-redondant avec accès en lecture (RA-GRS) | Ce paramètre est nécessaire pour que l’exemple fonctionne. |
    |**Transfert sécurisé requis** | Désactivé| Le transfert sécurisé n’est pas nécessaire pour ce scénario. |
@@ -77,7 +77,7 @@ Suivez ces étapes pour créer un compte de stockage géographiquement redondant
    |**ResourceGroup** | myResourceGroup |Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
    |**Lieu** | Est des États-Unis | Choisissez un emplacement. |
 
-![créer un compte de stockage](media/storage-create-geo-redundant-storage/figure1.png)
+![créer un compte de stockage](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Téléchargez l’exemple
 

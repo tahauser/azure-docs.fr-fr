@@ -51,6 +51,6 @@ Certaines fonctionnalités sont actuellement restreintes aux conteneurs Linux. N
 
 Azure Container Instances prend en charge la planification de [groupes de plusieurs conteneurs](container-instances-container-groups.md) qui partagent un même hôte, réseau local, stockage et cycle de vie. Vous pouvez ainsi combiner votre application principale avec d’autres ayant un rôle d’assistance, tel que la journalisation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Essayez de déployer un conteneur dans Azure avec une seule commande à l’aide de notre [guide de démarrage rapide](container-instances-quickstart.md).

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4ee59782a0e40f9d09023a75862ab0f8415e6d12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Exécuter des applications dans Azure Container Service (ACS)
 
@@ -52,12 +52,26 @@ Le fichier manifeste a été précréé avec le nom de serveur de connexion `mic
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+Vous pouvez également, si vous travaillez sur Windows, utiliser Visual Studio Code.
+
+```console
+code azure-vote-all-in-one-redis.yaml
+```
+
 Remplacez `microsoft` par le nom de serveur de connexion ACR. Cette valeur se trouve sur la ligne **47** du fichier manifeste.
 
 ```yaml
 containers:
 - name: azure-vote-front
   image: microsoft/azure-vote-front:v1
+```
+
+Le code ci-dessus devient alors.
+
+```yaml
+containers:
+- name: azure-vote-front
+  image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Enregistrez et fermez le fichier.

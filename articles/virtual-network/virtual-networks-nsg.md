@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrer le trafic réseau avec les groupes de sécurité réseau
 
@@ -30,9 +30,9 @@ Un groupe de sécurité réseau (NSG) contient une liste de règles de sécurit�
 ## <a name="nsg-resource"></a>Ressource du groupe de sécurité réseau
 Les NSG contiennent les propriétés suivantes :
 
-| Propriété | Description | Contraintes | Considérations |
+| Propriété | DESCRIPTION | Contraintes | Considérations |
 | --- | --- | --- | --- |
-| Name |Nom du groupe de sécurité réseau |Doit être unique dans la région.<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union.<br/>Doit commencer par une lettre ou un chiffre.<br/>Doit se terminer par une lettre, un chiffre ou un trait de soulignement.<br/>Ne doit pas dépasser 80 caractères. |Étant donné que vous devrez peut-être créer plusieurs NSG, assurez-vous que vous disposez d’une convention d’affectation de noms qui facilite l’identification de la fonction de vos NSG. |
+| NOM |Nom du groupe de sécurité réseau |Doit être unique dans la région.<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union.<br/>Doit commencer par une lettre ou un chiffre.<br/>Doit se terminer par une lettre, un chiffre ou un trait de soulignement.<br/>Ne doit pas dépasser 80 caractères. |Étant donné que vous devrez peut-être créer plusieurs NSG, assurez-vous que vous disposez d’une convention d’affectation de noms qui facilite l’identification de la fonction de vos NSG. |
 | Région |[Région](https://azure.microsoft.com/regions) Azure dans laquelle le NSG est créé. |Les NSG ne peuvent être associés qu’à des ressources figurant dans la même région qu’eux. |Pour plus d’informations sur le nombre de NSG dont vous pouvez disposer par région, consultez l’article relatif aux [limites Azure](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
 | Groupe de ressources |[Groupe de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups) dans lequel le NSG existe. |Même si un NSG existe dans un groupe de ressources, il peut être associé aux ressources de n’importe quel groupe de ressources, tant que ces ressources font partie de la même région Azure que le NSG. |Les groupes de ressources permettent de gérer plusieurs ressources conjointement, telles qu’une unité de déploiement.<br/>Vous pouvez envisager de regrouper le NSG avec les ressources auxquelles il est associé. |
 | Règles |Règles de trafic entrant ou sortant définissant le trafic qui est autorisé ou refusé. | |Consultez la section [Règles de groupe de sécurité réseau](#Nsg-rules) de cet article. |
@@ -44,7 +44,7 @@ Les NSG contiennent les propriétés suivantes :
 ### <a name="nsg-rules"></a>règles de groupe de sécurité réseau
 Les règles de groupe de sécurité réseau contiennent les propriétés suivantes :
 
-| Propriété | Description | Contraintes | Considérations |
+| Propriété | DESCRIPTION | Contraintes | Considérations |
 | --- | --- | --- | --- |
 | **Name** |Nom de la règle. |Doit être unique dans la région.<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union.<br/>Doit commencer par une lettre ou un chiffre.<br/>Doit se terminer par une lettre, un chiffre ou un trait de soulignement.<br/>Ne doit pas dépasser 80 caractères. |Un NSG pouvant contenir plusieurs règles, veillez à respecter une convention d’affectation de noms qui vous permet d’identifier la fonction de votre règle |
 | **Protocole** |Protocole à faire correspondre à la règle. |TCP, UDP ou * |L’utilisation de la valeur * en guise de protocole inclut ICMP (trafic est-ouest uniquement), ainsi qu’UDP et TCP, et peut réduire le nombre de règles dont vous avez besoin.<br/>Dans le même temps, l’utilisation de la valeur * peut constituer une approche trop large. Il est donc recommandé de ne l’utiliser qu’en cas de réelle nécessité. |
@@ -66,7 +66,7 @@ La figure ci-dessus illustre le mode de traitement des règles de NSG.
 Les balises par défaut sont des identificateurs fournis par le système pour adresser une catégorie d’adresses IP. Vous pouvez utiliser les balises par défaut dans les propriétés du **préfixe d’adresse source** et du **préfixe d’adresse de destination** de toute règle. Les balises par défaut que vous pouvez utiliser sont au nombre de trois :
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** pour Classic) : cette balise inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage locaux connectés et les réseaux virtuels Azure connectés (réseaux locaux).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour Classic) : cette balise désigne l’équilibreur de charge de l’infrastructure Azure. Elle convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour Classic) : cette balise désigne l’équilibreur de charge de l’infrastructure Azure. Elle convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure Load Balancer.
 * **Internet** (Resource Manager) (**INTERNET** pour Classic) : cette balise indique l’espace d’adressage IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. La plage inclut [l’espace IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Règles par défaut
@@ -75,23 +75,23 @@ Tous les groupes de ressources réseau contiennent un ensemble de règles par d�
 Les règles par défaut autorisent et interdisent le trafic comme suit :
 - **Réseau virtuel :** le trafic en provenance et à destination d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante.
 - **Internet :** le trafic sortant est autorisé, mais le trafic entrant est bloqué.
-- **Équilibreur de charge :** l’équilibreur de charge d’Azure est autorisé à tester l’intégrité de vos machines virtuelles et instances de rôle. Vous pouvez remplacer cette règle si vous n’utilisez pas un jeu d’équilibrage de la charge.
+- **Équilibreur de charge :** Azure Load Balancer est autorisé à tester l’intégrité de vos machines virtuelles et instances de rôle. Si vous remplacez cette règle, les sondes d’intégrité d’Azure Load Balancer échoueront, ce qui peut affecter votre service.
 
 **Les règles par défaut sont :**
 
-| Name | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
+| NOM | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65 000 | VirtualNetwork | * | VirtualNetwork | * | * | AUTORISER |
 | AllowAzureLoadBalancerInBound | 65 001 | AzureLoadBalancer | * | * | * | * | AUTORISER |
-| DenyAllInBound |65 500 | * | * | * | * | * | REFUSER |
+| DenyAllInBound |65 500 | * | * | * | * | * | Deny |
 
 **Les règles sortantes par défaut sont :**
 
-| Name | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
+| NOM | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65 000 | VirtualNetwork | * | VirtualNetwork | * | * | AUTORISER |
 | AllowInternetOutBound | 65 001 | * | * | Internet | * | * | AUTORISER |
-| DenyAllOutBound | 65 500 | * | * | * | * | * | REFUSER |
+| DenyAllOutBound | 65 500 | * | * | * | * | * | Deny |
 
 ## <a name="associating-nsgs"></a>Association de groupe de sécurité réseau
 Vous pouvez associer un NSG à des machines virtuelles, à des NIC et à des sous-réseaux, selon le modèle de déploiement que vous utilisez, en procédant comme suit :
@@ -123,11 +123,11 @@ Vous pouvez implémenter des NSG dans les modèles de déploiement Resource Mana
 
 | Outil de déploiement | Classique | Gestionnaire de ressources |
 | --- | --- | --- |
-| Portail Azure   | Non | [Oui](virtual-networks-create-nsg-arm-pportal.md) |
+| Portail Azure   | Non  | [Oui](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Oui](virtual-networks-create-nsg-classic-ps.md) | [Oui](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [Oui](virtual-networks-create-nsg-classic-cli.md) | [Oui](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | Non | [Oui](virtual-networks-create-nsg-arm-cli.md) |
-| Modèle Azure Resource Manager   | Non  | [Oui](virtual-networks-create-nsg-arm-template.md) |
+| Azure CLI **V2**   | Non  | [Oui](virtual-networks-create-nsg-arm-cli.md) |
+| Modèle Azure Resource Manager   | Non   | [Oui](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planification
 Avant d’implémenter des groupes de sécurité réseau, vous devez répondre aux questions suivantes :
@@ -163,7 +163,8 @@ Les règles de groupe de sécurité réseau actuelles autorisent uniquement les 
 ### <a name="load-balancers"></a>Équilibreurs de charge
 * Considérez les règles d’équilibrage de charge et de traduction d’adresses réseau (NAT) relatives à chaque équilibreur de charge utilisé par chacune de vos charges de travail. Les règles NAT sont liées à un pool principal qui contient des instances de rôle NIC (Resource Manager) ou machines virtuelles/services cloud (Classic). Envisagez de créer un NSG pour chaque pool principal, ce qui autorise uniquement le trafic mappé par le biais des règles implémentées dans les équilibreurs de charge. La création d’un NSG pour chaque pool principal garantit que le trafic entrant dans le pool principal directement (plutôt que par l’intermédiaire de l’équilibreur de charge) est également filtré.
 * Dans les déploiements classiques, vous pouvez créer des points de terminaison qui mappent des ports d’un équilibreur de charge sur des ports sur vos machines virtuelles ou instances de rôle. Vous pouvez également créer votre propre équilibreur de charge public individuel par le biais de Resource Manager. Le port de destination pour le trafic entrant est le port réel de la machine virtuelle ou de l’instance de rôle, et non le port exposé par un équilibreur de charge. Le port et l’adresse source de connexion à la machine virtuelle sont un port et une adresse sur l’ordinateur distant sur Internet, et non le port et l’adresse exposés par l’équilibreur de charge.
-* Lorsque vous créez des NSG pour filtrer le trafic transitant par un équilibreur de charge interne, le port et la plage d’adresses sources appliqués sont ceux de l’ordinateur d’origine, et non de l’équilibreur de charge. Le port et la plage d’adresses de destination sont ceux de l’ordinateur de destination, et non de l’équilibrage de charge.
+* Lorsque vous créez des NSG pour filtrer le trafic transitant par Azure Load Balancer, le port et la plage d’adresses sources appliqués sont ceux de l’ordinateur d’origine, et non de l’équilibreur de charge frontend. Le port et la plage d’adresses de destination sont ceux de l’ordinateur de destination, et non de l’équilibrage de charge frontend.
+* Si vous bloquez la balaise AzureLoadBalancer, les sondes d’intégrité du Azure Load Balancer échoueront et votre service peut en être affecté.
 
 ### <a name="other"></a>Autres
 * Les listes de contrôle d’accès (ACL) basées sur le point de terminaison et les NSG ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d’abord l’ACL de point de terminaison. Pour plus d’informations sur la procédure de suppression d’une ACL de point de terminaison, consultez l’article [Gérer les listes de contrôle d’accès de point de terminaison](virtual-networks-acl-powershell.md).
@@ -197,26 +198,26 @@ Les exigences 1 à 6 (à l’exception des exigences 3 et 4) sont toutes limité
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-HTTP-Internet | AUTORISER | 100 | Internet | * | * | 80 | TCP |
 | Allow-Inbound-RDP-Internet | AUTORISER | 200 | Internet | * | * | 3389 | TCP |
-| Deny-Inbound-All | REFUSER | 300 | Internet | * | * | * | TCP |
+| Deny-Inbound-All | Deny | 300 | Internet | * | * | * | TCP |
 
 **Règles de trafic sortant**
 
 | Règle | Access | Priorité | Plage d’adresses source | Port source | Plage d’adresses de destination | Port de destination | Protocole |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All |REFUSER |100 | * | * | Internet | * | * |
+| Deny-Internet-All |Deny |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **Règles de trafic entrant**
 
 | Règle | Access | Priorité | Plage d’adresses source | Port source | Plage d’adresses de destination | Port de destination | Protocole |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | REFUSER | 100 | Internet | * | * | * | * |
+| Deny-Internet-All | Deny | 100 | Internet | * | * | * | * |
 
 **Règles de trafic sortant**
 
 | Règle | Access | Priorité | Plage d’adresses source | Port source | Plage d’adresses de destination | Port de destination | Protocole |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | REFUSER | 100 | * | * | Internet | * | * |
+| Deny-Internet-All | Deny | 100 | * | * | Internet | * | * |
 
 Les NSG ci-après sont créés et associés aux NIC des machines virtuelles suivantes :
 
@@ -229,7 +230,7 @@ Les NSG ci-après sont créés et associés aux NIC des machines virtuelles suiv
 | Allow-Inbound-HTTP-Internet | AUTORISER | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> La plage d’adresses source relative aux règles précédente correspond à **Internet**, et non à l’adresse IP virtuelle de l’équilibreur de charge. Le port source est *, et non 500001. Les règles NAT relatives aux équilibreurs de charge sont différentes des règles de sécurité de NSG. Les règles de sécurité de NSG sont toujours associées à la source d’origine et à la destination finale du trafic, et **NON** à l’équilibreur de charge entre les deux. 
+> La plage d’adresses source relative aux règles précédente correspond à **Internet**, et non à l’adresse IP virtuelle de l’équilibreur de charge. Le port source est *, et non 500001. Les règles NAT relatives aux équilibreurs de charge sont différentes des règles de sécurité de NSG. Les règles de sécurité de NSG sont toujours associées à la source d’origine et à la destination finale du trafic, et **NON** à l’équilibreur de charge entre les deux. Azure Load Balancer conserve toujours l’adresse IP et le port source.
 > 
 > 
 
@@ -238,7 +239,7 @@ Les NSG ci-après sont créés et associés aux NIC des machines virtuelles suiv
 
 | Règle | Access | Priorité | Plage d’adresses source | Port source | Plage d’adresses de destination | Port de destination | Protocole |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Inbound-RDP-Internet | REFUSER | 100 | Internet | * | * | 3389 | TCP |
+| Deny-Inbound-RDP-Internet | Deny | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | AUTORISER | 200 | Internet | * | * | 80 | TCP |
 
 ### <a name="db-servers-management-nic"></a>Serveurs de base de données (NIC de gestion)
@@ -257,7 +258,7 @@ Les NSG ci-après sont créés et associés aux NIC des machines virtuelles suiv
 
 Étant donné que certains NSG sont associés à des NIC spécifiques, les règles s’appliquent aux ressources déployées par le biais de Resource Manager. Les règles sont combinées pour le sous-réseau et la NIC, selon leur mode d’association. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Déployer les NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)
 * [Déployer les NSG (Classic)](virtual-networks-create-nsg-classic-ps.md)
 * [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).

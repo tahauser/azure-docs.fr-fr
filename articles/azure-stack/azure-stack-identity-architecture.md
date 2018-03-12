@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architecture d’identité pour Azure Stack
 Avant de choisir un fournisseur d’identité à utiliser avec Azure Stack, vous devez comprendre les différences importantes entre les options d’Azure Active Directory (Azure AD) et Azure Directory Federated Services (AD FS). 
@@ -86,7 +86,7 @@ Avec cette topologie :
 
   Pour interagir avec AD, l’API Graph nécessite des informations d’identification utilisateur d’AD pouvant seulement lire AD. 
   - Le service AD FS intégré est basé sur Server 2016. 
-  - Vos services AD FS et AD doivent être basés sur Server 2012 ou une version antérieure. 
+  - Vos services AD FS et AD doivent être basés sur Server 2012 ou une version ultérieure.  
   
   Entre vos services AD et ADFS intégré, les interactions ne sont pas limitées à OpenID Connect, et peuvent utiliser n’importe quel protocole mutuel pris en charge.  
   - Les comptes utilisateurs sont créés et gérés dans votre service AD local.
