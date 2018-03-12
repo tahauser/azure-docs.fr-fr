@@ -1,4 +1,4 @@
----
+﻿---
 title: "Didacticiel de Azure Security Center - Répondre aux incidents de sécurité | Microsoft Docs"
 description: "Didacticiel de Azure Security Center - Répondre aux incidents de sécurité"
 services: security-center

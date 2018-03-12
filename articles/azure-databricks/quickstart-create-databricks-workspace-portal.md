@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/01/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
 Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks et un cluster Apache Spark au sein de cet espace de travail. Enfin, vous découvrirez comment exécuter un travail Spark sur le cluster Databricks. Pour plus d’informations sur Azure Databricks, consultez [Présentation d’Azure Databricks](what-is-azure-databricks.md)
+
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -62,7 +64,8 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     ![Créer un cluster Databricks Spark sur Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Créer un cluster Databricks Spark sur Azure")
 
     * Entrez un nom pour le cluster.
-    * Veillez à cochez la case **Arrêter après ___ minutes d’activité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+    * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)**. 
+    * Veillez à cocher la case **Arrêter après ___ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
     * Acceptez toutes les autres valeurs par défaut. 
     * Cliquez sur **Créer le cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
@@ -70,7 +73,7 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 
 ## <a name="run-a-spark-sql-job"></a>Exécuter un travail Spark SQL
 
-Avant de commencer cette section, vous devez effectuer les actions suivantes :
+Avant de commencer cette section, vous devez effectuer les prérequis suivants :
 
 * [Création d’un compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Téléchargez un exemple de fichier JSON [depuis GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
@@ -88,10 +91,26 @@ Procédez comme suit pour créer un notebook dans Databricks, configurer le note
 
     Cliquez sur **Créer**.
 
-3. Dans l’extrait de code suivant, remplacez `{YOUR STORAGE ACCOUNT NAME}` par le nom du compte de stockage Azure que vous avez créé, et `{YOUR STORAGE ACCOUNT ACCESS KEY}` par la clé d’accès de votre compte de stockage. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée pour exécuter la cellule de code. Cet extrait de code configure le notebook pour la lecture de données à partir d’un stockage Blob Azure.
+3. Dans cette étape, associez le compte de Stockage Azure au cluster Spark Databricks. Il existe deux façons pour les associer : monter le compte de Stockage Azure au système de fichiers Databricks Filesystem (DBFS) ou accéder directement au compte de Stockage Azure depuis l’application que vous créez.  
 
-       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-    
+    > [!IMPORTANT]
+    >Cet article utilise la **méthode de montage du stockage au système de fichiers DBFS**. Cette méthode garantit l’association du stockage monté et du cluster de système de fichiers. Ainsi, toute application qui accède au cluster est en mesure d’utiliser aussi le stockage associé. La méthode d’accès direct est limitée à l’application à partir de laquelle vous configurez l’accès.
+    >
+    > Pour utiliser la méthode de montage, vous devez créer un cluster Spark avec la version **4.0 (bêta)** du runtime de Databricks, que vous choisissez dans cet article.
+
+    Dans l’extrait suivant, remplacez les valeurs `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` et `{YOUR STORAGE ACCOUNT ACCESS KEY}` par les valeurs correspondantes à votre compte de Stockage Azure. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée pour exécuter la cellule de code.
+
+    * **Monter le compte de stockage avec DBFS (recommandé)**. Dans cet extrait, le chemin du compte de Stockage Azure est monté à `/mnt/mypath`. Ainsi, à chaque fois que vous accèderez au compte de Stockage Azure, vous n’aurez pas besoin de renseigner le chemin complet. Vous pouvez juste utiliser `/mnt/mypath`.
+
+          dbutils.fs.mount(
+            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+            mountPoint = "/mnt/mypath",
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+
+    * **Accès direct au compte de stockage**
+
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
     Pour des instructions sur la récupération de la clé du compte de stockage, consultez [Gérer vos clés d’accès de stockage](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
     > [!NOTE]
@@ -101,10 +120,11 @@ Procédez comme suit pour créer un notebook dans Databricks, configurer le note
 
     ```sql
     %sql 
-    CREATE TEMPORARY TABLE radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data
+    CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
+     path "/mnt/mypath/small_radio_json.json"
     )
     ```
 

@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3c8d345d8846994ac1e286d977b62d9ae2b7d660
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -84,6 +84,14 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
+
+    Pour OVA version 1.0.9.5
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
     
     Pour OVA version 1.0.9.2
 
@@ -217,28 +225,28 @@ L’estimation des coûts mensuels de calcul et de stockage est agrégée pour t
 
 #### <a name="confidence-rating"></a>Niveau de confiance
 
-Chaque évaluation dans Azure Migrate est associée à un niveau de confiance allant de 1 étoile à 5 étoiles (1 étoile constituant la valeur la plus faible, et 5 étoiles la valeur la plus élevée). Le niveau de confiance est assigné à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation. Le niveau de confiance d’une évaluation permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate. 
+Chaque évaluation dans Azure Migrate est associée à un niveau de confiance allant de 1 étoile à 5 étoiles (1 étoile constituant la valeur la plus faible, et 5 étoiles la valeur la plus élevée). Le niveau de confiance est assigné à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation. Le niveau de confiance d’une évaluation permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate. 
 
-Le niveau de confiance est utile lorsque vous effectuez un *dimensionnement basé sur les performances*, car Azure Migrate peut ne pas disposer de suffisamment de points de données pour effectuer un dimensionnement basé sur l’utilisation. Pour le *dimensionnement en l’état*, le niveau de confiance s’élève toujours à 5 étoiles, car Azure Migrate dispose de tous les points de données nécessaires au dimensionnement de la machine virtuelle. 
+Le niveau de confiance est utile quand vous effectuez un *dimensionnement basé sur les performances*, car Azure Migrate peut ne pas disposer de suffisamment de points de données pour effectuer un dimensionnement basé sur l’utilisation. Pour le *dimensionnement local*, le niveau de confiance s’élève toujours à 5 étoiles, car Azure Migrate dispose de tous les points de données nécessaires au dimensionnement de la machine virtuelle. 
 
-Pour le dimensionnement basé sur les performances de la machine virtuelle, Azure Migrate a besoin des données d’utilisation relatives à l’UC et à la mémoire. Par ailleurs, pour chaque disque joint à la machine virtuelle, l’E/S par seconde en lecture/écriture et le débit sont nécessaires. De même, pour chaque carte réseau jointe à la machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni :
+Pour le dimensionnement basé sur les performances de la machine virtuelle, Azure Migrate a besoin des données d’utilisation relatives à l’UC et à la mémoire. Par ailleurs, pour chaque disque attaché à la machine virtuelle, les E/S par seconde en lecture/écriture et le débit sont des données nécessaires. De même, pour chaque carte réseau jointe à la machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni :
 
    **Disponibilité des points de données** | **Niveau de confiance**
    --- | ---
    0 %-20 % | 1 étoile
-   21 %-40 % | 2 étoiles
-   41 %-60 % | 3 étoiles
-   61 %-80 % | 4 étoiles
-   81 %-100 % | 5 étoiles
+   21 %-40 % | 2 étoiles
+   41 %-60 % | 3 étoiles
+   61 %-80 % | 4 étoiles
+   81 %-100 % | 5 étoiles
 
 Tous les points de données d’une évaluation peuvent ne pas être disponibles pour l’une des raisons suivantes :
-- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3 et l’évaluation présente un dimensionnement basé sur les performances en tant que critère de dimensionnement. Si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Pour le stockage, Azure Migrate recommande des disques standard sans tenir compte des E/S par seconde/du débit du disque. Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque Premium dans Azure.
-- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant l’exécution de la découverte. Par exemple, examinons le scénario dans lequel vous modifiez le niveau du paramètre des statistiques sur 3 aujourd’hui et exécutez la découverte à l’aide de l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés de l’évaluation pour la définir sur un mois, le niveau de confiance chute, car le disque et les données de performances réseau du dernier mois un ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte. 
+- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3 et l’évaluation présente un dimensionnement basé sur les performances en tant que critère de dimensionnement. Si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Pour le stockage, Azure Migrate recommande des disques standard sans tenir compte des E/S par seconde/du débit du disque. Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure.
+- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte. 
 - Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vCenter Server ne disposera pas des données de performances pour cette période. 
 - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
 
 > [!NOTE]
-> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, nous vous recommandons de faire passer le niveau des paramètres des statistiques vCenter Server à 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Si l’exemple précédent ne peut pas être effectué, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité et il est recommandé de basculer vers le *dimensionnement en l’état* en modifiant les propriétés de l’évaluation.
+> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Si l’exemple précédent ne peut pas être effectué, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité et il est recommandé de basculer vers le *dimensionnement Localement* en changeant les propriétés de l’évaluation.
  
 ## <a name="next-steps"></a>étapes suivantes
 

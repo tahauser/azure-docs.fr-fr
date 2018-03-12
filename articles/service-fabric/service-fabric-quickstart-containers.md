@@ -1,4 +1,4 @@
----
+﻿---
 title: "Créer une application de conteneur Windows Azure Service Fabric | Microsoft Docs"
 description: "Dans ce démarrage rapide, créez votre première application conteneur Windows sur Microsoft Azure Service Fabric."
 services: service-fabric

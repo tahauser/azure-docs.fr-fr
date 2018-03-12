@@ -15,6 +15,8 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     Capacité de stockage| Fixe (10 Go)|Modifiez la valeur en sélectionnant **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
     Throughput|400 RU|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). La capacité de stockage doit être définie sur **Fixe (10 Go)** afin de définir le débit sur 400 RU/s. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. 
     
+    Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour la collection. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’une collection, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    
     Cliquez sur **OK**.
 
     L’Explorateur de données affiche la nouvelle base de données et la nouvelle collection.

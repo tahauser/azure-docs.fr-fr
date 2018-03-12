@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
         1. Entrez **Y** pour _Do you want to input Verification Code_ (Voulez-vous saisir le code de vérification ?), puis gardez le programme ouvert pour vous servir plus tard dans ce démarrage rapide. Notez les valeurs _Client Cert_ (Certificat client), _Client Cert Private Key_ (Clé privée certificat client), _Signer Cert_ (Signataire certificat) et _Root Cert_ (Certificat racine).
 
+        > [!NOTE]
+        > Le `Root Cert` ci-dessus s’applique uniquement aux certificats créés dans la sortie de console et ne peut pas être utilisé pour signer des certificats clients supplémentaires. Si vous avez besoin d’un ensemble plus robuste de certificats de test, consultez l’[exemple de gestion de certificats d’autorité de certification](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>Créer une entrée d’inscription d’appareil
 
@@ -189,7 +192,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - Insérez vos certificats en utilisant le format suivant :

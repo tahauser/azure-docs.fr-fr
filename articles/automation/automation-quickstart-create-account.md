@@ -1,4 +1,4 @@
----
+﻿---
 title: "Démarrage rapide Azure - Créer un compte Azure Automation | Microsoft Docs"
 description: "Apprendre à créer un compte Azure Automation et exécuter un runbook"
 services: automation

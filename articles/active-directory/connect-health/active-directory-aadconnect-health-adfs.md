@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -47,7 +47,7 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
-| Tout | Montre le nombre total de demandes traitées par tous les serveurs AD FS.|
+| Tous | Montre le nombre total de demandes traitées par tous les serveurs AD FS.|
 | Application | Regroupe la totalité des demandes en fonction de la partie de confiance cible. Ce regroupement permet de comprendre le pourcentage du trafic total reçu par chaque application. |
 |  Serveur |Regroupe la totalité des demandes en fonction du serveur qui a traité la demande. Ce regroupement permet de mieux comprendre la distribution de charge du trafic total.
 | Jonction d’espace de travail |Regroupe la totalité des demandes en fonction de la provenance des demandes, selon qu’elles soient ou non issues d’appareils joints à un espace de travail (connu). Ce regroupement permet de comprendre si vos ressources sont consultées à l’aide d’appareils inconnus de l’infrastructure d’identité. |
@@ -68,7 +68,7 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
-|Tout |Cette mesure fournit le nombre moyen de personnes utilisant le service de fédération durant l’intervalle sélectionné. Les utilisateurs ne sont pas regroupés. <br>La moyenne dépend de la tranche horaire sélectionnée. |
+|Tous |Cette mesure fournit le nombre moyen de personnes utilisant le service de fédération durant l’intervalle sélectionné. Les utilisateurs ne sont pas regroupés. <br>La moyenne dépend de la tranche horaire sélectionnée. |
 | Application |Regroupe le nombre moyen d’utilisateurs sur l’application cible (partie de confiance). Ce regroupement procure une plus grande visibilité sur le nombre d’utilisateurs exécutant chaque application. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Surveillance des performances pour AD FS
@@ -95,7 +95,7 @@ Dans ce rapport, vous pouvez facilement retrouver les informations suivantes :
 * Nombre total de demandes ayant échoué en raison d’un nom d’utilisateur/mot de passe incorrect au cours des 30 derniers jours
 * Nombre moyen d’utilisateurs dont la connexion a échoué en raison d’un nom d’utilisateur/mot de passe incorrect par jour.
 
-Lorsque vous cliquez sur cette section, vous accédez au panneau de rapport principal, qui fournit des détails supplémentaires. Ce panneau inclut un graphique contenant des informations sur les tendances qui permettent d’établir un point de comparaison des demandes dont le nom d’utilisateur ou le mot de passe est incorrect. En outre, il fournit la liste des 50 utilisateurs présentant le plus grand nombre de tentatives infructueuses.
+Lorsque vous cliquez sur cette section, vous accédez au panneau de rapport principal, qui fournit des détails supplémentaires. Ce panneau inclut un graphique contenant des informations sur les tendances qui permettent d’établir un point de comparaison des demandes dont le nom d’utilisateur ou le mot de passe est incorrect. En outre, il fournit la liste des 50 utilisateurs présentant le plus grand nombre de tentatives infructueuses au cours de la dernière semaine.
 
 Ce graphique fournit les informations suivantes :
 
@@ -107,7 +107,7 @@ Ce graphique fournit les informations suivantes :
 
 Ce rapport fournit les informations suivantes :
 
-| Élément de rapport | Description |
+| Élément de rapport | DESCRIPTION |
 | --- | --- |
 | ID d'utilisateur |Affiche l’ID d’utilisateur qui a été utilisé. Cette valeur correspond à ce que l’utilisateur a tapé, ce qui n’est pas toujours l’ID d’utilisateur correct. |
 | Tentatives ayant échoué |Affiche le nombre total de tentatives ayant échoué pour cet ID d’utilisateur. Le tableau est trié par nombre décroissant de tentatives ayant échoué. |
@@ -115,7 +115,7 @@ Ce rapport fournit les informations suivantes :
 | IP du dernier échec |Affiche l’adresse IP du client à partir de la dernière requête incorrecte. |
 
 > [!NOTE]
-> Ce rapport est automatiquement mis à jour toutes les deux heures avec les nouvelles informations collectées durant ce laps de temps. En conséquence, les tentatives de connexion effectuées dans les deux dernières heures peuvent ne pas être incluses dans le rapport.
+> Ce rapport est automatiquement mis à jour toutes les 12 heures avec les nouvelles informations collectées durant ce laps de temps. En conséquence, les tentatives de connexion effectuées dans les deux dernières heures peuvent ne pas être incluses dans le rapport.
 >
 >
 

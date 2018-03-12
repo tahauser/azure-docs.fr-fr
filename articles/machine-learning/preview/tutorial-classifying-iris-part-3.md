@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: d7e07104153aed36a3e426e053847551d2b2093c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Didacticiel : Troisième partie de la classification d’Iris (déploiement d’un modèle)
 Azure Machine Learning (préversion) est une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux experts en science des données. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
-Ce didacticiel est le troisième d’une série de trois. Dans cette partie du didacticiel, vous utilisez Machine Learning (préversion) pour effectuer les tâches suivantes :
+Ce didacticiel est **le troisième d’une série de trois**. Dans cette partie du didacticiel, vous utilisez Machine Learning (préversion) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Rechercher le fichier de modèle.
