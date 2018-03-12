@@ -28,10 +28,10 @@
 #### [Créer un niveau Standard d’équilibrage de charge et redondant dans une zone à l’aide de PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Créer un niveau Standard d’équilibrage de charge publique et redondant dans une zone à l’aide de l’interface CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Adresse IP publique
-#### [Créer une adresse IP publique dans une zone de disponibilité à l’aide du portail Azure](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Créer une adresse IP publique dans une zone de disponibilité à l’aide de PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Créer une adresse IP publique dans une zone de disponibilité à l’aide de l’interface CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+
+### Base de données SQL
+#### [Zones de disponibilité avec SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Stockage
 #### [Stockage redondant dans une zone](../storage/common/storage-redundancy.md#zone-redundant-storage)

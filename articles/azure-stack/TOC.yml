@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Notes de publication des systèmes intégrés
           items:
+            - name: "mise à jour\_1802"
+              href: azure-stack-update-1802.md
             - name: mise à jour 1712
               href: azure-stack-update-1712.md
             - name: mise à jour 1711
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: Gérer des ressources réseau
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Gérer les ressources de stockage
-          href: azure-stack-manage-storage-accounts.md
-        - name: Gérer la capacité de stockage
-          href: azure-stack-manage-storage-shares.md
         - name: Gérer les machines virtuelles Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Démarrer et arrêter Azure Stack
           href: azure-stack-start-and-stop.md
+        - name: Gérer la capacité
+          items:
+            - name: Gérer les ressources de stockage
+              href: azure-stack-manage-storage-accounts.md
+            - name: Gérer la capacité de stockage
+              href: azure-stack-manage-storage-shares.md
+            - name: "Gérer la capacité de mémoire physique pour Azure\_Stack"
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: Remplacer le matériel
           items:
             - name: Actions de nœud
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: Déployer App Service hors connexion
               href: azure-stack-app-service-deploy-offline.md
+            - name: Mettre à jour le fournisseur de ressources App Service
+              href: azure-stack-app-service-update.md
+            - name: Mettre à jour le fournisseur de ressources App Service hors connexion
+              href: azure-stack-app-service-update-offline.md
             - name: Ajouter de nouveaux rôles de travail web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurer des sources de déploiement

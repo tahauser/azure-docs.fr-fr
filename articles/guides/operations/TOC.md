@@ -75,10 +75,10 @@
 ### [stockage d’objets blob Azure](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Prise en main d’Azure Blob Storage à l’aide de .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Prise en main d’Azure File Storage sur Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Utilisation de Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Guide pratique pour utiliser le Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Prise en main du stockage de tables Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Prise en main du stockage de files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Créez un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 ### [Utilisation d'Azure PowerShell avec Azure Storage](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Storage.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Outils clients d’Azure Storage](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -88,9 +88,9 @@
 
 
 ## [Réseaux virtuels](azure-operations-guide.md#azure-virtual-network)
-### [Créer un réseau virtuel au moyen du portail Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Créer un réseau virtuel à l’aide d’Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Créer un réseau virtuel à l'aide de l'interface de ligne de commande Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Créer un réseau virtuel au moyen du portail Azure](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Créer un réseau virtuel à l’aide d’Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Créer un réseau virtuel à l'aide de l'interface de ligne de commande Azure](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrer le trafic réseau avec les groupes de sécurité réseau](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Didacticiels relatifs à la mise en réseau virtuelle
 #### [Équilibrer la charge des machines virtuelles](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
