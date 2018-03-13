@@ -16,7 +16,7 @@ Ce guide est basé sur des scénarios dans lesquels un navigateur accède à un 
 
 Ce guide utilise les bibliothèques suivantes :
 
-|Bibliothèque|DESCRIPTION|
+|Bibliothèque|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Intergiciel qui permet à une application d’utiliser OpenIDConnect pour l’authentification.|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Intergiciel qui permet à une application de maintenir la session utilisateur à l’aide de cookies.|

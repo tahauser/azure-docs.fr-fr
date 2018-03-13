@@ -28,7 +28,7 @@ Cet article vous indique comment configurer la récupération d’urgence vers u
 > * Créer une stratégie de réplication
 > * Activer la réplication pour une machine virtuelle
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce scénario :
 
@@ -153,6 +153,6 @@ Avant de commencer, assurez-vous que tous les hôtes qui utilisent la stratégie
 
 Vous pouvez suivre la progression de l’action **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Lorsque le travail de **finalisation de la protection** est terminé, la réplication initiale est également terminée et la machine virtuelle est prête à être basculée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Exécuter une simulation de récupération d’urgence](hyper-v-vmm-test-failover.md)

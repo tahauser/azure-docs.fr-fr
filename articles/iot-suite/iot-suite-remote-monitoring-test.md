@@ -82,7 +82,7 @@ La vidéo suivante explique pas à pas comment connecter des appareils simulés 
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -680,7 +680,7 @@ Dans la page **Appareils**, vous pouvez provisionner des instances de votre type
 
 Vous pouvez afficher les données de télémétrie de **température interne** de l’appareil simulé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

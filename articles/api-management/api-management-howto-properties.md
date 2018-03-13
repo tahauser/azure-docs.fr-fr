@@ -24,7 +24,7 @@ Les stratégies Gestion des API sont une fonctionnalité puissante du système q
 
 Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur qui s’appliquent à l’instance de service. Ces propriétés peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration de l’API. Chaque propriété peut avoir les attributs suivants :
 
-| Attribut | type | DESCRIPTION |
+| Attribut | type | Description |
 | --- | --- | --- |
 | Nom complet |chaîne |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
 | Valeur |chaîne |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
@@ -107,7 +107,7 @@ Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-i
 
 Alors que les valeurs de propriété peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres propriétés. Si le texte contenant une référence de propriété est utilisé pour une valeur de propriété, comme `Property value text {{MyProperty}}`, cette référence de propriété n’est pas remplacée et est incluse dans la valeur de propriété.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur l’utilisation des stratégies
   * [Stratégies dans Gestion des API](api-management-howto-policies.md)
   * [Référence de stratégie](https://msdn.microsoft.com/library/azure/dn894081.aspx)

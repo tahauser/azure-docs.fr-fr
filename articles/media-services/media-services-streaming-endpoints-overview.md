@@ -42,7 +42,7 @@ Cette rubrique donne une vue d’ensemble des fonctionnalités principales offer
 
 À compter de la version publiée en janvier 2017 de Media Services, il existe deux types de streaming : **Standard** et **Premium**. Ces types font partie de la version de la version « 2.0 » du point de terminaison de streaming.
 
-type|DESCRIPTION
+type|Description
 ---|---
 **Standard**|Il s’agit de l’option par défaut, prévue pour fonctionner dans la majorité des scénarios.<br/>Avec cette option, vous obtenez un contrat de niveau de service limité/fixe. Les 15 premiers jours après le démarrage du point de terminaison sont gratuits.<br/>Si vous créez plusieurs points de terminaison de streaming, seul le premier est gratuit pendant les 15 premiers jours. Les autres sont facturés dès que vous les démarrez. <br/>Notez que la version d’évaluation gratuite s’applique uniquement aux comptes Media Services nouvellement créés et aux points de terminaison de streaming par défaut. Les points de terminaison de streaming existants et ceux créés en plus ne comprennent pas la période d’évaluation gratuite, qu’ils soient mis à niveau vers la version 2.0 ou créés directement en tant que version 2.0.
 **Premium**|Cette option convient aux scénarios professionnels qui nécessitent plus de mise à l’échelle ou de contrôle.<br/>Contrat de niveau de service variable basé sur la capacité d’unité de streaming Premium (SU) achetée et les points de terminaison de streaming en service dans un environnement isolé et n’étant pas en concurrence pour les ressources.
@@ -104,7 +104,7 @@ Version 1.0 avec SU > = 1 avec CDN|Standard/Premium avec aucun CDN|Autorisé dan
 Version 1.0 avec SU > = 1 avec CDN|Standard, avec/sans CDN|Autorisé dans l’état **arrêté**. Non autorisé en état **démarré**. Le CDN version 1.0 sera supprimé et le nouveau créé et démarré.
 Version 1.0 avec SU > = 1 avec CDN|Premium avec/sans CDN|Autorisé dans l’état **arrêté**. Non autorisé en état **démarré**. Le CDN classique sera supprimé et le nouveau créé et démarré.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

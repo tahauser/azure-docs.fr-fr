@@ -25,7 +25,7 @@ ms.lasthandoff: 01/29/2018
 
 Azure CLI permet de créer et de gérer des ressources Azure Stack à partir de la ligne de commande. Ce guide explique de manière détaillée comment utiliser Azure CLI pour créer une machine virtuelle Windows Server 2016 dans Azure Stack. Une fois la machine virtuelle créée, vous vous connecterez avec le Bureau à distance, installerez IIS, puis afficherez le site web par défaut. 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 * Vérifiez que votre opérateur Azure Stack a ajouté l’image « Windows Server 2016 » à la Place de Marché Azure Stack.  
 
@@ -94,6 +94,6 @@ Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).

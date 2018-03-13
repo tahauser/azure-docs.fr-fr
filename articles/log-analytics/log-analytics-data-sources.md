@@ -31,7 +31,7 @@ Les sources de données sont différentes des [solutions de gestion](log-analyti
 ## <a name="summary-of-data-sources"></a>Résumé des sources de données
 Les sources de données actuellement disponibles dans Log Analytics sont répertoriées dans le tableau suivant.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.
 
-| source de données | Type d'événement | DESCRIPTION |
+| source de données | Type d'événement | Description |
 |:--- |:--- |:--- |
 | [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Fichiers texte sur les agents Windows ou Linux, qui contiennent des informations des journal. |
 | [Journaux d’événements Windows](log-analytics-data-sources-windows-events.md) |Événement |Événements collectés à partir du journal des événements d’ordinateurs Windows. |
@@ -61,7 +61,7 @@ Si l’agent ne peut pas se connecter à Log Analytics ou à Operations Manager,
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 Toutes les données collectées par Log Analytics sont stockées dans l’espace de travail en tant qu'enregistrements.  Les enregistrements collectés par différentes sources de données auront leur propre jeu de propriétés et seront identifiés par leur propriété **Type** .  Consultez la documentation de chaque source de données et solution pour plus d'informations sur chaque type d'enregistrement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez les [solutions](log-analytics-add-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans l’espace de travail.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Configurez des [alertes](log-analytics-alerts.md) qui vous informent de façon proactive des données critiques collectées à partir de sources de données et solutions.

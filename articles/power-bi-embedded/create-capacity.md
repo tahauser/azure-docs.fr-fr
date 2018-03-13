@@ -51,7 +51,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
     ![Champs à renseigner pour créer une nouvelle capacité](media/create-capacity/azure-portal-create-power-bi-embedded.png)
 
-    |Paramètre |DESCRIPTION |
+    |Paramètre |Description |
     |---------|---------|
     |**Nom de la ressource**|Nom destiné à identifier la capacité. Le nom de la ressource est affiché dans le portail d’administration Power BI et dans le portail Azure.|
     |**Abonnement**|L’abonnement dans lequel vous souhaitez créer la capacité.|
@@ -66,7 +66,7 @@ La création prend généralement moins d’une minute, souvent quelques seconde
 
 ![Tableau de bord du portail Azure avec capacité Power BI Embedded](media/create-capacity/azure-portal-dashboard.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour utiliser la nouvelle capacité Power BI Embedded, accédez au portail d’administration Power BI pour affecter des espaces de travail. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

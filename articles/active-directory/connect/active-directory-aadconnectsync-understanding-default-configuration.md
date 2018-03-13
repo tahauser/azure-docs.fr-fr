@@ -145,7 +145,7 @@ Dans la mesure où il s’agit d’une règle out-of-box, vous recevez un averti
 
 Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jointure et Transformations.
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 La première section fournit des informations de base telles que le nom et la description.
 
 ![Onglet Description dans l’Éditeur de règles de synchronisation ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
@@ -226,7 +226,7 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 | Entrant depuis AD – Utilisateur Exchange |Existe seulement si Exchange a été détecté. Transfère tous les attributs Exchange d’infrastructure. |
 | Entrant depuis AD – Utilisateur Lync |Existe seulement si Lync a été détecté. Transfère tous les attributs Lync d’infrastructure. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Poursuivre la lecture sur le fonctionnement de la configuration out-of-box dans [Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)

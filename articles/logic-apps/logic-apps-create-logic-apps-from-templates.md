@@ -27,7 +27,7 @@ Pour vous amener à commencer à créer des workflows plus rapidement, Logic App
 
 Voici certaines catégories de modèles :
 
-| Type de modèle | DESCRIPTION | 
+| Type de modèle | Description | 
 | ------------- | ----------- | 
 | Modèles de cloud d’entreprise | Il s’agit de modèles pour l’intégration de Blob Azure, de Dynamics CRM, de Salesforce et de Box, ainsi que d’autres connecteurs pour les besoins cloud de votre entreprise. Par exemple, vous pouvez utiliser ces modèles pour organiser des responsables commerciaux ou sauvegarder vos données de dossier d’entreprise. | 
 | Modèles de productivité personnelle | Améliorez la productivité personnelle en définissant des rappels quotidiens, en convertissant des éléments de travail importants en listes de tâches, et en automatisant des tâches fastidieuses de façon à les réduire à une étape d’approbation par un utilisateur unique. | 
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
    ![Spécifier les détails de l’application logique](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | *nom-de-votre-application-logique* | Donnez un nom unique à l’application logique. | 
    | **Abonnement** | *nom-de-votre-abonnement-Azure* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | 
@@ -155,7 +155,7 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Apprenez-en davantage sur la création d’applications logiques via des exemples, des scénarios, des témoignages de clients et des procédures pas à pas.
 

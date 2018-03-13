@@ -25,7 +25,7 @@ La plupart des Runbooks Azure Automation présentent une certaine forme de sorti
 
 Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le portail Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
 
-| Stream | DESCRIPTION | Publié | Test |
+| Stream | Description | Publié | Test |
 |:--- |:--- |:--- |:--- |
 | Sortie |Objets destinés à être consommés par d’autres Runbooks. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Avertissement |Message d’avertissement destiné à l’utilisateur. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
@@ -221,7 +221,7 @@ Automation peut envoyer l’état d’un travail de runbook et des flux de trava
 
 Pour plus d’informations sur la configuration de l’intégration à Log Analytics pour collecter, mettre en corrélation et modifier des données de travail, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
 * Pour comprendre comment créer et utiliser des Runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 

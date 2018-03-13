@@ -48,7 +48,7 @@ Ce guide est basé sur des scénarios dans lesquels un navigateur accède à un 
 
 Ce guide utilise les packages suivants :
 
-|Bibliothèque|DESCRIPTION|
+|Bibliothèque|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Intergiciel qui permet à une application d’utiliser OpenIDConnect pour l’authentification.|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Intergiciel qui permet à une application de maintenir la session utilisateur à l’aide de cookies.|
@@ -267,7 +267,7 @@ Sélectionnez le lien hypertexte pour afficher les revendications de l’utilisa
 #### <a name="expected-results"></a>Résultats attendus
  Vous devez voir une table contenant les propriétés de base de l’utilisateur connecté :
 
-| Propriété | Valeur | DESCRIPTION|
+| Propriété | Valeur | Description|
 |---|---|---|
 | NOM | {Nom complet de l’utilisateur} | Prénom et nom de l’utilisateur.
 |Nom d’utilisateur | <span>user@domain.com</span>| Nom d’utilisateur employé pour identifier l’utilisateur connecté.

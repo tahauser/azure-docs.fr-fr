@@ -23,7 +23,7 @@ ms.lasthandoff: 02/01/2018
 
 Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Ce point de terminaison est actuellement uniquement exposé à l’aide du protocole [AMQP][lnk-amqp] sur le port 5671. Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
 
-| Propriété            | DESCRIPTION |
+| Propriété            | Description |
 | ------------------- | ----------- |
 | **Nombre de partitions** | Configurez cette propriété lors de la création pour définir le nombre de [partitions][lnk-event-hub-partitions] pour la réception d’événements appareil-à-cloud. |
 | **Durée de rétention**  | Cette propriété spécifie la durée en jours de conservation des messages par IoT Hub. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours. |
@@ -65,7 +65,7 @@ Les kits SDK et intégrations que vous pouvez utiliser avec les points de termin
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Vous pouvez afficher la [source spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) sur GitHub.
 * [Intégration Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-endpoints].
 

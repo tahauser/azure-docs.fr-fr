@@ -179,7 +179,7 @@ Pour cet exemple avec Salesforce, `dataSetName` est la valeur « par défaut �
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
 
-|Propriété function.json | DESCRIPTION|
+|Propriété function.json | Description|
 |---------|----------------------|
 |**type** | Cette propriété doit être définie sur `apiHubTable`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -198,7 +198,7 @@ Un connecteur sous forme de tableau fournit des jeux de données et chaque jeu d
 |**Google Sheet**|Feuille de calcul|Feuille de calcul 
 |**Excel**|Fichier Excel|Feuille 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

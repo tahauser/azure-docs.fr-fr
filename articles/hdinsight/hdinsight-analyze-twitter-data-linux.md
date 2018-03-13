@@ -46,7 +46,7 @@ Twitter vous permet de récupérer les [données de chaque tweet](https://dev.tw
    | Champ | Valeur |
    |:--- |:--- |
    | NOM |MyHDInsightApp |
-   | DESCRIPTION |MyHDInsightApp |
+   | Description |MyHDInsightApp |
    | Website |http://www.myhdinsightapp.com |
 
 4. Cochez la case **Yes, I agree**, puis cliquez **Create your Twitter application**.
@@ -326,7 +326,7 @@ Ces commandes stockent les données dans un emplacement accessible à tous les n
     > [!NOTE]
     > Si vous avez modifié le filtre dans le script `gettweets.py`, remplacez **Azure** avec l’un des filtres utilisés.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez appris à transformer un jeu de données JSON non structuré en une table Hive structurée. Pour en savoir plus sur Hive avec HDInsight, consultez les documents suivants :
 

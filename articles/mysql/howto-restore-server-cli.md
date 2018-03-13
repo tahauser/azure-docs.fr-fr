@@ -50,7 +50,7 @@ az mysql server restore --resource-group myresourcegroup --name myserver-restore
 ```
 
 La commande `az mysql server restore` requiert les paramètres suivants :
-| Paramètre | Valeur suggérée | DESCRIPTION  |
+| Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
 | Nom | myserver-restored | Nom du serveur créé par la commande de restauration. |
@@ -65,5 +65,5 @@ La commande `az mysql server restore` est synchrone. Une fois le serveur restaur
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)

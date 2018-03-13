@@ -16,7 +16,7 @@ La première fois que vous vous connectez à votre application, vous êtes égal
 ### <a name="view-application-results"></a>Afficher les résultats de l’application
 Une fois connecté, vous devez voir les informations de profil utilisateur qui sont retournées par l’appel à l’API Microsoft Graph. Les résultats s’affichent dans la zone **API Call Results** (Résultats de l’appel à l’API). Les informations de base concernant le jeton qui a été acquis via l’appel à `AcquireTokenAsync` ou `AcquireTokenSilentAsync` doivent s’afficher dans la zone **Token Info** (Informations sur le jeton). Les résultats contiennent les propriétés suivantes :
 
-|Propriété  |Format  |DESCRIPTION |
+|Propriété  |Format  |Description |
 |---------|---------|---------|
 |**Name** |Nom complet de l’utilisateur |Prénom et nom de l’utilisateur|
 |**Username** |<span>user@domain.com</span> |Nom d’utilisateur employé pour identifier l’utilisateur.|

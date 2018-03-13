@@ -32,7 +32,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 > Si vous avez [migré](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) des machines de la région principale vers la région secondaire, déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas reprotéger la machine virtuelle ou la rebasculer.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 1. Le basculement de machine virtuelle de la région principale vers la région secondaire doit être validé.
 2. Le site cible principal doit être disponible et vous devez être en mesure d’accéder aux ressources ou de créer des ressources dans cette région.
 
@@ -81,7 +81,7 @@ Lorsque vous déclenchez un travail de reprotection et que la cible de que machi
 7. Une fois le travail de reprotection terminé, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
 8. Une fois la tâche de reprotection réussie, la machine virtuelle passe à l’état protégé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Une fois la machine virtuelle protégée, vous pouvez commencer un basculement. Le basculement arrête la machine virtuelle dans la région secondaire et crée et démarre la machine virtuelle dans la région principale, avec un léger temps d’indisponibilité. Nous vous recommandons de choisir une période en conséquence, et d’effectuer un test de basculement avant d’initialiser un basculement complet vers le site principal. [En savoir plus](site-recovery-failover.md) sur le basculement.
 

@@ -29,7 +29,7 @@ Quand un producteur envoie un message par le biais d’une file d’attente, cel
 La messagerie Microsoft Azure Service Bus définit des propriétés de charge utile que les producteurs et les consommateurs doivent utiliser pour passer ce contexte de trace.
 Le protocole est basé sur le [protocole de corrélation HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nom de la propriété        | DESCRIPTION                                                 |
+| Nom de la propriété        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificateur unique d’un appel externe du producteur à la file d’attente. Pour explorer la logique, les considérations et le format, consultez [Request-Id dans le protocole HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id). |
 |  Correlation-Context | Contexte d’opération propagé à travers tous les services impliqués dans le traitement de l’opération. Pour plus d’informations, consultez [Correlation-Context dans le protocole HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context). |
@@ -224,7 +224,7 @@ Vous pouvez également utiliser `IsEnabled` pour implémenter des stratégies d�
 
 En présence de plusieurs écouteurs `DiagnosticSource` pour la même source, il suffit qu’un seul écouteur accepte l’événement. L’appel de `IsEnabled` n’est donc pas garanti.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Corrélation dans Application Insights](../application-insights/application-insights-correlation.md)

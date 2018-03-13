@@ -144,7 +144,7 @@ Corps : cette section est au format JSON et représente le double de l’identi
 
 Les identités des appareils sont représentées sous forme de documents JSON avec les propriétés suivantes :
 
-| Propriété | Options | DESCRIPTION |
+| Propriété | Options | Description |
 | --- | --- | --- |
 | deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |
@@ -171,7 +171,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 À présent que vous savez comment utiliser le registre des identités IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur Iot Hub :
 

@@ -68,7 +68,7 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité de condition « if ». | Chaîne | OUI
 Type | Doit avoir la valeur **IfCondition** | Chaîne | OUI
@@ -290,7 +290,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

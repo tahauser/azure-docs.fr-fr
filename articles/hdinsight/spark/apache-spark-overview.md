@@ -46,7 +46,7 @@ Dans Spark, le partage de données entre les opérations est plus rapide étant 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>Qu’est-ce qu’Apache Spark sur Azure HDInsight ?
 Les clusters Spark sur HDInsight proposent un service Spark entièrement géré. Les avantages de la création d’un cluster Spark sur HDInsight sont répertoriés ici.
 
-| Fonctionnalité | DESCRIPTION |
+| Fonctionnalité | Description |
 | --- | --- |
 | Facilité de création des clusters Spark |Vous pouvez créer un cluster Spark sur HDInsight en quelques minutes en utilisant le portail Azure, Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight. Consultez [Prise en main des clusters Spark dans HDInsight](apache-spark-jupyter-spark-sql.md) |
 | Simplicité d'utilisation |Un cluster Spark sur HDInsight inclut des blocs-notes Jupyter et Zeppelin. Vous pouvez utiliser les blocs-notes pour le traitement interactif et la visualisation des données.|

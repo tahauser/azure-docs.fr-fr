@@ -78,7 +78,7 @@ ms.lasthandoff: 02/21/2018
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
-   | Paramètre | DESCRIPTION |
+   | Paramètre | Description |
    | --- | --- |
    | SubscriptionID |ID d’abonnement d’administrateur. Vous pouvez le récupérer avec PowerShell. Si vous préférez le récupérer sur le portail, accédez à l’abonnement du fournisseur et copiez l’ID d’abonnement. |
    | GalleryItemUri |URI Blob du package de galerie déjà chargé sur le stockage. |
@@ -101,21 +101,21 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Référence : manifest.json d’un article de Marketplace
 ### <a name="identity-information"></a>Informations d’identité
-| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
+| NOM | Obligatoire | type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | NOM |X |Chaîne |[A-Za-z0-9]+ | |
 | Publisher |X |Chaîne |[A-Za-z0-9]+ | |
 | Version |X |Chaîne |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Métadonnées
-| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
+| NOM | Obligatoire | type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
 | PublisherDisplayName |X |Chaîne |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
 | PublisherLegalName |X |Chaîne |256 caractères maximum | |
 | Résumé |X |Chaîne |60 à 100 caractères | |
 | LongSummary |X |Chaîne |140 à 256 caractères |Non encore applicable dans Azure Stack |
-| DESCRIPTION |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |Entre 500 et 5 000 caractères | |
+| Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |Entre 500 et 5 000 caractères | |
 
 ### <a name="images"></a>Images
 La Marketplace utilise les icônes suivantes :
@@ -134,7 +134,7 @@ Chaque article de Marketplace doit être étiqueté avec une catégorie qui iden
 ### <a name="links"></a>Liens
 Chaque article de Marketplace peut comporter différents liens vers du contenu supplémentaire. Les liens sont spécifiés comme une liste de noms et d’URI.
 
-| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
+| NOM | Obligatoire | type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |64 caractères maximum | |
 | Uri |X |URI | | |
@@ -142,7 +142,7 @@ Chaque article de Marketplace peut comporter différents liens vers du contenu s
 ### <a name="additional-properties"></a>Propriétés supplémentaires
 En plus des métadonnées précédentes, les auteurs de la Marketplace peuvent fournir des données de paire clé-valeur personnalisées sous la forme suivante :
 
-| NOM | Obligatoire | type | Contraintes | DESCRIPTION |
+| NOM | Obligatoire | type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Chaîne |25 caractères maximum | |
 | Valeur |X |Chaîne |30 caractères maximum | |

@@ -30,7 +30,7 @@ La fonctionnalité de résolution des problèmes de connexion de Network Watcher
 
 Le tableau suivant présente les propriétés retournées une fois la résolution des problèmes de connexion terminée.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |ConnectionStatus     | État de la vérification de la connectivité. Les résultats possibles sont **Joignable** et **Inaccessible**.        |
 |AvgLatencyInMs     | Latence moyenne pendant la vérification de la connectivité, en millisecondes (affichée uniquement si l’état de la vérification est Joignable).        |
@@ -73,7 +73,7 @@ Vous trouverez ci-dessous un exemple de problème détecté sur un tronçon.
 
 La résolution des problèmes de connexion retourne les types d’erreur liés à la connexion. Le tableau suivant fournit une liste des types d’erreur actuels retournés.
 
-|type  |DESCRIPTION  |
+|type  |Description  |
 |---------|---------|
 |UC     | Utilisation élevée du processeur.       |
 |Mémoire     | Utilisation élevée de la mémoire.       |
@@ -82,6 +82,6 @@ La résolution des problèmes de connexion retourne les types d’erreur liés �
 |NetworkSecurityRule    | Le trafic est bloqué par une règle de groupe de sécurité réseau (règle retournée)        |
 |UserDefinedRoute|Le trafic est ignoré en raison d’un itinéraire défini par l’utilisateur ou le système. |
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment résoudre les problèmes de connexion à l’aide du [portail Azure](network-watcher-connectivity-portal.md), de [PowerShell](network-watcher-connectivity-powershell.md), d’[Azure CLI](network-watcher-connectivity-cli.md) ou de l’[API REST](network-watcher-connectivity-rest.md).

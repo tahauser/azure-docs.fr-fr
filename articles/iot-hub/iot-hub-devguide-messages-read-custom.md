@@ -23,7 +23,7 @@ ms.lasthandoff: 02/01/2018
 
 IoT Hub vous permet d’acheminer les [messages appareil-à-cloud][lnk-device-to-cloud] vers des points de terminaison exposés au service IoT Hub en fonction de leurs propriétés. Les règles de routage vous offrent la souplesse nécessaire pour envoyer des messages au bon endroit sans avoir besoin de services supplémentaires ou de code personnalisé. Chaque règle d’acheminement que vous configurez a les propriétés suivantes :
 
-| Propriété      | DESCRIPTION |
+| Propriété      | Description |
 | ------------- | ----------- |
 | **Name**      | Nom unique qui identifie la règle. |
 | **Source**    | Origine du flux de données qui fait l’objet du traitement. Par exemple, télémétrie des appareils. |
@@ -51,7 +51,7 @@ Pour plus d’informations sur la lecture à partir de points de terminaison per
 * Lecture à partir de [files d’attente Service Bus][lnk-getstarted-queue].
 * Lecture à partir de [rubriques Service Bus][lnk-getstarted-topic].
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-devguide-endpoints].
 

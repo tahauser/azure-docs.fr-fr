@@ -34,7 +34,7 @@ L’intégration Event Grid est disponible pour les hubs IoT situés dans les r�
 
 IoT Hub publie les types d’événements suivants : 
 
-| Type d'événement | DESCRIPTION |
+| Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publié quand un appareil est inscrit auprès d’un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publié quand un appareil est supprimé d’un hub IoT. | 
@@ -118,7 +118,7 @@ Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiqu
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Suivre le didacticiel d’événements IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 * [En savoir plus sur Event Grid][lnk-eg-overview]

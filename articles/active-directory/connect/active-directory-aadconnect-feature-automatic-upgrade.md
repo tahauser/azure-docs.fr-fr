@@ -64,7 +64,7 @@ Les journaux des événements associés à l’état de mise à niveau automatiq
 
 Le code de résultat a un préfixe avec une vue d’ensemble de l’état.
 
-| Préfixe du code de résultat | DESCRIPTION |
+| Préfixe du code de résultat | Description |
 | --- | --- |
 | Succès |La mise à niveau de l’installation a réussi. |
 | UpgradeAborted |Un problème temporaire a arrêté la mise à niveau. Une nouvelle tentative va être effectuée. Celle-ci devrait réussir à un stade ultérieur. |
@@ -72,7 +72,7 @@ Le code de résultat a un préfixe avec une vue d’ensemble de l’état.
 
 Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais le message de résultat doit exposer clairement la nature du problème.
 
-| Message de résultat | DESCRIPTION |
+| Message de résultat | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Impossible d’écrire dans le Registre. |
@@ -100,5 +100,5 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

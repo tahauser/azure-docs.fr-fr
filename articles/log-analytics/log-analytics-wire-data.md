@@ -417,7 +417,7 @@ Les données de communication collectent des métadonnées sur le trafic réseau
 
 Un enregistrement de type _WireData_ est créé pour chaque type de données d’entrée. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |---|---|
 | Ordinateur | Nom de l’ordinateur sur lequel les données ont été recueillies |
 | TimeGenerated | Heure de l’enregistrement |
@@ -448,6 +448,6 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 | RemoteIPLatitude | Valeur de latitude de l’adresse IP |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Lancez une recherche dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.

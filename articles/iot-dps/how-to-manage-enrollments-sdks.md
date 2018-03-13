@@ -27,7 +27,7 @@ Cet article explique aborde les concepts généraux de la gestion des inscriptio
 * [Exemples de provisionnement de client de service en Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
 * [Exemples de provisionnement de client de service en .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Chaîne de connexion à partir d’une instance du service de provisionnement des appareils
 * Artefacts de sécurité des appareils
     * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security) :

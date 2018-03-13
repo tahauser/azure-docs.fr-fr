@@ -28,7 +28,7 @@ ms.lasthandoff: 01/23/2018
 Cet article fournit des informations sur les fonctions et variables prises en charge par Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Variables système Data Factory
-| Nom de la variable | DESCRIPTION | Portée de l’objet | Étendue JSON et cas d’utilisation |
+| Nom de la variable | Description | Portée de l’objet | Étendue JSON et cas d’utilisation |
 | --- | --- | --- | --- |
 | WindowStart |Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours |activity |<ol><li>Spécifier des requêtes de sélection de données. Consultez les articles connexes référencés par l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).</li> |
 | WindowEnd |Fin de l’intervalle de temps de l’intervalle d’exécution d’activité en cours |activité |identique à WindowStart. |
@@ -78,7 +78,7 @@ Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](
 ### <a name="functions"></a>Functions
 Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factory :
 
-| Catégorie | Fonction | parameters | DESCRIPTION |
+| Catégorie | Fonction | parameters | Description |
 | --- | --- | --- | --- |
 | Temps |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y heures à l’heure donnée X. <br/><br/>Exemple : `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Temps |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |

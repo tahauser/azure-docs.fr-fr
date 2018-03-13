@@ -35,7 +35,7 @@ Il existe plusieurs classes de notifications Service Health :
 
 Chaque notification d’intégrité de service contient des détails sur l’étendue et l’impact sur vos ressources. Les détails sont les suivants :
 
-Nom de la propriété | DESCRIPTION
+Nom de la propriété | Description
 -------- | -----------
 channels | L’une des valeurs suivantes : **Admin** ou **Operation**.
 correlationId | Généralement un GUID au format chaîne. Les événements qui appartiennent à la même action partagent généralement le même correlationId.

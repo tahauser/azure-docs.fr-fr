@@ -54,7 +54,7 @@ Voici la liste des types de variable disponibles dans Automation :
 ## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
 Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies avec le [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
 
-| Applets de commande | DESCRIPTION |
+| Applets de commande | Description |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Récupère la valeur d'une variable existante.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Crée une variable et définit sa valeur.|
@@ -64,7 +64,7 @@ Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour cr
 ## <a name="activities"></a>Activités
 Les activités dans le tableau suivant sont utilisées pour accéder aux informations d’identification dans un Runbook ou dans des configurations DSC.
 
-| Activités | DESCRIPTION |
+| Activités | Description |
 |:---|:---|
 |Get-AutomationVariable|Récupère la valeur d'une variable existante.|
 |Set-AutomationVariable|Définit la valeur d'une variable existante.|
@@ -74,7 +74,7 @@ Les activités dans le tableau suivant sont utilisées pour accéder aux informa
 
 Les fonctions du tableau suivant sont utilisées pour accéder aux variables dans un runbook Python2 et les récupérer. 
 
-|Fonctions Python2|DESCRIPTION|
+|Fonctions Python2|Description|
 |:---|:---|
 |automationassets.get_automation_variable|Récupère la valeur d'une variable existante. |
 |automationassets.set_automation_variable|Définit la valeur d'une variable existante. |

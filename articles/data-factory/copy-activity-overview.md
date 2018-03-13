@@ -130,7 +130,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 ### <a name="syntax-details"></a>Détails de la syntaxe
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type d’une activité de copie doit être définie sur **Copy** | OUI |
 | inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
@@ -170,7 +170,7 @@ Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détai
 
 Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans le résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive ; seuls les détails applicables à votre scénario de copie seront affichés. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nom de la propriété  | DESCRIPTION | Unité |
+| Nom de la propriété  | Description | Unité |
 |:--- |:--- |:--- |
 | dataRead | Taille des données lues à partir de la source | Valeur Int64 en **octets** |
 | dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en **octets** |
@@ -241,7 +241,7 @@ Data Factory version 2 prend en charge les scénarios de copie incrémentielle d
 ## <a name="read-and-write-partitioned-data"></a>Lire et écrire des données partitionnées
 Dans la version 1, Azure Data Factory prenait en charge la lecture et l’écriture de données partitionnées à l’aide des variables système SliceStart/SliceEnd/WindowStart/WindowEnd. Dans la version 2, ce comportement est obtenu à l’aide d’un paramètre de pipeline ayant comme valeur une heure de début ou une heure planifiée de déclencheur. Pour plus d’informations, consultez la page [Guide pratique pour lire ou écrire des données partitionnées](how-to-read-write-partitioned-data.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Voir les procédures de démarrage rapide, didacticiels et exemples suivants :
 
 - [Copier des données d’un emplacement vers un autre dans le même Stockage Blob Azure](quickstart-create-data-factory-dot-net.md)

@@ -69,7 +69,7 @@ Pour rechercher Le *Nom* de votre compte Automation, sélectionnez votre compte 
 
 Une fois ce script exécuté, les enregistrements s’affichent dans Log Analytics dans les 10 minutes suivant l’écriture des nouveaux JobLogs ou JobStreams.
 
-Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
 
 ### <a name="verify-configuration"></a>Vérifier la configuration
 Pour vous assurer que votre compte Automation envoie des journaux à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante :
@@ -87,7 +87,7 @@ Dans la sortie, assurez-vous que :
 Les diagnostics d’Azure Automation créent deux types d’enregistrements dans Log Analytics, sous la balise **AzureDiagnostics**. Les requêtes suivantes utilisent le langage de requête mis à niveau pour Log Analytics. Pour plus d’informations sur les requêtes courantes entre le langage de requête hérité et le nouveau langage de requête Azure Log Analytics, consultez la page [Aide-mémoire du passage du langage de requête hérité au nouveau langage de requête Azure Log Analytics](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language).
 
 ### <a name="job-logs"></a>Journaux de travail
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | TimeGenerated |Date et heure d’exécution du travail du runbook. |
 | RunbookName_s |Nom du runbook. |
@@ -109,7 +109,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 
 
 ### <a name="job-streams"></a>Flux de travail
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | TimeGenerated |Date et heure d’exécution du travail du runbook. |
 | RunbookName_s |Nom du runbook. |
@@ -170,7 +170,7 @@ L’envoi de vos données de diffusion en continu et d’état des travaux Autom
 
 Log Analytics offre une plus grande visibilité opérationnelle sur vos travaux Automation et peut permettre de traiter les incidents plus rapidement.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour savoir comment construire différentes requêtes de recherche et consulter les journaux de travaux Automation avec Log Analytics, consultez la page [Recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur de runbooks, consultez la page [Sortie et messages de runbooks](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et autres détails techniques, voir [Suivi d’une tâche de runbook](automation-runbook-execution.md).

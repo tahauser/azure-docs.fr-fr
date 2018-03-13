@@ -33,7 +33,7 @@ Une technique courante de réglage d’hyperparamètres consiste à combiner une
 
 La recherche par grille à l’aide de la validation croisée peut être longue. Si un algorithme comprend cinq hyperparamètres ayant chacun cinq valeurs candidates, nous utilisons K = 5 plis. Nous effectuons ensuite une recherche par grille en apprenant 5<sup>6</sup>= 15625 modèles. La recherche par grille à l’aide de la validation croisée est heureusement une procédure excessivement parallèle, ce qui permet un apprentissage en parallèle de tous ces modèles.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie d’[Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée conformément au [guide de démarrage rapide d’installation et de création](./quickstart-installation.md) pour installer Workbench et créer des comptes.

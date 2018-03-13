@@ -156,7 +156,7 @@ Lorsque vous interrogez le service Batch avec une opération `list`, vous pouvez
 
 Le tableau suivant décrit les clauses OData prises en charge par le service Batch :
 
-| Clause | DESCRIPTION |
+| Clause | Description |
 |---|---|
 | `--select-clause [select-clause]` | Retourne un sous-ensemble de propriétés pour chaque entité. |
 | `--filter-clause [filter-clause]` | Retourne uniquement les entités qui correspondent à l’expression OData spécifiée. |
@@ -176,7 +176,7 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * Le [forum Batch][batch_forum] est géré par les membres de l’équipe Batch. Vous pouvez y publier vos questions si vous rencontrez des problèmes ou si vous avez besoin d’aide pour une opération spécifique.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur Azure CLI, consultez la [documentation relative à Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Pour plus d’informations sur les ressources Batch, consultez [Vue d’ensemble d’Azure Batch pour les développeurs](batch-api-basics.md).

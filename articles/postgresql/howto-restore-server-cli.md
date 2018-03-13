@@ -51,7 +51,7 @@ az postgres server restore --resource-group myresourcegroup --server mydemoserve
 ```
 
 La commande `az postgres server restore` requiert les paramètres suivants :
-| Paramètre | Valeur suggérée | DESCRIPTION  |
+| Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
 | Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
@@ -66,5 +66,5 @@ La commande `az postgres server restore` est synchrone. Une fois le serveur rest
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Bibliothèques de connexions pour Azure Database pour PostgreSQL](concepts-connection-libraries.md)

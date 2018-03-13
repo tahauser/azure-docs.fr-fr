@@ -25,7 +25,7 @@ Les tâches de base de données élastique (préversion) pour Azure SQL Database
 
 Cet article développe l’exemple présenté dans [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). Il explique comment créer et gérer des tâches qui gèrent un groupe de bases de données associées. Il n’est pas nécessaire d’utiliser les outils de mise à l’échelle élastique pour tirer parti des avantages des tâches élastiques.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application
@@ -461,7 +461,7 @@ Supprimez un déclencheur de tâches pour arrêter une tâche qui s'exécute sel
 
 Toutes les lignes de la table **Clients** , stockées dans des partitions différentes, remplissent la feuille Excel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez maintenant utiliser les fonctions de données Excel. Utilisez la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour connecter vos outils d’intégration BI et de données à la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Traitez la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### <a name="cost"></a>Coût

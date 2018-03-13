@@ -69,7 +69,7 @@ Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner 
 ## <a id="configure"></a> Options de configuration
 Il existe cinq fenêtres de configuration d’une machine virtuelle SQL Server.
 
-| Étape | DESCRIPTION |
+| Étape | Description |
 | --- | --- |
 | **Concepts de base** |[Configurer les paramètres de base](#1-configure-basic-settings) |
 | **Taille** |[Choisir la taille de machine virtuelle](#2-choose-virtual-machine-size) |

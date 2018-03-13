@@ -83,7 +83,7 @@ Pour configurer les étendues de l’API, ajoutez les entrées ci-dessous.
 
 ![étendues définies dans l’api web](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
 
-| Paramètre      | Valeur suggérée  | DESCRIPTION                                        |
+| Paramètre      | Valeur suggérée  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Portée** | Hello.Read | Accès en lecture à hello |
 | **Portée** | Hello.Write | Accès en écriture à hello |
@@ -191,7 +191,7 @@ Lorsque vous créez un élément de la liste de tâches, l’application web eff
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Cet article vous a expliqué en détail comment protéger une API Web ASP.NET en inscrivant et en définissant des étendues dans Azure AD B2C. Pour en savoir plus sur le développement de ce scénario, notamment sur les procédures pas à pas relatives au code, passez au didacticiel suivant.
 

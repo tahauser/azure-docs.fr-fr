@@ -279,7 +279,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Catégories de données de métadonnées Instance
 Les catégories de données suivantes sont disponibles via le service de métadonnées d’instance :
 
-Données | DESCRIPTION | Version introduite 
+Données | Description | Version introduite 
 -----|-------------|-----------------------
 location | Région Azure dans laquelle la machine virtuelle est en cours d’exécution | 2017-04-02 
 Nom | Nom de la machine virtuelle | 2017-04-02
@@ -409,6 +409,6 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
    ![Support des métadonnées d’instance](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur les [événements planifiés](scheduled-events.md)

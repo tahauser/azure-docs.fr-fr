@@ -35,7 +35,7 @@ Azure Backup crée des points de récupération stockés dans des coffres de ré
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de fichiers et le processus de récupération, vous supprimez une page d’un serveur web. Si vous avez besoin d’une machine virtuelle Linux qui exécute un serveur Web et qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
 
@@ -198,7 +198,7 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez connecté un point de récupération à une machine virtuelle et restauré des fichiers pour un serveur web. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

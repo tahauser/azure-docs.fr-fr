@@ -380,7 +380,7 @@ Ajouté à la version 1.3.
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**PublicConfig**|Requis. Consultez la description sur cette page.|  
 |**PrivateConfig**|facultatif. Consultez la description sur cette page.|  
@@ -391,7 +391,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Décrit la configuration de diagnostic public.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**WadCfg**|Requis. Consultez la description sur cette page.|  
 |**StorageAccount**|Nom du compte de stockage Azure où stocker les données. Peut également être spécifié en tant que paramètre lors de l’exécution de l’applet de commande Set-AzureServiceDiagnosticsExtension.|  
@@ -409,14 +409,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Obligatoire 
 
-|Attributs|DESCRIPTION|  
+|Attributs|Description|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 4 096 Mo.<br />
 |**useProxyServer** | Configurez Azure Diagnostics pour utiliser les paramètres de serveur proxy tels que définis dans les paramètres d’Internet Explorer.|  
 
 <br /> <br />
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**CrashDumps**|Consultez la description sur cette page.|  
 |**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Azure Diagnostics. Les journaux d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> - **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
@@ -434,13 +434,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  
  Permet la collecte des vidages sur incident.  
 
-|Attributs|DESCRIPTION|  
+|Attributs|Description|  
 |----------------|-----------------|  
 |**containerName**|facultatif. Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|  
 |**crashDumpType**|facultatif.  Configure Azure Diagnostics pour collecter les mini-vidages sur incident ou les vidages sur incident complets.|  
 |**directoryQuotaPercentage**|facultatif.  Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Requis. Définit les valeurs de configuration pour chaque processus.<br /><br /> L’attribut suivant est également requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez qu’Azure Diagnostics collecte un vidage sur incident.|  
 
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Attribut **scheduledTransferPeriod** facultatif. Voir l’explication précédente.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**IISLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux IIS :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.|   
 |**FailedRequestLogs**|Incluez cet élément dans la configuration pour permettre la collecte des journaux concernant les demandes ayant échoué sur une application ou un site IIS. Vous devez également activer les options de suivi sous **system.WebServer** dans **Web.config**.|  
@@ -465,7 +465,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Liste de répertoires à analyser.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**DirectoryConfiguration**|Requis. Attribut requis :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les fichiers journaux.|  
 
@@ -478,7 +478,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Peut inclure l’élément **Absolute** ou **LocalResource**, mais pas les deux.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**Absolute**|Chemin d’accès absolu au répertoire à surveiller. Les attributs suivants sont requis :<br /><br /> - **Path** - Chemin d’accès absolu au répertoire à surveiller.<br /><br /> - **expandEnvironment** - Détermine si les variables d’environnement de Path sont développées.|  
 |**LocalResource**|Chemin d’accès relatif à une ressource locale à surveiller. Les attributs requis sont :<br /><br /> - **Name** - Nom de la ressource locale contenant le répertoire à surveiller<br /><br /> - **relativePath** - Chemin d’accès relatif au nom qui contient le répertoire à surveiller|  
@@ -490,7 +490,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configure la collecte d’événements ETW issus des fournisseurs de manifeste EventSource et/ou ETW.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Attribut requis :<br /><br /> **provider** - Nom de classe de l’événement EventSource.<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> - **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Attribut requis :<br /><br /> **provider** -GUID du fournisseur d’événements<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> - **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
@@ -502,7 +502,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attribut facultatif :<br/><br/> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
 |**Event**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
@@ -512,7 +512,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
 |**Event**|Attribut requis :<br /><br /> **id** : ID de l’événement.<br /><br /> Attribut facultatif :<br /><br /> **eventDestination** -Nom de la table dans laquelle stocker les événements|  
@@ -526,7 +526,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  L’attribut **resourceId** est requis.  ID de ressource de la machine virtuelle ou du groupe de machines virtuelles identiques sur lesquels vous déployez les diagnostics Microsoft Azure. Obtenez le **resourceID** à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** -> **Groupe de ressources** -> **<>\>**. Cliquez sur la vignette **Propriétés** et copiez la valeur à partir du champ **ID**.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**MetricAggregation**|Attribut requis :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
@@ -541,7 +541,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Attribut **scheduledTransferPeriod** facultatif. Voir l’explication précédente.
 
-|Élément enfant|DESCRIPTION|  
+|Élément enfant|Description|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Les attributs suivants sont requis :<br /><br /> - **counterSpecifier** - Nom du compteur de performance. Par exemple : `\Processor(_Total)\% Processor Time`. Pour obtenir une liste des compteurs de performances se trouvant sur votre hôte, exécutez la commande `typeperf`.<br /><br /> - **sampleRate** - Fréquence à laquelle le compteur doit être échantillonné.<br /><br /> Attribut facultatif :<br /><br /> **unit** -Unité de mesure du compteur.|  
 
@@ -555,7 +555,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Attribut **scheduledTransferPeriod** facultatif. Voir l’explication précédente.  
 
-|Élément enfant|DESCRIPTION|  
+|Élément enfant|Description|  
 |-------------------|-----------------|  
 |**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements windows à collecter. Par exemple : <br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Pour collecter tous les événements, spécifiez « * ».|  
 
@@ -569,7 +569,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Définit la configuration de la mémoire tampon des journaux Azure de base.  
 
-|Attribut|type|DESCRIPTION|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferLogLevelFilterr**|**string**|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
@@ -581,7 +581,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Ajouté dans 1.9.
 
-|Nom de l’élément|DESCRIPTION|  
+|Nom de l’élément|Description|  
 |------------------|-----------------|  
 |**Stats**|Indique au système de collecter les statistiques pour les conteneurs Docker|  
 
@@ -590,7 +590,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Liste d’emplacements vers lesquels envoyer des données de diagnostic et la configuration associée à ces emplacements.  
 
-|Nom de l’élément|DESCRIPTION|  
+|Nom de l’élément|Description|  
 |------------------|-----------------|  
 |**Section sink**|Consultez la description sur cette page.|  
 
@@ -601,11 +601,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Définit les emplacements vers lesquels envoyer des données de diagnostic. Par exemple, le service Application Insights.  
 
-|Attribut|type|DESCRIPTION|  
+|Attribut|type|Description|  
 |---------------|----------|-----------------|  
 |**name**|chaîne|Chaîne identifiant le nom du récepteur.|  
 
-|Élément|type|DESCRIPTION|  
+|Élément|type|Description|  
 |-------------|----------|-----------------|  
 |**Application Insights**|chaîne|Utilisé uniquement lors de l’envoi de données à Application Insights. Contient la clé d’instrumentation d’un compte Application Insights actif auquel vous avez accès.|  
 |**Canaux**|chaîne|Un pour chaque filtrage supplémentaire qui diffuse cela en continu|  
@@ -617,7 +617,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Définit les filtres pour les flux de données de journaux passant par un récepteur.  
 
-|Élément|type|DESCRIPTION|  
+|Élément|type|Description|  
 |-------------|----------|-----------------|  
 |**Channel**|chaîne|Consultez la description sur cette page.|  
 
@@ -628,7 +628,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Définit les emplacements vers lesquels envoyer des données de diagnostic. Par exemple, le service Application Insights.  
 
-|Attributs|type|DESCRIPTION|  
+|Attributs|type|Description|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
 |**name**|**string**|Nom unique du canal auquel faire référence|  
@@ -643,7 +643,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Stocke les détails privés du compte de stockage (nom, clé et point de terminaison). Cette information est envoyée à la machine virtuelle, mais ne peut pas être récupérée à partir de celui-ci.  
 
-|Éléments enfants|DESCRIPTION|  
+|Éléments enfants|Description|  
 |--------------------|-----------------|  
 |**StorageAccount**|Compte de stockage à utiliser. Les attributs suivants sont requis :<br /><br /> - **name** - Nom du compte de stockage.<br /><br /> - **key** - Clé du compte de stockage.<br /><br /> - **endpoint** - Point de terminaison permettant d’accéder au compte de stockage. <br /><br /> -**sasToken** (ajouté 1.8.1)-, vous pouvez spécifier un jeton SAP au lieu d’une clé de compte de stockage dans la configuration privée. Si la clé de compte de stockage est fournie, elle est ignorée. <br />Configuration requise pour le jeton SAP : <br />- Prend en charge le jeton SAP de compte uniquement. <br />Les types de services - *b*, *t* sont requis. <br /> Les autorisations - *a*, *c*, *u*, *w* sont requises. <br /> Les types de ressources - *c*, *o* sont requis. <br /> - Prend en charge le protocole HTTPS uniquement. <br /> - Les heures de début et d’expiration doivent être valides.|  
 

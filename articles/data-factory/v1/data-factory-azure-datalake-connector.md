@@ -71,7 +71,7 @@ Les sections suivantes offrent des informations détaillées sur les propriété
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Un service lié lie un magasin de données à une fabrique de données. Pour lier votre magasin de données Data Lake Store à votre fabrique de données, vous devez créer un service lié de type **AzureDataLakeStore**. Le tableau suivant décrit les éléments JSON spécifiques pour des services Data Lake Store liés. Vous pouvez choisir entre une authentification par principal de service et par informations d’identification utilisateur.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | **type** | La propriété type doit être définie sur : **AzureDataLakeStore**. | OUI |
 | **dataLakeStoreUri** | Informations à propos du compte Azure Data Lake Store. Cette information prend un des formats suivants : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | OUI |
@@ -92,7 +92,7 @@ Pour utiliser l’authentification d’un principal du service, inscrivez une en
 
 Utilisez l’authentification par principal de service en spécifiant les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Spécifiez l’ID client de l’application. | OUI |
 | **servicePrincipalKey** | Spécifiez la clé de l’application. | OUI |
@@ -119,7 +119,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 ### <a name="user-credential-authentication"></a>Authentification des informations d’identification utilisateur
 Vous pouvez également utiliser l’authentification des informations d’identification utilisateur pour la copie vers ou à partir de Data Lake Store en spécifiant les propriétés ci-dessous :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | **authorization** | Cliquez sur le bouton **Autoriser** dans Data Factory Editor et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | OUI |
 | **sessionId** | ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | OUI |
@@ -238,7 +238,7 @@ Pour spécifier un jeu de données afin de représenter les données d’entrée
 
 La section **typeProperties** correspondant au jeu de données de type **AzureDataLakeStore** contient les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | **folderPath** |Chemin d’accès au conteneur et au dossier dans Data Lake Store. |OUI |
 | **fileName** |Le nom du fichier dans Azure Data Lake Store. La propriété **fileName** est facultative et sensible à la casse. <br/><br/>Si vous spécifiez **fileName**, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque **fileName** n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre **folderPath** du jeu de données d’entrée.<br/><br/>Lorsque **fileName** n'est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré a le format Data._Guid_.txt`. Par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Non  |
@@ -282,14 +282,14 @@ Les propriétés disponibles dans la section **typeProperties** d’une activit�
 
 **AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | **recursive** |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True (valeur par défaut), False |Non  |
 
 
 **AzureDataLakeStoreSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | **copyBehavior** |Spécifie le comportement de copie. |<b>PreserveHierarchy</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/><b>FlattenHierarchy</b>: tous les fichiers du dossier source sont créés dans le premier niveau du dossier cible. Les fichiers cibles sont créés avec un nom généré automatiquement.<br/><br/><b>MergeFiles</b> : fusionne tous les fichiers du dossier source dans un même fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. |Non  |
 

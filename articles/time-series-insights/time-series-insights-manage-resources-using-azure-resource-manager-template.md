@@ -23,7 +23,7 @@ ms.lasthandoff: 12/14/2017
 Cet article explique comment créer et déployer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager, de PowerShell et du fournisseur de ressources Time Series Insights.
 
 Time Series Insights prend en charge les ressources suivantes :
-   | Ressource | DESCRIPTION |
+   | Ressource | Description |
    | --- | --- |
    | Environnement | Un environnement Time Series Insights est un regroupement logique d’événements lus à partir de répartiteurs, stockés et rendus interrogeables. Pour plus d’informations, consultez la page [Planifier un environnement Azure Time Series Insights](time-series-insights-environment-planning.md). |
    | Source de l’événement | Une source d’événement est une connexion à un répartiteur d’événements à partir de laquelle Time Series Insights lit et ingère des événements dans l’environnement. Sont actuellement pris en charge IoT Hub et Event Hub. |
@@ -88,7 +88,7 @@ Pour créer un fichier de paramètres, copiez le fichier [201-timeseriesinsights
 
 #### <a name="required-parameters"></a>Paramètres obligatoires
 
-   | Paramètre | DESCRIPTION |
+   | Paramètre | Description |
    | --- | --- |
    | eventHubNamespaceName | Espace de noms du hub de la source de l’événement. |
    | eventHubName | Nom du hub de la source de l’événement. |
@@ -98,7 +98,7 @@ Pour créer un fichier de paramètres, copiez le fichier [201-timeseriesinsights
 
 #### <a name="optional-parameters"></a>Paramètres facultatifs
 
-   | Paramètre | DESCRIPTION |
+   | Paramètre | Description |
    | --- | --- |
    | existingEventHubResourceId | ID de ressource facultatif d’un hub d’événements existant qui sera connecté à l’environnement Time Series Insights par le biais de la source de l’événement. **REMARQUE :** L’utilisateur qui déploie le modèle doit avoir des privilèges pour réaliser l’opération listkeys sur le hub d’événements. Si aucune valeur n’est transmise, un nouveau hub d’événements sera créé par le modèle. |
    | environmentDisplayName | Nom convivial facultatif à afficher dans les outils et les interfaces utilisateur à la place du nom de l’environnement. |
@@ -269,6 +269,6 @@ La page d’accueil du modèle de démarrage rapide sur GitHub comporte égaleme
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur la gestion par programme de ressources Time Series Insights à l’aide d’API REST, consultez la page [Gestion de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

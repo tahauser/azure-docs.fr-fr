@@ -82,7 +82,7 @@ Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesam
 ## <a name="create-hive-odbc-data-source"></a>Création d’une source de données ODBC Hive
 Vous trouverez les instructions dans [Création d’une source de données ODBC Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Propriété  |DESCRIPTION |
+ | Propriété  |Description |
  | --- | --- |
  | Data Source Name | Donnez un nom à votre source de données |
  | Host | Entrez &lt;HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net |
@@ -136,7 +136,7 @@ Pour tester la deuxième stratégie (read-hivesampletable-devicemake) que vous a
 
     Une fois terminé, deux colonnes de données importées doivent s’afficher.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine, consultez [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md).
 * Pour gérer un cluster HDInsight joint à un domaine, consultez [Gestion de clusters HDInsight joints à un domaine](apache-domain-joined-manage.md).
 * Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

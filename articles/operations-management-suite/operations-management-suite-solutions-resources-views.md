@@ -33,7 +33,7 @@ ms.lasthandoff: 01/17/2018
 >
 >
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un fichier solution.
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -187,6 +187,6 @@ Par exemple, l’exemple suivant montre un fichier solution simple avec une vue.
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez plus de détails sur la création de [solutions de gestion](operations-management-suite-solutions-creating.md).
 * Inclure [des runbooks Automation dans votre solution de gestion](operations-management-suite-solutions-resources-automation.md).

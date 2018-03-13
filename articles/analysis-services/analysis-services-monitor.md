@@ -42,7 +42,7 @@ Pour effectuer des diagnostics plus approfondis, suivre des performances et iden
 ## <a name="server-metrics"></a>Indicateurs de performances de serveur
 Ce tableau permet de déterminer les meilleurs indicateurs de performances pour votre scénario d’analyse. Seuls ceux appartenant à la même unité peuvent être affichés sur un même graphique.
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de commandes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de commandes.|
 |CurrentConnections|Connexion : connexions actuelles|Count|Moyenne|Nombre actuel de connexions client établies.|
@@ -88,7 +88,7 @@ Ce tableau permet de déterminer les meilleurs indicateurs de performances pour 
 |TotalConnectionFailures|Nombre total d’échecs de connexion|Count|Moyenne|Total des échecs de tentatives de connexion.|
 |TotalConnectionRequests|Nombre total de demandes de connexion|Count|Moyenne|Nombre total de demandes de connexion. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Surveillance dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Indicateurs de performances dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Indicateurs de performances dans l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx)

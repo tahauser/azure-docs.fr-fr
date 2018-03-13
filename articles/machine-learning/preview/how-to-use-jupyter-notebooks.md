@@ -20,7 +20,7 @@ ms.lasthandoff: 02/09/2018
 
 Azure Machine Learning Workbench prend en charge une expérimentation de science des données interactive par le biais de son intégration au bloc-notes Jupyter. Cet article décrit comment tirer parti de cette fonctionnalité pour augmenter la vitesse et la qualité de votre expérimentation de science des données interactive.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 - [Installer et créer Azure Machine Learning](quickstart-installation.md).
 - Se familiariser avec le [bloc-notes Jupyter](http://jupyter.org/), étant donné que cet article n’a pas vocation à expliquer comment utiliser Jupyter.
 

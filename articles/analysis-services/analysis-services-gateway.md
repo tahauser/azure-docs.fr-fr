@@ -67,7 +67,7 @@ Nous vous recommandons d’autoriser les adresses IP pour votre région de donn�
 
 Voici les noms de domaine complets utilisés par la passerelle.
 
-| Noms de domaine | Ports sortants | DESCRIPTION |
+| Noms de domaine | Ports sortants | Description |
 | --- | --- | --- |
 | *. powerbi.com |80 |HTTP utilisé pour télécharger le programme d’installation. |
 | *. powerbi.com |443 |HTTPS |
@@ -201,7 +201,7 @@ La télémétrie peut être utilisée pour la surveillance et la résolution des
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md).   
 * [Gérer Analysis Services](analysis-services-manage.md)
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)

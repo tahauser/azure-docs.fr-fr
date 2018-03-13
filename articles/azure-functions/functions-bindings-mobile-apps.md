@@ -136,7 +136,7 @@ Pour plus d’informations sur les propriétés d’attribut que vous pouvez con
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `MobileTable`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 | **type**|| Doit être défini sur « mobileTable »|
 | **direction**||Doit être défini sur « in »|
@@ -295,7 +295,7 @@ Vous trouverez un exemple complet sur la page [Sortie - exemple C#](#output---c-
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `MobileTable`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 | **type**|| Doit être défini sur « mobileTable »|
 | **direction**||Doit être défini sur « out »|
@@ -319,7 +319,7 @@ Dans les fonctions de script C#, utilisez un paramètre de sortie nommé de type
 
 Dans les fonctions Node.js, utilisez `context.bindings.<name>` pour accéder à l’enregistrement de sortie.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

@@ -42,7 +42,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Ajouter des contrôles pour appeler la fonction et afficher les données
 > * Exécuter l’application pour déterminer si une réparation est rentable
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Un [compte PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) actif avec les mêmes informations d’identification que votre compte Azure. 
 + Excel et le [fichier d’exemple Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que vous allez utiliser comme source de données pour votre application.
@@ -218,7 +218,7 @@ Votre application est terminée ! Il est temps de l’exécuter et de voir les a
 
 1. Essayez les autres éoliennes pour voir ce qui est retourné par la fonction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

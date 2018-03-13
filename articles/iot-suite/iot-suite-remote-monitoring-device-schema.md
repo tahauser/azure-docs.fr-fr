@@ -68,7 +68,7 @@ Vous pouvez afficher les fichiers du schéma pour les appareils simulés par dé
 
 Le tableau suivant décrit les entrées du schéma de niveau supérieur :
 
-| Entrée de schéma | DESCRIPTION |
+| Entrée de schéma | Description |
 | -- | --- |
 | `SchemaVersion` | La version du schéma est toujours `1.0.0` et est spécifique au format de ce fichier. |
 | `Id` | Un ID unique pour ce modèle d’appareil. |
@@ -233,7 +233,7 @@ L’exemple suivant spécifie trois méthodes prises en charge et les fichiers J
 
 Vous pouvez voir les fichiers JavaScript pour les appareils simulés par défaut dans le [dossier scipts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) sur GitHub. Par convention, ces fichiers JavaScript ont le suffixe **-method** pour les différencier des fichiers qui implémentent le comportement de l’état.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Cet article vous a décrit comment créer votre propre modèle personnalisé d’appareil simulé. Cet article vous a montré comment :
 

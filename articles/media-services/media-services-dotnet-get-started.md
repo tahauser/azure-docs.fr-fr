@@ -25,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande (VoD) avec l’application Azure Media Services (AMS) à l’aide du Kit de développement logiciel (SDK) .NET Azure Media Services.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 

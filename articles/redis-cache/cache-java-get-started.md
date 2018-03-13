@@ -34,7 +34,7 @@ Le Cache Redis Azure permet d’accéder à un cache Redis dédié géré par Mi
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Java.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 [Jedis](https://github.com/xetorthio/jedis) : client Java pour Redis
 
 Ce didacticiel utilise Jedis, mais vous pouvez utiliser n'importe quel client Java parmi ceux répertoriés ici : [http://redis.io/clients](http://redis.io/clients).
@@ -78,7 +78,7 @@ Les dernières versions de [jedis](https://github.com/xetorthio/jedis) prennent 
     }
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache.
 * Lisez la [documentation Redis](http://redis.io/documentation)officielle.
 * Découvrez comment [configurer une application Spring Initializr pour utiliser Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md).

@@ -25,7 +25,7 @@ Cet article décrit diverses topologies locales et Azure Active Directory (Azure
 
 Voici la légende des images de l’article :
 
-| DESCRIPTION | Symbole |
+| Description | Symbole |
 | --- | --- |
 | Forêt Active Directory locale |![Forêt Active Directory locale](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
 | Active Directory local avec importation filtrée |![Active Directory avec importation filtrée](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
@@ -181,7 +181,7 @@ Les locataires Azure AD sont isolés de par leur conception. Les tâches suivant
 
 Vous pouvez utiliser FIM 2010 ou MIM 2016 local pour synchroniser les utilisateurs (via GALSync) entre deux organisations Exchange. Les utilisateurs d’une organisation apparaissent alors comme des utilisateurs/contacts externes dans l’autre organisation. Ces différentes instances Active Directory locales peuvent ensuite être synchronisées vers leurs propres locataires Azure AD.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

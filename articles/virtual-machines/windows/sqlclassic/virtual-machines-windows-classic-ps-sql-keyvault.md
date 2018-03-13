@@ -50,7 +50,7 @@ Utilisez PowerShell pour configurer Azure Key Vault Integration. Les sections su
 ### <a name="understand-the-input-parameters"></a>Comprendre les paramètres d’entrée
 Le tableau suivant répertorie les paramètres requis pour exécuter le script PowerShell dans la section suivante.
 
-| Paramètre | DESCRIPTION | exemples |
+| Paramètre | Description | exemples |
 | --- | --- | --- |
 | **$akvURL** |**L'URL du coffre de clés** |« https://contosokeyvault.vault.azure.net/ » |
 | **$spName** |**Nom du principal du service** |« fde2b411-33d5-4e11-af04eb07b669ccf2 » |

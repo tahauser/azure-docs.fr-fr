@@ -29,7 +29,7 @@ Vous pouvez commencer par créer une application logique. Pour cela, consultez [
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Créer une connexion à OneDrive Entreprise
 Pour créer des applications logiques avec OneDrive Entreprise, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | par jeton |OUI |Fournir des informations d’identification pour OneDrive Entreprise |
 

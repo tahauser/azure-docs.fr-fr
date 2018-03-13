@@ -37,7 +37,7 @@ Pour plus d’informations sur l’encodage et le décodage des messages envoyé
 
 Le tableau suivant répertorie l’ensemble des propriétés système dans les messages IoT Hub.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | MessageId |Identificateur correspondant au message défini par l’utilisateur utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Numéro de séquence |Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |
@@ -61,7 +61,7 @@ IoT Hub mesure la taille des messages d’une façon indépendante du protocole,
 
 Les noms et les valeurs des propriétés sont limités aux caractères ASCII ; ainsi, la longueur des chaînes est égale à la taille en octets.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les limites de taille des messages dans IoT Hub, consultez [Quotas et limitation IoT Hub][lnk-quotas].
 

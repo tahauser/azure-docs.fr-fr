@@ -22,7 +22,7 @@ ms.lasthandoff: 01/16/2018
 
 Des variables d’environnement définies pour chaque instance de service sont intégrées à Service Fabric. Voici la liste complète des variables d’environnement :
 
-| Variable d’environnement                         | DESCRIPTION                                                            | exemples                                                              |
+| Variable d’environnement                         | Description                                                            | exemples                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nom de l’URI Fabric de l'application                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nom du package de code auquel appartient le processus              | Code                                                                 |

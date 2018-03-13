@@ -32,7 +32,7 @@ L’intégration de Palo Alto Networks - GlobalProtect à Azure AD vous offre le
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Palo Alto Networks - GlobalProtect, vous avez besoin des éléments suivants :
 

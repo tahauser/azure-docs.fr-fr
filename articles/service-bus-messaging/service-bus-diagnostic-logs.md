@@ -63,7 +63,7 @@ Les journaux de la catégorie **OperationalLogs** capturent ce qui se passe dura
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-NOM | DESCRIPTION
+NOM | Description
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi
 EventName | Nom d’opération           
@@ -91,7 +91,7 @@ Voici un exemple de chaîne JSON du journal des opérations :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Service Bus, voir les liens suivants :
 

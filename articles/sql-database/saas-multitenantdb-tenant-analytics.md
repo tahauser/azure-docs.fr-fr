@@ -68,7 +68,7 @@ Comprendre la fréquence à laquelle chaque client utilise le service fournit un
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
@@ -228,7 +228,7 @@ Précédemment, vous avez approfondi l’analyse pour découvrir que les ventes 
 
 Vous avez observé les tendances des données client à partir de l’application de base de données multi-locataire Wingtip Tickets SaaS. Vous pouvez envisager d’autres façons dont l’application peut indiquer des décisions d’affaires pour les fournisseurs d’applications SaaS. Les fournisseurs peuvent mieux répondre aux besoins de leurs clients. Nous espérons que ce didacticiel vous aura donné les outils nécessaires pour effectuer des analyses sur les données client afin de répondre aux besoins de votre entreprise pour prendre des décisions pilotées par les données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

@@ -66,7 +66,7 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
 
 ## <a name="syntax-details"></a>Détails de la syntaxe
 
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
 | Nom              | Nom de l’activité                     | OUI      |
 | description       | Texte décrivant la raison motivant l’activité. | Non        |
@@ -118,7 +118,7 @@ Vous pouvez utiliser l’activité MapReduce de HDInsight pour exécuter un fich
 ```
 Vous pouvez spécifier les arguments du programme MapReduce dans la section **arguments**. Lors de l’exécution, vous verrez quelques arguments supplémentaires (par exemple : mapreduce.job.tags) à partir de l’infrastructure MapReduce. Pour différencier vos arguments avec les arguments MapReduce, envisagez d’utiliser l’option et la valeur en tant qu’arguments comme indiqué dans l’exemple suivant (-s, --entrée, --sortie etc. sont des options immédiatement suivies par leurs valeurs).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

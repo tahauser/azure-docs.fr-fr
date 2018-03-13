@@ -34,7 +34,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 * développer des solutions de streaming pour vos clients à l’aide de Stream Analytics en toute confiance ;
 * vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous avez besoin des composants suivants :
 
 * La version la plus récente d’ [Azure PowerShell](/powershell/azure/overview)
@@ -66,7 +66,7 @@ Le flux des données d’entrée contient les informations relatives aux véhicu
 
 Voici une brève description des colonnes :
 
-| Colonne | DESCRIPTION |
+| Colonne | Description |
 | --- | --- |
 | TollID |ID de guichet identifiant de façon unique un poste de péage |
 | EntryTime |Date et heure UTC d’entrée du véhicule en poste de péage |
@@ -93,7 +93,7 @@ Le flux des données de sortie contient des informations sur les véhicules qui 
 
 Voici une brève description des colonnes :
 
-| Colonne | DESCRIPTION |
+| Colonne | Description |
 | --- | --- |
 | TollID |ID de guichet identifiant de façon unique un poste de péage |
 | ExitTime |Date et heure UTC auxquelles le véhicule quitte le poste de péage |
@@ -113,7 +113,7 @@ Le didacticiel utilise un instantané statique de la base de données d’inscri
 
 Voici une brève description des colonnes :
 
-| Colonne | DESCRIPTION |
+| Colonne | Description |
 | --- | --- |
 | LicensePlate |Numéro de plaque d’immatriculation du véhicule |
 | ID d’inscription |ID d’inscription du véhicule |

@@ -143,7 +143,7 @@ Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de 
 
 Pour découvrir comment créer des fabriques de données avec des pipelines de données, suivez les instructions pas à pas des didacticiels suivants :
 
-| Didacticiel | DESCRIPTION |
+| Didacticiel | Description |
 | --- | --- |
 | [Déplacer des données entre deux magasins de données cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Créez une fabrique de données avec un pipeline qui déplace des données de Blob Storage vers une base de données SQL. |
 | [Transformer des données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md) |Générez votre première fabrique de données Azure avec un pipeline de données qui traite les données en exécutant le script Hive sur un cluster Azure HDInsight (Hadoop). |

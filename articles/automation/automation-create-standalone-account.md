@@ -83,7 +83,7 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
 ### <a name="resources-included"></a>Ressources incluses
 Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées. Le tableau ci-dessous récapitule les ressources du compte d’identification.
 
-| Ressource | DESCRIPTION |
+| Ressource | Description |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Exemple de runbook graphique qui illustre l’authentification à l’aide du compte d’identification. Le runbook récupère toutes les ressources Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Exemple de runbook PowerShell qui illustre comment s’authentifier à l’aide du compte d’identification. Le runbook récupère toutes les ressources Resource Manager. |
@@ -93,7 +93,7 @@ Une fois le compte Automation créé, plusieurs ressources vous sont automatique
 
 Le tableau ci-dessous récapitule les ressources du compte d’identification Classic.
 
-| Ressource | DESCRIPTION |
+| Ressource | Description |
 | --- | --- |
 | Runbook AzureClassicAutomationTutorial |Exemple de runbook graphique. Le runbook récupère l’ensemble des machines virtuelles classiques d’un abonnement à l’aide du compte d’identification Classic (certificat). Ensuite, il affiche le nom et l’état des machines virtuelles. |
 | Runbook AzureClassicAutomationTutorialScript |Exemple de runbook PowerShell. Le runbook récupère l’ensemble des machines virtuelles classiques d’un abonnement à l’aide du compte d’identification Classic (certificat). Ensuite, il affiche le nom et l’état des machines virtuelles. |
@@ -101,7 +101,7 @@ Le tableau ci-dessous récapitule les ressources du compte d’identification Cl
 | AzureClassicRunAsConnection |Ressource de connexion créée automatiquement. La ressource permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des runbooks. |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Pour obtenir des informations sur la prise en main des Runbooks de workflow PowerShell, voir [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md).

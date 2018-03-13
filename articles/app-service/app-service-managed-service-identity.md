@@ -159,7 +159,7 @@ Une application avec une identité de service managée a deux variables d’envi
 **MSI_ENDPOINT** est une URL locale à partir de laquelle votre application peut demander des jetons. Pour obtenir un jeton pour une ressource, effectuez une requête HTTP GET à destination de ce point de terminaison, en indiquant notamment les paramètres suivants :
 
 > [!div class="mx-tdBreakAll"]
-> |Nom du paramètre|Dans|DESCRIPTION|
+> |Nom du paramètre|Dans|Description|
 > |-----|-----|-----|
 > |resource|Requête|URI de ressource AAD de la ressource pour laquelle un jeton doit être obtenu.|
 > |api-version|Requête|Version de l’API de jeton à utiliser. « 2017-09-01 » est la seule version prise en charge.|
@@ -169,7 +169,7 @@ Une application avec une identité de service managée a deux variables d’envi
 Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivantes :
 
 > [!div class="mx-tdBreakAll"]
-> |Nom de la propriété|DESCRIPTION|
+> |Nom de la propriété|Description|
 > |-------------|----------|
 > |access_token|Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service web de destination.|
 > |expires_on|L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache.|

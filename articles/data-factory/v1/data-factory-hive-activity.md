@@ -74,7 +74,7 @@ L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md)
 }
 ```
 ## <a name="syntax-details"></a>Détails de la syntaxe
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Nom |Nom de l’activité |OUI |
 | description |Texte décrivant la raison motivant l’activité. |Non  |

@@ -28,7 +28,7 @@ Microsoft Azure propose plusieurs fonctionnalités dans le stockage Azure pour s
 
 Le tableau suivant compare les fichiers, les objets blob et les disques, et il présente des exemples de scénarios appropriés pour chacun.
 
-| Fonctionnalité | DESCRIPTION | Quand utiliser |
+| Fonctionnalité | Description | Quand utiliser |
 |--------------|-------------|-------------|
 | **Azure Files** | Fournit une interface SMB, des bibliothèques clientes et une [interface REST](/rest/api/storageservices/file-service-rest-api) qui permet d’accéder en tout lieu aux fichiers stockés. | Vous souhaitez développer et transférer une application dans le cloud qui utilise déjà les API du système de fichiers natif pour partager des données avec d’autres applications s’exécutant dans Azure.<br/><br/>Vous souhaitez stocker les outils de développement et de débogage qui doivent être accessibles à partir de nombreuses machines virtuelles. |
 | **Objets blob Azure** | Fournit des bibliothèques clientes et une [interface REST](/rest/api/storageservices/blob-service-rest-api) qui permet de stocker les données non structurées et d’y accéder à grande échelle dans les objets blob de blocs. | Vous souhaitez que votre application prenne en charge le streaming et l’accès aléatoire.<br/><br/>Vous souhaitez être en mesure d’accéder aux données d’application à partir de n’importe quel endroit. |
@@ -72,7 +72,7 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |E/S par seconde de 8 Ko max.|500 E/S par seconde|1 000 E/S par seconde|  
 |Throughput|Jusqu’à 60 Mo/s par disque|Jusqu’à 60 Mo/s par partage de fichiers|  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Lors des décisions concernant le stockage et l’accès de vos données, vous devez également prendre en considération les coûts impliqués. Pour plus d’informations, consultez [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
   

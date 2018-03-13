@@ -145,7 +145,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Paramètre | Condition | DESCRIPTION |
+| Paramètre | Condition | Description |
 | --- | --- | --- |
 | locataire |Obligatoire |Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être fourni au format GUID ou sous forme de nom convivial OU référencé de manière générique avec « common » comme indiqué dans l’exemple. |
 | client_id |Obligatoire |ID d’application que le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) a affecté à votre application. |
@@ -161,7 +161,7 @@ Si l’administrateur approuve les autorisations pour votre application, la rép
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- | --- |
 | locataire |Client d’annuaire ayant accordé à votre application les autorisations demandées au format GUID. |
 | state |Valeur incluse dans la requête qui sera également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
@@ -174,7 +174,7 @@ Si l’administrateur n’approuve pas les autorisations pour votre application,
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- | --- |
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur. |

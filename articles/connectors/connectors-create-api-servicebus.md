@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2018
 
 Pour envoyer et recevoir des messages avec votre application logique, connectez-vous à [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Vous pouvez effectuer des actions telles qu’envoyer vers une file d’attente ou une rubrique, et recevoir d’une file d’attente ou d’un abonnement. Pour en savoir plus, voir [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) et [tarification des déclencheurs Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir utiliser le connecteur de Service Bus, vous devez disposer de ces éléments qui doivent faire partie du même abonnement Azure, de sorte qu’ils soient visibles l’un pour l’autre :
 

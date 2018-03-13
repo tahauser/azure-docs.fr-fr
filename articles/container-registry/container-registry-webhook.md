@@ -33,7 +33,7 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 1. Dans la barre d’outils de webhook, sélectionnez **Ajouter**.
 1. Remplissez le formulaire *Créer un webhook* avec les informations suivantes :
 
-| Valeur | DESCRIPTION |
+| Valeur | Description |
 |---|---|
 | NOM | Nom que vous voulez donner au webhook. Il peut contenir uniquement des caractères minuscules et des chiffres, et doit comporter de 5 à 50 caractères. |
 | URI de service | URI auquel le webhook doit envoyer des notifications POST. |
@@ -92,6 +92,6 @@ Vous pouvez supprimer chaque webhook en le sélectionnant, puis en appuyant sur 
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Référence de schéma de webhook Azure Container Registry](container-registry-webhook-reference.md)

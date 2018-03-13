@@ -50,7 +50,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
     Une boîte de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée.
 
-    | Paramètres        |  Valeur           | DESCRIPTION  |
+    | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application web ASP.NET | Type de l’application que vous analysez |
@@ -123,7 +123,7 @@ Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les did
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Rechercher et diagnostiquer des exceptions runtime](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

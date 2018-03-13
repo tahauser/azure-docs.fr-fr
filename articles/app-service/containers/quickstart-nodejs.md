@@ -35,7 +35,7 @@ Vous pouvez suivre les étapes de ce didacticiel en utilisant un ordinateur Mac,
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -185,7 +185,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 >[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Node.js avec MongoDB](tutorial-nodejs-mongodb-app.md)

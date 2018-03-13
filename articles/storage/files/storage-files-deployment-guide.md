@@ -25,7 +25,7 @@ ms.lasthandoff: 01/19/2018
 
 Avant de suivre les étapes décrites dans cet article, nous recommandons vivement de lire l’article [Planification d’un déploiement d’Azure Files](storage-files-planning.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez déjà accompli les étapes suivantes :
 
 - Créé un compte de stockage Azure avec les options de chiffrement et de résilience, et dans la région de votre choix. Pour obtenir des instructions pas à pas concernant la création d’un compte de stockage, voir [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
@@ -153,7 +153,7 @@ do
 done
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Planifier un déploiement de la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-planning.md)
 - [Résoudre les problèmes d’Azure Files sous Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Résoudre les problèmes d’Azure Files sous Linux](storage-troubleshoot-linux-file-connection-problems.md)

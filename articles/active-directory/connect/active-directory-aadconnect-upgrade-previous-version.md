@@ -27,7 +27,7 @@ Si vous souhaitez effectuer une mise à niveau à partir de DirSync, consultez p
 
 Il existe plusieurs stratégies que vous pouvez utiliser pour mettre à niveau Azure AD Connect.
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 | --- | --- |
 | [Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) |Pour les clients avec une installation rapide, il s’agit de la méthode la plus simple. |
 | [Mise à niveau sur place](#in-place-upgrade) |Si vous avez un seul serveur, vous pouvez mettre à niveau l’installation sur place sur le même serveur. |
@@ -129,5 +129,5 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
 
 Pour ajouter les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur [l’intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

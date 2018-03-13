@@ -48,7 +48,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié OData sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **OData** |OUI |
 | url | URL racine du service OData. |OUI |
@@ -130,7 +130,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de OData, affectez la valeur **ODataResource** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **ODataResource** | OUI |
 | chemin d’accès | Chemin d'accès de la ressource OData. | Non  |
@@ -163,7 +163,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’OData, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
 | query | Options de requête OData pour filtrer les données. Exemple : "?$select=Name,Description&$top=5".<br/><br/>Notez enfin que le connecteur OData copie des données de l’URL combinée : `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
@@ -226,5 +226,5 @@ Lors de la copie de données d’OData, les mappages suivants sont utilisés ent
 > Les types de données complexes OData (par exemple, Object), ne sont pas pris en charge.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

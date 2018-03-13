@@ -147,7 +147,7 @@ Pour chaque type de message, voici les formats de noms et descriptions de propri
 
 Voici les descriptions de propriété pour chaque message AS2.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord AS2 |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord AS2 |
@@ -178,7 +178,7 @@ Voici les formats de noms pour chaque dossier et fichier de message AS2 téléch
 
 Voici les descriptions de propriété pour chaque message X12.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord X12 |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord X12 |
@@ -211,7 +211,7 @@ Voici les formats de noms pour chaque dossier et fichier de message X12 téléch
 
 Voici les descriptions de propriété pour chaque message EDIFACT.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
@@ -238,7 +238,7 @@ Voici les formats de noms pour chaque dossier et fichier de message EDIFACT tél
 | Entrée, sortie et, si configurés, fichiers d’accusé de réception | **Charge utile d’entrée**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_input_payload.txt </p>**Charge utile de sortie**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_sortie\_payload.txt </p></p>**Entrées**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_inputs.txt </p></p>**Sorties**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Interroger des messages B2B dans Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schémas de suivi AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

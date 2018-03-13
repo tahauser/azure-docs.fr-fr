@@ -38,7 +38,7 @@ Les réseaux logiques représentent une abstraction de l’infrastructure résea
 
 Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IPv4 associées à prendre en compte dans le cadre de la planification :
 
-| Réseau logique | DESCRIPTION | Taille | 
+| Réseau logique | Description | Taille | 
 | -------- | ------------- | ------------ | 
 | Adresse IP virtuelle publique | Les adresses IP publiques pour un petit ensemble de services Azure Stack, avec le reste utilisé par les machines virtuelles du client. L’infrastructure de Azure Stack utilise 32 adresses à partir de ce réseau. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 
@@ -84,5 +84,5 @@ Pour rendre les services de Azure Stack (tels que les portails, Azure Resource M
  
 Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) et [sortantes](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la syndication de Place de marché, les correctifs et les mises à jour, l’inscription et les données d’utilisation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Connectivité de la frontière](azure-stack-border-connectivity.md)

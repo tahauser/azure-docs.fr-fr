@@ -25,7 +25,7 @@ ms.lasthandoff: 02/03/2018
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 Cet article donne des exemples de scripts CLI permettant de se connecter à l’aide d’un principal de service MSI affecté à l’utilisateur ; il offre également de l’aide sur des sujets importants, comme la gestion des erreurs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -98,7 +98,7 @@ Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure da
 
 Si ce n’est pas le cas, vous devez réaffecter l’identité MSI à votre ressource ou résoudre le problème de déploiement. Consultez [Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour activer l’identité MSI sur une machine virtuelle Azure, consultez [Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).
 

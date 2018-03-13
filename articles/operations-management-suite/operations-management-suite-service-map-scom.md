@@ -29,7 +29,7 @@ La solution Service Map détecte automatiquement les composants d’application 
 
 Avec cette intégration entre Service Map et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans Service Map.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Un groupe d’administration d’Operations Manager (2012 R2 ou version ultérieure) qui gère un ensemble de serveurs.
 * Un espace de travail Log Analytics avec la solution Service Map activée.
 * Un ensemble de serveurs (au moins un) gérés par Operations Manager et envoyant des données à Service Map. Les serveurs Windows et Linux sont pris en charge.

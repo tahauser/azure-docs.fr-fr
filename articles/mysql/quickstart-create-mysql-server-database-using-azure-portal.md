@@ -128,7 +128,7 @@ Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysq
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    Paramètre mysql |Valeur suggérée|DESCRIPTION
+    Paramètre mysql |Valeur suggérée|Description
     ---|---|---
     --host | *Nom du serveur* | Spécifiez la valeur de nom de serveur utilisée lorsque vous avez créé la base de données Azure pour MySQL. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mysql.database.azure.com**. Utilisez le nom de domaine complet (**\*.mysql.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     --user | *Nom de connexion d’administrateur du serveur* |Le nom d’utilisateur de connexion d’administrateur du serveur fourni lorsque vous avez créé le serveur Azure Database pour MySQL. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
@@ -235,7 +235,7 @@ Pour supprimer uniquement le serveur que vous venez de créer, procédez comme s
 
 3.  Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez votre nom de serveur dans la zone, **mydemoserver** dans notre exemple. Sélectionnez **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Concevoir votre première base de données Azure pour MySQL](./tutorial-design-database-using-portal.md)

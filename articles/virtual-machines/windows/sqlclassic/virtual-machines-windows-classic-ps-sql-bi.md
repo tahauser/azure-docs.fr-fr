@@ -316,7 +316,7 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
   * Créez des points de terminaison de machine virtuelle pour les ports notés (*).
 * Si la machine virtuelle est jointe à un domaine avec un tunnel VPN tel que le réseau virtuel Azure, les points de terminaison ne sont pas requis. Ouvrez toutefois les ports dans le pare-feu sur la machine virtuelle.
   
-  | Port | type | DESCRIPTION |
+  | Port | type | Description |
   | --- | --- | --- |
   | **80** |TCP |Accès distant au serveur de rapports (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |

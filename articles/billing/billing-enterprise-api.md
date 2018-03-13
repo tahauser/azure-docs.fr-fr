@@ -51,7 +51,7 @@ Les Etags s’afficheront dans la réponse de toutes les API ci-dessus. Une modi
 
 
 ## <a name="api-response-codes"></a>Codes de réponse HTTP  
-|Code du statut de réponse|Message|DESCRIPTION|
+|Code du statut de réponse|Message|Description|
 |-|-|-|
 |200| OK|Aucune erreur|
 |401| Non autorisé| Clé API introuvable, non valide, expirée, etc.|

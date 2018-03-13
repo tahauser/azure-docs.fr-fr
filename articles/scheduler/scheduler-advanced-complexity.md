@@ -125,7 +125,7 @@ Si vous spécifiez plusieurs éléments de planification, l’ordre d’évaluat
 
 Le tableau suivant décrit les éléments schedule en détail :
 
-| Nom JSON | DESCRIPTION | Valeurs valides |
+| Nom JSON | Description | Valeurs valides |
 |:--- |:--- |:--- |
 | **minutes** |Minutes de l’heure où le travail s’exécute. |Tableau d’entiers. |
 | **hours** |Heures de la journée où le travail s’exécute. |Tableau d’entiers. |

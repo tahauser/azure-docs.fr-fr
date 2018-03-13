@@ -43,7 +43,7 @@ La solution :
 
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Support | DESCRIPTION |
+| Source connectée | Support | Description |
 |---|---|---|
 | [Agents Windows](log-analytics-windows-agent.md) | OUI | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non     | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
@@ -120,7 +120,7 @@ En résumé, la solution collecte les données de capacité et de performances �
 
 Le tableau ci-dessous contient des exemples de recherche dans les journaux pour les données de capacité et de performances collectées et calculées par cette solution.
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |---|---|
 | Toutes les configurations mémoire d’hôte | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
 | Toutes les configurations mémoire de machine virtuelle | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
@@ -133,7 +133,7 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 >[!NOTE]
 > Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus seront remplacées par les suivantes.
 
-> | Requête | DESCRIPTION |
+> | Requête | Description |
 |:--- |:--- |
 | Toutes les configurations mémoire d’hôte | Perf &#124; où ObjectName == « Capacité et performances » et CounterName == « Mo de mémoire attribuée Mo à l’hôte » &#124; résumer Mo = avg(CounterValue) par InstanceName |
 | Toutes les configurations mémoire de machine virtuelle | Perf &#124; où ObjectName == « Capacité et performance » et CounterName == « Mo de mémoire attribuée à la machine virtuelle » &#124; résumer Mo = avg(CounterValue) par InstanceName |
@@ -144,5 +144,5 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 | Répartition de la latence totale entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Latence de lectures/s de volume partagé de cluster » ou CounterName == « Latence d’écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez les [Recherches dans les journaux de Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de capacité et de performances.

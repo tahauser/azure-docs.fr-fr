@@ -73,7 +73,7 @@ Un cas d’utilisation typique dans des modèles ETL correspond aux « charges d
 ### <a name="other-control-flow-activities"></a>Autres activités de flux de contrôle
 D’autres activités de flux de contrôle prises en charge par Data Factory V2 sont indiquées ci-dessous. 
 
-Activité de contrôle | DESCRIPTION
+Activité de contrôle | Description
 ---------------- | -----------
 [Activité ForEach](control-flow-for-each-activity.md) | Définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
 [Activité Web](control-flow-web-activity.md) | Appelle un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 
@@ -143,5 +143,5 @@ Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compat
 Dans V2, vous pouvez également surveiller les fabriques de données à l’aide d’[Azure Monitor](monitor-using-azure-monitor.md). Les nouvelles applets de commande PowerShell prennent en charge la surveillance des [runtimes d’intégration](monitor-integration-runtime.md). V1 et V2 prennent toutes deux en charge la surveillance visuelle à l’aide d’une application de surveillance pouvant être lancée depuis le portail Azure.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md). 

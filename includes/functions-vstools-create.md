@@ -10,7 +10,7 @@ Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut
  
     ![Boîte de dialogue Nouvelle fonction dans Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-function.png) 
 
-    | Paramètre      | Valeur suggérée  | DESCRIPTION                      |
+    | Paramètre      | Valeur suggérée  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Version** | Azure Functions v1 <br />(.NET Framework) | Ce paramètre crée un projet de fonction qui utilise le runtime Azure Functions version 1. Le runtime version 2, qui prend en charge .NET Core, est pour l’instant disponible en préversion. Pour plus d’informations, consultez [Guide pratique pour cibler la version du runtime Azure Functions](../articles/azure-functions/functions-versions.md).   | 
     | **Modèle** | Déclencheur HTTP | Ce paramètre crée une fonction déclenchée par une requête HTTP. |

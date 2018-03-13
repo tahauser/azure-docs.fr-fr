@@ -31,7 +31,7 @@ Ce didacticiel vous montre comment activer une identité du service administré 
 > * Accorder à votre machine virtuelle l’accès à un groupe de ressources dans Azure Resource Manager 
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle et l’utiliser pour appeler Azure Resource Manager
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

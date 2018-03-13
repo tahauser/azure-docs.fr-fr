@@ -72,7 +72,7 @@ Une fenêtre bascule a les propriétés de type de déclencheur suivantes :
 
 Le tableau suivant présente les principaux éléments JSON liés à la périodicité et à la planification d’un déclencheur de fenêtre bascule :
 
-| Élément JSON | DESCRIPTION | type | Valeurs autorisées | Obligatoire |
+| Élément JSON | Description | type | Valeurs autorisées | Obligatoire |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Type du déclencheur. Le type est la valeur fixe « TumblingWindowTrigger ». | Chaîne | « TumblingWindowTrigger » | Oui |
 | **runtimeState** | État actuel du runtime du déclencheur.<br/>**Remarque**: Cet élément est \<readOnly>. | Chaîne | « Started », « Stopped », « Disabled » | Oui |

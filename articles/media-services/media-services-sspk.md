@@ -28,7 +28,7 @@ Vous trouverez ci-après une architecture de haut niveau, et le package du kit d
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>DESCRIPTION
+## <a name="description"></a>Description
 SSPK est concédé sous licence selon des conditions représentant une excellente valeur pour l’entreprise. La licence SSPK offre au secteur :
 
 * Source de kit de portage Smooth Streaming en C++ 

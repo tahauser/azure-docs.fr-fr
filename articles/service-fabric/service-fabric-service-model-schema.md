@@ -1156,7 +1156,7 @@ Texte décrivant cette application.
 |---|---|
 |Type|[xs:string](#xs:string-type)|
 |Contenu|0 élément(s), 0 attribut(s)|
-|Nom|DESCRIPTION|
+|Nom|Description|
 |minOccurs|0|
 
 ### <a name="xml-source"></a>Source XML
@@ -1177,7 +1177,7 @@ Texte décrivant ce service.
 |---|---|
 |Type|[xs:string](#xs:string-type)|
 |Contenu|0 élément(s), 0 attribut(s)|
-|Nom|DESCRIPTION|
+|Nom|Description|
 |minOccurs|0|
 
 ### <a name="xml-source"></a>Source XML
@@ -1196,7 +1196,7 @@ Texte décrivant ce service.
 |---|---|
 |Type|[xs:string](#xs:string-type)|
 |Contenu|0 élément(s), 0 attribut(s)|
-|Nom|DESCRIPTION|
+|Nom|Description|
 |minOccurs|0|
 
 ### <a name="xml-source"></a>Source XML
@@ -8469,11 +8469,11 @@ Décrit de façon déclarative la version et le type d’application. Un ou plus
 ```
 ### <a name="content-element-details"></a>Détails de l’élément Content
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 Texte décrivant cette application.
 |Attribut|Valeur|
 |---|---|
-|Nom|DESCRIPTION|
+|Nom|Description|
 |minOccurs|0|
 |Type|xs:string|
 
@@ -9148,11 +9148,11 @@ Certificat client de rôle d’utilisateur par défaut utilisé pour sécuriser 
 |Nom|Version|
 |use|required|
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 Certificat client de rôle d’utilisateur par défaut utilisé pour sécuriser la communication entre le serveur et le client.
 |Attribut|Valeur|
 |---|---|
-|Nom|DESCRIPTION|
+|Nom|Description|
 
 ### <a name="content-element-details"></a>Détails de l’élément Content
 
@@ -13558,11 +13558,11 @@ Spécifie des stratégies pour l’activation des hôtes de conteneur.
 
 ### <a name="content-element-details"></a>Détails de l’élément Content
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 Texte décrivant ce service.
 |Attribut|Valeur|
 |---|---|
-|Nom|DESCRIPTION|
+|Nom|Description|
 |minOccurs|0|
 |Type|xs:string|
 
@@ -13801,10 +13801,10 @@ ServicePackage représente une unité avec version de déploiement et d’activa
 
 ### <a name="content-element-details"></a>Détails de l’élément Content
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 |Attribut|Valeur|
 |---|---|
-|Nom|DESCRIPTION|
+|Nom|Description|
 |minOccurs|0|
 |Type|xs:string|
 

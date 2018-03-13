@@ -24,7 +24,7 @@ ms.lasthandoff: 01/06/2018
 
 Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être utilisés par vous et votre organisation, et qui sont accessibles via le portail Azure. Le tableau ci-après répertorie les rapports disponibles :
 
-| Rapport | Lieu | DESCRIPTION |
+| Rapport | Lieu | Description |
 |:--- |:--- |:--- |
 | Historique de l'utilisateur bloqué | Azure AD > Serveur MFA > Bloquer/débloquer des utilisateurs | Affiche l’historique des demandes de blocage et de déblocage d’utilisateurs. |
 | Alertes relatives à l’utilisation et aux fraudes | Azure AD > Connexions | Fournit des informations sur l’utilisation globale, un récapitulatif par utilisateur, des informations détaillées sur les utilisateurs, ainsi que l’historique des alertes de fraude émises au cours de la plage de dates spécifiée. |
@@ -50,7 +50,7 @@ Identifiez les utilisateurs qui ne se sont pas inscrits auprès de MFA à l’ai
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Pour les utilisateurs](end-user/multi-factor-authentication-end-user.md)
 * [Où déployer](multi-factor-authentication-get-started.md)

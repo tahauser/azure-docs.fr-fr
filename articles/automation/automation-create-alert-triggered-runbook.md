@@ -27,7 +27,7 @@ Vous pouvez utiliser des runbooks Automation avec trois types d’alerte :
 
 Quand une alerte appelle un runbook, l’appel réel est une demande HTTP POST vers le Webhook. Le corps de la demande POST contient un objet au format JSON qui contient les propriétés utiles relatives à l’alerte. Le tableau suivant contient des liens vers le schéma de la charge utile pour chaque type d’alerte :
 
-|Alerte  |DESCRIPTION|Schéma de la charge utile  |
+|Alerte  |Description|Schéma de la charge utile  |
 |---------|---------|---------|
 |[Alerte de métrique classique](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envoie une notification lorsqu’une mesure au niveau de la plateforme remplit une condition spécifique. Par exemple, lorsque la valeur **CPU %** d’une machine virtuelle est supérieure à **90** lors des 5 dernières minutes.| [Schéma de la charge utile et alerte de métrique classique](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
 |[Alerte du journal d’activité](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envoie une notification lorsqu’un nouvel événement du journal d’activité remplit des conditions spécifiques. Par exemple, lorsqu’une opération `Delete VM` est effectuée dans **myProductionResourceGroup** ou lorsqu’un nouvel événement Azure Service Health avec un statut **Actif** apparaît.| [Schéma de la charge utile et alerte de journal d’activité](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
@@ -224,7 +224,7 @@ Pour créer une alerte classique :
 1. Dans la page **Configurer un runbook** page, sélectionnez **Utilisateur** pour **Source du runbook**. Choisissez votre compte Automation et sélectionnez le runbook **Stop-AzureVmInResponsetoVMAlert**. Sélectionnez **OK**.
 1. Pour enregistrer la règle d’alerte, sélectionnez **OK**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur le démarrage d’un runbook Automation avec un Webhook, consultez [Démarrer un runbook depuis un Webhook](automation-webhooks.md).
 * Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).

@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Découvrez comment utiliser [Microsoft Power BI](http://powerbi.microsoft.com) pour visualiser des données dans le cluster Apache Spark sur Azure HDInsight.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Terminez l’article [Exécuter des requêtes interactives sur des clusters Spark dans HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI** : [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) et [abonnement d’évaluation à Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facultatif).
@@ -226,7 +226,7 @@ Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres v
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
 -->
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Jusqu’ici, vous avez appris à créer un cluster, des trames de données Spark pour interroger des données, et à accéder à ces données depuis des outils décisionnels. Vous pouvez maintenant suivre les instructions pour gérer les ressources du cluster et pour déboguer les tâches exécutées sur un cluster HDInsight Spark.
 

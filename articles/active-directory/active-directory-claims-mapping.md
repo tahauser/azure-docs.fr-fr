@@ -280,7 +280,7 @@ Si la source est une transformation, l’élément **TransformationID** doit ég
 L’élément ID identifie la propriété définie sur la source qui fournit la valeur de la revendication. Le tableau suivant répertorie les valeurs d’ID valides pour chaque valeur de Source.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : valeurs d’ID valides par source
-|Source|ID|DESCRIPTION|
+|Source|ID|Description|
 |-----|-----|-----|
 |Utilisateur|surname|Nom de famille|
 |Utilisateur|givenname|Prénom|
@@ -353,7 +353,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Celles-ci sont définies à l’aide des éléments **InputClaims**, **InputParameters** et **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : méthodes de transformation et entrées et sorties attendues
-|Méthode de transformation|Entrée attendue|Sortie attendue|DESCRIPTION|
+|Méthode de transformation|Entrée attendue|Sortie attendue|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun signe @ n’est présent, la chaîne d’entrée originale est retournée telle quelle.|
@@ -378,7 +378,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Cell
 **NameID et UPN SAML :** les attributs à partir desquels vous obtenez les valeurs NameID et UPN ainsi que les transformations de revendications autorisées sont limités.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : attributs autorisés en tant que sources de données pour NameID SAML
-|Source|ID|DESCRIPTION|
+|Source|ID|Description|
 |-----|-----|-----|
 |Utilisateur|mail|Adresse de messagerie|
 |Utilisateur|userPrincipalName|Nom d’utilisateur principal|

@@ -5,7 +5,7 @@
 
 3. Dans la page **Nouveau compte**, entrez les paramètres pour le nouveau compte Azure Cosmos DB. 
  
-    Paramètre|Valeur suggérée|DESCRIPTION
+    Paramètre|Valeur suggérée|Description
     ---|---|---
     ID|*Entrez un nom unique*|Entrez un nom unique pour identifier ce compte Azure Cosmos DB. Étant donné que *documents.azure.com* est ajouté à l’ID que vous fournissez pour créer votre URI, utilisez un ID unique mais identifiable.<br><br>L’ID ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-), et doit comporter entre 3 et 50 caractères.
     API|SQL|L’API détermine le type de compte à créer. Azure Cosmos DB fournit cinq API pour répondre aux besoins de votre application : SQL (base de données Document), Gremlin (base de données de graphiques), MongoDB (base de données Document), Table Azure et Cassandra, qui nécessitent toutes un compte séparé. <br><br>Sélectionnez **SQL**. En effet, dans ce démarrage rapide, vous créez une base de données de documents qu’il est possible d’interroger au moyen de la syntaxe SQL et à laquelle il est possible d’accéder avec l’API SQL.<br><br>[En savoir plus sur l’API SQL](../articles/cosmos-db/documentdb-introduction.md)|

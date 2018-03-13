@@ -81,7 +81,7 @@ Nombre de serveurs pouvant être profilés par instance en cours d’exécution 
 ## <a name="prerequisites"></a>configuration requise
 L’outil comporte deux phases principales : le profilage et la génération de rapport. En outre, une troisième option permet de calculer le débit uniquement. La configuration requise pour le serveur à partir de laquelle le profilage et la mesure du débit sont initiés est présentée dans le tableau suivant.
 
-| Configuration requise du serveur | DESCRIPTION|
+| Configuration requise du serveur | Description|
 |---|---|
 |Profilage et mesure du débit| <ul><li>Système d’exploitation : Windows Server 2016 ou Windows Server 2012 R2<br>(dans l’idéal, correspondant au moins aux [recommandations de taille pour le serveur de configuration](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuration de la machine : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure à partir de ce serveur</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>Les paramètres de niveau de statistiques de VMware vCenter doivent être définis sur le niveau 2 ou un niveau supérieur</li><li>Autoriser le port 443 : le planificateur de déploiement Site Recovery se sert de ce port pour se connecter au serveur vCenter/à l’hôte ESXi</ul></ul>|
 | Génération de rapport | Un PC Windows ou serveur Windows Server doté de Excel 2013 ou version ultérieure |
@@ -123,5 +123,5 @@ Si vous disposez d’une version précédente du planificateur de déploiement, 
 La dernière version de l’outil Planificateur de déploiement Site Recovery est 2.1.
 Reportez-vous à la page [Historique des versions du Planificateur de déploiement Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pour voir les correctifs ajoutés à chaque mise à jour.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Exécuter le Planificateur de déploiement Site Recovery](site-recovery-vmware-deployment-planner-run.md)

@@ -298,7 +298,7 @@ Application Insights est destiné à l’équipe de développement et permet de 
 
 **Liste et description des scénarios d’intégration :**
 
-| Scénarios d’intégration | DESCRIPTION |
+| Scénarios d’intégration | Description |
 | --------------------- | :---------- |
 |[Plan de l’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Les composants de votre application, avec des alertes et des mesures clés.||
 |[Recherche de diagnostic pour les données d’instance](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages.||

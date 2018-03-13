@@ -74,7 +74,7 @@ Les avertissements ou erreurs de validation de modèle sont journalisés sur la 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | DESCRIPTION | Obligatoire |
+| Paramètre | Description | Obligatoire |
 | ----- | -----| ----- |
 | TemplatePath | Spécifie le chemin pour rechercher des modèles Azure Resource Manager de manière récursive | OUI | 
 | TemplatePattern | Spécifie le nom des fichiers de modèle à faire correspondre | Non  |
@@ -97,7 +97,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
  - [Déployer des modèles sur Azure Stack](azure-stack-arm-templates.md)
  - [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
 

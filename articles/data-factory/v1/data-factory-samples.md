@@ -29,7 +29,7 @@ ms.lasthandoff: 01/23/2018
 ## <a name="samples-on-github"></a>Exemples sur GitHub
 Le [dépôt GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à prendre en main rapidement le service Azure Data Factory (ou) à modifier les scripts et à utiliser ce service dans votre propre application. Le dossier Samples\JSON contient des extraits de code JSON pour les scénarios courants.
 
-| Exemple | DESCRIPTION |
+| Exemple | Description |
 |:--- |:--- |
 | [Procédure pas à pas Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Cet exemple fournit une procédure pas à pas de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations. <br/><br/>Dans cette procédure, le pipeline Data Factory collecte des exemples de journaux, traite et enrichit les données des journaux avec des données de référence, puis transforme les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement. |
 | [Exemples JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Cet exemple fournit des exemples JSON pour des scénarios courants. |
@@ -49,7 +49,7 @@ Le [dépôt GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 Vous trouverez les modèles Azure Resource Manager suivants pour Data Factory sur GitHub.
 
-| Modèle | DESCRIPTION |
+| Modèle | Description |
 | --- | --- |
 | [Copier à partir du Stockage Blob Azure vers une base de données SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Le déploiement de ce modèle crée une fabrique de données Azure avec un pipeline qui copie les données à partir du Stockage Blob Azure spécifié vers une base de données SQL Azure |
 | [Copier à partir de Salesforce vers le Stockage Blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Le déploiement de ce modèle crée une fabrique de données Azure avec un pipeline qui copie les données à partir du compte Salesforce spécifié vers le Stockage Blob Azure. |

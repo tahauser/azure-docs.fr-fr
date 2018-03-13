@@ -31,7 +31,7 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 > * Accorder à votre machine virtuelle l’accès à Azure Data Lake Store
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour accéder à Azure Data Lake Store
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

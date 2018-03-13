@@ -72,7 +72,7 @@ Les propriétés sont décrites plus loin dans cet article. La propriété items
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité ForEach. | Chaîne | OUI
 Type | Doit être défini sur **ForEach** | Chaîne | OUI
@@ -573,7 +573,7 @@ L’expression pour la collecte des résultats de toutes les itérations d’une
 ]
 
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

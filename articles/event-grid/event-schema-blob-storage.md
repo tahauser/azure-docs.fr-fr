@@ -22,7 +22,7 @@ Cet article fournit les propriétés et les schémas des événements de stockag
 
 Le stockage Blob émet les types d’événements suivants :
 
-| Type d'événement | DESCRIPTION |
+| Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Déclenché lorsqu’un objet blob est créé. |
 | Microsoft.Storage.BlobDeleted | Déclenché lorsqu’un objet blob est supprimé. |
@@ -86,7 +86,7 @@ Le schéma de l’événement de suppression d’un objet blob est similaire :
 
 Un événement contient les données générales suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
@@ -99,7 +99,7 @@ Un événement contient les données générales suivantes :
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | api | chaîne | Opération qui a déclenché l’événement. |
 | clientRequestId | chaîne | Valeur opaque générée par le client, avec une limite de caractères de 1 Ko. Lorsque vous activez la journalisation Storage Analytics, cette valeur est enregistrée dans les journaux d’analytique. |
@@ -112,7 +112,7 @@ L’objet de données comporte les propriétés suivantes :
 | sequencer | chaîne | Valeur contrôlée par l’utilisateur que vous pouvez utiliser pour effectuer le suivi des requêtes. |
 | storageDiagnostics | objet | Informations sur les diagnostics de stockage. |
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).

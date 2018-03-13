@@ -44,7 +44,7 @@ Log Analytics collecte chaque événement correspondant à un niveau de gravité
 ## <a name="windows-event-records-properties"></a>Propriétés des enregistrements d’événements Windows
 Les enregistrements d'événements Windows sont de type **Événement** et possèdent les propriétés affichées dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Ordinateur |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
 | EventCategory |Catégorie de l’événement. |
@@ -64,7 +64,7 @@ Les enregistrements d'événements Windows sont de type **Événement** et poss�
 ## <a name="log-searches-with-windows-events"></a>Recherches de journaux avec des événements Windows
 Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements d’événements Windows.
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |:---|:---|
 | Événement |Tous les événements Windows. |
 | Événement &#124; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
@@ -72,7 +72,7 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Événement &#124; où valeur EventLevelName == « erreur » &#124; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les enregistrements d'événements dans des champs individuels.

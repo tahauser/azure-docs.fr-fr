@@ -83,7 +83,7 @@ Dans l’application logique, vous pouvez ajouter une action pour répertorier l
 ## <a name="create-the-connections"></a>Créer les connexions
 Ce connecteur prend en charge les connexions aux bases de données locales et dans le cloud à l’aide des propriétés de connexion ci-après. 
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Serveur |Requis. Accepte une valeur de chaîne représentant une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
 | database |Requis. Accepte une valeur de chaîne représentant un nom de base de données relationnelle DRDA (RDBNAM). Informix accepte une chaîne de 128 octets (la propriété de base de données correspond à un nom de base de données (dbname) IBM Informix). |
@@ -275,6 +275,6 @@ Ce connecteur prend en charge les versions IBM Informix ci-après en cas de conf
 
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/informix/). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 

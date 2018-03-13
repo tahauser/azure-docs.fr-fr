@@ -10,7 +10,7 @@
 }
 ```
 
-|Propriété  |Default | DESCRIPTION |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Intervalle maximal (en millisecondes) entre les interrogations de la file d’attente.| 
 |visibilityTimeout|0|Intervalle de temps entre les nouvelles tentatives en cas d’échec du traitement d’un message.| 

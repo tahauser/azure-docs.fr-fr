@@ -34,7 +34,7 @@ Pour les opérations de serveur utilisant des applets de commande AzureRm, votre
 ## <a name="server-operations"></a>Opérations de serveur 
 Les applets de commande Azure Analysis Services sont incluses dans le module de composant [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Pour installer les modules d’applet de commande AzureRM, consultez [Azure Resource Manager cmdlets](/powershell/azure/overview) (Applets de commande Azure Resource Manager) dans PowerShell Gallery.
 
-|Applet de commande|DESCRIPTION| 
+|Applet de commande|Description| 
 |------------|-----------------| 
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Ajoute un compte authentifié à utiliser pour les demandes d’applet de commande du serveur Azure Analysis Services.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtient les détails d’une instance de serveur.|  
@@ -53,7 +53,7 @@ Les opérations de bases de données Azure Analysis Services utilisent le même 
 Le module SqlServer fournit des applets de commande de gestion de base de données spécifiques à chaque tâche, ainsi que l’applet de commande Invoke-ASCmd à usage général, qui accepte un script ou une requête utilisant le langage de script de modèle tabulaire (TMSL). Les applets de commande suivantes du module SqlServer sont prises en charge par Azure Analysis Services.
 
   
-|Applet de commande|DESCRIPTION|
+|Applet de commande|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Ajoute un membre à un rôle de base de données.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Sauvegarde une base de données Analysis Services.|  

@@ -40,7 +40,7 @@ Maintenant que vous avez choisi votre méthode de vérification, il s’agit de 
 ## <a name="how-to-get-going-with-two-step-verification"></a>Comment procéder avec la vérification en deux étapes
 Sélectionnez l’une de ces rubriques pour commencer.
 
-| Rubrique | DESCRIPTION |
+| Rubrique | Description |
 |:--- |:--- |
 | [Expérience d'installation](multi-factor-authentication-end-user-first-time.md) |Décrit le processus de configuration de l'authentification multifacteur pour la première fois. |
 | [Expérience de connexion](multi-factor-authentication-end-user-signin.md) |Présente la connexion à l'aide de différentes méthodes comme le téléphone ou l'application. |

@@ -148,7 +148,7 @@ Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger-
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `CosmosDBTrigger`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** || Cette propriété doit être définie sur `cosmosDBTrigger`. |
 |**direction** || Cette propriété doit être définie sur `in`. Ce paramètre est défini automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -453,7 +453,7 @@ Le constructeur de l’attribut accepte le nom de la base de données et le nom 
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `CosmosDB`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type**     || Cette propriété doit être définie sur `documentdb`.        |
 |**direction**     || Cette propriété doit être définie sur `in`.         |
@@ -725,7 +725,7 @@ Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-exa
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `CosmosDB`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type**     || Cette propriété doit être définie sur `documentdb`.        |
 |**direction**     || Cette propriété doit être définie sur `out`.         |
@@ -752,7 +752,7 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 |---|---|
 | CosmosDB | [Codes d’erreur CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Accéder à un guide de démarrage rapide qui utilise un déclencheur Cosmos DB](functions-create-cosmos-db-triggered-function.md)

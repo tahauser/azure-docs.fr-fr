@@ -121,7 +121,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 > 
 
 ### <a name="properties"></a>properties
-| Propriété                     | DESCRIPTION                              | Obligatoire |
+| Propriété                     | Description                              | Obligatoire |
 | ---------------------------- | ---------------------------------------- | -------- |
 | Type                         | Définissez la propriété de type sur **HDInsightOnDemand**. | OUI      |
 | clusterSize                  | Le nombre de nœuds worker et de données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux, en plus du nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds sont de taille Standard_D3 à 4 cœurs. Un cluster à 4 nœuds worker prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds worker + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | OUI      |
@@ -144,7 +144,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 ### <a name="advanced-properties"></a>Propriétés avancées
 Pour la configuration granulaire du cluster HDInsight à la demande, vous pouvez spécifier les propriétés suivantes :
 
-| Propriété               | DESCRIPTION                              | Obligatoire |
+| Propriété               | Description                              | Obligatoire |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Spécifie les paramètres de configuration de base (core-site.xml) pour le cluster HDInsight à créer. | Non        |
 | hBaseConfiguration     | Spécifie les paramètres de configuration HBase (hbase-site.xml) pour le cluster HDInsight. | Non        |
@@ -197,7 +197,7 @@ Pour la configuration granulaire du cluster HDInsight à la demande, vous pouvez
 ### <a name="node-sizes"></a>Tailles de nœuds
 Pour spécifier les tailles du nœud principal, du nœud de données et du nœud ZooKeeper, utilisez les propriétés suivantes : 
 
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Définit la taille du nœud principal. La valeur par défaut est **Standard_D3**. Pour plus d’informations, consultez [Spécifier des tailles de nœuds](#specify-node-sizes). | Non        |
 | dataNodeSize      | Définit la taille du nœud de données. La valeur par défaut est **Standard_D3**. | Non        |
@@ -257,7 +257,7 @@ Vous pouvez créer un service lié HDInsight pour inscrire votre propre cluster 
 ```
 
 ### <a name="properties"></a>properties
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
 | Type              | Définissez la propriété de type sur **HDInsight**. | OUI      |
 | clusterUri        | L'URI du cluster HDInsight.        | OUI      |
@@ -305,7 +305,7 @@ Une autre option consiste à fournir le point de terminaison **batchUri**. Par e
 ```
 
 ### <a name="properties"></a>properties
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
 | Type              | Définissez la propriété de type sur **AzureBatch**. | OUI      |
 | accountName       | Le nom du compte Batch.         | OUI      |
@@ -332,7 +332,7 @@ Vous pouvez créer un service lié Machine Learning pour inscrire un point de te
 ```
 
 ### <a name="properties"></a>properties
-| Propriété   | DESCRIPTION                              | Obligatoire |
+| Propriété   | Description                              | Obligatoire |
 | ---------- | ---------------------------------------- | -------- |
 | type       | Définissez la propriété de type sur **AzureML**. | OUI      |
 | mlEndpoint | L'URL de la notation par lot.                   | OUI      |
@@ -343,7 +343,7 @@ Vous créez un service lié Data Lake Analytics pour lier un service de calcul D
 
 Le tableau suivant décrit les propriétés génériques utilisées dans la définition JSON :
 
-| Propriété                 | DESCRIPTION                              | Obligatoire                                 |
+| Propriété                 | Description                              | Obligatoire                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | Type                 | Définissez la propriété de type sur **AzureDataLakeAnalytics**. | OUI                                      |
 | accountName          | Le nom du compte Data Lake Analytics.  | OUI                                      |
@@ -362,7 +362,7 @@ Pour utiliser une authentification du principal du service, inscrivez une entit�
 
 Utilisez l’authentification par principal de service en spécifiant les propriétés suivantes :
 
-| Propriété                | DESCRIPTION                              | Obligatoire |
+| Propriété                | Description                              | Obligatoire |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | L’ID client de l’application.     | OUI      |
 | servicePrincipalKey | La clé de l’application.           | OUI      |
@@ -390,7 +390,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 #### <a name="user-credential-authentication"></a>Authentification des informations d’identification utilisateur
 Pour l’authentification par informations d’identification utilisateur pour Data Lake Analytics, spécifiez les propriétés suivantes :
 
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
 | autorisation | Dans l’éditeur Data Factory, sélectionnez le bouton **Autoriser**. Entrez les informations d’identification qui associent l’URL d’autorisation générée automatiquement à cette propriété. | OUI      |
 | sessionId     | L’ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | OUI      |

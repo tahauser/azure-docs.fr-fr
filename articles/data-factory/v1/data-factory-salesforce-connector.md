@@ -69,7 +69,7 @@ Les sections suivantes fournissent des informations sur les propriétés JSON u
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant décrit les éléments JSON spécifiques au service lié Salesforce.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur **Salesforce**. |OUI |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - L’URL par défaut est « https://login.salesforce.com ». <br> - Pour copier des données à partir du bac à sable (sandbox), spécifiez « https://test.salesforce.com ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non  |
@@ -82,7 +82,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** comprend les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | TableName |Nom de la table dans Salesforce. |Non (si une **requête** de type **RelationalSource** est spécifiée) |
 
@@ -98,7 +98,7 @@ En revanche, les propriétés qui sont disponibles dans la section typePropertie
 
 Dans l’activité de copie, lorsque la source est de type **RelationalSource** (qui inclut Salesforce), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Une requête SQL-92 ou une requête [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : `select * from MyTable__c`. |Non (si l’attribut **tableName** de l’élément **dataset** est spécifié) |
 

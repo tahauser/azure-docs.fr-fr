@@ -37,7 +37,7 @@ La solution Azure Web Apps Analytics (version préliminaire) fournit des informa
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour Azure Web Apps des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
@@ -92,7 +92,7 @@ Cliquez sur la mosaïque **Azure Web Apps Analytics** afin d’ouvrir le tableau
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| Colonne | DESCRIPTION |
+| Colonne | Description |
 | --- | --- |
 | Azure Webapps |   |
 | Tendances de requêtes Web Apps | Affiche un graphique en courbes de l’évolution des requêtes Web Apps pour la plage de dates que vous avez sélectionnée et présente la liste des dix requêtes les plus fréquentes. Cliquez sur le graphique en courbes pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Cliquez sur un élément de requête web pour exécuter une recherche de journal pour la tendance des métriques de requête web. |
@@ -138,7 +138,7 @@ La **Liste de requêtes de recherche Azure Web Apps populaires** vous montre tou
 
 À l’aide d’une des requêtes de recherche dans les journaux comme point de départ, vous pouvez facilement créer une alerte. Par exemple, vous souhaiterez peut-être créer une alerte lorsque le temps de réponse moyen d’une mesure est supérieur à toutes les 1 seconde.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Créez une [alerte](log-analytics-alerts-creating.md) pour une mesure spécifique.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

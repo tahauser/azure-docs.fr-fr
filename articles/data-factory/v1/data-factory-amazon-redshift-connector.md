@@ -61,7 +61,7 @@ Les sections suivantes décrivent les propriétés JSON utilisées pour définir
 
 Le tableau suivant décrit les éléments JSON spécifiques du service lié Amazon Redshift.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **type** |Cette propriété doit être définie sur **AmazonRedshift**. |OUI |
 | **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
@@ -76,7 +76,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans la banque. La section **typeProperties** pour le jeu de données de type **RelationalTable**, qui inclut le jeu de données Amazon Redshift, a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **tableName** |Nom de la table dans la base de données Amazon Redshift à laquelle le service lié fait référence. |Non (si la propriété **query** d’une activité de copie de type **RelationalSource** est spécifiée) |
 
@@ -86,7 +86,7 @@ Pour obtenir la liste des sections et des propriétés disponibles pour la défi
 
 Pour une activité de copie, quand une source est de type **AmazonRedshiftSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **query** | Utilise la requête personnalisée pour lire les données. |Non (si la propriété **tableName** d’un jeu de données est spécifié) |
 | **redshiftUnloadSettings** | Contient le groupe de propriétés lors de l’utilisation de la commande Redshift **UNLOAD**. | Non  |
@@ -95,7 +95,7 @@ Pour une activité de copie, quand une source est de type **AmazonRedshiftSource
 
 Vous pouvez également utiliser le type **RelationalSource**, qui inclut Amazon Redshift, avec la propriété suivante dans la section **typeProperties**. Notez que ce type de source ne prend pas en charge la commande **UNLOAD** de Redshift.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **query** |Utilise la requête personnalisée pour lire les données. | Non (si la propriété **tableName** d’un jeu de données est spécifié) |
 
@@ -353,5 +353,5 @@ Lorsque vous copiez des données à partir d’un magasin de données relationne
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

@@ -98,7 +98,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 > 
 
 ### <a name="properties"></a>properties
-| Propriété                     | DESCRIPTION                              | Obligatoire |
+| Propriété                     | Description                              | Obligatoire |
 | ---------------------------- | ---------------------------------------- | -------- |
 | Type                         | La propriété de type doit être définie sur **HDInsightOnDemand**. | OUI      |
 | clusterSize                  | Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard_D3 à 4 cœurs, un cluster à 4 nœuds de travail prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds de travail + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus de détails, voir [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | OUI      |
@@ -144,7 +144,7 @@ Le service lié de HDInsight à la demande nécessite une authentification du pr
 
 Utilisez l’authentification par principal de service en spécifiant les propriétés suivantes :
 
-| Propriété                | DESCRIPTION                              | Obligatoire |
+| Propriété                | Description                              | Obligatoire |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Spécifiez l’ID client de l’application.     | OUI      |
 | **servicePrincipalKey** | Spécifiez la clé de l’application.           | OUI      |
@@ -154,7 +154,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 
 Vous pouvez également spécifier les propriétés suivantes pour la configuration granulaire du cluster HDInsight à la demande.
 
-| Propriété               | DESCRIPTION                              | Obligatoire |
+| Propriété               | Description                              | Obligatoire |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Spécifie les paramètres de configuration de base (par exemple, core-site.xml) pour le cluster HDInsight à créer. | Non        |
 | hBaseConfiguration     | Spécifie les paramètres de configuration HBase (hbase-site.xml) pour le cluster HDInsight. | Non        |
@@ -222,7 +222,7 @@ Vous pouvez également spécifier les propriétés suivantes pour la configurati
 ### <a name="node-sizes"></a>Tailles de nœuds
 Vous pouvez spécifier les tailles du nœud principal, du nœud de données et du nœud zookeeper en utilisant les propriétés suivantes : 
 
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Spécifie la taille du nœud principal. La valeur par défaut est Standard_D3. Pour plus d’informations, consultez la section **Spécification des tailles de nœud**. | Non        |
 | dataNodeSize      | Spécifie la taille du nœud de données. La valeur par défaut est Standard_D3. | Non        |
@@ -282,7 +282,7 @@ Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cl
 ```
 
 ### <a name="properties"></a>properties
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
 | Type              | La propriété de type doit être définie sur **HDInsight**. | OUI      |
 | clusterUri        | L'URI du cluster HDInsight.        | OUI      |
@@ -335,7 +335,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 
 
 ### <a name="properties"></a>properties
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
 | Type              | La propriété de type doit être définie sur **AzureBatch**. | OUI      |
 | accountName       | Nom du compte Azure Batch.         | OUI      |
@@ -371,7 +371,7 @@ Vous créez un service lié Azure Machine Learning pour inscrire un point de ter
 ```
 
 ### <a name="properties"></a>properties
-| Propriété               | DESCRIPTION                              | Obligatoire                                 |
+| Propriété               | Description                              | Obligatoire                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                   | La propriété de type doit être définie sur **AzureML**. | OUI                                      |
 | mlEndpoint             | L'URL de la notation par lot.                   | OUI                                      |
@@ -414,7 +414,7 @@ Vous créez un service lié **Analytique Azure Data Lake** pour lier un service 
 
 ### <a name="properties"></a>properties
 
-| Propriété             | DESCRIPTION                              | Obligatoire                                 |
+| Propriété             | Description                              | Obligatoire                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                 | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | OUI                                      |
 | accountName          | Nom du compte du service Analytique Azure Data Lake.  | OUI                                      |
@@ -446,5 +446,5 @@ Le tableau suivant fournit des règles d'affectation de noms pour les artefacts 
 | Services/tables/pipelines liés | Unique dans une fabrique de données. Les noms sont sensibles à la casse. | <ul><li>Un tableau peut contenir un maximum de 260 caractères.</li><li>Les noms d’objet doivent commencer par une lettre, un chiffre ou un trait de soulignement (_).</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |
 | Groupe de ressources                   | Unique sur Microsoft Azure. Les noms sont sensibles à la casse. | <ul><li>Nombre maximal de caractères : 1 000.</li><li>Un nom peut contenir des lettres, des chiffres et les caractères suivants : « - », « _ », « , » et « . ».</li></ul> |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des activités de transformation prises en charge par Azure Data Factory, voir [Transformer des données](transform-data.md).

@@ -60,7 +60,7 @@ Si plusieurs ressources sont sélectionnées, la résolution des problèmes s’
 
 Dans la section **Détails** de la fenêtre, l’onglet **État** affiche l’état de la dernière exécution de la résolution des problèmes sur la ressource sélectionnée. Les résultats du dernier diagnostic s’affichent xx minutes après la dernière exécution.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |Ressource     | Lien vers la ressource.        |
 |Chemin de stockage     |  Chemin d’accès du compte de stockage et du conteneur qui contiennent les journaux (si produits pendant l’exécution). Ce paramètre n’est pas conservé une fois que vous avez quitté le portail.        |
@@ -72,7 +72,7 @@ Dans la section **Détails** de la fenêtre, l’onglet **État** affiche l’é
 L’onglet **Action** offre une aide générale sur la résolution du problème. Si une action peut être entreprise pour résoudre le problème, un lien est fourni avec des indications supplémentaires. En l’absence d’indications supplémentaires, la réponse fournit l’URL permettant d’ouvrir un dossier de support.  Pour plus d’informations sur les propriétés de la réponse et sur ce qu’elle contient, consultez [Network Watcher Troubleshoot overview (Vue d’ensemble de la résolution des problèmes Network Watcher)](network-watcher-troubleshoot-overview.md)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Si les paramètres ont été modifiés et arrêtent la connectivité VPN, consultez la page [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité pouvant être concernés.
 

@@ -45,7 +45,7 @@ Avantages de H2O Sparkling Water :
 * [Assistance H2O.ai](https://support.h2o.ai/)
 * [Codebase open source H2O.ai](https://github.com/h2oai/)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 
@@ -98,7 +98,7 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
 Et voilà ! Vous avez en quelques minutes maîtrisé l’intelligence artificielle de Spark. Vous pouvez maintenant explorer d’autres exemples dans H2O Flow, qui illustrent les différents types d’algorithmes d’apprentissage automatique.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Documentation H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.

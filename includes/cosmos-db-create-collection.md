@@ -8,7 +8,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
 2. Dans la page **Ajouter une collection**, entrez les paramètres pour la nouvelle collection.
 
-    Paramètre|Valeur suggérée|DESCRIPTION
+    Paramètre|Valeur suggérée|Description
     ---|---|---
     ID de base de données|Tâches|Entrez *Tasks* comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères /, \\, # ou ?, ni d’espace de fin.
     ID de la collection|Éléments|Entrez *Items* comme nom pour votre nouvelle collection. Les ID de collection sont soumis aux mêmes spécifications de caractères que les noms de base de données.

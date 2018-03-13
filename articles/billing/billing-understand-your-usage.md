@@ -39,7 +39,7 @@ Les sections suivantes décrivent les termes importants indiqués dans la versio
 
 La partie supérieure du fichier CSV sur l’utilisation détaillée contient les services que vous avez utilisés au cours de la période de facturation du mois. Le tableau suivant répertorie les conditions et les descriptions présentées dans cette section.
 
-| Terme | DESCRIPTION |
+| Terme | Description |
 | --- | --- |
 |Période de facturation |Période de facturation où les compteurs ont été consommés |
 |Catégorie du compteur |Identifie le service de niveau supérieur pour l’utilisation |
@@ -62,7 +62,7 @@ La partie supérieure du fichier CSV sur l’utilisation détaillée contient le
 
 La section Utilisation quotidienne du fichier CSV montre les détails d’utilisation qui affectent les tarifs de facturation. Le tableau suivant répertorie les conditions et les descriptions présentées dans cette section.
 
-| Terme | DESCRIPTION |
+| Terme | Description |
 | --- | --- |
 |Date d'utilisation |Date à laquelle le compteur a été utilisé |
 |Catégorie du compteur |Identifie le service de niveau supérieur dont cette utilisation relève |

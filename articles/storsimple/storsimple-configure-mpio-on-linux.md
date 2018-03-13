@@ -419,7 +419,7 @@ R. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez l
 Pour plus d’informations, accédez à [Utilisation de la commande interactive de résolution des problèmes pour la gestion multivoie](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Liste des commandes utiles
-| Tapez  | Commande | DESCRIPTION |
+| Tapez  | Commande | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Démarrer le service iSCSI |
 | &nbsp; |`service iscsid stop` |Arrêter le service iSCSI |
@@ -440,7 +440,7 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 | &nbsp; |`mpathconf --enable` |Créer un exemple de fichier mulitpath.conf dans `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Étant donné que vous configurez MPIO sur un hôte Linux, vous pouvez avoir besoin de consulter les documents CentOS 6.6 suivants :
 
 * [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

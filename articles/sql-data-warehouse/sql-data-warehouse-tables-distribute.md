@@ -24,7 +24,7 @@ ms.lasthandoff: 02/01/2018
 
 Cet article fournit des recommandations relatives à la conception de tables distribuées dans Azure SQL Data Warehouse. Les tables distribuées par hachage améliorent les performances des requêtes sur des tables de faits volumineuses et représentent le sujet de cet article. Les tables distribuées par tourniquet sont utiles pour améliorer la vitesse de chargement. Ces choix de conception ont un impact significatif sur l’amélioration des performances des requêtes et de chargement.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
@@ -215,7 +215,7 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour créer une table distribuée, utilisez l’une de ces instructions :
 

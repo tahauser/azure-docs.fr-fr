@@ -242,7 +242,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Affecté à
 - Catégorie
 - Intitulé
-- DESCRIPTION
+- Description
 - Date de création
 - Date de fermeture
 - Date de résolution
@@ -280,7 +280,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Date de fin prévue
 - Date de début du travail
 - Date de fin du travail
-- DESCRIPTION
+- Description
 - Ordinateur
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Données de sortie pour un incident ServiceNow
@@ -327,7 +327,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Date de fin prévue |
 | WorkStartDate_t  | Date de début réelle |
 | WorkEndDate_t | Date de fin réelle|
-| Description_s | DESCRIPTION |
+| Description_s | Description |
 | Ordinateur  | Élément de configuration |
 
 
@@ -354,5 +354,5 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 Pour toute question ou tout commentaire à propos de la solution IT Service Management Connector, contactez-nous à l’adresse [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Ajouter des produits/services ITSM à IT Service Management Connector](log-analytics-itsmc-connections.md).

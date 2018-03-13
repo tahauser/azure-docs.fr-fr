@@ -35,7 +35,7 @@ Une entreprise qui dispose d’un site web de médias souhaite obtenir un avanta
 
 Pour identifier les tendances en temps réel sur Twitter, l’entreprise doit analyser en temps réel le volume et les sentiments des tweets relatifs aux principaux sujets. En d’autres termes, nous avons besoin d’un moteur d’analyse de sentiments basé sur le flux de ce réseau social.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Dans ce didacticiel, vous utilisez une application cliente qui se connecte à Twitter, puis recherchez des tweets contenant certains mots-dièse (que vous pouvez définir). Pour exécuter l’application et analyser les tweets à l’aide d’Azure Stream Analytics, vous devez disposer des éléments suivants :
 
 * Abonnement Azure

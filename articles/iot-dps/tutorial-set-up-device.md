@@ -28,7 +28,7 @@ Dans le didacticiel précédent, vous avez appris à configurer le service IoT H
 > * Extraire les artefacts de sécurité
 > * Paramétrer la configuration du service Device Provisioning sur l’appareil
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, créez votre instance du service Device Provisioning et un hub IoT en suivant les instructions indiquées dans le didacticiel [Configurer le cloud pour le provisionnement d’appareils](./tutorial-set-up-cloud.md).
 
@@ -183,7 +183,7 @@ Vous pouvez affiner votre application d’enregistrement client du service Devic
 1. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

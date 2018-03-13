@@ -209,7 +209,7 @@ Le corps de la réponse contient la section properties du jumeau d’appareil. L
 
 Les codes d’état possibles sont :
 
-|Statut | DESCRIPTION |
+|Statut | Description |
 | ----- | ----------- |
 | 200 | Succès |
 | 429 | Trop de demandes (limité), selon la [Limitation IoT Hub][lnk-quotas] |
@@ -238,7 +238,7 @@ Le corps du message de requête contient un document JSON qui contient de nouvel
 
 Les codes d’état possibles sont :
 
-|Statut | DESCRIPTION |
+|Statut | Description |
 | ----- | ----------- |
 | 200 | Succès |
 | 400 | Demande incorrecte. JSON incorrect |
@@ -277,7 +277,7 @@ Pour en savoir plus, reportez-vous au [Guide du développeur de méthodes direct
 
 Pour finir, si vous avez besoin de personnaliser le comportement du protocole MQTT côté cloud, étudiez la [passerelle de protocole Azure IoT][lnk-azure-protocol-gateway]. Ce logiciel vous permet de déployer une passerelle de protocole personnalisé à hautes performances qui communique directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite l’exécution et l’utilisation d’une passerelle de protocole personnalisée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][lnk-mqtt-docs].
 

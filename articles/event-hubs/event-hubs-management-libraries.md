@@ -30,7 +30,7 @@ Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquemen
 * Création, mise à jour et suppression d’Event Hubs
 * Création, mise à jour et suppression de groupes de consommateurs
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser les bibliothèques de gestion d’Event Hubs, vous devez vous authentifier avec Azure Active Directory (AAD). AAD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 
@@ -76,6 +76,6 @@ Le modèle pour manipuler une ressource Event Hubs quelconque suit un protocole 
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Espace de noms Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

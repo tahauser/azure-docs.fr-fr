@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Mettre en conteneur une application existante
 > * Configurer l’intégration continue avec Visual Studio et VSTS
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
 2. Familiarisez-vous avec [l’utilisation de Windows 10 Containers][link-container-quickstart].
@@ -209,7 +209,7 @@ Accédez à l’application Fabrikam Call Center à l’aide de l’url de votre
 
 Maintenant que vous avez mis en conteneur et déployé la solution de centre d’appareils Fabrikam, vous pouvez ouvrir le [portail Azure][link-azure-portal] et voir l’application en cours d’exécution dans Service Fabric. Pour tester l’application, ouvrez un navigateur web et accédez à l’URL de votre cluster Service Fabric.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

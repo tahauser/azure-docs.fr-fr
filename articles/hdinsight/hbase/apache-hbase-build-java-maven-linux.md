@@ -689,6 +689,6 @@ __À partir d’Azure PowerShell__ :
 
 `Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Découvrez comment utiliser SQuirreL SQL avec HBase](apache-hbase-phoenix-squirrel-linux.md)

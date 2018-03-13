@@ -71,7 +71,7 @@ Vous pouvez partager votre package de support généré manuellement avec le sup
 
 Vous pouvez utiliser les paramètres suivants avec l’applet de commande Export-HcsSupportPackage.
 
-| Paramètre | Obligatoire ou facultatif | DESCRIPTION |
+| Paramètre | Obligatoire ou facultatif | Description |
 | --- | --- | --- |
 | `-Path` |Obligatoire |Permet d’indiquer l’emplacement du dossier réseau partagé dans lequel le package de support est placé. |
 | `-EncryptionPassphrase` |Obligatoire |Permet de fournir une phrase secrète permettant de chiffrer le package de support. |
@@ -144,7 +144,7 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Apprenez-en davantage sur les [informations collectées dans le package de prise en charge](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
 * Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

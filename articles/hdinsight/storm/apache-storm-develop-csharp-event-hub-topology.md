@@ -112,7 +112,7 @@ topologyBuilder.SetJavaBolt(
 
 Vous pouvez télécharger une version complète du projet créé dans ce didacticiel à partir de [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Toutefois, vous devrez tout de même fournir des paramètres de configuration en suivant les étapes de ce didacticiel.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 * Un cluster [Apache Storm sur HDInsight version 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
 
@@ -225,7 +225,7 @@ Pour arrêter les topologies, sélectionnez chaque topologie dans la **Visionneu
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce document, vous avez découvert comment utiliser le spout et le bolt du concentrateur d’événements Java à partir d’une topologie C# pour utiliser des données dans le concentrateur d’événements Azure. Pour en savoir plus sur la création de topologies C#, consultez les documents suivants :
 

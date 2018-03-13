@@ -40,7 +40,7 @@ Les deux options invitent les utilisateurs à s’inscrire à Azure Multi-Factor
 
 Les comptes d'utilisateur dans Azure Multi-Factor Authentication peuvent présenter les trois états suivants :
 
-| Statut | DESCRIPTION | Applications affectées (autres que des navigateurs) | Applications du navigateur affectées | Authentification moderne affectée |
+| Statut | Description | Applications affectées (autres que des navigateurs) | Applications du navigateur affectées | Authentification moderne affectée |
 |:---:|:---:|:---:|:--:|:--:|
 | Désactivé |État par défaut d’un nouvel utilisateur non inscrit à Azure MFA. |Non  |Non  |Non  |
 | activé |L’utilisateur a été inscrit dans l’authentification multifacteur Azure, mais n’a pas été enregistré. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. |Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Après expiration de la session, l’inscription à Azure MFA est nécessaire.| Oui. Après expiration du jeton d’accès, l’inscription à Azure MFA est nécessaire. |
@@ -120,7 +120,7 @@ _L’accès conditionnel_ est une fonctionnalité payante d’Azure Active Direc
 
 Les autres options de la stratégie d’accès conditionnel permettent de spécifier précisément à quel moment la vérification en deux étapes est requise. Par exemple, vous pouvez créer la stratégie suivante : lorsque des fournisseurs tentent d’accéder à notre application d’approvisionnement sur des réseaux non approuvés et des appareils non joints à un domaine, exiger la vérification en deux étapes. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour obtenir des conseils : [Meilleures pratiques en matière d’accès conditionnel](../active-directory/active-directory-conditional-access-best-practices.md).
 

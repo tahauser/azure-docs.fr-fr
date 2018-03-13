@@ -72,7 +72,7 @@ Dès que votre application envoie des événements personnalisés et que ces der
 
     Une boîte de configuration s’affiche. Utilisez le tableau ci-dessous pour remplir les champs d’entrée.
 
-    | Paramètres        |  Valeur           | DESCRIPTION  |
+    | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Une valeur globale unique, comme « myApp-iOS » | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application App Center | Type de l’application que vous analysez |
@@ -164,7 +164,7 @@ Pour supprimer la ressource Application Insights :
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis choisissez le groupe de ressources dans lequel votre ressource Application Insights a été créée.
 2. Ouvrez la ressource Application Insights à supprimer. Ensuite, cliquez sur **Supprimer** dans le menu supérieur de la ressource, puis confirmez l’opération. Cette opération supprime définitivement la copie des données qui ont été exportées vers Application Insights.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Comprendre comment les clients utilisent votre application](app-insights-usage-overview.md)

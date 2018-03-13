@@ -52,7 +52,7 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
       }
     }
 
-| Nom de l'élément | Requis ? | DESCRIPTION |
+| Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | $schema |Non  |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
 | title |OUI |Nom de l'artefact affiché dans le laboratoire. |
@@ -75,7 +75,7 @@ Pour définir des paramètres, utilisez la structure suivante :
         }
       }
 
-| Nom de l'élément | Requis ? | DESCRIPTION |
+| Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | Type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
 | displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
@@ -129,6 +129,6 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
 * [Guide pratique pour diagnostiquer les échecs d’artefact dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
 * [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
 

@@ -37,7 +37,7 @@ Les produits/services ITSM suivants sont pris en charge. Sélectionnez le produi
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit System Center Service Manager au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -182,7 +182,7 @@ L’image d’exemple suivante présente les détails d’une connexion réussie
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit ServiceNow au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versions prises en charge par ServiceNow : Kingston, Jakarta, Istanbul, Helsinki, Geneva.
@@ -285,7 +285,7 @@ Une fois l’utilisateur créé, l’état de l’option **Liste de vérificatio
 Les sections suivantes fournissent des détails sur la connexion de votre produit Provance au connecteur ITSM dans Azure.
 
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -338,7 +338,7 @@ Pour en savoir plus : [Créer des éléments de travail ITSM pour des alertes Lo
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit Cherwell au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -397,7 +397,7 @@ Pour générer l’ID client/la clé de Cherwell, procédez comme suit :
     ![Id utilisateur de Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
  - [Créer des éléments de travail ITSM pour des alertes Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
  - [Créer des éléments de travail ITSM à partir d’enregistrements de journaux Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Créer des éléments de travail ITSM à partir des alertes Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

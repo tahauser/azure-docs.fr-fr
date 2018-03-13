@@ -24,7 +24,7 @@ ms.lasthandoff: 02/01/2018
 
 Découvrez comment connecter un cluster Apache Spark dans Azure HDInsight à une base de données SQL Azure, puis lire, écrire et envoyer des données dans une base de données SQL. Les instructions dans cet article utilisent un bloc-notes Jupyter pour exécuter les extraits de code Scala. Toutefois, vous pouvez créer une application autonome en Scala ou Python et effectuer les mêmes tâches. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Cluster Azure HDInsight Spark**.  Suivez les instructions indiquées dans [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -238,7 +238,7 @@ Dans cette section, nous envoyons des données dans la table **hvactable** que v
 
         SELECT COUNT(*) FROM hvactable
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Traiter des événements de streaming structuré à l’aide d’Event Hubs](apache-spark-eventhub-structured-streaming.md)

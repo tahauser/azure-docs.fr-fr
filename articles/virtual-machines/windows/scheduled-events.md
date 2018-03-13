@@ -111,7 +111,7 @@ S'il existe des événements planifiés, la réponse contient un tableau d’év
 ```
 
 ### <a name="event-properties"></a>Propriétés de l’événement
-|Propriété  |  DESCRIPTION |
+|Propriété  |  Description |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze` : une pause de quelques secondes est planifiée pour la machine virtuelle. Le processeur est mis en pause, mais cela n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau. <li>`Reboot` : un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy` : un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). |
@@ -220,7 +220,7 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 
 - Regardez une [démo sur le service Événements planifiés](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) sur Azure Friday. 
 - Passez en revue les exemples de code d’Événements planifiés disponibles dans le [dépôt Github Événements planifiés de métadonnées d’instance Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).

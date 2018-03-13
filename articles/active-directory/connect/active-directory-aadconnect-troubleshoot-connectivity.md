@@ -40,7 +40,7 @@ Les URL requises doivent également être ouvertes dans le serveur proxy. La li
 
 Parmi ces URL, le tableau suivant indique celles qui représentent le strict minimum pour pouvoir se connecter à Azure AD. Cette liste n’inclut pas de fonctionnalités facultatives, comme la réécriture du mot de passe ou Azure AD Connect Health. Elle est documentée ici pour faciliter le dépannage de la configuration initiale.
 
-| URL | Port | DESCRIPTION |
+| URL | Port | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.verisign.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
@@ -197,5 +197,5 @@ Cette erreur apparaît quand l’Assistant de connexion ne peut pas accéder au 
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

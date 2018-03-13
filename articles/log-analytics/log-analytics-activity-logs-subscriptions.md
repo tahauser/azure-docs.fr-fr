@@ -126,7 +126,7 @@ Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme
 
     ![Créer une application logique](media/log-analytics-activity-logs-subscriptions/create-logic-app.png)
 
-   |Paramètre | DESCRIPTION  |
+   |Paramètre | Description  |
    |:---|:---|
    | NOM           | Nom unique de l’application logique. |
    | Abonnement   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
@@ -301,7 +301,7 @@ L’action [Collecteur de données Azure Log Analytics](https://docs.microsoft.c
 
     ![Configuration de l’action Envoyer des données](media/log-analytics-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Paramètre        | Valeur           | DESCRIPTION  |
+   |Paramètre        | Valeur           | Description  |
    |---------------|---------------------------|--------------|
    |JSON Request body (Corps de la requête JSON)  | **Sortie** de l’action **Composer** | Récupère les enregistrements à partir du corps de l’action Composer. |
    | Custom Log Name (Nom de journal personnalisé) | AzureActivity | Nom de la table de journal personnalisée à créer dans Log Analytics pour contenir les données importées. |
@@ -337,7 +337,7 @@ La dernière étape consiste à consulter l’espace de travail Log Analytics po
 
 ![Tester l’application logique](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cet article, vous avez créé une application logique pour lire des journaux d’activité Azure à partir d’un Event Hub et les envoyer à Log Analytics pour analyse. Pour en savoir plus sur la visualisation de données dans Log Analytics, notamment sur la création de tableaux de bords, consultez le didacticiel consacré à ce sujet.
 

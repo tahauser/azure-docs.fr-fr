@@ -32,7 +32,7 @@ Commencez par créer une application logique. Pour cela, consultez [Créer une a
 ## <a name="create-a-connection-to-twilio"></a>Créer une connexion à Twilio
 Quand vous ajoutez ce connecteur à vos applications logiques, entrez les valeurs Twilio suivantes :
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | ID de compte |OUI |Entrez votre ID de compte Twilio |
 | Jeton d'accès |OUI |Entrez votre jeton d’accès Twilio |

@@ -59,7 +59,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 }
 ```
 ## <a name="syntax-details"></a>Détails de la syntaxe
-| Propriété            | DESCRIPTION                              | Obligatoire |
+| Propriété            | Description                              | Obligatoire |
 | ------------------- | ---------------------------------------- | -------- |
 | Nom                | Nom de l’activité                     | OUI      |
 | description         | Texte décrivant la raison motivant l’activité. | Non        |
@@ -71,7 +71,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 | arguments           | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non        |
 | defines             | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive. | Non        |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

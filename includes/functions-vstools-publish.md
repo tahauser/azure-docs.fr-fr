@@ -8,7 +8,7 @@
 
     ![Azure runtime local](./media/functions-vstools-publish/functions-vstools-publish.png)
 
-    | Paramètre      | Valeur suggérée  | DESCRIPTION                                |
+    | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de l’application** | Nom globalement unique | Nom qui identifie uniquement votre nouvelle application de fonction. |
     | **Abonnement** | Choisissez votre abonnement | Sélectionnez l’abonnement Azure à utiliser. |

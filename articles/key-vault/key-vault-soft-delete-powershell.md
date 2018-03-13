@@ -38,7 +38,7 @@ Pour obtenir des informations de référence propres à Key Vault pour PowerShel
 
 Les opérations Key Vault sont gérées séparément par l’intermédiaire d’autorisations de contrôle d’accès en fonction du rôle (RBAC) comme suit :
 
-| Opération | DESCRIPTION | Autorisation utilisateur |
+| Opération | Description | Autorisation utilisateur |
 |:--|:--|:--|
 |Liste|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
 |Recover|Restaure un coffre de clés supprimé.|Microsoft.KeyVault/vaults/write|

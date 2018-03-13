@@ -6,16 +6,16 @@ documentationcenter:
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
-ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
+ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 03fdd1265464355a2787eff897eb4f70faa095b0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
 
@@ -59,6 +59,7 @@ Cet exemple nécessite les prérequis suivants :
     - `pip install -U numpy`
     - `pip install bqplot`
     - `jupyter nbextension enable --py --sys-prefix bqplot`
+    - `jupyter nbextension enable --py widgetsnbextension`
 
 ### <a name="troubleshooting--known-bugs"></a>Résolution des problèmes / Bogues connus
 - Un GPU est nécessaire pour la partie 2. Sinon, une erreur indiquant que « l’apprentissage avec normalisation par lot sur l’UC n’est pas encore implémenté » est générée quand vous essayez d’affiner le réseau de neurones profond.
@@ -79,7 +80,7 @@ Pour créer un projet à l’aide de cet exemple en tant que modèle :
 
 L’exécution de ces étapes permet de créer la structure de projet illustrée ci-dessous. Le répertoire du projet est limité à moins de 25 Mo, car Azure Machine Learning Workbench crée une copie de ce dossier après chaque exécution (pour activer l’historique des exécutions). Ainsi, tous les fichiers image et fichiers temporaires sont enregistrés dans et depuis le répertoire *~/Desktop/imgClassificationUsingCntk_data* (appelé *DATA_DIR* dans ce document).
 
-  Dossier| DESCRIPTION
+  Dossier| Description
   ---|---
   aml_config/|                           Répertoire contenant les fichiers config d’Azure Machine Learning Workbench
   libraries/|                              Répertoire contenant toutes les fonctions d’assistance Python et Jupyter

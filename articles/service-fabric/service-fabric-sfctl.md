@@ -24,7 +24,7 @@ ms.lasthandoff: 02/27/2018
 Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 6.1. Les commandes suivent le modèle nom-verbe. Pour plus d’informations, consultez les sous-groupes suivants.
 
 ## <a name="subgroups"></a>Sous-groupes
-|Sous-groupe|DESCRIPTION|
+|Sous-groupe|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Permet de créer, de supprimer et de gérer les applications et les types d’application.|
 | [chaos](service-fabric-sfctl-chaos.md)   | Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.|
@@ -39,6 +39,6 @@ Commandes permettant de gérer les clusters et entités Service Fabric. Cette v
 | [service](service-fabric-sfctl-service.md) | Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.|
 | [store](service-fabric-sfctl-store.md)   | Effectue des opérations élémentaires au niveau des fichiers dans le magasin d’images de cluster.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

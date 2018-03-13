@@ -32,7 +32,7 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 
 ![Scénario][scenario]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).
@@ -368,7 +368,7 @@ Une fois la capture téléchargée, vous pouvez l’afficher à l’aide de n’
 - [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment afficher vos captures de paquets en consultant l’article [Packet capture analysis with Wireshark (Analyse de la capture de paquets avec Wireshark)](network-watcher-deep-packet-inspection.md).
 

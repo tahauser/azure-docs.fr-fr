@@ -48,7 +48,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 >  
 > Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises** .
 * Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil Curl et les commandes REST vous permettent de créer une fabrique de données. 
 * Suivez les instructions de [cet article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes : 
@@ -176,7 +176,7 @@ Pour plus d’informations sur les propriétés JSON, consultez [Service lié SQ
 
 Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
 | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
@@ -219,7 +219,7 @@ Pour plus d’informations sur ces propriétés JSON, consultez l’article [Con
 ```
 Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données SQL Azure. |
 | linkedServiceName | Fait référence au service **AzureSqlLinkedService** que vous avez créé précédemment. |
@@ -528,7 +528,7 @@ Dans ce didacticiel, vous avez utilisé une API REST pour créer une fabrique de
 3. Création des **jeux de données**qui décrivent les données d’entrée et de sortie des pipelines.
 4. Création d’un **pipeline** avec une activité de copie avec BlobSource en tant que source et SqlSink en tant que récepteur. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

@@ -32,7 +32,7 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des données sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations du système de fichiers sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -146,5 +146,5 @@ L’extrait de code suivant supprime le compte Data Lake Store que vous avez c
 * [Opérations du système de fichiers sur Data Lake Store à l’aide de Python](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Store .NET SDK Reference (Informations de référence sur le Kit de développement logiciel (SDK) .NET Azure Data Lake Store)](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)

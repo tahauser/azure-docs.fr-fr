@@ -23,7 +23,7 @@ ms.lasthandoff: 02/13/2018
 
 Cet article décrit comment activer la réplication de machines virtuelles de Azure, d’une région Azure à l’autre.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà configuré Site Recovery pour ce scénario, comme décrit dans le [didacticiel Azure sur Azure](azure-to-azure-tutorial-enable-replication.md). Assurez-vous que vous avez préparé les conditions préalables et créé le coffre Recovery Services.
 
@@ -76,7 +76,7 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 >Pendant la réplication initiale, l’état des peut prendre un certain temps à s’actualiser à défaut de progression. Cliquez sur le bouton **Actualiser** pour obtenir le dernier état.
 >
 
-# <a name="next-steps"></a>Étapes suivantes
+# <a name="next-steps"></a>étapes suivantes
 
 [En savoir plus](site-recovery-test-failover-to-azure.md) sur l’exécution d’un test de basculement.
 

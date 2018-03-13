@@ -70,7 +70,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 >
 >
 
-| Recommandation | DESCRIPTION |
+| Recommandation | Description |
 | --- | --- |
 | [Activer la collecte des données pour des abonnements](security-center-enable-data-collection.md) |Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements et pour l’ensemble des machines virtuelles Azure et des ordinateurs non Azure. |
 | [Corriger les configurations de sécurité](security-center-remediate-os-vulnerabilities.md) |Recommande d’aligner les configurations de votre système d’exploitation sur les règles de configuration de sécurité recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe. |
@@ -108,7 +108,7 @@ Après avoir examiné toutes les recommandations, vous pouvez décider d’en ap
 
 Dans le tableau de recommandations ci-dessus, sélectionnez une recommandation et suivez les instructions pour savoir comment appliquer une recommandation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.

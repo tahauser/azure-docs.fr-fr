@@ -205,7 +205,7 @@ Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente 
 
 La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| Noms de domaine | Ports sortants | DESCRIPTION |
+| Noms de domaine | Ports sortants | Description |
 | ------------ | -------------- | ----------- |
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
@@ -340,7 +340,7 @@ Les journaux de passerelle de gestion des données et PowerBIGateway figurent so
 
 [Fiddler](http://www.telerik.com/fiddler) est un outil gratuit développé par Telerik, qui surveille le trafic HTTP. Il permet de visualiser le trafic entre le service Power BI et l’ordinateur client. Ce service peut également indiquer les éventuelles erreurs et autres informations connexes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
     
 * [Connexion à des données locales à partir d’applications logiques](../logic-apps/logic-apps-gateway-connection.md)
 * [Fonctionnalités d’intégration d'entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -73,11 +73,11 @@ Le jeton est placé dans un en-tête d’autorisation pour les appels d’API.
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Inscrit un modèle.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -88,7 +88,7 @@ Inscrit un modèle.
 
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | OK. L’inscription du modèle a abouti. | [Modèle](#model) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -99,11 +99,11 @@ Inscrit un modèle.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Interroge la liste des modèles dans un compte. Vous pouvez filtrer la liste des résultats par balise et par nom. Si aucun filtre n’est passé, la requête répertorie tous les modèles dans le compte. La liste retournée est paginée et le nombre d’éléments dans chaque page est un paramètre facultatif.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -116,7 +116,7 @@ Interroge la liste des modèles dans un compte. Vous pouvez filtrer la liste des
 | $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non  | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [PaginatedModelList](#paginatedmodellist) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -128,11 +128,11 @@ Interroge la liste des modèles dans un compte. Vous pouvez filtrer la liste des
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models/{id}  
  |
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient un modèle par ID.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -142,7 +142,7 @@ Obtient un modèle par ID.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [Modèle](#model) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -154,11 +154,11 @@ Obtient un modèle par ID.
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Inscrit un manifeste auprès du modèle inscrit et de toutes ses dépendances.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -168,7 +168,7 @@ Inscrit un manifeste auprès du modèle inscrit et de toutes ses dépendances.
 | manifestRequest | body | Charge utile utilisée pour inscrire un manifeste | OUI | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | L’inscription du manifeste a abouti. | [Manifest](#manifest) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -180,11 +180,11 @@ Inscrit un manifeste auprès du modèle inscrit et de toutes ses dépendances.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Interroge la liste des manifestes dans un compte. Vous pouvez filtrer la liste de résultats par ID de modèle et par nom de manifeste. Si aucun filtre n’est passé, la requête répertorie tous les manifestes dans le compte. La liste retournée est paginée et le nombre d’éléments dans chaque page est un paramètre facultatif.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -197,7 +197,7 @@ Interroge la liste des manifestes dans un compte. Vous pouvez filtrer la liste d
 | $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non  | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [PaginatedManifestList](#paginatedmanifestlist) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -209,11 +209,11 @@ Interroge la liste des manifestes dans un compte. Vous pouvez filtrer la liste d
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient le manifeste par ID.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -223,7 +223,7 @@ Obtient le manifeste par ID.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [Manifest](#manifest) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -235,11 +235,11 @@ Obtient le manifeste par ID.
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Crée une image en tant qu’une image Docker dans Azure Container Registry.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -249,7 +249,7 @@ Crée une image en tant qu’une image Docker dans Azure Container Registry.
 | imageRequest | body | Charge utile utilisée pour créer une image | OUI | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | headers | Schéma |
+| Code | Description | headers | Schéma |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de l’emplacement de l’opération asynchrone. Un appel GET vous indiquera l’état de la tâche de création d’image. | Operation-Location |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -261,11 +261,11 @@ Crée une image en tant qu’une image Docker dans Azure Container Registry.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Interroge la liste d’images dans un compte. Vous pouvez filtrer la liste de résultats par nom et ID de manifeste. Si aucun filtre n’est passé, la requête répertorie toutes les images dans le compte. La liste retournée est paginée et le nombre d’éléments dans chaque page est un paramètre facultatif.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -278,7 +278,7 @@ Interroge la liste d’images dans un compte. Vous pouvez filtrer la liste de r�
 | $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non  | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [PaginatedImageList](#paginatedimagelist) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -290,11 +290,11 @@ Interroge la liste d’images dans un compte. Vous pouvez filtrer la liste de r�
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient une image par ID.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -304,7 +304,7 @@ Obtient une image par ID.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [Image](#image) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -317,11 +317,11 @@ Obtient une image par ID.
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Crée un service à partir d’une image.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -331,7 +331,7 @@ Crée un service à partir d’une image.
 | serviceRequest | body | Charge utile utilisée pour créer un service | OUI | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | headers | Schéma |
+| Code | Description | headers | Schéma |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de l’emplacement de l’opération asynchrone. Un appel GET indiquera l’état de la tâche de création de service. | Operation-Location |
 | 409 | Un service existe déjà sous le nom spécifié. |
@@ -344,11 +344,11 @@ Crée un service à partir d’une image.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Interroge la liste de services dans un compte. Vous pouvez filtrer la liste de résultats par nom/ID du modèle, nom/ID du manifeste, ID de l’image, nom du service ou ID de ressource Compute Machine Learning. Si aucun filtre n’est passé, la requête répertorie tous les services dans le compte. La liste retournée est paginée et le nombre d’éléments dans chaque page est un paramètre facultatif.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -366,7 +366,7 @@ Interroge la liste de services dans un compte. Vous pouvez filtrer la liste de r
 | $skipToken | query | Jeton de continuation pour récupérer la page suivante | Non  | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [PaginatedServiceList](#paginatedservicelist) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse) |
@@ -378,11 +378,11 @@ Interroge la liste de services dans un compte. Vous pouvez filtrer la liste de r
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient un service par ID.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -392,7 +392,7 @@ Obtient un service par ID.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [ServiceResponse](#serviceresponse) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse)
@@ -404,11 +404,11 @@ Obtient un service par ID.
 |------------|------------|
 | PUT |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Met à jour un service existant.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -419,7 +419,7 @@ Met à jour un service existant.
 | serviceUpdateRequest | body | Charge utile utilisée pour mettre à jour un service existant | OUI |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | headers | Schéma |
+| Code | Description | headers | Schéma |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de l’emplacement de l’opération asynchrone. Un appel GET indiquera l’état de la tâche de mise à jour de service. | Operation-Location |
 | 404 | Le service associé à l’ID spécifié n’existe pas. |
@@ -432,11 +432,11 @@ Met à jour un service existant.
 |------------|------------|
 | SUPPRIMER |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Supprime un service.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -446,7 +446,7 @@ Supprime un service.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! |  |
 | 204 | Le service associé à l’ID spécifié n’existe pas. |
@@ -459,11 +459,11 @@ Supprime un service.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient les clés du service.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -473,7 +473,7 @@ Obtient les clés du service.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [AuthKeys](#authkeys)
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse)
@@ -485,11 +485,11 @@ Obtient les clés du service.
 |------------|------------|
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Régénère les clés du service, puis les retourne.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -500,7 +500,7 @@ Régénère les clés du service, puis les retourne.
 | regenerateKeyRequest | body | Charge utile utilisée pour mettre à jour un service existant | OUI | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [AuthKeys](#authkeys)
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse)
@@ -512,11 +512,11 @@ Régénère les clés du service, puis les retourne.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Interroge la liste des déploiements dans un compte. Vous pouvez filtrer la liste de résultats par ID du service, ce qui retourne uniquement les déploiements créés pour le service en question. Si aucun filtre n’est passé, la requête répertorie tous les déploiements dans le compte.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -526,7 +526,7 @@ Interroge la liste des déploiements dans un compte. Vous pouvez filtrer la list
 | serviceId | query | ID du service | Non  | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [DeploymentList](#deploymentlist) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse)
@@ -538,11 +538,11 @@ Interroge la liste des déploiements dans un compte. Vous pouvez filtrer la list
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient le déploiement par ID.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -552,7 +552,7 @@ Obtient le déploiement par ID.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [Déploiement](#deployment) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse)
@@ -564,11 +564,11 @@ Obtient le déploiement par ID.
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/operations/{id} | 
 
-### <a name="description"></a>DESCRIPTION
+### <a name="description"></a>Description
 Obtient l’état de l’opération asynchrone par ID d’opération.
 
 ### <a name="parameters"></a>parameters
-| NOM | Emplacement | DESCRIPTION | Obligatoire | Schéma
+| NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
 | nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
@@ -578,7 +578,7 @@ Obtient l’état de l’opération asynchrone par ID d’opération.
 | Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
 
 ### <a name="responses"></a>Réponses
-| Code | DESCRIPTION | Schéma |
+| Code | Description | Schéma |
 |--------------------|--------------------|--------------------|
 | 200 | Vous avez réussi ! | [OperationStatus](#asyncoperationstatus) |
 | default | Réponse d’erreur décrivant la raison de l’échec de l’opération | [ErrorResponse](#errorresponse)
@@ -593,7 +593,7 @@ Obtient l’état de l’opération asynchrone par ID d’opération.
 Objet de ressource qui sera nécessaire pendant la création d’images Docker
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**id**  <br>*facultatif*|ID de la ressource|chaîne|
 |**mimeType**  <br>*facultatif*|Type MIME du contenu du modèle. Pour plus d’informations sur le type MIME, consultez la [liste des types de média IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|chaîne|
@@ -613,7 +613,7 @@ Objet de ressource qui sera nécessaire pendant la création d’images Docker
 État de l’opération
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**createdTime**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) de l’opération asynchrone|chaîne (date-heure)|
 |**endTime**  <br>*facultatif*  <br>*en lecture seule*|Heure de fin (UTC) de l’opération asynchrone|chaîne (date-heure)|
@@ -629,7 +629,7 @@ Objet de ressource qui sera nécessaire pendant la création d’images Docker
 Clés d’authentification d’un service
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**primaryKey**  <br>*facultatif*|Clé primaire|chaîne|
 |**secondaryKey**  <br>*facultatif*|Clé secondaire|chaîne|
@@ -640,7 +640,7 @@ Clés d’authentification d’un service
 Paramètres de l’outil de mise à l’échelle automatique
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**autoscaleEnabled**  <br>*facultatif*|Active ou désactive l’outil de mise à l’échelle automatique.|booléenne|
 |**maxReplicas**  <br>*facultatif*|Nombre maximal de réplicas pod prévus pour la montée en puissance  <br>**Valeur minimale** : `1`|integer|
@@ -654,7 +654,7 @@ Paramètres de l’outil de mise à l’échelle automatique
 Ressource Compute Machine Learning
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**id**  <br>*facultatif*|ID de la ressource|chaîne|
 |**type**  <br>*facultatif*|Type de ressource.|enum (Cluster)|
@@ -665,7 +665,7 @@ Ressource Compute Machine Learning
 Configuration de la réservation de ressources pour un conteneur du cluster
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**cpu**  <br>*facultatif*|Spécifie la réservation du processeur. Format pour Kubernetes : voir [Meaning of CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu) (Principe de l’UC).|chaîne|
 |**memory**  <br>*facultatif*|Spécifie la réservation de mémoire. Format pour Kubernetes : voir [Meaning of memory](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory) (Principe de la mémoire).|chaîne|
@@ -676,7 +676,7 @@ Configuration de la réservation de ressources pour un conteneur du cluster
 Instance d’un déploiement Azure Machine Learning
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**createdAt**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) du déploiement|chaîne (date-heure)|
 |**expiredAt**  <br>*facultatif*  <br>*en lecture seule*|Heure d’expiration (UTC) du déploiement|chaîne (date-heure)|
@@ -698,7 +698,7 @@ Tableau d’objets de déploiement
 Détail de l’erreur du service Gestion des modèles
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**code**  <br>*obligatoire*|Code d’erreur|chaîne|
 |**message**  <br>*obligatoire*|Message d’erreur.|chaîne|
@@ -709,7 +709,7 @@ Détail de l’erreur du service Gestion des modèles
 Objet d’erreur du service Gestion des modèles
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**code**  <br>*obligatoire*|Code d’erreur|chaîne|
 |**details**  <br>*facultatif*|Tableau d’objets de détail d’erreur|<[ErrorDetail](#errordetail)> tableau|
@@ -722,7 +722,7 @@ Objet d’erreur du service Gestion des modèles
 Image Azure Machine Learning
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**computeResourceId**  <br>*facultatif*|ID de l’environnement créé dans la ressource Compute Machine Learning|chaîne|
 |**createdTime**  <br>*facultatif*|Heure de création (UTC) de l’image|chaîne (date-heure)|
@@ -743,7 +743,7 @@ Image Azure Machine Learning
 Demande de création d’une image Azure Machine Learning
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**computeResourceId**  <br>*obligatoire*|ID de l’environnement créé dans la ressource Compute Machine Learning|chaîne|
 |**description**  <br>*facultatif*|Texte de description de l’image|chaîne|
@@ -764,7 +764,7 @@ Spécifie le type de l’image
 Manifeste Azure Machine Learning
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**assets**  <br>*obligatoire*|Liste de ressources|<[Ressource](#asset)> tableau|
 |**createdTime**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) du manifeste|chaîne (date-heure)|
@@ -784,7 +784,7 @@ Manifeste Azure Machine Learning
 Instance d’un modèle Azure Machine Learning
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**createdAt**  <br>*facultatif*  <br>*en lecture seule*|Heure de création (UTC) du modèle|chaîne (date-heure)|
 |**description**  <br>*facultatif*|Texte de description du modèle|chaîne|
@@ -802,7 +802,7 @@ Instance d’un modèle Azure Machine Learning
 Informations sur la collecte de données du modèle
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**eventHubEnabled**  <br>*facultatif*|Active le concentrateur d’événements pour un service.|booléenne|
 |**storageEnabled**  <br>*facultatif*|Active le stockage pour un service.|booléenne|
@@ -813,7 +813,7 @@ Informations sur la collecte de données du modèle
 Liste paginée d’images
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
 |**value**  <br>*facultatif*|Tableau d’objets de modèle|<[Image](#image)> tableau|
@@ -824,7 +824,7 @@ Liste paginée d’images
 Liste paginée de manifestes
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
 |**value**  <br>*facultatif*|Tableau d’objets de manifeste|<[Manifeste](#manifest)> tableau|
@@ -835,7 +835,7 @@ Liste paginée de manifestes
 Liste paginée de modèles
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
 |**value**  <br>*facultatif*|Tableau d’objets de modèle|<[Modèle](#model)> tableau|
@@ -846,7 +846,7 @@ Liste paginée de modèles
 Liste paginée de services.
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**nextLink**  <br>*facultatif*|Lien de continuation (URI absolu) vers la page suivante de résultats de la liste.|chaîne|
 |**value**  <br>*facultatif*|Tableau d’objets de service|<[ServiceResponse](#serviceresponse)> tableau|
@@ -857,7 +857,7 @@ Liste paginée de services.
 Demande de création d’un service
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service.|booléenne|
 |**autoScaler**  <br>*facultatif*||[AutoScaler](#autoscaler)|
@@ -875,7 +875,7 @@ Demande de création d’un service
 Demande de régénération de clé pour un service
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**keyType**  <br>*facultatif*|Spécifie la clé à régénérer.|enum (Primary, Secondary)|
 
@@ -885,7 +885,7 @@ Demande de régénération de clé pour un service
 État détaillé du service
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**createdAt**  <br>*facultatif*|Heure de création (UTC) du service|chaîne (date-heure)|
 |**Identifiant**  <br>*facultatif*|ID du service|chaîne|
@@ -911,7 +911,7 @@ Demande de régénération de clé pour un service
 Demande de mise à jour d’un service
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**appInsightsEnabled**  <br>*facultatif*|Active les insights d’application pour un service.|booléenne|
 |**autoScaler**  <br>*facultatif*||[AutoScaler](#autoscaler)|
@@ -927,7 +927,7 @@ Demande de mise à jour d’un service
 Type du runtime cible.
 
 
-|NOM|DESCRIPTION|Schéma|
+|NOM|Description|Schéma|
 |---|---|---|
 |**properties**  <br>*obligatoire*||<chaîne, chaîne> mappage|
 |**runtimeType**  <br>*obligatoire*|Spécifie le runtime.|enum (SparkPython, Python)|

@@ -24,7 +24,7 @@ Azure Event Grid vous permet de réagir aux événements dans IoT Hub en déclen
 
 Cet article présente un exemple de configuration qui utilise IoT Hub et Event Grid. Avant la fin de sa lecture, vous disposerez d’une application logique Azure configurée pour envoyer un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte e-mail auprès de n’importe quel fournisseur d’e-mail pris en charge par Azure Logic Apps, tel qu’Outlook Office 365, Outlook.com ou Gmail. Ce compte e-mail permet d’envoyer les notifications d’événements. Pour obtenir la liste complète des connecteurs d’application logique pris en charge, consultez la [Vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors/).
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/).
@@ -222,7 +222,7 @@ Même si vous conservez votre hub IoT, vous pouvez souhaiter supprimer l’abonn
 2. Sélectionnez l’abonnement aux événements que vous souhaitez supprimer. 
 3. Sélectionnez **Supprimer**. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez-en plus sur la [réaction aux événements IoT Hub en utilisant Event Grid pour déclencher des actions](../iot-hub/iot-hub-event-grid.md).
 

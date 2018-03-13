@@ -168,7 +168,7 @@ Si vous voulez que cette option soit disponible uniquement pour un développemen
 ## <a name="TableOperations"></a>Opérations de table
 Le Kit de développement logiciel (SDK) Node.js Server azure-mobile-apps fournit des mécanismes permettant d’exposer les tables de données stockées dans Azure SQL Database sous la forme d’une API Web. Il fournit cinq opérations :
 
-| Opération | DESCRIPTION |
+| Opération | Description |
 | --- | --- |
 | GET /tables/*tablename* |Extraire tous les enregistrements de la table. |
 | GET /tables/*tablename*/:id |Extraire un enregistrement spécifique de la table. |
@@ -334,7 +334,7 @@ Nous vous recommandons d’ajouter azureMobile.js à votre fichier .gitignore (o
 ### <a name="howto-appsettings"></a>Configurer des paramètres d’application pour votre application mobile
 La plupart des paramètres du fichier azureMobile.js ont un paramètre équivalent dans le [portail Azure]. Utilisez la liste suivante pour configurer votre application dans **Paramètres de l’application** :
 
-| Paramètre d’application | Paramètre azureMobile.js | DESCRIPTION | Valeurs valides |
+| Paramètre d’application | Paramètre azureMobile.js | Description | Valeurs valides |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |Nom |Le nom de l’application |chaîne |
 | **MS_MobileLoggingLevel** |logging.level |Niveau minimal de journal pour les messages à consigner |error, warning, info, verbose, debug, silly |

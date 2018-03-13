@@ -70,7 +70,7 @@ Vous trouverez ci-dessous un exemple de paramètre.
 
 Le tableau suivant décrit les attributs d’un paramètre.
 
-| Attribut | DESCRIPTION |
+| Attribut | Description |
 |:--- |:--- |
 | Type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
 | category |Catégorie du paramètre facultative.  Les paramètres de la même catégorie sont regroupés. |
@@ -85,7 +85,7 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 >
 >
 
-| Paramètre | type | DESCRIPTION |
+| Paramètre | type | Description |
 |:--- |:--- |:--- |
 | accountName |chaîne |Nom de compte Azure Automation. |
 | pricingTier |chaîne |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
@@ -213,7 +213,7 @@ La ressource de la solution doit avoir une [dépendance](../azure-resource-manag
 ### <a name="properties"></a>properties
 La ressource de solution possède les propriétés indiquées dans le tableau suivant.  Cela inclut les ressources référencées et contenues dans la solution qui définit la manière dont la ressource est gérée après l’installation de la solution.  Chaque ressource de la solution doit être répertoriée dans la propriété **referencedResources** ou **containedResources**.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | workspaceResourceId |ID de l’espace de travail Log Analytics au format *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
 | referencedResources |Liste des ressources de la solution qui ne doivent pas être supprimées en même temps que la solution. |
@@ -224,7 +224,7 @@ L’exemple ci-dessus est valable pour une solution avec un runbook, une planifi
 ### <a name="plan"></a>Planification
 L’entité **plan** de la ressource de solution possède les propriétés indiquées dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Nom |Nom de la solution. |
 | version |Version de la solution, telle que déterminée par l’auteur. |
@@ -240,7 +240,7 @@ Vous pouvez voir des exemples de fichiers de solution avec une ressource de solu
 - [Ressources de recherche et d’alerte](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajoutez des alertes et des recherches enregistrées](operations-management-suite-solutions-resources-searches-alerts.md) à votre solution de gestion.
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks et d’autres ressources Automation](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.

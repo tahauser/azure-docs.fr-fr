@@ -161,7 +161,7 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
 }
 ```
 
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | records |Un tableau regroupant tous les événements de journal de cette charge utile. |
 | time |L’heure à laquelle l’événement s’est produit. |
@@ -176,7 +176,7 @@ Une liste de tous les fournisseurs de ressources qui prennent en charge la diffu
 ## <a name="stream-data-from-compute-resources"></a>Diffusion de données à partir des ressources de calcul
 Vous pouvez également diffuser en continu des journaux de diagnostic à partir des ressources de calcul à l’aide de l’agent Windows Azure Diagnostics. [Consultez cet article](../event-hubs/event-hubs-streaming-azure-diags-data.md) pour découvrir comment configurer cela.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [En savoir plus sur les journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 

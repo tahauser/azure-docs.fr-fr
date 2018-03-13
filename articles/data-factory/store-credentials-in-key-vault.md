@@ -44,7 +44,7 @@ Pour référencer des informations d’identification stockées dans Azure Key V
 
 Les propriétés suivantes sont prises en charge pour le service lié Azure Key Vault :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureKeyVault**. | OUI |
 | baseUrl | Spécifiez l’URL d’Azure Key Vault. | OUI |
@@ -67,7 +67,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 Les propriétés suivantes sont prises en charge lorsque vous configurez un champ dans le service lié qui référence un secret de coffre de clés :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | OUI |
 | secretName | Nom du secret dans le coffre de clés Azure. | OUI |
@@ -99,5 +99,5 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

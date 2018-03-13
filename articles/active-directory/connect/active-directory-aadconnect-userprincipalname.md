@@ -22,7 +22,7 @@ La valeur d’attribut UserPrincipalName est le nom d’utilisateur Azure AD des
 ## <a name="upn-terminology"></a>Terminologie UPN
 Cet article emploie la terminologie suivante :
 
-|Terme|DESCRIPTION|
+|Terme|Description|
 |-----|-----|
 |Domaine initial|Domaine par défaut (onmicrosoft.com) dans le locataire Azure AD. Par exemple, contoso.onmicrosoft.com.|
 |Adresse de routage des e-mails en ligne Microsoft (MOERA)|Azure AD calcule l’adresse MOERA à partir de l’attribut Azure AD MailNickName et du domaine initial Azure AD sous la forme &lt;MailNickName&gt;&#64;&lt;domaine initial&gt;.|

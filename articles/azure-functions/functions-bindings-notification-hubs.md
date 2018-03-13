@@ -274,7 +274,7 @@ Les paramètres de constructeur de l’attribut et les propriétés sont décrit
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `NotificationHub` :
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** |n/a| Doit être défini sur « notificationHub ». |
 |**direction** |n/a| Doit être défini sur « out ». | 
@@ -327,7 +327,7 @@ Le nom de ce paramètre d’application passe dans le paramètre de connexion de
 |---|---|
 | Hub de notification | [Guide des opérations](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

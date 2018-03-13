@@ -29,7 +29,7 @@ Commencez par créer une application logique. Pour cela, consultez [Créer une a
 ## <a name="create-a-connection-to-sharepoint"></a>Créer une connexion à SharePoint
 Pour utiliser le connecteur SharePoint, vous devez créer une **connexion** , puis fournir les détails de ces propriétés : 
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | par jeton |OUI |Fournir les informations d’identification SharePoint |
 

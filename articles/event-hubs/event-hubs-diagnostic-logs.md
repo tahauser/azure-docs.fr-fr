@@ -69,7 +69,7 @@ Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Cha
 
 Les chaînes JSON du journal d’archivage incluent les éléments listés dans le tableau suivant :
 
-NOM | DESCRIPTION
+NOM | Description
 ------- | -------
 TaskName | Description de la tâche en échec.
 ActivityId | ID interne, utilisé à des fins de suivi.
@@ -107,7 +107,7 @@ Le code suivant est un exemple de chaîne JSON de journal d’archivage :
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-NOM | DESCRIPTION
+NOM | Description
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi.
 EventName | Nom d’opération.  
@@ -136,7 +136,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
 * [Prise en main des hubs d’événements](event-hubs-dotnet-standard-getstarted-send.md)

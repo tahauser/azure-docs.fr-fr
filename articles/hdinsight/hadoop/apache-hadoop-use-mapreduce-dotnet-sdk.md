@@ -32,7 +32,7 @@ Apprenez à envoyer des travaux MapReduce à l’aide du Kit de développement l
 > 
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Cluster Hadoop dans HDInsight**. Consultez [Prise en main de Hadoop sous Linux dans HDInsight](apache-hadoop-linux-tutorial-get-started.md).
@@ -174,7 +174,7 @@ Pour réexécuter le travail, vous devez modifier le nom du dossier de sortie du
 
 Lorsque la tâche se termine correctement, l’application imprime le contenu du fichier de sortie « part-r-00000 ».
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * Pour soumettre un travail Hive, consultez [Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).

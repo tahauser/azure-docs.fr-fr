@@ -324,7 +324,7 @@ Vous pouvez résoudre facilement les problèmes liés à la synchronisation des 
 ### <a name="password-sync-log"></a>Journal de synchronisation de mot de passe
 La colonne Statut peut avoir les valeurs suivantes :
 
-| Statut | DESCRIPTION |
+| Statut | Description |
 | --- | --- |
 | Succès |Le mot de passe a été correctement synchronisé. |
 | FilteredByTarget |Le mot de passe est défini sur **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session**. Mot de passe n'a pas été synchronisé. |
@@ -413,7 +413,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect Sync : Personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)

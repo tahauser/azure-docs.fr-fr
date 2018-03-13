@@ -223,7 +223,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |referenceCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
 |errorCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
@@ -243,5 +243,5 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

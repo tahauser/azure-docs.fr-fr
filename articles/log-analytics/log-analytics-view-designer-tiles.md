@@ -67,7 +67,7 @@ Cette vignette affiche le nombre d’enregistrements retournés par deux requêt
 
 ![Vignette Deux nombres](media/log-analytics-view-designer/tile-two-numbers.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | NOM |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
@@ -88,10 +88,10 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 
 ![Vignette Anneau](media/log-analytics-view-designer/tile-donut.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | NOM |Texte affiché en haut de la vignette. |
-| DESCRIPTION |Texte affiché sous le nom de la vignette. |
+| Description |Texte affiché sous le nom de la vignette. |
 | **Anneau** | |
 | Requête |Requête exécutée pour l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. |
 | **Anneau** |**&gt; Centrer** |
@@ -112,7 +112,7 @@ Cette vignette est un graphique en courbes qui affiche plusieurs séries à part
 
 ![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | NOM |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
@@ -133,10 +133,10 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 
 ![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | NOM |Texte affiché en haut de la vignette. |
-| DESCRIPTION |Texte affiché sous le nom de la vignette. |
+| Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
 | **Graphique en courbes** |**&gt; Légende** |
@@ -158,10 +158,10 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 
 ![Vignette Deux chronologies](media/log-analytics-view-designer/tile-two-timelines.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | NOM |Texte affiché en haut de la vignette. |
-| DESCRIPTION |Texte affiché sous le nom de la vignette. |
+| Description |Texte affiché sous le nom de la vignette. |
 | Premier graphique | |
 | Légende |Texte affiché sous la légende de la première série. |
 | Couleur |Couleur utilisée pour les colonnes de la première série. |

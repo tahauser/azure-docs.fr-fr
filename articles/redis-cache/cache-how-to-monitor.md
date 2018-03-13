@@ -95,7 +95,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 > 
 > 
 
-| Métrique | DESCRIPTION |
+| Métrique | Description |
 | --- | --- |
 | Présences dans le cache |Nombre de recherches clés réussies au cours de l’intervalle de création des rapports. Celle-ci mappe à [ à partir de la commande Redis ](http://redis.io/commands/info)INFO`keyspace_hits`. |
 | Absences dans le cache |Nombre de recherches clés non réussies au cours de l’intervalle de création des rapports. Cette valeur correspond à la commande Redis INFO `keyspace_misses` . Les absences dans le cache ne signifient pas nécessairement qu’il y a un problème dans le cache. Par exemple, en cas d’utilisation du mode de programmation de type cache-aside, une application recherche d’abord l’élément dans le cache. Si cet élément ne s’y trouve pas (Absence dans le cache), il est récupéré dans la base de données et ajouté au cache pour la prochaine fois. Les absences dans le cache sont un comportement normal pour le mode de programmation de type cache-aside. Si le nombre d’absences dans le cache est plus élevé que prévu, examinez la logique d’application qui remplit le cache et y lit les informations. Si des éléments sont supprimés du cache en raison d’une trop grande sollicitation de la mémoire, des absences dans le cache peuvent se produire, mais `Used Memory` ou `Evicted Keys` sont de meilleures mesures pour surveiller la pression sur la mémoire. |

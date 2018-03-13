@@ -26,7 +26,7 @@ Azure Diagnostics est la fonctionnalité Azure qui active la collecte de donnée
 ## <a name="data-you-can-collect"></a>Données que vous pouvez collecter
 Les diagnostics Azure peuvent collecter les types de données suivants :
 
-| source de données | DESCRIPTION |
+| source de données | Description |
 | --- | --- |
 | Compteurs de performances |Système d’exploitation et compteurs de performances personnalisés |
 | Journaux d’application |Messages de trace écrits par votre application |
@@ -43,7 +43,7 @@ L’extension des diagnostics Azure peut transférer ces données vers un compte
 ## <a name="versioning"></a>Contrôle de version
 Voir [Historique de contrôle de version des diagnostics Azure](azure-diagnostics-versioning-history.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Choisissez le service sur lequel vous voulez collecter des diagnostics et utilisez les articles suivants pour commencer. Utilisez les liens des diagnostics Azure généraux comme référence pour des tâches spécifiques.
 
 ## <a name="web-apps"></a>Web Apps

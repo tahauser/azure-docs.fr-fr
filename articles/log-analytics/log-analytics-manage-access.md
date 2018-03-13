@@ -114,7 +114,7 @@ Les membres du rôle *Lecteur Log Analytics* peuvent effectuer les opérations s
 - Visualisation et recherche de toutes les données d’analyse 
 - Visualisation des paramètres d’analyse, notamment la configuration des diagnostics Azure sur toutes les ressources Azure
 
-| type    | Autorisation | DESCRIPTION |
+| type    | Autorisation | Description |
 | ------- | ---------- | ----------- |
 | Action | `*/read`   | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v2 |
@@ -136,7 +136,7 @@ Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérati
 > [!NOTE] 
 > La possibilité d’ajouter une extension de machine virtuelle à une machine virtuelle vous offre un contrôle total sur une machine virtuelle.
 
-| Autorisation | DESCRIPTION |
+| Autorisation | Description |
 | ---------- | ----------- |
 | `*/read`     | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | `Microsoft.Automation/automationAccounts/*` | Possibilité de créer et configurer les comptes Azure Automation, et notamment d’ajouter et modifier des runbooks |
@@ -292,6 +292,6 @@ Vous pouvez modifier l’organisation Azure Active Directory d’un espace de tr
 3. Entrez les informations d’identité de l’administrateur de votre domaine Azure Active Directory. Ensuite, une confirmation indiquant que votre espace de travail est lié à votre domaine Azure Active Directory s’affiche.  
     ![confirmation d’espace de travail lié](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Comprendre l’utilisation de données](log-analytics-usage.md) pour apprendre à analyser le volume de données collectées par les solutions et envoyées par les ordinateurs.
 * [Ajouter des solutions de gestion Log Analytics à partir d’Azure Marketplace](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.

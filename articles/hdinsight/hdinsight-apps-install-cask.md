@@ -54,7 +54,7 @@ Voici une illustration de la façon dont les données circulent dans le pipeline
 
 ![Traqueur CDAP](./media/hdinsight-apps-install-cask/tracker.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 
@@ -130,7 +130,7 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
     ![Exemple de journal d’accès - résultats de la requête](./media/hdinsight-apps-install-cask/log-query-results.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Documentation Cask](http://cask.co/resources/documentation/).
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.

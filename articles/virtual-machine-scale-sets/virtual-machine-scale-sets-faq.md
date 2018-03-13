@@ -216,7 +216,7 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
     }
 ```
  
-nom d’élément linuxConfiguration | Obligatoire | type | DESCRIPTION
+nom d’élément linuxConfiguration | Obligatoire | type | Description
 --- | --- | --- | --- |  ---
 ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
 chemin d’accès | OUI | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés

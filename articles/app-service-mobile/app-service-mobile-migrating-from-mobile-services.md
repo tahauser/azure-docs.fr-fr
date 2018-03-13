@@ -233,7 +233,7 @@ Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler po
 ### <a name="notification-hubs"></a>Notification Hubs
 Mobile Services utilise Notification Hubs pour les notifications push.  Les paramètres de l’application utilisés pour lier le concentrateur de notification à votre service mobile après la migration sont les suivants :
 
-| Paramètre de l’application | DESCRIPTION |
+| Paramètre de l’application | Description |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |Espace de nom du concentrateur de notification |
 | **MS\_NotificationHubName** |Nom du concentrateur de notification |
@@ -266,7 +266,7 @@ Dans l’intervalle, tous les paramètres push hérités (à l’exception notab
 ### <a name="app-settings"></a>Autres paramètres d’application
 Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *App Paramètres*:
 
-| Paramètre de l’application | DESCRIPTION |
+| Paramètre de l’application | Description |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Nom de votre application |
 | **MS\_MobileServiceDomainSuffix** |Préfixe du domaine. Par exemple, azure-mobile.net. |

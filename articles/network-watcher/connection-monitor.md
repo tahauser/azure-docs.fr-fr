@@ -23,7 +23,7 @@ ms.lasthandoff: 02/21/2018
 
 Apprenez à utiliser le moniteur de connexion pour surveiller la connectivité réseau entre une machine virtuelle Azure et une adresse IP. L’adresse IP peut être attribuée à une autre ressource Azure ou bien à une ressource Internet ou locale.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez respecter les prérequis suivants avant d’effectuer les étapes décrites dans cet article :
 
@@ -54,7 +54,7 @@ Connectez-vous au [Portail Azure](http://portal.azure.com).
 6. La surveillance commence. Le moniteur de connexion procède à un sondage toutes les 60 secondes.
 7. Le moniteur de connexion vous montre les moyennes en temps et en pourcentage des sondages aller-retour qui échouent. Vous pouvez afficher les données de surveillance dans une grille ou un graphe.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en [créant une capture de paquets déclenchée par alerte](network-watcher-alert-triggered-packet-capture.md).
 

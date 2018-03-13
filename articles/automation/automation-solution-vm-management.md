@@ -249,7 +249,7 @@ Automation crée deux types d’enregistrements dans le référentiel OMS : les 
 
 ### <a name="job-logs"></a>Journaux de tâches
 
-Propriété | DESCRIPTION|
+Propriété | Description|
 ----------|----------|
 Appelant |  Ce qui a initié l’opération.  Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
 Catégorie | Classification du type de données.  Pour Automation, la valeur est JobLogs.|
@@ -271,7 +271,7 @@ Temps | Date et heure d’exécution du travail du runbook.|
 
 ### <a name="job-streams"></a>Flux de tâches
 
-Propriété | DESCRIPTION|
+Propriété | Description|
 ----------|----------|
 Appelant |  Ce qui a initié l’opération.  Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
 Catégorie | Classification du type de données.  Pour Automation, la valeur est JobStreams.|
@@ -294,7 +294,7 @@ Quand vous effectuez une recherche de journal qui retourne des enregistrements d
 
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements de tâches collectés par cette solution. 
 
-Requête | DESCRIPTION|
+Requête | Description|
 ----------|----------|
 Rechercher les tâches du runbook ScheduledStartStop_Parent terminées avec succès | Catégorie de recherche == "JobLogs" &#124; où ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; où ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; trié par TimeGenerated desc|
 Rechercher les tâches du runbook SequencedStartStop_Parent terminées avec succès | Catégorie de recherche == "JobLogs" &#124; où ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; où ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; trié par TimeGenerated desc
@@ -316,7 +316,7 @@ Le compte Automation et l’espace de travail Log Analytics ne sont pas supprim�
 2. Dans le volet **Log Analytics**, sélectionnez l’espace de travail.
 3. Dans le volet des paramètres de l’espace de travail, sélectionnez **Supprimer** dans le menu.  
       
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur la façon de construire différentes requêtes de recherche et sur la manière de consulter les journaux de travaux Automation avec Log Analytics, consultez [Recherches de journal dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
 - Pour plus d’informations sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et autres détails techniques, voir [Suivi d’une tâche de runbook](automation-runbook-execution.md).

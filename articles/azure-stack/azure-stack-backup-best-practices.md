@@ -85,7 +85,7 @@ Les fabricants d’ordinateurs (OEM) sont encouragés à stocker les données de
 
 Les alertes suivantes sont prises en charge par le système :
 
-| Alerte                                                   | DESCRIPTION                                                                                     | Correction                                                                                                                                |
+| Alerte                                                   | Description                                                                                     | Correction                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | La sauvegarde a échoué, car le partage de fichiers se trouve hors capacité | Le partage de fichiers est hors capacité et le contrôleur de sauvegarde ne peut pas exporter les fichiers de sauvegarde vers l’emplacement. | Augmentez la capacité de stockage et essayez à nouveau de sauvegarder. Supprimez des sauvegardes existantes (en commençant par les plus anciennes) pour libérer de l’espace.                    |
 | La sauvegarde a échoué en raison de problèmes de connectivité.             | Le réseau entre Azure Stack et le partage de fichiers rencontre des problèmes.                          | Résolvez le problème de réseau, puis réessayez la sauvegarde.                                                                                            |
@@ -93,7 +93,7 @@ Les alertes suivantes sont prises en charge par le système :
 | La sauvegarde a échoué en raison de problèmes d’authentification               | Il peut y avoir un problème avec les informations d’identification ou un problème de réseau qui a un impact sur l’authentification.    | Mappez le partage à partir d’un autre ordinateur pour vérifier que le partage est accessible. Vous devrez peut-être mettre à jour les informations d’identification si elles ne sont plus valides. |
 | La sauvegarde a échoué en raison d’une défaillance générale                    | L’échec de la requête peut être dû à un problème occasionnel. Essayez de sauvegarder à nouveau.                    | Appelez le support technique                                                                                                                               |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
  - Passez en revue la documentation de référence pour le [service de sauvegarde de l’infrastructure](azure-stack-backup-reference.md).  
  - Activez le [service de sauvegarde de l’infrastructure](azure-stack-backup-enable-backup-console.md).

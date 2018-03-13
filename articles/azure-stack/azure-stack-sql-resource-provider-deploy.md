@@ -142,7 +142,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Paramètres de DeploySqlProvider.ps1
 Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres obligatoires.
 
-| Nom du paramètre | DESCRIPTION | Commentaire ou valeur par défaut |
+| Nom du paramètre | Description | Commentaire ou valeur par défaut |
 | --- | --- | --- |
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ |
 | **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ |
@@ -223,7 +223,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
 Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres obligatoires.
 
-| Nom du paramètre | DESCRIPTION | Commentaire ou valeur par défaut |
+| Nom du paramètre | Description | Commentaire ou valeur par défaut |
 | --- | --- | --- |
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ |
 | **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ |
@@ -259,7 +259,7 @@ Pour supprimer le fournisseur de ressources, il est essentiel de supprimer d’a
     - Les informations d’identification du compte d’administrateur local du service
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Ajoutez des serveurs d’hébergement](azure-stack-sql-resource-provider-hosting-servers.md) et [créez des bases de données](azure-stack-sql-resource-provider-databases.md).
 

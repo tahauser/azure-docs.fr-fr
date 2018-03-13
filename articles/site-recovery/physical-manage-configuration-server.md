@@ -105,7 +105,7 @@ Exécutez le fichier d’installation de la manière suivante :
 
 ### <a name="parameters"></a>parameters
 
-|Nom du paramètre| type | DESCRIPTION| Valeurs|
+|Nom du paramètre| type | Description| Valeurs|
 |-|-|-|-|
 | /ServerMode|Obligatoire|Spécifie si les serveurs de configuration et de processus doivent être installés ou si seul le serveur de processus doit être installé|CS<br>PS|
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|
@@ -309,7 +309,7 @@ Pour les déploiements de serveurs de configuration effectués avant mai 2016, l
 ## <a name="common-issues"></a>Problèmes courants
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les tutoriels pour en savoir plus sur la configuration de la reprise après sinistre de [serveurs physiques](tutorial-physical-to-azure.md) sur Azure.
 

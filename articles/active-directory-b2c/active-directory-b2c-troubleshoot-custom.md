@@ -94,7 +94,7 @@ Exemple :
 1. Ouvrez un nouvel onglet dans Application Insights.
 1. Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |---------------------|--------------------|
 traces | Consultez tous les journaux générés par Azure AD B2C |
 traces \| where timestamp > ago(1d) | Consultez tous les journaux générés par Azure AD B2C pour le dernier jour

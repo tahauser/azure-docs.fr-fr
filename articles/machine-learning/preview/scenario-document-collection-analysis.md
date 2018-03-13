@@ -54,7 +54,7 @@ Ce scénario utilise les techniques et algorithmes d’apprentissage automatique
 
 1. Détection d’anomalie et des tendances thématiques
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -83,7 +83,7 @@ Dans ce scénario, les données brutes collectées concernent une série d’act
 
 Le fichier de données contient neuf champs de données, répertoriés et décrits dans le tableau ci-dessous.
 
-| Nom du champ | type | DESCRIPTION | Contient une valeur manquante |
+| Nom du champ | type | Description | Contient une valeur manquante |
 |------------|------|-------------|---------------|
 | `ID` | Chaîne | ID de la loi ou résolution. Format de ce champ : [type_loi][numéro]-[congrès]. Par exemple, dans « hconres1-93 », le type de loi est « hconres » (pour House Concurrent Resolution, comme indiqué dans [ce document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), le numéro de loi est « 1 » et le numéro de congrès est « 93 ». | Non  |
 | `Text` | Chaîne | Texte de la loi ou résolution. | Non  |
@@ -101,7 +101,7 @@ L’exemple d’analyse de collection de documents est structuré en deux types 
 
 Les fichiers utilisés dans cet exemple sont structurés comme suit.
 
-| Nom de fichier | type | DESCRIPTION |
+| Nom de fichier | type | Description |
 |-----------|------|-------------|
 | `aml_config` | Dossier | Dossier de configuration d’Azure Machine Learning Workbench (consultez [cette documentation](./experimentation-service-configuration-reference.md) pour plus de détails sur la configuration de l’exécution de l’expérimentation) |
 | `Code` | Dossier | Dossier de code utilisé pour enregistrer les scripts Python et le package Python |

@@ -99,7 +99,7 @@ Le corps doit ressembler à ceci :
 ### <a name="parameters"></a>parameters
 La spécification des paramètres n’est pas nécessaire. La valeur par défaut est appliquée.
 
-|NOM  |type  |DESCRIPTION  |Default  |
+|NOM  |type  |Description  |Default  |
 |---------|---------|---------|---------|
 |type     |  Enum       |  Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic, add et defragment.       |   automatique      |
 |CommitMode     |  Enum       |  Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |

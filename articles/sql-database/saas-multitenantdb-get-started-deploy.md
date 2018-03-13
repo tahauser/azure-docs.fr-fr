@@ -49,7 +49,7 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -254,7 +254,7 @@ Les charges de travail générées par le script de génération de charge sont 
     - [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL](sql-database-elastic-pool.md)
     - [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

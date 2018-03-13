@@ -26,7 +26,7 @@ L’Explorateur de stockage Azure (version préliminaire) est une application au
 
 ![Explorateur de stockage Microsoft Azure (version préliminaire)][0]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
 
 > [!NOTE]
@@ -275,7 +275,7 @@ Si vous avez besoin de rechercher une ressource de stockage et ne savez pas où 
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Gérer les ressources de Stockage Blob Azure avec l’Explorateur de stockage (version préliminaire)](vs-azure-tools-storage-explorer-blobs.md)
 * [Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)](./cosmos-db/storage-explorer.md)
 * [Gérer les ressources Azure Data Lake Store avec l’Explorateur Stockage (préversion)](./data-lake-store/data-lake-store-in-storage-explorer.md)

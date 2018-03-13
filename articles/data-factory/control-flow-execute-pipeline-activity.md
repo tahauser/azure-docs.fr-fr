@@ -62,7 +62,7 @@ L’activité d’exécution du pipeline permet à un pipeline Data Factory d’
 ```
 
 ## <a name="type-properties"></a>Propriétés type
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité d’exécution du pipeline. | Chaîne | OUI
 Type | Doit avoir la valeur : **ExecutePipeline**. | Chaîne | OUI
@@ -257,7 +257,7 @@ Le pipeline master transfère ces valeurs au pipeline appelé comme indiqué dan
 }
 
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Pour chaque activité](control-flow-for-each-activity.md)

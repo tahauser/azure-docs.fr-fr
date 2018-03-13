@@ -61,7 +61,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :   
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -70,7 +70,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -152,7 +152,7 @@ Utilisez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mon_nouveau_serveur20170824.database.windows.net**. |
@@ -324,7 +324,7 @@ Imaginez que vous avez supprimé une table par inadvertance. Il s’agit de quel
 
 3. Cliquez sur **OK** pour restaurer la base de données [à un point dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) avant l’ajout des tables. La restauration d’une base de données vers un autre point dans le temps crée une base de données en double sur le même serveur que la base de données d’origine en date du point dans le temps que vous spécifiez, pour autant qu’il s’inscrive dans la période de rétention pour votre [niveau de service](sql-database-service-tiers.md).
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 Dans ce didacticiel, vous avez appris à exécuter des tâches de base de données classiques telles que la création d’une base de données et de tables, le chargement et l’interrogation de données, ainsi que la restauration de la base de données à un point antérieur dans le temps. Vous avez appris à effectuer les actions suivantes :
 > [!div class="checklist"]
 > * Créer une base de données

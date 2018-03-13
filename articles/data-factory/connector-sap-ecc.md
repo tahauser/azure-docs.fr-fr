@@ -54,7 +54,7 @@ Les sections suivantes fournissent des détails sur les propriétés utilisées 
 
 Les propriétés prises en charge pour le service lié SAP ECC sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **SapEcc** | OUI |
 | url | URL du service OData SAP ECC. | OUI |
@@ -91,7 +91,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de SAP ECC, définissez **SapEccResource** comme propriété de type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | chemin d’accès | Chemin de l’entité OData SAP ECC. | OUI |
 
@@ -121,7 +121,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de SAP ECC, définissez **SapEccSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source d’activité de copie doit être définie sur **SapEccSource**. | OUI |
 | query | Options de requête OData pour filtrer les données. Exemple : "$select=Name,Description&$top=10".<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée : (URL spécifiée dans le service lié)/(chemin spécifié dans le jeu de données)?(requête spécifiée dans la source de copie d’activité). Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | OUI |

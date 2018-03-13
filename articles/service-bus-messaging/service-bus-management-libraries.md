@@ -31,7 +31,7 @@ Les bibliothèques de gestion Azure Service Bus peuvent approvisionner dynamique
 * Création, mise à jour et suppression de rubriques
 * Création, mise à jour et suppression d’abonnements
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser les bibliothèques de gestion Service Bus, vous devez vous authentifier auprès du service Azure Active Directory (Azure AD). Azure AD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 
@@ -75,7 +75,7 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Informations de référence sur l’API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

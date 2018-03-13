@@ -80,7 +80,7 @@ La combinaison de ces trois jeux de données crée des paires Questions et répo
 
 Le schéma de données et les liens de téléchargement directs des trois jeux de données sont fournis dans le tableau suivant :
 
-| Jeu de données | Champ | type | DESCRIPTION
+| Jeu de données | Champ | type | Description
 | ----------|------------|------------|--------
 | [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | Chaîne | ID unique de la question (clé primaire)
 |  | AnswerId | Chaîne | ID unique de la réponse à chaque question
@@ -100,7 +100,7 @@ L’exemple de mise en correspondance de questions et réponses est présenté �
 
 Les fichiers utilisés dans cet exemple sont structurés comme suit.
 
-| Nom de fichier | type | DESCRIPTION
+| Nom de fichier | type | Description
 | ----------|------------|--------
 | `Image` | Dossier | Dossier utilisé pour enregistrer les images du fichier LISEZMOI
 | `notebooks` | Dossier | Dossier des notebooks Jupyter

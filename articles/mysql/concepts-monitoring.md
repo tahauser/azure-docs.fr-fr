@@ -28,7 +28,7 @@ Les autres tâches incluent la configuration d’actions automatisées, l’exé
 ### <a name="list-of-metrics"></a>Liste des métriques
 Ces métriques sont disponibles pour Azure Database pour MySQL :
 
-|Métrique|Nom d’affichage de la métrique|Unité|DESCRIPTION|
+|Métrique|Nom d’affichage de la métrique|Unité|Description|
 |---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Pourcentage d’UC en cours d’utilisation.|
 |compute_limit|Limite d’unités de calcul|Count|Nombre maximal d’unités de calcul de ce serveur.|
@@ -42,6 +42,6 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |connections_failed|Total de connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour des instructions étape par étape, consultez [Configurer des alertes](howto-alert-on-metric.md). 
 - Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

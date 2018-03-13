@@ -24,7 +24,7 @@ ms.lasthandoff: 02/28/2018
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 16.04 LTS existante dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Interface de ligne de commande Azure 2.0](quick-create-cli.md)
@@ -133,7 +133,7 @@ Les autres distributions de Linux telles que Red Hat Enterprise Linux et SUSE pe
 Si vous ne recevez pas de réponse dans votre client Bureau à distance et que vous ne voyez aucun événement dans le journal système, cela indique que le trafic du bureau à distance ne peut pas joindre la machine virtuelle. Passez en revue vos règles de groupe de sécurité réseau pour vous assurer que vous disposez d’une règle autorisant TCP sur le port 3389. Pour plus d’informations, consultez [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur la création et l’utilisation de clés SSH avec les machines virtuelles Linux, consultez [Create SSH keys for Linux VMs in Azure](mac-create-ssh-keys.md) (Création de clés SSH pour les machines virtuelles Linux dans Azure).
 
 Pour plus d’informations sur l’utilisation de SSH avec Windows, consultez la page [Utilisation de clés SSH avec Windows sur Azure](ssh-from-windows.md).

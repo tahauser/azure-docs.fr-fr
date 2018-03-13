@@ -267,7 +267,7 @@ Suivez les mêmes étapes que pour l’équilibreur de charge interne afin de co
 
 En général, vous devez appliquer les règles suivantes pour sécuriser efficacement votre sous-réseau interne (dans l’ordre indiqué ci-dessous)
 
-| Règle | DESCRIPTION | Flux |
+| Règle | Description | Flux |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Autoriser la communication HTTPS à partir de la zone DMZ |Trafic entrant |
 | DenyInternetOutbound |Aucun accès à Internet |Règle de trafic sortant |
@@ -281,7 +281,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 
 **9.2. Sécurisation du sous-réseau DMZ**
 
-| Règle | DESCRIPTION | Flux |
+| Règle | Description | Flux |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |Autoriser le trafic HTTPS entre Internet et la zone DMZ |Trafic entrant |
 | DenyInternetOutbound |Tout trafic est bloqué, à l’exception du trafic HTTPS vers Internet |Règle de trafic sortant |
@@ -319,7 +319,7 @@ Le modèle déploie une installation à 6 machines, 2 par contrôleur de domaine
 
 Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau virtuel lors du déploiement de ce modèle. Les différents paramètres disponibles pour la personnalisation du déploiement sont répertoriés ci-dessous avec la description de l’utilisation du paramètre dans le processus de déploiement. 
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | Lieu |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
 | StorageAccountType |Type de compte de stockage créé |
@@ -356,7 +356,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 * [Réseaux virtuels Azure](https://aka.ms/Azure/VNet)
 * [Liens AD FS et Web Application Proxy](https://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 * [Configuration et gestion de vos services AD FS avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

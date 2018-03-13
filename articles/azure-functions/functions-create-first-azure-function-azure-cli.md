@@ -24,7 +24,7 @@ Cette rubrique de démarrage rapide vous guide dans l’utilisation d’Azure Fu
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 Avant d’exécuter cet exemple, vous devez disposer des éléments suivants :
 

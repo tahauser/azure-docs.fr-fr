@@ -137,7 +137,7 @@ Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entrepri
 
 Au niveau du **pare-feu d’entreprise**, vous devez configurer les domaines et ports de sortie suivants :
 
-Noms de domaine | Ports | DESCRIPTION
+Noms de domaine | Ports | Description
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443, 80 | Utilisé pour la communication avec le serveur principal du service Déplacement des données
 *.core.windows.net | 443 | Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)
@@ -256,5 +256,5 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 Si vous préférez ne pas ouvrir le port 8060 sur l’ordinateur du runtime intégration autohébergé, utilisez d’autres mécanismes que l’application **Définition des informations d’identification-- pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell AzureRmDataFactoryV2LinkedServiceEncryptCredential. Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez le didacticiel suivant pour obtenir des instructions pas à pas : [didacticiel : copier des données locales dans le cloud](tutorial-hybrid-copy-powershell.md).

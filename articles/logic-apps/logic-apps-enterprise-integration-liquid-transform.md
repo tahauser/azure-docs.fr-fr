@@ -27,7 +27,7 @@ Azure Logic Apps prend en charge les transformations JSON de base par le biais d
  
 Dans cet article, vous allez découvrir comment utiliser un mappage ou un modèle Liquid qui prend en charge des transformations JSON plus complexes (itérations, flux de contrôle, variables, et ainsi de suite). Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un mappage Liquid et le stocker dans votre compte d’intégration.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -151,7 +151,7 @@ Liquid n’est pas limité aux transformations JSON. Voici d’autres actions de
 
    ![Exemple de sortie XML en texte](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
 * [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  

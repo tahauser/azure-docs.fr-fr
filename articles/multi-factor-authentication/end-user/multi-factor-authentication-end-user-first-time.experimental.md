@@ -41,7 +41,7 @@ Si vous ne voyez pas un écran semblable à celui-ci quand vous vous connectez, 
 
 La première question du processus d’inscription a trait à la façon dont vous souhaitez être contacté. Passez en revue les options dans le tableau et utilisez les liens pour accéder aux étapes de configuration de chaque méthode.
 
-| Méthode de contact | DESCRIPTION |
+| Méthode de contact | Description |
 | --- | --- |
 | [Application mobile](#use-a-mobile-app-as-the-contact-method) |- **Recevoir des notifications pour la vérification.** Cette option envoie une notification à l’application d’authentification sur votre smartphone ou tablette. Examinez la notification et, si elle est légitime, sélectionnez **Authentifier** dans l’application. Votre entreprise ou établissement scolaire peut vous demander d’entrer un code confidentiel avant de vous authentifier.<br>- **Utiliser le code de vérification.** Dans ce mode, l’application d’authentification génère un code de vérification mis à jour toutes les 30 secondes. Entrez le code de vérification le plus récent dans l’interface de connexion.<br>L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Appel ou SMS sur téléphone mobile](#use-your-mobile-phone-as-the-contact-method) |- **Appel téléphonique** passe un appel vocal automatisé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.<br>- **SMS** envoie un SMS contenant un code de vérification. Selon l’invite contenue dans le SMS, répondez au SMS ou entrez le code de vérification fourni dans l’interface de connexion. |
@@ -102,7 +102,7 @@ Si vous souhaitez ajouter manuellement un compte à l’application mobile sans 
 5. Si vous utilisez ces applications, copiez le mot de passe d’application fourni et collez-le dans votre application à la place de votre mot de passe habituel. Vous pouvez utiliser le même mot de passe d’application pour plusieurs applications. Pour plus d’informations, consultez [Définition des mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md).
 6. Cliquez sur **Done**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Modifier les options préférées et [gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 * Configurer des [mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md) pour les applications natives sur des appareils qui ne prennent pas en charge la vérification en deux étapes
 * Découvrir l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour mettre en place une authentification rapide et sécurisée, même sans accès au réseau de téléphonie mobile

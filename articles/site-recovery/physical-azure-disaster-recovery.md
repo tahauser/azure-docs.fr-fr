@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -177,6 +177,6 @@ Activez la réplication pour chaque serveur.
 
 Pour effectuer le monitoring des serveurs, vous pouvez consulter l’heure de leur dernière détection dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines sans attendre l’heure de la détection planifiée, mettez en surbrillance le serveur de configuration (sans cliquer dessus) et cliquez sur **Actualiser**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Effectuer un exercice de récupération d’urgence vers Azure](tutorial-dr-drill-azure.md)

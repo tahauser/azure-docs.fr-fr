@@ -66,7 +66,7 @@ Vous définissez des ressources avec la structure suivante :
 ]
 ```
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | condition | Non  | Valeur booléenne indiquant si la ressource est déployée. |
 | apiVersion |OUI |La version de l'API REST à utiliser pour la création de la ressource. |
@@ -388,7 +388,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
    > 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 * Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
 * Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).

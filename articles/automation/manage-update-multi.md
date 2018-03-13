@@ -110,7 +110,7 @@ Les agents installés sur des machines et ordinateurs virtuels collectent des do
 
 Le tableau suivant décrit les sources connectées prises en charge par cette solution :
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | Agents Windows |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
 | Agents Linux |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
@@ -180,7 +180,7 @@ Pour voir le flux des tâches du runbook qui gère le déploiement des mises à 
 
 Pour afficher les informations détaillées sur les erreurs du déploiement, sélectionnez **Erreurs**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur la gestion des mises à jour (y compris les journaux, la sortie et les erreurs), consultez [Solution de gestion des mises à jour dans OMS](../operations-management-suite/oms-solution-update-management.md).
 

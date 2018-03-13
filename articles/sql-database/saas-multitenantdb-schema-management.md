@@ -44,7 +44,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données client.
 > * Créer un index sur une table dans toutes les bases de données de locataire.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - L’application de bases de données mutualisées Wingtip Tickets doit déjà être déployée :
     - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application mutualisée partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
@@ -167,7 +167,7 @@ Observez les éléments suivants dans le script *OnlineReindex.sql* :
 * [Gestion des bases de données cloud avec montée en charge](sql-database-elastic-jobs-overview.md)
 * [Créer et gérer des bases de données cloud avec montée en charge](sql-database-elastic-jobs-create-and-manage.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

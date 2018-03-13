@@ -19,7 +19,7 @@ ms.lasthandoff: 01/12/2018
 
 En activant le service de configuration d’état souhaité (DSC), vous gérez et surveillez les configurations de vos serveurs Windows et Linux. Les configurations dérivant de la configuration souhaitée peuvent être identifiées ou corrigées automatiquement. Cette procédure de démarrage rapide vous permettra d’intégrer une machine virtuelle Linux et de déployer une pile LAMP avec DSC.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
@@ -134,7 +134,7 @@ L’état de tous les nœuds gérés se trouvent dans la vue **DSC Nodes** (Nœu
 
 ![État du nœud DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce démarrage rapide, vous avez intégré une machine virtuelle Linux à DSC, vous avez créé une configuration pour une pile LAMP et vous l’avez déployée sur la machine virtuelle. Pour savoir comment utiliser Automation DSC pour un déploiement continu, lisez l’article suivant :
 

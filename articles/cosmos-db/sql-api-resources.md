@@ -48,7 +48,7 @@ Comme l’illustre le schéma suivant, le **modèle de ressource** hiérarchique
 
 Pour commencer à utiliser des ressources, vous devez [créer un compte de base de données](create-sql-api-dotnet.md) à l’aide de votre abonnement Azure. Un compte de base de données se compose d’un ensemble de **bases de données**. Chacune d’elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur, des documents et les **pièces jointes** associées. La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble **d’autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l’utilisateur.  
 
-| Ressource | DESCRIPTION |
+| Ressource | Description |
 | --- | --- |
 | Compte de base de données |Le compte de base de données est associé à un jeu de bases de données et à une quantité fixe de stockage d’objets blob pour les pièces jointes. Vous pouvez créer un ou plusieurs comptes de base de données à l’aide de votre abonnement Azure. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | Base de données |Une base de données est un conteneur logique de stockage de documents partitionné entre des collections. Elle sert également de conteneur pour les utilisateurs. |
@@ -110,7 +110,7 @@ Cosmos DB n’oblige pas les extensions propriétaires à adopter la norme JSON 
 ### <a name="addressing-a-resource"></a>Adressage d'une ressource
 Toutes les ressources sont adressables via des URI. La valeur de la propriété **_self** d’une ressource représente l’URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /\<feed\>/{_rid} :  
 
-| Valeur de la propriété _self | DESCRIPTION |
+| Valeur de la propriété _self | Description |
 | --- | --- |
 | /dbs |Flux de bases de données sous un compte de base de données |
 | /dbs/{dbName} |Base de données avec ID correspondant à la valeur {dbName} |
@@ -457,7 +457,7 @@ La seule façon d'obtenir une clé de ressource est de créer une ressource d'au
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les autorisations dans Azure Cosmos DB en utilisant des API REST ou l’un des SDK clients. Azure Cosmos DB fournit toujours une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une autorisation. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, consultez l’article [Interactions RESTful avec les ressources Azure Cosmos DB](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png

@@ -200,7 +200,7 @@ Pour plus d’informations sur l’utilisation du nouveau langage de requête Re
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Didacticiel - Activer la journalisation à l’aide de PowerShell
 Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Ensuite, vous utilisez la requête Set-AzureRmDiagnosticSetting pour activer la journalisation des diagnostics et envoyer la sortie au nouveau compte de stockage.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un serveur Azure Analysis Services. Pour plus d’informations sur la création d’une ressource du serveur, consultez [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md) ou [Créer un serveur Azure Analysis Services à l’aide de PowerShell](analysis-services-create-powershell.md).
@@ -309,7 +309,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
   -RetentionEnabled $true -RetentionInDays 90
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur la [journalisation des diagnostics de ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 

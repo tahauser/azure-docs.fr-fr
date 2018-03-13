@@ -12,7 +12,7 @@ Vous pouvez acheter des instances de machines virtuelles réservées sur le [por
 3. Sélectionnez **Ajouter** pour acheter une nouvelle réservation.
 4. Renseignez les champs obligatoires. Les instances de machines virtuelles en cours d’exécution qui correspondent aux attributs que vous sélectionnez se qualifient pour bénéficier de la remise de réservation. Le nombre réel de vos instances de machines virtuelles qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
 
-    | Champ      | DESCRIPTION|
+    | Champ      | Description|
     |:------------|:--------------|
     |NOM        |Nom de cette réservation.| 
     |Abonnement|Abonnement utilisé pour payer la réservation. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
@@ -30,7 +30,7 @@ Vous pouvez acheter des instances de machines virtuelles réservées sur le [por
 
     ![Capture d’écran avant de soumettre l’achat de la réservation](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous pouvez mettre à jour l’étendue de la réservation par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API. 
 
 Pour savoir comment gérer une réservation, consultez [Gérer Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).

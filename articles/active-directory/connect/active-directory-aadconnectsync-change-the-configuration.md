@@ -261,7 +261,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
     | NOM | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AD – User UserType*. |
-    | DESCRIPTION | *Fournissez une description* |  |
+    | Description | *Fournissez une description* |  |
     | Système connecté | *Sélectionnez le connecteur AD local* |  |
     | Type d’objet système connecté | **Utilisateur** |  |
     | Type d’objet Metaverse | **Person** |  |
@@ -303,7 +303,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
     | Attribut | Valeur | Détails |
     | ----- | ------ | --- |
     | NOM | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AAD – User UserType*. |
-    | DESCRIPTION | *Fournissez une description* ||
+    | Description | *Fournissez une description* ||
     | Système connecté | *Sélectionnez le connecteur AAD* ||
     | Type d’objet système connecté | **Utilisateur** ||
     | Type d’objet Metaverse | **Person** ||
@@ -388,7 +388,7 @@ Réactivez le planificateur de synchronisation intégré :
 2. Réactivez la synchronisation planifiée en exécutant la cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

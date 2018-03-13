@@ -29,7 +29,7 @@ Dans ce document, vous allez apprendre à configurer des fonctions Azure et une 
 * Créez une [fonction Azure pour recevoir et traiter les messages Service Bus](#receive-messages-using-azure-function) en fonction des événements Event Grid.
 * Utilisez [Logic Apps](#receive-messages-using-azure-logic-app).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="service-bus-namespace"></a>Espace de noms Service Bus
 
@@ -188,7 +188,7 @@ Enregistrez l’application logique et envoyez un message à votre rubrique Serv
 
 ![18][]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Apprenez-en plus sur [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Apprenez-en plus sur [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).

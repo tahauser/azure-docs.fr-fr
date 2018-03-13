@@ -60,7 +60,7 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 
 
-| Propriété                      | DESCRIPTION                              | Obligatoire |
+| Propriété                      | Description                              | Obligatoire |
 | :---------------------------- | :--------------------------------------- | :------- |
 | Nom                          | Nom de l’activité dans le pipeline     | OUI      |
 | description                   | Texte décrivant l’activité.  | Non        |
@@ -272,7 +272,7 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
     }
 }
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

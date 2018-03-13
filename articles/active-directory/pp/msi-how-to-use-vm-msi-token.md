@@ -57,7 +57,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://localhost:50342/oauth2/token` | Le point de terminaison MSI, où 50342 est le numéro de port par défaut (configurable). |
@@ -81,7 +81,7 @@ Content-Type: application/json
 }
 ```
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | ------- | ----------- |
 | `access_token` | Le jeton d’accès demandé. Lors de l’appel d’une API REST sécurisée, le jeton est incorporé dans le champ d’en-tête de requête `Authorization` comme un jeton « du porteur », autorisant l’API à authentifier l’appelant. | 
 | `expires_in` | Le nombre de secondes pendant lesquelles le jeton d’accès est toujours valide, avant d’expirer, à partir de son émission. L’heure d’émission est accessible dans la revendication `iat` du jeton. |
@@ -129,7 +129,7 @@ Le point de terminaison MSI signale des erreurs via le champ de code d’état d
 
 Si une erreur se produit, le corps de réponse HTTP correspondant contient des données JSON avec les détails de l’erreur :
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | ------- | ----------- |
 | error   | Identificateur de l’erreur. |
 | error_description | Description détaillée de l’erreur. **Les descriptions des erreurs peuvent changer à tout moment. N’écrivez pas de codes créant des branches en fonction des valeurs dans la description de l’erreur.**|
@@ -155,7 +155,7 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 Consultez [Services Azure prenant en charge l’authentification de Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication) pour obtenir une liste des ressources qui prennent en charge Azure AD et qui ont été testées avec l’identité du service administré et leur ID de ressources respectif.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour activer MSI sur une machine virtuelle Azure, consultez [Configurer une identité MSI (Managed Service Identity) affectée par l’utilisateur pour une machine virtuelle, à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).
 

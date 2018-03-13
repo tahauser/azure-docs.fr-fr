@@ -115,7 +115,7 @@ La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue*
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
     | NOM | *Donnez-lui un nom* | Ex. *« Out to AAD – Custom override for userCertificate »* |
-    | DESCRIPTION | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
+    | Description | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
     | Système connecté | *Sélectionnez le connecteur Azure AD* |
     | Type d’objet système connecté | **user** | |
     | Type d’objet métaverse | **person** | |
@@ -178,6 +178,6 @@ Maintenant que le problème est résolu, réactivez le planificateur de synchron
 > [!Note]
 > Les étapes précédentes ne s’appliquent qu’aux versions récentes (1.1.xxx.x) d’Azure AD Connect avec le planificateur intégré. Si vous utilisez des versions plus anciennes (1.0.xxx.x) d’Azure AD Connect, qui utilisent le planificateur de tâches Windows, ou votre propre planificateur personnalisé (peu courant) pour déclencher une synchronisation périodique, vous devez les désactiver en conséquence.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 

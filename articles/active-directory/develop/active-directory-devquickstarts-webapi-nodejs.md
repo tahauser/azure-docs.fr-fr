@@ -65,7 +65,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) de la commande `create` comprennent les éléments suivants :
 
-| Argument  | DESCRIPTION |
+| Argument  | Description |
 |---------|---------|
 |`display-name` | Le nom convivial de l’inscription |
 |`homepage` | L’URL à laquelle les utilisateurs peuvent se connecter et utiliser votre application |
@@ -73,7 +73,7 @@ Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) de la 
 
 Avant de vous connecter à Azure Active Directory, vous avez besoin des informations suivantes :
 
-| NOM  | DESCRIPTION | Nom de la variable dans le fichier config |
+| NOM  | Description | Nom de la variable dans le fichier config |
 | ------------- | ------------- | ------------- |
 | Nom du locataire  | [Nom de locataire](active-directory-howto-tenant.md) que vous souhaitez utiliser pour l’authentification | `tenantName`  |
 | ID client  | « ID de client » est un terme OAuth qui correspond à _l’ID d’application_ AAD. |  `clientID`  |
@@ -239,7 +239,7 @@ Unauthorized
 ```
 Maintenant que vous avez créé une API sécurisée, vous pouvez implémenter un client capable de passer des jetons d’authentification à l’API.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Comme indiqué dans l’introduction, vous devez implémenter un homologue client pour vous connecter au serveur chargé de la connexion, de la déconnexion et de la gestion des jetons. Pour obtenir des exemples de code, vous pouvez vous référer aux applications clientes [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) et [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Pour obtenir un didacticiel pas à pas, reportez-vous à l’article suivant :
 
 > [!div class="nextstepaction"]

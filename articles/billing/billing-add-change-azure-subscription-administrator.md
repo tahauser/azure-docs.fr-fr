@@ -113,7 +113,7 @@ L’administrateur de compte est l’utilisateur qui a initialement souscrit l�
 > [!TIP]
 > Pour un meilleur contrôle et une gestion fine des accès, nous vous recommandons l’utilisation d’Azure RBAC (Role-Based Access Control), qui permet aux utilisateurs d’être ajoutés à plusieurs rôles. Pour en savoir plus, consultez la rubrique [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-what-is.md).
 
-| Administrateur d’abonnements classiques | Limite | DESCRIPTION |
+| Administrateur d’abonnements classiques | Limite | Description |
 | --- | --- | --- |
 | Administrateur de compte |1 par compte Azure |Il s’agit de l’utilisateur qui a souscrit l’abonnement Azure et qui est autorisé à accéder au [Centre des comptes](https://account.azure.com/Subscriptions) et à effectuer diverses tâches de gestion. Ces tâches incluent la possibilité de créer et d’annuler des abonnements, de modifier la facturation d’un abonnement et de changer l’administrateur de services fédérés. Sur le plan conceptuel, l’administrateur de compte est le propriétaire de facturation de l’abonnement. Dans RBAC, l’administrateur de compte ne reçoit pas de rôle.|
 | Administrateur de services fédérés |1 par abonnement Azure |Ce rôle est autorisé à gérer les services sur le [portail Azure](https://portal.azure.com). Par défaut, pour un nouvel abonnement, l’administrateur de compte est également l’administrateur de services fédérés. Dans RBAC, le rôle de propriétaire est donné à l’administrateur de services fédérés pour l’abonnement.|

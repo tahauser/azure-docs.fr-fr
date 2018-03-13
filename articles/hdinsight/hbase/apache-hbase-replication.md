@@ -182,7 +182,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 
 Arguments requis :
 
-|NOM|DESCRIPTION|
+|NOM|Description|
 |----|-----------|
 |-s, --src-cluster | Spécifie le nom DNS du cluster HBase source. Par exemple : -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Spécifie le nom DNS du cluster HBase de destination (réplica). Par exemple : -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ Arguments requis :
 
 Arguments facultatifs :
 
-|NOM|DESCRIPTION|
+|NOM|Description|
 |----|-----------|
 |-su, --src-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase source. La valeur par défaut est **admin**. |
 |-du, --dst-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase de destination. La valeur par défaut est **admin**. |
@@ -276,7 +276,7 @@ La section `print_usage()` du [script](https://raw.githubusercontent.com/Azure/h
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel a décrit la configuration de la réplication HBase dans un réseau virtuel ou entre deux réseaux virtuels dans Azure. Pour en savoir plus sur HDInsight et HBase, consultez les articles suivants :
 

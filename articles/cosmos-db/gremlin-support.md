@@ -132,7 +132,7 @@ Par exemple, l’extrait de code suivant montre une représentation sous forme d
 
 Les propriétés utilisées par GraphSON pour les vertex sont les suivantes :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | id | ID du vertex. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
 | label | Le label du vertex. Élément facultatif, utilisé pour décrire le type d’entité. |
@@ -143,7 +143,7 @@ Les propriétés utilisées par GraphSON pour les vertex sont les suivantes :
 
 Et le bord contient les informations suivantes pour faciliter la navigation vers d’autres parties du graphe.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | id | L’ID du bord. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
 | label | Le label du bord. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
@@ -152,7 +152,7 @@ Et le bord contient les informations suivantes pour faciliter la navigation vers
 
 Chaque propriété peut stocker plusieurs valeurs dans un tableau. 
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | value | Valeur de la propriété
 
@@ -165,7 +165,7 @@ Les opérations Gremlin fonctionnent parfaitement entre les données de graphe q
 ## <a name="gremlin-steps"></a>Étapes de Gremlin
 Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure Cosmos DB. Pour des références complètes sur Gremlin, consultez [Référence TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
 
-| étape | DESCRIPTION | Documentation TinkerPop 3.2 | Notes |
+| étape | Description | Documentation TinkerPop 3.2 | Notes |
 | --- | --- | --- | --- |
 | `addE` | Ajoute un bord reliant deux vertex | [étape addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Ajoute un vertex au graphe | [étape addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |

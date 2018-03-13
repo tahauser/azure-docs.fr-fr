@@ -24,7 +24,7 @@ ms.lasthandoff: 02/09/2018
 
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans ServiceNow et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD vers ServiceNow.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

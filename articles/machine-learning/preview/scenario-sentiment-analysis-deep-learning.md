@@ -39,7 +39,7 @@ Avec l’explosion des données disponibles et la prolifération des appareils m
 
 Pour tirer parti de l’analyse des sentiments, les entreprises doivent être capables d’explorer de vastes référentiels de données sociales non structurées et d’en dégager des insights actionnables. Dans cet exemple, nous allons créer des modèles d’apprentissage profond pour effectuer l’analyse des sentiments de critiques de films à l’aide d’AML Workbench
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 

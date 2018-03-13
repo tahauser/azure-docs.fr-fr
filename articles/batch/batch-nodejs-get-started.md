@@ -28,7 +28,7 @@ ms.lasthandoff: 02/28/2018
 
 Découvrez les concepts de base de création d’un client Batch dans Node.js à l’aide du [Kit de développement logiciel (SDK) Node.js pour Azure Batch](/javascript/api/overview/azure/batch). Nous allons présenter pas à pas un scénario pour une application Batch, puis la configurer à l’aide d’un client Node.js.  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez acquis une connaissance pratique de Node.js et que vous êtes familiarisé avec Linux. Il suppose également que vous disposez d’un compte Azure configuré avec des droits d’accès pour créer des services Batch et Stockage.
 
 Nous vous recommandons de lire [Présentation technique d’Azure Batch](batch-technical-overview.md) avant d’effectuer les étapes présentées dans cet article.
@@ -357,7 +357,7 @@ Le code permet d’ajouter plusieurs tâches au pool. Chaque tâche est exécut�
 
 Le portail contient des vues détaillées sur les états des tâches et du travail. Vous pouvez également utiliser la liste et récupérer des fonctions dans le Kit de développement logiciel (SDK) Node Azure. Des détails sont indiqués dans le [lien](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) de la documentation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Consultez l’article [Présentation des fonctionnalités de présentation d’Azure Batch](batch-api-basics.md) , que nous vous recommandons si vous ne connaissez pas le service.
 - Consultez la [référence Node.js Batch](/javascript/api/overview/azure/batch) pour explorer l’API Batch.

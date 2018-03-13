@@ -106,7 +106,7 @@ Créez une planification Power BI pour chaque jeu de données à l’aide de la 
 3. Cliquez sur le bouton **Power BI** en haut de la page pour ouvrir la boîte de dialogue **Power BI**.
 4. Renseignez les informations du tableau suivant et cliquez sur **Enregistrer**.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | NOM |Nom permettant d’identifier la planification dans la liste des planifications Power BI. |
 | Recherche enregistrée |Recherche de journal à exécuter.  Vous pouvez sélectionner la requête en cours ou sélectionner une recherche enregistrée dans la zone de liste déroulante. |
@@ -169,6 +169,6 @@ Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’é
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
 * Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.

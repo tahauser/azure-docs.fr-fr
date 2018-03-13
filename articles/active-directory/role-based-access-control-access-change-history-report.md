@@ -29,7 +29,7 @@ Pour créer un rapport d’historique des modifications d’accès dans PowerShe
 
 Lorsque vous appelez cette commande, vous pouvez spécifier quelle propriété des affectations répertorier, y compris les suivantes :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | **Action** |Si l’accès a été autorisé ou interdit |
 | **Appelant** |Le propriétaire responsable de la modification d’accès |
@@ -59,7 +59,7 @@ Pour enregistrer le rapport ou manipuler les données, exportez les modification
 
 ![ChangeLog affiché en tant que feuille de calcul - capture d’écran](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
 * En savoir plus sur la gestion du [contrôle d’accès en fonction du rôle Azure avec PowerShell](role-based-access-control-manage-access-powershell.md)
 

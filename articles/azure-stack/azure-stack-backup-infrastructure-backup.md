@@ -37,7 +37,7 @@ Avant d’activer votre service de sauvegarde, vérifiez que [la configuration r
 
 Le service contient les fonctionnalités suivantes.
 
-| Fonctionnalité                                            | DESCRIPTION                                                                                                                                                |
+| Fonctionnalité                                            | Description                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Services d’infrastructure de sauvegarde                     | Coordonnent la sauvegarde sur une partie des services d’infrastructure d’Azure Stack. Si un sinistre se produit, les données peuvent être restaurées lors d’un redéploiement. |
 | Compression et chiffrement des données de sauvegarde exportées | Les données de sauvegarde sont compressées et chiffrées par le système avant d’être exportées vers l’emplacement de stockage externe fourni par l’administrateur.                |

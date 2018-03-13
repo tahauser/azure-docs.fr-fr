@@ -24,7 +24,7 @@ Dans les deux modes de collecte, les dossiers de collecte de données supplémen
 * **Modèle de recherche**: modèle des noms de fichiers à collecter. La valeur par défaut est « \* ».
 * **Récursif** : si les fichiers à collecter se trouvent de manière récursive à l’emplacement spécifié.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Disposer d’un compte de stockage comme extension pour enregistrer les fichiers zip générés
 * Utiliser les applets de commande Azure PowerShell v0.8.0 ou version ultérieure Pour plus d’informations, consultez la rubrique [Téléchargements Azure](https://azure.microsoft.com/downloads/).
 

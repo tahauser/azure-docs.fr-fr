@@ -41,7 +41,7 @@ Les recommandations en matière de performances s’affichent dans un tableau si
 
 Les recommandations sont triées en fonction de leur impact potentiel sur les performances dans les catégories suivantes :
 
-| Impact | DESCRIPTION |
+| Impact | Description |
 |:--- |:--- |
 | Élevé |Les recommandations ayant un impact élevé fournissent l’impact le plus important sur les performances. |
 | Moyenne |Les recommandations ayant un impact moyen améliorent les performances, mais pas de manière substantielle. |
@@ -120,7 +120,7 @@ Les recommandations ayant l’état **En attente**, **En cours de vérification*
 ## <a name="monitoring-operations"></a>Surveillance des opérations
 L’application d’une recommandation ne se produit pas toujours instantanément. Le portail fournit des informations concernant l’état de la recommandation. Voici les états possibles des index :
 
-| Statut | DESCRIPTION |
+| Statut | Description |
 |:--- |:--- |
 | Pending |La commande Appliquer la recommandation a été reçue et son exécution est planifiée. |
 | En cours d'exécution |La recommandation est en cours d’application. |
@@ -150,7 +150,7 @@ Une fois les recommandations correctement implémentées (actuellement, seulemen
 ## <a name="summary"></a>Résumé
 Azure SQL Database fournit des recommandations pour améliorer les performances des bases de données SQL. Les scripts T-SQL vous aident à optimiser votre base de données, avec à la clé une amélioration des performances des requêtes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. Azure SQL Database continue à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
 
 * Consultez [Réglage automatique](sql-database-automatic-tuning.md) pour en savoir plus sur le réglage automatique dans Azure SQL Database.

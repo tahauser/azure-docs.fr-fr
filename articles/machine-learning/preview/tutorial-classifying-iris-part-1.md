@@ -55,7 +55,7 @@ Si vous avez suivi les étapes décrites dans l’article [Démarrage rapide : I
 
 1. Renseignez les champs du formulaire et sélectionnez le bouton **Créer** permettant de créer un projet dans Workbench.
 
-   Champ|Valeur suggérée pour le didacticiel|DESCRIPTION
+   Champ|Valeur suggérée pour le didacticiel|Description
    ---|---|---
    Nom du projet | myIris |Entrez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Répertoire du projet | c:\Temp\ | Spécifiez le répertoire dans lequel le projet est créé.
@@ -207,7 +207,7 @@ Ce package de préparation des données peut être transmis ultérieurement à u
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé Azure Machine Learning Workbench pour effectuer les tâches suivantes :
 > [!div class="checklist"]

@@ -25,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 
 Ce didacticiel de démarrage rapide montre comment utiliser [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
@@ -144,7 +144,7 @@ Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
 - [Pilote JDBC Microsoft pour SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues) (Signaler des problèmes/poser des questions)

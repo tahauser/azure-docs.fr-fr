@@ -218,7 +218,7 @@ Méthodes de collection prises en charge : GET
 
 Le tableau suivant décrit les propriétés qui sont disponibles
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | ID |Identificateur unique. |
 | Etag |**Requis pour le correctif**. Mis à jour par le serveur à chaque écriture. La valeur doit être égale à la valeur actuelle stockée ou '*' pour mettre à jour. 409 retourné pour les valeurs anciennes ou non valides. |
@@ -413,5 +413,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.

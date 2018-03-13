@@ -103,7 +103,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | --- | --- | --- |
 | storageAccountId |Chaîne | ID de ressource du compte de stockage dans lequel vous voulez ajouter les journaux de diagnostic. |
 | serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle présente le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
@@ -273,7 +273,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 }
 ```
 
-| Propriété | type | DESCRIPTION | exemples |
+| Propriété | type | Description | exemples |
 | --- | --- | --- | --- |
 | Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -320,7 +320,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 }
 ```
 
-| Propriété | type | DESCRIPTION | exemples |
+| Propriété | type | Description | exemples |
 | --- | --- | --- | --- |
 | Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -365,7 +365,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 
 ```
 
-| Propriété | type | DESCRIPTION | exemples |
+| Propriété | type | Description | exemples |
 | --- | --- | --- | --- |
 | Level |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -398,5 +398,5 @@ ADFV2 émet les métriques suivantes :
 
 Pour accéder aux métriques, suivez les instructions contenues dans l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant . 

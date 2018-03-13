@@ -31,7 +31,7 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 > Pour plus d’informations sur le déploiement et la surveillance des topologies sur HDInsight Windows, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Windows](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster Storm Linux sur HDInsight**: consultez [Prise en main d’Apache Storm sur HDInsight](apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
