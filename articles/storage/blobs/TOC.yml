@@ -12,6 +12,8 @@
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Travailler avec des objets BLOB - Portail Azure
       href: storage-quickstart-blobs-portal.md
+    - name: "Utiliser le stockage\_Blob\_: Explorateur\_Stockage"
+      href: storage-quickstart-blobs-storage-explorer.md
     - name: Travailler avec des objets BLOB - PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Travailler avec des objets BLOB - CLI
@@ -28,8 +30,8 @@
       href: storage-quickstart-blobs-ruby.md
     - name: Utiliser le stockage Blob - .Node.js
       href: storage-quickstart-blobs-nodejs.md
-    - name: "Utiliser le stockage\_Blob\_: Explorateur\_Stockage"
-      href: storage-quickstart-blobs-storage-explorer.md
+    - name: Travailler avec des objets BLOB - PHP
+      href: storage-quickstart-blobs-php.md
 - name: Didacticiels
   items:
     - name: Télécharger et traiter une image
