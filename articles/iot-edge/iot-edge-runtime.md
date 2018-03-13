@@ -118,7 +118,7 @@ L’agent IoT Edge joue un rôle essentiel dans la sécurité d’un appareil Io
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation des modules Azure IoT Edge][lnk-modules]
 

@@ -1237,7 +1237,7 @@ HealthEvents          :
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Utiliser les rapports d’intégrité du système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Ajout de rapports d’intégrité Service Fabric personnalisés](service-fabric-report-health.md)

@@ -114,7 +114,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
     }
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
 | ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
@@ -127,7 +127,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
 | path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
@@ -160,7 +160,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
     }
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
 | ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
@@ -172,7 +172,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | StreamName |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 

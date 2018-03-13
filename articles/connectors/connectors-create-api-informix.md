@@ -83,7 +83,7 @@ Dans l’application logique, vous pouvez ajouter une action pour répertorier l
 ## <a name="create-the-connections"></a>Créer les connexions
 Ce connecteur prend en charge les connexions aux bases de données locales et dans le cloud à l’aide des propriétés de connexion ci-après. 
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Serveur |Requis. Accepte une valeur de chaîne représentant une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
 | database |Requis. Accepte une valeur de chaîne représentant un nom de base de données relationnelle DRDA (RDBNAM). Informix accepte une chaîne de 128 octets (la propriété de base de données correspond à un nom de base de données (dbname) IBM Informix). |

@@ -40,7 +40,7 @@ Lorsque vous suivez les didacticiels et utilisez l’application, il est importa
 Après avoir déployé l’application, explorez les didacticiels suivants qui se basent sur le déploiement initial. Ces didacticiels explorent des modèles SaaS courants qui tirent parti des fonctionnalités intégrées de SQL Database, de SQL Data Warehouse et d’autres services Azure. Les didacticiels incluent des scripts PowerShell, avec des explications détaillées qui simplifient considérablement la compréhension et l’implémentation des mêmes modèles de gestion SaaS dans vos applications.
 
 
-| Didacticiel | DESCRIPTION |
+| Didacticiel | Description |
 |:--|:--|
 | [Instructions et conseils pour l’exemple d’application de base de données SQL Azure mutualisée SaaS](saas-tenancy-wingtip-app-guidance-tips.md) | **COMMENCEZ ICI** Téléchargez et exécutez les scripts PowerShell permettant de préparer des parties de l’application. |
 |[Déployer et explorer l’application SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Déployez et explorez l’application SaaS Wingtip dans votre abonnement Azure. |

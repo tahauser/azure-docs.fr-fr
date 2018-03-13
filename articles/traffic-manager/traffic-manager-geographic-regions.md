@@ -690,6 +690,6 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [méthode de routage du trafic géographique dans Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

@@ -136,7 +136,7 @@ Vous pouvez désactiver l’approvisionnement automatique à partir des ressourc
 3. Dans le panneau **Stratégie de sécurité : collecte de données**, dans **Intégration** sélectionnez **Non** pour désactiver l’approvisionnement automatique.
 4. Sélectionnez **Enregistrer**.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré le fonctionnement de la collecte de données et de l’approvisionnement automatique dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.

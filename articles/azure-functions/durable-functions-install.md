@@ -175,7 +175,7 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
 
 Félicitations ! Votre première fonction durable est maintenant opérationnelle dans le portail Azure !
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Exécuter l’exemple de chaînage de fonction](durable-functions-sequence.md)

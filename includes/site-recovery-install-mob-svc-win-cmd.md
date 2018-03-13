@@ -25,7 +25,7 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Paramètre|type|DESCRIPTION|Valeurs possibles|
+| Paramètre|type|Description|Valeurs possibles|
 |-|-|-|-|
 |/Role|Obligatoire|Spécifie si le service Mobilité (MS) ou MasterTarget(MT) doit être installé.|MS </br> MT|
 |/InstallLocation|Facultatif|Emplacement où est installé le service Mobilité.|N’importe quel dossier sur l’ordinateur|
@@ -42,7 +42,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Paramètre|type|DESCRIPTION|Valeurs possibles|
+  | Paramètre|type|Description|Valeurs possibles|
   |-|-|-|-|
   |/CSEndPoint |Obligatoire|Adresse IP du serveur de configuration| Une adresse IP valide|
   |/PassphraseFilePath|Obligatoire|Emplacement de la phrase secrète |N’importe quel chemin d’accès UNC ou local valide|

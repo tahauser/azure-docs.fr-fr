@@ -54,7 +54,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis
 
 Les propriétés prises en charge pour le service lié Amazon Redshift sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **AmazonRedshift** | OUI |
 | server |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
@@ -96,7 +96,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | OUI |
 | TableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
@@ -126,7 +126,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’Amazon Redshift, définissez **AmazonRedshiftSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **AmazonRedshiftSource** | OUI |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non (si « tableName » est spécifié dans dataset) |

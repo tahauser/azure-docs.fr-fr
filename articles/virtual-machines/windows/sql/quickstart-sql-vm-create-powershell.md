@@ -181,7 +181,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzureRmResourceGroup**. Cette commande supprime la machine virtuelle de façon définitive, donc utilisez-la avec précaution.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez créé une machine virtuelle SQL Server 2017 à l’aide d’Azure PowerShell. Pour en savoir plus sur la façon de migrer vos données vers la nouvelle instance SQL Server, consultez l’article suivant.
 

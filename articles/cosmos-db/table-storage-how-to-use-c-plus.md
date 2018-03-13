@@ -447,7 +447,7 @@ azure::storage::table_operation delete_operation = azure::storage::table_operati
 azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les bases du stockage des tables étant assimilées, voir les liens suivants pour en savoir plus sur Azure Storage :  
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

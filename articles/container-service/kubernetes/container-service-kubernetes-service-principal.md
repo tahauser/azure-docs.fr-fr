@@ -164,7 +164,7 @@ Output:
 
 Ensuite, mettez `/etc/kubernetes/azure.json` à jour avec les nouvelles informations d’identification sur tous les nœuds de cluster et redémarrez les nœuds.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Prise en main de Kubernetes](container-service-kubernetes-walkthrough.md) dans votre cluster de service de conteneur.
 

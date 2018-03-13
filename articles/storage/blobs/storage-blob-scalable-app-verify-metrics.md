@@ -65,7 +65,7 @@ Les [dimensions](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fst
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et cliquez sur Supprimer.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cette quatrième partie, vous avez appris à afficher des métriques pour l’exemple de solution. Vous avez notamment vu comment :
 

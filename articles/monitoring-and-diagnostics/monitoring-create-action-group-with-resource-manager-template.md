@@ -168,7 +168,7 @@ Pour créer un groupe d’actions à l’aide d’un modèle Resource Manager, v
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [groupes d’actions](monitoring-action-groups.md).
 * En savoir plus sur les [alertes](monitoring-overview-alerts.md).
 * En savoir pour sur l’ajout d’[alertes à l’aide d’un modèle Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).

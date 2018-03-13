@@ -45,7 +45,7 @@ Pour créer et gérer des instances de cache Redis Azure à l’aide de l’inte
 ## <a name="redis-cache-properties"></a>Propriétés du cache Redis
 Les propriétés suivantes sont utilisées lors de la création et de la mise à jour des instances de cache Redis.
 
-| Propriété | Switch | DESCRIPTION |
+| Propriété | Switch | Description |
 | --- | --- | --- |
 | Nom |-n, --name |Nom du cache Redis. |
 | resource group |-g, --resource-group |Nom du groupe de ressources. |

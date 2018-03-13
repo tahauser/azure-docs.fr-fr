@@ -68,7 +68,7 @@ Pour plus d’informations, consultez l’article [Activités de transformation 
 ## <a name="control-activities"></a>Activités de contrôle
 Les activités de flux de contrôle suivantes sont prises en charge :
 
-Activité de contrôle | DESCRIPTION
+Activité de contrôle | Description
 ---------------- | -----------
 [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md) | L’activité d’exécution du pipeline permet à un pipeline Data Factory d’appeler un autre pipeline.
 [ForEachActivity](control-flow-for-each-activity.md) | L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
@@ -97,7 +97,7 @@ Voici comment un pipeline est défini au format JSON :
 }
 ```
 
-Tag | DESCRIPTION | type | Obligatoire
+Tag | Description | type | Obligatoire
 --- | ----------- | ---- | --------
 Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>•   Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | OUI
 description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | Chaîne | Non 
@@ -130,7 +130,7 @@ Les activités d’exécution incluent le [déplacement des données](#data-move
 
 Le tableau suivant décrit des propriétés de la définition JSON de l’activité :
 
-Tag | DESCRIPTION | Obligatoire
+Tag | Description | Obligatoire
 --- | ----------- | ---------
 Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | OUI</li></ul>
 description | Texte décrivant la raison motivant l’activité ou son utilisation | OUI
@@ -169,7 +169,7 @@ Les stratégies ont un impact sur le comportement d’exécution d’une activit
     }
 }
 ```
-Nom JSON | DESCRIPTION | Valeurs autorisées | Obligatoire
+Nom JSON | Description | Valeurs autorisées | Obligatoire
 --------- | ----------- | -------------- | --------
 timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan | Non. Le délai d’expiration par défaut est de 7 jours.
 retry | Nombre maximal de nouvelles tentatives | Entier  | Non. La valeur par défaut est 0
@@ -192,7 +192,7 @@ Les activités de contrôle ont la structure de niveau supérieur suivante :
 }
 ```
 
-Tag | DESCRIPTION | Obligatoire
+Tag | Description | Obligatoire
 --- | ----------- | --------
 Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité.<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | OUI</li><ul> 
 description | Texte décrivant la raison motivant l’activité ou son utilisation | OUI

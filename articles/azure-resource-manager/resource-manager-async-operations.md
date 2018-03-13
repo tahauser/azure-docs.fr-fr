@@ -191,7 +191,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Si la demande est toujours en cours d’exécution, vous recevez un code d’état 202. Si la demande est terminée, vous recevez un code d’état 200, et le corps de la réponse contient les propriétés du compte de stockage qui a été créé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d'informations sur chaque opération REST, consultez la [documentation de l'API REST](/rest/api/).
 * Pour plus d’informations sur le déploiement de modèles via l'API REST de Resource Manager, consultez [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](resource-group-template-deploy-rest.md).

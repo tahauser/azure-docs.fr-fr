@@ -212,5 +212,5 @@ Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.
 3.  Cliquez sur « Basculement ».
 4.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

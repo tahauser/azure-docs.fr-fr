@@ -214,7 +214,7 @@ Vous pouvez désormais tester vos fonctions qui s’exécutent sur Linux dans Az
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

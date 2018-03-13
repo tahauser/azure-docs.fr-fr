@@ -160,7 +160,7 @@ Dans le portail Azure, sélectionnez l’espace de travail Log Analytics qui a �
 
 Consultez la [documentation Azure Log Analytics][log-analytics-docs] pour obtenir des instructions détaillées sur l’interrogation et l’analyse des données de surveillance.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous surveillez votre cluster Kubernetes avec OMS. Les tâches traitées ont inclus :
 

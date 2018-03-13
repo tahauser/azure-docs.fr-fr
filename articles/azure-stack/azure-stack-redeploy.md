@@ -31,6 +31,6 @@ Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme d�
 3. Après le redémarrage de l’hôte du kit de développement, supprimez le fichier CloudBuilder.vhdx qui a été utilisé lors du déploiement précédent.
 4. [Déployer le kit de développement](azure-stack-run-powershell-script.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Se connecter à Azure Stack](azure-stack-connect-azure-stack.md)
 

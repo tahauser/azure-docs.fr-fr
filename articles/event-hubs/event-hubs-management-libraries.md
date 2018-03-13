@@ -30,7 +30,7 @@ Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquemen
 * Création, mise à jour et suppression d’Event Hubs
 * Création, mise à jour et suppression de groupes de consommateurs
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser les bibliothèques de gestion d’Event Hubs, vous devez vous authentifier avec Azure Active Directory (AAD). AAD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 

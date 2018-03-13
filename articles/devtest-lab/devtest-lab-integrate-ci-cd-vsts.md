@@ -203,7 +203,7 @@ Vous pouvez maintenant utiliser l’image personnalisée pour créer des machine
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Découvrez les autres modèles Resource Manager à démarrage rapide pour l’automatisation de DevTest Labs à partir du [dépôt DevTest Labs GitHub public](https://github.com/Azure/azure-quickstart-templates).
 * Si nécessaire, consultez la page [VSTS Troubleshooting](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) (Résolution des problèmes liés à VSTS).

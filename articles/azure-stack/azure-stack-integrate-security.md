@@ -90,6 +90,6 @@ Tous les appareils physiques dans Azure Stack peuvent envoyer des messages Syslo
 
 L’adresse de destination Syslog est un paramètre facultatif collecté pour le déploiement, mais il peut également être ajouté après le déploiement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Stratégie de maintenance](azure-stack-servicing-policy.md)

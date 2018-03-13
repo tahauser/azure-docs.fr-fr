@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 Integration Runtime (IR) est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -123,7 +123,7 @@ Le schéma suivant représente deux activités de copie :
 ![Runtimes d’intégration à utiliser](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Emplacement du runtime d’intégration
-L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Actuellement, les emplacements de Data Factory pris en charge se trouvent dans les régions suivantes : Est des États-Unis, Est des États-Unis 2 et Europe de l'Ouest. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au runtime d’intégration, qui est disponible dans plusieurs régions du monde pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
+L’emplacement de Data Factory contient les métadonnées de la fabrique de données. C’est également à cet endroit que le pipeline est déclenché. Actuellement, les emplacements de Data Factory pris en charge se trouvent dans les régions suivantes : Est des États-Unis, Est des États-Unis 2, Asie du Sud-Est et Europe de l’Ouest. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul. Ce comportement se réalise grâce au runtime d’intégration, qui est disponible dans plusieurs régions du monde pour garantir la conformité des données et l’efficacité, et réduire les frais de sortie de réseau.
 
 L’emplacement du runtime d’intégration définit l’emplacement de son calcul principal, mais aussi l’emplacement où le déplacement des données, la répartition des activités et l’exécution des packages SSIS sont effectués. L’emplacement du runtime d’intégration peut être différent de l’emplacement de la fabrique de données à laquelle il appartient. Le schéma suivant représente les paramètres d’emplacement de Data Factory et de ses runtimes d’intégration :
 
@@ -176,14 +176,14 @@ Le runtime d’intégration auto-hébergé est logiquement enregistré auprès d
 Lorsqu’il est utilisé pour procéder au déplacement des données, le runtime d’intégration auto-hébergé extrait des données de la source et les écrit dans la destination.
 
 ### <a name="azure-ssis-ir"></a>Runtime d’intégration Azure SSIS
-Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est essentiel pour parvenir à un niveau de performance élevé dans vos flux de travail ETL (extraction, transformation et chargement).  Deux emplacements sont disponibles en préversion (Est des États-Unis et Europe du Nord).
+Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est essentiel pour parvenir à un niveau de performance élevé dans vos flux de travail ETL (extraction, transformation et chargement).  Six emplacements sont initialement disponibles en version préliminaire (Est des États-Unis, Est des États-Unis 2, Centre des États-Unis, Est de l’Australie, Europe du Nord et Europe de l’Ouest).
 
 - L’emplacement de votre runtime d’intégration Azure SSIS ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur de l’Instance Azure SQL Database/Managed Instance (préversion privée) où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
 - Si vous n’avez pas de serveur Azure SQL Database/Managed Instance (préversion privée) pour héberger SSISDB, mais que vous avez des sources/destinations de données locales, vous devez créer un serveur Azure SQL Database/Managed Instance (préversion privée) là où un réseau virtuel est connecté à votre réseau local.  Ainsi, vous pouvez créer votre runtime d’intégration Azure SSIS en utilisant le nouveau serveur Azure SQL Database/Managed Instance (préversion privée) et en associant ce réseau virtuel, au même endroit, afin de réduire efficacement les déplacements de données entre les différents emplacements.
 - Si l’emplacement de votre serveur Azure SQL Database/Managed Instance (préversion privée) où SSISDB est hébergé n’est pas le même que l’emplacement où un réseau virtuel est connecté à votre réseau local, créez d’abord votre runtime d’intégration Azure SSIS en utilisant Azure SQL Database/Managed Instance (préversion privée) et en associant un autre réseau virtuel situé au même emplacement. Ensuite, configurez une connexion entre deux réseaux virtuels situés à différents emplacements.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants :
 
 - [Créer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md)

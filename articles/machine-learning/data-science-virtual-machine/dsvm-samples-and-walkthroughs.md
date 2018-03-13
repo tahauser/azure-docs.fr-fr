@@ -28,7 +28,7 @@ Les machines virtuelles DSVM comportent des exemples complets, la plupart sous l
 > Reportez-vous à la section [Blocs-notes Jupyter](#access-jupyter) pour activer les blocs-notes Jupyter sur votre machine virtuelle DSVM.
 
 ## <a name="quick-reference-of-samples"></a>Référence rapide d’exemples
-| Catégorie d’exemples | DESCRIPTION | Emplacements |
+| Catégorie d’exemples | Description | Emplacements |
 | ------------- | ------------- | ------------- |
 | Langage **R**  | Exemples en **R** expliquant des scénarios tels que la connexion à des magasins de données cloud Azure, la comparaison d’Open Source R et de Microsoft R et la mise en application de modèles sur Microsoft R Server ou SQL Server. <br/> [Capture d’écran](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Langage **Python**  | Exemples en **Python** expliquant des scénarios tels que la connexion à des magasins de données cloud Azure et l’utilisation **d’Azure Machine Learning**.  <br/> [Capture d’écran](#python-language) | <br/>`~notebooks` <br/><br/>|

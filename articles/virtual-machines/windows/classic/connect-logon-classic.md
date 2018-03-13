@@ -57,7 +57,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 ## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
 [!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Si le bouton **Connexion** est inactif ou que vous rencontrez d’autres problèmes avec la connexion Bureau à distance, essayez de réinitialiser la configuration. Dans le tableau de bord de la machine virtuelle, cliquez sur **Réinitialiser la configuration à distance**.
 
     ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)

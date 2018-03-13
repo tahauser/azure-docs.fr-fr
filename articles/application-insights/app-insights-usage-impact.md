@@ -83,7 +83,7 @@ Les sessions sont ensuite réparties en deux types de _sous-sessions_ selon l’
 
 Le calcul effectué par Impact dépend au final de l’analyse : par métrique ou par dimension. Pour les métriques, la moyenne de tous les _A_ d’une sous-session est calculée. Au contraire, pour les dimensions, la valeur de chaque _A_ contribue à hauteur de _1/N_ à la valeur attribuée à _B_, où _N_ est le nombre de _A_ dans la sous-session.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.

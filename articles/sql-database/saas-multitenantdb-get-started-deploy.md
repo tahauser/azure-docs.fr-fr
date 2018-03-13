@@ -49,7 +49,7 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 

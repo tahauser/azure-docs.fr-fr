@@ -241,7 +241,7 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 
 En combinant les journaux des flux de groupe de sécurité réseau avec la Suite Elastic, nous bénéficions d’une solution puissante et personnalisable permettant de visualiser le trafic de notre réseau. Ces tableaux de bord vous permettent d’obtenir et de partager rapidement des analyses sur le trafic de votre réseau, mais aussi de filtrer et d’examiner toute anomalie potentielle. Grâce à Kibana, vous pouvez adapter ces tableaux de bord et créer des visualisations spécifiques pour répondre à tous vos besoins en matière de sécurité, d’audit et de conformité.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualiser les journaux de flux NSG avec Power BI)
 

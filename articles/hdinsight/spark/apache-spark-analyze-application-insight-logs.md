@@ -365,7 +365,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         ...
         +---------+
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour d’autres d’exemples d’utilisation de Spark avec des données et des services dans Azure, consultez les documents suivants :
 

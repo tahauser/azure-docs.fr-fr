@@ -131,7 +131,7 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 
 
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
 | Nom              | Nom de l’activité dans le pipeline     | OUI      |
 | description       | Texte décrivant l’activité.  | Non        |

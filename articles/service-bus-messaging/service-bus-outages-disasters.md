@@ -81,7 +81,7 @@ L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Geo-
 
 Service Bus prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. Pour plus d’informations, consultez [Géorécupération d’urgence Azure Service Bus](service-bus-geo-dr.md). La fonctionnalité de récupération d’urgence, disponible pour la [référence SKU Premium](service-bus-premium-messaging.md) uniquement, implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur la récupération d'urgence, consultez les articles suivants :
 
 * [Géorécupération d’urgence Azure Service Bus](service-bus-geo-dr.md)

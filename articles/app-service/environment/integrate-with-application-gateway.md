@@ -38,7 +38,7 @@ Lors de cette procédure pas à pas, vous allez :
 * Configurer votre application pour honorer le nom de domaine personnalisé
 * Modifier le nom d’hôte DNS public qui pointe vers votre passerelle d’application
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour intégrer votre passerelle d’application à votre environnement App Service ILB, les éléments suivants sont nécessaires :
 

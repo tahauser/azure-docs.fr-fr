@@ -172,7 +172,7 @@ pgAdmin est un outil open source utilisé avec PostgreSQL. Vous pouvez installer
 
    ![L’onglet Connexion](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
-    Paramètre pgAdmin |Valeur|DESCRIPTION
+    Paramètre pgAdmin |Valeur|Description
     ---|---|---
     Nom/adresse de l’hôte | Nom du serveur | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour PostgreSQL. L’exemple de serveur utilisé ici est **mydemoserver.postgres.database.azure.com.** Utilisez le nom de domaine complet (**\*.postgres.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     Port | 5432 | Le port à utiliser lorsque vous vous connectez au serveur Azure Database pour PostgreSQL. 

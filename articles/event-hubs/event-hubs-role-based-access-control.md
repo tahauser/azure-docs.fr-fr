@@ -75,7 +75,7 @@ Avant de pouvoir exécuter l’exemple, modifiez le fichier App.config et, selon
  
 Lorsque vous exécutez l’application console, vous êtes invité à sélectionner un scénario. Cliquez sur **Connexion interactive de l’utilisateur** en saisissant son numéro et en appuyant sur ENTRÉE. L’application affiche une fenêtre de connexion, vous demande l’autorisation d’accéder à Event Hubs et utilise ensuite le service à exécuter via le scénario d’envoi/réception à l’aide de l’identité de connexion.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 

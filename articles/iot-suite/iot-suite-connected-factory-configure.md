@@ -270,7 +270,7 @@ Toutes les propriétés utilisées dans le fichier de configuration peuvent êtr
 Les propriétés de cette catégorie définissent l’apparence visuelle du tableau de bord de l’usine connectée. Voici quelques exemples :
 
 * NOM
-* DESCRIPTION
+* Description
 * Image
 * Lieu
 * Units

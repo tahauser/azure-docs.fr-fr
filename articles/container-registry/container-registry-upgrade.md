@@ -112,7 +112,7 @@ Une fois la migration terminée, l’**état Approvisionnement** indique *Opéra
 
 ![État d’achèvement de la mise à niveau du registre Classique dans l’interface utilisateur du portail Azure][update-classic-04-updated]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez mis à niveau un registre Classique vers un registre De base, Standard ou Premium, Azure n’utilise plus le compte de stockage dans lequel le registre Classique était sauvegardé. Pour réduire les coûts, envisagez de supprimer le compte de stockage ou le conteneur d’objets Blob du compte qui contient les images de l’ancien conteneur.
 

@@ -60,5 +60,5 @@ La préversion des zones de disponibilité est disponible dans les régions Éta
     - [Ajouter un disque géré à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Équilibreur de charge](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Modèles de démarrage rapide](http://aka.ms/azqs)

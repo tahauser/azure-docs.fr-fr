@@ -164,7 +164,7 @@ Vous avez à présent correctement configuré les données de surveillance à ar
 
 5. Si vous avez créé une machine virtuelle ou une application logique pour les étapes précédentes, supprimez-les également.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à configurer les données de surveillance de votre environnement Azure (abonnement, ressources et système d’exploitation invité) de façon à ce qu’elles soient archivées sur un compte de stockage. 
 

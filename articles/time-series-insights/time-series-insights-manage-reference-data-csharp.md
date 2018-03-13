@@ -233,5 +233,5 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [API de données de référence](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

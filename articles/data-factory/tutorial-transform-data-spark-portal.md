@@ -240,7 +240,7 @@ Le fichier doit contenir chaque mot du fichier texte entrée et le nombre d’ap
 (u'file', 1)
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le pipeline dans cet exemple transforme les données à l’aide de l’activité Spark et un service lié HDInsight de la demande. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

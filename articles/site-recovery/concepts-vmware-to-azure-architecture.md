@@ -90,6 +90,6 @@ Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer
 ![Restauration automatique](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Suivez [ce didacticiel](tutorial-vmware-to-azure.md) pour savoir comment activer la réplication VMware vers Azure.

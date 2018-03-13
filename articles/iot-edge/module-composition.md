@@ -83,7 +83,7 @@ Les itinéraires utilisent la syntaxe suivante :
 
 La *source* peut être l’un des éléments suivants :
 
-| Source | DESCRIPTION |
+| Source | Description |
 | ------ | ----------- |
 | `/*` | Tous les messages appareil-à-cloud de n’importe quel appareil ou un module |
 | `/messages/*` | Tout message appareil-à-cloud envoyé par un appareil ou un module via une sortie ou aucune |
@@ -96,7 +96,7 @@ La condition peut être n’importe quelle condition prise en charge par le [lan
 
 Le récepteur peut être l’un des suivants :
 
-| Récepteur | DESCRIPTION |
+| Récepteur | Description |
 | ---- | ----------- |
 | `$upstream` | Envoyer le message à IoT Hub |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Envoyer le message à l’entrée `{input}` du module `{moduleId}` |
@@ -195,7 +195,7 @@ Les propriétés souhaitées sont définies lors de l’application d’un manif
 
 ### <a name="edge-agent-twin-desired-properties"></a>Propriétés souhaitées pour la représentation d’agent Edge
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | schemaVersion | Doit être "1.0" | OUI |
 | runtime.type | Doit être "docker" | OUI |
@@ -233,7 +233,7 @@ Cette dernière information est utile au cas où les dernières propriétés sou
 
 Le tableau suivant n’inclut pas les informations copiées à partir des propriétés souhaitées.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Cet int fait référence à la dernière version des propriétés souhaitées traitées par l’agent Edge. |
 | lastDesiredStatus.code | Il s’agit du code d’état faisant référence à dernières propriétés souhaitées observées par l’agent Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `412` Version de schéma non valide, `417` les propriétés souhaitées sont vides, `500` Échec |
@@ -266,7 +266,7 @@ Les propriétés souhaitées sont définies lors de l’application d’un manif
 
 ### <a name="edge-hub-twin-desired-properties"></a>Propriétés souhaitées pour la représentation de Edge Hub
 
-| Propriété | DESCRIPTION | Requise dans le manifeste de déploiement |
+| Propriété | Description | Requise dans le manifeste de déploiement |
 | -------- | ----------- | -------- |
 | schemaVersion | Doit être "1.0" | OUI |
 | routes.{routeName} | Chaîne représentant un itinéraire Edge Hub. | L’élément `routes` peut être présent mais vide. |
@@ -274,7 +274,7 @@ Les propriétés souhaitées sont définies lors de l’application d’un manif
 
 ### <a name="edge-hub-twin-reported-properties"></a>Propriétés signalées pour la représentation de Edge Hub
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Cet int fait référence à la dernière version des propriétés souhaitées traitées par Edge Hub. |
 | lastDesiredStatus.code | Il s’agit du code d’état faisant référence à dernières propriétés souhaitées observées par Edge Hub. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `500` Échec |

@@ -151,7 +151,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 ## <a name="string-functions"></a>Fonctions de chaîne  
  Les fonctions suivantes s’appliquent uniquement aux chaînes. Vous pouvez également utiliser un certain nombre des fonctions de collection sur des chaînes.  
   
-|Nom de la fonction|DESCRIPTION|  
+|Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |concat|Combine plusieurs chaînes. Par exemple, si le paramètre 1 est `foo,`, l’expression suivante retourne `somevalue-foo-somevalue` : `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : chaîne *n*<br /><br /> **Description** : obligatoire. Chaînes à combiner en une seule chaîne.|  
 |substring|Retourne un sous-ensemble de caractères d’une chaîne. Par exemple, l’expression suivante :<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> retourne :<br /><br /> `foo`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne dont la sous-chaîne est extraite.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : index de début<br /><br /> **Description** : obligatoire. Index de début de la sous-chaîne dans le paramètre 1.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : longueur<br /><br /> **Description** : obligatoire. Longueur de la sous-chaîne.|  
@@ -169,7 +169,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 ## <a name="collection-functions"></a>Fonctions de collection  
  Ces fonctions opèrent sur des collections telles que des tableaux, des chaînes et parfois des dictionnaires.  
   
-|Nom de la fonction|DESCRIPTION|  
+|Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |contains|Retourne la valeur true si le dictionnaire contient une clé, si la liste contient une valeur ou si la chaîne contient une sous-chaîne. Par exemple, l’expression suivante retourne `true:``contains('abacaba','aca')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : au sein de la collection<br /><br /> **Description** : obligatoire. Collection dans laquelle effectuer une recherche.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : rechercher un objet<br /><br /> **Description** : obligatoire. Objet à rechercher dans **Au sein de la collection**.|  
 |length|Retourne le nombre d’éléments contenus dans un tableau ou une chaîne. Par exemple, l’expression suivante retourne `3` : `length('abc')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : collection<br /><br /> **Description** : obligatoire. Collection dont obtenir la longueur.|  
@@ -184,7 +184,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 ## <a name="logical-functions"></a>Fonctions logiques  
  Ces fonctions sont utiles à l’intérieur de conditions, et permettent d’évaluer tout type de logique.  
   
-|Nom de la fonction|DESCRIPTION|  
+|Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |equals|Retourne la valeur true si deux valeurs sont égales. Par exemple, si le paramètre 1 est foo, l’expression suivante retourne `true` : `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à comparer à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à comparer à **Objet 1**.|  
 |less|Retourne la valeur true si le premier argument est inférieur au second. Les valeurs ne peuvent être que du type entier, flottant ou chaîne. Par exemple, l’expression suivante retourne `true` : `less(10,100)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est inférieur à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est supérieur à **Objet 1**.|  
@@ -211,7 +211,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
   
 -   dictionnaires  
   
-|Nom de la fonction|DESCRIPTION|  
+|Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |int|Convertit le paramètre en entier. Par exemple, l’expression suivante retourne 100 en tant que nombre, au lieu d’une chaîne : `int('100')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en entier.|  
 |chaîne|Convertit le paramètre en chaîne. Par exemple, l’expression suivante retourne `'10'` : `string(10)` vous pouvez également convertir un objet en chaîne, par exemple, si le paramètre **foo** est un objet avec une seule propriété `bar : baz`, puis les paramètres suivants retournent `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en chaîne.|  
@@ -241,7 +241,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
 ## <a name="math-functions"></a>Fonctions mathématiques  
  Ces fonctions peuvent être utilisées pour les deux types de nombre : **entiers** et **flottants**.  
   
-|Nom de la fonction|DESCRIPTION|  
+|Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |add|Retourne le résultat de l’addition des deux nombres. Par exemple, cette fonction retourne `20.333` : `add(10,10.333)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : opérande 1<br /><br /> **Description** : obligatoire. Nombre à ajouter à **Opérande 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : opérande 2<br /><br /> **Description** : obligatoire. Nombre à ajouter à **Opérande 1**.|  
 |sub|Retourne le résultat de la soustraction des deux nombres. Par exemple, cette fonction retourne : `-0.333` :<br /><br /> `sub(10,10.333)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : diminuende<br /><br /> **Description** : obligatoire. Nombre duquel le **diminuteur** est soustrait.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : diminuteur<br /><br /> **Description** : obligatoire. Nombre à soustraire du **diminuende**.|  
@@ -255,7 +255,7 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
   
 ## <a name="date-functions"></a>Fonctions de date  
   
-|Nom de la fonction|DESCRIPTION|  
+|Nom de la fonction|Description|  
 |-------------------|-----------------|  
 |utcnow|Retourne l’horodateur actuel sous forme de chaîne. Exemple `2015-03-15T13:27:36Z` :<br /><br /> `utcnow()`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. [Caractère de spécificateur de format unique](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou [modèle de format personnalisé](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) qui indique comment mettre en forme la valeur de cet horodateur. Si aucun format n’est indiqué, le format ISO 8601 (« o ») est utilisé.|  
 |addseconds|Ajoute un nombre entier de secondes à un horodateur de type chaîne transmis. Le nombre de secondes peut être positif ou négatif. Par défaut, le résultat est une chaîne au format ISO 8601 (« o »), sauf si un spécificateur de format est indiqué. Exemple `2015-03-15T13:27:00Z` :<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : horodateur<br /><br /> **Description** : obligatoire. Chaîne qui contient l’heure.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : secondes<br /><br /> **Description** : obligatoire. Nombre de secondes à ajouter. Peut être négatif pour soustraire des secondes.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. [Caractère de spécificateur de format unique](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou [modèle de format personnalisé](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) qui indique comment mettre en forme la valeur de cet horodateur. Si aucun format n’est indiqué, le format ISO 8601 (« o ») est utilisé.|  

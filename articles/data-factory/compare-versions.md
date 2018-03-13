@@ -73,7 +73,7 @@ Un cas d’utilisation typique dans des modèles ETL correspond aux « charges d
 ### <a name="other-control-flow-activities"></a>Autres activités de flux de contrôle
 D’autres activités de flux de contrôle prises en charge par Data Factory V2 sont indiquées ci-dessous. 
 
-Activité de contrôle | DESCRIPTION
+Activité de contrôle | Description
 ---------------- | -----------
 [Activité ForEach](control-flow-for-each-activity.md) | Définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
 [Activité Web](control-flow-web-activity.md) | Appelle un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 

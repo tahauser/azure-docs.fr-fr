@@ -45,7 +45,7 @@ Ajoutez la solution Agent Health à votre espace de travail OMS en suivant la pr
 ### <a name="supported-agents"></a>Agents pris en charge
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | Agents Windows | OUI | Les événements de pulsation sont rassemblés par des agents Windows directs.|
 | Groupe d’administration Microsoft System Center Operations Manager | OUI | Les événements de pulsation sont rassemblés toutes les 60 secondes par les agents au service du groupe d’administration et sont ensuite transférés dans Log Analytics. Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données d’événement de pulsation sont transférées depuis le groupe d’administration dans le référentiel Log Analytics.|
@@ -55,7 +55,7 @@ Quand vous ajoutez la solution à votre espace de travail OMS, la vignette **Age
 
 Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent Health**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne répertorie les dix premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, sélectionnez **Afficher tout** dans l’angle inférieur droit de chaque colonne ou cliquez sur l’en-tête de colonne.
 
-| Colonne | DESCRIPTION |
+| Colonne | Description |
 |--------|-------------|
 | Nombre d’agents au fil du temps | Tendance du nombre d’agents sur une période de sept jours (agents Linux et Windows).|
 | Nombre d’agents inactifs | Liste des agents n’ayant émis aucune pulsation au cours des dernières 24 heures.|
@@ -74,7 +74,7 @@ La solution crée un type d’enregistrement dans OMS.
 ### <a name="heartbeat-records"></a>Enregistrements de pulsation
 L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de ces enregistrements sont décrites dans le tableau suivant.  
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | type | *Pulsation*|
 | Catégorie | La valeur correspond à *Agent Direct*, *Agent SCOM*, ou *Serveur d’administration SCOM*.|
@@ -97,7 +97,7 @@ Tout agent au service d’un serveur d’administration Operations Manager émet
 ## <a name="sample-log-searches"></a>Exemples de recherches de journaux
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements collectés par cette solution.
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Nombre total d’agents |
 | Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Nombre d’agents inactifs au cours des dernières 24 heures |
@@ -116,7 +116,7 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 >[!NOTE]
 > Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), les requêtes ci-dessus seront remplacées par les suivantes.
 >
->| Requête | DESCRIPTION |
+>| Requête | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Nombre total d’agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Nombre d’agents inactifs au cours des dernières 24 heures |

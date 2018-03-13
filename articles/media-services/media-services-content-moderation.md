@@ -43,7 +43,7 @@ Le fichier JSON de sortie contient les éléments suivants :
 
 ### <a name="root-json-elements"></a>Éléments JSON racine
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | --- | --- |
 | version |La version de Content Moderator. |
 | échelle de temps |« Cycles » par seconde de la vidéo. |
@@ -56,7 +56,7 @@ Le fichier JSON de sortie contient les éléments suivants :
 
 ### <a name="fragments-json-elements"></a>Fragments d’éléments JSON
 
-|Élément|DESCRIPTION|
+|Élément|Description|
 |---|---|
 | start |L’heure de début du premier événement en « cycles ». |
 | duration |La durée du fragment en « cycles ». |
@@ -65,7 +65,7 @@ Le fichier JSON de sortie contient les éléments suivants :
 
 ### <a name="events-json-elements"></a>Éléments JSON d’événements
 
-|Élément|DESCRIPTION|
+|Élément|Description|
 |---|---|
 | reviewRecommended | `true` ou `false` selon que **adultScore** ou **racyScore** dépasse les seuils internes. |
 | adultScore | Score de confiance pour le contenu potentiellement réservé aux adultes, sur une échelle de 0,00 à 0,99. |

@@ -60,6 +60,6 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour d’autres tâches de gestion, consultez la rubrique [Vue d’ensemble du système de gestion](./sql-data-warehouse-overview-manage.md).
 

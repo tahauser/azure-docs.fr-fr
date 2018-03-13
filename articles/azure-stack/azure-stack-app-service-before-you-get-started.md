@@ -67,7 +67,7 @@ Exécutez le script sur l’hôte du Kit de développement Azure Stack et vérif
 
 #### <a name="create-appservicecertsps1-parameters"></a>Paramètres Create-AppServiceCerts.ps1
 
-| Paramètre | Obligatoire ou facultatif | Valeur par défaut | DESCRIPTION |
+| Paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat |
 | DomainName | Obligatoire | local.azurestack.external | Suffixe de la région et du domaine Azure Stack |
@@ -119,7 +119,7 @@ Le certificat d’identité doit contenir un objet qui correspond au format suiv
 
 Dans une session PowerShell exécutée en tant que azurestack\CloudAdmin, exécutez le script Get-AzureStackRootCert.ps1 à partir du dossier où vous avez extrait les scripts d’assistance. Le script crée quatre certificats dans le même dossier que le script dont App Service a besoin pour créer des certificats.
 
-| Paramètre Get-AzureStackRootCert.ps1 | Obligatoire ou facultatif | Valeur par défaut | DESCRIPTION |
+| Paramètre Get-AzureStackRootCert.ps1 | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | PrivelegedEndpoint | Obligatoire | AzS-ERCS01 | Point de terminaison privilégié |
 | CloudAdminCredential | Obligatoire | AzureStack\CloudAdmin | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack |
@@ -278,7 +278,7 @@ Procédez comme suit :
 12. Sélectionnez **Application** dans la liste.
 13. Sélectionnez **Autorisations requises** > **Accorder des autorisations** > **Oui**.
 
-| Create-AADIdentityApp.ps1  paramètre | Obligatoire ou facultatif | Valeur par défaut | DESCRIPTION |
+| Create-AADIdentityApp.ps1  paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Obligatoire | Null | ID de locataire Azure AD. Fournir le GUID ou une chaîne. Par exemple : myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Obligatoire | Null | Point de terminaison Azure Resource Manager d’administrateur. Par exemple : adminmanagement.local.azurestack.external. |
@@ -307,7 +307,7 @@ Procédez comme suit :
 5.  Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le cloud AD FS. Sélectionnez **OK**.
 6.  Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
 
-| Create-ADFSIdentityApp.ps1  paramètre | Obligatoire ou facultatif | Valeur par défaut | DESCRIPTION |
+| Create-ADFSIdentityApp.ps1  paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Obligatoire | Null | Point de terminaison Azure Resource Manager d’administrateur. Par exemple : adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Obligatoire | Null | Point de terminaison privilégié. Par exemple : AzS-ERCS01. |

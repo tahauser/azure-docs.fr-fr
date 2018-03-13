@@ -93,7 +93,7 @@ Remove-AzureRmResourceGroup -Name myVM
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cette rubrique, vous avez déployé une machine virtuelle simple avec New-AzVM et vous l’avez connectée via RDP. Pour en savoir plus sur les machines virtuelles Azure, suivez le didacticiel pour les machines virtuelles Windows.
 

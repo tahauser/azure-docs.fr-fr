@@ -32,7 +32,7 @@ ms.lasthandoff: 01/19/2018
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Python.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Installez [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## <a name="create-a-redis-cache-on-azure"></a>Créer un Cache Redis sur Azure

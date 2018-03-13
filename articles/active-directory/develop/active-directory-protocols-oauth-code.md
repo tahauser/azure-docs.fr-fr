@@ -47,7 +47,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| Paramètre |  | DESCRIPTION |
+| Paramètre |  | Description |
 | --- | --- | --- |
 | locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
 | client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Active Directory**, sur le répertoire, sélectionnez l’application et cliquez sur **Configurer** |
@@ -75,7 +75,7 @@ GET  HTTP/1.1 302 Found
 Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | admin_consent |La valeur est True si un administrateur a donné son consentement lorsqu’il y a été invité. |
 | code |Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible. |
@@ -91,7 +91,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | error |Une valeur de code d’erreur définie dans la section 5.2 du document [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749)(Infrastructure d’autorisation OAuth 2.0). Le tableau suivant décrit les codes d’erreur retournés par Azure AD. |
 | error_description |Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final. |
@@ -100,7 +100,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison d’autorisation
 Le tableau suivant décrit les différents codes d’erreur qui peuvent être retournés dans le paramètre `error` de la réponse d’erreur.
 
-| Code d'erreur | DESCRIPTION | Action du client |
+| Code d'erreur | Description | Action du client |
 | --- | --- | --- |
 | invalid_request |Erreur de protocole, tel qu’un paramètre obligatoire manquant. |Corrigez l’erreur, puis envoyez à nouveau la demande. Il s’agit d’une erreur de développement généralement détectée lors des tests initiaux. |
 | unauthorized_client |L’application cliente n’est pas autorisée à demander un code d’autorisation. |Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
@@ -129,7 +129,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Paramètre |  | DESCRIPTION |
+| Paramètre |  | Description |
 | --- | --- | --- |
 | locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
 | client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. L’ID d’application s’affiche dans les paramètres de l’inscription de l’application.  |
@@ -162,7 +162,7 @@ Une réponse réussie se présenterait ainsi :
 
 ```
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | access_token |Le jeton d’accès demandé sous forme de JSON Web Token (JWT) signé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le document [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
@@ -202,7 +202,7 @@ Pour plus d’informations sur les jetons web JSON, consultez le [projet de spé
 
 Le paramètre `id_token` inclut les types de revendication suivants :
 
-| Type de revendication | DESCRIPTION |
+| Type de revendication | Description |
 | --- | --- |
 | aud |Audience du jeton. Lorsque le jeton est émis pour une application cliente, l’audience est le `client_id` du client. |
 | exp |Heure d’expiration. L’heure d’expiration du jeton. Pour que le jeton soit valide, la date et l’heure actuelles doivent être antérieures ou identiques à la valeur `exp` . L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton.|
@@ -236,7 +236,7 @@ Une réponse d’erreur se présenterait ainsi :
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
@@ -248,7 +248,7 @@ Une réponse d’erreur se présenterait ainsi :
 #### <a name="http-status-codes"></a>Codes d’état HTTP
 Le tableau suivant répertorie les codes d’état HTTP retournés par le point de terminaison d’émission de jeton. Dans certains cas, le code d’erreur est suffisant pour décrire la réponse, mais en cas d’erreurs, vous devez analyser le document JSON joint et examiner son code d’erreur.
 
-| Code HTTP | DESCRIPTION |
+| Code HTTP | Description |
 | --- | --- |
 | 400 |Code HTTP par défaut. Il est utilisé dans la plupart des cas et est généralement dû à une demande incorrecte. Corrigez l’erreur, puis envoyez à nouveau la demande. |
 | 401 |Échec d’authentification. Par exemple, la demande ne contient pas le paramètre client_secret. |
@@ -256,7 +256,7 @@ Le tableau suivant répertorie les codes d’état HTTP retournés par le point 
 | 500 |Une erreur interne s’est produite au niveau du service. relancez la requête. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison de jeton
-| Code d'erreur | DESCRIPTION | Action du client |
+| Code d'erreur | Description | Action du client |
 | --- | --- | --- |
 | invalid_request |Erreur de protocole, tel qu’un paramètre obligatoire manquant. |Corrigez l’erreur, puis envoyez à nouveau la demande. |
 | invalid_grant |Le code d’autorisation n’est pas valide ou a expiré. |Essayez une nouvelle demande sur le point de terminaison `/authorize` |
@@ -288,7 +288,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 ```
 
 #### <a name="error-parameters"></a>Paramètres d’erreur
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | authorization_uri |L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p> Le client doit valider l’approbation du serveur d’autorisation. Quand la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.microsoftonline.com ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
 | error |Une valeur de code d’erreur définie dans la section 5.2 du document [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749)(Infrastructure d’autorisation OAuth 2.0). |
@@ -298,7 +298,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Codes d’erreur du schéma de porteur
 La spécification RFC 6750 définit les erreurs suivantes pour les ressources qui utilisent l’en-tête WWW-Authenticate et le schéma de porteur dans la réponse.
 
-| Code d’état HTTP | Code d'erreur | DESCRIPTION | Action du client |
+| Code d’état HTTP | Code d'erreur | Description | Action du client |
 | --- | --- | --- | --- |
 | 400 |invalid_request |La demande n’est pas correcte. Par exemple, un paramètre est manquant ou elle utilise deux fois le même paramètre. |Corrigez l’erreur et relancez la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
 | 401 |invalid_token |Le jeton d’accès est manquant, non valide ou révoqué. La valeur du paramètre error_description fournit des détails supplémentaires. |Demandez un nouveau jeton auprès du serveur d’autorisation. Si le nouveau jeton échoue, une erreur inattendue s’est produite. Envoyez un message d’erreur à l’utilisateur et effectuez une nouvelle tentative après un délai aléatoire. |
@@ -341,7 +341,7 @@ Une réponse de jeton réussie se présente ainsi :
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | token_type |Le type de jeton. La seule valeur prise en charge est **bearer**. |
 | expires_in |La durée de vie restante du jeton en secondes. 3600 (une heure) est une valeur courante. |
@@ -367,7 +367,7 @@ Une réponse d’erreur se présenterait ainsi :
 }
 ```
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |

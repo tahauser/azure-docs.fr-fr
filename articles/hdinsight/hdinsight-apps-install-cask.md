@@ -54,7 +54,7 @@ Voici une illustration de la façon dont les données circulent dans le pipeline
 
 ![Traqueur CDAP](./media/hdinsight-apps-install-cask/tracker.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 

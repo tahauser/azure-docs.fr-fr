@@ -178,7 +178,7 @@ Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dan
    
     ![Déploiement Git avec automatisation du Compositeur dans Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 > [!NOTE]

@@ -100,7 +100,7 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 
    ![Licence affectée correctement](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des licences par le biais des groupes, consultez les articles suivants :
 

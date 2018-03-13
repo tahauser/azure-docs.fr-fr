@@ -29,7 +29,7 @@ Une ressource d’informations d’identification Automation conserve un objet [
 ## <a name="azure-classic-powershell-cmdlets"></a>Applets de commande PowerShell Azure Classic
 Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azure/overview) , utilisable dans les Runbooks Automation et les configurations DSC.
 
-| Applets de commande | DESCRIPTION |
+| Applets de commande | Description |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Récupère des informations sur une ressource d’informations d’identification. Vous pouvez uniquement récupérer les informations d’identification elles-mêmes à partir de l’activité **Get-AutomationPSCredential** . |
 | [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Crée de nouvelles informations d’identification Automation. |
@@ -39,7 +39,7 @@ Les applets de commande du tableau suivant sont utilisées pour créer et gérer
 ## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
 Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies avec le [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
 
-| Applets de commande | DESCRIPTION |
+| Applets de commande | Description |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Récupère des informations sur une ressource d’informations d’identification.  |
 | [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Crée de nouvelles informations d’identification Automation. |
@@ -49,7 +49,7 @@ Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour cr
 ## <a name="activities"></a>Activités
 Les activités dans le tableau suivant sont utilisées pour accéder aux informations d’identification dans un Runbook ou dans des configurations DSC.
 
-| Activités | DESCRIPTION |
+| Activités | Description |
 |:--- |:--- |
 | Get-AutomationPSCredential |Obtient les informations d’identification à utiliser dans un Runbook ou dans une configuration DSC. Renvoie un objet [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) . |
 
@@ -59,7 +59,7 @@ Les activités dans le tableau suivant sont utilisées pour accéder aux informa
 ## <a name="python2-functions"></a>Fonctions Python2
 La fonction dans le tableau suivant est utilisée pour accéder aux informations d’identification dans un runbook Python2.
 
-| Fonction | DESCRIPTION |
+| Fonction | Description |
 |:---|:---|
 | automationassets.get_automation_credential | Récupère des informations sur une ressource d’informations d’identification. |
 

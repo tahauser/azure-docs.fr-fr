@@ -92,7 +92,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé votre référentiel Git privé, vous pouvez effectuer au moins l’une des opérations suivantes, selon vos besoins :
 * Stocker vos [artefacts personnalisés](devtest-lab-artifact-author.md). Vous pouvez les utiliser ultérieurement pour créer des machines virtuelles.
 * [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS à l’aide des modèles Resource Manager](devtest-lab-create-environment-from-arm.md). Ensuite, vous pouvez stocker les modèles dans votre dépôt privé.

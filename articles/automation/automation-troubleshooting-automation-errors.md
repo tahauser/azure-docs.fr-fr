@@ -209,7 +209,7 @@ Pour déployer correctement la solution, vous devez envisager de modifier la str
 
 Consultez les notifications dans le coin supérieur droit du portail Azure ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement mis en échec. Pour en savoir plus sur Azure Policy, consultez : [Présentation d’Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous avez suivi les étapes de dépannage précédentes et que vous ne trouvez pas la réponse à votre problème, vous pouvez consulter les options de support supplémentaires suivantes :
 

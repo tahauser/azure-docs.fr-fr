@@ -140,7 +140,7 @@ Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivant
 * Vous disposez d’applications locales existantes que vous souhaitez migrer ou étendre dans le cloud, ou vous souhaitez créer des applications d’entreprise de plus de 4 To. Cette approche offre une compatibilité SQL à 100 %, une capacité de base de données importante, un contrôle total sur SQL Server et Windows et un tunneling sécurisé en local. Cette approche réduit les coûts de développement et de modification des applications existantes.
 * Vous disposez de ressources informatiques et vous pouvez bénéficier en fin de compte des correctifs, des sauvegardes et de la haute disponibilité de la base de données. Certaines fonctionnalités automatisées simplifient considérablement ces opérations. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour prendre en main SQL Database, consultez la page [Votre première base de données Azure SQL Database](sql-database-get-started-portal.md).
 * Voir [Tarification de Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Pour plus d’informations sur la prise en main de SQL Server sur Azure Virtual Machines, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) .

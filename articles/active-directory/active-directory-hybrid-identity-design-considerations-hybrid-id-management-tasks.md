@@ -62,7 +62,7 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 • Quelles sont les fonctionnalités d'authentification unique disponibles ?
 •    Quelles sont les options pour la fédération d'identité entre B2B et B2C ?
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer la stratégie d’adoption de la gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
 ## <a name="see-also"></a>Voir aussi

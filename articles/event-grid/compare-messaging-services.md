@@ -84,7 +84,7 @@ Dans d’autres cas, vous les liez pour former un pipeline d’événements et d
 
 ![Vue d’ensemble du flux des données](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les services de messagerie Azure, consultez le billet de blog [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Événements, points de données et messages : choisir le service de messagerie Azure adéquat pour vos données).
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).

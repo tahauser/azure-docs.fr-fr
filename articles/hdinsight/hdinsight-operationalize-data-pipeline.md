@@ -654,7 +654,7 @@ Pour exécuter le pipeline avec un coordinateur, procédez de la même manière 
 
     Chacune des actions de cette liste correspond à une instance du workflow qui traite l’équivalent d’une journée de données, dont le début est indiqué par l’heure nominale.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation d’Apache Oozie](http://oozie.apache.org/docs/4.2.0/index.html)
 

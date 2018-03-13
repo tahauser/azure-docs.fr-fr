@@ -141,7 +141,7 @@ Pour vous assurer que l’image de machine virtuelle Windows Server 2016 contie
 
 Crée et charge un nouveau Server 2016 Core et/ou une image complète et crée un élément du marketplace pour celui-ci.
 
-| parameters | Obligatoire | exemples | DESCRIPTION |
+| parameters | Obligatoire | exemples | Description |
 |-----|-----|------|---- |
 |ISOPath|OUI| N:\ISO\en_windows_16_x64_dvd | Spécifie le chemin d’accès complet à l’image ISO Windows Server 2016 téléchargée.|
 |Net35|Non | True | Installe le runtime .NET 3.5 sur l’image Windows Server 2016. Par défaut, cette valeur est définie sur **true**.|

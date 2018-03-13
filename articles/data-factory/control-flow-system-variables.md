@@ -28,7 +28,7 @@ Cet article décrit les variables système prises en charge par Azure Data Facto
 
 ## <a name="pipeline-scope"></a>Étendue du pipeline :
 
-| Nom de la variable | DESCRIPTION |
+| Nom de la variable | Description |
 | --- | --- |
 | @pipeline().DataFactory |Nom de la fabrique de données dans laquelle le pipeline s’exécute | 
 | @pipeline().Pipeline |Nom du pipeline |
@@ -40,7 +40,7 @@ Cet article décrit les variables système prises en charge par Azure Data Facto
 
 ## <a name="trigger-scope"></a>Étendue du déclencheur :
 
-| Nom de la variable | DESCRIPTION |
+| Nom de la variable | Description |
 | --- | --- |
 | trigger().scheduledTime |Heure à laquelle le déclencheur a été planifié pour appeler l’exécution du pipeline. Par exemple, pour un déclencheur qui se déclenche toutes les 5 min, cette variable retournerait `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z`, respectivement.|
 | trigger().startTime |Heure à laquelle le déclencheur a été **effectivement** déclenché pour appeler l’exécution du pipeline. Par exemple, pour un déclencheur qui se déclenche toutes les 5 min, cette variable pourrait retourner des valeurs similaires à `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z`, respectivement.|

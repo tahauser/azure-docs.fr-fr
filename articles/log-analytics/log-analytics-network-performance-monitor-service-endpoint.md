@@ -123,5 +123,5 @@ Si le temps de réponse n’est pas applicable, et que la perte de connexion ré
 Si l’application est lente, déterminez si les performances médiocres sont dues au réseau ou à un problème du côté du fournisseur de l’application.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

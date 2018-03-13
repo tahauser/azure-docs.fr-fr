@@ -150,6 +150,6 @@ La délégation à plusieurs niveaux permet au fournisseur délégué de délég
 
 Pour créer plusieurs niveaux de délégation de l’offre, le fournisseur délégué délègue à son tour l’offre au fournisseur suivant. Le processus pour le fournisseur délégué est similaire à celui pour l’opérateur Azure Stack (consultez [L’opérateur Azure Stack crée l’offre déléguée](#cloud-operator-creates-the-delegated-offer)).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
 

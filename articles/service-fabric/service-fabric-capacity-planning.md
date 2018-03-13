@@ -58,7 +58,7 @@ Ensuite, nous entrons une taille de machine virtuelle et le coût mensuel. Selon
 
 ![Feuille de calcul pour le calcul des coûts][Image1]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez la page [Partitionnement des services Service Fabric][10] pour en savoir plus sur le partitionnement de votre service.
 
 <!--Image references-->

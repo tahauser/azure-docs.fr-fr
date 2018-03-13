@@ -124,7 +124,7 @@ Cliquez sur le menu représenté par des points de suspension en regard du nom d
 ## <a name="role-icons"></a>Icônes de rôle
 Certains processus jouent des rôles particuliers sur les machines : serveurs web, serveurs d’applications, base de données, etc. Service Map annote les zones de processus et de machine avec des icônes de rôle pour identifier en un coup d’œil le rôle que joue un processus ou un serveur.
 
-| Icône de rôle | DESCRIPTION |
+| Icône de rôle | Description |
 |:--|:--|
 | ![Serveur web](media/oms-service-map/role-web-server.png) | Serveur web |
 | ![App Server](media/oms-service-map/role-application-server.png) | Serveur d’applications |
@@ -280,7 +280,7 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs incluant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--|:--|
 | type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -307,7 +307,7 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 ### <a name="servicemapprocesscl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
 Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur des serveurs ayant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--|:--|
 | type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

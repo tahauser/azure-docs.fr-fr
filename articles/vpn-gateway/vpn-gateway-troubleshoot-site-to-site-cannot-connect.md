@@ -103,7 +103,7 @@ Recherchez et supprimez l’itinéraire défini par l’utilisateur (UDR) ou les
 
 La fonctionnalité Perfect Forward Secrecy peut provoquer des problèmes de déconnexion. Si la fonctionnalité Perfect Forward Secrecy du périphérique VPN est activée, désactivez-la. Mettez ensuite à jour la stratégie IPsec de la passerelle de réseau virtuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 -   [Création d’une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel](vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -109,7 +109,7 @@ Consultez les [détails sur les niveaux de durabilité ici](service-fabric-clust
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Lisez les documents suivants pour en savoir plus sur la planification de la capacité du cluster, la mise à niveau d’un cluster et le partitionnement des services :
 
 * [Planification de la capacité de votre cluster](service-fabric-cluster-capacity.md)

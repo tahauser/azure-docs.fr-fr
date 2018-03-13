@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Mettre en conteneur une application existante
 > * Configurer l’intégration continue avec Visual Studio et VSTS
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
 2. Familiarisez-vous avec [l’utilisation de Windows 10 Containers][link-container-quickstart].

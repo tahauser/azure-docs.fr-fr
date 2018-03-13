@@ -180,7 +180,7 @@ Storm utilise Apache Log4j pour journaliser les informations. Par défaut, une g
 
 Pour découvrir un exemple de topologie indiquant comment configurer la journalisation, consultez l’exemple de [comptage du nombre de mots basé sur Java](apache-storm-develop-java-topology.md) pour Storm sur HDInsight.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les solutions d’analyse en temps réel avec Storm sur HDInsight :
 

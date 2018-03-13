@@ -65,7 +65,7 @@ Vous pouvez également créer une expérience dans Machine Learning Studio en ut
 
 Une expérience est créée dans votre espace de travail Machine Learning Studio à l’aide de l’exemple d’expérience en tant que modèle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Importer des données à partir de diverses sources](import-data.md)
 * [Didacticiel de démarrage rapide sur le langage R pour Machine Learning](r-quickstart.md)
 * [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md)

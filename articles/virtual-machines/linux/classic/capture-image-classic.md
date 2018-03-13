@@ -102,7 +102,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
    ![Capture d’image réussie](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 L’image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de l’interface CLI Azure et fournir le nom de l’image que vous avez créée. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec le modèle de déploiement Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 Vous pouvez également utiliser le [Portail Azure](http://portal.azure.com) pour créer une machine virtuelle personnalisée en utilisant la méthode **Image** et en sélectionnant l’image que vous avez créée. Pour plus d'informations, consultez [Création d’une machine virtuelle personnalisée][How to Create a Custom Virtual Machine].

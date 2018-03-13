@@ -77,7 +77,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Voici certaines propriétés intéressantes :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | -- | -- |
 | AutoCommit | Booléen indiquant si `autoCommit` est activé pour les transactions Phoenix. |
 | Lecture seule | Booléen indiquant si la connexion est en lecture seule. |
@@ -88,7 +88,7 @@ Voici certaines propriétés intéressantes :
 
 Voici les valeurs `TransactionIsolation` :
 
-| Valeur d’isolation | DESCRIPTION |
+| Valeur d’isolation | Description |
 | -- | -- |
 | 0 | Les transactions ne sont pas prises en charge. |
 | 1 | Des lectures erronées, des lectures non reproductibles et des lectures fantômes peuvent se produire. |

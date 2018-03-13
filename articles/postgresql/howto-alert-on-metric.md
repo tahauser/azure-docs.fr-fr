@@ -48,7 +48,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
    | Paramètre | Description  |
    |---------|---------|
    | NOM | Entrez un nom pour la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
-   | DESCRIPTION | Entrez une brève description de la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
+   | Description | Entrez une brève description de la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
    | Alerte sur | Choisissez **Métriques** pour ce type d’alerte. |
    | Abonnement | Ce champ est prérempli avec l’abonnement qui héberge votre Azure Database pour PostgreSQL. |
    | Groupe de ressources | Ce champ est prérempli avec le groupe de ressources de votre Azure Database pour PostgreSQL. |

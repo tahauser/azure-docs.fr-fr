@@ -97,7 +97,7 @@ Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre
 
     ![Point de terminaison de jeton OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Point de terminaison de jeton OAuth")   
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez créé une application web Azure AD et recueilli les informations nécessaires dans les applications clientes que vous créez à l’aide du SDK .NET, Java, Python, API REST, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application native Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.
 
 * [Authentification de service à service auprès de Data Lake Store à l’aide de Java](data-lake-store-service-to-service-authenticate-java.md)

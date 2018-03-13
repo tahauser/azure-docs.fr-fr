@@ -42,7 +42,7 @@ Les sections suivantes donnent des précisions sur les propriétés utilisées p
 
 Les propriétés suivantes sont prises en charge pour le service lié SAP Cloud for Customer :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **SapCloudForCustomer**. | OUI |
 | url | URL de l’instance SAP C4C OData. | OUI |
@@ -82,7 +82,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapCloudForCustomerResource** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **SapCloudForCustomerResource**. |OUI |
 | chemin d’accès | Indiquez le chemin d’accès de l’entité SAP C4C OData. |OUI |
@@ -113,7 +113,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapCloudForCustomerSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **SapCloudForCustomerSource**.  | OUI |
 | query | Indiquez la requête OData personnalisée permettant de lire les données. | Non  |
@@ -156,7 +156,7 @@ Exemple de requête permettant d’obtenir des données pour un jour en particul
 
 Pour copier des données vers SAP Cloud for Customer, affectez la valeur **SapCloudForCustomerSink** au type récepteur de l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **SapCloudForCustomerSink**.  | OUI |
 | writeBehavior | Comportement d’écriture de l’opération. Valeurs possibles : « Insert », « Update ». | Non. Valeur par défaut : « Insert ». |

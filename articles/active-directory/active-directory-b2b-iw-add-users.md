@@ -38,7 +38,7 @@ Les professionnels de l’information peuvent, de manière similaire, ajouter de
 > Vous ne pouvez pas ajouter d'utilisateurs B2B Collaboration à un groupe dynamique ou à un groupe synchronisé sur un Active Directory local.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

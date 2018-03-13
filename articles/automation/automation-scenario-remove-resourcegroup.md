@@ -28,14 +28,14 @@ Ce scénario repose sur un runbook PowerShell et est conçu pour supprimer un ou
 ## <a name="getting-the-scenario"></a>Obtention du scénario
 Ce scénario se compose d’un runbook PowerShell que vous pouvez télécharger depuis [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Vous pouvez également l’importer directement depuis [Runbook Gallery](automation-runbook-gallery.md) dans le portail Azure.<br><br>
 
-| Runbook | DESCRIPTION |
+| Runbook | Description |
 | --- | --- |
 | Remove-ResourceGroup |Supprime un ou plusieurs groupes de ressources Azure et les ressources associées de l’abonnement. |
 
 <br>
 Les paramètres d’entrée suivants sont définis pour ce runbook :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | NameFilter (obligatoire) |Spécifie un filtre de nom pour limiter les groupes de ressources que vous avez l’intention de supprimer. Vous pouvez transmettre plusieurs valeurs à l’aide d’une liste séparée par des virgules.<br>Le filtre ne respecte pas la casse et établit une correspondance avec tous les groupes de ressources qui contiennent la chaîne. |
 | PreviewMode (facultatif) |Exécutez le runbook pour voir quels groupes de ressources seraient supprimés, sans procéder à leur suppression.<br>**true** afin d’éviter la suppression accidentelle de groupes de ressources transmis au runbook. |

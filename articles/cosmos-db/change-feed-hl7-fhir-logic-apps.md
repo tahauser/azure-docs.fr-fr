@@ -228,7 +228,7 @@ L’image suivante représente l’ensemble des services Azure dédiés à cett
 - En vous appuyant sur Logic Apps, vous pouvez créer des workflows sans écrire aucun code.
 - Vous valorisez les files d’attente Azure Service Bus pour gérer la distribution des documents HL7 FHIR.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Azure Cosmos DB, consultez la [page d’accueil Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Pour plus d’informations sur Logic Apps, voir [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

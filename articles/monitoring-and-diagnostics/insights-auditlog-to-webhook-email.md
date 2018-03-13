@@ -104,7 +104,7 @@ L’opération POST contient le schéma et la charge utile JSON suivants pour to
 }
 ```
 
-| Nom de l'élément | DESCRIPTION |
+| Nom de l'élément | Description |
 | --- | --- |
 | status |Utilisé pour les alertes de métrique. Pour les alertes de journal d’activité, toujours défini sur Activé.|
 | context |Contexte de l’événement. |

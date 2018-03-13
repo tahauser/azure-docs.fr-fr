@@ -69,7 +69,7 @@ Vous devez également déterminer la synchronisation des annuaires d'exigences e
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les exigences d’authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

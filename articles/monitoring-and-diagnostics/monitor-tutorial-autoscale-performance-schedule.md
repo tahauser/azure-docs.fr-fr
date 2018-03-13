@@ -170,7 +170,7 @@ La condition de diminution de la taille du paramètre de mise à l’échelle au
 
 4. Confirmez la suppression en tapant **yes** dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :  
 > [!div class="checklist"]

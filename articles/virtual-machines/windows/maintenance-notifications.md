@@ -86,7 +86,7 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 Les propriétés suivantes sont retournées sous MaintenanceRedeployStatus : 
-| Valeur | DESCRIPTION   |
+| Valeur | Description   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle maintenant ||
 | PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||

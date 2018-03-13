@@ -249,6 +249,6 @@ Content-Type: application/json
 
 La réponse JSON longue pour cette requête a été omise afin d’améliorer la lisibilité de cette documentation. La réponse contient des informations sur le déploiement basé sur un modèle que vous avez créé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la gestion des opérations REST asynchrones, consultez [Suivre les opérations asynchrones Azure](resource-manager-async-operations.md).

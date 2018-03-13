@@ -45,7 +45,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié Shopify sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Shopify** | OUI |
 | host | Point de terminaison du serveur Shopify (autrement dit, mystore.myshopify.com).  | OUI |
@@ -101,7 +101,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données à partir de Shopify, définissez **ShopifySource** comme type source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source d’activité de copie doit être définie sur **ShopifySource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | OUI |

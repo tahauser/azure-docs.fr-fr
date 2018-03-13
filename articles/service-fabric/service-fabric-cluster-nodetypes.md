@@ -137,7 +137,7 @@ Pour changer le mot de passe de tous les nœuds d’un type de nœud donné, eff
     Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -VirtualMachineScaleSet $node
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md).
 * Découvrez plus en détail la [sécurité des clusters](service-fabric-cluster-security.md).
 * En savoir plus sur le [Kit de développement logiciel (SDK) de Service Fabric et la mise en route](service-fabric-get-started.md).

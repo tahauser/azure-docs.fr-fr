@@ -89,6 +89,6 @@ Procédez comme suit pour générer une clé d’inscription au service AAD.
 
     ![Confirmer la régénération](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le déploiement de [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

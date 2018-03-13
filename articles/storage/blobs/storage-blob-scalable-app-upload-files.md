@@ -33,7 +33,7 @@ Le Stockage blob Azure fournit un service évolutif pour stocker vos données. P
 
 La [convention de nommage des partitions](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) est un autre facteur important quand vous concevez une application hautement performante à l’aide d’objets blob. Le Stockage Azure utilise un schéma de partitionnement basé sur une plage pour mettre à l’échelle et équilibrer la charge. Cette configuration signifie que les fichiers qui ont des conventions de nommage ou des préfixes similaires sont dirigés dans la même partition. Cette logique inclut le nom du conteneur dans lequel les fichiers sont chargés. Dans ce didacticiel, vous utilisez des fichiers qui ont des GUID comme noms ainsi que du contenu généré aléatoirement. Ils sont ensuite chargés dans cinq conteneurs différents avec des noms aléatoires.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous devez avoir terminé le didacticiel précédent sur le stockage : [Créer une machine virtuelle et un compte de stockage pour une application évolutive][previous-tutorial].
 
@@ -69,7 +69,7 @@ L’application crée cinq conteneurs nommés de façon aléatoire et commence �
 
 En plus de définir les paramètres de limite de threads et de connexion, les valeurs [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) pour la méthode [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) sont configurées pour utiliser le parallélisme et désactiver la validation de hachage MD5. Les fichiers sont chargés dans des blocs de 100 Mo, cette configuration offre de meilleures performances, mais peut s’avérer coûteuse si vous utilisez un réseau peu performant, car, en cas d’échec, le bloc entier de 100 Mo est réessayé.
 
-|Propriété|Valeur|DESCRIPTION|
+|Propriété|Valeur|Description|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Le paramètre divise l’objet blob en blocs pendant le chargement. Pour optimiser les performances, cette valeur doit être 8 fois supérieure au nombre de cœurs. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Cette propriété désactive la vérification du hachage MD5 du contenu chargé. La désactivation de la validation MD5 entraîne un transfert plus rapide. Toutefois, elle ne confirme pas la validité ou l’intégrité des fichiers transférés.   |

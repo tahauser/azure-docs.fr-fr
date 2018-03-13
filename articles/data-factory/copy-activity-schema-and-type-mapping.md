@@ -186,7 +186,7 @@ Une « structure » est suggérée pour le jeu de données dans les scénarios
 * Copie à partir de banques de données au schéma flexible, par exemple, Azure Table/Cosmos DB (jeu de données d’entrée), pour garantir que les données attendues (colonnes) sont copiées au lieu de laisser l’activité de copie déduire le schéma sur la base des lignes supérieures lors de l’exécution de chaque activité.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)

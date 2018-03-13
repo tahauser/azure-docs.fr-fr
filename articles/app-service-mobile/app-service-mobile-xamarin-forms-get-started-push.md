@@ -347,7 +347,7 @@ Cette section s’applique à l’exécution des projets Xamarin.Forms WinApp et
 3. Dans l’application, tapez un nom pour un nouvel élément todoitem, puis cliquez sur l’icône de signe plus (**+**) pour l’ajouter.
 4. Vérifiez qu’une notification est reçue lorsque l’élément est ajouté.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Apprenez-en plus sur les notifications Push :
 
 * [Envoi de notifications Push à partir d’Azure Mobile Apps](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)

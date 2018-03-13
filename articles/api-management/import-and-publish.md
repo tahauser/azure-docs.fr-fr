@@ -52,7 +52,7 @@ Cette section montre comment importer et publier une API de serveur principal à
 
     Vous pouvez définir les valeurs de l’API lors de la création ou ultérieurement en accédant à l’onglet **Paramètres**.  
 
-    |Paramètre|Valeur|DESCRIPTION|
+    |Paramètre|Valeur|Description|
     |---|---|---|
     |**Spécification OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Indique le service implémentant l’API. La gestion des API transmet les demandes à cette adresse.|
     |**Nom complet**|*API de conférence de démonstration*|Si vous appuyez sur la touche de tabulation après avoir entré l’URL du service, APIM renseigne ce champ en fonction de ce qui se trouve dans le fichier json. <br/>Ce nom s’affiche dans le portail des développeurs.|

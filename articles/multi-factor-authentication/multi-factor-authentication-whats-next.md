@@ -24,7 +24,7 @@ ms.lasthandoff: 01/04/2018
 
 Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque [version d’Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
 
-| Fonctionnalité | DESCRIPTION | 
+| Fonctionnalité | Description | 
 |:--- |:--- |
 | [Bloquer et débloquer des utilisateurs](#block-and-unblock-users) |Utilisez la fonctionnalité de blocage/déblocage pour empêcher les utilisateurs de recevoir des requêtes d’authentification. |
 | [Alerte de fraude](#fraud-alert) |Configurez la fonctionnalité d’alerte de fraude pour que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. |
@@ -349,7 +349,7 @@ Vous pouvez choisir les méthodes d’authentification disponibles pour vos util
 
 Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 |:--- |:--- |
 | Appel vers le téléphone |Passe un appel vocal automatisé. L’utilisateur répond à l’appel et appuie sur la touche # du clavier du téléphone pour s’authentifier. Ce numéro de téléphone n’est pas synchronisé avec Active Directory en local. |
 | Message texte vers le téléphone |Envoie un message texte contenant un code de vérification. L’utilisateur est invité à entrer le code de vérification dans l’interface de connexion. On parle alors « SMS unidirectionnel ». Ce terme signifie que l’utilisateur doit renvoyer par SMS dans un code spécifique. Le SMS bidirectionnel est déconseillé et ne sera plus pris en charge après le 14 novembre 2018. Les utilisateurs qui ont configuré les SMS bidirectionnels passeront automatiquement à la vérification _appel téléphonique_ à ce moment-là.|

@@ -57,7 +57,7 @@ Filtrez sur des informations supplémentaires et tapez votre ID de réservation.
 4. Il s’agit de l’Id du compteur de la réservation. Le coût de ce compteur est de 0 dollars US. Toute machine virtuelle bénéficiant d’une offre d’instance réservée affiche cet ID de compteur dans le fichier csv afin de renseigner sur le coût. 
 5. Standard_DS1_v2 est une machine virtuelle à processeur virtuel qui est déployée sans Azure Hybrid Benefit. Par conséquent, ce compteur couvre les frais supplémentaires des logiciels Windows. Consultez [Coûts des logiciels Windows dans les instances de machine virtuelle réservées Azure](billing-reserved-instance-windows-software-costs.md) pour trouver le compteur correspondant à la machine virtuelle série D 1 cœur. Si Azure Hybrid Benefit est utilisé, ce coût supplémentaire n’est pas appliqué. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
 
 - [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)

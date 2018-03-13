@@ -39,6 +39,6 @@ ms.lasthandoff: 02/27/2018
 3. Cliquez sur **Enregistrer** pour mettre à jour l’évaluation.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

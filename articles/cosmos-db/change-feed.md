@@ -271,7 +271,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 Et voilà ! Après ces quelques étapes, des documents seront progressivement collectés au sein de la méthode **DocumentFeedObserver ProcessChangesAsync**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation d’Azure Cosmos DB avec Azure Functions, consultez l’article [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](serverless-computing-database.md).
 

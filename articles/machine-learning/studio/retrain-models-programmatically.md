@@ -167,7 +167,7 @@ Examinez les résultats pour déterminer si le modèle de nouveau entraîné est
 
 Copiez les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* des résultats de sortie. Vous allez les utiliser pendant le processus de reformation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous avez déployé le service web prédictif en cliquant sur **Déployer un service web [classique]**, consultez [Reformer un service web classique](retrain-a-classic-web-service.md).
 
 Si vous avez déployé le service web prédictif en cliquant sur **Déployer un service web [nouveau]**, consultez [Reformer un nouveau service web à l’aide des applets de commande de gestion Machine Learning](retrain-new-web-service-using-powershell.md).

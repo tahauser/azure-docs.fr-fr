@@ -59,7 +59,7 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 Compte le nombre de requêtes d’opérations de données et de gestion.
 
-| Nom de métrique | DESCRIPTION |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Requêtes ayant réussi (préversion)|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
@@ -69,14 +69,14 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 ## <a name="message-metrics"></a>Métriques de message
 
-| Nom de métrique | DESCRIPTION |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 |Messages entrants (préversion)|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Messages sortants (préversion)|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
-| Nom de métrique | DESCRIPTION |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 |ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Ouvertures de connexion (préversion)|Le nombre de connexions ouvertes.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
@@ -84,7 +84,7 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 ## <a name="resource-usage-metrics"></a>Métriques d’utilisation des ressources
 
-| Nom de métrique | DESCRIPTION |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 |Utilisation du processeur par espace de noms (préversion)|Le pourcentage d’utilisation du processeur de l’espace de noms.<br/><br/> Unité : pourcentage <br/> Type d’agrégation : maximale <br/> Dimension : EntityName|
 |Utilisation de la taille mémoire par espace de noms (préversion)|Le pourcentage d’utilisation de mémoire de l’espace de noms.<br/><br/> Unité : pourcentage <br/> Type d’agrégation : maximale <br/> Dimension : EntityName|
@@ -93,7 +93,7 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans Azure Monitor. L’ajout de dimensions à vos métriques est facultatif. Si vous n’ajoutez pas de dimensions, les métriques sont spécifiées au niveau de l’espace de noms. 
 
-|Nom de la dimension|DESCRIPTION|
+|Nom de la dimension|Description|
 | ------------------- | ----------------- |
 |EntityName| Service Bus prend en charge les entités de messagerie sous l’espace de noms.|
 

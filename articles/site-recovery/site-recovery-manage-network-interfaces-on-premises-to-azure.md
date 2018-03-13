@@ -74,5 +74,5 @@ Vous pouvez modifier le sous-réseau et l’adresse IP des interfaces de résea
 
 6. Sélectionnez **Enregistrer** pour enregistrer toutes les modifications.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
   [En savoir plus](../virtual-network/virtual-network-network-interface-vm.md) sur les interfaces réseau des machines virtuelles Azure.

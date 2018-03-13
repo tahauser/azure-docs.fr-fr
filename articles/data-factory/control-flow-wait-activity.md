@@ -40,7 +40,7 @@ Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité `Wait`. | Chaîne | OUI
 Type | Doit être défini sur **Wait**. | Chaîne | OUI

@@ -163,6 +163,6 @@ Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMIN
 ![Mettre à jour le mot de passe de l’administrateur](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Ajouter des bases de données](azure-stack-sql-resource-provider-databases.md)

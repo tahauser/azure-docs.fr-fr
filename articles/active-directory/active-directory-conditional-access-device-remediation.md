@@ -157,6 +157,6 @@ Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pou
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 

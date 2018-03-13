@@ -6,7 +6,7 @@
 
     ![Définir de nouveaux paramètres d’application de fonction](./media/functions-create-function-app-portal/function-app-create-flow2.png)
 
-    | Paramètre      | Valeur suggérée  | DESCRIPTION                                        |
+    | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z`, `0-9` et `-`.  | 
     | **Abonnement** | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. | 

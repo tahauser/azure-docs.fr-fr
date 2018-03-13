@@ -73,7 +73,7 @@ Advisor fournit des recommandations pour les machines virtuelles, les groupes à
 
 Pour reporter ou ignorer une recommandation, cliquez sur le lien **Reporter**. Vous pouvez spécifier une période de report ou sélectionner **Jamais** pour faire disparaître la recommandation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 

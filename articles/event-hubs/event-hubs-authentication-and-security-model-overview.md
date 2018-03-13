@@ -106,7 +106,7 @@ La version actuelle de Service Bus ne prend pas en charge les règles SAS pour l
 
 En l'absence d'authentification SAS pour les groupes de consommateurs individuels, vous pouvez utiliser des clés SAS pour sécuriser tous les groupes de consommateurs avec une clé commune. Cette approche permet à une application de consommer des données à partir de n’importe quel groupe de consommateurs d’un hub d’événements.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 

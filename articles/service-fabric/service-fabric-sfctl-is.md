@@ -25,7 +25,7 @@ Interroge et envoie des commandes vers le service d’infrastructure.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    command| Appelle une commande d’administration dans l’instance de service d’infrastructure donnée.|
 |    query  | Appelle une requête en lecture seule dans l’instance de service d’infrastructure donnée.|
@@ -38,7 +38,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --command [Requis]| Texte de la commande à appeler. Le contenu de la commande est propre à l’infrastructure. |
 | --service-id     | Identité du service d’infrastructure. Il s’agit du nom complet du service d’infrastructure, sans le schéma d’URI « fabric: ». Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent.|
@@ -46,7 +46,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -61,7 +61,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --command [Requis]| Texte de la commande à appeler. Le contenu de la commande est propre à l’infrastructure.|
 | --service-id     | Identité du service d’infrastructure. Il s’agit du nom complet du service d’infrastructure, sans le schéma d’URI « fabric: ». Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent.|
@@ -69,7 +69,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|

@@ -153,7 +153,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Démarrez votre service et observez la fenêtre de sortie Débogage de Visual Studio. Une fois le service démarré, vous devez commencer à voir des preuves qu’il envoie des enregistrements à la sortie que vous avez configurée. Accédez à votre plateforme d’analyse et de visualisation des événements et vérifiez que les journaux ont commencé à s’afficher (cela peut prendre quelques minutes).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analyse et visualisation d’événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)

@@ -93,6 +93,6 @@ Pour vérifier si un pool existant est basé sur une image personnalisée, consu
 
 Toutes les images personnalisées associées à un pool sont affichées dans la fenêtre **Propriétés** de ce dernier.
  
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).

@@ -108,6 +108,6 @@ Avec assez de données pertinentes, connectées et précises, nous disposons de 
 
 Nous vous invitons à consulter les quatre autres vidéos de la série *« Science des données pour les débutants »* de Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)

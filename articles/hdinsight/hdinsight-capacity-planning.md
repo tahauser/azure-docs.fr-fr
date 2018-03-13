@@ -113,7 +113,7 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 
 Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](hdinsight-hadoop-provision-linux-clusters.md) : découvrez comment installer et configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka, Hive interactif, HBase, R Server ou Storm.
 * [Surveiller les performances du cluster](hdinsight-key-scenarios-to-monitor.md) : découvrez les principaux scénarios susceptibles d’affecter les capacités de votre cluster HDInsight.

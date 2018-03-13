@@ -25,7 +25,7 @@ Effectue des opérations élémentaires au niveau des fichiers dans le magasin d
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    delete| Supprime le contenu du magasin d’images.|
 |    root-info| Permet d’obtenir les informations de contenu à la racine du magasin d’images.|
@@ -39,14 +39,14 @@ Supprime le contenu du magasin d’images trouvé dans le chemin d’accès rela
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --content-path [Requis]| Chemin d’accès relatif au fichier ou au dossier dans le magasin d’images à partir de sa racine.|
 | --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -61,14 +61,14 @@ Retourne les informations sur le contenu du magasin d’images dans le chemin d�
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --content-path [Requis]| Chemin d’accès relatif au fichier ou au dossier dans le magasin d’images à partir de sa racine.|
 | --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|

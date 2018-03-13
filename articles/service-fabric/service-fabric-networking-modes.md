@@ -231,7 +231,7 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
    </Resources>
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
 * [En savoir plus sur les ressources du manifeste du service Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)

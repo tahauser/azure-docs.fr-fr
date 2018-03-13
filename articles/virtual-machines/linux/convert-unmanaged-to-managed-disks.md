@@ -96,5 +96,5 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Managed Disks](../windows/managed-disks-overview.md).

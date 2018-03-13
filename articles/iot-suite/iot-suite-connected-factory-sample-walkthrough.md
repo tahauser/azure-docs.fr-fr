@@ -227,7 +227,7 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 > [!NOTE]
 > Pour le serveur UA OPC et la pile UA OPC au sein de l’application web d’usine connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 

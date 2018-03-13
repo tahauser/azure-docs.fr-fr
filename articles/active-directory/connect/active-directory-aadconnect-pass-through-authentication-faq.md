@@ -128,7 +128,7 @@ Réexécutez l’assistant Azure AD Connect et modifiez la méthode de connexion
 
 La désinstallation d’un agent d’authentification directe à partir d’un serveur provoque l’interruption de l’acceptation des requêtes de connexion. Pour éviter d'interrompre la fonctionnalité de connexion de l'utilisateur sur votre client, assurez-vous qu'un autre agent d'authentification est en cours d'exécution avant de désinstaller un agent d'authentification directe.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
 - [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.

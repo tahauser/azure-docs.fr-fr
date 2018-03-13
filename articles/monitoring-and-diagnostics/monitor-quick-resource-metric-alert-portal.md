@@ -110,7 +110,7 @@ Les autres guides de démarrage rapide de cette collection sont la prolongation 
 
 5. Dans le volet, cliquez sur l’application logique que vous avez créée dans ce guide de démarrage rapide dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à créer une alerte de métrique pour vos ressources. Pour plus d’informations sur les alertes de métriques, consultez notre présentation sur les alertes.
 

@@ -42,7 +42,7 @@ L’ordinateur physique peut fonctionner en local (ou sur un site d’hébergeme
 
 La machine physique ou virtuelle qui exécute le service d’intégration des journaux Azure nécessite une connexion réseau avec le cloud public Azure. La procédure décrite dans cet article fournit des détails sur la configuration.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Au minimum, l’installation d’AzLog nécessite les éléments suivants :
 

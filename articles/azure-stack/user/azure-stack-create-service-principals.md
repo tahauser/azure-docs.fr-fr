@@ -137,6 +137,6 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 Maintenant que vous avez créé un principal de service et que vous lui avez attribué un rôle, vous pouvez commencer à l’utiliser au sein de votre application pour accéder aux ressources Azure Stack.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer les autorisations utilisateur](azure-stack-manage-permissions.md)

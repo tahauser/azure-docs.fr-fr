@@ -35,6 +35,6 @@ Les connexions à la passerelle VPN peuvent échouer pour diverses raisons. Cet 
 
 * [Connexions site à site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Après avoir configuré une connexion VPN de site à site entre un réseau local et un réseau virtuel Azure, la connexion VPN cesse soudainement de fonctionner et la reconnexion est impossible. Cet article fournit les étapes requises pour vous aider à résoudre ce problème.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également utiliser ces étapes pour [valider les connexions VNet et VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).

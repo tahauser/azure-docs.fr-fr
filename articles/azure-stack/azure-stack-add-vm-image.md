@@ -151,7 +151,7 @@ Remove-AzsVMImage `
 
 ## <a name="parameters"></a>parameters
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | **publisher** |Segment du nom de l’éditeur de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **Microsoft** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
 | **offer** |Segment du nom de l’offre de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **WindowsServer** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |

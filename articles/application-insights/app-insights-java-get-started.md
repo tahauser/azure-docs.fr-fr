@@ -379,7 +379,7 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance des appels de dépendance](app-insights-java-agent.md)
 * [Surveillance des compteurs de performances Unix](app-insights-java-collectd.md)
 * Ajoutez [la surveillance à vos pages web](app-insights-javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.

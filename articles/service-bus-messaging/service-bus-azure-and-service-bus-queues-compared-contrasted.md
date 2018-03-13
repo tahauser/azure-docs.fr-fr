@@ -187,7 +187,7 @@ En ayant une meilleure compréhension des deux technologies, vous serez en mesur
 
 Étant donné que les files d'attente Service Bus fournissent plusieurs fonctionnalités avancées, comme les sessions, les transactions, la détection de doublons, la lettre morte automatique et des fonctions de publication/d'abonnement durables, elles peuvent constituer un meilleur choix si vous créez une application hybride ou si votre application nécessite ces fonctionnalités.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les articles suivants fournissent des conseils et des informations sur l’utilisation des files d’attente de stockage ou Service Bus.
 
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)

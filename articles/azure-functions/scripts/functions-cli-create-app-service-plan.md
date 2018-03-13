@@ -53,7 +53,7 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Crée un plan App Service. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Crée une Function App Azure. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

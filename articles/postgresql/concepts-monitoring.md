@@ -24,7 +24,7 @@ Toutes les métriques Azure présentent une fréquence d’une minute et chaque 
 ### <a name="list-of-metrics"></a>Liste des métriques
 Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 
-|Métrique|Nom d’affichage de la métrique|Unité|DESCRIPTION|
+|Métrique|Nom d’affichage de la métrique|Unité|Description|
 |---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Pourcentage d’UC en cours d’utilisation.|
 |memory_percent|Pourcentage de mémoire|Pourcentage|Pourcentage de mémoire en cours d’utilisation.|

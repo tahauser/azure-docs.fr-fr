@@ -75,7 +75,7 @@ Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure e
 
     Une fois la capture instantanée démontée, le message **Tâche terminée** s’affiche dans le volet **Tâches** de la console de l’agent.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel marque la fin des didacticiels sur la sauvegarde et la restauration de données Windows Server vers Azure. Pour en savoir plus sur la sauvegarde Azure, consultez l’exemple PowerShell sur la sauvegarde des machines virtuelles chiffrées.
 

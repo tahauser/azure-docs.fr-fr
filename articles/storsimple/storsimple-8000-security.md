@@ -268,7 +268,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Comme toutes les données sont chiffrées dans le service et que la clé privée est conservée dans l’appareil, l’entité gouvernementale doit demander les données au client.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Déploiement de votre appareil StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

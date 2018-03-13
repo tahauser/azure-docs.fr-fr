@@ -73,7 +73,7 @@ SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](
   ![Volet de navigation][8]
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur Threat Detection, visitez le [blog Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)

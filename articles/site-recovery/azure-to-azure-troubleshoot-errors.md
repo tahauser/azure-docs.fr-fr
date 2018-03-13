@@ -200,5 +200,5 @@ Pour activer la réplication sur la machine virtuelle, l’état de provisionnem
 - Si **provisioningState** a la valeur **Échec**, contactez le support avec les détails pour résoudre les problèmes.
 - Si **provisioningState** a la valeur **Mise à jour**, une autre extension est peut-être en cours de déploiement. Vérifiez si des opérations sont en cours sur la machine virtuelle, attendez qu’elles se terminent et réessayez la tâche Site Recovery **Activer la réplication** qui a échoué.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Répliquer des machines virtuelles Azure](site-recovery-replicate-azure-to-azure.md)

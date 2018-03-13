@@ -73,7 +73,7 @@ http://<app_name>.azurewebsites.net/hello
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Utiliser une image Docker personnalisée](tutorial-custom-docker-image.md)

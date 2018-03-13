@@ -24,7 +24,7 @@ ms.lasthandoff: 01/10/2018
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Ajouter des actions à des règles d’alerte dans Log Analytics
 Lorsqu’une [alerte est créée dans Log Analytics](log-analytics-alerts.md), vous avez la possibilité de [configurer la règle d’alerte](log-analytics-alerts.md) pour effectuer une ou plusieurs actions.  Cet article décrit les différentes actions possibles et explique la configuration associée à chacune.
 
-| Action | DESCRIPTION |
+| Action | Description |
 |:--|:--|
 | [E-mail](#email-actions) | Envoyez un e-mail avec les détails de l’alerte à un ou plusieurs destinataires. |
 | [Webhook](#webhook-actions) | Appelez un processus externe par le biais d’une simple requête HTTP POST. |
@@ -36,7 +36,7 @@ Les actions de messagerie envoient un e-mail avec les détails de l’alerte à 
 
 Les propriétés requises par les actions de messagerie sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Objet |Objet de l’e-mail.  Vous ne pouvez pas modifier le corps du message. |
 | Destinataires |Adresses de tous les destinataires de l’e-mail.  Si vous spécifiez plusieurs adresses, séparez-les par un point-virgule (;). |
@@ -48,7 +48,7 @@ Les actions de webhook permettent d’appeler un processus externe par le biais 
 
 Les propriétés requises par les actions webhook sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | URL du webhook |URL du webhook. |
 | Charge utile JSON personnalisée |Charge utile personnalisée à envoyer avec le webhook.  Voir les détails ci-dessous. |
@@ -59,7 +59,7 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 >[!NOTE]
 > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors la charge utile du Webhook a changé.  Vous trouverez les détails du format sur la page [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  La section [Exemples](#sample-payload) ci-dessous présente un exemple.
 
-| Paramètre | Variable | DESCRIPTION |
+| Paramètre | Variable | Description |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nom de la règle d’alerte. |
 | AlertThresholdOperator |#thresholdoperator |Opérateur de seuil de la règle d’alerte.  *Supérieur à* ou *Inférieur à*. |
@@ -105,7 +105,7 @@ Les actions de runbook démarrent un runbook dans Azure Automation.  Ce type d�
 
 Les propriétés requises par les actions runbook sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:---|
 | Runbook | Runbook que vous souhaitez démarrer lorsqu’une alerte est créée. |
 | Exécuter sur | Spécifiez **Azure** pour exécuter le runbook dans le cloud.  Spécifiez **Worker hybride** pour exécuter le runbook sur un agent sur lequel [Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md ) est installé.  |
@@ -117,7 +117,7 @@ Vous ne pouvez pas compléter directement tous les paramètres du runbook, mais 
 >[!NOTE]
 > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), alors la charge utile du runbook a changé.  Vous trouverez les détails du format sur la page [API REST Log Analytics Azure](https://aka.ms/loganalyticsapiresponse).  La section [Exemples](#sample-payload) ci-dessous présente un exemple.  
 
-| Nœud | DESCRIPTION |
+| Nœud | Description |
 |:--- |:--- |
 | id |Chemin d’accès et GUID de la recherche. |
 | __metadata |Informations sur l’alerte, dont le nombre d’enregistrements et l’état des résultats de recherche. |

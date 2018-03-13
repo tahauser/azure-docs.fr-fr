@@ -137,7 +137,7 @@ Azure Cosmos DB prend en charge un certain nombre de fonctionnalités qui ne son
 
 Certaines fonctionnalités sont accessibles via les nouvelles surcharges vers CreateCloudTableClient qui permettent de préciser la stratégie de connexion et le niveau de cohérence.
 
-| Paramètres de connexion de table | DESCRIPTION |
+| Paramètres de connexion de table | Description |
 | --- | --- |
 | Mode de connexion  | Azure Cosmos DB prend en charge deux modes de connectivité. Dans le mode `Gateway`, les requêtes sont toujours effectuées auprès de la passerelle Azure Cosmos DB, qui les transmet aux partitions de données correspondantes. Dans le mode de connectivité `Direct`, le client lit le mappage des tables aux partitions, et les requêtes sont effectuées directement dans les partitions de données. Nous recommandons d’utiliser le mode `Direct` (il s’agit du mode par défaut).  |
 | Protocole de connexion | Azure Cosmos DB prend en charge deux protocoles de connexion : `Https` et `Tcp`. `Tcp` est la valeur par défaut. C’est le protocole recommandé, car il est plus léger. |
@@ -146,7 +146,7 @@ Certaines fonctionnalités sont accessibles via les nouvelles surcharges vers Cr
 
 D’autres fonctionnalités peuvent être activées à l’aide des valeurs de configuration `appSettings` suivantes.
 
-| Clé | DESCRIPTION |
+| Clé | Description |
 | --- | --- |
 | TableQueryMaxItemCount | Configurez le nombre maximal d’éléments renvoyés par requête de table en un seul aller-retour. La valeur par défaut, `-1`, laisse Azure Cosmos DB déterminer dynamiquement la valeur lors de l’exécution. |
 | TableQueryEnableScan | Si la requête ne peut pas utiliser l’index pour des filtres, vous pouvez l’exécuter malgré tout via une analyse. La valeur par défaut est `false`.|

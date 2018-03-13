@@ -506,7 +506,7 @@ GO
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Pour plus d’informations sur la façon dont des classes de ressources plus élevées peuvent améliorer la qualité des index cluster columnstore, voir [Optimiser la qualité du rowgroup pour columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->

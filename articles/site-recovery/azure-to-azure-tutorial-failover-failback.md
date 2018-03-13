@@ -27,7 +27,7 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 > * Restaurer automatiquement la machine virtuelle secondaire
 > * Reprotéger la machine virtuelle principale vers la région secondaire
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Assurez-vous d’avoir effectué une [simulation de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md) pour vérifier que tout fonctionne comme prévu.
 - Vérifiez les propriétés de la machine virtuelle avant d’exécuter le test de basculement. La machine virtuelle doit satisfaire aux [exigences Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).

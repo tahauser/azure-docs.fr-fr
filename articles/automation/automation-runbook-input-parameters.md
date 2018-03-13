@@ -94,7 +94,7 @@ Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.
    | **Propriété** | **Description** |
    |:--- |:--- |
    | NOM |Requis. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
-   | DESCRIPTION |facultatif. Description de l’objectif du paramètre d’entrée. |
+   | Description |facultatif. Description de l’objectif du paramètre d’entrée. |
    | type |facultatif. Type de données attendu pour la valeur du paramètre. Les types de paramètres pris en charge sont **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** et **Object**. Si un type de données n’est pas sélectionné, le type par défaut est **String**. |
    | Obligatoire |facultatif. Spécifie si une valeur doit être fournie pour le paramètre. Si vous choisissez **yes**, une valeur doit être fournie lors du démarrage du Runbook. Si vous choisissez **no**, aucune valeur n’est requise lors du démarrage du Runbook, et une valeur par défaut peut être définie. |
    | Valeur par défaut |facultatif. Spécifie une valeur à utiliser pour le paramètre si aucune valeur n’est transmise lors du démarrage du runbook. Une valeur par défaut peut être définie pour un paramètre qui n’est pas obligatoire. Pour définir une valeur par défaut, choisissez **Custom**. Cette valeur est utilisée, sauf si une autre valeur est fournie lorsque du démarrage du Runbook. Choisissez **None** si vous ne souhaitez pas fournir de valeur par défaut. |

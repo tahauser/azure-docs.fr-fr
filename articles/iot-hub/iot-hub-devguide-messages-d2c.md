@@ -71,7 +71,7 @@ La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec 
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les SDK que vous pouvez utiliser pour envoyer des messages appareil-à-cloud, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
 

@@ -202,7 +202,7 @@ Configuration des tests :
 
 \* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [http://aka.ms/AzCT][ACT].
 2. Suivre les instructions pour [tester le niveau de performance des liaisons][Performance Doc].
 

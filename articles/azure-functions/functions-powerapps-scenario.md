@@ -42,7 +42,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Ajouter des contrôles pour appeler la fonction et afficher les données
 > * Exécuter l’application pour déterminer si une réparation est rentable
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Un [compte PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) actif avec les mêmes informations d’identification que votre compte Azure. 
 + Excel et le [fichier d’exemple Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que vous allez utiliser comme source de données pour votre application.

@@ -71,7 +71,7 @@ Lorsque vous vous [inscrivez à Log Analytics](log-analytics-get-started.md), vo
 
 ![Architecture Log Analytics](media/log-analytics-overview/architecture.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Inscrivez-vous pour obtenir un compte Log Analytics gratuit](log-analytics-get-started.md) que vous pouvez tester dans votre environnement.
 * Affichez les différentes [sources de données](log-analytics-data-sources.md) disponibles pour collecter des données dans Log Analytics.
 * [Parcourez les solutions disponibles dans la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités à Log Analytics.

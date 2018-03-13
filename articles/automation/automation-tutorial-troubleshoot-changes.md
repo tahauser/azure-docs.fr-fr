@@ -91,7 +91,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 
 3. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
@@ -104,7 +104,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 
 1. Dans la fenêtre **Ajouter le fichier Windows pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
@@ -117,7 +117,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 
 1. Dans la fenêtre **Ajouter le fichier Linux pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |

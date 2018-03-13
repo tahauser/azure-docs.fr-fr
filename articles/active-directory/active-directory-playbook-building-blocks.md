@@ -24,7 +24,7 @@ ms.lasthandoff: 02/22/2018
 
 ## <a name="catalog-of-roles"></a>Catalogue des rôles
 
-| Rôle | DESCRIPTION | Responsabilité de la preuve de concept (PoC) |
+| Rôle | Description | Responsabilité de la preuve de concept (PoC) |
 | --- | --- | --- |
 | **Équipe Architecture d’identités/Développement** | Cette équipe est généralement celle qui conçoit la solution, implémente les prototypes, gère les approbations et transmet les informations à l’équipe des opérations | Fournir les environnements et évaluer les différents scénarios du point de vue de la facilité de gestion |
 | **Équipe des opérations d’identité locale** | Gère les différentes sources d’identité en local : forêts Active Directory, annuaires LDAP, systèmes de RH et fournisseurs d’identité de fédération. | Fournir un accès aux ressources locales requises pour les scénarios POC.<br/>Elle doit intervenir aussi peu que possible|

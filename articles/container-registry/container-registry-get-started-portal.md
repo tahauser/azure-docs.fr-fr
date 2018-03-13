@@ -110,7 +110,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources **myReso
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-08]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry à l’aide du portail Azure. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
 

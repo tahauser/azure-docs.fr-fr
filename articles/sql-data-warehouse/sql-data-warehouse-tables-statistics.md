@@ -354,7 +354,7 @@ Vous pouvez utiliser plusieurs fonctions et vues système pour rechercher des in
 ### <a name="catalog-views-for-statistics"></a>Vues de catalogue des statistiques
 Ces vues système fournissent des informations sur les statistiques :
 
-| Vue de catalogue | DESCRIPTION |
+| Vue de catalogue | Description |
 |:--- |:--- |
 | [sys.columns][sys.columns] |Une ligne pour chaque colonne. |
 | [sys.objects][sys.objects] |Une ligne pour chaque objet de la base de données. |
@@ -367,7 +367,7 @@ Ces vues système fournissent des informations sur les statistiques :
 ### <a name="system-functions-for-statistics"></a>Fonctions système relatives aux statistiques
 Ces fonctions système sont utiles lorsque vous gérez des statistiques :
 
-| Fonction système | DESCRIPTION |
+| Fonction système | Description |
 |:--- |:--- |
 | [STATS_DATE][STATS_DATE] |Date de la dernière mise à jour de l’objet de statistiques. |
 | [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Informations détaillées et récapitulatives sur la distribution des valeurs, telles que l’objet de statistiques la comprend. |

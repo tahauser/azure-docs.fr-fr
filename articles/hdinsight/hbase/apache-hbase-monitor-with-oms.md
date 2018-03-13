@@ -144,7 +144,7 @@ Une fois l’action de script terminée, des données doivent s’afficher dans 
 
 6. En sélectionnant l’une de ces options, vous pourrez descendre dans la hiérarchie de la vue Recherche dans les journaux dans laquelle vous pourrez affiner votre requête et explorer les données plus en détail.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation des règles d’alerte dans Log Analytics](../../log-analytics/log-analytics-alerts-creating.md)
 * [Trouver des données avec les recherches de journaux dans Log Analytics](../../log-analytics/log-analytics-log-searches.md).

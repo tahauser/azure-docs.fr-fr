@@ -103,7 +103,7 @@ Pour afficher l’application, accédez à l’adresse IP externe.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, l’application Azure Vote a été déployée sur un cluster Kubernetes Azure Container Service. Les tâches accomplies sont les suivantes :  
 

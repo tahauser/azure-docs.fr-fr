@@ -115,7 +115,7 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 11. Assurez-vous de créer une règle relative à l’extension et à la réduction des instances, sinon le nombre d’instances ne fera qu’augmenter (ou diminuer) sur ce profil.
 12. Puis, cliquez sur **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Réceptions de notifications d'alerte](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.

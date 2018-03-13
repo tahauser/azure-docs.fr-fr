@@ -79,5 +79,5 @@ Vous pouvez préparer votre propre image Linux en appliquant l’une des instruc
 2. [Ajoutez l’image à la Place de Marché](azure-stack-add-vm-image.md). Vérifiez que le paramètre `OSType` a la valeur `Linux`.
 3. Une fois que vous avez ajouté l’image à la Place de marché, un élément de Place de marché est créé et les utilisateurs peuvent déployer une machine virtuelle Linux.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Vue d’ensemble de l’offre de services dans Azure Stack](azure-stack-offer-services-overview.md)

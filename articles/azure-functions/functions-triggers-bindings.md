@@ -643,7 +643,7 @@ Le schéma de fichier *function.json* est disponible à l’adresse [http://json
 
 Pour obtenir des liens vers toutes les rubriques d’erreur pertinentes pour les divers services pris en charge par Azure Functions, voir la section [Codes d’erreur de liaison](functions-bindings-error-pages.md#binding-error-codes) de la rubrique de présentation [Gestion des erreurs dans Azure Functions](functions-bindings-error-pages.md).  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur une liaison spécifique, consultez les articles suivants :
 

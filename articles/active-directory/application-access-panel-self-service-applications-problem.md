@@ -95,5 +95,5 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)

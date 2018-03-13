@@ -124,7 +124,7 @@ Fermez la session Bureau à distance.
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le et tout son contenu. En haut du portail Azure, entrez *myResourceGroup*. Quand **MyResourceGroup** apparaît dans les résultats de la recherche, sélectionnez-la. Sélectionnez **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez déployé un réseau virtuel par défaut avec un sous-réseau. Pour découvrir comment créer un réseau virtuel personnalisé avec plusieurs sous-réseaux, passez au didacticiel couvrant la création d’un réseau virtuel personnalisé.
 

@@ -57,7 +57,7 @@ Utilisez le portail Azure pour approvisionner vos comptes Azure Machine Learning
 
 1. Dans le volet **Machine Learning - Expérimentation**, configurez votre compte Machine Learning - Expérimentation. 
 
-   Paramètre|Valeur suggérée pour le didacticiel|DESCRIPTION
+   Paramètre|Valeur suggérée pour le didacticiel|Description
    ---|---|---
    Nom du compte Expérimentation | _Nom unique_ |Entrez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Abonnement | _Votre abonnement_ |Choisissez l’abonnement Azure que vous souhaitez utiliser pour votre expérimentation. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource est facturée.
@@ -141,7 +141,7 @@ Ici, nous créons un projet Workbench à l’aide d’un modèle qui inclut le [
 
 1. Renseignez les champs du formulaire et sélectionnez le bouton **Créer** permettant de créer un projet dans Workbench.
 
-   Champ|Valeur suggérée pour le didacticiel|DESCRIPTION
+   Champ|Valeur suggérée pour le didacticiel|Description
    ---|---|---
    Nom du projet | myIris |Entrez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Répertoire du projet | c:\Temp\ | Spécifiez le répertoire dans lequel le projet est créé.

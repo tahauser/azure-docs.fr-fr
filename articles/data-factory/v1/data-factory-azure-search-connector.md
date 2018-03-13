@@ -57,7 +57,7 @@ Les sections suivantes offrent des informations détaillées sur les propriété
 
 Le tableau suivant décrit les éléments JSON propres au service lié Recherche Azure.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | Type | La propriété de type doit être définie sur **AzureSearch**. | OUI |
 | URL | URL du service Recherche Azure. | OUI |
@@ -67,7 +67,7 @@ Le tableau suivant décrit les éléments JSON propres au service lié Recherche
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md) . Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données. La section **typeProperties** est différente pour chaque type de jeu de données. La section typeProperties d’un jeu de données de type **AzureSearchIndex** comprend les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
@@ -78,7 +78,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour l’activité de copie, quand la source est de type **AzureSearchIndexSink**, les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).| Merge (par défaut)<br/>Télécharger| Non  |
 | writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property). | 1 à 1 000. Valeur par défaut : 1 000. | Non  |

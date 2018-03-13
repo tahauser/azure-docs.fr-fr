@@ -116,7 +116,7 @@ Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les v
 
 L’extrait de code précédent utilise une fonction d’assistance `GetCreds_SPI_Cert`. Le code de cette fonction d’assistance est disponible [ici sur Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) .NET pour travailler avec Azure Data Lake Store.
 
 * [Opérations de gestion des comptes sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)

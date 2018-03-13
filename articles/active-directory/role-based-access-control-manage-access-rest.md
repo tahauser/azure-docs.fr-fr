@@ -151,7 +151,7 @@ Pour le corps de la requête, saisissez les valeurs au format suivant :
 
 ```
 
-| Nom de l’élément | Obligatoire | type | DESCRIPTION |
+| Nom de l’élément | Obligatoire | type | Description |
 | --- | --- | --- | --- |
 | roleDefinitionId |OUI |Chaîne |L’identificateur du rôle. Le format de l’identificateur est : `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |OUI |Chaîne |objectId du principal Azure AD (utilisateur, groupe ou principal de service) auquel le rôle est affecté. |
@@ -434,7 +434,7 @@ Pour le corps de la requête, saisissez les valeurs au format suivant :
 
 ```
 
-| Nom de l’élément | Obligatoire | type | DESCRIPTION |
+| Nom de l’élément | Obligatoire | type | Description |
 | --- | --- | --- | --- |
 | Nom |OUI |Chaîne |Identificateur GUID du rôle personnalisé. |
 | properties.roleName |OUI |Chaîne |Afficher le nom complet du rôle personnalisé. Taille maximale de 128 caractères. |
@@ -537,7 +537,7 @@ Pour le corps de la requête, saisissez les valeurs au format suivant :
 
 ```
 
-| Nom de l’élément | Obligatoire | type | DESCRIPTION |
+| Nom de l’élément | Obligatoire | type | Description |
 | --- | --- | --- | --- |
 | Nom |OUI |Chaîne |Identificateur GUID du rôle personnalisé. |
 | properties.roleName |OUI |Chaîne |Nom complet du rôle personnalisé mis à jour. |

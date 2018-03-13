@@ -225,7 +225,7 @@ Si vous souhaitez simplement supprimer le serveur nouvellement créé, vous pouv
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Conception d’une base de données MySQL avec Azure CLI](./tutorial-design-database-using-cli.md)

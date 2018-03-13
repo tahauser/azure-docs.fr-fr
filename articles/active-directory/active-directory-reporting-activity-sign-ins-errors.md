@@ -54,7 +54,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 
 ## <a name="error-codes"></a>Codes d’erreur
 
-|Error|DESCRIPTION|
+|Error|Description|
 |---|---|
 |50001|Le principal du service nommé X est introuvable dans le locataire nommé Y. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire. Il se peut également que le principal de la ressource soit introuvable dans le répertoire ou non valide.|
 |50008|L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton.|

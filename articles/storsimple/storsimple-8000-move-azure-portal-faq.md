@@ -144,7 +144,7 @@ Non. Le déplacement de votre service vers le portail Azure n’a aucun impact s
 
 Non. Vous ne pouvez pas renommer des appareils, des volumes, des conteneurs de volumes ni des stratégies de sauvegarde dans le portail Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les [Opérations prises en charge sur les appareils exécutant des versions antérieures à Update 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 

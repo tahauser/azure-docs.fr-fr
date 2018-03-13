@@ -99,7 +99,7 @@ Il n’est pas obligatoire de suivre ces leçons pour terminer le didacticiel, m
 |[Hiérarchies déséquilibrées](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minutes| 
 
   
-## <a name="next-steps"></a>étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
 Pour commencer, consultez [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   

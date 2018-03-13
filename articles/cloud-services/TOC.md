@@ -35,6 +35,7 @@
 ### Configurer le Bureau à distance
 #### [Portail](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Déployer
 ### [Créer et déployer un service cloud dans le portail](cloud-services-how-to-create-deploy-portal.md)

@@ -28,7 +28,7 @@ Vous pouvez utiliser le point de terminaison privilégié pour surveiller la pro
 
 Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises à jour sont incluses dans la mise à jour 1710 des systèmes intégrés Azure Stack.
 
-| Applet de commande  | DESCRIPTION  |
+| Applet de commande  | Description  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Renvoie l’état de la mise à jour en cours, terminée ou qui a échoué. Fournit l’état de haut niveau de l’opération de mise à jour ainsi qu'un document XML qui décrit l’étape actuelle et l’état correspondant. |
 | `Get-AzureStackUpdateVerboseLog` | Renvoie les journaux détaillés générés par la mise à jour. |

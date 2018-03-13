@@ -50,7 +50,7 @@ Si vous êtes sur le niveau de tarification Gratuit, les journaux d’activité 
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour les journaux d’activité par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
@@ -88,7 +88,7 @@ Cliquez sur la vignette **Journaux d’activité Azure** pour ouvrir le tableau 
 
 Les données de journal d’activité apparaissent uniquement *après* avoir configuré vos journaux d’activité pour qu’ils accèdent à la solution. Sans cela, vous ne pouvez pas les consulter.
 
-| Panneau | DESCRIPTION |
+| Panneau | Description |
 | --- | --- |
 | Entrées de journal d’activité Azure | Affiche un graphique à barres du plus grand nombre d’enregistrements d’entrée de journal d’activité Azure pour la période sélectionnée et affiche la liste des 10 premiers appelants d’activité. Cliquez sur le graphique à barres pour exécuter une recherche dans les journaux de <code>AzureActivity</code>. Cliquez sur un élément appelant pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet élément. |
 | Journaux d’activité par état | Affiche un graphique en anneau de l’état des journaux d’activité Azure pour la période sélectionnée. Affiche également la liste des dix premiers enregistrements d’état. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Cliquez sur un élément d’état pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet enregistrement d’état. |

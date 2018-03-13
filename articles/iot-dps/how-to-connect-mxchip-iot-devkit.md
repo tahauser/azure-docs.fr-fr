@@ -150,7 +150,7 @@ Si vous rencontrez des problèmes, consultez les [FAQ](https://microsoft.github.
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à préparer DevKit en vue d’inscrire un appareil en toute sécurité auprès du service DPS via DICE, il peut s’inscrire automatiquement auprès d’IoT Hub sans aucune intervention de votre part. Dans ce didacticiel, vous avez appris à :
 

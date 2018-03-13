@@ -48,7 +48,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 >  
 > Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises** .
 * Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil Curl et les commandes REST vous permettent de créer une fabrique de données. 
 * Suivez les instructions de [cet article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes : 
@@ -176,7 +176,7 @@ Pour plus d’informations sur les propriétés JSON, consultez [Service lié SQ
 
 Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
 | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
@@ -219,7 +219,7 @@ Pour plus d’informations sur ces propriétés JSON, consultez l’article [Con
 ```
 Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données SQL Azure. |
 | linkedServiceName | Fait référence au service **AzureSqlLinkedService** que vous avez créé précédemment. |

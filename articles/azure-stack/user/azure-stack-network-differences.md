@@ -46,6 +46,6 @@ Cet article fournit une vue d’ensemble des considérations uniques pour la mis
 |Traffic Manager|Routage du trafic entrant pour une fiabilité et des performances d’application optimales.|Prise en charge|Pas encore pris en charge|
 |ExpressRoute|Configurer une connexion privée rapide aux services cloud Microsoft à partir de votre infrastructure locale ou d’une installation de colocalisation.|Prise en charge|Prise en charge de la connexion d’Azure Stack à un circuit Express Route.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [DNS dans Azure Stack](azure-stack-dns.md)

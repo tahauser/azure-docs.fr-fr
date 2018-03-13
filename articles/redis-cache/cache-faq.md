@@ -183,7 +183,7 @@ Pour plus d’informations sur l’utilisation du Cache Redis Azure avec PowerSh
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>En quoi consistent les options de configuration StackExchange.Redis ?
 StackExchange.Redis présente de nombreuses options. Cette section présente certains des paramètres les plus courants. Pour plus d’informations sur les options de StackExchange.Redis, consultez la page [Configuration StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | DESCRIPTION | Recommandation |
+| ConfigurationOptions | Description | Recommandation |
 | --- | --- | --- |
 | AbortOnConnectFail |Lorsque la valeur est True, la connexion n’est pas rétablie après une panne réseau. |La valeur False laisse StackExchange.Redis se reconnecter automatiquement . |
 | ConnectRetry |Nombre de tentatives de connexion pendant la connexion initiale. |Reportez-vous aux notes suivantes. |

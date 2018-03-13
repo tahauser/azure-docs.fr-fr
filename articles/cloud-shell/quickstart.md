@@ -76,7 +76,7 @@ Lors de l’établissement de la connexion SSH, vous devriez voir l’invite de 
 Supprimez votre groupe de ressources et toutes les ressources qu’il contient : <br>
 Exécutez `az group delete -n MyRG`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les fichiers persistants pour Bash dans Cloud Shell](persisting-shell-storage.md) <br>
 [En savoir plus sur Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [En savoir plus sur le stockage Azure Files](../storage/files/storage-files-introduction.md) <br>

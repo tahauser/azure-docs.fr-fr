@@ -71,7 +71,7 @@ Dans cette section, vous allez publier l’élément de Place de Marché sur vot
 
 1.  L’Assistant a besoin d’informations pour publier votre solution :
     
-    |Champ|DESCRIPTION|
+    |Champ|Description|
     |-----|-----|
     | Nom de l’administrateur de service | Compte de l’administrateur de service.  Exemple : ServiceAdmin@mydomain.onmicrosoft.com |
     | Mot de passe | Mot de passe du compte d’administrateur de service. |
@@ -87,7 +87,7 @@ La boîte à outils Place de Marché comprend un fichier *solution.parameters.ps
 
 
 ## <a name="support-files"></a>Fichiers de prise en charge
-| DESCRIPTION | Exemple |
+| Description | Exemple |
 | ----- | ----- |
 | icône .png de 40x40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | icône .png de 90x90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |

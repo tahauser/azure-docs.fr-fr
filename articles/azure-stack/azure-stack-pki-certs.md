@@ -98,6 +98,6 @@ Le tableau suivant décrit les points de terminaison et les certificats requis p
 ## <a name="learn-more"></a>En savoir plus
 Découvrez comment [générer des certificats d’infrastructure à clé publique pour le déploiement d’Azure Stack](azure-stack-get-pki-certs.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Intégration des identités](azure-stack-integrate-identity.md)
 

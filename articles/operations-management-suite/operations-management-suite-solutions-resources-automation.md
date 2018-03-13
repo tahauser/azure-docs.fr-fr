@@ -32,7 +32,7 @@ ms.lasthandoff: 02/01/2018
 > Les exemples dans cet article utilisent des paramètres et des variables qui sont nécessaires ou courants pour les solutions de gestion. Ils sont décrits dans la rubrique [Création de solutions de gestion dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion](operations-management-suite-solutions-creating.md).
@@ -75,7 +75,7 @@ Les ressources [Azure Automation runbook](../automation/automation-runbook-types
 
 Les propriétés des runbooks sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | runbookType |Spécifie les types de runbook. <br><br> Script : script PowerShell <br>PowerShell : workflow PowerShell <br> GraphPowerShell : runbook de script PowerShell graphique <br> GraphPowerShellWorkflow : runbook de workflow PowerShell graphique |
 | logProgress |Spécifie si les [enregistrements de progression](../automation/automation-runbook-output-and-messages.md) doivent être générés pour le runbook. |
@@ -111,7 +111,7 @@ Les ressources de tâche sont de type **Microsoft.Automation/automationAccounts/
 
 Les propriétés des travaux d’automatisation sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | runbook |Entité name unique portant le nom du runbook à démarrer. |
 | parameters |Entité pour chaque valeur de paramètre exigée par le runbook. |
@@ -142,7 +142,7 @@ Les [certificats Azure Automation](../automation/automation-certificates.md) son
 
 Les propriétés des ressources de certificat sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | base64Value |Valeur de base 64 pour le certificat. |
 | thumbprint |Thumbprint pour le certificat. |
@@ -169,7 +169,7 @@ Les [informations d'identification Azure Automation](../automation/automation-cr
 
 Les propriétés des ressources d’informations d’identification sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | userName |Nom d’utilisateur des informations d’identification. |
 | password |Mot de passe des informations d’identification. |
@@ -197,7 +197,7 @@ Les [planifications Azure Automation](../automation/automation-schedules.md) son
 
 Les propriétés des ressources de planification sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | description |Description facultative de la planification. |
 | startTime |Spécifie l’heure de début d’une planification en tant qu’objet DateTime. Une chaîne peut être fournie si elle peut être convertie en un élément DateTime valide. |
@@ -240,7 +240,7 @@ Les ressources de planification de tâche lient un runbook à une planification.
 
 Les propriétés des planifications de travail sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | nom de la planification |Entité **name** unique portant le nom de la planification. |
 | nom du runbook  |Entité **name** unique portant le nom du runbook.  |
@@ -267,7 +267,7 @@ Les [variables Azure Automation](../automation/automation-variables.md) sont de 
 
 Les propriétés des ressources de variable sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | description | Description facultative de la variable. |
 | isEncrypted | Spécifie si la variable doit être chiffrée. |
@@ -279,7 +279,7 @@ Les propriétés des ressources de variable sont décrites dans le tableau suiva
 
 Si vous définissez la valeur initiale pour la variable, elle doit être configurée en tant que type de données correct.  Le tableau suivant fournit les différents types de données autorisés et leur syntaxe.  Notez que les valeurs dans JSON doivent toujours être placées entre guillemets avec les caractères spéciaux à l’intérieur des guillemets.  Par exemple, une valeur de chaîne serait spécifiée en plaçant la chaîne entre guillemets (en utilisant le caractère d’échappement (\\)), tandis qu’une valeur numérique serait spécifiée avec une seule paire de guillemets.
 
-| Type de données | DESCRIPTION | exemples | Est résolu en |
+| Type de données | Description | exemples | Est résolu en |
 |:--|:--|:--|:--|
 | chaîne   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
 | numérique  | Valeur numérique avec des guillemets simples.| "64" | 64 |
@@ -307,7 +307,7 @@ Les [modules d’intégration](../automation/automation-integration-modules.md) 
 
 Les propriétés des ressources de module sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | contentLink |Spécifie le contenu du module. <br><br>uri : Uri du contenu du module.  Il s’agit d’un fichier .ps1 pour des runbooks PowerShell et Script et d’un fichier de runbook graphique exporté pour un runbook Graph.  <br> version : version du module pour votre propre suivi. |
 

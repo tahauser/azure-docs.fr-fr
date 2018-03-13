@@ -685,7 +685,7 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a> Fonctions intégrées  
  Azure Cosmos DB fournit de nombreuses fonctions SQL intégrées. Les catégories de fonctions intégrées sont répertoriées ci-dessous.  
   
-|Fonction|DESCRIPTION|  
+|Fonction|Description|  
 |--------------|-----------------|  
 |[Fonctions mathématiques](#bk_mathematical_functions)|Chaque fonction mathématique effectue un calcul, généralement basé sur les valeurs d'entrée fournies comme arguments, et retourne une valeur numérique.|  
 |[Fonctions de vérification du type](#bk_type_checking_functions)|Les fonctions de vérification du type vous permettent de vérifier le type d'une expression donnée dans les requêtes SQL.|  

@@ -42,7 +42,7 @@ Notez l’URL actuelle affichée sur le panneau **Domaines personnalisés**. Cet
 
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
-|Propriété  |Valeur  |DESCRIPTION  |
+|Propriété  |Valeur  |Description  |
 |---------|---------|---------|
 |NOM     | myFunctionApp        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
@@ -67,7 +67,7 @@ Accédez à **Mise en réseau** > **Adresse IP publique**, sélectionnez la ress
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
 
-|Propriété  |Valeur  |DESCRIPTION  |
+|Propriété  |Valeur  |Description  |
 |---------|---------|---------|
 |NOM     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |type     | A        | Utiliser un enregistrement A si la ressource est une adresse IP.        |
@@ -94,7 +94,7 @@ Notez l’URL actuelle affichée sur le panneau **Domaines personnalisés**. Cet
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
 
-|Propriété  |Valeur  |DESCRIPTION  |
+|Propriété  |Valeur  |Description  |
 |---------|---------|---------|
 |NOM     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias. Si la ressource utilisait une adresse IP, un enregistrement A serait utilisé.        |
@@ -128,7 +128,7 @@ Accédez à **Stockage** > **Comptes de stockage**, sélectionnez votre compte d
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
 
-|Propriété  |Valeur  |DESCRIPTION  |
+|Propriété  |Valeur  |Description  |
 |---------|---------|---------|
 |NOM     | asverify.mystorageaccount        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
@@ -156,7 +156,7 @@ Sélectionnez le point de terminaison que vous utilisez, puis cliquez sur **+ Do
 
 Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Entrez les informations suivantes sur le panneau **Ajouter un jeu d’enregistrements**, puis cliquez sur **OK** pour créer le jeu d’enregistrements.
 
-|Propriété  |Valeur  |DESCRIPTION  |
+|Propriété  |Valeur  |Description  |
 |---------|---------|---------|
 |NOM     | cdnverify.mycdnendpoint        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |

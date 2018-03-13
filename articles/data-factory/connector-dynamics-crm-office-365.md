@@ -59,7 +59,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 et Dynamics CRM en ligne
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Dynamics**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
@@ -102,7 +102,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 *Les propriétés supplémentaires comparables à celles de Dynamics en ligne sont « hostName » et « port ».*
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Dynamics**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
@@ -151,7 +151,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis et vers Dynamics, définissez la propriété de type du jeu de données sur **DynamicsEntity**. Les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |OUI |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
@@ -204,7 +204,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Dynamics, définissez le type de source dans l’activité de copie sur **DynamicsSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
 | query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Build queries with FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx) (Générer des requêtes avec FeachXML). | Non (si « entityName » est spécifié dans le jeu de données) |
@@ -265,7 +265,7 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 
 Pour copier des données vers Dynamics, définissez le type de récepteur dans l’activité de copie sur **DynamicsSink**. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | OUI |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »**. | OUI |

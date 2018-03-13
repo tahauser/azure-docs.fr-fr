@@ -145,7 +145,7 @@ Les options de script ou de Runbook sont uniquement disponibles dans les scénar
 |VMM vers VMM             |Script   |Script   |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [l’exécution des basculements](site-recovery-failover.md).  
 * Pour voir le plan de récupération en action, regardez cette vidéo :

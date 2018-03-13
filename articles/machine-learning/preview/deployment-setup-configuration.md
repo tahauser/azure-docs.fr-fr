@@ -161,5 +161,5 @@ Vous êtes maintenant prêt à déployer votre modèle enregistré en tant que s
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez l’un des nombreux exemples de la galerie.

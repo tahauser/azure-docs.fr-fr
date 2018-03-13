@@ -59,7 +59,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Crée une Function App. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Nettoyer |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

@@ -52,7 +52,7 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 |---|---|
 | [az acs scale](/cli/azure/acs#az_acs_scale) | Met à l’échelle un cluster ACS. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

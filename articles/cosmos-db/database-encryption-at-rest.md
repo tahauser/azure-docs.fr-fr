@@ -64,7 +64,7 @@ R : L’activation du chiffrement au repos sur tous les comptes (existants et no
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>Q : L’émulateur local prend-il en charge le chiffrement au repos ?
 R : L’émulateur est un outil de développement/test autonome, qui n’exploite pas les services de gestion de clés que le service Cosmos DB géré utilise. Nous vous conseillons d’activer BitLocker sur les lecteurs où vous stockez des données de test d’émulateur sensibles. [L’émulateur prend en charge la modification du répertoire de données par défaut](local-emulator.md) ainsi que l’utilisation d’un emplacement connu.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour une vue d’ensemble de la sécurité de Cosmos DB et des dernières améliorations, consultez [Sécurité de la base de données Azure Cosmos DB](database-security.md).
 Pour plus d’informations sur les certifications Microsoft, consultez le [Centre de confidentialité Azure](https://azure.microsoft.com/en-us/support/trust-center/).

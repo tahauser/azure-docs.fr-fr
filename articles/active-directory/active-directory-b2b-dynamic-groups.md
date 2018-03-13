@@ -45,7 +45,7 @@ Ce groupe pourrait ressembler à ceci :
 
 ![Règle pour laquelle le type utilisateur est Invité](media/active-directory-b2b-dynamic-groups/only-guest-users.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

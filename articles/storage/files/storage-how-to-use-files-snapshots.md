@@ -328,6 +328,6 @@ Remove-AzureStorageShare -Share $snapshot
 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Vue d’ensemble des instantanés](storage-snapshots-files.md)
 * [Forum aux questions sur les instantanés](storage-files-faq.md)

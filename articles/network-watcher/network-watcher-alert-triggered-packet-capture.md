@@ -32,7 +32,7 @@ En utilisant Network Watcher, les alertes et les fonctions dans l’écosystème
 
 ![Scénario][scenario]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * La version la plus récente [d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Une instance existante de Network Watcher. Si vous n’en avez pas, [créez une instance de Network Watcher](network-watcher-create.md).

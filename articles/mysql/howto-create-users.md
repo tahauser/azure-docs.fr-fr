@@ -83,7 +83,7 @@ Une fois créé le serveur Azure Database pour MySQL, vous pouvez utiliser le pr
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs pour leur permettre de se connecter : consultez [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
 
 Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation du produit MySQL relative à la [gestion des comptes d’utilisateurs](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), à la [ syntaxe GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) et aux [privilèges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

@@ -45,6 +45,6 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Téléchargez les fichiers journaux. |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour MySQL](../sample-scripts-azure-cli.md)

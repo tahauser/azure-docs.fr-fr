@@ -121,7 +121,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | Paramètre | DESCRIPTION |
+    | Paramètre | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |Entrée obligatoire utilisée pour fournir le chemin d’accès vers l’emplacement intermédiaire que vous avez saisi lors du flux de travail **Lancer la sauvegarde hors connexion** . |
     | p:&lt;*Path to PublishSettingsFile*&gt; |Entrée optionnelle utilisée pour fournir le chemin d’accès vers le fichier de **paramètres de publication Azure** que vous avez saisi lors du flux de travail **Lancer la sauvegarde hors connexion**. |
@@ -162,7 +162,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
    
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | Paramètre | DESCRIPTION |
+    | Paramètre | Description |
     | --- | --- |
     | u: | Entrée obligatoire utilisée pour mettre à jour les détails de l’expédition d’une tâche d’importation Azure |
     | s:&lt;*Staging Location Path*&gt; | Entrée obligatoire si la commande n’est pas exécutée sur l’ordinateur source. Utilisée pour fournir le chemin d’accès à l’emplacement intermédiaire que vous avez entré durant le flux de travail de **déclenchement de sauvegarde en mode hors connexion**. |

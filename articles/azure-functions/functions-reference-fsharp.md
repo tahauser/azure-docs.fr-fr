@@ -264,7 +264,7 @@ Les chemins d’accès fournis à la directive `#load` sont relatifs à l’empl
 
 La directive `#load` ne fonctionne qu’avec des fichiers `.fsx` (script F#), et non avec des fichiers `.fs`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [F# Guide](/dotnet/articles/fsharp/index) (Guide F#)

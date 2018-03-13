@@ -402,7 +402,7 @@ Ce pipeline exécute deux étapes :
     ![Exécutions d’activités](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 5. Vérifiez que les données ont été copiées dans le SQL Data Warehouse cible que vous avez utilisé dans ce didacticiel. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

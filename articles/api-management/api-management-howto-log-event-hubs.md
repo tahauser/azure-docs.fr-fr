@@ -96,7 +96,7 @@ Vous pouvez utiliser toute expression qui renvoie une chaîne en tant que valeur
 
 Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie mise à jour. Dès qu’elle est enregistrée, la stratégie est active et les événements sont enregistrés dans l’Event Hub désigné.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Event Hubs
   * [Prise en main avec Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

@@ -352,7 +352,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > [Définissez la règle par défaut](#change-the-default-network-access-rule) sur Refuser, sinon la suppression des exceptions n’a aucun effet.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus d’informations sur les points de terminaison de service du réseau Azure dans [Points de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Explorez en détail la sécurité de Stockage Azure dans [Guide de sécurité de Stockage Azure](storage-security-guide.md).

@@ -800,7 +800,7 @@ Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delet
 
 Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous une requête d’extraction ! 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le portail Azure à l’aide de l’Explorateur de données.
 
 Pour en savoir plus sur la programmation Azure Cosmos DB côté serveur, vous pouvez également trouver utiles les références et les ressources suivantes :

@@ -78,5 +78,5 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack :
 
   k.    Répétez ce processus pour tous les certificats que vous avez importés pour votre déploiement à l’étape 2 ci-dessus.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Validate PKI certificates](validate-pki-certs.md) (Valider des certificats d’infrastructure à clé publique)

@@ -40,7 +40,7 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
     ![Créer un serveur](./media/quickstart-create-database-portal/3-create.png)
 
-    Paramètre|Valeur suggérée|DESCRIPTION
+    Paramètre|Valeur suggérée|Description
     ---|---|---
     Nom du serveur |*mydemoserver*|Un nom unique qui identifie votre serveur Azure Database pour PostgreSQL. Le nom de domaine *postgres.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
     Abonnement|Votre nom d’abonnement|L’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
@@ -124,7 +124,7 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
     psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
     ```
 
-    Paramètre psql |Valeur|DESCRIPTION
+    Paramètre psql |Valeur|Description
     ---|---|---
     --host | Nom du serveur | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour PostgreSQL. L’exemple de serveur dont vous vous servez ici est **mydemoserver.postgres.database.azure.com.** Utilisez le nom de domaine complet (**\*.postgres.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     --port | 5432 | Le port à utiliser lorsque vous vous connectez au serveur Azure Database pour PostgreSQL. 
@@ -133,7 +133,7 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
 
     Après avoir exécuté la commande psql avec vos propres valeurs de paramètre, vous êtes invité à entrer le mot de passe d’administrateur du serveur. Il s’agit du mot de passe que vous avez fourni lorsque vous avez créé le serveur. 
 
-    Paramètre psql |Valeur suggérée|DESCRIPTION
+    Paramètre psql |Valeur suggérée|Description
     ---|---|---
     password | Votre mot de passe d’administrateur | Les caractères du mot de passe que vous tapez ne sont pas visibles au niveau de l’invite bash. Après avoir tapé tous les caractères, cliquez sur la touche Entrée pour vous authentifier et vous connecter.
 
@@ -188,7 +188,7 @@ pgAdmin est un outil open source utilisé avec PostgreSQL. Vous pouvez installer
 
    ![L’onglet Connexion](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    Paramètre pgAdmin |Valeur|DESCRIPTION
+    Paramètre pgAdmin |Valeur|Description
     ---|---|---
     Nom/adresse de l’hôte | Nom du serveur | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour PostgreSQL. L’exemple de serveur utilisé ici est **mydemoserver.postgres.database.azure.com.** Utilisez le nom de domaine complet (**\*.postgres.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
     Port | 5432 | Le port à utiliser lorsque vous vous connectez au serveur Azure Database pour PostgreSQL. 

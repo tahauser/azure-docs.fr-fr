@@ -24,7 +24,7 @@ ms.lasthandoff: 02/28/2018
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 16.04 LTS existante dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Interface de ligne de commande Azure 2.0](quick-create-cli.md)

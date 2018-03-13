@@ -176,6 +176,6 @@ La TTL s’applique à l’ensemble du document. Si vous souhaitez faire expirer
 
 Oui. La collection doit avoir une [stratégie d’indexation](indexing-policies.md) définie sur Différée ou Cohérente. Une erreur se produira si vous tentez de définir le paramètre DefaultTTL sur une collection dont l’indexation est définie sur Aucune et si vous essayez de désactiver l’indexation sur une collection dont le paramètre DefaultTTL est déjà défini.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Azure Cosmos DB, consultez la page de [*documentation*](https://azure.microsoft.com/documentation/services/cosmos-db/) du service.
 

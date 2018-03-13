@@ -42,7 +42,7 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az postgresql server restore](/cli/azure/postgresql/server#az_msql_server_restore) | Restaure un serveur à partir de la sauvegarde. |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour PostgreSQL](../sample-scripts-azure-cli.md)
 - [Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure](../howto-restore-server-portal.md)

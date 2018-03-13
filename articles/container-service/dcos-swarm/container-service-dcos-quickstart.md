@@ -162,7 +162,7 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group d
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux didacticiels ACS.
 

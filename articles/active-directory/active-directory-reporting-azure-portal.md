@@ -102,7 +102,7 @@ Pour accéder au rapport d’activité des connexions, votre locataire doit poss
 Outre l’interface utilisateur, les rapports Azure Active Directory vous fournissent également un [accès par programme](active-directory-reporting-api-getting-started-azure-portal.md) à leurs données. Les données de ces rapports peuvent être très utiles pour vos applications, telles que les systèmes SIEM, l’audit et les outils d’analyse décisionnelle. Les API de création de rapports Azure AD fournissent un accès par programme aux données via un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les différents types de rapports dans Azure Active Directory, voir :
 

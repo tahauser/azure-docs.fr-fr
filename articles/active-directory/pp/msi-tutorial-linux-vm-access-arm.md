@@ -36,7 +36,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Accorder à l’identité MSI l’accès à un groupe de ressources dans Azure Resource Manager 
 > * Obtenir un jeton d’accès par l’intermédiaire de l’identité MSI et utiliser celui-ci pour appeler Azure Resource Manager 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

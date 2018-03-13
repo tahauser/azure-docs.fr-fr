@@ -232,7 +232,7 @@ La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni sur [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez à présent aborder d’autres scénarios.  Par exemple :
 
 * [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md)

@@ -54,7 +54,7 @@ Après environ cinq minutes, vous obtenez les informations de `"provisioningStat
 az network public-ip list --resource-group myResourceGroup
 ```
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Voulez-vous configurer votre propre NAT dans Azure ? L’Open Source, gratuit mais puissant ? Alors PF est un bon choix. En utilisant le modèle [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), il vous suffit de cinq minutes pour configurer un pare-feu NAT avec équilibrage de charge de tourniquet à l’aide de PF de FreeBSD dans Azure pour un scénario de serveur web courant. 
 
 Si vous souhaitez en savoir plus sur l’offre de FreeBSD dans Azure, reportez-vous à [Présentation de FreeBSD sur Azure](freebsd-intro-on-azure.md).

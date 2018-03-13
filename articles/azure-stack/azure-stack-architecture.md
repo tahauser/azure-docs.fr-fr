@@ -52,7 +52,7 @@ Le Kit de développement Azure Stack offre des services à l’aide des machines
 | **AzS-XRP01** | Contrôleur de gestion d’infrastructure pour Microsoft Azure Stack, notamment les fournisseurs de ressources Calcul, Réseau et Stockage.|
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer Azure Stack](azure-stack-deploy.md)
 
 [Test des premiers scénarios](azure-stack-first-scenarios.md)

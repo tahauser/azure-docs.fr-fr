@@ -41,7 +41,7 @@ Azure propose deux modèles de déploiement principaux : Azure Resource Manager
 
 Actuellement, Azure offre trois méthodes différentes pour obtenir une connexion sortante pour les ressources Azure Resource Manager. Les déploiements [Classic](#classic) incluent un sous-ensemble de ces scénarios.
 
-| Scénario | Méthode | DESCRIPTION |
+| Scénario | Méthode | Description |
 | --- | --- | --- |
 | [1. Machine virtuelle avec une adresse IP publique de niveau d’instance (avec ou sans Load Balancer)](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé |Azure utilise l’adresse IP publique affectée à la configuration IP de la carte d’interface réseau de l’instance. L’instance a tous les ports éphémères disponibles. |
 | [2. Équilibreur de charge public associé à une machine virtuelle (aucune adresse IP publique de niveau d’instance sur l’instance)](#lb) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) en utilisant des frontends Load Balancer |Azure partage l’adresse IP publique des frontends Load Balancer publics avec plusieurs adresses IP privées. Azure utilise les ports éphémères des frontends pour la traduction d’adresse de port. |

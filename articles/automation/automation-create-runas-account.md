@@ -40,7 +40,7 @@ Le processus crée les éléments ci-après dans votre compte Automation.
 * Crée une ressource de certificat Automation nommée *AzureClassicRunAsCertificate*dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat utilisée par le certificat de gestion.
 * Crée une ressource de connexion Automation nommée *AzureClassicRunAsConnection* dans le compte Automation spécifié. La ressource de connexion conserve le nom de l’abonnement, l’ID subscriptionId et le nom de ressource de certificat.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Si vous choisissez [d’utiliser PowerShell pour créer les comptes d’identification](#create-run-as-account-using-powershell), ce processus requiert :
 
 * Windows 10 et sur Windows Server 2016 avec les modules Azure Resource Manager 3.4.1 et versions ultérieures. Le script PowerShell ne prend pas en charge les versions antérieures de Windows.

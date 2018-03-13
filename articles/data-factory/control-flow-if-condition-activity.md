@@ -68,7 +68,7 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité de condition « if ». | Chaîne | OUI
 Type | Doit avoir la valeur **IfCondition** | Chaîne | OUI

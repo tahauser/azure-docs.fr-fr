@@ -70,7 +70,7 @@ Voici le format JSON pour la définition d’une activité de procédure stocké
 
 Le tableau suivant décrit ces paramètres JSON :
 
-| Propriété                  | DESCRIPTION                              | Obligatoire |
+| Propriété                  | Description                              | Obligatoire |
 | ------------------------- | ---------------------------------------- | -------- |
 | Nom                      | Nom de l’activité                     | OUI      |
 | description               | Texte décrivant la raison motivant l’activité. | Non        |

@@ -224,7 +224,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
     > [!WARNING]
     > Vous pouvez recevoir plusieurs copies d’un message. Ce problème se produit généralement lorsque vous actualisez votre navigateur une fois connecté, ou lorsque vous ouvrez plusieurs connexions de navigateur à l’application.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 

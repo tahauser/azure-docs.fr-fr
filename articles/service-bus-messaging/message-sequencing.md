@@ -45,7 +45,7 @@ La valeur **SequenceNumber** d’un message planifié est valide seulement si le
 
 Étant donné que la fonctionnalité s’applique à des messages individuels et que les messages ne peuvent être mis en file d’attente qu’une seule fois, Service Bus ne prend pas en charge les planifications récurrentes des messages.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

@@ -52,7 +52,7 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
       }
     }
 
-| Nom de l'élément | Requis ? | DESCRIPTION |
+| Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | $schema |Non  |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
 | title |OUI |Nom de l'artefact affiché dans le laboratoire. |
@@ -75,7 +75,7 @@ Pour définir des paramètres, utilisez la structure suivante :
         }
       }
 
-| Nom de l'élément | Requis ? | DESCRIPTION |
+| Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | Type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
 | displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |

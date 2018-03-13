@@ -312,7 +312,7 @@ La définition JSON suivante vous montre comment créer un déclencheur de plani
 ### <a name="schema-overview"></a>Vue d’ensemble du schéma
 Le tableau suivant présente une vue d’ensemble globale des principaux éléments du schéma liés à la périodicité et à la planification d’un déclencheur :
 
-| Propriété JSON | DESCRIPTION |
+| Propriété JSON | Description |
 |:--- |:--- |
 | **startTime** | Une valeur date-heure. Pour les planifications simples, la valeur de la propriété **startTime** s’applique à la première occurrence. Pour les planifications complexes, le déclencheur ne démarre pas avant la valeur **startTime** spécifiée. |
 | **endTime** | La date et l’heure de fin du déclencheur. Le déclencheur ne s’exécute pas après la date et l’heure de fin spécifiées. La valeur de la propriété ne peut pas être dans le passé. Cette propriété est facultative. |
@@ -359,7 +359,7 @@ Si plusieurs éléments **schedule** sont spécifiés, l’ordre d’évaluation
 Le tableau suivant décrit les éléments **schedule** en détail :
 
 
-| Élément JSON | DESCRIPTION | Valeurs valides |
+| Élément JSON | Description | Valeurs valides |
 |:--- |:--- |:--- |
 | **minutes** | Minutes d’exécution du déclencheur dans l’heure. | <ul><li>Entier </li><li>Tableau d’entiers</li></ul>
 | **hours** | Heures d’exécution du déclencheur dans la journée. | <ul><li>Entier </li><li>Tableau d’entiers</li></ul> |
@@ -373,7 +373,7 @@ Vous trouverez dans cette section plusieurs exemples de planifications de pério
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification « monthDays » dans l’objet **schedule**. Ces restrictions sont mentionnées dans le tableau de la section précédente.
 
-| exemples | DESCRIPTION |
+| exemples | Description |
 |:--- |:--- |
 | `{"hours":[5]}` | Exécution à 5h00 tous les jours. |
 | `{"minutes":[15], "hours":[5]}` | Exécution à 5h15 tous les jours. |

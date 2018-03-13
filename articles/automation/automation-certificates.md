@@ -31,7 +31,7 @@ Les certificats peuvent être stockés en toute sécurité dans Azure Automation
 ## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
 Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies avec le [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
 
-|Applets de commande|DESCRIPTION|
+|Applets de commande|Description|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Récupère des informations sur un certificat à utiliser dans un Runbook ou dans une configuration DSC. Vous pouvez uniquement récupérer le certificat lui-même à partir de l’activité Get-AutomationCertificate.|
 |[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Crée un nouveau certificat dans Azure Automation.|
@@ -42,7 +42,7 @@ Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour cr
 ## <a name="activities"></a>Activités
 Les activités du tableau suivant sont utilisées pour accéder aux certificats dans un Runbook et dans des configurations DSC.
 
-| Activités | DESCRIPTION |
+| Activités | Description |
 |:---|:---|
 |Get-AutomationCertificate|Obtient un certificat à utiliser dans un Runbook ou dans une configuration DSC. Retourne un objet [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx).|
 
@@ -53,7 +53,7 @@ Les activités du tableau suivant sont utilisées pour accéder aux certificats 
 
 La fonction dans le tableau suivant est utilisée pour accéder aux certificats dans un runbook Python2.
 
-| Fonction | DESCRIPTION |
+| Fonction | Description |
 |:---|:---|
 | automationassets.get_automation_certificate | Récupère des informations sur les ressources d’un certificat. |
 

@@ -33,7 +33,7 @@ Les étapes de cette procédure présentent la création d’un cluster HDInsigh
 >
 > Vous pouvez aussi utiliser Azure PowerShell pour créer et gérer des clusters HDInsight. Pour plus d’informations, consultez le document [Créer des cluster HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

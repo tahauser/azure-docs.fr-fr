@@ -101,7 +101,7 @@ Dans cette section, vous écrivez une application console Windows pour envoyer d
   
 Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie des données. Vous pouvez à présent passer aux scénarios suivants :
 
 * [Recevoir des événements avec l’hôte du processeur d’événements](event-hubs-dotnet-framework-getstarted-receive-eph.md)

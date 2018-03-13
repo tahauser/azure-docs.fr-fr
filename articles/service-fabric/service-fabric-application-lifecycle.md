@@ -91,7 +91,7 @@ Pour obtenir des exemples, consultez [Didacticiel de mise à niveau d’applicat
 
 Pour obtenir des exemples, consultez [Déployer une application](service-fabric-deploy-remove-applications.md) .
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur le développement, le test et la gestion des services et des applications Service Fabric, consultez :
 
 * [Acteurs fiables (Reliable Actors)](service-fabric-reliable-actors-introduction.md)

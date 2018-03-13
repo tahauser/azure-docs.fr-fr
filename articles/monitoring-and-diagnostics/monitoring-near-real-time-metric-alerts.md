@@ -121,7 +121,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour l
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez-en plus sur la nouvelle [expérience Alerts (préversion)](monitoring-overview-unified-alerts.md).
 * En savoir plus sur les [alertes de journal dans Azure Alerts (préversion)](monitor-alerts-unified-log.md).

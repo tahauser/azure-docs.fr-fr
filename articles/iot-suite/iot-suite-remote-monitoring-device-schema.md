@@ -68,7 +68,7 @@ Vous pouvez afficher les fichiers du schéma pour les appareils simulés par dé
 
 Le tableau suivant décrit les entrées du schéma de niveau supérieur :
 
-| Entrée de schéma | DESCRIPTION |
+| Entrée de schéma | Description |
 | -- | --- |
 | `SchemaVersion` | La version du schéma est toujours `1.0.0` et est spécifique au format de ce fichier. |
 | `Id` | Un ID unique pour ce modèle d’appareil. |

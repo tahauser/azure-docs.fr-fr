@@ -51,7 +51,7 @@ az postgres server restore --resource-group myresourcegroup --server mydemoserve
 ```
 
 La commande `az postgres server restore` requiert les paramètres suivants :
-| Paramètre | Valeur suggérée | DESCRIPTION  |
+| Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur source.  |
 | Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |

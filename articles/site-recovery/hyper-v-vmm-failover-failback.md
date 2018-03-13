@@ -88,5 +88,5 @@ Démarrez la réplication du site secondaire sur le site principal et effectuez 
 > [!NOTE]
 > La réplication inverse réplique seulement les modifications qui se sont produites depuis que la machine virtuelle de réplica a été arrêtée, et seules les modifications d’ordre différentiel sont envoyées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Passez en revue l’étape](hyper-v-vmm-disaster-recovery.md) sur la réplication des machines virtuelles Hyper-V vers un site secondaire.

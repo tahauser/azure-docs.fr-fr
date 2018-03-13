@@ -295,7 +295,7 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Supprimer une règle |gérer |../myTopic/Subscriptions/mySubscription |
 | Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 

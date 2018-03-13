@@ -60,7 +60,7 @@ Procédez comme suit pour masquer toutes les applications Office 365 dans le pa
 
 ![Applications Entreprise](media/active-directory-coreapps-hide-third-party-app/apps4.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Voir tous mes groupes](active-directory-groups-view-azure-portal.md)
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-remove-assignment-azure-portal.md)

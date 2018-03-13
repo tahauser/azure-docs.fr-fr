@@ -50,7 +50,7 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 2. Dans la page **Change Tracking**, sélectionnez **Fichiers Linux**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
 3. Dans la fenêtre **Ajouter le fichier Linux pour le suivi des modifications**, entrez les informations du fichier ou du répertoire à suivre et cliquez sur **Enregistrer**.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
@@ -72,7 +72,7 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 2. Dans la page **Change Tracking**, sélectionnez **Fichiers Windows**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
 3. Dans la fenêtre **Ajouter le fichier Windows pour le suivi des modifications**, entrez les informations du fichier à suivre et cliquez sur **Enregistrer**.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
@@ -87,7 +87,7 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 2. Dans la page **Change Tracking**, sélectionnez **Registre Windows**, puis cliquez sur **+ Ajouter** pour ajouter une nouvelle clé de Registre à suivre.
 3. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
@@ -193,7 +193,7 @@ En plus des détails fournis dans le portail, des recherches peuvent être effec
 
 Le tableau suivant fournit des exemples de recherches dans les journaux d’enregistrements de modification collectés par cette solution :
 
-|Requête  |DESCRIPTION  |
+|Requête  |Description  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Affiche les enregistrements d’inventaire les plus récents des services Windows qui ont été définis sur Auto, mais qui ont été signalés comme étant arrêtés.<br>Les résultats se limitent à l’enregistrement le plus récent pour ce SoftwareName et ce Computer.      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Affiche les enregistrements de modification des logiciels supprimés.|

@@ -66,7 +66,7 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
 
 ## <a name="syntax-details"></a>Détails de la syntaxe
 
-| Propriété          | DESCRIPTION                              | Obligatoire |
+| Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
 | Nom              | Nom de l’activité                     | OUI      |
 | description       | Texte décrivant la raison motivant l’activité. | Non        |

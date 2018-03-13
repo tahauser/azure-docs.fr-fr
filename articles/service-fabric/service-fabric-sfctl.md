@@ -24,7 +24,7 @@ ms.lasthandoff: 02/27/2018
 Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 6.1. Les commandes suivent le modèle nom-verbe. Pour plus d’informations, consultez les sous-groupes suivants.
 
 ## <a name="subgroups"></a>Sous-groupes
-|Sous-groupe|DESCRIPTION|
+|Sous-groupe|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Permet de créer, de supprimer et de gérer les applications et les types d’application.|
 | [chaos](service-fabric-sfctl-chaos.md)   | Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.|

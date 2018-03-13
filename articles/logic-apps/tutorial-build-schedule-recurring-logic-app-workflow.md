@@ -41,7 +41,7 @@ Lorsque vous avez terminé, votre application logique ressemble à ce flux de tr
 
 Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">créez un compte Azure gratuit</a> avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte de messagerie d’un fournisseur de messagerie pris en charge par Azure Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Ce guide de démarrage rapide utilise un compte Outlook.com. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
@@ -61,7 +61,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Spécifier les informations de l’application logique](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | LA-TravelTime | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
@@ -92,7 +92,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Fournir les détails de planification et de périodicité](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
    | **Fréquence** | Semaine | Unité de temps à utiliser pour la périodicité. | 
@@ -127,7 +127,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    ![Sélectionner l’action « Bing Cartes : obtenir l’itinéraire »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Paramètre | Valeur | DESCRIPTION |
+   | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
    | **Nom de connexion** | BingMapsConnection | Donnez un nom à votre connexion. | 
    | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">comment en obtenir une</a>. | 
@@ -139,7 +139,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    ![Fournir les informations de l’action « Bing Cartes : obtenir l’itinéraire »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Paramètre | Valeur | DESCRIPTION |
+   | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
    | **Étape 1** | <*start-location*> | Début de l’itinéraire. | 
    | **Étape 2** | <*end-location*> | Destination de l’itinéraire. | 
@@ -173,7 +173,7 @@ Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la dur
 
 4. Fournissez les détails de la variable, comme décrit ici :
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | travelTime | Nom de la variable. | 
    | **Type** | Entier  | Type de données de la variable. | 

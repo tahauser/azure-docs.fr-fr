@@ -75,7 +75,7 @@ Le plug-in fonctionne avec Nagios Enterprise et Nagios Core. Vous pouvez le tél
 
 Configurez le fichier du plug-in « Azurestack_plugin.py » avec les paramètres suivants :
 
-| Paramètre | DESCRIPTION | exemples |
+| Paramètre | Description | exemples |
 |---------|---------|---------|
 | *arm_endpoint* | Point de terminaison Azure Resource Manager (administrateur) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Point de terminaison Azure Resource Manager (administrateur)  | https://adminmanagement.local.azurestack.external |
@@ -143,7 +143,7 @@ La requête obtient toutes les alertes actives et fermées pour l’abonnement d
 
 **Arguments**
 
-|Argument  |DESCRIPTION  |
+|Argument  |Description  |
 |---------|---------|
 |armendpoint     |  Point de terminaison Azure Resource Manager de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.      |
@@ -202,7 +202,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Détails de la réponse**
 
 
-|  Argument  |DESCRIPTION  |
+|  Argument  |Description  |
 |---------|---------|
 |*id*     |      ID unique de l’alerte.   |
 |*name*     |     Nom interne de l’alerte.   |
@@ -246,7 +246,7 @@ La requête ferme une alerte par son ID unique.
 **Arguments**
 
 
-|Argument  |DESCRIPTION  |
+|Argument  |Description  |
 |---------|---------|
 |*armendpoint*     |   Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est *azurestack.external* et que le nom de la région est *local*, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.     |
@@ -345,7 +345,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 **Détails de la réponse**
 
 
-|  Argument  |DESCRIPTION  |
+|  Argument  |Description  |
 |---------|---------|
 |*id*     |      ID unique de l’alerte.   |
 |*name*     |     Nom interne de l’alerte.   |
@@ -391,7 +391,7 @@ La requête obtient l’état d’intégrité de tous les fournisseurs de ressou
 **Arguments**
 
 
-|Arguments  |DESCRIPTION  |
+|Arguments  |Description  |
 |---------|---------|
 |*armendpoint*     |    Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.    |
@@ -431,7 +431,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Détails de la réponse**
 
 
-|Argument  |DESCRIPTION  |
+|Argument  |Description  |
 |---------|---------|
 |*Id*     |   ID unique de l’alerte.      |
 |*name*     |  Nom interne de l’alerte.       |
@@ -460,7 +460,7 @@ La requête obtient l’état d’intégrité d’un fournisseur de ressources i
 
 **Arguments**
 
-|Arguments  |DESCRIPTION  |
+|Arguments  |Description  |
 |---------|---------|
 |*armendpoint*     |    Point de terminaison du Gestionnaire des ressources de votre environnement Azure Stack, au format https://adminmanagement.{NomRégion}.{FQDN externe}. Par exemple, si le nom de domaine complet externe est azurestack.external et que le nom de la région est local, le point de terminaison du Gestionnaire des ressources est https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID d’abonnement de l’utilisateur qui effectue l’appel. Vous pouvez utiliser cette API pour interroger uniquement avec un utilisateur qui a l’autorisation sur l’abonnement du fournisseur par défaut.         |
@@ -499,7 +499,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 **Détails de la réponse**
 
-|Argument  |DESCRIPTION  |
+|Argument  |Description  |
 |---------|---------|
 |*Id*     |   ID unique de l’alerte.      |
 |*name*     |  Nom interne de l’alerte.       |

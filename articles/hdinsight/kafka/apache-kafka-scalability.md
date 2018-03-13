@@ -55,7 +55,7 @@ Pour contrôler le nombre de disques utilisés par les nœuds Worker dans un clu
 
 Un modèle complet expliquant comment configurer les disques gérés est disponible à l’adresse [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de Kafka sur HDInsight, consultez les documents suivants :
 

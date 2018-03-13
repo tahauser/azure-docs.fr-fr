@@ -24,7 +24,7 @@ Les stratégies Gestion des API sont une fonctionnalité puissante du système q
 
 Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur qui s’appliquent à l’instance de service. Ces propriétés peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration de l’API. Chaque propriété peut avoir les attributs suivants :
 
-| Attribut | type | DESCRIPTION |
+| Attribut | type | Description |
 | --- | --- | --- |
 | Nom complet |chaîne |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
 | Valeur |chaîne |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |

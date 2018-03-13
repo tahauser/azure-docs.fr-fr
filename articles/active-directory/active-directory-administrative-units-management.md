@@ -39,5 +39,5 @@ Dans cette version préliminaire, vous pouvez créer et gérer des unités admin
 
 Pour plus d’informations sur la configuration logicielle requise et sur l’installation du module Azure AD, ainsi que les cmdlets du module Azure AD pour la gestion d’unités administratives, et notamment la syntaxe, les descriptions de paramètres et des exemples, voir [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Éditions d’Azure Active Directory](active-directory-editions.md)

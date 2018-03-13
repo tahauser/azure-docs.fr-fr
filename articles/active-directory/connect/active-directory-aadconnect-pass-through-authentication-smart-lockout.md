@@ -148,5 +148,5 @@ Suivez ces étapes pour mettre à jour les valeurs de verrouillage intelligent d
 
 Vérifiez que vous avez mis à jour les valeurs de verrouillage intelligent de votre locataire correctement à l’aide des étapes dans [Afficher les valeurs de verrouillage intelligent](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

@@ -226,7 +226,7 @@ Ouvrez un navigateur web et entrez `http://<publicIps>:1337`. Votre application 
 ![Exécution de l’application Node.js après une autre validation GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez configuré GitHub pour qu’il exécute une tâche de génération Jenkins à chaque validation de code et déploie ensuite un conteneur Docker pour tester votre application. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

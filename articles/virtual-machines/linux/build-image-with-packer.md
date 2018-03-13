@@ -228,7 +228,7 @@ Vous pouvez maintenant ouvrir un navigateur web et entrer `http://publicIpAddres
 ![Site par défaut NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, NGINX était déjà installé et vous avez utilisé Packer pour créer une image de machine virtuelle. Vous pouvez utiliser cette image de machine virtuelle avec les flux de travail de déploiement existants, par exemple pour déployer votre application sur les machines virtuelles créées à partir de l’image avec Ansible, Chef ou Puppet.
 
 Pour obtenir d’autres exemples de modèles Packer pour d’autres distributions Linux, consultez [ce référentiel GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

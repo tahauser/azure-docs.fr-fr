@@ -25,7 +25,7 @@ Cet article décrit les différents paramètres qui s’appliquent pendant la mi
 
 <br>
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | ApplicationName |Nom de l'application en cours de mise à niveau. Exemples : fabric:/VisualObjects, fabric:/ClusterMonitor |
 | TargetApplicationTypeVersion |Version du type d'application ciblée par la mise à niveau. |
@@ -45,7 +45,7 @@ Les critères d'évaluation d'intégrité sont facultatifs. Si les critères d�
 
 <br>
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | ConsiderWarningAsError |La valeur par défaut est False. Traiter les événements d’avertissement d’intégrité de l’application comme des erreurs pendant l’évaluation de l’intégrité de l’application au cours de la mise à niveau. Par défaut, Service Fabric ne considère pas les événements d’avertissement d’intégrité comme des échecs (erreurs) ; la mise à niveau peut donc continuer même si des événements d’avertissement se produisent. |
 | MaxPercentUnhealthyDeployedApplications |La valeur par défaut et recommandée est 0. Nombre maximal d’applications déployées (voir la [section Intégrité](service-fabric-health-introduction.md)) pouvant être défectueuses avant que l’application ne soit considérée comme défectueuse et que sa mise à niveau échoue. Ce paramètre définit l’intégrité de l’application sur le nœud et vous aide à détecter les problèmes lors de la mise à niveau. En général, les réplicas de l’application font l’objet d’un équilibrage de la charge sur l’autre nœud, ce qui rend l’application intègre et permet de poursuivre la mise à niveau. En spécifiant une intégrité MaxPercentUnhealthyDeployedApplications stricte, Service Fabric peut détecter rapidement un problème avec le package d’application et provoquer une mise à niveau Fail-fast. |

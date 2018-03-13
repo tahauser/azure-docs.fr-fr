@@ -48,6 +48,6 @@ Les services de la plateforme Azure, notamment les services web, mobiles, de don
 Les solutions d’atténuation des risques Azure présentées le 3 janvier 2018 ne sont pas affectées par la [mise à jour des conseils](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) d’Intel. Aucune activité de maintenance supplémentaire n’est prévue sur les machines virtuelles des clients à la suite de ces nouvelles informations.
  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) (Protéger les clients Azure des vulnérabilités de processeur).

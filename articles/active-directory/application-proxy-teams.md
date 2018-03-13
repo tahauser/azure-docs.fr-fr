@@ -52,7 +52,7 @@ Une fois que vous avez publié l’application via le proxy d’application, inf
 
 Une fois qu’un membre d’une équipe a ajouté l’onglet, celui-ci s’affiche pour tout le monde dans le canal. Tous les utilisateurs qui ont accès à l’application bénéficient de l’authentification unique avec les informations d’identification qu’ils utilisent pour Microsoft Teams. Les utilisateurs qui n’ont pas accès à l’application peuvent voir l’onglet dans Teams, mais sont bloqués jusqu’à ce que vous leur accordiez l’autorisation d’accéder à l’application locale et à la version de l’application publiée sur le portail Azure. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [publier des sites SharePoint locaux](application-proxy-enable-remote-access-sharepoint.md) avec le proxy d’application.
 - Configurez vos applications pour utiliser des [domaines personnalisés](active-directory-application-proxy-custom-domains.md) pour leur URL externe. 

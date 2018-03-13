@@ -207,5 +207,5 @@ La configuration minimale requise pour les ordinateurs exécutant les services d
 * MÉMOIRE : 2 Go ou plus
 * Machine virtuelle Azure : configuration A2 ou supérieure
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

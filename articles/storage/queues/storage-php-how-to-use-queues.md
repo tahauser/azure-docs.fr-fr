@@ -414,7 +414,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage des files d’attente Azure, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes :
 
 * Visitez les [informations de référence sur l’API pour la bibliothèque de client PHP Stockage Azure](http://azure.github.io/azure-storage-php/)

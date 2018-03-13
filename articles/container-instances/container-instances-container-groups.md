@@ -55,7 +55,7 @@ Exemples d’utilisation :
 * Une application et un conteneur de surveillance. Le conteneur de surveillance émet régulièrement une demande à destination de l’application pour vérifier qu’elle s’exécute et répond correctement, et déclenche une alerte si ce n’est pas le cas.
 * Un conteneur servant une application web et un conteneur extrayant le contenu le plus récent du contrôle de code source.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [déployer un groupe de conteneurs](container-instances-multi-container-group.md) avec un modèle Azure Resource Manager.
 

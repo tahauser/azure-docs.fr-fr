@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 Ces étapes montrent comment créer, au moyen d’un programme, un groupe d’inscription pour un certificat X.509 d’autorité de certification racine ou intermédiaire en s’aidant du [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) et d’un exemple Node.js. Bien que ces étapes fonctionnent à la fois sous Windows et Linux, cet article utilise un ordinateur de développement sous Windows.
  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - N’oubliez pas de compléter les étapes décrites dans la section [Configuration du service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md). 
 

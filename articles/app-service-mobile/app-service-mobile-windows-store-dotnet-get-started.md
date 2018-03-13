@@ -69,7 +69,7 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 
     Notez que les données enregistrées à l’étape précédente sont chargées à partir d’Azure après le démarrage de l’application UWP.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de l’authentification à votre application](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Apprenez à authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 * [Ajouter des notifications Push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md)  

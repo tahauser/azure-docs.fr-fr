@@ -48,6 +48,6 @@ Applicable uniquement aux services de fédération Active Directory (AD FS).
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour le groupe Active Directory universel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
 

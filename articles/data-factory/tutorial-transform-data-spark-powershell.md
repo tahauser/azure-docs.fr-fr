@@ -333,7 +333,7 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
 4. Confirmez qu’un dossier nommé `outputfiles` est créé dans le dossier `spark` du conteneur adftutorial avec la sortie du programme Spark. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

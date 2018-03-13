@@ -64,7 +64,7 @@ Les sections suivantes offrent des informations détaillées sur les propriété
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Un service lié SQL Azure lie une base de données SQL Azure à votre fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SQL Azure.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur : **AzureSqlDatabase** |OUI |
 | connectionString |Spécifier les informations requises pour la connexion à l’instance de base de données SQL Azure pour la propriété connectionString. Seule l’authentification de base est prise en charge. |OUI |
@@ -79,7 +79,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** pour le jeu de données de type **AzureSqlTable** a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. |OUI |
 
@@ -96,7 +96,7 @@ Si vous déplacez des données à partir d’une Azure SQL Database, vous défin
 ### <a name="sqlsource"></a>SqlSource
 Dans le cas d’une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | SqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Exemple : `select * from MyTable`. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
@@ -146,7 +146,7 @@ GO
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** prend en charge les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). |Non  |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |

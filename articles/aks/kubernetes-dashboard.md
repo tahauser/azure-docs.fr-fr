@@ -71,7 +71,7 @@ Lorsque vous êtes prêt, sélectionnez **Mettre à jour**.
 
 ![Modification de Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le tableau de bord Kubernetes, voir la documentation de Kubernetes.
 

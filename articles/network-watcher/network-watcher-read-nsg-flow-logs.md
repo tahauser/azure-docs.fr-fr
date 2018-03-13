@@ -157,7 +157,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 Ce scénario est un exemple montrant comment lire les entrées dans les journaux de flux de groupe de sécurité réseau sans avoir à analyser l’ensemble du journal. Vous pouvez lire les nouvelles entrées dans le journal comme elles sont écrites à l’aide de l’ID de bloc ou en effectuant le suivi de la longueur des blocs stockés dans l’objet blob de blocs. Cela vous permet de lire uniquement les nouvelles entrées.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Visiter [visualiser les journaux de flux de NSG de l’Observateur réseau Azure à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) pour en savoir plus sur d’autres moyens pour afficher les journaux de flux NSG.
 

@@ -192,7 +192,7 @@ finally
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Prise en main d’un exemple Apache HBase dans HDInsight](apache-hbase-tutorial-get-started-linux.md)
 * Créer une application de bout en bout avec l’[analyse des sentiments Twitter en temps réel avec HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

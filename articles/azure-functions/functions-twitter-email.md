@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Connecter l’application logique à la fonction.
 > * Envoyer un courrier électronique en fonction de la réponse de la fonction.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Un compte [Twitter](https://twitter.com/) actif. 
 + Un compte [Outlook.com](https://outlook.com/) (pour l’envoi de notifications).
@@ -165,7 +165,7 @@ Tout d’abord, créez une connexion à votre compte Twitter. L’application lo
 
     ![Paramètres du connecteur Twitter](media/functions-twitter-email/azure_tweet.png)
 
-    | Paramètre      |  Valeur suggérée   | DESCRIPTION                                        |
+    | Paramètre      |  Valeur suggérée   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **Texte de recherche** | #Azure | Utilisez un mot-dièse suffisamment populaire pour générer de nouveaux tweets dans l’intervalle sélectionné. Lors de l’utilisation du niveau Gratuit, si votre mot-dièse est trop populaire, vous pouvez rapidement épuiser le quota de transactions de votre API Cognitive Services. |
     | **Fréquence** | Minute | L’unité de fréquence utilisée pour l’interrogation de Twitter.  |
@@ -228,7 +228,7 @@ La dernière partie du flux de travail consiste à déclencher un courrier élec
 
     ![Configurez le courrier électronique pour l’action Envoyer un courrier électronique.](media/functions-twitter-email/send_email.png)
 
-    | Paramètre      |  Valeur suggérée   | DESCRIPTION  |
+    | Paramètre      |  Valeur suggérée   | Description  |
     | ----------------- | ------------ | ------------- |
     | **To** | Saisissez votre adresse de messagerie | L’adresse de messagerie qui reçoit la notification. |
     | **Objet** | Sentiment de tweet négatif détecté  | La ligne d’objet de la notification par courrier électronique.  |

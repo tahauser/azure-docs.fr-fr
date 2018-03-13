@@ -83,7 +83,7 @@ Vous pouvez changer l’attribut de nom de l’annuaire sous **Azure Active Dire
 * Le nom convivial dans l’e-mail, par exemple « Microsoft pour le compte de la démonstration CONTOSO »
 * La ligne d’objet dans l’e-mail, par exemple « Code de vérification d’e-mail pour le compte de démonstration CONTOSO »
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)

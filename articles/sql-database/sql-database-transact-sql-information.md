@@ -84,7 +84,7 @@ La référence sur Transact-SQL comprend des articles relatifs aux versions de S
 
 Dans certains cas, le sujet général d'un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Dans certains cas, le sujet général d'un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Par exemple, l’article CREATE TRIGGER est disponible dans SQL Database. Mais l’option **ALL SERVER** pour les déclencheurs de niveau serveur indique que ces derniers ne peuvent pas être utilisés dans SQL Database. Utilisez plutôt des déclencheurs de niveau base de données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
 

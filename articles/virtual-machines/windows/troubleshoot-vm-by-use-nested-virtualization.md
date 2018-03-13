@@ -137,6 +137,6 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de récu
 
 Vous pouvez également utiliser Azure PowerShell pour créer la machine virtuelle à partir du disque. Pour plus d’informations, consultez [Créer la machine virtuelle à partir d’un disque existant à l’aide de PowerShell](create-vm-specialized.md#create-the-new-vm). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez [Dépannage d’une connexion Bureau à distance à une machine virtuelle Azure](troubleshoot-rdp-connection.md). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Windows](troubleshoot-app-connection.md).

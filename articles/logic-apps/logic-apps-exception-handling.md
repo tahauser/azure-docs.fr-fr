@@ -259,7 +259,7 @@ Les modèles décrit dans cet article sont très utiles pour gérer les erreurs 
 
 Vous pouvez surveiller des journaux et des métriques ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via Event Hubs à [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives basées sur des anomalies, moyennes ou échecs dans les journaux de diagnostic. Vous pouvez utiliser Stream Analytics pour envoyer des informations à d’autres sources de données, telles que des files d’attente, des rubriques, SQL, Azure Cosmos DB ou Power BI.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Voir comment un client [conçoit la gestion des erreurs avec Logic Apps dans Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md).
 * Consulter d’autres [exemples et scénarios Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md).

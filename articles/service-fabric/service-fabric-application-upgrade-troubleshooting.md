@@ -213,7 +213,7 @@ Un échec de mise à niveau ne peut pas se produire avant *HealthCheckWaitDurati
 
 La durée de mise à niveau d’un domaine de mise à niveau est limitée par *UpgradeDomainTimeout*.  Si les paramètres *HealthCheckRetryTimeout* et *HealthCheckStableDuration* sont tous les deux non nuls et que l’intégrité de l’application ne cesse d’alterner, la mise à niveau finit par expirer sur *UpgradeDomainTimeout*. *UpgradeDomainTimeout* commence le compte à rebours au démarrage de la mise à niveau pour le domaine de mise à niveau actuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.

@@ -94,7 +94,7 @@ Dans l’exemple suivant, l’activité d’obtention des métadonnées renvoie 
 ## <a name="type-properties"></a>Propriétés type
 Actuellement, l’activité d’obtention des métadonnées peut extraire les types d’informations de métadonnées suivants à partir d’un jeu de données de stockage Azure.
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 fieldList | Répertorie les types d’informations de métadonnées requis.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    Non <br/>Si cette valeur est vide, l’activité retourne toutes les 3 informations de métadonnées prises en charge. 
 dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. <br/><br/>Le type de jeu de données actuellement pris en charge est Azure Blob. Les propriétés secondaires sont : <ul><li><b>referenceName</b>: référence à un jeu de données Azure Blob existant</li><li><b>type</b> : comme le jeu de données est référencé, le type est « DatasetReference »</li></ul> |    <ul><li>Chaîne</li><li>DatasetReference</li></ul> | OUI

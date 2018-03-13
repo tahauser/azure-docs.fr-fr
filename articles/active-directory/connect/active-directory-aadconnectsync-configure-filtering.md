@@ -305,6 +305,6 @@ Lors de la synchronisation de plusieurs forêts Active Directory, vous pouvez co
 * Vous avez un utilisateur dans une forêt qui dispose d’un contact par e-mail correspondant dans une autre forêt. De plus, vous avez configuré Azure AD Connect pour lier l’utilisateur au contact par e-mail. Les deux objets doivent se trouver dans l’étendue de filtrage par groupe. Dans le cas contraire, l’utilisateur n’est pas synchronisé sur Azure AD.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Apprenez-en davantage sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 - Apprenez-en davantage sur [l’intégration de vos identités locales à Azure AD](active-directory-aadconnect.md).

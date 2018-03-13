@@ -100,7 +100,7 @@ Lorsqu’un appareil informe IoT Hub de la fin d’un chargement, IoT Hub peut �
 
 Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des notifications de chargement de fichiers sous la forme de messages par le biais d’un point de terminaison côté service (**/messages/servicebound/fileuploadnotifications**). La sémantique de réception des notifications de chargement de fichiers est identique à celle des messages cloud-à-appareil et présente le même [cycle de vie des messages][lnk-lifecycle]. Chaque message récupéré à partir du point de terminaison de notification de téléchargement de fichier est un enregistrement JSON qui possède les propriétés suivantes :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | EnqueuedTimeUtc |Horodatage indiquant la date et l’heure de création de la notification. |
 | deviceId |**DeviceId** de l’appareil qui a téléchargé le fichier. |
@@ -126,7 +126,7 @@ Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fo
 
 Chaque IoT Hub expose les options de configuration suivantes pour les notifications de téléchargement de fichier :
 
-| Propriété | DESCRIPTION | Plage et valeur par défaut |
+| Propriété | Description | Plage et valeur par défaut |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Indique si les notifications de téléchargement de fichier sont écrites dans le point de terminaison de notification de fichier. |Valeur booléenne. Par défaut : True. |
 | **fileNotifications.ttlAsIso8601** |Durée de vie par défaut des notifications de téléchargement de fichier. |Intervalle ISO_8601 jusqu’à 48h (minimum 1 minute). Par défaut : 1 heure. |

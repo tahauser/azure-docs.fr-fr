@@ -371,7 +371,7 @@ Lorsque vous approvisionnez des objets Personne sur votre annuaire Lotus Domino,
 
 Le tableau suivant répertorie ces propriétés ainsi que leur description.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | \_MMS_AltFullName |L’autre nom complet de l’utilisateur. |
 | \_MMS_AltFullNameLanguage |La langue à utiliser pour spécifier l’autre nom complet de l’utilisateur. |

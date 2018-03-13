@@ -156,7 +156,7 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez à présent passer à d’autres rubriques.  Par exemple :
 
 [Appeler une API web à partir d’une application web &gt;&gt;](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)

@@ -73,7 +73,7 @@ La commande d’interpréteur de commandes Spark (`spark-shell`, `pyspark` ou `s
 | --packages MAVEN_COORDS | Liste séparée par des virgules des coordonnées Maven des fichiers JAR à inclure dans les classpaths du pilote et de l’exécuteur. Recherche dans le référentiel Maven local, puis dans le référentiel Maven central, et enfin dans tout autre référentiel distant spécifié avec `--repositories`. Le format des coordonnées est *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Pour Python uniquement, une liste séparée par des virgules des fichiers .zip, .egg ou .py à placer dans le PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [Présentation de Spark sur Azure HDInsight](apache-spark-overview.md) pour obtenir une vue d’ensemble.
 - Consultez [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md) pour utiliser des clusters Spark et SparkSQL.

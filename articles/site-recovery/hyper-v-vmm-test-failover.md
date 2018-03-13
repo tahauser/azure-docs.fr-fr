@@ -136,7 +136,7 @@ Nous vous recommandons de ne pas exécuter de test de basculement vers le résea
 * Cette manière d’effectuer le test entraîne un temps d’arrêt de votre application de production. Demandez aux utilisateurs de l’application de ne pas utiliser l’application au cours du test de récupération d’urgence.  
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après l’exécution d’un test de récupération d’urgence concluant, vous pouvez [exécuter un basculement complet](site-recovery-failover.md).
 
 

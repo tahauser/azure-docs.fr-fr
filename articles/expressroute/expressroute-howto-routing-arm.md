@@ -454,7 +454,7 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Expre
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 

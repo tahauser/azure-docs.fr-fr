@@ -159,7 +159,7 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 
 ## <a name="details"></a>Détails
 
-| Nom de la propriété | type | DESCRIPTION |
+| Nom de la propriété | type | Description |
 | --- | --- | --- |
 | settings.wmfVersion |chaîne |Spécifie la version de Windows Management Framework (WMF) qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur **latest**, la version la plus récente de WMF est installée. Les seules valeurs possibles actuellement pour cette propriété sont **4.0**, **5.0**, **5.0PP** et **latest**. Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est **latest**. |
 | settings.configuration.url |chaîne |Spécifie l’adresse URL de téléchargement de votre fichier .zip de configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationUrlSasToken** sur la valeur de votre jeton SAP. Cette propriété est requise si la propriété **settings.configuration.script** ou **settings.configuration.function** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale (LCM) et les arguments doivent être fournis. |
@@ -177,7 +177,7 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 
 Pour plus d’informations sur les valeurs suivantes, consultez la page de documentation [Paramètres de base du gestionnaire de configuration locale](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). Vous pouvez utiliser le script de configuration par défaut de l’extension DSC pour configurer uniquement les propriétés du gestionnaire de configuration locale qui sont répertoriées dans le tableau suivant.
 
-| Nom de la propriété | type | DESCRIPTION |
+| Nom de la propriété | type | Description |
 | --- | --- | --- |
 | settings.configurationArguments.RegistrationKey |securestring |Propriété requise. Spécifie la clé utilisée pour un nœud à inscrire avec le service Azure Automation en tant que mot de passe d’un objet d’informations d’identification PowerShell. Cette valeur peut être découverte automatiquement à l’aide de la méthode **listkeys** sur le compte Automation. La valeur doit être sécurisée comme paramètre protégé. |
 | settings.configurationArguments.RegistrationUrl |chaîne |Propriété requise. Spécifie l’URL du point de terminaison Automation où le nœud tente de s’inscrire. Cette valeur peut être découverte automatiquement à l’aide de la méthode **reference** sur le compte Automation. |

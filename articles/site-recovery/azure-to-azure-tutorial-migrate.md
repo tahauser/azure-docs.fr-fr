@@ -129,7 +129,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez migré une machine virtuelle Azure vers une autre région. Vous pouvez maintenant configurer la récupération d’urgence pour la machine virtuelle migrée.
 

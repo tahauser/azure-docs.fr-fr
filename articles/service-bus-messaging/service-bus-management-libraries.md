@@ -31,7 +31,7 @@ Les bibliothèques de gestion Azure Service Bus peuvent approvisionner dynamique
 * Création, mise à jour et suppression de rubriques
 * Création, mise à jour et suppression d’abonnements
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser les bibliothèques de gestion Service Bus, vous devez vous authentifier auprès du service Azure Active Directory (Azure AD). Azure AD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 

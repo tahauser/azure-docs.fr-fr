@@ -108,5 +108,5 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 D’autres tâches courantes pour les groupes identiques sont le [déploiement d’une application](virtual-machine-scale-sets-deploy-app.md) et la [mise à niveau d’instances de machine virtuelle](virtual-machine-scale-sets-upgrade-scale-set.md). Vous pouvez également utiliser Azure PowerShell pour [configurer des règles de mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md).

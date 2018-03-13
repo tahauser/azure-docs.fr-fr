@@ -45,7 +45,7 @@ Les sections suivantes donnent des précisions sur les propriétés utilisées p
 
 Les propriétés prises en charge pour le service lié Marketo sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Marketo**. | OUI |
 | endpoint | Point de terminaison du serveur Marketo (en l’occurrence, 123-ABC-321.mktorest.com).  | OUI |
@@ -103,7 +103,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Marketo, affectez la valeur **MarketoSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source de l’activité de copie doit être définie sur **MarketoSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Activitiy_Types"`. | OUI |

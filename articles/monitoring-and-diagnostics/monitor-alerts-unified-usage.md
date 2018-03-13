@@ -155,7 +155,7 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 
 6. Le panneau supérieur reflète également les modifications apportées à l’alerte : **Enregistrer** pour valider toutes les modifications apportées à l’alerte, **Ignorer** pour revenir en arrière sans valider les modifications apportées à l’alerte, **Désactiver** pour désactiver l’alerte, après quoi elle n’est plus exécutée ou ne déclenche plus d’action. Enfin, **Supprimer** pour supprimer définitivement la règle d’alerte entière d’Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez plus en détail les nouvelles [alertes de métriques en quasi temps réel (préversion)](monitoring-near-real-time-metric-alerts.md).
 - Consultez une [vue d’ensemble de la collecte des métriques](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.

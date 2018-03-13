@@ -36,7 +36,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 
 Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian Confluence pour activer l’authentification unique. Ainsi, l’ensemble des utilisateurs de votre organisation peuvent utiliser les informations d’identification d’Azure AD pour se connecter à l’application Confluence. Ce plug-in utilise SAML 2.0 pour la fédération.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Confluence SAML SSO by Microsoft, vous avez besoin des éléments suivants :
 

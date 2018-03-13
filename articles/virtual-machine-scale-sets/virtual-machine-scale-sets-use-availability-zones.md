@@ -244,5 +244,5 @@ Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez 
 Pour obtenir un exemple complet de groupe identique redondant dans une zone et de ressources réseau, consultez [cet exemple de modèle Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez créé un groupe identique dans une zone de disponibilité, vous pouvez apprendre à [déployer des applications sur des groupes identiques de machines virtuelles](virtual-machine-scale-sets-deploy-app.md) ou à [utiliser la mise à l’échelle automatique avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md).

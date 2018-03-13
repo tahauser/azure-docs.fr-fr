@@ -40,7 +40,7 @@ Après avoir identifié l’attribut unique, vous pouvez configurer Azure AD Con
 
 Pour connaître les instructions d’implémentation, consultez [Activer la synchronisation de UserType](connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une vue d’ensemble d’Azure AD B2B Collaboration, consultez [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - Pour obtenir une vue d’ensemble d’Azure AD Connect, consultez [Intégrer des répertoires locaux à Azure Active Directory](connect/active-directory-aadconnect.md).

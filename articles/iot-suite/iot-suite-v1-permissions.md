@@ -137,7 +137,7 @@ Examinez le schéma suivant pour obtenir des conseils :
 
 Si vous êtes sûr de disposer d’un abonnement Azure, validez le mappage de votre abonnement client et assurez-vous que c’est le bon client qui est sélectionné dans la liste déroulante. Si vous avez validé le locataire souhaité, suivez le schéma ci-dessus et validez le mappage de votre abonnement et de ce locataire AAD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour poursuivre votre formation concernant IoT Suite, découvrez comment [personnaliser une solution préconfigurée][lnk-customize].
 
 [img-flowchart]: media/iot-suite-v1-permissions/flowchart.png

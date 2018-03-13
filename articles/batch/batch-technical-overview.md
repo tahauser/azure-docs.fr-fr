@@ -71,7 +71,7 @@ Le schéma suivant illustre les étapes d’un flux de travail Batch courant, da
 ![Procédure pas à pas de solution Azure Batch](./media/batch-technical-overview/tech_overview_03.png)
 
 
-|Étape  |DESCRIPTION  |
+|Étape  |Description  |
 |---------|---------|
 |1.  Charger les **fichiers d’entrée** et les **applications** nécessaires pour le traitement des fichiers dans votre compte Stockage Azure.     |Les fichiers d’entrée peuvent correspondre à des données que votre application traite (par exemple, des données de modélisation financière ou des fichiers vidéo à transcoder). Les fichiers d’application peuvent inclure des scripts ou applications qui traitent les données, comme un transcodeur média.|
 |2.  Créer un **pool** Batch de nœuds de calcul dans votre compte Batch, un **travail** pour exécuter la charge de travail sur le pool et des **tâches** dans le travail.     | Les nœuds de pool sont les machines virtuelles qui exécutent vos tâches. Spécifiez des propriétés telles que le nombre et la taille des nœuds, une image de machine virtuelle Windows ou Linux et une application à installer lorsque les nœuds rejoignent le pool. Gérez le coût et la taille du pool à l’aide de [machines virtuelles de faible priorité](batch-low-pri-vms.md) ou en [mettant à l’échelle automatiquement](batch-automatic-scaling.md) le nombre de nœuds durant que la charge de travail change. <br/><br/>Lorsque vous ajoutez des tâches à un travail, le service Batch planifie automatiquement l’exécution des tâches sur les nœuds de calcul du pool. Chaque tâche utilise l’application que vous avez téléchargée pour traiter les fichiers d’entrée. |

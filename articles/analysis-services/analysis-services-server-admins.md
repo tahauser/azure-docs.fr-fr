@@ -38,7 +38,7 @@ Un administrateur de serveur doit être un utilisateur ou un groupe valide prés
    
     ![Ajouter des administrateurs de serveur dans SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 [Authentification et autorisations utilisateur](analysis-services-manage-users.md)  
 [Gérer les utilisateurs et rôles de base de données](analysis-services-database-users.md)  
 [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)  

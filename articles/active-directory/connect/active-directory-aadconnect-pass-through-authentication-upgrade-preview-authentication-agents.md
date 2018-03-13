@@ -85,5 +85,5 @@ Procédez comme suit pour mettre à niveau les agents d’authentification sur d
 >[!NOTE]
 >Si vous consultez le panneau Authentification directe dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) une fois les étapes précédentes effectuées, vous pouvez voir deux entrées Agent d’authentification par serveur : une entrée indiquant que l’agent d’authentification est **actif** et une autre indiquant qu’il est **inactif**. Ceci est _normal_. L’entrée indiquant **inactif** est automatiquement supprimée après quelques jours.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.

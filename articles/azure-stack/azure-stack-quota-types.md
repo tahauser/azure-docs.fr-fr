@@ -62,7 +62,7 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 2. Sélectionnez le service avec le quota que vous voulez afficher.
 3. Cliquez sur **Quotas**, puis sélectionnez le quota que vous voulez afficher.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Découvrez plus d’informations sur les plans, les offres et les quotas.](azure-stack-plan-offer-quota-overview.md)
 
 [Créez des quotas lors de la création d’un plan.](azure-stack-create-plan.md)

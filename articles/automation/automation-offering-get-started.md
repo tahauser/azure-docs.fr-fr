@@ -45,7 +45,7 @@ Les runbooks qui s’exécutent sur un Runbook Worker hybride s’exécutent dan
 
 Vous pouvez appliquer les configurations DSC qui sont stockées dans Azure Automation à des machines virtuelles. Les autres machines physiques et virtuelles peuvent demander des configurations du serveur d’extraction Automation DSC. Vous n’avez pas besoin de déployer d’infrastructure pour prendre en charge le serveur d’extraction Automation DSC afin de gérer les configurations de vos systèmes Windows et Linux physiques ou virtuels locaux. Seul est nécessaire un accès Internet sortant à partir de chaque système que vous gérez à l’aide d’Automation DSC. La communication en direction du service OMS emprunte le port TCP 443.   
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="automation-dsc"></a>Automation DSC
 Vous pouvez utiliser Automation DSC pour gérer les machines suivantes :
@@ -171,7 +171,7 @@ Pour obtenir la liste des adresses IP régionales plutôt que celle des noms des
 
 Le tableau suivant présente des méthodes pour créer un compte Automation dans le portail Azure. Le tableau décrit chaque type d’expérience de déploiement et leurs différences.  
 
-|Méthode | DESCRIPTION |
+|Méthode | Description |
 |-------|-------------|
 | Sélectionner **Automation & Control** dans la Place de marché Azure | Une offre de la Place de marché Azure crée un compte Automation et un espace de travail OMS qui sont liés et qui se trouvent dans le même groupe de ressources et la même région. L’intégration à OMS offre également l’avantage d’utiliser Log Analytics pour surveiller et analyser l’état d’un travail de runbook et les flux de travaux au fil du temps. Vous pouvez également utiliser les fonctionnalités avancées de Log Analytics pour remonter ou étudier des problèmes. Cette offre déploie les solutions **Change Tracking** et **Update Management**, qui sont activées par défaut. |
 | Sélectionner **Automation** dans la Place de marché | Cette méthode crée un compte Automation dans un groupe de ressources nouveau ou existant qui n’est pas lié à un espace de travail OMS. Elle n’inclut aucune solution disponible dans l’offre **Automation & Control**. Cette méthode est une configuration de base qui vous présente Automation. Elle peut vous aider à apprendre à écrire des runbooks et des configurations DSC, ainsi qu’à utiliser les fonctionnalités du service. |

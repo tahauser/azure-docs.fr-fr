@@ -86,7 +86,7 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 * Observer l’équilibreur de ressources orchestrer la redistribution des applications au sein du cluster. Service Fabric récupère après des défaillances et optimise la distribution de la charge en fonction des ressources disponibles.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations :
   * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
   * [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)

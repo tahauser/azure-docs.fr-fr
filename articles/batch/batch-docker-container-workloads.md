@@ -25,7 +25,7 @@ L’utilisation de conteneurs permet d’exécuter simplement des tâches par lo
 Cet article suppose une connaissance des concepts du conteneur Docker et de la manière de créer un pool et un travail de traitement par lots et le travail avec le kit de développement logiciel SDK .NET. Les extraits de code sont destinés à être utilisés dans une application cliente similaire à l’[exemple DotNetTutorial](batch-dotnet-get-started.md) et sont des exemples de code dont vous auriez besoin pour prendre en charge des applications de conteneur dans Batch.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Versions du SDK : le SDK prend en charge des images conteneur dans les versions suivantes :
     * API REST (version : 6.0 du 01/09/2017)

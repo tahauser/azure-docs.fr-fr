@@ -35,7 +35,7 @@ Vous pouvez suivre les étapes de ce didacticiel en utilisant un ordinateur Mac,
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 

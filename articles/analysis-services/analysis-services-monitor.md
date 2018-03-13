@@ -42,7 +42,7 @@ Pour effectuer des diagnostics plus approfondis, suivre des performances et iden
 ## <a name="server-metrics"></a>Indicateurs de performances de serveur
 Ce tableau permet de déterminer les meilleurs indicateurs de performances pour votre scénario d’analyse. Seuls ceux appartenant à la même unité peuvent être affichés sur un même graphique.
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de commandes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de commandes.|
 |CurrentConnections|Connexion : connexions actuelles|Count|Moyenne|Nombre actuel de connexions client établies.|

@@ -34,7 +34,7 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 * Gérer vos API hébergées dans plusieurs emplacements géographiques à l’aide d’un seul point de terminaison de passerelle. 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 

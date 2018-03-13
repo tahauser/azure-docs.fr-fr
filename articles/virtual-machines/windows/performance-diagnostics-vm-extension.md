@@ -24,7 +24,7 @@ ms.lasthandoff: 12/15/2017
 
 L’extension de machine virtuelle Diagnostics des performances Azure permet de collecter des données de diagnostic des performances sur des machines virtuelles Windows. Elle effectue une analyse et fournit un rapport de résultats et de recommandations permettant d’identifier et de résoudre les problèmes de performances sur la machine virtuelle. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](http://aka.ms/perfinsights).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Cette extension peut s’installer sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016, de même que sur Windows 8.1 et Windows 10.
 

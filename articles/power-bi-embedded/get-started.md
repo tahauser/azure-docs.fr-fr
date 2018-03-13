@@ -52,7 +52,7 @@ Créez la capacité Power BI Embedded dans Microsoft Azure pour déplacer votr
 
 Gérez votre capacité dans le portail d’administration Power BI. Affectez le composant d’affectation de l’espace de travail pour faciliter la gestion de vos espaces de travail d’application. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour créer une capacité Power BI Embedded, voir [Créer de la capacité Power BI Embedded dans le portail Azure](create-capacity.md).
 

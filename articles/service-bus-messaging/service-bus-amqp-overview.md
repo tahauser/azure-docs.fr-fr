@@ -84,7 +84,7 @@ Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus
 * AMQP 1.0 est un protocole de messagerie efficace et ouvert qui peut être utilisé pour créer des applications hybrides interplateforme. AMQP 1.0 est une norme OASIS.
 * La prise en charge d’AMQP 1.0 est désormais disponible dans Azure Service Bus et Service Bus pour Windows Server (Service Bus 1.1). Les tarifs sont les mêmes que pour les protocoles existants.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 * [Utilisation de Service Bus à partir de .NET avec AMQP]

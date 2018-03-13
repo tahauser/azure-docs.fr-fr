@@ -305,7 +305,7 @@ Informations essentielles :
 #### <a name="string-type"></a>Type de chaîne
 En général, une fonctionnalité WURFL accepte n’importe quelle combinaison de chiffres, de lettres et de symboles. En raison de la nature flexible de cette fonctionnalité, vous devez choisir la façon dont la valeur associée à cette condition de correspondance est interprétée. Le tableau suivant décrit l’ensemble d’options disponibles :
 
-type     | DESCRIPTION
+type     | Description
 ---------|------------
 Littéral  | Sélectionnez cette option pour empêcher la plupart des caractères de prendre une signification particulière à l’aide de leur [valeur littérale](cdn-rules-engine-reference.md#literal-values).
 Caractère générique | Sélectionnez cette option pour utiliser tous les [caractères génériques] ([valeurs de caractère générique](cdn-rules-engine-reference.md#wildcard-values)).
@@ -319,7 +319,7 @@ Le tableau suivant répertorie les fonctionnalités WURFL et leurs variables pou
 > [!NOTE] 
 > Les variables suivantes sont prises en charge dans les fonctionnalités **Modifier l’en-tête de requête client** et **Modifier l’en-tête de réponse client**.
 
-Fonctionnalité | Variable | DESCRIPTION | Exemples de valeurs
+Fonctionnalité | Variable | Description | Exemples de valeurs
 -----------|----------|-------------|----------------
 Nom de la marque | %{wurfl_cap_brand_name} | Chaîne qui indique le nom de la marque de l’appareil. | Samsung
 Système d’exploitation de l’appareil | %{wurfl_cap_device_os} | Chaîne qui indique le système d’exploitation installé sur l’appareil. | IOS
@@ -959,7 +959,7 @@ Informations essentielles :
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 L’exemple suivant montre comment cette option fonctionne dans des situations spécifiques :
 
- NOM                 | DESCRIPTION
+ NOM                 | Description
  ---------------------|------------
 user=joe              | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée est « ?user=joe ».
 \*user=\* \*optout=\* | Ce modèle correspond lorsque la requête d’URL CDN contient l’utilisateur ou le paramètre de désabonnement.

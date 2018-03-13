@@ -169,7 +169,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
     ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

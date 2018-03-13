@@ -30,7 +30,7 @@ L’utilisation d’Azure Cosmos DB dans l’Explorateur Stockage Azure permet a
 Dans cet article, vous apprenez à utiliser l’Explorateur Stockage pour gérer Azure Cosmos DB.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Un compte Azure Cosmos DB pour l’API SQL <!--or MongoDB API-->. Si vous n’avez pas de compte, vous pouvez en créer un dans le portail Azure, comme décrit dans [Azure Cosmos DB : Développer une application web API SQL avec .NET et le portail Azure](create-sql-api-dotnet.md).
 

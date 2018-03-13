@@ -28,7 +28,7 @@ Avec la version la plus récente d’Azure AD Connect, le provisionnement de la 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour utiliser cette fonctionnalité, vous devez savoir qu’il existe plusieurs éléments, et que chacun d’eux peut impliquer un administrateur différent.  Le tableau suivant récapitule les rôle et leurs fonctions respectives lors du déploiement d’Azure AD Connect avec cette fonctionnalité.
 
-|Rôle|DESCRIPTION|
+|Rôle|Description|
 |-----|-----|
 |Administrateur AD de domaine ou de forêt|Crée le compte de service au niveau du domaine, qui est utilisé par Azure AD Connect pour exécuter le service de synchronisation.  Pour plus d’informations, consultez [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md).
 |Administrateur SQL|Crée la base de données ADSync et accorde l’accès Connexion + Propriétaire de base de données à l’administrateur Azure AD Connect et au compte de service créé par l’administrateur du domaine ou de la forêt.|

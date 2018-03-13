@@ -112,7 +112,7 @@ Une fois que vous avez configuré AI comme sortie pour vos événements et journ
 
 Si vous cliquez sur **Analyse**, vous accédez au portail Application Insights Analytics, où vous pouvez interroger des événements et des traces avec une plus grande étendue et plus de choix. Vous pouvez en apprendre plus à ce sujet dans [Analytics dans Application Insights](../application-insights/app-insights-analytics.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer des alertes dans AI](../application-insights/app-insights-alerts.md) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../application-insights/app-insights-proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances

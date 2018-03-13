@@ -85,7 +85,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 
 Voici les options de paramètres des chaînes de requête.
 
-| Paramètre | Obligatoire | DESCRIPTION |
+| Paramètre | Obligatoire | Description |
 | --- | --- | --- |
 | `sb-hc-action` |OUI |Pour le rôle d’écouteur, le paramètre doit être **sb-hc-action=listen** |
 | `{path}` |OUI |Chemin d’accès de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin. |
@@ -94,7 +94,7 @@ Voici les options de paramètres des chaînes de requête.
 
 Si la connexion du WebSocket échoue car le chemin de la connexion hybride n’est pas inscrit, en raison d’un jeton non valide ou manquant ou à cause d’une erreur d’un autre type, les commentaires sur l’erreur sont fournis d’après le modèle classique de commentaires d’état HTTP 1.1. La description d’état contient un ID de suivi d’erreur qui peut être communiqué au personnel de support Azure :
 
-| Code | Error | DESCRIPTION |
+| Code | Error | Description |
 | --- | --- | --- |
 | 404 |Introuvable |Le chemin de la connexion hybride n’est pas valide ou l’URL de base est incorrecte. |
 | 401 |Non autorisé |Le jeton de sécurité est manquant, incorrect ou non valide. |
@@ -103,7 +103,7 @@ Si la connexion du WebSocket échoue car le chemin de la connexion hybride n’e
 
 Si la connexion du WebSocket est intentionnellement arrêtée par le service après sa configuration initiale, la raison de cette opération est communiquée par le biais d’un code d’erreur approprié du protocole WebSocket avec un message d’erreur descriptif qui inclut également un ID de suivi. Le service ne peut pas arrêter le canal de contrôle sans rencontrer un état d’erreur. Les arrêts normaux sont contrôlés par le client.
 
-| État du SW | DESCRIPTION |
+| État du SW | Description |
 | --- | --- |
 | 1001 |Le chemin d’accès de la connexion hybride a été supprimé ou désactivé. |
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
@@ -145,7 +145,7 @@ Il en va de même pour l’en-tête `Sec-WebSocket-Extensions`. Si le framework 
 
 L’URL doit être utilisée telle quelle pour établir le socket d’acceptation, mais elle contient les paramètres suivants :
 
-| Paramètre | Obligatoire | DESCRIPTION |
+| Paramètre | Obligatoire | Description |
 | --- | --- | --- |
 | `sb-hc-action` |OUI |Pour accepter un socket, le paramètre doit être `sb-hc-action=accept` |
 | `{path}` |OUI |(voir le paragraphe suivant) |
@@ -159,14 +159,14 @@ Pour plus d’informations, consultez la section suivante, « Protocole de l’
 
 En cas d’erreur, le service peut répondre ceci :
 
-| Code | Error | DESCRIPTION |
+| Code | Error | Description |
 | --- | --- | --- |
 | 403 |Interdit |L’URL n’est pas valide. |
 | 500 |Erreur interne |Un problème est survenu dans le service. |
 
 Une fois la connexion établie, le serveur arrête le WebSocket quand le WebSocket expéditeur s’arrête, ou avec l’état suivant :
 
-| État du SW | DESCRIPTION |
+| État du SW | Description |
 | --- | --- |
 | 1001 |Le client expéditeur arrête la connexion. |
 | 1001 |Le chemin d’accès de la connexion hybride a été supprimé ou désactivé. |
@@ -180,7 +180,7 @@ Le choix de conception du protocole consiste ici à utiliser une liaison WebSock
 
 Pour rejeter le socket, le client prend l’URI d’adresse du message d’acceptation et y ajoute deux paramètres de chaîne de requête, comme suit :
 
-| Paramètre | Obligatoire | DESCRIPTION |
+| Paramètre | Obligatoire | Description |
 | --- | --- | --- |
 | statusCode |OUI |Code d’état HTTP numérique. |
 | statusDescription |OUI |Motif du rejet lisible. |
@@ -189,7 +189,7 @@ L’URI obtenu est ensuite utilisé pour établir une connexion WebSocket.
 
 En cas de réussite, cette liaison échoue intentionnellement avec un code d’erreur HTTP 410, car aucun WebSocket n’a été établi. Si une erreur survient, les codes suivants la décrivent :
 
-| Code | Error | DESCRIPTION |
+| Code | Error | Description |
 | --- | --- | --- |
 | 403 |Interdit |L’URL n’est pas valide. |
 | 500 |Erreur interne |Un problème est survenu dans le service. |
@@ -211,7 +211,7 @@ Lorsque le jeton de l’écouteur est sur le point d’expirer, celui-ci peut le
 
 Si la validation du jeton échoue, l’accès est refusé et le service cloud ferme le WebSocket du canal de contrôle avec une erreur. Sinon, il n’y a aucune réponse.
 
-| État du SW | DESCRIPTION |
+| État du SW | Description |
 | --- | --- |
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
 
@@ -229,7 +229,7 @@ La demande peut contenir des en-têtes HTTP arbitraires supplémentaires, notamm
 
 Voici les options de paramètres des chaînes de requête :
 
-| Paramètre | Requis ? | DESCRIPTION |
+| Paramètre | Requis ? | Description |
 | --- | --- | --- |
 | `sb-hc-action` |OUI |Pour le rôle de l’expéditeur, le paramètre doit être `action=connect`. |
 | `{path}` |OUI |(voir le paragraphe suivant) |
@@ -246,7 +246,7 @@ L’expression `path` est transmise à l’écouteur dans l’URI d’adresse co
 
 Si la connexion du WebSocket échoue car le chemin de la connexion hybride n’est pas inscrit, en raison d’un jeton non valide ou manquant ou à cause d’une erreur d’un autre type, les commentaires sur l’erreur sont fournis d’après le modèle classique de commentaires d’état HTTP 1.1. La description d’état contient un ID de suivi d’erreur qui peut être communiqué au personnel de support Azure :
 
-| Code | Error | DESCRIPTION |
+| Code | Error | Description |
 | --- | --- | --- |
 | 404 |Introuvable |Le chemin de la connexion hybride n’est pas valide ou l’URL de base est incorrecte. |
 | 401 |Non autorisé |Le jeton de sécurité est manquant, incorrect ou non valide. |
@@ -255,7 +255,7 @@ Si la connexion du WebSocket échoue car le chemin de la connexion hybride n’e
 
 Si la connexion du WebSocket est intentionnellement arrêtée par le service après sa configuration initiale, la raison de cette opération est communiquée par le biais d’un code d’erreur approprié du protocole WebSocket avec un message d’erreur descriptif qui inclut également un ID de suivi.
 
-| État du SW | DESCRIPTION |
+| État du SW | Description |
 | --- | --- |
 | 1 000 |L’écouteur a fermé le socket. |
 | 1001 |Le chemin d’accès de la connexion hybride a été supprimé ou désactivé. |

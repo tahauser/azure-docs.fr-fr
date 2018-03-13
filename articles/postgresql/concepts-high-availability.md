@@ -33,5 +33,5 @@ Comme pour le modèle de haute disponibilité, lorsqu’une base de données Pos
 
 Pendant l’opération de mise à l’échelle, une interruption se produit pour les connexions de base de données. Les applications clientes sont déconnectées, et les transactions non validées en cours sont annulées. Une fois que l’application cliente réessaie d’établir la connexion ou établit une nouvelle connexion, la passerelle dirige la connexion vers l’instance qui vient d’être dimensionnée. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Vous trouverez une vue d’ensemble du service dans [Vue d’ensemble d’Azure Database pour PostgreSQL](overview.md).

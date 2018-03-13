@@ -45,7 +45,7 @@ Avantages de H2O Sparkling Water :
 * [Assistance H2O.ai](https://support.h2o.ai/)
 * [Codebase open source H2O.ai](https://github.com/h2oai/)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 

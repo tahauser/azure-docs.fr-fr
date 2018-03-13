@@ -79,7 +79,7 @@ Les ressources de [recherche enregistrée Log Analytics](../log-analytics/log-an
 
 Chaque propriété d’une recherche enregistrée est décrite dans le tableau suivant. 
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | category | La catégorie de la recherche enregistrée.  Toutes les recherches enregistrées d’une même solution partagent généralement une catégorie unique. Elles sont ainsi regroupées dans la console. |
 | displayname | Le nom à afficher pour la recherche enregistrée dans le portail. |
@@ -125,7 +125,7 @@ Une recherche enregistrée peut avoir une ou plusieurs planifications, chacune d
 
 Les propriétés des ressources de planification sont décrites dans le tableau suivant.
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | Activé       | OUI | Spécifie si l’alerte est activée lors de sa création. |
 | interval      | OUI | La fréquence d’exécution de la requête (en minutes). |
@@ -184,18 +184,18 @@ Les actions d’alerte présentent la structure suivante.  Cela inclut des varia
 
 Les propriétés des ressources d’action d’alerte sont décrites dans les tableaux suivants.
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
 | NOM | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
-| DESCRIPTION | Non  | La description facultative de l’alerte. |
+| Description | Non  | La description facultative de l’alerte. |
 | Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **Critical**<br>**Avertissement**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>Seuil
 Cette section est obligatoire.  Elle définit les propriétés du seuil d’alerte.
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
 | Valeur | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
@@ -207,7 +207,7 @@ Cette section est facultative.  Vous devez l’inclure pour une alerte relative 
 > [!NOTE]
 > Les alertes relatives aux mesures métriques sont actuellement en version préliminaire publique. 
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
 | Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
@@ -216,14 +216,14 @@ Cette section est facultative.  Vous devez l’inclure pour une alerte relative 
 ##### <a name="throttling"></a>Limitation
 Cette section est facultative.  Insérez cette section si vous souhaitez supprimer des alertes à partir de la même règle sur une certaine période après la création d’une alerte.
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | DurationInMinutes | Oui, si l’élément Throttling est inclus | Le délai de suppression des alertes, en minutes, une fois créée une alerte à partir de la même règle. |
 
 ##### <a name="emailnotification"></a>EmailNotification
  Cette section est facultative. Insérez-la si vous souhaitez que l’alerte envoie un e-mail à un ou plusieurs destinataires.
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | Destinataires | OUI | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Objet | OUI | La ligne d’objet du message. |
@@ -233,7 +233,7 @@ Cette section est facultative.  Insérez cette section si vous souhaitez supprim
 ##### <a name="remediation"></a>Correction
 Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook démarre en réponse à l’alerte. |
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | RunbookName | OUI | Le nom du runbook à démarrer. |
 | WebhookUri | OUI | L’URI du webhook pour le runbook. |
@@ -263,7 +263,7 @@ Si votre alerte appelle un webhook, elle nécessite une ressource d’action ave
 
 Les propriétés des ressources d’action Webhook sont décrites dans les tableaux suivants.
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | Type | OUI | Type de l’action.  **Webhook** pour les actions de webhook. |
 | Nom | OUI | Le nom d’affichage de l’action.  Il n’est pas affiché dans la console. |

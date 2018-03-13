@@ -57,7 +57,7 @@ Toutes les ressources créées dans Azure sont réparties sur plusieurs [région
 
 Ce tableau présente quelques moyens d’obtenir la liste des emplacements disponibles.
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 | --- | --- |
 | Portail Azure |Sélectionnez un emplacement dans la liste lorsque vous créez une machine virtuelle. |
 | Azure PowerShell |Utilisez la commande [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
@@ -79,7 +79,7 @@ Azure fournit de nombreuses [images Marketplace](https://azure.microsoft.com/mar
 
 Ce tableau présente différents moyens de trouver les informations d’une image.
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 | --- | --- |
 | Portail Azure |Les valeurs sont spécifiées automatiquement pour vous lorsque vous sélectionnez une image à utiliser. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "emplacement"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "emplacement" -Publisher "nomÉditeur"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "emplacement" -Publisher "nomÉditeur" -Offer "nomOffre" |
@@ -100,7 +100,7 @@ Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 ### <a name="related-resources"></a>Ressources associées
 Les ressources de cette table sont utilisées par la machine virtuelle et doivent exister ou être créées lors de sa création.
 
-| Ressource | Obligatoire | DESCRIPTION |
+| Ressource | Obligatoire | Description |
 | --- | --- | --- |
 | [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) |OUI |La machine virtuelle doit être contenue dans un groupe de ressources. |
 | [Compte de stockage](../../storage/common/storage-create-storage-account.md) |OUI |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
@@ -131,7 +131,7 @@ Les machines virtuelles peuvent être gérées à l’aide d’un portail sur na
 ### <a name="get-information-about-a-vm"></a>Obtenir des informations sur une machine virtuelle
 Ce tableau montre différents moyens d’obtenir des informations sur une machine virtuelle.
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 | --- | --- |
 | Portail Azure |Dans le menu Hub, cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle dans la liste. Dans le panneau de la machine virtuelle, vous pouvez consulter les informations, fixer des valeurs et surveiller les métriques. |
 | Azure PowerShell |Pour plus d’informations sur l’utilisation de PowerShell pour gérer des machines virtuelles, voir [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |

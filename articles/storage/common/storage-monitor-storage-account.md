@@ -154,7 +154,7 @@ Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob n
 
 Pour plus d’informations sur l’accès au conteneur $logs, consultez [Activation de la journalisation du stockage et accès aux données des journaux](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [les métriques, la journalisation et la facturation](../storage-analytics.md) pour Storage Analytics.
 * [Activer les métriques Stockage Azure et afficher les données des métriques](../storage-enable-and-view-metrics.md) à l’aide de PowerShell et par programme avec C#.

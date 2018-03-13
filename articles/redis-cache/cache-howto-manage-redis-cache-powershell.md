@@ -122,7 +122,7 @@ Pour plus d’informations sur Microsoft Azure Allemagne, consultez [Microsoft A
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Propriétés utilisées pour le cache Redis Azure PowerShell
 Le tableau suivant contient les propriétés et les descriptions pour les paramètres fréquemment utilisés lors de la création et de la gestion de vos instances de cache Redis Azure avec Azure PowerShell.
 
-| Paramètre | DESCRIPTION | Default |
+| Paramètre | Description | Default |
 | --- | --- | --- |
 | NOM |Nom du cache | |
 | Lieu |Emplacement du cache | |
@@ -139,7 +139,7 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 | KeyType |Spécifie la clé d'accès à régénérer lors du renouvellement des clés d'accès. Les valeurs valides sont : Primaire, Secondaire | |
 
 ### <a name="redisconfiguration-properties"></a>Propriétés RedisConfiguration
-| Propriété | DESCRIPTION | Niveaux de tarification |
+| Propriété | Description | Niveaux de tarification |
 | --- | --- | --- |
 | rdb-backup-enabled |Indique si [la persistance des données Redis](cache-how-to-premium-persistence.md) est activée |Premium uniquement |
 | rdb-storage-connection-string |La chaîne de connexion au compte de stockage pour [la persistance des données Redis](cache-how-to-premium-persistence.md) |Premium uniquement |

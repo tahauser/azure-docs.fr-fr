@@ -113,7 +113,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 ```
 
 ### <a name="property-descriptions"></a>Description des propriétés
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | autorisation |Objet blob des propriétés RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
 | caller |Adresse e-mail de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. |
@@ -196,7 +196,7 @@ Cette catégorie contient l’enregistrement de tout incident de l’état d’i
 ```
 
 ### <a name="property-descriptions"></a>Description des propriétés
-Nom de l’élément | DESCRIPTION
+Nom de l’élément | Description
 -------- | -----------
 channels | Est une des valeurs suivantes : « Admin », « Operation »
 correlationId | Est généralement un GUID au format chaîne. Les événements qui appartiennent à la même action uber partagent généralement le même correlationId.
@@ -289,7 +289,7 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 ```
 
 ### <a name="property-descriptions"></a>Description des propriétés
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | caller | Toujours Microsoft.Insights/alertRules |
 | channels | Toujours « Admin, opération » |
@@ -314,7 +314,7 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 Le champ Propriétés contient des valeurs différentes en fonction de la source de l’événement d’alerte. Deux fournisseurs d’événements d’alertes courants sont les alertes du journal d’activité et les alertes métriques.
 
 #### <a name="properties-for-activity-log-alerts"></a>Propriétés pour les alertes du journal d’activité
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | properties.subscriptionId | L’ID d’abonnement depuis l’événement du journal d’activité qui a provoqué l’activation de cette règle d’alerte du journal d’activité. |
 | properties.eventDataId | L’ID des données de l’événement depuis l’événement du journal d’activité qui a provoqué l’activation de cette règle d’alerte du journal d’activité. |
@@ -325,7 +325,7 @@ Le champ Propriétés contient des valeurs différentes en fonction de la source
 | Properties.Status | L’état depuis l’événement du journal d’activité qui a provoqué l’activation de cette règle d’alerte du journal d’activité.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriétés des alertes métriques
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | Propriétés. RuleUri | L’ID de ressource de la règle d’alerte métrique elle-même. |
 | Propriétés. Nom_règle | Le nom de la règle d’alerte métrique. |
@@ -398,7 +398,7 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 ```
 
 ### <a name="property-descriptions"></a>Description des propriétés
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | caller | Always Microsoft.Insights/autoscaleSettings |
 | channels | Toujours « Admin, opération » |
@@ -488,7 +488,7 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 ```
 
 ### <a name="property-descriptions"></a>Description des propriétés
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | channels | Toujours Operation (Opération). |
 | correlationId | Un GUID au format chaîne. |

@@ -66,7 +66,7 @@ L’exemple suivant fournit une définition JSON pour configurer la manière d�
 }
 ```
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Activer ou non l’option d’ignorer les lignes incompatibles. | True<br/>False (valeur par défaut) | Non  |
 | **redirectIncompatibleRowSettings** | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non  |

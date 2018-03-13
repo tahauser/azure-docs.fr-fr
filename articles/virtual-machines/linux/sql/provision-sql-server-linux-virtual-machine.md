@@ -174,7 +174,7 @@ Ce didacticiel vous a montré comment créer une machine virtuelle Linux Red Hat
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous disposez d’une machine virtuelle SQL Server 2017  dans Azure, vous pouvez vous connecter en local avec **sqlcmd** pour exécuter des requêtes Transact-SQL.
 

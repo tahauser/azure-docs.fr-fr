@@ -261,7 +261,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
 
     Comme vous pouvez le constater, les jetons ont été remplacés par les valeurs correctes à partir de la liste SharePoint et de la fonction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

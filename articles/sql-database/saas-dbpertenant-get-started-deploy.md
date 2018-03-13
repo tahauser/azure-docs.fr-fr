@@ -42,7 +42,7 @@ Une [série de didacticiels associés](saas-dbpertenant-wingtip-app-overview.md#
 Lorsque vous utilisez les didacticiels, vous pouvez voir comment les différents modèles SaaS sont implémentés en examinant les scripts fournis.
 Ces scripts montrent comment les fonctionnalités de SQL Database simplifient le développement des applications SaaS.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -133,7 +133,7 @@ L’application Wingtip utilise [*Azure Traffic Manager*](../traffic-manager/tra
 
 Les parties du format précédent sont expliquées dans le tableau suivant.
 
-| Partie de l’URL        | DESCRIPTION       |
+| Partie de l’URL        | Description       |
 | :-------------- | :---------------- |
 | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par client* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par client *autonomes* (*-sa*), ou les *bases de données mutualisées* (*- mt*). |
 | .*&lt;user&gt;* | *af1* dans notre exemple. |

@@ -36,6 +36,6 @@ La possibilité de spécifier un remplacement d’hôte est définie au niveau d
 
 Avec cette fonctionnalité, les clients spécifient les options dans les paramètres HTTP et les sondes personnalisées pour la configuration appropriée. Ce paramètre est ensuite lié à un écouteur et à un pool de serveurs principaux à l’aide d’une règle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer une passerelle d’application avec une application web en tant que membre du pool de serveurs principaux en consultant l’article suivant : [Configurer les applications web App Service avec Application Gateway](application-gateway-web-app-powershell.md)

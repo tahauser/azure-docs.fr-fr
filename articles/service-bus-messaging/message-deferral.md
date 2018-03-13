@@ -41,7 +41,7 @@ Si un message ne peut pas être traité en raison de l’indisponibilité tempor
 
 Le report des messages n’affecte pas l’expiration du message, ce qui signifie que des messages reportés expirent toujours à la date et à l’heure prévues initialement et sont déplacés dans la file d’attente de lettres mortes, le cas échéant.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

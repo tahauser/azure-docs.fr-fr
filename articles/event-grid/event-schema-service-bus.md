@@ -22,7 +22,7 @@ Cet article décrit les propriétés et le schéma des événements Service Bus.
 
 Service Bus émet les types d’événements suivants :
 
-| Type d'événement | DESCRIPTION |
+| Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Événement levé lorsque des messages actifs sont présents dans une file d’attente ou un abonnement et qu’aucun récepteur n’est à l’écoute. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Événement levé lorsque des messages actifs sont présents dans une file d’attente de lettres mortes et qu’aucun récepteur n’est actif. |
@@ -77,7 +77,7 @@ Le schéma pour un événement de file d’attente de lettres mortes est similai
 
 Un événement contient les données générales suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
@@ -90,7 +90,7 @@ Un événement contient les données générales suivantes :
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | nameSpaceName | chaîne | Espace de noms Service Bus dans lequel figure la ressource. |
 | requestUri | chaîne | URI vers la file d’attente spécifique ou l’abonnement qui génère l’événement. |

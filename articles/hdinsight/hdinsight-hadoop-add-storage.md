@@ -147,6 +147,6 @@ Si le compte de stockage se trouve dans une région différente de celle du clus
 > [!WARNING]
 > L’utilisation d’un compte de stockage dans une région différente de celle du cluster HDInsight n’est pas prise en charge.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez découvert comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).

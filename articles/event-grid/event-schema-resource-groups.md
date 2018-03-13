@@ -24,7 +24,7 @@ Les abonnements Azure et les groupes de ressources émettent les mêmes types d�
 
 Les groupes de ressources émettent des événements de gestion à partir d’Azure Resource Manager, par exemple lors de la création d’une machine virtuelle ou de la suppression d’un compte de stockage.
 
-| Type d'événement | DESCRIPTION |
+| Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceWriteSuccess | Déclenché quand une opération de création ou de mise à jour de ressource réussit. |
 | Microsoft.Resources.ResourceWriteFailure | Déclenché quand une opération de création ou de mise à jour de ressource échoue. |
@@ -93,7 +93,7 @@ Le schéma de l’événement de suppression d’une ressource est similaire :
 
 Un événement contient les données générales suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
@@ -106,7 +106,7 @@ Un événement contient les données générales suivantes :
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | autorisation | chaîne | Autorisation demandée pour l’opération. |
 | réclamations | chaîne | Propriétés des revendications. |

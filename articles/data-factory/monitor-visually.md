@@ -113,6 +113,6 @@ Cliquez sur l’icône « Commentaires » pour nous envoyer vos commentaires sur
 
 ![Commentaires](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez l’article [Surveiller et gérer les pipelines par programmation](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) pour en savoir plus sur la surveillance et la gestion des pipelines.

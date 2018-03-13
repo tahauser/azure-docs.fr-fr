@@ -80,7 +80,7 @@ Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent e
   
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  

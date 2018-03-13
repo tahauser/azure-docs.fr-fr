@@ -18,7 +18,7 @@ ms.lasthandoff: 02/09/2018
 
 Dans ce didacticiel, vous allez apprendre à effectuer diverses tâches Ansible à partir de Bash dans Cloud Shell. Ces tâches comprennent la connexion à une machine virtuelle et la création de playbooks pour générer et supprimer un groupe de ressources Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 

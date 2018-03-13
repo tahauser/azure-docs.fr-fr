@@ -235,7 +235,7 @@ Vous pouvez supprimer une extension à partir du portail Azure en procédant com
 4. Choisissez **Désinstaller**.
 
 ## <a name="common-vm-extension-reference"></a>Informations de référence sur les extensions de machine virtuelle courantes
-| Nom de l’extension | DESCRIPTION | Plus d’informations |
+| Nom de l’extension | Description | Plus d’informations |
 | --- | --- | --- |
 | Extension de script personnalisé pour Linux |Exécuter des scripts sur une machine virtuelle Azure |[Extension de script personnalisé pour Linux](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | Extension Docker |Installer le démon Docker pour prendre en charge les commandes Docker distantes |[Extension de machine virtuelle Docker](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |

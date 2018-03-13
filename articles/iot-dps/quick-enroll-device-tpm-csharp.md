@@ -148,7 +148,7 @@ Si vous prévoyez d’aller plus loin dans l’étude de l’exemple de service 
     1. Fermez la fenêtre du simulateur TPM et la fenêtre d’exemple de sortie pour l’appareil simulé.
     2. Dans le portail Azure, accédez au IoT Hub au sein duquel votre appareil était approvisionné. Dans le menu de gauche sous **Explorateurs**, cliquez sur **Appareils IoT**, sélectionnez la case à cocher à côté de votre appareil, puis cliquez sur **Supprimer** en haut de la fenêtre.
  
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez créé par programmation une entrée d’inscription individuelle pour un appareil TPM et vous avez éventuellement créé un appareil simulé TPM sur votre machine et l’avez approvisionné vers votre IoT Hub à l’aide du service d’approvisionnement d’appareil Azure IoT Hub. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
  
 > [!div class="nextstepaction"]

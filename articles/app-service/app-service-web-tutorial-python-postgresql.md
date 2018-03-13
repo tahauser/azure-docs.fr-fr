@@ -41,7 +41,7 @@ Vous pouvez suivre les étapes de ce didacticiel sur macOS. Les instructions pou
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 

@@ -242,7 +242,7 @@ Les appels émis par des [connecteurs](../connectors/apis-list.md) proviennent d
 |Ouest du Royaume-Uni|51.141.47.105|
 | | | 
 
-## <a name="next-steps"></a>étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
 
 * [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Exemples et scénarios courants](../logic-apps/logic-apps-examples-and-scenarios.md)

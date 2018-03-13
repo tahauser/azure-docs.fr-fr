@@ -74,7 +74,7 @@ fsutil behavior set DisableDeleteNotify 0
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Attacher un disque](attach-disk-portal.md) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
 * [Créez un instantané](snapshot-copy-managed-disk.md).
 * [Convertissez en disques gérés](convert-unmanaged-to-managed-disks.md).

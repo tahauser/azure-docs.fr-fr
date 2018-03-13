@@ -62,7 +62,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
 1. Avant de créer un conteneur de stockage, [créez un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) avec les paramètres suivants :
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | attachmentstorageacct | Nom de votre compte de stockage | 
    | **Modèle de déploiement** | Resource manager | [Modèle de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) pour la gestion du déploiement des ressources. | 
@@ -128,7 +128,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
 1. Avant de pouvoir créer une fonction, [créez une application de fonction](../azure-functions/functions-create-function-app-portal.md) avec les paramètres suivants :
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Nom de l’application** | CleanTextFunctionApp | Nom global unique et descriptif de votre application de fonction. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. | 
@@ -213,7 +213,7 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
    ![Spécifier les informations de l’application logique](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | LA-ProcessAttachment | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. | 
@@ -245,7 +245,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
       ![Spécifier le dossier, l’intervalle et la fréquence de vérification des e-mails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Paramètre | Valeur | DESCRIPTION | 
+      | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
       | **Folder** | Inbox | Dossier d’e-mail à vérifier | 
       | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
@@ -254,7 +254,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
   
    2. Choisissez **Afficher les options avancées** et spécifiez les paramètres suivants :
 
-      | Paramètre | Valeur | DESCRIPTION | 
+      | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
       | **Contient une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
       | **Inclure des pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
@@ -403,7 +403,7 @@ Ajoutez maintenant une action qui crée un objet blob dans votre conteneur de st
 
    ![Créer une connexion au compte de stockage](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Nom de connexion** | AttachmentStorageConnection | Nom descriptif de la connexion. | 
    | **Compte de stockage** | attachmentstorageacct | Nom du compte de stockage que vous avez créé précédemment pour enregistrer des pièces jointes. | 
@@ -415,7 +415,7 @@ Ajoutez maintenant une action qui crée un objet blob dans votre conteneur de st
 
    ![Fournir des informations d’objet blob pour le corps de l’e-mail](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Vous pouvez également parcourir l’arborescence et sélectionner un conteneur. | 
    | **Nom de l’objet blob** | Champ **De** | Transmettez le nom de l’expéditeur de l’e-mail en tant que nom d’objet blob. Dans la liste des paramètres ou la liste de contenu dynamique, sélectionnez le champ **De** sous **À la réception d’un e-mail**. | 
@@ -500,7 +500,7 @@ Ajoutez l’action qui enregistre chaque pièce jointe sous la forme d’un obje
 
    ![Fournir des informations sur l’objet blob](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Vous pouvez également rechercher un conteneur et le sélectionner. | 
    | **Nom de l’objet blob** | Champ **Nom** | Dans la liste des paramètres ou la liste de contenu dynamique, sélectionnez **Nom** pour transmettre le nom de la pièce jointe pour le nom de l’objet blob. | 

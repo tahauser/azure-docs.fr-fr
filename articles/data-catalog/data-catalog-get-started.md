@@ -26,7 +26,7 @@ Azure Data Catalog est un service cloud entièrement géré qui sert de système
 
 Ce didacticiel vous permet de commencer à utiliser Azure Data Catalog. Dans ce didacticiel, vous effectuez les procédures suivantes :
 
-| Procédure | DESCRIPTION |
+| Procédure | Description |
 |:--- |:--- |
 | [Approvisionner Data Catalog](#provision-data-catalog) |Dans cette procédure, vous créez ou configurez Azure Data Catalog. Vous effectuez cette étape uniquement si le catalogue n’a pas été configuré auparavant. Vous ne pouvez avoir qu’un seul catalogue de données par organisation (domaine Microsoft Azure Active Directory), même si plusieurs abonnements sont associés à votre compte Azure. |
 | [Inscrire des ressources de données](#register-data-assets) |Dans cette procédure, vous inscrivez les ressources de données de l’exemple de base de données AdventureWorks2014 auprès du catalogue de données. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension. |

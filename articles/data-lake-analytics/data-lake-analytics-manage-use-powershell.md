@@ -25,7 +25,7 @@ ms.lasthandoff: 02/28/2018
 
 Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données, des travaux et des éléments de catalogue à l'aide d'Azure PowerShell. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer un compte Data Lake Analytics, vous devez connaître les éléments suivants :
 

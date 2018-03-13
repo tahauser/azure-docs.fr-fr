@@ -80,7 +80,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="db2-linked-service-properties"></a>Propriétés du service lié DB2
 Le tableau suivant répertorie les propriétés JSON spécifiques d’un service lié DB2.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **type** |Cette propriété doit être définie sur **OnPremisesDb2**. |OUI |
 | **server** |Nom du serveur DB2. |OUI |
@@ -96,7 +96,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section **typeProperties** pour un jeu de données de type **RelationalTable** (qui inclut le jeu de données DB2) a la propriété suivante :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | **tableName** |Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. Cette propriété est sensible à la casse. |Non (si la propriété **query** d’une activité de copie de type **RelationalSource** est spécifiée) |
 
@@ -105,7 +105,7 @@ Pour obtenir la liste des sections et des propriétés disponibles pour la défi
 
 Pour l’activité de copie, lorsque la source est de type **RelationalSource** (qui inclut DB2), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | **query** |Utilise la requête personnalisée pour lire les données. |Chaîne de requête SQL. Par exemple : `"query": "select * from "MySchema"."MyTable""` |Non (si la propriété **tableName** d’un jeu de données est spécifié) |
 

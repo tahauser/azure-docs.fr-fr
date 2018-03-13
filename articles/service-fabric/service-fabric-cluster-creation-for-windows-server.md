@@ -193,7 +193,7 @@ Aucune.
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Déployer et supprimer des applications avec PowerShell](service-fabric-deploy-remove-applications.md)
 * [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md)
 * [Ajouter ou supprimer des nœuds à/d’un cluster Service Fabric autonome](service-fabric-cluster-windows-server-add-remove-nodes.md)

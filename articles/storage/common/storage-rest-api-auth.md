@@ -566,7 +566,7 @@ Content-Length: 1135
 
 Dans cet article, vous avez appris à effectuer une requête à l’API REST du stockage Blob pour récupérer une liste de conteneurs ou une liste d’objets Blob dans un conteneur. Vous avez également appris à créer la signature d’autorisation pour l’appel de l’API REST, à l’utiliser dans la requête REST et à examiner la réponse.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)
 * [API REST du service de fichiers](/rest/api/storageservices/file-service-rest-api)

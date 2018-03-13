@@ -88,5 +88,5 @@ Tous les concepts abordés dans cet article peuvent être configurés à l’aid
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer un laboratoire dans DevTest Labs](devtest-lab-create-lab.md)

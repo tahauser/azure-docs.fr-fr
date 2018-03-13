@@ -36,7 +36,7 @@ Lorsque vous installez les services de synchronisation, vous pouvez laisser la s
 
 ![Composants requis](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
-| Configuration facultative | DESCRIPTION |
+| Configuration facultative | Description |
 | --- | --- |
 | Utiliser un serveur SQL Server existant |Permet de spécifier le nom du serveur SQL et le nom de l’instance. Choisissez cette option si vous souhaitez utiliser un serveur de base de données existant. Si la navigation n’est pas activée sur votre serveur SQL Server, saisissez le nom de l’instance dans la zone **Nom de l’instance** , suivi d’une virgule et du numéro de port. |
 | Utiliser un compte de service existant |Par défaut, Azure AD Connect utilise un compte de service virtuel, que les services de synchronisation doivent utiliser. Si vous utilisez un serveur SQL Server distant ou un proxy qui requiert une authentification, vous devez utiliser un **compte de service géré** ou un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte à utiliser. Assurez-vous que l’utilisateur qui exécute l’installation est une association de sécurité dans SQL pour qu’il soit possible de créer une session pour le compte de service.  Consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). </br></br>Avec la version la plus récente, l’approvisionnement de la base de données peut désormais être exécuté hors bande par l’administrateur SQL. L’installation s’effectue ensuite par l’administrateur Azure AD Connect disposant des droits du propriétaire de la base de données.  Pour plus d’informations, consultez la section [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md) (Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL).|
@@ -47,7 +47,7 @@ Après avoir installé les composants requis, vous êtes invité à sélectionne
 
 ![Connexion de l’utilisateur](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
-| Option d’authentification unique | DESCRIPTION |
+| Option d’authentification unique | Description |
 | --- | --- |
 | Synchronisation de hachage de mot de passe |Les utilisateurs peuvent se connecter aux services cloud Microsoft, comme Office 365, à l’aide du mot de passe qu’ils utilisent dans leur réseau local. Les mots de passe des utilisateurs sont synchronisés sur Azure, via un hachage de mot de passe, et l’authentification est effectuée dans le cloud. Pour plus d’informations, consultez [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md). |
 |Authentification directe|Les utilisateurs peuvent se connecter aux services cloud Microsoft, comme Office 365, à l’aide du mot de passe qu’ils utilisent dans leur réseau local.  Le mot de passe de l’utilisateur est ensuite transmis vers le contrôleur de domaine Active Directory local à valider.
@@ -77,7 +77,7 @@ Pour vous connecter à votre service de domaine Active Directory, Azure AD Conne
 
 Après avoir saisi le nom de la forêt et cliqué sur **Ajouter un répertoire**, une boîte de dialogue contextuelle contenant les options suivantes s’affiche :
 
-| Option | DESCRIPTION |
+| Option | Description |
 | --- | --- |
 | Créer un compte | Sélectionnez cette option si vous souhaitez que l’Assistant Azure AD Connect crée le compte AD DS dont il a besoin pour se connecter à la forêt AD pendant la synchronisation des répertoires. Lorsque cette option est sélectionnée, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Le compte d’administrateur d’entreprise fourni sera utilisé par l’Assistant Azure AD Connect pour créer le compte AD DS requis. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, c’est-à-dire FABRIKAM\administrator ou fabrikam.com\administrator. |
 | Utiliser un compte existant | Sélectionnez cette option si vous souhaitez qu’Azure AD Connect utilise un compte AD DS existant pour se connecter à la forêt AD pendant la synchronisation des répertoires. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, par exemple, FABRIKAM\syncuser ou fabrikam.com\syncuser. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour en savoir plus, voir [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
@@ -120,7 +120,7 @@ La fonctionnalité Correspondance entre les forêts vous permet de définir la m
 
 ![Unique](./media/active-directory-aadconnect-get-started-custom/unique.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | [Les utilisateurs ne sont représentés qu’une seule fois à travers toutes les forêts](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tous les utilisateurs sont créés en tant qu’objets individuels dans Azure AD. Les objets ne sont pas associés dans le métaverse. |
 | [Attribut de messagerie](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Cette option associe des utilisateurs et des contacts si l’attribut de messagerie a la même valeur dans des forêts différentes. Utilisez cette option si vos contacts ont été créés avec GALSync. Si cette option est sélectionnée, les objets utilisateur dont l’attribut de messagerie n’est pas rempli ne sont pas synchronisés avec Azure AD. |
@@ -131,7 +131,7 @@ La fonctionnalité Correspondance entre les forêts vous permet de définir la m
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Sélectionnez la façon dont les utilisateurs doivent être identifiés avec Azure AD - ancre Source
 L’attribut sourceAnchor ne varie pas pendant la durée de vie d’un objet utilisateur. Il s’agit de la clé primaire liant l’utilisateur local avec l’utilisateur dans Azure AD.
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | Let Azure manage the source anchor for me (Laisser Azure gérer l’ancre source pour moi) | Sélectionnez cette option si vous souhaitez qu’Azure AD sélectionne l’attribut pour vous. Si vous sélectionnez cette option, l’Assistant Azure AD Connect applique la logique de sélection d’attribut sourceAnchor décrite dans l’article [Principes de conception Azure Connect AD, section Utiliser msDS-ConsistencyGuid comme sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). L’Assistant vous indique quel attribut a été sélectionné comme attribut d’ancre source une fois l’installation personnalisée terminée. |
 | Un attribut spécifique | Sélectionnez cette option si vous souhaitez spécifier un attribut AD existant comme attribut sourceAnchor. |
@@ -160,7 +160,7 @@ Cet écran vous permet de sélectionner des fonctionnalités facultatives pour v
 >
 >
 
-| Fonctionnalités facultatives | DESCRIPTION |
+| Fonctionnalités facultatives | Description |
 | --- | --- |
 | Déploiement Exchange hybride |La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange en local et dans Office 365. Azure AD Connect synchronise un ensemble spécifique d’[attributs](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) d’Azure AD dans votre annuaire local. |
 | Dossiers publics de messagerie Exchange | La fonctionnalité Dossiers publics de messagerie Exchange vous permet de synchroniser les objets Dossier public à extension messagerie de votre Active Directory local avec Azure AD. |

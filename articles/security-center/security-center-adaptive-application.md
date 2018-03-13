@@ -162,7 +162,7 @@ La liste contient :
 - **NOM** : le nom de l’abonnement et des groupes de ressources
 - **MACHINES VIRTUELLES** : le nombre de machines virtuelles dans le groupe de ressources
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez découvert comment utiliser les contrôles d’application adaptative dans Azure Security Center afin d’inclure dans une liste verte des applications s’exécutant sur les machines virtuelles Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.

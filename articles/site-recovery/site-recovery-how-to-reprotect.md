@@ -240,7 +240,7 @@ Une fois la reprotection réussie, la machine virtuelle passera à l’état pro
 * Un serveur Windows Server 2008 R2 SP1 protégé comme serveur physique sur site ne peut pas être restauré localement à partir d’Azure.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que la machine virtuelle est passée à l’état protégé, vous pouvez [commencer une restauration automatique](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 

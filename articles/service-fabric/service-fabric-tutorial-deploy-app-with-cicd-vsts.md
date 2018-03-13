@@ -158,7 +158,7 @@ La mise à niveau de l’application peut prendre plusieurs minutes. Une fois la
 
 ![Service Fabric Explorer][sfx3]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

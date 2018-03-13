@@ -71,7 +71,7 @@ Vous pouvez partager votre package de support généré manuellement avec le sup
 
 Vous pouvez utiliser les paramètres suivants avec l’applet de commande Export-HcsSupportPackage.
 
-| Paramètre | Obligatoire ou facultatif | DESCRIPTION |
+| Paramètre | Obligatoire ou facultatif | Description |
 | --- | --- | --- |
 | `-Path` |Obligatoire |Permet d’indiquer l’emplacement du dossier réseau partagé dans lequel le package de support est placé. |
 | `-EncryptionPassphrase` |Obligatoire |Permet de fournir une phrase secrète permettant de chiffrer le package de support. |

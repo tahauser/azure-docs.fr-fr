@@ -214,7 +214,7 @@ Pour les charges de travail de production
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez terminé la planification de votre capacité et que vous avez configuré un cluster, lisez ce qui suit :
 
 * [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)

@@ -38,7 +38,7 @@ La commande `Dismount-CloudDrive` démonte un partage de fichiers Azure à parti
 
 [!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide pour PowerShell](quickstart-powershell.md) <br>
 [En savoir plus sur Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [En savoir plus sur les balises de stockage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

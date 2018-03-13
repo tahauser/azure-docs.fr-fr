@@ -91,7 +91,7 @@ Les autres didacticiels de cette collection reposent sur ce didacticiel. Si vous
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre instance du service IoT Hub Device Provisioning. Dans la partie supérieure de la page **Toutes les ressources**, cliquez sur **Supprimer**.  
 2. À partir du menu de gauche dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre hub IoT. Dans la partie supérieure de la page **Toutes les ressources**, cliquez sur **Supprimer**.
  
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

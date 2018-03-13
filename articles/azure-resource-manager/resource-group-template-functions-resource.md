@@ -45,7 +45,7 @@ Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | DESCRIPTION |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
 | nom_ressource ou identificateur_ressource |OUI |chaîne |Identificateur unique pour la ressource. |
 | apiVersion |OUI |chaîne |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
@@ -151,7 +151,7 @@ Renvoie des informations sur un fournisseur de ressources et les types de ressou
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | DESCRIPTION |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
 | espacedenoms_fournisseur |OUI |chaîne |Espace de noms du fournisseur. |
 | resourceType |Non  |chaîne |Type de ressource dans l'espace de noms spécifié. |
@@ -239,7 +239,7 @@ Renvoie un objet représentant l’état d’exécution d’une ressource.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | DESCRIPTION |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
 | nom_ressource ou identificateur_ressource |OUI |chaîne |Nom ou identificateur unique d’une ressource. |
 | apiVersion |Non  |chaîne |Version d’API de la ressource spécifiée. Incluez ce paramètre lorsque la ressource n’est pas approvisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
@@ -531,7 +531,7 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | type | DESCRIPTION |
+| Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Non  |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
 | nom_groupe_ressources |Non  |chaîne |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |

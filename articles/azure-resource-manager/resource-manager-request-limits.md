@@ -34,7 +34,7 @@ Les requêtes étendues à l’abonnement sont celles qui impliquent la transmis
 ## <a name="remaining-requests"></a>Requêtes restantes
 Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Chaque demande contient des valeurs pour le nombre de requêtes de lecture et d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
 
-| En-tête de réponse | DESCRIPTION |
+| En-tête de réponse | Description |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Requêtes de lecture restantes étendues à l’abonnement |
 | x-ms-ratelimit-remaining-subscription-writes |Requêtes d’écriture restantes étendues à l’abonnement |

@@ -224,7 +224,7 @@ Une fois ces modifications effectuées, **démarrez** l’application pour qu’
 
 ![événements personnalisés](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Configurer Application Insights pour votre application

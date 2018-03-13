@@ -47,7 +47,7 @@ Procédez comme suit pour rechercher et terminer la révision de l’accès :
 5. Fermez le panneau **Réviser les rôles Azure AD** .
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

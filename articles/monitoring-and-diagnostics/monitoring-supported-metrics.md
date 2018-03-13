@@ -30,7 +30,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Count|Moyenne|QPU. Plage de 0 à 100 pour S1, de 0 à 200 pour S2 et de 0 à 400 pour S4|ServerResourceType|
 |memory_metric|Mémoire|Octets|Moyenne|Mémoire. Plage de 0 à 25 Go pour S1, de 0 à 50 Go pour S2 et de 0 à 100 Go pour S4|ServerResourceType|
@@ -78,7 +78,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |TotalRequests|Nombre total de demandes de la passerelle|Count|Total|Nombre de demandes de la passerelle|Emplacement, nom d’hôte|
 |SuccessfulRequests|Demandes de la passerelle ayant abouti|Count|Total|Nombre de demandes de la passerelle ayant abouti|Emplacement, nom d’hôte|
@@ -90,13 +90,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |TotalJob|Nombre total de travaux|Count|Total|Nombre total de travaux|RunbookName, Status|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CoreCount|Nombre de cœurs dédiés|Count|Total|Nombre total de cœurs dédiés dans le compte Batch|Aucune dimension|
 |TotalNodeCount|Nombre de nœuds dédiés|Count|Total|Nombre total de nœuds dédiés dans le compte Batch|Aucune dimension|
@@ -125,7 +125,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |connectedclients|Clients connectés|Count|Maximale||Aucune dimension|
 |totalcommandsprocessed|Total des opérations|Count|Total||Aucune dimension|
@@ -295,7 +295,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles.|Aucune dimension|
 |Network In|Network In|Octets|Total|Nombre d’octets reçus sur toutes les interfaces réseau par les machines virtuelles (trafic entrant).|Aucune dimension|
@@ -307,7 +307,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |TotalCalls|Nombre total d’appels|Count|Total|Nombre total d’appels.|Aucune dimension|
 |SuccessfulCalls|Appels réussis|Count|Total|Nombre d’appels réussis.|Aucune dimension|
@@ -324,7 +324,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|Aucune dimension|
 |Network In|Network In|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|Aucune dimension|
@@ -338,7 +338,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|Aucune dimension|
 |Network In|Network In|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|Aucune dimension|
@@ -352,7 +352,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Le pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles|Aucune dimension|
 |Network In|Network In|Octets|Total|Le nombre d’octets reçus sur toutes les interfaces réseau par les ordinateurs virtuels (trafic entrant)|Aucune dimension|
@@ -366,7 +366,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |DCIApiCalls|Appels de l’API Insights client|Count|Total||Aucune dimension|
 |DCIMappingImportOperationSuccessfulLines|Mappage des lignes de réussite d’opération d’importation|Count|Total||Aucune dimension|
@@ -401,14 +401,14 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |SuccessfulRuns|Exécutions réussies|Count|Total|Nombre d’exécutions réussies.|Aucune dimension|
 |FailedRuns|Exécutions échouées|Count|Total|Nombre d’échecs d’exécutions.|Aucune dimension|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |PipelineFailedRuns|Métriques d’exécutions de pipeline ayant échoué|Count|Total||Aucune dimension|
 |PipelineSucceededRuns|Métriques d’exécutions de pipeline ayant abouti|Count|Total||Aucune dimension|
@@ -419,7 +419,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |JobEndedSuccess|Travaux réussis|Count|Total|Nombre de travaux réussis|Aucune dimension|
 |JobEndedFailure|Travaux en échec|Count|Total|Nombre de travaux en échec|Aucune dimension|
@@ -430,7 +430,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |TotalStorage|Stockage total|Octets|Maximale|Volume total de données stockées dans le compte.|Aucune dimension|
 |DataWritten|Données écrites|Octets|Total|Volume total de données écrites dans le compte.|Aucune dimension|
@@ -440,7 +440,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Moyenne|Pourcentage d’UC|Aucune dimension|
 |compute_limit|Limite d’unités de calcul|Count|Moyenne|Limite d’unités de calcul|Aucune dimension|
@@ -455,7 +455,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Moyenne|Pourcentage d’UC|Aucune dimension|
 |compute_limit|Limite d’unités de calcul|Count|Moyenne|Limite d’unités de calcul|Aucune dimension|
@@ -470,7 +470,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|Aucune dimension|
 |d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Count|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|Aucune dimension|
@@ -533,7 +533,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |RegistrationAttempts|Tentatives d’enregistrement|Count|Total|Nombre d’inscriptions d’appareils tentées|ProvisioningServiceName, IotHubName, Status|
 |DeviceAssignments|Appareils attribués|Count|Total|Nombre d’appareils affectés à un hub IoT|ProvisioningServiceName, IotHubName|
@@ -541,13 +541,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdeviceselasticpools"></a>Microsoft.Devices/ElasticPools
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |elasticPool.requestedUsageRate|Taux d’utilisation demandée|Pourcentage|Moyenne|Taux d’utilisation demandée|Aucune dimension|
 
 ## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |tenantHub.requestedUsageRate|Taux d’utilisation demandée|Pourcentage|Moyenne|Taux d’utilisation demandée|Aucune dimension|
 |deviceDataUsage|Utilisation totale des données d’appareil|Count|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
@@ -611,7 +611,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |MetadataRequests|Demandes de métadonnées|Count|Count|Nombre de demandes de métadonnées. Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
 |MongoRequestCharge|Frais des requêtes Mongo|Count|Total|Unités de requête Mongo consommées|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
@@ -622,7 +622,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Requête réussies pour Microsoft.EventHub. (Préversion)|EntityName|
 |ServerErrors|Erreurs de serveur. (Préversion)|Count|Total|Erreurs de serveur pour Microsoft.EventHub. (Préversion)|EntityName|
@@ -660,7 +660,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |ObservedMetricValue|Valeur de métrique observée|Count|Moyenne|Valeur calculée par mise à l’échelle automatique lors de l’exécution|MetricTriggerSource|
 |MetricThreshold|Seuil de métrique|Count|Moyenne|Seuil de mise à l’échelle automatique configurée lors de l’exécution de la mise à l’échelle automatique.|MetricTriggerRule|
@@ -669,7 +669,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |ServiceApiHit|Correspondances totales de l'API de service|Count|Count,Total|Nombre total de correspondances de l'API de service|ActivityType, ActivityName|
 |ServiceApiLatency|Latence globale de l'API de service|Millisecondes|Count,Average,Minimum,Maximum|Latence globale des demandes de l'API de service|ActivityType, ActivityName, StatusCode|
@@ -677,13 +677,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Latency|Latency|Millisecondes|Moyenne|Durée des appels d’API|OperationName, OperationResult|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |RunsStarted|Exécutions démarrées|Count|Total|Nombre d’exécutions de flux de travail démarrées.|Aucune dimension|
 |RunsCompleted|Exécutions terminées|Count|Total|Nombre d’exécutions de flux de travail terminées.|Aucune dimension|
@@ -718,7 +718,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |VipAvailability|Disponibilité VIP|Count|Moyenne|Disponibilité des points de terminaison VIP, en fonction des résultats du sondage|VipAddress, VipPort|
 |DipAvailability|Disponibilité DIP|Count|Moyenne|Disponibilité des points de terminaison DIP, en fonction des résultats du sondage|ProtocolType, DipPort, VipAddress, VipPort, DipAddress|
@@ -729,7 +729,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |PacketsInDDoS|Paquets entrants DDoS|CountPerSecond|Maximale|Paquets entrants DDoS|Aucune dimension|
 |PacketsDroppedDDoS|Paquets entrants ignorés DDoS|CountPerSecond|Maximale|Paquets entrants ignorés DDoS|Aucune dimension|
@@ -760,13 +760,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Total|Nombre d’octets par seconde servis par Application Gateway|Aucune dimension|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |TunnelAverageBandwidth|Bande passante de tunnel|BytesPerSecond|Moyenne|Bande passante moyenne d’un tunnel en octets par seconde|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Octets de sortie de tunnel|Octets|Total|Octets sortants d’un tunnel|ConnectionName, RemoteIP|
@@ -778,21 +778,21 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |BitsInPerSecond|BitsInPerSecond|CountPerSecond|Moyenne|Bits entrant dans Azure par seconde|Aucune dimension|
 |BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Moyenne|Bits sortant d’Azure par seconde|Aucune dimension|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |QpsByEndpoint|Requêtes par point de terminaison renvoyé|Count|Total|Nombre de fois où un point de terminaison Traffic Manager a été renvoyé dans le laps de temps donné|EndpointName|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|État du point de terminaison par point de terminaison|Count|Maximale|1 si l’état de sondage d’un point de terminaison est « activé », 0 dans le cas contraire.|EndpointName|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |registration.all|Opérations d’inscription|Count|Total|Total des opérations d’inscription réussies (requêtes de mises à jour de créations et suppressions). |Aucune dimension|
 |registration.create|Opérations de création d’inscription|Count|Total|Total des créations d’inscription réussies.|Aucune dimension|
@@ -859,14 +859,14 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |QueryDuration|Durée de la requête|Millisecondes|Moyenne|Durée de la requête DAX dans le dernier intervalle|Aucune dimension|
 |QueryPoolJobQueueLength|Threads : longueur de file d’attente de travaux du pool de requêtes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|Aucune dimension|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |ListenerConnections-Success|ListenerConnections-Success|Count|Total|ListenerConnections ayant abouti pour Microsoft.Relay.|EntityName|
 |ListenerConnections-ClientError|ListenerConnections-ClientError|Count|Total|ClientError sur ListenerConnections pour Microsoft.Relay.|EntityName|
@@ -884,7 +884,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |SearchLatency|Latence de recherche|Secondes|Moyenne|Latence moyenne de recherche du service de recherche|Aucune dimension|
 |SearchQueriesPerSecond|Requêtes de recherche par seconde|CountPerSecond|Moyenne|Requêtes de recherche par seconde pour le service de recherche|Aucune dimension|
@@ -892,7 +892,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Nombre total de demandes ayant réussi pour un espace de noms (préversion)|EntityName|
 |ServerErrors|Erreurs de serveur. (Préversion)|Count|Total|Erreurs de serveur pour Microsoft.ServiceBus. (Préversion)|EntityName|
@@ -909,7 +909,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Aucune dimension|
 |physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|Aucune dimension|
@@ -934,7 +934,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Aucune dimension|
 |physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|Aucune dimension|
@@ -951,14 +951,14 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|ElasticPoolResourceId|
 |storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |UsedCapacity|Capacité utilisée|Octets|Moyenne|Capacité de compte utilisée|Aucune dimension|
 |Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName|
@@ -970,7 +970,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |BlobCapacity|Capacité d’objet blob|Octets|Moyenne|Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.|/BlobType|
 |BlobCount|Nombre d’objets blob|Count|Moyenne|Nombre d’objets blob dans le service BLOB du compte de stockage.|/BlobType|
@@ -984,7 +984,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |TableCapacity|Capacité de la table|Octets|Moyenne|Quantité de stockage utilisée par le service de Table du compte de stockage, en octets.|Aucune dimension|
 |TableCount|Nombre de tables|Count|Moyenne|Nombre de tables dans le service de Table du compte de stockage.|Aucune dimension|
@@ -998,7 +998,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |QueueCapacity|Capacité de la file d’attente|Octets|Moyenne|Quantité de stockage utilisée par le service de File d’attente du compte de stockage, en octets.|Aucune dimension|
 |QueueCount|Nombre de files d’attente|Count|Moyenne|Nombre de files d’attente dans le service de File d’attente du compte de stockage.|Aucune dimension|
@@ -1012,7 +1012,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |FileCapacity|Capacité de fichiers|Octets|Moyenne|Quantité de stockage utilisée par le service de Fichier du compte de stockage, en octets.|Aucune dimension|
 |FileCount|Nombre de fichiers|Count|Moyenne|Nombre de fichiers dans le service de Fichier du compte de stockage.|Aucune dimension|
@@ -1026,7 +1026,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |ResourceUtilization|Utilisation de % d’unités de diffusion|Pourcentage|Maximale|Utilisation de % d’unités de diffusion|Aucune dimension|
 |InputEvents|Événements d’entrée|Count|Total|Événements d’entrée|Aucune dimension|
@@ -1042,7 +1042,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
 |MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
@@ -1053,7 +1053,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (à l’exclusion de Functions)
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|Instance|
 |Requests|Requests|Count|Total|Requests|Instance|
@@ -1075,7 +1075,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
@@ -1087,7 +1087,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|Instance|
 |Requests|Requests|Count|Total|Requests|Instance|
@@ -1111,7 +1111,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Requests|Requests|Count|Total|Requests|Instance|
 |BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
@@ -1138,7 +1138,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|DESCRIPTION|Dimensions|
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |WorkersTotal|Nombre total de workers|Count|Moyenne|Nombre total de workers|Aucune dimension|
 |WorkersAvailable|Workers disponibles|Count|Moyenne|Workers disponibles|Aucune dimension|

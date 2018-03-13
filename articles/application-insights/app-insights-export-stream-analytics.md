@@ -220,7 +220,7 @@ Noam Ben Zeev montre comment traiter des données exportées à l’aide de Stre
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)

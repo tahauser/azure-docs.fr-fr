@@ -667,6 +667,6 @@ Pour affecter une licence à un groupe, effectuez les étapes suivantes :
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-azure-portal.md)
 

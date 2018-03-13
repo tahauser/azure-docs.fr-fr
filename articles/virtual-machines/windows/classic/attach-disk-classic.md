@@ -108,7 +108,7 @@ Si la commande renvoie 0, TRIM est bien activé. Si la valeur 1 est renvoyée, e
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](../../virtual-machines-windows-change-drive-letter.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

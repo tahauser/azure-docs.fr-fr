@@ -332,7 +332,7 @@ Pour vous connecter directement à HDInsight par le biais du réseau virtuel, pr
     >
     > Par exemple, Ambari n’est actif que sur un nœud principal à la fois. Si vous tentez d’accéder à Ambari sur un nœud principal et recevez une erreur 404, cela signifie qu’Ambari s’exécute sur l’autre nœud principal.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur l’utilisation de HDInsight dans un réseau virtuel, consultez [Étendre HDInsight à l’aide de réseaux virtuels Azure](./hdinsight-extend-hadoop-virtual-network.md).
 

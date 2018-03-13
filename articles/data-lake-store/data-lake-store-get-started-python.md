@@ -131,7 +131,7 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
     adlsAcctClient.account.delete(adlsAccountName)
     
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Opérations du système de fichiers sur Data Lake Store à l’aide de Python](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Voir aussi

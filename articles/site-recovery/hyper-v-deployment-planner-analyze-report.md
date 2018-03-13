@@ -355,5 +355,5 @@ Chaque table de lot fournit un résumé de la consommation réseau du lot.
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [l’estimation des coûts](hyper-v-deployment-planner-cost-estimation.md).

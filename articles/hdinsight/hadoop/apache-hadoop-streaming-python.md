@@ -201,7 +201,7 @@ Utilisez le script PowerShell suivant pour charger les fichiers, exécuter la t�
 
     Cette commande affiche une liste des mots et le nombre de fois où ils apparaissent.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez découvert comment utiliser des travaux de diffusion en continu MapReduce avec HDInsight, cliquez sur les liens suivants pour explorer d’autres façons d’utiliser Azure HDInsight.
 

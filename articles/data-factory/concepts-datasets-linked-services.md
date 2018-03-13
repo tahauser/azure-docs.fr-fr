@@ -65,7 +65,7 @@ Un service lié dans Data Factory se définit de la façon suivante au format JS
 
 La table suivante décrit les propriétés dans le JSON ci-dessus :
 
-Propriété | DESCRIPTION | Obligatoire |
+Propriété | Description | Obligatoire |
 -------- | ----------- | -------- |
 Nom | Nom du service lié. Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  OUI |
 Type | Type du service lié. Par exemple : AzureStorage (magasin de données) ou AzureBatch (calcul). Consultez la description de typeProperties. | OUI |
@@ -122,7 +122,7 @@ Un jeu de données dans la fabrique de données est défini au format JSON comme
 ```
 La table suivante décrit les propriétés dans le JSON ci-dessus :
 
-Propriété | DESCRIPTION | Obligatoire |
+Propriété | Description | Obligatoire |
 -------- | ----------- | -------- |
 Nom | Nom du jeu de données Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  OUI |
 Type | Type du jeu de données. Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-types). | OUI |
@@ -196,7 +196,7 @@ La section **structure** est facultative. Elle définit le schéma du jeu de don
 
 Chaque colonne de la structure contient les propriétés suivantes :
 
-Propriété | DESCRIPTION | Obligatoire
+Propriété | Description | Obligatoire
 -------- | ----------- | --------
 Nom | Nom de la colonne. | OUI
 Type | Type de données de la colonne. | Non 

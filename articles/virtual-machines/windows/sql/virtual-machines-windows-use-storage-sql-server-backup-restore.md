@@ -46,7 +46,7 @@ Les deux sections suivantes présentent le service de stockage d’objets blob A
 ## <a name="azure-blob-storage-service-components"></a>Composants du service BLOB Azure
 Les composants Azure suivants sont utilisés pour les sauvegardes sur le service de stockage d’objets blob Azure.
 
-| Composant | DESCRIPTION |
+| Composant | Description |
 | --- | --- |
 | **Compte de stockage** |le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Conteneur** |Un conteneur fournit un regroupement contenant un nombre illimité d’objets blob. Pour écrire une sauvegarde SQL Server sur un service BLOB Azure, au moins un conteneur racine doit être créé. |
@@ -55,7 +55,7 @@ Les composants Azure suivants sont utilisés pour les sauvegardes sur le service
 ## <a name="sql-server-components"></a>Composants SQL Server
 Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le service de stockage d’objets blob Azure.
 
-| Composant | DESCRIPTION |
+| Composant | Description |
 | --- | --- |
 | **URL** |une URL attribue un URI (Uniform Resource Identifier) à un fichier de sauvegarde unique. L’URL fournit l’emplacement et le nom du fichier de sauvegarde SQL Server. L’URL doit pointer vers un objet blob réel, pas juste un conteneur. Si l’objet blob n’existe pas, il est créé. Si un objet blob existant est indiqué, BACKUP échoue, sauf si l’option > WITH FORMAT est indiquée. Voici un exemple d’URL que vous pouvez spécifier dans la commande BACKUP : **http[s]://[comptestockage].blob.core.windows.net/[conteneur]/[NOMFICHIER.bak]**. HTTPS n’est pas requis, mais recommandé. |
 | **Informations d'identification** |les informations requises pour se connecter au service BLOB Azure et pour s'y authentifier sont stockées sous la forme d'informations d'identification.  Vous devez créer des informations d'identification SQL Server afin que ce dernier écrive les sauvegardes sur un service BLOB Azure ou les restaure depuis celui-ci. Pour plus d’informations, consultez [Informations d’identification SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |

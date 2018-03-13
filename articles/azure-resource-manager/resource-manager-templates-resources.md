@@ -66,7 +66,7 @@ Vous définissez des ressources avec la structure suivante :
 ]
 ```
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | condition | Non  | Valeur booléenne indiquant si la ressource est déployée. |
 | apiVersion |OUI |La version de l'API REST à utiliser pour la création de la ressource. |

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
 ms.openlocfilehash: 3d9d4d682a25d11129e81855a6bf149ac1d5cff0
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons 
 
@@ -60,7 +60,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://localhost:50342/oauth2/token` | Le point de terminaison MSI, où 50342 est le numéro de port par défaut (configurable). |
@@ -83,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | ------- | ----------- |
 | `access_token` | Le jeton d’accès demandé. Lors de l’appel d’une API REST sécurisée, le jeton est incorporé dans le champ d’en-tête de requête `Authorization` comme un jeton « du porteur », autorisant l’API à authentifier l’appelant. | 
 | `refresh_token` | Non utilisé par MSI. |
@@ -253,7 +253,7 @@ Le point de terminaison MSI signale des erreurs via le champ de code d’état d
 
 Si une erreur se produit, le corps de réponse HTTP correspondant contient des données JSON avec les détails de l’erreur :
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | ------- | ----------- |
 | error   | Identificateur de l’erreur. |
 | error_description | Description détaillée de l’erreur. **Les descriptions des erreurs peuvent changer à tout moment. N’écrivez pas de codes créant des branches en fonction des valeurs dans la description de l’erreur.**|

@@ -62,7 +62,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié OData.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur **OData** |OUI |
 | url |URL du service OData. |OUI |
@@ -147,7 +147,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **ODataResource** (qui inclut le jeu de données OData) présente les propriétés suivantes
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | chemin d’accès |Chemin d'accès à la ressource OData |Non  |
 
@@ -158,7 +158,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 
 Lorsque la source est de type **RelationalSource** (qui inclut OData), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | exemples | Obligatoire |
+| Propriété | Description | exemples | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |"?$select=Name, Description&$top=5" |Non  |
 

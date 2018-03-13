@@ -124,7 +124,7 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans la première partie de la série, vous avez appris à créer un compte de stockage, déployer une machine virtuelle et configurer la machine virtuelle avec les prérequis nécessaires, notamment comment :
 

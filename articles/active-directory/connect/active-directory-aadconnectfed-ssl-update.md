@@ -103,7 +103,7 @@ Après avoir terminé la configuration, Azure AD Connect affiche le message qui 
 
     La suppression du serveur de la liste dans Azure AD Connect ne le supprime pas de la configuration AD FS. Azure AD Connect fait référence à AD FS (Windows Server 2016 ou version ultérieure) pour toutes les informations concernant la batterie de serveurs. Si le serveur est toujours présent dans la configuration AD FS, il sera répertorié dans la liste.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Fédération avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 - [Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect](active-directory-aadconnect-federation-management.md)

@@ -76,7 +76,7 @@
 
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
-#### [Portail Azure](active-directory-groups-create-azure-portal.md)
+#### [Portail Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
 ### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
@@ -95,10 +95,10 @@
 ### [Ajouter l’accès de groupe aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurer un groupe Office 365 supprimé](active-directory-groups-restore-azure-portal.md)
 ### Gérer les paramètres de groupe
-#### [Portail Azure](active-directory-groups-settings-azure-portal.md)
+#### [Portail Azure](active-directory-groups-settings-azure-portal.md)
 #### [Applets de commande](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Créer des règles avancées
-#### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurer des groupes libre-service](active-directory-accessmanagement-self-service-group-management.md)
 ### [Résolution des problèmes](active-directory-accessmanagement-troubleshooting.md)
 
@@ -146,7 +146,7 @@
 ### [Spécifications des données SSPR](active-directory-passwords-data.md)
 ### [SSPR Reporting](active-directory-passwords-reporting.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
-#### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
+#### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Licence SSPR](active-directory-passwords-licensing.md)
 ### [Réécriture du mot de passe](active-directory-passwords-writeback.md)
 ### [Résolution des problèmes](active-directory-passwords-troubleshoot.md)
@@ -290,9 +290,10 @@
 ### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
 #### [Affecter un rôle d’administrateur à un utilisateur](active-directory-users-assign-role-azure-portal.md)
 #### [Comparer les autorisations des invités et des membres](users-default-permissions.md)
+### [Sécurisation de l’accès privilégié](admin-roles-best-practices.md) 
+### [Créer les comptes d’administration d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
-### [Gérer les comptes d’administration d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Révisions d’accès
 ### [Vue d’ensemble des révisions d’accès](active-directory-azure-ad-controls-access-reviews-overview.md)

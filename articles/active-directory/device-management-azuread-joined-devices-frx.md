@@ -81,7 +81,7 @@ Pour vérifier si un appareil est joint à Azure AD, consultez la boîte de dial
 ![Accès Professionnel ou Scolaire](./media/device-management-azuread-joined-devices-frx/13.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 

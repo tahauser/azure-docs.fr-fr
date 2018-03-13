@@ -274,7 +274,7 @@ Les paramètres de constructeur de l’attribut et les propriétés sont décrit
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `NotificationHub` :
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** |n/a| Doit être défini sur « notificationHub ». |
 |**direction** |n/a| Doit être défini sur « out ». | 

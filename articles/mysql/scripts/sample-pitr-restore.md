@@ -42,6 +42,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az mysql server restore](/cli/azure/mysql/server#restore) | Restaure un serveur à partir de la sauvegarde. |
 | [az group delete](/cli/azure/group#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour MySQL](../sample-scripts-azure-cli.md)

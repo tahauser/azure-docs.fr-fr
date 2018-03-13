@@ -94,7 +94,7 @@ Si la cible des données n’est pas une base de données, vous pouvez générer
 
 Si vous avez besoin d’exécuter plusieurs opérations sur les données dans le cadre du processus ETL, réfléchissez à la façon de les gérer. Si les opérations sont contrôlées par un programme externe, plutôt que comme un flux de travail au sein de la solution, vous devez décider si certaines opérations peuvent être exécutées en parallèle et détecter à quel moment chaque tâche se termine. L’utilisation d’un mécanisme de flux de travail tel qu’Oozie dans Hadoop peut être plus facile que d’orchestrer une séquence d’opérations à l’aide de scripts externes ou de programmes personnalisés. Pour plus d’informations sur Oozie, consultez [Orchestration des travaux et flux de travail](https://msdn.microsoft.com/library/dn749829.aspx).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [ETL à grande échelle](apache-hadoop-etl-at-scale.md)
 * [Opérationnaliser un pipeline de données](../hdinsight-operationalize-data-pipeline.md)

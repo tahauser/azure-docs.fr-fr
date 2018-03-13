@@ -32,7 +32,7 @@ L’intégration de Central Desktop à Azure AD vous offre les avantages suivant
 
 Pour plus d’informations sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Central Desktop, vous avez besoin des éléments suivants :
 

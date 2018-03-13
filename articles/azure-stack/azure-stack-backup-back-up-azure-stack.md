@@ -52,6 +52,6 @@ Ouvrez Windows PowerShell avec une invite dans l’environnement de gestion de l
 
 Vous pouvez également confirmer la sauvegarde à partir du portail d’administration. Accédez à `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur le flux de travail de récupération à partir d’un événement de perte de données. Voir [Récupérer des données suites à une perte catastrophique](azure-stack-backup-recover-data.md).

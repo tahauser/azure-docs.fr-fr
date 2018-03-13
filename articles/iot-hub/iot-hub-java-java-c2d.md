@@ -192,7 +192,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![Exécutez la commande pour envoyer le message cloud-à-appareil][img-send-command]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-à-appareil. 
 

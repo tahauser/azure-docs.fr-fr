@@ -99,7 +99,7 @@ Des modèles de programmation .NET Framework vous permettent de générer des se
 Pour plus d’informations, consultez l’article [Choisir un modèle de programmation pour votre service](service-fabric-choose-framework.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Fabric :
 
 * [Vue d'ensemble de Service Fabric](service-fabric-overview.md)

@@ -166,7 +166,7 @@ Si vous liez à un modèle séparé, la résolution de resourceGroup() dans le m
 
 Les modèles suivants illustrent plusieurs déploiements de groupes de ressources. Les scripts permettant de déployer les modèles sont indiqués après le tableau.
 
-|Modèle  |DESCRIPTION  |
+|Modèle  |Description  |
 |---------|---------|
 |[Modèle à abonnements multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Déploie un compte de stockage vers un groupe de ressources et un autre compte de stockage vers un deuxième groupe de ressources. Incluez une valeur pour l’ID d’abonnement lorsque le deuxième groupe de ressources se trouve dans un autre abonnement. |
 |[Modèle à propriétés de groupe de ressources multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Montre la résolution de la fonction `resourceGroup()`. Il ne déploie aucune ressource. |

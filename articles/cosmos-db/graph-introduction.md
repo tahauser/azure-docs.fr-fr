@@ -135,7 +135,7 @@ Voici quelques scénarios où la prise en charge des graphes par Azure Cosmos DB
 
  Avec le réseau et les connexions entre les appareils IoT modélisés sous forme de graphe, vous pouvez obtenir un meilleur aperçu de l’état de vos appareils et ressources. Vous pouvez aussi découvrir comment les modifications apportées à une partie du réseau peuvent potentiellement en affecter une autre partie.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la prise en charge des graphes dans Azure Cosmos DB, consultez :
 
 * Prise en main avec le [didacticiel sur les graphes Azure Cosmos DB](create-graph-dotnet.md).

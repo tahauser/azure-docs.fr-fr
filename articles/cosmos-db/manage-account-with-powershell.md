@@ -192,7 +192,7 @@ Exemple :
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour vous connecter avec .NET, consultez la page [Connect and query with .NET (Se connecter et effectuer des requêtes avec .NET)](create-sql-api-dotnet.md).
 * Pour vous connecter avec Node.js, consultez [Connect and query with Node.js and a MongoDB app (Se connecter et exécuter des requêtes avec Node.js et une application MongoDB)](create-mongodb-nodejs.md).

@@ -109,7 +109,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 
 Pour créer vos machines virtuelles, fournissez vos propres nom d’utilisateur et mot de passe, emplacement, nom DNS et nom d’image.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir [référence CLI Azure pour le modèle de déploiement Azure Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 [Step 1: Prepare the image to be uploaded]:#prepimage

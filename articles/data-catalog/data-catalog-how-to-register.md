@@ -85,5 +85,5 @@ La réinscription d’une source de données déjà inscrite aboutit à une opé
 ## <a name="summary"></a>Résumé
 L’inscription des sources de données dans Data Catalog facilite leur détection et leur compréhension, car elle consiste à copier les métadonnées descriptives et structurelles des sources de données dans le service Catalog. Une fois que vous avez enregistré la source de données, vous pouvez l’annoter, la gérer et la détecter à l’aide du portail Data Catalog.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’inscription des sources de données, consultez le didacticiel [Bien démarrer avec Azure Data Catalog](data-catalog-get-started.md).

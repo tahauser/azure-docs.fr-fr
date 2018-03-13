@@ -208,7 +208,7 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Exceptions](app-insights-asp-net-exceptions.md)
 * [Données utilisateur et de page](app-insights-javascript.md)
 * [Disponibilité](app-insights-monitor-web-app-availability.md)

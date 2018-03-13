@@ -60,7 +60,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
 4. Sélectionnez **Microsoft Hive ODBC Driver**, puis cliquez sur **Terminer**. La boîte de dialogue de **configuration de DNS de pilote ODBC Microsoft Hive** s’affiche.
 5. Tapez ou sélectionnez les valeurs suivantes :
    
-   | Propriété | DESCRIPTION |
+   | Propriété | Description |
    | --- | --- |
    |  Data Source Name |Donnez un nom à votre source de données |
    |  Host |Entrez &lt;HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net |
@@ -74,7 +74,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
    
     Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées**:
    
-   | Paramètre | DESCRIPTION |
+   | Paramètre | Description |
    | --- | --- |
    |  Use Native Query |Une fois sélectionné, le pilote ODBC ne tente PAS de convertir TSQL en HiveQL. À utiliser uniquement si vous êtes sûr à 100 % que vous envoyez des instructions HiveQL pures. Si vous effectuez une connexion à SQL Server ou Base de données SQL Azure, ne sélectionnez pas cette option. |
    |  Rows fetched per block |Lors de l’extraction d’un grand nombre d’enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales. |

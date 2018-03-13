@@ -313,7 +313,7 @@ az network nic ip-config address-pool add \
 Pour vérifier que la carte réseau virtuelle est connectée au pool d’adresses principales, utilisez à nouveau la commande [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) de l’étape précédente.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

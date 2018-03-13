@@ -32,7 +32,7 @@ Vous démarrez l’interface utilisateur de **Synchronization Service Manager** 
 
 Cliquez sur les liens en haut de cette rubrique pour en savoir plus sur les différents onglets de l’interface utilisateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

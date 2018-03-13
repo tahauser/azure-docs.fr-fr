@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 
 Découvrez comment exécuter des requêtes Hive avec la vue Ambari Hive. L’affichage Hive vous permet de créer, d’optimiser et d’exécuter des requêtes Hive à partir du navigateur web.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 

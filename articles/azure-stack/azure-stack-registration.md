@@ -105,7 +105,7 @@ Set-AzsRegistration `
     -BillingModel PayAsYouUse
 ```
 
-|Paramètre|DESCRIPTION|
+|Paramètre|Description|
 |-----|-----|
 |CloudAdminCredential|Objet PowerShell contenant les informations d’identification (nom d’utilisateur et mot de passe) du propriétaire de l’abonnement Azure.|
 |PrivilegedEndpoint|Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour en savoir plus, reportez-vous à l’article relatif à l’[utilisation du point de terminaison privilégié](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint).|

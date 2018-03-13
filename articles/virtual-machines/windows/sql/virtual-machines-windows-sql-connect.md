@@ -38,7 +38,7 @@ Si vous configurez un ordinateur virtuel SQL Server dans le portail Azure, vous 
 
 Les options de connectivité sont les suivantes :
 
-| Option | DESCRIPTION |
+| Option | Description |
 |---|---|
 | **Public** | Se connecter à SQL Server via Internet |
 | **Privé** | se connecter à SQL Server dans le même réseau virtuel |
@@ -132,7 +132,7 @@ Bien que le portail offre des options de configuration automatique de la connect
 
 Le tableau suivant répertorie la configuration requise pour se connecter à SQL Server s’exécutant dans une machine virtuelle Azure.
 
-| Prérequis | DESCRIPTION |
+| Prérequis | Description |
 |---|---|
 | [Activer le mode d’authentification SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | L’authentification SQL Server est nécessaire pour se connecter à distance à la machine virtuelle, sauf si vous avez configuré Active Directory sur un réseau virtuel. |
 | [Créer une connexion SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Si vous utilisez l’authentification SQL, vous avez besoin d’une connexion SQL avec un nom d’utilisateur et un mot de passe qui dispose également d’autorisations sur votre base de données cible. |

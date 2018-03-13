@@ -83,7 +83,7 @@ Pour configurer les étendues de l’API, ajoutez les entrées ci-dessous.
 
 ![étendues définies dans l’api web](media/active-directory-b2c-tutorials-web-api/scopes-defined-in-web-api.png)
 
-| Paramètre      | Valeur suggérée  | DESCRIPTION                                        |
+| Paramètre      | Valeur suggérée  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Portée** | Hello.Read | Accès en lecture à hello |
 | **Portée** | Hello.Write | Accès en écriture à hello |

@@ -108,7 +108,7 @@ L’API Score est utilisée pour la détection des anomalies dans les données d
 ### <a name="detectors"></a>Détecteurs
 L’API de détection des anomalies prend en charge les détecteurs de 3 grandes catégories. Le tableau suivant contient des informations détaillées sur les paramètres d’entrée spécifiques et les sorties de chaque détecteur.
 
-| Catégorie de détecteurs | Détecteur | DESCRIPTION | Paramètres d’entrée | Outputs |
+| Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Outputs |
 | --- | --- | --- | --- | --- |
 | Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
 | Détecteurs de pics | Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
@@ -118,7 +118,7 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 ### <a name="parameters"></a>parameters
 Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
 
-| Paramètres d’entrée | DESCRIPTION | Paramètre par défaut | type | Plage valide | Plage suggérée |
+| Paramètres d’entrée | Description | Paramètre par défaut | type | Plage valide | Plage suggérée |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
 | detectors.spikesdips | Détection des pics uniquement, des creux uniquement ou des deux |Les deux |enumerated |Les deux, pics, creux |Les deux |
@@ -131,7 +131,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 ### <a name="output"></a>Sortie
 L’API exécute tous les détecteurs sur vos données de séries chronologiques et renvoie les résultats d’anomalies et les indicateurs de pics binaires pour chaque point dans le temps. Le tableau ci-dessous répertorie les sorties de l’API. 
 
-| Outputs | DESCRIPTION |
+| Outputs | Description |
 | --- | --- |
 | Temps |Horodatages issus des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
 | Données |Valeurs issues des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
@@ -154,7 +154,7 @@ Les détecteurs du point de terminaison du caractère saisonnier sont similaires
 
 Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
 
-| Paramètres d’entrée | DESCRIPTION | Paramètre par défaut | type | Plage valide | Plage suggérée |
+| Paramètres d’entrée | Description | Paramètre par défaut | type | Plage valide | Plage suggérée |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalle d’agrégation en secondes pour l’agrégation de séries chronologiques d’entrée |0 (aucune agrégation n’est effectuée) |integer |0 : ignorer l’agrégation, > 0 autrement |5 minutes à 1 jour, dépend des séries chronologiques |
 | preprocess.aggregationFunc |Fonction utilisée pour agréger les données dans l’intervalle d’agrégation spécifié |mean |enumerated |mean, sum, length |Non applicable |
@@ -174,7 +174,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 ### <a name="output"></a>Sortie
 L’API exécute tous les détecteurs sur vos données de séries chronologiques et renvoie les résultats d’anomalies et les indicateurs de pics binaires pour chaque point dans le temps. Le tableau ci-dessous répertorie les sorties de l’API. 
 
-| Outputs | DESCRIPTION |
+| Outputs | Description |
 | --- | --- |
 | Temps |Horodatages issus des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |
 | OriginalData |Valeurs issues des données brutes ou des données agrégées (et/ou) imputées si l’imputation des données agrégées (et/ou) manquantes est appliquée. |

@@ -48,7 +48,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Si vous avez fourni un mot de passe lorsque vous avez créé votre paire de clés, saisissez-le lorsque vous y êtes invité pendant le processus de connexion. (Le serveur est ajouté à votre dossier `~/.ssh/known_hosts` et vous n’avez pas à vous connecter à nouveau tant que la clé publique sur votre machine virtuelle Azure n’est pas modifiée ou que le nom de serveur n’est pas supprimé du dossier `~/.ssh/known_hosts`.)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les machines virtuelles créées à l’aide de clés SSH sont par défaut configurées avec les mots de passe désactivés, ce qui rend les tentatives de déchiffrement par force brute bien plus coûteuses et par conséquent difficiles. Cette rubrique décrit la création d’une simple paire de clés SSH dans le cadre d’une utilisation rapide. Si vous avez besoin d’assistance lors de la création de votre paire de clés SSH ou si vous avez besoin de certificats supplémentaires, consultez [les étapes détaillées pour créer des paires de clés SSH et des certificats](create-ssh-keys-detailed.md).
 

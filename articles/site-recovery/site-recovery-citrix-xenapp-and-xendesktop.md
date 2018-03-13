@@ -195,6 +195,6 @@ Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un tes
 
 Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la réplication des déploiements Citrix XenApp et XenDesktop, consultez [ce livre blanc](https://aka.ms/citrix-xenapp-xendesktop-with-asr). Examinez les conseils pour [répliquer d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

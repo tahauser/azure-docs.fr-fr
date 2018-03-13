@@ -55,7 +55,7 @@ La création prend généralement moins d’une minute, souvent quelques seconde
  ![tableau de bord](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez créé votre serveur, vous pouvez y [déployer un modèle](analysis-services-deploy.md) via SSDT ou SSMS.
 
 Si un modèle déployé sur votre serveur se connecte à des sources de données locales, vous devez installer une [passerelle de données locale](analysis-services-gateway.md) sur un ordinateur de votre réseau.

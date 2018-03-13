@@ -248,7 +248,7 @@ La table de routage du *Sous-réseau2* dans l’image contient les itinéraires 
 
 La table de routage du *Sous-réseau2* contient tous les itinéraires par défaut créés par Azure et les itinéraires facultatifs d’homologation de réseau virtuel et de passerelle de réseau virtuel. Azure a ajouté les itinéraires facultatifs à tous les sous-réseaux du réseau virtuel lorsque la passerelle et l’homologation ont été ajoutées au réseau virtuel. Azure a supprimé les itinéraires pour les préfixes d’adresse 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 et 100.64.0.0/10 de la table de routage du *Sous-réseau1* lorsque l’itinéraire défini par l’utilisateur pour le préfixe d’adresse 0.0.0.0/0 a été ajouté au *Sous-réseau1*.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer une table de routage définie par l’utilisateur avec des itinéraires et une appliance virtuelle de réseau](create-user-defined-route-portal.md)
 - [Configurer BGP pour une passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

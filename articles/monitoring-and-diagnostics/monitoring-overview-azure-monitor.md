@@ -161,7 +161,7 @@ En général, vous pouvez manipuler le suivi, le routage et la récupération de
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
 * [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur
 - Une vidéo de procédure pas à pas uniquement pour Azure Monitor est disponible à l’adresse  
 [Prise en main d’Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 

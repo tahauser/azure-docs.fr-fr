@@ -66,7 +66,7 @@ Une fois un runtime d’intégration Azure créé, vous pouvez le référencer d
 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Lisez les articles suivants concernant la création d’autres types de runtimes d’intégration :
 
 - [Créer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md)

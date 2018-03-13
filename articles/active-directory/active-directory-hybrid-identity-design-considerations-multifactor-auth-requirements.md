@@ -57,7 +57,7 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 * Votre société a-t-elle besoin d'activer l'authentification multifacteur pour tous les utilisateurs autorisés de ces applications ou uniquement pour les administrateurs ?
 * L'authentification multifacteur doit-elle être toujours activée ou uniquement lorsque les utilisateurs se connectent en dehors votre réseau d'entreprise ?
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Définir une stratégie d’adoption des identités hybrides](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 ## <a name="see-also"></a>Voir aussi

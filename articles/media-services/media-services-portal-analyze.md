@@ -146,7 +146,7 @@ Utiliser « 2.0 ».
 ### <a name="mode"></a>Mode
 La version 2.0 ignore le paramètre `Mode`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Afficher les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

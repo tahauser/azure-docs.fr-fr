@@ -104,7 +104,7 @@ Chaque ordinateur Windows dispose d’un groupe local d’utilisateurs du Bureau
 
 Vérifiez que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour résoudre ce problème, utilisez un compte d’administrateur local ou de domaine pour vous connecter via le Bureau à distance. Pour ajouter le compte de votre choix au groupe local des utilisateurs du Bureau à distance, utilisez le composant logiciel enfichable Microsoft Management Console (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si aucune de ces erreurs ne s’est produite et que vous avez rencontré un problème inconnu en vous connectant avec le protocole RDP, consultez le [guide de dépannage du Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Pour connaître les étapes de résolution des problèmes d’accès aux applications exécutées sur une machine virtuelle, consultez [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

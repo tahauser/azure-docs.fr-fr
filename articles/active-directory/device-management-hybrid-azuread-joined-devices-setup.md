@@ -584,7 +584,7 @@ Vous pouvez vérifier les appareils qui ont été correctement joints dans votre
 
 La sortie de cette applet de commande affiche les appareils qui sont enregistrés et joints à Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
 

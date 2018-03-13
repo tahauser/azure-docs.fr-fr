@@ -59,7 +59,7 @@ Les sections suivantes fournissent des détails sur les propriétés utilisées 
 
 Les propriétés prises en charge pour le service lié SAP HANA sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **SapHana** | OUI |
 | server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | OUI |
@@ -122,7 +122,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de SAP HANA, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
 | query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | OUI |

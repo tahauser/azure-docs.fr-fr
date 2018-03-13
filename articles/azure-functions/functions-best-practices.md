@@ -115,7 +115,7 @@ Les paramètres dans le fichier des hôtes s’appliquent à toutes les fonction
 
 D’autres options de configuration d’hôte sont consultables [dans le document de configuration d’hôte](functions-host-json.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 Étant donné qu’Azure Functions utilise Azure App Service, vous devez également connaître les directives d’App Service.

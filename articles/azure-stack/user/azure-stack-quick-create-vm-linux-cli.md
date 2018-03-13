@@ -27,7 +27,7 @@ ms.lasthandoff: 01/29/2018
 
 Azure CLI permet de créer et de gérer des ressources Azure Stack à partir de la ligne de commande. Ce guide explique de manière détaillée comment utiliser Azure CLI pour créer une machine virtuelle Linux dans Azure Stack.  Une fois la machine virtuelle créée, un serveur web est installé et le port 80 est ouvert pour autoriser le trafic web.
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 * Vérifiez que votre opérateur Azure Stack a ajouté l’image « Ubuntu Server 16.04 LTS » à la Place de Marché Azure Stack. 
 

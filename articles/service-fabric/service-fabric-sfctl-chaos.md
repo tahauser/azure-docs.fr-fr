@@ -25,7 +25,7 @@ Permet de démarrer, d’arrêter et de créer des rapports sur le service de te
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    report| Obtient le segment suivant du rapport Chaos sur la base du jeton de liaison passé ou l’intervalle de temps passé.|
 |    start | Démarre Chaos dans le cluster.|
@@ -39,7 +39,7 @@ Vous pouvez soit spécifier le ContinuationToken pour obtenir le segment suivant
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --end-time-utc   | Heure de fichier Windows représentant l’heure de fin de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc Method](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) (Méthode DateTime.ToFileTimeUtc).|
@@ -48,7 +48,7 @@ Vous pouvez soit spécifier le ContinuationToken pour obtenir le segment suivant
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -63,7 +63,7 @@ Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --app-type-health-policy-map  | Liste encodée au format JSON avec pourcentage maximal d’applications défectueuses pour des types d’applications spécifiques. Chaque entrée spécifie sous forme de clé le nom du type d’application et sous forme de valeur un entier qui représente le pourcentage MaxPercentUnhealthyApplications permettant d’évaluer les applications du type d’application spécifié. Définit un mappage avec le pourcentage maximal d’applications défectueuses pour des types d’applications spécifiques. Chaque entrée spécifie sous forme de clé le nom du type d’application et sous forme de valeur un entier qui représente le pourcentage MaxPercentUnhealthyApplications permettant d’évaluer les applications du type d’application spécifié. Le mappage de stratégie d’intégrité de type application peut être utilisé lors de l’évaluation de l’intégrité du cluster pour décrire les types d’applications particuliers. Les types d’applications inclus dans le mappage sont évalués par rapport au pourcentage spécifié dans le mappage et non par rapport au pourcentage MaxPercentUnhealthyApplications global défini dans la stratégie de contrôle d’intégrité du cluster. Les applications correspondant aux types spécifiés dans le mappage ne sont pas comptées dans le pool global d’applications. Par exemple, si certaines applications d’un type sont critiques, l’administrateur du cluster peut ajouter une entrée dans le mappage pour ce type d’application et lui attribuer une valeur de 0 % (autrement dit, aucun échec n’est toléré). Toutes les autres applications peuvent être évaluées avec une valeur MaxPercentUnhealthyApplications définie sur 20 % pour tolérer un certain nombre d’échecs parmi les milliers d’instances d’applications. Le mappage de stratégie de contrôle d’intégrité du type d’application est utilisé uniquement si le manifeste du cluster permet l’évaluation de l’intégrité du type d’application à l’aide de l’entrée de configuration pour HealthManager/EnableApplicationTypeHealthEvaluation.|
 |--chaos-target-filter         | Dictionnaire encodé au format JSON avec deux clés de type chaîne. Les deux clés sont NodeTypeInclusionList et ApplicationInclusionList. Les valeurs pour ces deux clés sont des listes de chaînes. chaos_target_filter définit tous les filtres pour des erreurs Chaos ciblées, provoquant par exemple des erreurs pour seulement certains types de nœuds ou certaines applications. Si chaos_target_filter n’est pas utilisé, Chaos provoque des erreurs pour toutes les entités de cluster. Si chaos_target_filter est utilisé, Chaos provoque des erreurs uniquement pour les entités qui répondent aux critères de chaos_target_filter. NodeTypeInclusionList et ApplicationInclusionList autorisent uniquement une sémantique d’union. Il n’est pas possible de spécifier une intersection de NodeTypeInclusionList et d’ApplicationInclusionList. Par exemple, il n’est pas possible de spécifier « provoquer une erreur sur cette application uniquement si elle se trouve sur ce type de nœud ». Une fois qu’une entité est incluse dans NodeTypeInclusionList ou ApplicationInclusionList, elle ne peut pas être exclue à l’aide de ChaosTargetFilter. Même si applicationX n’apparaît pas dans ApplicationInclusionList, dans certaines itérations de Chaos, applicationX peut faire l’objet d’une erreur si elle se trouve sur un nœud de nodeTypeY qui est inclus dans NodeTypeInclusionList. Si NodeTypeInclusionList et ApplicationInclusionList sont vides, une exception ArgumentException est levée. Tous les types d’erreurs (redémarrage du nœud, redémarrage du package de code, suppression du réplica, redémarrage du réplica, déplacement du réplica principal et déplacement du réplica secondaire) sont activés pour les nœuds de ces types de nœuds. Si un type de nœud (par exemple NodeTypeX) ne figure pas dans NodeTypeInclusionList, les erreurs au niveau du nœud (comme NodeRestart) ne seront jamais activées pour les nœuds de NodeTypeX, mais les erreurs de package de code et de réplica peuvent toujours être activées pour NodeTypeX si une application figurant dans ApplicationInclusionList réside sur un nœud de NodeTypeX. Cette liste peut inclure au maximum 100 noms de types de nœuds. Pour augmenter ce nombre, vous devez mettre à niveau la configuration de MaxNumberOfNodeTypesInChaosEntityFilter. Chaos peut provoquer des erreurs (redémarrage du réplica, déplacement du réplica, déplacement du réplica principal et déplacement du réplica secondaire) dans tous les réplicas appartenant aux services de ces applications. Chaos peut redémarrer un package de code uniquement si celui-ci héberge uniquement des réplicas de ces applications. Si une application ne figure pas dans cette liste, elle peut toujours faire l’objet d’une erreur dans une itération de Chaos si elle se termine sur un nœud dont le type est inclus dans NodeTypeInclusionList. Toutefois, si applicationX est liée à nodeTypeY par l’intermédiaire de contraintes de placement, qu’applicationX est absente de ApplicationInclusionList et que nodeTypeY est absent de NodeTypeInclusionList, applicationX ne fait jamais l’objet d’une erreur. Cette liste peut inclure au maximum 1 000 noms d’applications. Pour augmenter ce nombre, vous devez mettre à niveau la configuration de MaxNumberOfApplicationsInChaosEntityFilter.|
@@ -81,7 +81,7 @@ Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec 
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                    | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                  | Affiche ce message d’aide et quitte.|
@@ -96,13 +96,13 @@ Empêche Chaos de planifier d’autres erreurs. Toutefois, les erreurs en cours 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --timeout -t| Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h| Affiche ce message d’aide et quitte.|

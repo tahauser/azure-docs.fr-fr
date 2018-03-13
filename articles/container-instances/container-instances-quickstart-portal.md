@@ -82,7 +82,7 @@ Cela ouvre une boîte de dialogue de confirmation, sélectionnez **Oui** lorsque
 [aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
 [aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans le cadre de ce guide de démarrage rapide, vous avez créé une instance de conteneur Azure à partir d’une image dans un référentiel Hub Docker public. Si vous voulez essayer de créer un conteneur par vous-même et le déployer dans Azure Container Instances à l’aide d’Azure Container Registry, passez au didacticiel relatif à Azure Container Instances.
 

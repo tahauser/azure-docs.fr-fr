@@ -43,7 +43,7 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">créez un compte Azure gratuit</a> avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte MailChimp. Créez une liste nommée « test-members-ML » dans laquelle votre application logique peut ajouter des adresses e-mail pour les membres approuvés. Si vous n’avez pas de compte, [ouvrez un compte gratuit](https://login.mailchimp.com/signup/) et découvrez [comment créer une liste](https://us17.admin.mailchimp.com/lists/#). 
 
@@ -63,7 +63,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Spécifier les informations de l’application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | LA-MailingList | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
@@ -96,7 +96,7 @@ Chaque application logique doit démarrer avec un déclencheur, qui s’active l
 
       ![Spécifier le dossier, l’intervalle et la fréquence de vérification des e-mails](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | Paramètre | Valeur | DESCRIPTION | 
+      | Paramètre | Valeur | Description | 
       | ------- | ----- | ----------- | 
       | **Folder** | Inbox | Dossier de messagerie à surveiller | 
       | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
@@ -128,7 +128,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    ![Définir des paramètres d’e-mail d’approbation](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **To** | <*approver-email-address*> | Adresse e-mail de l’approbateur. À des fins de test, vous pouvez utiliser votre propre adresse. | 
    | **Options utilisateur** | Approuver, Rejeter | Les options de réponse que l’approbateur peut choisir. Par défaut, l’approbateur peut choisir « Approuver » ou « Rejeter » comme réponse. | 
@@ -197,7 +197,7 @@ Recherchez « mailchimp » et sélectionnez cette action : **MailChimp - Ajouter
 
    ![Fournir des informations pour « Ajouter un membre à la liste »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **ID de liste** | test-members-ML | Nom de votre liste de diffusion MailChimp | 
    | **État** | subscribed | État de l’abonnement pour le nouveau membre. Pour plus d’informations, consultez <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage Subscribers with the MailChimp API</a> (Gérer les abonnés avec l’API MailChimp). | 
@@ -249,7 +249,7 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
    ![Fournir des informations pour l’e-mail de réussite](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail de réussite. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
    | **Objet** | <*subject-for-success-email*> | Objet de l’e-mail de réussite. Pour ce didacticiel, entrez ce texte, puis sélectionnez le champ spécifié sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique : <p>« Success! Member added to ’test-members-ML’: **Email Address** » (Bravo ! Le membre a été ajouté à « test-members-ML » : Adresse e-mail) | 
@@ -274,7 +274,7 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
    ![Fournir des informations pour l’e-mail d’échec](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail d’échec. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
    | **Objet** | <*subject-for-failure-email*> | Objet de l’e-mail d’échec. Pour ce didacticiel, entrez ce texte, puis sélectionnez le champ spécifié sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique : <p>« Failed, member not added to ’test-members-ML’: **Email Address** » (Échec, le membre n’a pas été ajouté à « test-members-ML » : Adresse e-mail) | 

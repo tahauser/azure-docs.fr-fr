@@ -140,5 +140,5 @@ Vous avez des suggestions ou des demandes de fonctionnalités ? Veillez à lais
 
 Vous avez des suggestions concernant la documentation ? Vous pouvez ajouter des commentaires à l’aide de Livefyre en bas de chaque article.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous en savez plus sur Azure Analysis Services, il est temps de commencer. Découvrez comment [créer un serveur](analysis-services-create-server.md) dans Azure. Lorsque votre serveur est prêt, parcourez le [Didacticiel Adventure Works](tutorials/aas-adventure-works-tutorial.md) pour apprendre à créer un modèle tabulaire entièrement fonctionnel et le déployer sur votre serveur.

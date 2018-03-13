@@ -155,5 +155,5 @@ Pour modifier l’algorithme de signature, procédez comme suit :
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera le jeton SAML à l’aide de l’algorithme SHA-1.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

@@ -340,6 +340,6 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
 

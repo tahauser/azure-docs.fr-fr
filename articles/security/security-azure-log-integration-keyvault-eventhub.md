@@ -179,7 +179,7 @@ Exécutez la commande AzLog pour chaque Event Hub :
 
 Au bout d’une minute environ après l’exécution des deux dernières commandes, vous devriez voir les fichiers JSON en cours de génération. Pour vérifier ce point, surveillez le répertoire **C:\users\AzLog\EventHubJson**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Forum aux questions sur l’intégration des journaux Azure](security-azure-log-integration-faq.md)
 - [Bien démarrer avec l’intégration des journaux Azure](security-azure-log-integration-get-started.md)

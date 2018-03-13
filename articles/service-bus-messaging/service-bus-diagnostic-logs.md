@@ -63,7 +63,7 @@ Les journaux de la catégorie **OperationalLogs** capturent ce qui se passe dura
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-NOM | DESCRIPTION
+NOM | Description
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi
 EventName | Nom d’opération           

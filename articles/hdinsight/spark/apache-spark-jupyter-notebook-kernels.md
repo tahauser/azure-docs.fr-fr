@@ -33,7 +33,7 @@ Les clusters Spark HDInsight fournissent des noyaux que vous pouvez utiliser ave
 
 Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les avantages de leur utilisation.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -80,7 +80,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
    
     Le tableau suivant répertorie les différentes commandes magiques disponibles par le biais des noyaux.
 
-   | Commande magique | exemples | DESCRIPTION |
+   | Commande magique | exemples | Description |
    | --- | --- | --- |
    | help |`%%help` |Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
    | info |`%%info` |Génère des informations de session pour le point de terminaison Livy actuel |
@@ -100,7 +100,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
 ## <a name="parameters-supported-with-the-sql-magic"></a>Paramètres pris en charge avec la commande magique %%sql
 La commande magique `%%sql` prend en charge différents paramètres qui vous permettent de contrôler le type de sortie que vous recevez quand vous exécutez des requêtes. Le tableau suivant répertorie les paramètres de sortie.
 
-| Paramètre | exemples | DESCRIPTION |
+| Paramètre | exemples | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Utilisez ce paramètre pour conserver le résultat de la requête dans le contexte Python %%local en tant que trame de données [Pandas](http://pandas.pydata.org/) . Le nom de la variable dataframe est le nom de variable que vous spécifiez. |
 | -q |`-q` |Utilisez ce paramètre pour désactiver les visualisations pour la cellule. Si vous ne voulez pas visualiser automatiquement le contenu d’une cellule et préférez simplement capturer le contenu comme une trame de données, utilisez `-q -o <VARIABLE>`. Si vous souhaitez désactiver les visualisations sans capturer les résultats (par exemple, pour exécuter une requête SQL, comme une instruction `CREATE TABLE`), utilisez `-q` sans spécifier d’argument `-o`. |

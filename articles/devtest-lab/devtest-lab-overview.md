@@ -47,6 +47,6 @@ Tirez parti des plug-ins prêts à l’emploi ou de notre API pour approvisionne
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Concepts de DevTest Labs](devtest-lab-concepts.md)
 

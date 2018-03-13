@@ -44,7 +44,7 @@ Maintenant, passez à une section concernant l’authentification avec :
 
 Pour définir un principal de service, utilisez :
 
-| Commande | DESCRIPTION |
+| Commande | Description |
 | ------- | ----------- | 
 | [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Crée un principal de service Azure Active Directory |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Affecte le rôle RBAC spécifié au principal spécifiée, dans l’étendue spécifiée. |

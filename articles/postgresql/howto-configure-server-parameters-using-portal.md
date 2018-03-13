@@ -45,7 +45,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 8. Si vous avez enregistré de nouvelles valeurs pour les paramètres, vous pouvez toujours rétablir toutes les valeurs par défaut en sélectionnant **Rétablir toutes les valeurs par défaut**.
 ![Rétablir toutes les valeurs par défaut](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous en saurez plus sur :
 - [Vue d’ensemble des paramètres de serveur dans Azure Database pour PostgreSQL](concepts-servers.md)
 - [Configuration des paramètres à l’aide d’Azure CLI](howto-configure-server-parameters-using-cli.md)

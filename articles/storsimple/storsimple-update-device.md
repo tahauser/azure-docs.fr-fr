@@ -118,7 +118,7 @@ Les procédures suivantes expliquent comment utiliser Windows PowerShell pour St
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Que se passe-t-il pour les mises à jour si vous effectuez une réinitialisation de l’appareil aux paramètres d’usine ?
 Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à jour sont perdues. Une fois que l’appareil réinitialisé avec les paramètres par défaut est inscrit et configuré, vous devez installer manuellement les mises à jour par le biais du portail Azure Classic et/ou de Windows PowerShell pour StorSimple. Pour plus d’informations sur la réinitialisation des paramètres d’usine, consultez [Rétablissement des paramètres par défaut de l’appareil](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur [l’utilisation de Windows PowerShell pour StorSimple pour administrer votre appareil StorSimple](storsimple-windows-powershell-administration.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour administrer votre appareil StorSimple](storsimple-manager-service-administration.md).
 

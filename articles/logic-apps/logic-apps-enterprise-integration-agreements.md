@@ -74,5 +74,5 @@ Vous pouvez supprimer n’importe quel contrat en procédant comme suit :
 
     Le panneau Contrats n’affiche plus le contrat supprimé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Créer un contrat AS2](logic-apps-enterprise-integration-as2.md)

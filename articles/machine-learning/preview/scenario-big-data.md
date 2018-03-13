@@ -99,7 +99,7 @@ Les données utilisées dans cet exemple sont des données de charge de travail 
 
 La taille totale des données est d’environ 1 To. Chaque fichier a une taille d’environ 1 à 3 Go et est au format de fichier CSV sans en-tête. Chaque ligne de données représente la charge d’une transaction sur un serveur particulier. Les informations détaillées du schéma de données sont les suivantes :
 
-Numéro de colonne | Nom du champ| type | DESCRIPTION |  
+Numéro de colonne | Nom du champ| type | Description |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | DateTime |    Heure de début de session
 2  |`SessionEnd`    | DateTime | Heure de fin de session
@@ -127,7 +127,7 @@ Remarque : les types de données prévus sont répertoriés dans le tableau pré
 
 Les fichiers utilisés dans cet exemple sont structurés comme suit.
 
-| Nom de fichier | type | DESCRIPTION |
+| Nom de fichier | type | Description |
 |-----------|------|-------------|
 | `Code` | Dossier | Dossier qui contient l’intégralité du code de l’exemple. |
 | `Config` | Dossier | Dossier qui contient les fichiers de configuration. |
@@ -158,7 +158,7 @@ Le code figurant dans [`Code/etl.py`](https://github.com/Azure/MachineLearningSa
 
 Pour l’expérimentation, vous devez utiliser un conteneur pour le jeu de données d’un mois, puis un autre conteneur pour l’ensemble du jeu de données. Étant donné que les données et les modèles sont enregistrés en tant que fichier Parquet, chaque fichier est en fait un dossier du conteneur, qui contient plusieurs objets blob. Le conteneur obtenu se présente comme suit :
 
-| Nom du préfixe blob | type | DESCRIPTION |
+| Nom du préfixe blob | type | Description |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | Modèle de mesureur standard pour les fonctionnalités numériques. |
 | stringIndexModel | Parquet | Modèle d’indexeur de chaîne pour les fonctionnalités non numériques.|
@@ -184,7 +184,7 @@ Le fichier [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigDa
 
 Le premier argument, `configFilename`, est un fichier de configuration local où vous stockez les informations de stockage Blob et indiquez l’emplacement où charger les données. Par défaut, il s’agit de [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) et il sera utilisé pour l’exécution des données d’un mois. Nous incluons également [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), que vous devez utiliser pour l’exécution de l’ensemble du jeu de données. La configuration contient les éléments suivants : 
 
-| Champ | type | DESCRIPTION |
+| Champ | type | Description |
 |-----------|------|-------------|
 | storageAccount | Chaîne | Nom du compte de stockage Azure |
 | storageContainer | Chaîne | Conteneur du compte de stockage Azure pour stocker les résultats intermédiaires |

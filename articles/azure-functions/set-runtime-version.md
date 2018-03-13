@@ -76,7 +76,7 @@ Dans ce code, remplacez `<function_app>` par le nom de votre application de fonc
 
 Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure#az_login) pour vous connecter.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Cibler le runtime 2.0 dans votre environnement de développement local](functions-run-local.md)

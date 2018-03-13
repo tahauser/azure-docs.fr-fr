@@ -26,7 +26,7 @@ Cette section répertorie les quotas et les limites de base de Azure Event Hubs.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 

@@ -205,7 +205,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Token`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison d’entrée de jeton d’authentification à partir du code](#token-input-code).|
 |**type**||Obligatoire : doit être défini sur `token`.|
@@ -338,7 +338,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Excel`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le tableau Excel. Voir [Utilisation d’une liaison d’entrée de tableau Excel à partir du code](#excel-input-code).|
 |**type**||Obligatoire : doit être défini sur `excel`.|
@@ -498,7 +498,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Excel`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison de sortie de tableau Excel à partir du code](#excel-output-code).|
 |**type**||Obligatoire : doit être défini sur `excel`.|
@@ -642,7 +642,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `OneDrive`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison d’entrée de fichier OneDrive à partir du code](#onedrive-input-code).|
 |**type**||Obligatoire : doit être défini sur `onedrive`.|
@@ -787,7 +787,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `OneDrive`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison de sortie de fichier OneDrive à partir du code](#onedrive-output-code).|
 |**type**||Obligatoire : doit être défini sur `onedrive`.|
@@ -936,7 +936,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Outlook`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
 |**type**||Obligatoire : doit être défini sur `outlook`.|
@@ -1077,7 +1077,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookTrigger`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
 |**type**||Obligatoire : doit être défini sur `graphWebhook`.|
@@ -1228,7 +1228,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookSubscription`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
 |**type**||Obligatoire : doit être défini sur `graphWebhookSubscription`.|
@@ -1368,7 +1368,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookSubscription`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
 |**type**||Obligatoire : doit être défini sur `graphWebhookSubscription`.|

@@ -25,7 +25,7 @@ Interroge et gère des partitions pour tout service.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    data-loss      | Cette API provoque une perte de données pour la partition spécifiée.|
 |    data-loss-status  | Permet d’obtenir la progression d’une opération de perte de données dans une partition démarrée à l’aide de l’API StartDataLoss.|
@@ -52,7 +52,7 @@ ReplicasHealthStateFilter permet de filtrer la collection d’objets ReplicaHeal
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --events-health-state-filter  | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de l’état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants.                Seuls les événements qui correspondent au filtre sont retournés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8.                - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState.                La valeur est égale à 65535.|
@@ -62,7 +62,7 @@ ReplicasHealthStateFilter permet de filtrer la collection d’objets ReplicaHeal
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                    | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                  | Affiche ce message d’aide et quitte.|
@@ -77,14 +77,14 @@ Le point de terminaison Partitions retourne des informations sur la partition sp
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -99,7 +99,7 @@ Permet d’obtenir la liste des partitions d’un service Service Fabric. La r�
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures, et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant.         Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
@@ -107,7 +107,7 @@ Permet d’obtenir la liste des partitions d’un service Service Fabric. La r�
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
@@ -122,14 +122,14 @@ Retourne des informations sur la partition spécifiée. La réponse inclut une l
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -144,14 +144,14 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer une partit
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -166,7 +166,7 @@ Cette API est particulièrement utile pour tester le basculement. Si elle est ut
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --operation-id [Requis]| GUID qui identifie un appel de cette API.  Celui-ci est transmis à l’API GetProgress correspondante.|
 | --partition-id [Requis]| Identité de la partition.|
@@ -176,7 +176,7 @@ Cette API est particulièrement utile pour tester le basculement. Si elle est ut
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                         | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                       | Affiche ce message d’aide et quitte.|

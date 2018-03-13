@@ -171,7 +171,7 @@ La préversion prend en charge la synchronisation uniquement avec un partage de 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)
 * [Déployer Azure Files](storage-files-deployment-guide.md)
 * [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)

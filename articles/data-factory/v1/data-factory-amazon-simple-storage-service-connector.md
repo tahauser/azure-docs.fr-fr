@@ -64,7 +64,7 @@ Les sections suivantes fournissent des informations sur les propriétés JSON u
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Un service lié lie un magasin de données à une fabrique de données. Pour lier votre magasin de données Amazon S3 à votre fabrique de données, vous devez créer un service lié de type **AwsAccessKey**. La table suivante fournit la description des éléments JSON spécifiques au service lié Amazon S3 (AwsAccessKey).
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Requis |
+| Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
 | accessKeyID |ID de la clé d’accès secrète. |chaîne |OUI |
 | secretAccessKey |La clé d’accès secrète elle-même. |Chaîne secrète chiffrée |OUI |
@@ -93,7 +93,7 @@ Pour spécifier un jeu de données afin de représenter les données d’entrée
 
 Les sections comme la structure, la disponibilité et la stratégie sont similaires pour tous les types de jeux de données (par exemple, SQL Database, Azure Blob et Azure Table). La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section **typeProperties** du jeu de données de type **AmazonS3** (comprenant le jeu de données Amazon S3) présente les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | bucketName |Le nom de compartiment S3. |Chaîne |OUI |
 | key |La clé d’objet S3. |Chaîne |Non  |
@@ -174,7 +174,7 @@ Vous pouvez faire de même pour la propriété **prefix** d’un jeu de données
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition des activités, voir [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d'activités. Les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité. Pour l’activité de copie, les propriétés dépendent des types de sources et de récepteurs. Lorsque la source de l’activité de copie est de type **FileSystemSource** (qui inclut Amazon S3), la propriété suivante est disponible dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | recursive |Spécifie s’il faut répertorier de manière récursive les objets S3 sous le répertoire. |true/false |Non  |
 

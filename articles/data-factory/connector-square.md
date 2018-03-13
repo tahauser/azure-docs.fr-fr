@@ -45,7 +45,7 @@ Les sections suivantes donnent des précisions sur les propriétés utilisées p
 
 Les propriétés suivantes sont prises en charge pour le service lié Square :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Square**. | OUI |
 | host | URL de l’instance Square (c’est-à-dire mystore.mysquare.com).  | OUI |
@@ -105,7 +105,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Square, affectez la valeur **SquareSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source de l’activité de copie doit être définie sur **SquareSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Business"`. | OUI |

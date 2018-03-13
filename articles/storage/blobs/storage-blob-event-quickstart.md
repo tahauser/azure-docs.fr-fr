@@ -135,7 +135,7 @@ Remplacez `<resource_group_name>` par le nom du groupe de ressources que vous av
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous savez créer des rubriques et des abonnements d’événements, vous pouvez en apprendre davantage sur les événements de stockage Blob et sur ce qu’Event Grid peut vous offrir :
 

@@ -135,7 +135,7 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez créer plusieurs machines virtuelles à partir de votre image de machine virtuelle source. Si vous devez apporter des modifications à votre image : 
 
 - Créez une machine virtuelle à partir de votre image.

@@ -33,7 +33,7 @@ Vous pouvez gérer vos applications d’entreprise dans Azure Active Directory (
     ![Ouverture des applications d’entreprise](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 4. Dans le volet **Applications d’entreprise**, sélectionnez **Toutes les applications**. À partir de ce volet, vous pouvez sélectionner les applications à gérer, modifier les colonnes affichées ou filtrer la liste pour trouver l’application souhaitée (par exemple, pour afficher uniquement les applications désactivées).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](active-directory-coreapps-disable-app-azure-portal.md)

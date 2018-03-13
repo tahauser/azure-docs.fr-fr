@@ -74,7 +74,7 @@ Les avertissements ou erreurs de validation de modèle sont journalisés sur la 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | DESCRIPTION | Obligatoire |
+| Paramètre | Description | Obligatoire |
 | ----- | -----| ----- |
 | TemplatePath | Spécifie le chemin pour rechercher des modèles Azure Resource Manager de manière récursive | OUI | 
 | TemplatePattern | Spécifie le nom des fichiers de modèle à faire correspondre | Non  |

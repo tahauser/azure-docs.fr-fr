@@ -47,7 +47,7 @@ Pour commencer avec Logic Apps, [créez votre première application logique](qui
 
 Azure fournit un ensemble complet d’outils pour le développement, le déploiement et la gestion des applications sans serveur.  Les applications peuvent être créées directement dans le portail Azure ou avec les [outils de Visual Studio](logic-apps-serverless-get-started-vs.md).  Une fois qu’une application a été développée, elle peut être [déployée immédiatement](logic-apps-create-deploy-template.md).  Azure fournit également une surveillance pour les applications sans serveur.  Vous pouvez accéder à cette surveillance à partir du portail Azure, via l’API ou les kits de développement logiciel, ou avec des outils intégrés à OMS et Application Insights.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Prise en main de la création d’une application sans serveur dans Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Création d’un tableau de bord des insights client sans serveur](logic-apps-scenario-social-serverless.md)

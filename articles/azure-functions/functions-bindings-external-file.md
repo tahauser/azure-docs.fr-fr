@@ -118,7 +118,7 @@ module.exports = function(context) {
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
 
-|Propriété function.json | DESCRIPTION|
+|Propriété function.json | Description|
 |---------|---------|----------------------|
 |**type** | Cette propriété doit être définie sur `apiHubFileTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -314,7 +314,7 @@ module.exports = function(context) {
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
 
-|Propriété function.json | DESCRIPTION|
+|Propriété function.json | Description|
 |---------|---------|----------------------|
 |**type** | Cette propriété doit être définie sur `apiHubFile`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -352,7 +352,7 @@ Consultez l’[exemple de liaison d’entrée](#input---example).
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
 
-|Propriété function.json | DESCRIPTION|
+|Propriété function.json | Description|
 |---------|---------|----------------------|
 |**type** | Cette propriété doit être définie sur `apiHubFile`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | Cette propriété doit être définie sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |

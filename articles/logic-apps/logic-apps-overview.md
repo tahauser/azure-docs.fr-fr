@@ -141,7 +141,7 @@ Si vous avez un abonnement Azure, essayez ce [guide de démarrage rapide pour cr
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Contrôlez le trafic à l’aide d’une application logique planifiée](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 * En savoir plus sur [les solutions sans serveur avec Azure](../logic-apps/logic-apps-serverless-overview.md)

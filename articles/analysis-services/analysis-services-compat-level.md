@@ -53,6 +53,6 @@ Le dernier niveau de compatibilité est 1400. Ce niveau coïncide avec SQL Serve
   
  Cette propriété spécifie le niveau de compatibilité le plus élevé d’une base de données, qui s’exécutera sur le serveur (à l’exception de la préversion). Le niveau de compatibilité pris en charge ne peut pas être modifié.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
   [Créer un modèle dans le portail Azure](analysis-services-create-model-portal.md)   
   [Gérer Analysis Services](analysis-services-manage.md)  

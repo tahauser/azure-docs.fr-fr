@@ -144,7 +144,7 @@ Corps : cette section est au format JSON et représente le double de l’identi
 
 Les identités des appareils sont représentées sous forme de documents JSON avec les propriétés suivantes :
 
-| Propriété | Options | DESCRIPTION |
+| Propriété | Options | Description |
 | --- | --- | --- |
 | deviceId |obligatoire, en lecture seule sur les mises à jour |Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII plus certains caractères spéciaux :`- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |obligatoire, en lecture seule |Une chaîne qui respecte la casse, générée par IoT Hub, d’une longueur maximale de 128 caractères. Cette valeur permet de distinguer les appareils dotés du même **deviceId**lorsqu’ils ont été supprimés et recréés. |

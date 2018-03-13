@@ -30,7 +30,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 > [!NOTE]
 > Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 

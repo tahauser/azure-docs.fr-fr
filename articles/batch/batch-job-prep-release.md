@@ -183,7 +183,7 @@ La capture d’écran ci-après illustre le **panneau Tâches de préparation** 
 
 ![Propriétés de préparation du travail dans le portail Azure][1]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 ### <a name="application-packages"></a>packages d’application
 Outre la tâche de préparation du travail, vous pouvez également utiliser la fonctionnalité [packages d’application](batch-application-packages.md) de Batch pour préparer des nœuds de calcul à l’exécution de tâches. Cette fonctionnalité est particulièrement utile pour déployer des applications qui ne nécessitent pas de programme d’installation, des applications qui contiennent de nombreux fichiers (plus de 100) ou des applications qui requièrent un contrôle de version strict.
 

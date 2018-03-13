@@ -538,13 +538,13 @@ Les opérateurs suivants sont pris en charge :
 ### <a name="functions"></a>Functions
 Lors des requêtes de jumeaux ou de travaux, la seule fonction prise en charge est :
 
-| Fonction | DESCRIPTION |
+| Fonction | Description |
 | -------- | ----------- |
 | IS_DEFINED(property) | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété (dont `null`). |
 
 Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont prises en charge :
 
-| Fonction | DESCRIPTION |
+| Fonction | Description |
 | -------- | ----------- |
 | ABS(x) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
 | EXP(x) | Retourne la valeur exponentielle de l'expression numérique spécifiée (e^x). |
@@ -557,7 +557,7 @@ Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont
 
 Dans les conditions d’itinéraire, les fonctions de vérification et de conversion de type suivantes sont prises en charge :
 
-| Fonction | DESCRIPTION |
+| Fonction | Description |
 | -------- | ----------- |
 | AS_NUMBER | Convertit la chaîne d’entrée en nombre. `noop` si l’entrée est un nombre ; `Undefined` si la chaîne ne représente pas un nombre.|
 | IS_ARRAY | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type tableau. |
@@ -571,7 +571,7 @@ Dans les conditions d’itinéraire, les fonctions de vérification et de conver
 
 Dans les conditions d’itinéraire, les fonctions de chaîne suivantes sont prises en charge :
 
-| Fonction | DESCRIPTION |
+| Fonction | Description |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne. |
 | LENGTH(x) | Retourne le nombre de caractères de l’expression de chaîne spécifiée.|

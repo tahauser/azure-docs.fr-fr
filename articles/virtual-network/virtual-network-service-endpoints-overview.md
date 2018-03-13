@@ -117,7 +117,7 @@ Il n’existe aucune limite sur le nombre total de points de terminaison de serv
 
 Pour une ressource de service Azure (par exemple, un compte de stockage Azure), les services peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour la sécurisation de la ressource. Pour en savoir plus, reportez-vous à la documentation pour les différents services dans [Étapes suivantes](#next-steps).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [configurer des points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-configure.md).
 - Découvrez comment [sécuriser un compte de stockage Azure pour un réseau virtuel](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

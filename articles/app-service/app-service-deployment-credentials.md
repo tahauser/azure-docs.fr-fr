@@ -90,6 +90,6 @@ Pour réinitialiser les informations d’identification au niveau de l’applica
 
     L’action de réinitialisation invalide les fichiers .PublishSettings précédemment téléchargés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser ces informations d’identification pour déployer votre application à partir de [Git local](app-service-deploy-local-git.md) ou à l’aide de [FTP/S](app-service-deploy-ftp.md).

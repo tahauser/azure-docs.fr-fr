@@ -62,6 +62,6 @@ Dans un déploiement sur un réseau de périmètre ou intranet d’entreprise, A
 ## <a name="learn-more"></a>En savoir plus
 Découvrez plus en détail [les ports et les protocoles utilisés par les points de terminaison Azure Stack](azure-stack-integrate-endpoints.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Exigences relatives à l’infrastructure à clé publique d’Azure Stack](azure-stack-pki-certs.md)
 

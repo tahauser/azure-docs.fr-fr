@@ -130,7 +130,7 @@ Azure utilise les paramètres suivants pour créer le pool de stockage sur les m
 ## <a name="workload-optimization-settings"></a>Paramètres d’optimisation de la charge de travail
 Le tableau suivant décrit les trois options de type de charge de travail disponibles, ainsi que leurs optimisations :
 
-| Type de charge de travail | DESCRIPTION | Optimisations |
+| Type de charge de travail | Description | Optimisations |
 | --- | --- | --- |
 | **Généralités** |Paramètre par défaut qui prend en charge la plupart des charges de travail |Aucun |
 | **Traitement transactionnel** |Optimise le stockage pour les charges de travail OLTP de base de données traditionnelles |Indicateur de trace 1117<br/>Indicateur de trace 1118 |

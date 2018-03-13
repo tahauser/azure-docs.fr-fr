@@ -32,7 +32,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 > Si vous avez [migré](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) des machines de la région principale vers la région secondaire, déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas reprotéger la machine virtuelle ou la rebasculer.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 1. Le basculement de machine virtuelle de la région principale vers la région secondaire doit être validé.
 2. Le site cible principal doit être disponible et vous devez être en mesure d’accéder aux ressources ou de créer des ressources dans cette région.
 

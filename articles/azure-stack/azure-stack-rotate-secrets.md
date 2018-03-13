@@ -64,6 +64,6 @@ Le contrôleur BMC (Baseboard Management Controller) analyse l’état physique 
     }
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la sécurité et Azure Stack, consultez [Situation de sécurité de l’infrastructure Azure Stack](azure-stack-security-foundations.md).

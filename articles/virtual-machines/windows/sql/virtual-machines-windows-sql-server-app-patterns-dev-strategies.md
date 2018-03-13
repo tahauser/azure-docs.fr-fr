@@ -40,7 +40,7 @@ Vous pouvez développer de nombreux types d’applications multiniveaux en répa
 
 Une application *multiniveau* type inclut la couche Présentation, la couche Métier et la couche Données :
 
-| Niveau | DESCRIPTION |
+| Niveau | Description |
 | --- | --- |
 | **Présentation** |La *couche Présentation* (niveau web, niveau frontal) correspond à la couche dans laquelle les utilisateurs interagissent avec une application. |
 | **Métier** |La *couche Métier* (niveau intermédiaire) correspond à la couche utilisée par la couche Présentation et la couche Données pour communiquer l’une avec l’autre. Elle inclut la fonctionnalité principale du système. |

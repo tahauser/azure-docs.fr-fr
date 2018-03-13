@@ -136,5 +136,5 @@ Network Performance Monitor vous permet de diagnostiquer plusieurs problèmes de
 
  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

@@ -115,7 +115,7 @@ La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue*
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
     | NOM | *Donnez-lui un nom* | Ex. *« Out to AAD – Custom override for userCertificate »* |
-    | DESCRIPTION | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
+    | Description | *Fournissez une description* | Ex. *« Si l’attribut userCertificate comporte plus de 15 valeurs, exporter NULL »* |
     | Système connecté | *Sélectionnez le connecteur Azure AD* |
     | Type d’objet système connecté | **user** | |
     | Type d’objet métaverse | **person** | |

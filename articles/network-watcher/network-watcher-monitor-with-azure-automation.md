@@ -183,7 +183,7 @@ Cliquez sur Enregistrer pour enregistrer la planification dans le runbook.
 
 ![Étape 10][10]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous comprenez comment intégrer la résolution des problèmes Network Watcher à Azure Automation, découvrez comment déclencher des captures de paquets sur des alertes de machine virtuelle en consultant l’article [Create an alert triggered packet capture with Azure Network Watcher (Créer une capture de paquets déclenchée par alerte avec Azure Network Watcher)](network-watcher-alert-triggered-packet-capture.md).
 

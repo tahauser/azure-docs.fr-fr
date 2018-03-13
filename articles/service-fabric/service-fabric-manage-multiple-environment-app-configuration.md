@@ -52,7 +52,7 @@ Lorsque vous créez des instances de l’application nommée dans Service Fabric
   - À l’aide de sfctl, la commande [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) considère les paramètres comme une chaîne JSON. Le script install.sh utilise sfctl.
   - Visual Studio vous fournit un ensemble de fichiers de paramètres dans le dossier Paramètres du projet d’application. Ces fichiers de paramètres sont utilisés lors de la publication à partir de Visual Studio, à l’aide de Visual Studio Team Service ou Team Foundation Server. Dans Visual Studio, les fichiers de paramètres sont passés au script Deploy-FabricApplication.ps1.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les articles suivants vous montrent comment utiliser certains des concepts décrits ici :
 
 - [Guide pratique pour spécifier des variables d’environnement pour des services dans Service Fabric](service-fabric-how-to-specify-environment-variables.md)

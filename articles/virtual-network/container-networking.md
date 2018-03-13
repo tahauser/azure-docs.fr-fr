@@ -47,6 +47,6 @@ Vous pouvez déployer jusqu’à 4 000 nœuds dans un cluster Kubernetes et jusq
 ## <a name="pricing"></a>Tarifs
 L’utilisation du plug-in CNI n’est pas facturée.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [déployer un cluster Kubernetes](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/deploy.md) dans votre [propre réseau virtuel](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/features.md#using-azure-integrated-networking-cni).

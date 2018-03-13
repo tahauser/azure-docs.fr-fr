@@ -114,7 +114,7 @@ L’optimiseur de requête utilise des statistiques au niveau des colonnes quand
 ## <a name="commands-for-creating-tables"></a>Commandes pour la création de tables
 Vous pouvez créer une table à partir d’une nouvelle table vide. Vous pouvez aussi créer une table et la remplir avec les résultats d’une instruction select. Le tableau suivant répertorie les instructions T-SQL disponibles pour la création d’une table.
 
-| Instruction T-SQL | DESCRIPTION |
+| Instruction T-SQL | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crée une table vide en définissant toutes les colonnes et options de la table. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crée une table externe. La définition de la table est stockée dans SQL Data Warehouse. Les données de la table sont stockées dans le Stockage Blob Azure ou Azure Data Lake Store. |

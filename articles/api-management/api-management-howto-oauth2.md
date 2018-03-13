@@ -131,7 +131,7 @@ Une fois que vous êtes connecté, les **En-têtes de demandes`Authorization : B
 
 À présent, vous pouvez configurer les valeurs souhaitées pour les paramètres restants, puis soumettre la demande. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des API, regardez la vidéo suivante et l’article qui l’ [accompagne](api-management-howto-protect-backend-with-aad.md).
 
 

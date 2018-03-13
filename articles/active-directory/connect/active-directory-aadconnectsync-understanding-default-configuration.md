@@ -145,7 +145,7 @@ Dans la mesure où il s’agit d’une règle out-of-box, vous recevez un averti
 
 Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jointure et Transformations.
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 La première section fournit des informations de base telles que le nom et la description.
 
 ![Onglet Description dans l’Éditeur de règles de synchronisation ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)

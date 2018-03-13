@@ -149,7 +149,7 @@ Dans une entreprise, le **pare-feu d’entreprise** s’exécute sur le routeur 
 
 Le tableau suivant indique les paramètres de **port sortant** et de domaine requis pour le **pare-feu d’entreprise**.
 
-| Noms de domaine | Ports sortants | DESCRIPTION |
+| Noms de domaine | Ports sortants | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Requis par la passerelle pour se connecter aux services de déplacement des données dans Data Factory |
 | `*.core.windows.net` | 443 | Utilisé par la passerelle pour se connecter au compte de stockage Azure lorsque vous utilisez la fonctionnalité de [copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy). | 
@@ -162,7 +162,7 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 
 Le tableau suivant indique les paramètres de **port entrant** requis pour le **pare-feu Windows**.
 
-| Ports entrants | DESCRIPTION | 
+| Ports entrants | Description | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Requis par l’application Gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification des banques de données locales sur la passerelle. | 
 

@@ -200,7 +200,7 @@ Il peut y avoir plusieurs raisons :
 
     d. Si le fichier n’existe pas ou que les paramètres de groupe et d’utilisateur sont incorrects, prenez une mesure corrective en [Préparant un serveur Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Utiliser des [recherches de journal](log-analytics-log-searches.md) dans Log Analytics pour afficher des données détaillées de l’hôte VMware.
 * [Créer vos propres tableaux de bord](log-analytics-dashboards.md) affichant des données de l’hôte VMware.
 * [Créer des alertes](log-analytics-alerts.md) lorsque des événements d’hôte VMware spécifiques se produisent.

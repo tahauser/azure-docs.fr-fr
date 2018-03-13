@@ -159,7 +159,7 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 
     {"boolean":true}
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Opérations de gestion des comptes sur  Data Lake Store à l’aide de l’API REST](data-lake-store-get-started-rest-api.md).
 
 ## <a name="see-also"></a>Voir aussi

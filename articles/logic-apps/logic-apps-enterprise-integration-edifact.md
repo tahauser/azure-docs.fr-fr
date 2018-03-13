@@ -67,7 +67,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
    ![Renseigner les détails relatifs au contrat](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | Propriété | DESCRIPTION |
+   | Propriété | Description |
    | --- | --- |
    | NOM |Nom du contrat. |
    | Type de contrat | Doit être EDIFACT |
@@ -96,21 +96,21 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 
 ### <a name="identifiers"></a>Identificateurs
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNB6.1 (mot de passe de référence du destinataire) |Entrez une valeur alphanumérique comprise entre 1 et 14 caractères. |
 | UNB6.2 (qualificateur de référence du destinataire) |Entrez une valeur numérique contenant deux caractères maximum. |
 
 ### <a name="acknowledgments"></a>Remerciements
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Réception des messages (CONTRL) |Activez cette case à cocher pour renvoyer un accusé de réception technique (CONTRL) à l’expéditeur. Cet accusé de réception est envoyé à l’expéditeur en fonction des paramètres d’envoi du contrat. |
 | Accusé de réception (CONTRL) |Cochez cette case pour renvoyer un accusé de réception (CONTRL) fonctionnel à l’expéditeur. L’accusé de réception est envoyé à l’expéditeur en fonction des paramètres d’envoi du contrat. |
 
 ### <a name="schemas"></a>Schémas
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNH2.1 (TYPE) |Sélectionnez un type de document informatisé. |
 | UNH2.2 (VERSION) |Entrez le numéro de version du message. (un caractère minimum ; 3 caractères maximum). |
@@ -121,7 +121,7 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 | Schéma |Sélectionnez le schéma que vous avez déjà téléchargé et que vous souhaitez utiliser à partir de votre compte d’intégration associé. |
 
 ### <a name="control-numbers"></a>Numéros de contrôle
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Interdire les doublons de numéro de contrôle d’échange |Pour bloquer les échanges en double, sélectionnez cette propriété. Si cette option est sélectionnée, l’action de décodage EDIFACT vérifie que le numéro de contrôle d’échange (UNB5) pour l’échange reçu ne correspond pas à un numéro de contrôle déjà traité. Si une correspondance est détectée, l’échange n’est pas traité. |
 | Check for duplicate UNB5 every (days) (Vérifier les doublons UNB5 tous les (jours)) |Si vous choisissez de ne pas autoriser les numéros de contrôle d’échange en double, vous pouvez spécifier le nombre de jours après lequel le contrôle est effectué en définissant la valeur appropriée pour ce paramètre. |
@@ -133,7 +133,7 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 
 Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne précédente est terminée. Si vous ne spécifiez aucune règle, la validation utilise la ligne « Par défaut ».
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Type de message |Sélectionnez le type de message EDI. |
 | Validation EDI |Effectuez une validation EDI sur les types de données selon les propriétés EDI du schéma, les restrictions de longueur, les éléments de données vides et les séparateurs de fin. |
@@ -144,7 +144,7 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
 ### <a name="internal-settings"></a>Paramètres internes
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Créer des balises XML vides si les séparateurs de fin sont autorisés |Cochez cette case afin d’inclure des balises XML vides pour les séparateurs de l’expéditeur. |
 | Scinder l’échange en documents informatisés : suspendre les documents informatisés en cas d’erreur|Analyse chaque document informatisé d’un échange dans un document XML distinct en appliquant l’enveloppe appropriée au document informatisé. Suspendez uniquement les documents informatisés dont la validation échoue. |
@@ -169,7 +169,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 
 ### <a name="identifiers"></a>Identificateurs
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNB1.2 (version de la syntaxe) |Sélectionnez une valeur comprise entre **1** et **4**. |
 | UNB2.3 (adresse de routage inverse de l’expéditeur) |Entrez une valeur numérique comprenant entre un et 14 caractères. |
@@ -179,14 +179,14 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 | UNB7 (identifiant de référence de l’application) |Entrez une valeur numérique comprenant entre un et 14 caractères |
 
 ### <a name="acknowledgment"></a>Accusé de réception
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Réception des messages (CONTRL) |Activez cette case à cocher si le partenaire hébergé s’attend à recevoir un accusé de réception (CONTRL) technique. Ce paramètre spécifie que le partenaire hébergé qui envoie le message demande un accusé de réception de la part du partenaire invité. |
 | Accusé de réception (CONTRL) |Activez cette case à cocher si le partenaire hébergé s’attend à recevoir un accusé de réception (CONTRL) fonctionnel. Ce paramètre spécifie que le partenaire hébergé qui envoie le message demande un accusé de réception de la part du partenaire invité. |
 | Générer une boucle SG1/SG4 pour les documents informatisés acceptés |Si vous choisissez de demander un accusé de réception fonctionnel, activez cette case à cocher pour forcer la génération de boucles SG1/SG4 dans les accusés de réception CONTRL fonctionnels pour les documents informatisés acceptés. |
 
 ### <a name="schemas"></a>Schémas
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNH2.1 (TYPE) |Sélectionnez un type de document informatisé. |
 | UNH2.2 (VERSION) |Entrez le numéro de version du message. |
@@ -194,7 +194,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 | SCHÉMA |Sélectionnez le schéma à utiliser. Les schémas se trouvent dans votre compte d’intégration. Pour accéder à vos schémas, vous devez tout d’abord lier votre compte d’intégration à votre application logique. |
 
 ### <a name="envelopes"></a>Enveloppes
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNB8 (code de priorité de traitement) |Entrez une valeur alphabétique ne contenant pas plus d’un caractère. |
 | UNB10 (contrat de communication) |Entrez une valeur numérique comprenant entre un et 40 caractères. |
@@ -206,7 +206,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 
 outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteurs à utiliser pour chaque type de message. Si un jeu de caractères n’est pas spécifié pour un schéma de message donné, le jeu de caractères par défaut est utilisé.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNB1.1 (identificateur système) |Sélectionnez le jeu de caractères EDIFACT à appliquer à l’échange sortant. |
 | SCHÉMA |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser en fonction de leur description ci-dessous. |
@@ -217,7 +217,7 @@ outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 | Suffixe |Sélectionnez le caractère utilisé avec l’identificateur de segment. Si vous désignez un suffixe, l’élément de données de terminateur de segment peut être vide. Si le terminateur de segment est laissé vide, vous devez désigner un suffixe. |
 
 ### <a name="control-numbers"></a>Numéros de contrôle
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | UNB5 (Numéro de contrôle de l’échange) |Entrez un préfixe, une plage de valeurs pour le numéro de contrôle de l’échange, ainsi qu’un suffixe. Ces valeurs sont utilisées pour générer un échange sortant. Le préfixe et le suffixe sont facultatifs, tandis que le numéro de contrôle est obligatoire. Le numéro de contrôle est incrémenté pour chaque nouveau message ; le préfixe et le suffixe restent les mêmes. |
 | UNG5 (Numéro de contrôle de groupe) |Entrez un préfixe, une plage de valeurs pour le numéro de contrôle de l’échange, ainsi qu’un suffixe. Ces valeurs sont utilisées pour générer le numéro de contrôle du groupe. Le préfixe et le suffixe sont facultatifs, tandis que le numéro de contrôle est obligatoire. Le numéro de contrôle est incrémenté pour chaque nouveau message jusqu’à ce que la valeur maximale soit atteinte ; le préfixe et le suffixe restent les mêmes. |
@@ -227,7 +227,7 @@ outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 
 Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne précédente est terminée. Si vous ne spécifiez aucune règle, la validation utilise la ligne « Par défaut ».
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Type de message |Sélectionnez le type de message EDI. |
 | Validation EDI |Effectuez une validation EDI sur les types de données selon les propriétés EDI du schéma, les restrictions de longueur, les éléments de données vides et les séparateurs de fin. |

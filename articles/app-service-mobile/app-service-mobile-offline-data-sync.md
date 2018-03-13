@@ -88,7 +88,7 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 
   Pour illustrer les données obsolètes sur le client, supposons que dans l’exemple de la liste de tâches, l’appareil 1 extrait uniquement les éléments qui ne sont pas terminés. Un élément de tâche « Acheter du lait » est marqué comme terminé sur le serveur par un autre appareil. Toutefois, l’appareil 1 a toujours l’élément de tâche « Acheter du lait » dans le magasin local, car il extrait uniquement les éléments qui ne sont pas marqués comme terminés. Une purge efface cet élément obsolète.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [iOS : activer la synchronisation hors connexion]
 * [Xamarin iOS : activer la synchronisation hors connexion]
 * [Xamarin Android : activer la synchronisation hors connexion]

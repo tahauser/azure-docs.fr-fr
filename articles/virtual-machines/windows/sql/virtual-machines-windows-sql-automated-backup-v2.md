@@ -31,7 +31,7 @@ La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde m
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -66,7 +66,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 
 ### <a name="basic-settings"></a>Paramètres de base
 
-| Paramètre | Plage (par défaut) | DESCRIPTION |
+| Paramètre | Plage (par défaut) | Description |
 | --- | --- | --- |
 | **Sauvegarde automatisée** | Activer/Désactiver (désactivé) | Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2016 Standard ou Enterprise. |
 | **Période de rétention** | 1 à 30 jours (30 jours) | Nombre de jours durant lesquels les sauvegardes sont conservées. |
@@ -76,7 +76,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 
 ### <a name="advanced-settings"></a>Paramètres avancés
 
-| Paramètre | Plage (par défaut) | DESCRIPTION |
+| Paramètre | Plage (par défaut) | Description |
 | --- | --- | --- |
 | **Sauvegardes de bases de données système** | Activer/Désactiver (désactivé) | Lorsqu’elle et activée, cette fonctionnalité sauvegarde également les bases de données système : Master, MSDB et Modèle. Pour les bases de données MSDB et Modèle, vérifiez qu’elles sont en mode de récupération complète si vous souhaitez effectuer des sauvegardes de journaux. Les sauvegardes de journaux ne sont jamais effectuées pour Master. Et aucune sauvegarde n’est effectuée pour TempDB. |
 | **Planification de sauvegarde** | Manuelle/automatisée (automatisée) | Par défaut, la planification de la sauvegarde varie automatiquement selon la croissance du journal. Une planification de sauvegarde manuelle permet à l’utilisateur de spécifier la fenêtre de temps des sauvegardes. Dans ce cas, les sauvegardes sont effectuées uniquement à une fréquence spécifiée et pendant la fenêtre de temps définie sur un jour donné. |

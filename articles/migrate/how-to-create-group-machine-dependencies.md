@@ -79,7 +79,7 @@ Pour installer l’agent sur une machine Linux :
 
 Une fois le groupe créé, nous vous recommandons d’installer les agents sur toutes les machines du groupe et d’affiner le groupe en visualisant la dépendance de l’ensemble du groupe.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrez comment](how-to-create-group-dependencies.md) affiner le groupe en visualisant les dépendances de groupe.
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

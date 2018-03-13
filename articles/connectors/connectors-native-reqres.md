@@ -67,14 +67,14 @@ Voici comment ajouter une action Réponse HTTP :
 ## <a name="request-trigger"></a>Déclencheur de requête
 Voici les détails du déclencheur que ce connecteur prend en charge. Il existe un seul déclencheur de requête.
 
-| Déclencheur | DESCRIPTION |
+| Déclencheur | Description |
 | --- | --- |
 | Requête |Se produit quand une requête HTTP est reçue |
 
 ## <a name="response-action"></a>Action de réponse
 Voici les détails de l'action que ce connecteur prend en charge. Il existe une action de réponse unique qui est utilisable uniquement lorsqu’elle est accompagnée d’un déclencheur de requête.
 
-| Action | DESCRIPTION |
+| Action | Description |
 | --- | --- |
 | response |Renvoie une réponse à requête HTTP corrélée |
 
@@ -84,7 +84,7 @@ Les tableaux suivants décrivent les champs d’entrée du déclencheur et de l�
 #### <a name="request-trigger"></a>Déclencheur de requête
 Voici un champ d’entrée pour le déclencheur provenant d’une requête HTTP entrante.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | JSON Schema (Schéma JSON) |schema |Le schéma JSON du corps de texte de la requête HTTP |
 
@@ -94,7 +94,7 @@ Voici un champ d’entrée pour le déclencheur provenant d’une requête HTTP 
 
 Vous trouverez ci-dessous les détails de sortie pour la requête.
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | headers |objet |En-têtes de requête |
 | body |objet |Objet Requête |
@@ -102,7 +102,7 @@ Vous trouverez ci-dessous les détails de sortie pour la requête.
 #### <a name="response-action"></a>Action de réponse
 Les éléments suivants sont des champs d’entrée pour l’action Réponse HTTP. Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Status Code (Code d’état)* |statusCode |Le code d’état HTTP |
 | headers |headers |Un objet JSON de tout en-tête de réponse à inclure |

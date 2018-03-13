@@ -99,7 +99,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Si la source de l’événement est ADSync
 
-| Code | Nom ou message | DESCRIPTION |
+| Code | Nom ou message | Description |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619 : « Une restriction empêche le mot de passe d’être remplacé par le mot de passe actuel spécifié. » | Cet événement se produit quand le service de réécriture du mot de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. <br> <br> S’il existe une ancienneté minimale pour un mot de passe alors que vous l’avez changé avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0. <br> <br> Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des *N* dernières fois, où *N* est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des *N* dernières fois, un échec se produit. À des fins de test, l’historique de mot de passe doit être défini sur 0. <br> <br> S’il existe des critères de complexité des mots de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe. <br> <br> Si des filtres de mots de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, l’opération de réinitialisation ou de modification échoue. |
 | 6329 | MMS(3040) : admaexport.cpp(2837) : le serveur ne contient pas le contrôle de stratégie de mot de passe LDAP. | Ce problème se produit si le contrôle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) n’est pas activé sur les contrôleurs de domaine. Pour utiliser la fonctionnalité d’écriture différée du mot de passe, vous devez activer le contrôle. Pour cela, les contrôleurs de domaine doivent se trouver sur Windows Server 2008 (avec le dernier SP) ou version ultérieure. Si vos contrôleurs de domaine sont sur 2008 (version antérieure à R2), vous devez également appliquer le correctif logiciel [KB2386717](http://support.microsoft.com/kb/2386717). |
@@ -107,7 +107,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Si la source de l’événement est PasswordResetService
 
-| Code | Nom ou message | DESCRIPTION |
+| Code | Nom ou message | Description |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Cet événement indique que le service local a détecté une demande de réinitialisation de mot de passe provenant du cloud pour un utilisateur fédéré ou qui a recours à la synchronisation du hachage de mot de passe. Cet événement est le premier de chaque opération d’écriture différée de réinitialisation de mot de passe. |
 | 31002 | PasswordResetSuccess | Cet événement indique qu’un utilisateur a sélectionné un nouveau mot de passe pendant une opération de réinitialisation de mot de passe. Nous avons déterminé que ce mot de passe répond aux exigences de mot de passe d’entreprise. Le mot de passe a été correctement écrit en différé dans l’environnement Active Directory local. |

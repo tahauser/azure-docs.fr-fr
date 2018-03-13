@@ -97,7 +97,7 @@ Vous pouvez alors entrer l’adresse IP publique dans un navigateur web. Le site
 ![Site web IIS en cours d’exécution](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez automatisé l’installation d’IIS sur une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 

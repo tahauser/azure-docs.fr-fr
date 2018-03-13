@@ -140,7 +140,7 @@ Le diagramme suivant illustre les transitions du rôle de réplica et donne quel
 > Les modèles de programmation de niveau supérieur, tels que [Reliable Actors](service-fabric-reliable-actors-introduction.md) et [Reliable Services](service-fabric-reliable-services-introduction.md), empêchent le développeur de voir le concept de rôle de réplica. Dans Actors, la notion de rôle est superflue. Dans Services, elle est en grande partie simplifiée pour la plupart des scénarios.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les concepts propres à Service Fabric, consultez l’article suivant :
 
 [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

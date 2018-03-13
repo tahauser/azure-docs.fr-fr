@@ -36,7 +36,7 @@ Vous pouvez installer DSS sur HDInsight à l’aide de clusters Hadoop ou Spark.
 
 Vous pouvez utiliser DSS pour générer des projets, à partir desquels générer ensuite des travaux MapReduce ou Spark. Ces travaux sont exécutés sous forme de travaux MapReduce ou Spark réguliers sur HDInsight, ce qui vous permet d’adapter le cluster à la demande.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 

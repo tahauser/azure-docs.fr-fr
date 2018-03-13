@@ -51,5 +51,5 @@ Pour gérer les services web associés à cet espace de travail, utilisez le por
 > 
 >Pour plus d’informations sur la définition des autorisations d’accès, consultez la page [Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure](../../active-directory/role-based-access-control-manage-assignments.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [déployer le Machine Learning avec des modèles Azure Resource Manager](deploy-with-resource-manager-template.md). 

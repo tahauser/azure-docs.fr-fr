@@ -76,6 +76,6 @@ Bash dans Cloud Shell inclut une authentification préconfigurée pour des outil
 |PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 et 3.5 (par défaut)|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
 [En savoir plus sur Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)

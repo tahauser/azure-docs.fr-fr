@@ -381,7 +381,7 @@ Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger-
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `HttpTrigger`.
 
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 | **type** | n/a| Obligatoire : doit être défini sur `httpTrigger`. |
 | **direction** | n/a| Obligatoire : doit être défini sur `in`. |
@@ -560,7 +560,7 @@ Pour les autres langages, une liaison de sortie HTTP est définie en tant qu’o
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 | **type** |Cette propriété doit être définie sur `http`. |
 | **direction** | Cette propriété doit être définie sur `out`. |

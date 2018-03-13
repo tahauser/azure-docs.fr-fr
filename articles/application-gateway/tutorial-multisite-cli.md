@@ -234,7 +234,7 @@ Remplacez l’adresse par celle de votre autre domaine. Voici ce qui doit appara
 
 ![Tester le site fabrikam dans la passerelle d’application](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

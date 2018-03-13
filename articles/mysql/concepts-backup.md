@@ -75,7 +75,7 @@ Après une restauration à l’aide d’un de ces mécanismes de récupération,
 - Assurez-vous que les connexions et les autorisations appropriées au niveau de la base de données sont en place
 - Configurer les alertes, selon les besoins
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la continuité d’activité, consultez la  [vue d’ensemble de la continuité d’activité](concepts-business-continuity.md).
 - Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Sauvegarde et restauration d’un serveur Azure Database pour MySQL à l’aide du portail Azure](howto-restore-server-portal.md).

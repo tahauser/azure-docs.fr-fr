@@ -31,7 +31,7 @@ Vous devez choisir les blocs de construction de votre solution avant de complét
    * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous avez passé en revue les conditions préalables et effectué les tâches nécessaires, vous pouvez procéder à la création de votre offre de modèle de solution, comme indiqué dans le document suivant : [Guide de création d'un modèle de solution](marketplace-publishing-solution-template-creation.md). Pour revenir à la page principale des tâches du serveur de publication, consultez [Prise en main : Publier une offre dans Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md

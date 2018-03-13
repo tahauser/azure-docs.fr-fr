@@ -25,7 +25,7 @@ Cet article décrit diverses topologies locales et Azure Active Directory (Azure
 
 Voici la légende des images de l’article :
 
-| DESCRIPTION | Symbole |
+| Description | Symbole |
 | --- | --- |
 | Forêt Active Directory locale |![Forêt Active Directory locale](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
 | Active Directory local avec importation filtrée |![Active Directory avec importation filtrée](./media/active-directory-aadconnect-topologies/LegendAD2.png) |

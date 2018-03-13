@@ -219,7 +219,7 @@ Vous trouverez un exemple complet sur la page [Exemple C#](#c-example).
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `TwilioSms`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type**|| Cette propriété doit être définie sur `twilioSms`.|
 |**direction**|| Cette propriété doit être définie sur `out`.|

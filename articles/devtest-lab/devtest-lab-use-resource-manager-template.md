@@ -61,7 +61,7 @@ Après avoir enregistré le modèle Resource Manager, vous devez mettre à jour 
 
 Le modèle Resource Manager est maintenant préparé pour [créer une machine virtuelle](devtest-lab-create-environment-from-arm.md).
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
 * [Déployer un modèle Resource Manager pour créer une machine virtuelle](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
 * Découvrez les autres modèles Resource Manager à démarrage rapide pour l’automatisation de DevTest Labs à partir du [dépôt DevTest Labs GitHub public](https://github.com/Azure/azure-quickstart-templates).

@@ -32,21 +32,21 @@ L’article décrit les propriétés et le schéma pour le corps de la requête.
  
 ## <a name="event-subscription-properties"></a>Propriétés de l’abonnement aux événements
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | destination | objet | Objet qui définit le point de terminaison. |
 | filter | objet | Champ facultatif pour filtrer les types d’événements. |
 
 ### <a name="destination-object"></a>objet de destination
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | endpointType | chaîne | Type de point de terminaison pour l’abonnement (webhook/HTTP, concentrateur d’événements ou file d’attente). | 
 | endpointUrl | chaîne | URL de destination des événements dans cet abonnement aux événements. | 
 
 ### <a name="filter-object"></a>objet de filtre
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Affiche une correspondance lorsque le type d’événement du message d’événement correspond exactement à l’un de ces noms de type d’événement. Génère une erreur lorsque le nom de l’événement ne correspond pas aux noms de type d’événement inscrits pour la source d’événements. Génère une correspondance pour tous les types d’événements. |
 | subjectBeginsWith | chaîne | Filtre de correspondance de préfixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. | 

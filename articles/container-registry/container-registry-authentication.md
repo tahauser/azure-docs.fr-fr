@@ -91,7 +91,7 @@ Pour activer l’utilisateur administrateur dans le portail Azure, accédez au r
 
 ![Activer l’IU de l’utilisateur administrateur dans le portail Azure][auth-portal-01]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Push your first image using the Azure CLI (Transmettre votre première image à l’aide d’Azure CLI)](container-registry-get-started-azure-cli.md)
 

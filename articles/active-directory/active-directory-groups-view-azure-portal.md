@@ -35,7 +35,7 @@ Cet article explique comment afficher tous les groupes dans Azure Active Directo
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , vous pouvez ajouter ou supprimer des colonnes d’affichage, filtrer la liste pour rechercher un groupe, ou apporter des modifications à des groupes pour lesquels vous avez les autorisations de modification.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

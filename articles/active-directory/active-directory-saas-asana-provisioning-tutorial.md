@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2018
 
 L’objectif de ce didacticiel est de présenter les étapes à suivre dans Asana et Azure Active Directory (Azure AD) pour attribuer et désattribuer automatiquement des comptes d’utilisateurs d’Azure AD vers Asana.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

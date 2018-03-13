@@ -78,7 +78,7 @@ Le cas échéant, vérifiez que le serveur DNS est en mesure de résoudre correc
 
 Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par défaut n’est pas en mesure d’atteindre les machines virtuelles du serveur principal. Lorsqu’une instance Application Gateway est approvisionnée, elle configure automatiquement une sonde d’intégrité par défaut pour chaque BackendAddressPool à l’aide des propriétés de BackendHttpSetting. La configuration de cette sonde d’intégrité ne nécessite aucune action de la part de l’utilisateur. Plus précisément, lorsqu’une règle d’équilibrage de charge est configurée, une association est établie entre BackendHttpSetting et BackendAddressPool. Un contrôle par défaut est configuré pour chacune de ces associations et Application Gateway initie régulièrement une connexion de contrôle d’intégrité à chaque instance dans le BackendAddressPool au niveau du port spécifié dans l’élément BackendHttpSetting. Le tableau suivant répertorie les valeurs associées à la sonde d’intégrité par défaut.
 
-| Propriétés de la sonde | Valeur | DESCRIPTION |
+| Propriétés de la sonde | Valeur | Description |
 | --- | --- | --- |
 | URL de sonde |http://127.0.0.1/ |Chemin d'accès de l'URL |
 | Intervalle |30 |Intervalle d’analyse en secondes |
@@ -100,7 +100,7 @@ Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par dé
 
 Les sondes d’intégrité personnalisées apportent davantage de flexibilité au comportement de contrôle par défaut. En utilisant des sondes personnalisées, les utilisateurs peuvent configurer l’intervalle d’analyse, l’URL et le chemin à tester ainsi que le nombre de réponses en échec autorisé avant que l’instance de pool principal soit marquée comme étant défectueuse. Les propriétés supplémentaires suivantes sont ajoutées.
 
-| Propriétés de la sonde | DESCRIPTION |
+| Propriétés de la sonde | Description |
 | --- | --- |
 | NOM |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
 | Protocole |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |

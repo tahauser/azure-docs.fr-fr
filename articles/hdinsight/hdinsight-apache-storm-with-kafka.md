@@ -342,7 +342,7 @@ Dans une session SSH sur le cluster Storm, utilisez la commande suivante pour ar
 
 Étant donné que les étapes décrites dans ce document créent deux clusters dans le même groupe de ressources Azure, vous pouvez supprimer le groupe de ressources du portail Azure. La suppression du groupe de ressources a pour effet de supprimer toutes les ressources créées en suivant les étapes décrites dans ce document.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’exemples de topologies qui peuvent être utilisées avec Storm sur HDInsight, consultez [Exemples de topologies et composants Storm](storm/apache-storm-example-topology.md).
 

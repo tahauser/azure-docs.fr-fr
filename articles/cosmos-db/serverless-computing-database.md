@@ -146,7 +146,7 @@ Avantages d’Azure Functions :
 
 Si vous n’êtes pas sûr de la meilleure option entre Flow, Logic Apps, Azure Functions et WebJobs pour votre implémentation, consultez [Choisir entre Flow, Logic Apps, Functions et WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 À présent, connectons réellement Azure Cosmos DB et Azure Functions : 
 

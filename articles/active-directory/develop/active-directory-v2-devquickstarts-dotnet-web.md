@@ -205,7 +205,7 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant aborder des rubriques plus sophistiquées.  Par exemple :
 
 [Sécuriser une API Web avec le point de terminaison v2.0 &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)

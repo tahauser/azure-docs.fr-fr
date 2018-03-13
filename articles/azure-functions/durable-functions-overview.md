@@ -278,7 +278,7 @@ Un stockage de table est utilisé pour stocker l’historique d’exécution pou
 
 En général, tous les problèmes connus doivent être répertoriés dans la liste [Problèmes GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Si vous rencontrez un problème qui n’apparaît pas dans GitHub, soumettez un nouveau problème en incluant une description détaillée. Même si vous souhaitez simplement poser une question, n’hésitez pas à soumettre un problème GitHub et à le marquer comme une question.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Poursuivre la lecture de la documentation Fonctions durables](durable-functions-bindings.md)

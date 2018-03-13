@@ -37,7 +37,7 @@ Lorsque vous utilisez la solution, vous pouvez :
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour Application Insights Connector par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
@@ -170,7 +170,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="generic-fields"></a>Champs génériques
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | type | ApplicationInsights |
 | ClientIP |   |
@@ -196,7 +196,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="availability-specific-fields"></a>Champs spécifiques à la disponibilité
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | TelemetryType | Disponibilité |
 | AvailabilityTestName | Nom du test web |
@@ -238,7 +238,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 ### <a name="request-specific-fields"></a>Champs spécifiques à la requête
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | type | ApplicationInsights |
 | TelemetryType | Requête |

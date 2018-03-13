@@ -246,7 +246,7 @@ Lorsque le flux d’entrée n’est pas uniforme, l’étape d’agrégation peu
 * [API de détection des anomalies Machine Learning](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Détection des anomalies de série chronologique](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

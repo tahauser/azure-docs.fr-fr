@@ -45,7 +45,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 > 
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
 * Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
 * (facultatif) Cet article ne couvre pas toutes les applets de commande de Data Factory. Consultez la [Référence des applets de commande Data Factory](/powershell/module/azurerm.datafactories) pour obtenir une documentation complète sur les applets de commande Data Factory.
@@ -159,7 +159,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
     ```
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-   | Propriété | DESCRIPTION |
+   | Propriété | Description |
    |:--- |:--- |
    | ClusterSize |Spécifie la taille du cluster HDInsight. |
    | TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
@@ -213,7 +213,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-   | Propriété | DESCRIPTION |
+   | Propriété | Description |
    |:--- |:--- |
    | Type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
    | linkedServiceName |fait référence au service StorageLinkedService que vous avez créé précédemment. |
@@ -413,7 +413,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traite
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Voir aussi
-| Rubrique | DESCRIPTION |
+| Rubrique | Description |
 |:--- |:--- |
 | [Informations de référence sur les applets de commande de Data Factory](/powershell/module/azurerm.datafactories) |Consultez la documentation complète sur les applets de commande de Data Factory |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |

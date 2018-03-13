@@ -228,7 +228,7 @@ Pour le rôle de service cloud, si vous sélectionnez la configuration à partir
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Azure Diagnostics
 Le plug-in renvoie les codes de sortie suivants :
 
-| Code de sortie | DESCRIPTION |
+| Code de sortie | Description |
 | --- | --- |
 | 0 |Vous avez réussi ! |
 | -1 |Erreur générique. |

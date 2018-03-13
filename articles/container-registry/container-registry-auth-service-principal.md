@@ -38,7 +38,7 @@ Pour un accès individuel à un registre, par exemple lorsque vous extrayez manu
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous disposez d’un principal de service auquel vous avez accordé l’accès à votre registre de conteneurs, vous pouvez utiliser ses informations d’identification dans vos applications et services pour interagir avec le registre.
 

@@ -37,7 +37,7 @@ Il existe deux raisons pour lesquelles vous devrez peut-être modifier les reven
 Pour plus d’informations sur la façon d’ajouter et de modifier les revendications, consultez cet article sur la personnalisation des revendications, [Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées dans Azure Active Directory](develop/active-directory-saml-claims-customization.md). Pour les utilisateurs B2B Collaboration, le mappage entre locataires de NameID et UPN est empêché pour des raisons de sécurité.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

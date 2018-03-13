@@ -54,7 +54,7 @@ Dans cette section, l’interface utilisateur du portail vous permet d’ajouter
 
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Paramètre      |  Valeur suggérée   | DESCRIPTION                              |
+    | Paramètre      |  Valeur suggérée   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de message de paramètre** | outputQueueItem | Le nom du paramètre de liaison de sortie. | 
     | **Connexion au compte de stockage** | AzureWebJobsStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |

@@ -305,5 +305,5 @@ Par exemple :
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les réseaux virtuels Azure, consultez la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).

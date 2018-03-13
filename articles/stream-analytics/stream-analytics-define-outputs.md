@@ -93,7 +93,7 @@ Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de pa
 ## <a name="sql-database"></a>Base de données SQL
 [base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Stream Analytics écrivent les données dans une table existante d’une base de données Azure SQL Database.  Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre travail. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) peut également être spécifié en tant que sortie via l’option de sortie SQL Database (il s’agit d’une fonctionnalité d’évaluation). Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
 | Base de données |Nom de la base de données où vous envoyez votre sortie |
@@ -179,7 +179,7 @@ Lorsque vous utilisez le stockage d’objets blob en tant que sortie, un fichier
 
 Quelques paramètres sont requis pour configurer les flux de données Event Hub en tant que sortie.
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
 | Espace de noms Service Bus |Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
@@ -207,7 +207,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 ### <a name="configure-the-power-bi-output-properties"></a>Configuration des propriétés de sortie Power BI
 Une fois le compte Power BI authentifié, vous pouvez configurer les propriétés pour votre sortie Power BI. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour configurer votre sortie Power BI.
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette sortie Power BI. |
 | Espace de travail de groupe |Pour permettre le partage de données avec d’autres utilisateurs de Power BI, vous pouvez sélectionner des groupes à l’intérieur de votre compte Power BI ou choisir « Mon espace de travail » si vous ne souhaitez pas écrire dans un groupe.  La mise à jour d’un groupe existant nécessite le renouvellement de l’authentification Power BI. |
@@ -266,7 +266,7 @@ Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et acc�
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce stockage de tables. |
 | Compte de stockage |Nom du compte de stockage où vous envoyez votre sortie. |
@@ -281,7 +281,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 
 La table ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de file d’attente.
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette file d’attente Service Bus. |
 | Espace de noms Service Bus |Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. |
@@ -298,7 +298,7 @@ Les files d'attente Service Bus offrent une communication de type un-à-un entre
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette rubrique Service Bus. |
 | Espace de noms Service Bus |Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
@@ -329,7 +329,7 @@ Azure Functions est un service de calcul sans serveur qui vous permet d’exécu
 
 Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. Le nouvel adaptateur de sortie Azure Stream Analytics est disponible, avec les propriétés configurables suivantes :
 
-| Nom de la propriété | DESCRIPTION |
+| Nom de la propriété | Description |
 | --- | --- |
 | Function App |Nom de votre application Azure Function App |
 | Fonction |Nom de la fonction dans votre application Azure Function App |

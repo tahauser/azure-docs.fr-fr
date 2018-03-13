@@ -29,7 +29,7 @@ Ce document fournit des instructions pour le fonctionnement des systèmes SAP HA
 - [SAP Installation Guide (Guide d’installation de SAP)](https://service.sap.com/instguides)
 - [Notes SAP](https://sservice.sap.com/notes)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide, vous devez disposer des connaissances de base quant aux différents composants Azure suivants :
 
 - [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)

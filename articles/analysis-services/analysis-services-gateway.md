@@ -67,7 +67,7 @@ Nous vous recommandons d’autoriser les adresses IP pour votre région de donn�
 
 Voici les noms de domaine complets utilisés par la passerelle.
 
-| Noms de domaine | Ports sortants | DESCRIPTION |
+| Noms de domaine | Ports sortants | Description |
 | --- | --- | --- |
 | *. powerbi.com |80 |HTTP utilisé pour télécharger le programme d’installation. |
 | *. powerbi.com |443 |HTTPS |

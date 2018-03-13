@@ -65,7 +65,7 @@ Security Center recommande d’approvisionner un WAF pour vous défendre contre 
 
 Les journaux du pare-feu d’applications web sont maintenant entièrement intégrés. Le Centre de sécurité peut commencer automatiquement à collecter et à analyser les journaux afin de vous informer des alertes de sécurité les plus importantes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Add a web application » (Ajouter une application web). Pour en savoir plus sur la configuration d'un pare-feu d'applications web, consultez les rubriques suivantes :
 
 * [Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)

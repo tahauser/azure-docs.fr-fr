@@ -440,7 +440,7 @@ Ce chiffre sera différent du nombre d’« exceptions » calculé par le port
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Surveiller REST, SQL et les autres appels aux dépendances](app-insights-asp-net-dependencies.md)
 * [Surveiller les durées de chargement des pages, les exceptions du navigateur et les appels AJAX](app-insights-javascript.md)
 * [Surveiller les compteurs de performances](app-insights-performance-counters.md)

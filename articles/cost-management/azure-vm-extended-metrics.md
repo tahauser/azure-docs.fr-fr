@@ -74,6 +74,6 @@ Pour afficher les métriques de performances sur vos instances Azure dans le por
 
 ![Explorateur d’instances](./media/azure-vm-extended-metrics/instance-explorer.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous n’avez pas déjà activé l’accès de l’API Azure Resource Manager pour vos comptes, consultez [Activer des abonnements et comptes Azure](activate-subs-accounts.md).

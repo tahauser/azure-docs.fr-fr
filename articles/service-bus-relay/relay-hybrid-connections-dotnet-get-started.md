@@ -71,7 +71,7 @@ Dans Visual Studio, écrivez une application console C# pour envoyer des message
 
 Vous avez créé une application de connexions hybrides complète : félicitations !
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)

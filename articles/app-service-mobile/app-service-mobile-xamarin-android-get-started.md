@@ -64,7 +64,7 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
    >
    >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Ajouter l’authentification à votre application ](app-service-mobile-xamarin-android-get-started-users.md)
 * [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-android-get-started-push.md)

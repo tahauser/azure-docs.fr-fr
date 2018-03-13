@@ -54,7 +54,7 @@ Avant de supprimer le rôle d’administrateur de rôle privilégié d’un util
 4. Cliquez sur **Oui** pour supprimer l’utilisateur du rôle.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

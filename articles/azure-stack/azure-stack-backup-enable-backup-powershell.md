@@ -47,7 +47,7 @@ Ouvrez Windows PowerShell avec une invite et exécutez les commandes suivantes 
 
 Dans la même session PowerShell, modifiez le script PowerShell suivant en ajoutant les variables de votre environnement. Exécutez le script mis à jour pour configurer l’environnement du gestionnaire de ressources et vous connecter au point de terminaison de gestion d’opérateur.
 
-| Variable    | DESCRIPTION |
+| Variable    | Description |
 |---          |---          |
 | $TenantName | Nom du locataire Azure Active Directory. |
 | Nom du compte de l’opérateur        | Nom du compte de l’opérateur Azure Stack. |
@@ -97,7 +97,7 @@ Dans la même session PowerShell, exécutez les commandes suivantes :
 
 Dans la même session PowerShell, modifiez le script PowerShell suivant en ajoutant les variables de votre environnement. Exécutez le script mis à jour pour indiquer le partage de sauvegarde, les informations d’identification et la clé de chiffrement pour le service de sauvegarde d’infrastructure.
 
-| Variable        | DESCRIPTION   |
+| Variable        | Description   |
 |---              |---                                        |
 | $username       | Saisissez le **nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur de l’emplacement du lecteur partagé. Par exemple : `Contoso\administrator`. |
 | $password       | Saisissez le **mot de passe** de l’utilisateur. |

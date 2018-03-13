@@ -178,7 +178,7 @@ Connectez-vous à Azure et sélectionnez l’ID d’abonnement pour lequel vous 
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

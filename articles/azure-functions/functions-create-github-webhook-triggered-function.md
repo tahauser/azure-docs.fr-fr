@@ -77,7 +77,7 @@ Ensuite, vous créez le webhook dans votre référentiel GitHub.
 
     ![Définir l’URL et le secret du webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-| Paramètre | Valeur suggérée | DESCRIPTION |
+| Paramètre | Valeur suggérée | Description |
 |---|---|---|
 | **URL de charge utile** | Valeur copiée | Utilisez la valeur retournée par **<>/ Obtenir une fonction URL**. |
 | **Type de contenu** | application/json | La fonction attend une charge utile JSON. |

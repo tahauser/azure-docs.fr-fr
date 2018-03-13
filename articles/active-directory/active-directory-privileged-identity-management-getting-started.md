@@ -51,7 +51,7 @@ Une fois Azure AD Privileged Identity Management configuré, le panneau de navig
 - **Rôles d’annuaire Azure AD**, situé sous la section Gérer du menu de navigation gauche, affiche le tableau de bord utilisé par les administrateurs de rôle privilégié pour gérer les attributions de rôle, changer les paramètres d’activation de rôle, démarrer des révisions d’accès, etc. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord (et non sur l’ensemble du locataire).
 - Les **rôles de ressources Azure (préversion)** situés sous la section Gérer du menu de navigation gauche affichent la liste de ressources d’abonnement pour lesquelles vous avez des attributions de rôles. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 La [vue d’ensemble Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclut plus de détails sur la manière de gérer un accès administrateur dans votre organisation.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

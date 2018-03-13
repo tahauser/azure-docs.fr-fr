@@ -83,7 +83,7 @@ Sortie :
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur le déploiement et la gestion d’ACS avec les didacticiels ACS.
 

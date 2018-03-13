@@ -98,7 +98,7 @@ Pour supprimer définitivement une règle, sélectionnez-la dans la liste des r�
 
 Vous pouvez supprimer plusieurs règles en même temps. Pour cela, vous devez sélectionner plusieurs règles dans la liste.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

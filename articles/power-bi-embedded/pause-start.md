@@ -75,7 +75,7 @@ Retrouvez l’usage de votre capacité en la démarrant. Le démarrage de la cap
 
 Si du contenu est affecté à cette capacité, il sera disponible après le démarrage.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous souhaitez monter ou descendre en puissance votre capacité, consultez la page [Mettre à l’échelle une capacité Power BI Embedded](scale-capacity.md).
 

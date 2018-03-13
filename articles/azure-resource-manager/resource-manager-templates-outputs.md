@@ -72,7 +72,7 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 }
 ```
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | outputName |OUI |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
 | Type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. |
@@ -98,7 +98,7 @@ Si vous utilisez un modèle pour créer des adresses IP publiques, il doit compo
 ## <a name="example-templates"></a>Exemples de modèles
 
 
-|Modèle  |DESCRIPTION  |
+|Modèle  |Description  |
 |---------|---------|
 |[Copie de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crée des variables complexes et génère ces valeurs. Ne déploie aucune ressource. |
 |[Adresse IP publique](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crée une adresse IP publique et génère l’ID de ressource. |

@@ -513,7 +513,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez découvert les principes de base du service de Table de Stockage Azure et d’Azure Cosmos DB, consultez les liens suivants pour approfondir vos connaissances.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

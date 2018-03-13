@@ -146,7 +146,7 @@ Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 d
 ## <a name="alert-records"></a>Enregistrements d’alerte
 Les enregistrements d’alerte créés par des règles d’alerte dans Log Analytics ont pour **Type** **Alert** et pour **SourceSystem** **OMS**.  Les propriétés des enregistrements sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | type |*Alert* |
 | SourceSystem |*OMS* |

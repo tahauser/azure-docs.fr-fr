@@ -596,5 +596,5 @@ Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’
 
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer un cluster](service-fabric-cluster-creation-via-arm.md)

@@ -39,7 +39,7 @@ Procédez comme suit pour créer un environnement :
    
    ![Créer le groupe de ressources Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)
    
-   Paramètre|Valeur suggérée|DESCRIPTION
+   Paramètre|Valeur suggérée|Description
    ---|---|---
    Nom de l’environnement | Un nom unique | Ce nom représente l’environnement dans [l’explorateur time series](https://insights.timeseries.azure.com)
    Abonnement | Votre abonnement | Si vous avez plusieurs abonnements, choisissez l’abonnement qui contient votre source d’événements de préférence. Time Series Insights peut détecter automatiquement les ressources Azure IoT Hub et Concentrateur d’événements existant dans le même abonnement.

@@ -66,7 +66,7 @@ Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’
 
 À la fin de ce didacticiel, vous avez un ensemble d’applications clientes autonomes, avec chaque base de données inscrite dans le catalogue.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis : 
 * Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Les trois exemples d’applications clientes sont déployés. Pour déployer ces applications en moins de cinq minutes, voir [Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).

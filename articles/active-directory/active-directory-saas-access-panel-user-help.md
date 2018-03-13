@@ -117,7 +117,7 @@ Sélectionnez la vignette **Groupes**, puis effectuez l’une des actions suivan
    >
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations relatives à la résolution des problèmes, consultez [Problèmes lors de l’utilisation du site web ou de l’application mobile du volet d’accès aux applications](active-directory-application-access-panel-content-map.md).
 

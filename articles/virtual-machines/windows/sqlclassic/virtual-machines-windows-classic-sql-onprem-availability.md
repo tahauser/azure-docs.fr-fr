@@ -55,7 +55,7 @@ Cette section vous indique comment utiliser l’ **Assistant Ajout d’un répli
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. Renseignez les champs de la page avec les valeurs qui seront utilisées pour créer la machine virtuelle Azure qui hébergera le réplica.
    
-   | Paramètre | DESCRIPTION |
+   | Paramètre | Description |
    | --- | --- |
    | **Image** |Sélectionnez la combinaison système d’exploitation- SQL Server souhaitée |
    | **Taille de la machine virtuelle** |Sélectionnez la taille de machine virtuelle qui correspond le mieux à vos besoins |

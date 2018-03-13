@@ -262,7 +262,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 > - L’élément Worker est appelé *Supervisor* pour le type de cluster Storm.
 > - L’élément Worker est appelé *Region* pour le type de cluster HBase.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Création de clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Travailler à partir d’un PC Windows dans Hadoop sur HDInsight](hdinsight-hadoop-windows-tools.md)
 

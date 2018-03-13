@@ -65,7 +65,7 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 ## <a name="settings"></a>Paramètres
 Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée. Pour les machines virtuelles classiques, vous devez utiliser PowerShell pour configurer ces paramètres.
 
-| Paramètre | Plage (par défaut) | DESCRIPTION |
+| Paramètre | Plage (par défaut) | Description |
 | --- | --- | --- |
 | **Sauvegarde automatisée** |Activer/Désactiver (désactivé) |Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. |
 | **Période de rétention** |1 à 30 jours (30 jours) |Nombre de jours durant lesquels une sauvegarde est conservée. |

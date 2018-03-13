@@ -30,6 +30,6 @@ Les opportunités de formation et de certification suivantes sont disponibles po
 ## <a name="certification"></a>Certification
 Les certifications Azure Stack sont en cours de développement. Revenez consulter cette section ultérieurement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Documentation sur Azure Stack](https://docs.microsoft.com/azure/azure-stack/)

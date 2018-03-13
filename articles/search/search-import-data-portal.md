@@ -109,7 +109,7 @@ L’Assistant a également créé un **index**. Dans Recherche Azure, les mises 
 L’ajout d’un nouveau champ, la modification des profils de score, la modification des générateurs de suggestions ou la modification des analyseurs de langue ne nécessitent pas de reconstruction. Consultez la page [Mettre à jour l’index](https://msdn.microsoft.com/library/azure/dn800964.aspx) pour plus de détails.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Suivez ces liens pour en savoir plus sur les indexeurs :
 
 * [Indexation d’Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

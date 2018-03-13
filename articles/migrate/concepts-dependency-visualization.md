@@ -43,6 +43,6 @@ Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Mig
 
 Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet de migration. Si vous le faites, les dépendances ne fonctionneront pas comme prévu.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Regrouper des machines à l’aide de dépendances de machines](how-to-create-group-machine-dependencies.md)

@@ -31,7 +31,7 @@ Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windo
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 

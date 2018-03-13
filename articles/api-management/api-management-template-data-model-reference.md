@@ -53,7 +53,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="API"></a> API  
  L’entité `API` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |id|chaîne|Identificateur de ressource. Identifie exclusivement l’API dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `apis/{id}`, où `{id}` est un identificateur d’API. Cette propriété est en lecture seule.|  
 |Nom|chaîne|Nom de l’API. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
@@ -67,7 +67,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="APISummary"></a> API summary  
  L’entité `API summary` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |id|chaîne|Identificateur de ressource. Identifie exclusivement l’API dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `apis/{id}`, où `{id}` est un identificateur d’API. Cette propriété est en lecture seule.|  
 |Nom|chaîne|Nom de l’API. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
@@ -76,11 +76,11 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Application"></a> Application  
  L’entité `application` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|chaîne|Identificateur unique de l’application.|  
 |Intitulé|chaîne|Titre de l’application.|  
-|DESCRIPTION|chaîne|Description de l’application.|  
+|Description|chaîne|Description de l’application.|  
 |Url|URI|URI de l’application.|  
 |Version|chaîne|Informations de version de l’application.|  
 |Configuration requise|chaîne|Description des conditions requises de l’application.|  
@@ -94,7 +94,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Attachment"></a> Attachment  
  L’entité `attachment` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |UniqueId|chaîne|Identificateur unique de la pièce jointe.|  
 |Url|chaîne|URL de la ressource.|  
@@ -103,7 +103,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
   
 ##  <a name="Sample"></a> Code sample  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |title|chaîne|Nom de l’opération.|  
 |snippet|chaîne|Cette propriété est déconseillée et ne doit pas être utilisée.|  
@@ -121,7 +121,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Comment"></a> Comment  
  L’entité `API` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|number|ID du commentaire.|  
 |CommentText|chaîne|Corps du commentaire. Peut comporter du code HTML.|  
@@ -131,12 +131,12 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Issue"></a> Issue  
  L’entité `issue` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|chaîne|Identificateur unique du problème.|  
 |ApiID|chaîne|ID de l’API pour laquelle ce problème a été signalé.|  
 |Intitulé|chaîne|Titre du problème.|  
-|DESCRIPTION|chaîne|Description du problème.|  
+|Description|chaîne|Description du problème.|  
 |SubscriptionDeveloperName|chaîne|Prénom du développeur qui a signalé le problème.|  
 |IssueState|chaîne|État actuel du problème. Les valeurs possibles sont Proposed, Opened et Closed (Proposé, Ouvert et Fermé).|  
 |ReportedOn|Datetime|Date et heure auxquelles le problème a été signalé.|  
@@ -147,7 +147,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Filtering"></a> Filtering  
  L’entité `filtering` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |Modèle|chaîne|Terme de recherche actuel ; ou `null` en l’absence de terme de recherche.|  
 |Placeholder|chaîne|Texte à afficher dans la zone de recherche si aucun terme de recherche n’est spécifié.|  
@@ -155,7 +155,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Header"></a> Header  
  Cette section décrit la représentation `parameter`.  
   
-|Propriété|DESCRIPTION|type|  
+|Propriété|Description|type|  
 |--------------|-----------------|----------|  
 |Nom|chaîne|Nom du paramètre.|  
 |description|chaîne|Description du paramètre.|  
@@ -168,7 +168,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="HTTPRequest"></a> HTTP Request  
  Cette section décrit la représentation `request`.  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |description|chaîne|Description de la demande d’opération.|  
 |En-têtes|tableau d’entités [Header](#Header).|En-têtes de demande.|  
@@ -178,7 +178,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="HTTPResponse"></a> HTTP Response  
  Cette section décrit la représentation `response`.  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |statusCode|entier positif|Code de statut de la réponse de l’opération.|  
 |description|chaîne|Description de la réponse de l’opération.|  
@@ -187,7 +187,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Operation"></a> Opération  
  L’entité `operation` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |id|chaîne|Identificateur de ressource. Identifie exclusivement l’opération dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `apis/{aid}/operations/{id}`, où `{aid}` est un identificateur d’API et `{id}` un identificateur d’opération. Cette propriété est en lecture seule.|  
 |Nom|chaîne|Nom de l’opération. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
@@ -202,7 +202,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Menu"></a> Operation menu  
  L’entité `operation menu` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ApiId|chaîne|ID de l’API actuelle.|  
 |CurrentOperationId|chaîne|ID de l’opération actuelle.|  
@@ -212,7 +212,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="MenuItem"></a> Operation menu item  
  L’entité `operation menu item` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|chaîne|ID de l’opération.|  
 |Intitulé|chaîne|Description de l’opération.|  
@@ -221,7 +221,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Paging"></a> Paging  
  L’entité `paging` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |Page|number|Numéro de page actuel.|  
 |PageSize|number|Maximum de résultats à afficher sur une seule page.|  
@@ -232,7 +232,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Parameter"></a> Parameter  
  Cette section décrit la représentation `parameter`.  
   
-|Propriété|DESCRIPTION|type|  
+|Propriété|Description|type|  
 |--------------|-----------------|----------|  
 |Nom|chaîne|Nom du paramètre.|  
 |description|chaîne|Description du paramètre.|  
@@ -245,11 +245,11 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Product"></a> Produit  
  L’entité `product` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|chaîne|Identificateur de ressource. Identifie exclusivement le produit dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `products/{pid}`, où `{pid}` est un identificateur de produit. Cette propriété est en lecture seule.|  
 |Intitulé|chaîne|Nom du produit. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
-|DESCRIPTION|chaîne|Description du produit. Ne doit pas être vide. Peut comporter des balises de mise en forme. La longueur maximale est de 1 000 caractères.|  
+|Description|chaîne|Description du produit. Ne doit pas être vide. Peut comporter des balises de mise en forme. La longueur maximale est de 1 000 caractères.|  
 |Termes|chaîne|Conditions d’utilisation du produit. Les développeurs qui veulent s’abonner au produit devront consulter et accepter ces conditions pour pouvoir terminer le processus d’abonnement.|  
 |ProductState|number|Spécifie si le produit est publié ou non. Les produits publiés sont détectables par les développeurs sur le portail des développeurs. Les produits non publiés ne sont visibles que pour les administrateurs.<br /><br /> Les valeurs autorisées pour l’état du produit sont :<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|booléenne|Spécifie si un utilisateur peut avoir plusieurs abonnements à ce produit en même temps.|  
@@ -258,7 +258,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Provider"></a> Provider  
  L’entité `provider` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |properties|dictionnaire de chaînes|Propriétés de ce fournisseur d’authentification.|  
 |AuthenticationType|chaîne|Type de fournisseur. (Azure Active Directory, compte Facebook, compte Google, compte Microsoft, Twitter).|  
@@ -267,7 +267,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Representation"></a> Representation  
  Cette section décrit une `representation`.  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |contentType|chaîne|Spécifie un type de contenu inscrit ou personnalisé pour cette représentation, par exemple, `application/xml`.|  
 |sample|chaîne|Exemple de la représentation.|  
@@ -275,7 +275,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="Subscription"></a> Subscription  
  L’entité `subscription` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|chaîne|Identificateur de ressource. Identifie exclusivement l’abonnement dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `subscriptions/{sid}`, où `{sid}` est un identificateur d’abonnement. Cette propriété est en lecture seule.|  
 |ProductId|chaîne|Identificateur de ressource du produit concerné par l’abonnement. La valeur est une URL relative valide au format `products/{pid}`, où `{pid}` est un identificateur de produit.|  
@@ -301,7 +301,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="SubscriptionSummary"></a> Subscription summary  
  L’entité `subscription summary` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |ID|chaîne|Identificateur de ressource. Identifie exclusivement l’abonnement dans l’instance de service Gestion des API actuelle. La valeur est une URL relative valide au format `subscriptions/{sid}`, où `{sid}` est un identificateur d’abonnement. Cette propriété est en lecture seule.|  
 |DisplayName|chaîne|Nom complet de l’abonnement.|  
@@ -309,7 +309,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="UserAccountInfo"></a> User account info  
  L’entité `user account info` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |FirstName|chaîne|Prénom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
 |LastName|chaîne|Nom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
@@ -322,7 +322,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="UseSignIn"></a> User sign in  
  L’entité `user sign in` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |Email|chaîne|Adresse de messagerie. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
 |Mot de passe|chaîne|Mot de passe du compte d’utilisateur.|  
@@ -340,7 +340,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 ##  <a name="UserSignUp"></a> User sign up  
  L’entité `user sign up` a les propriétés suivantes :  
   
-|Propriété|type|DESCRIPTION|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
 |PasswordConfirm|booléenne|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
 |Mot de passe|chaîne|Mot de passe du compte d’utilisateur.|  

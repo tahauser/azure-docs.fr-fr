@@ -34,7 +34,7 @@ Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.N
 ### <a name="transient-fault-error-codes"></a>Codes d’erreur pour les erreurs temporaires
 Les erreurs suivantes sont temporaires et doivent être relancées dans la logique d’application : 
 
-| Code d'erreur | Niveau de gravité | DESCRIPTION |
+| Code d'erreur | Niveau de gravité | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. |
 | 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur SQL Database vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. |
@@ -48,7 +48,7 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 ## <a name="database-copy-errors"></a>Erreurs de copie de base de données
 Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans la base de données SQL Azure. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
 
-| Code d'erreur | Niveau de gravité | DESCRIPTION |
+| Code d'erreur | Niveau de gravité | Description |
 | ---:| ---:|:--- |
 | 40635 |16 |Le client avec l'adresse IP’%.&#x2a;ls’ est temporairement désactivé. |
 | 40637 |16 |La copie de base de données est actuellement désactivée. |
@@ -76,7 +76,7 @@ Rubriques connexes :
 
 * Des informations plus détaillées sont disponibles ici : [Limites de ressources d’Azure SQL Database](sql-database-service-tiers.md).
 
-| Code d'erreur | Niveau de gravité | DESCRIPTION |
+| Code d'erreur | Niveau de gravité | Description |
 | ---:| ---:|:--- |
 | 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers.md). |
 | 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Sinon, veuillez réessayer ultérieurement.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers.md). |
@@ -123,7 +123,7 @@ Rubriques connexes :
 ## <a name="general-errors"></a>Erreurs générales.
 Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 
-| Code d'erreur | Niveau de gravité | DESCRIPTION |
+| Code d'erreur | Niveau de gravité | Description |
 | ---:| ---:|:--- |
 | 15006 |16 |(Connexion de l’administrateur) n’est pas un nom valide, car il contient des caractères non valides. |
 | 18452 |14 |La connexion a échoué. La connexion provient d'un domaine non approuvé et ne peut pas être utilisée avec l’authentification Windows.%.&#x2a;ls (Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.) |

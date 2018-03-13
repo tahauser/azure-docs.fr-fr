@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 ## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
 Chaque fois que des mises à jour sont publiées pour les extensions de machine virtuelle que vous utilisez, vous devez les télécharger. Les extensions fournies dans le produit ne sont pas mises à jour via les correctifs et le processus de mise à jour standard. Vous devez donc vérifier régulièrement si de nouvelles mises à jour sont disponibles. Les autres extensions sont disponibles seulement via Gestion de la Place de marché.
 
-|  | Nom de l’élément | DESCRIPTION | Publisher | Type de système d’exploitation |
+|  | Nom de l’élément | Description | Publisher | Type de système d’exploitation |
 | --- | --- | --- | --- | --- |
 |![](media/azure-stack-marketplace-azure-items/cse.png) | [ Extension IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Téléchargez cette extension pour déployer un serveur SQL Server sur un élément de la Place de marché Windows ; ceci est obligatoire.</b> | Microsoft | Windows |
 |![](media/azure-stack-marketplace-azure-items/cse.png) | [Extension de script personnalisé](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Téléchargez cette mise à jour de la version d’origine de l’extension de script personnalisé pour Windows.</b> | Microsoft | Windows |
@@ -44,7 +44,7 @@ Chaque fois que des mises à jour sont publiées pour les extensions de machine 
 
 Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de solution de la Place de Marché Azure suivants. Téléchargez les éventuelles dépendances séparément, comme indiqué. Les applications telles que SQL Server et Machine Learning Server nécessitent des licences appropriées, sauf mention indiquant qu’il s’agit d’une version gratuite ou d’évaluation.
 
-|  | Nom de l’élément | DESCRIPTION | Publisher |
+|  | Nom de l’élément | Description | Publisher |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Solutions d’entreprise simples à déployer, rentables, axées sur les applications et centrées sur l’utilisateur. Ces images sont régulièrement mises à jour avec les derniers correctifs. <b>Informations importantes : Les images téléchargées avant le 18 janvier 2018 doivent être supprimées et remplacées par les dernières versions.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Déploiement de Services Bureau à distance](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Créez un déploiement de Services Bureau à distance de base. | Microsoft |
@@ -77,7 +77,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 
 
 ## <a name="linux-distributions"></a>Distributions Linux
-|  | Nom de l’élément | DESCRIPTION | Publisher |
+|  | Nom de l’élément | Description | Publisher |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux de CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux est une distribution Linux moderne et minime, facilitant l’exécution des conteneurs, la gestion des clusters et la mise à jour homogène de vos serveurs, en fait tous les composants qui rendent possible le calcul à l’échelle de l’entrepôt. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Serveur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server est le Linux le plus populaire au monde pour les environnements cloud. | Canonical |
@@ -90,7 +90,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>Images et modèles de solution de tiers BYOL, gratuites et en version d’évaluation
 
-|  | Nom de l’élément | DESCRIPTION | Publisher |
+|  | Nom de l’élément | Description | Publisher |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | Plateforme de commerce électronique open source. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Courtier de messages Open Source dans Java. | Bitnami |

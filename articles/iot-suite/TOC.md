@@ -66,6 +66,7 @@
 ### [Créer un appareil simulé](iot-suite-remote-monitoring-test.md)
 ### [Personnaliser la solution](iot-suite-remote-monitoring-customize.md)
 ### [Déployer à l’aide de l’interface CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Déployer localement](iot-suite-remote-monitoring-deploy-local.md)
 ### Connecter un appareil physique
 #### [C sur Windows](iot-suite-connecting-devices.md)
 #### [C sur Linux](iot-suite-connecting-devices-linux.md)

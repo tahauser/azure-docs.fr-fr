@@ -135,7 +135,7 @@ En savoir plus sur l’offre [Azure Hybrid Use Benefit](https://aka.ms/azure-hyb
 * Le disque du système d’exploitation doit être un disque de base, et non un disque dynamique.
 * Pour les machines virtuelles de génération 2/activées UEFI, le système d’exploitation doit être de la famille Windows, et la taille du disque de démarrage doit être inférieure à 300 Go.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que la protection est effectuée et que la machine a atteint un état protégé, vous pouvez essayer un [basculement](site-recovery-failover.md) pour vérifier si votre application s’affiche dans Azure ou non.
 

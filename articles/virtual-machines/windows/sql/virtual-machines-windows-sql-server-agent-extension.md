@@ -35,7 +35,7 @@ Pour afficher la version de cet article pour un déploiement Classic, consultez 
 ## <a name="supported-services"></a>Services pris en charge
 L’extension Agent IaaS SQL Server prend en charge les tâches d’administration suivantes :
 
-| Fonction d’administration | DESCRIPTION |
+| Fonction d’administration | Description |
 | --- | --- |
 | **Sauvegarde automatisée SQL** |Automatise la planification des sauvegardes de toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
 | **Mise à jour corrective automatisée SQL** |Configure une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |

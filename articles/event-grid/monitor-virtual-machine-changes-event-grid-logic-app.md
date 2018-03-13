@@ -97,7 +97,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
 
    ![Spécifier les détails de l’abonnement aux événements](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   | Paramètre | Valeur suggérée | DESCRIPTION | 
+   | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **Abonnement** | *{abonnement-Azure-de-la-machine-virtuelle}* | Sélectionnez l’abonnement Azure de l’éditeur d’événements. Dans le cadre de ce didacticiel, sélectionnez l’abonnement Azure de votre machine virtuelle. | 
    | **Type de ressource** | Microsoft.Resources.resourceGroups | Sélectionnez le type de ressource de l’éditeur d’événements. Dans le cadre de ce didacticiel, sélectionnez la valeur spécifiée, afin que votre application logique ne surveille que les groupes de ressources. | 
@@ -180,7 +180,7 @@ Ajoutez maintenant une [ *action* ](../logic-apps/logic-apps-overview.md#logic-a
    > [!TIP]
    > Pour sélectionner certains des champs disponibles dans votre flux de travail, cliquez sur une zone d’édition afin d’ouvrir la liste **Contenu dynamique**, ou choisissez **Ajouter du contenu dynamique**. Pour voir davantage de champs, choisissez **Plus** pour chacune des sections de la liste. Pour fermer la liste **Contenu dynamique**, choisissez **Ajouter du contenu dynamique**.
 
-   | Paramètre | Valeur suggérée | DESCRIPTION | 
+   | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **To** | *{adresse-e-mail-du-destinataire}* |Entrez l’adresse e-mail du destinataire. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
    | **Objet** | Mise à jour de la ressource : **Subject**| Entrez le contenu de l’objet de l’e-mail. Dans le cadre de ce didacticiel, entrez le texte suggéré et sélectionnez le champ **Subject** de l’événement. Ici, l’objet de votre e-mail comprend le nom de la ressource mise à jour (machine virtuelle). | 

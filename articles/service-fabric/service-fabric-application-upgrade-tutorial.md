@@ -72,7 +72,7 @@ Dans quelques minutes, tous les domaines de mise à jour seront mis à niveau (t
 
 Vous souhaiterez peut-être essayer de modifier les versions et de passer de la version 2.0.0 à la version 3.0.0 en guise d'exercice, voire même de revenir de la version 2.0.0 à la version 1.0.0. Amusez-vous avec les délais d'attente et les stratégies de contrôle d'intégrité pour vous familiariser avec ceux-ci. Lors du déploiement sur un cluster Azure par opposition à un cluster local, les paramètres utilisés peuvent être différents. Nous vous recommandons de définir les délais d’attente de manière plus restrictive.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
 
 Contrôlez les mises à niveau de votre application à l’aide des [paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).

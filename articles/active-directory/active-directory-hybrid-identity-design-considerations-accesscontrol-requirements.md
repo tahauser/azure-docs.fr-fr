@@ -75,7 +75,7 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

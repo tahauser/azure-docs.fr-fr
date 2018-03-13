@@ -171,7 +171,7 @@ Suivez ces étapes pour accorder à vos utilisateurs de laboratoire des droits d
 
 1. Sélectionnez **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Après la création d’une machine virtuelle, vous pouvez vous connecter à celle-ci en sélectionnant **Connexion** dans le volet de gestion de la machine virtuelle.
 * Vous pouvez afficher et gérer les ressources d’un environnement en sélectionnant celui-ci dans la liste **Mes machines virtuelles** de votre laboratoire. 
 * Explorez les [modèles Azure Resource Manager de la galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).

@@ -37,7 +37,7 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 Avant de commencer, il est utile d’examiner les architectures [VMware](concepts-vmware-to-azure-architecture.md) et [Hyper-V](concepts-hyper-v-to-azure-architecture.md) pour la récupération d’urgence.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 

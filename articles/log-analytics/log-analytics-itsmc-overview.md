@@ -242,7 +242,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Affecté à
 - Catégorie
 - Intitulé
-- DESCRIPTION
+- Description
 - Date de création
 - Date de fermeture
 - Date de résolution
@@ -280,7 +280,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Date de fin prévue
 - Date de début du travail
 - Date de fin du travail
-- DESCRIPTION
+- Description
 - Ordinateur
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Données de sortie pour un incident ServiceNow
@@ -327,7 +327,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Date de fin prévue |
 | WorkStartDate_t  | Date de début réelle |
 | WorkEndDate_t | Date de fin réelle|
-| Description_s | DESCRIPTION |
+| Description_s | Description |
 | Ordinateur  | Élément de configuration |
 
 

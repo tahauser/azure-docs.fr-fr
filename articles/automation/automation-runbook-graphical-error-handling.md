@@ -68,7 +68,7 @@ L’activité **Get-AutomationVariable** et **AzureRmVm-Start** sont configurés
 Les liens d’erreur transitent depuis ces activités vers une seule activité de **gestion des erreurs** (code d’activité). Cette activité est configurée avec une simple expression PowerShell qui utilise le mot clé *Throw* pour arrêter le traitement, ainsi qu’avec *$Error.Exception.Message* pour obtenir le message qui décrit l’exception actuelle.<br><br> ![Exemple de code de gestion des erreurs d’un runbook Automation](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les liens et les types de lien dans les runbooks graphiques, voir [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 

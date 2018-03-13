@@ -51,7 +51,7 @@ La publication d’applications sur la Place de marché comprend deux étapes. D
 }
 ```
 
-| Champ | DESCRIPTION | Valeurs possibles |
+| Champ | Description | Valeurs possibles |
 | --- | --- | --- |
 | types |Les types de cluster compatibles avec l’application. |Hadoop, HBase, Storm, Spark (ou toute combinaison de ceux-ci) |
 | versions |Les types de cluster HDInsight compatibles avec l’application. |3.4 |

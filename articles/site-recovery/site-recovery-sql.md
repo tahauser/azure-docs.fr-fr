@@ -201,5 +201,5 @@ Site Recovery ne prend pas en charge le cluster invité lors de la réplication 
 
 Pour les clusters SQL Server Standard, la restauration automatique après un basculement non planifié nécessite une sauvegarde et une restauration SQL Server à partir de l’instance miroir sur le cluster d’origine, puis le rétablissement de la copie miroir.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](site-recovery-components.md) sur l’architecture de Site Recovery.

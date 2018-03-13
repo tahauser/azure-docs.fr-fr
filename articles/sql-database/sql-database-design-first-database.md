@@ -61,7 +61,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :   
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -70,7 +70,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -152,7 +152,7 @@ Utilisez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mon_nouveau_serveur20170824.database.windows.net**. |

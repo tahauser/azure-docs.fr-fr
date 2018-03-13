@@ -48,7 +48,7 @@ Les connexions hybrides font appel à WebSockets comme mécanisme de transport s
 ||" |Non |HTTP|  
 |[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (service)|Vous pouvez soit utiliser|9351/HTTP|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Azure Relay, consultez les liens suivants :
 * [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)
 * [FAQ Relay](relay-faq.md)

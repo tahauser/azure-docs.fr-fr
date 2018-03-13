@@ -84,7 +84,7 @@ Si vous n’avez pas d’abonnement Azure répondant à ces exigences, vous pouv
        -BillingModel Development
    ```
 
-   | Paramètre | DESCRIPTION |  
+   | Paramètre | Description |  
    |--------|-------------|
    | CloudAdminCredential | Les informations d’identification de domaine de cloud qui sont utilisées pour [accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Le nom d’utilisateur est au format **\<Azure Stack domain\>\cloudadmin**. Pour le kit de développement, le nom d’utilisateur est défini sur **azurestack\cloudadmin**. Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur.|  
    | PrivilegedEndpoint | Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour le kit de développement, le point de terminaison privilégié est hébergé sur la machine virtuelle « AzS-ERCS01 ». Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur. Pour en savoir plus, reportez-vous à la rubrique relative à l’article [Utilisation du point de terminaison privilégié](azure-stack-privileged-endpoint.md).|  

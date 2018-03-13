@@ -239,7 +239,7 @@ Cette section montre comment utiliser l’API Search Service d’Azure Location 
     ![Azure Map Control et Search Service](./media/tutorial-search-location/lbs-map-search.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

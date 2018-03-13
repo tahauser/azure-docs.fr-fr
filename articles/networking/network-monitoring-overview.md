@@ -83,7 +83,7 @@ Pour plus d’informations, consultez les articles suivants :
 * [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide) (Configurer Network Performance Monitor pour l’analyse des points de terminaison de service)
 * [Billet de blog](https://aka.ms/svcendptmonitor)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
 * [Configurer Network Performance Monitor pour ExpressRoute](../expressroute/how-to-npm.md)

@@ -131,7 +131,7 @@ Pour obtenir des informations spécifiques au sujet des schémas des alertes du 
 
 Pour obtenir des informations spécifiques au sujet des schémas de toutes les autres alertes du journal d’activité, consultez la page [Vue d’ensemble du journal d’activité Azure](monitoring-overview-activity-logs.md).
 
-| Nom de l'élément | DESCRIPTION |
+| Nom de l'élément | Description |
 | --- | --- |
 | status |Utilisé pour les alertes de métrique. Toujours défini sur « activé » pour les alertes du journal d’activité. |
 | context |Contexte de l’événement. |

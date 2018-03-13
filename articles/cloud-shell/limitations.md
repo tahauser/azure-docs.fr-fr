@@ -78,7 +78,7 @@ Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’
 
 Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD` ou `Login-AzureRMAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Dépannage de Cloud Shell](troubleshooting.md) <br>
 [Démarrage rapide pour Bash](quickstart.md) <br>

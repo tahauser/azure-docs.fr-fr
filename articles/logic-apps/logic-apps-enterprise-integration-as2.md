@@ -63,7 +63,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
     ![Renseigner les détails relatifs au contrat](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Propriété | DESCRIPTION |
+    | Propriété | Description |
     | --- | --- |
     | NOM |Nom du contrat. |
     | Type de contrat | Doit être AS2 |
@@ -101,7 +101,7 @@ Configurez ces propriétés selon le contrat conclu avec le partenaire qui écha
 
 Votre contrat est maintenant prêt à traiter les messages entrants qui sont conformes aux paramètres que vous avez sélectionnés.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Override message properties |Indique que les propriétés dans les messages reçus peuvent être remplacées. |
 | Le message doit être signé |Exige que les messages soient signés numériquement. Configurez le certificat public du partenaire invité pour la vérification de signature.  |
@@ -146,7 +146,7 @@ Dans la liste **Certificat**, sélectionnez un [certificat public de partenaire 
 
 Votre contrat est maintenant prêt à traiter les messages sortants qui sont conformes aux paramètres que vous avez sélectionnés.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Enable message signing (Activer la signature des messages) |Exige que tous les messages envoyés à partir du contrat soient signés. |
 | MIC Algorithm (Algorithme MIC) |L’algorithme à utiliser pour la signature du message. Configurez l’algorithme MIC de certificat privé du partenaire hôte pour signer les messages. |
