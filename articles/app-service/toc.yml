@@ -97,7 +97,7 @@
       items:
         - name: Déployer l’application
           items:
-            - name: Déployer un fichier Zip
+            - name: Déployer un fichier ZIP ou WAR
               href: app-service-deploy-zip.md
             - name: Déployer via FTP
               href: app-service-deploy-ftp.md

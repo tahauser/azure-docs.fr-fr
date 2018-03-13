@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: Déployer App Service hors connexion
               href: azure-stack-app-service-deploy-offline.md
-            - name: Mettre à jour le fournisseur de ressources App Service
-              href: azure-stack-app-service-update.md
-            - name: Mettre à jour le fournisseur de ressources App Service hors connexion
-              href: azure-stack-app-service-update-offline.md
             - name: Ajouter de nouveaux rôles de travail web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurer des sources de déploiement
@@ -268,14 +264,24 @@
           items:
             - name: Vue d'ensemble
               href: azure-stack-billing-and-chargeback.md
-            - name: Rapports des données d’utilisation
-              href: azure-stack-usage-reporting.md
-            - name: API d’utilisation du fournisseur
-              href: azure-stack-provider-resource-api.md
-            - name: API d’utilisation du client
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Forum Aux Questions sur l’utilisation
-              href: azure-stack-usage-related-faq.md
+            - name: Gérer l’utilisation et la facturation en tant que fournisseur de services Cloud
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Ajouter des locataires pour l’utilisation et la facturation
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Gérer l’inscription des locataires
+              href: azure-stack-csp-ref-operations.md
+            - name: Référence relative à l’utilisation et la facturation
+              items:
+                - name: Rapports des données d’utilisation
+                  href: azure-stack-usage-reporting.md
+                - name: Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: API d’utilisation du fournisseur
+                  href: azure-stack-provider-resource-api.md
+                - name: API d’utilisation du client
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Forum Aux Questions sur l’utilisation
+                  href: azure-stack-usage-related-faq.md
         - name: Connexion à Azure
           items:
             - name: Connexion à l’aide de VPN

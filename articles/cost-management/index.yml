@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation Gestion des coûts Azure
+title: "Documentation Gestion des coûts Azure"
 metadata:
-  title: "Documentation Gestion des coûts\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-  description: 'Gestion des coûts Azure par Cloudyn est une solution de gestion des coûts multicloud qui vous permet d’utiliser Azure et d’autres ressources de cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels.'
+  title: "Documentation Gestion des coûts - Didacticiels, informations de référence sur les API | Microsoft Docs"
+  description: "Azure Cost Management est une solution de gestion des coûts multicloud qui vous aide dans votre utilisation d’Azure et autres ressources cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,28 +13,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/09/2018
 abstract:
-  description: 'Gestion des coûts Azure par Cloudyn est une solution de gestion des coûts multicloud qui vous permet d’optimiser l’utilisation et la gestion d’Azure et d’autres ressources de cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels.'
+  description: "Azure Cost Management, sous licence Cloudyn, une filiale de Microsoft, est une solution de gestion des coûts multicloud qui vous permet d’optimiser l’utilisation et la gestion d’Azure et d’autres ressources de cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels."
 sections:
-  - title: "Démarrages en 5\_minutes"
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment enregistrer vos informations de contrat ou d’abonnement Azure grâce à Gestion des coûts et comment visualiser vos données de coût."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Découvrez comment enregistrer vos informations de contrat ou d’abonnement Azure grâce à Gestion des coûts et comment visualiser vos données de coût.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Afficher les données de coût
-            href: quick-register-azure-sub
-  - title: Didacticiels pas à pas
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: "Afficher les données de coût"
+      href: quick-register-azure-sub
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: "Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à Gestion des coûts."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à Gestion des coûts.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-review-usage">Examiner l’utilisation et les coûts pour détecter les anomalies et mesurer l’efficacité</a>
-          - html: <a href="tutorial-user-access">Autoriser l’accès aux données Gestion des coûts</a>
-          - html: <a href="tutorial-forecast-spending">Prévoir les dépenses futures</a>
-          - html: '<a href="tutorial-manage-costs">Gérer les coûts grâce à des rapports de facturation, de refacturation et d’allocation des coûts</a>'
+    - html: "<a href=\"tutorial-review-usage\">Examiner l’utilisation et les coûts pour détecter les anomalies et mesurer l’efficacité</a>"
+    - html: "<a href=\"tutorial-user-access\">Autoriser l’accès aux données Gestion des coûts</a>"
+    - html: "<a href=\"tutorial-forecast-spending\">Prévoir les dépenses futures</a>"
+    - html: "<a href=\"tutorial-manage-costs\">Gérer les coûts grâce à des rapports de facturation, de refacturation et d’allocation des coûts</a>"
