@@ -6,16 +6,16 @@ keywords:
 author: chrissie926
 manager: timlt
 ms.author: menchi
-ms.date: 02/12/2018
+ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
 ms.reviewer: kgremban
-ms.openlocfilehash: ce3e979428233af578d71dee5ed10103e105f4f4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1986c9881c09ffa480103e009dc42d18aad4e2aa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Déployer des modules sur un appareil IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0
 
@@ -25,7 +25,7 @@ Azure CLI 2.0 vous permet de gérer les ressources Azure IoT Hub, les instances 
 
 Dans ce didacticiel, vous commencez par les étapes de configuration de Azure CLI 2.0 et de l’extension IoT. Ensuite, vous découvrez comment déployer des modules sur un périphérique IoT Edge à l’aide des commandes CLI disponibles.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?v=17.39a) dès à présent. 
 
@@ -96,7 +96,7 @@ Les modèles JSON de déploiement doivent toujours inclure les deux modules syst
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                 "image": "microsoft/azureiotedge-agent:1.0-preview",
                  "createOptions": "{}"
                }
              },
@@ -105,7 +105,7 @@ Les modèles JSON de déploiement doivent toujours inclure les deux modules syst
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                 "image": "microsoft/azureiotedge-hub:1.0-preview",
                  "createOptions": "{}"
                }
              }
@@ -117,7 +117,7 @@ Les modèles JSON de déploiement doivent toujours inclure les deux modules syst
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
+                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
                  "createOptions": "{}"
                }
              }
@@ -154,7 +154,7 @@ Affichez les modules sur votre appareil IoT Edge :
 
    ![Faire la liste des modules][6]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Découvrez comment [utiliser un appareil IoT Edge en tant que passerelle](how-to-create-transparent-gateway.md).
 

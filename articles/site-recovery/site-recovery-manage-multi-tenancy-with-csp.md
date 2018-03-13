@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
 ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Gérer une architecture mutualisée avec le programme Fournisseur de solutions Cloud (CSP)
 
@@ -28,7 +28,7 @@ Grâce à Azure Site Recovery, les partenaires peuvent gérer la solution de ré
 
 Cet article décrit comment un partenaire peut créer et gérer des abonnements de locataires via CSP pour une configuration d’environnement VMware mutualisé.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - [Préparer](tutorial-prepare-azure.md) des ressources Azure, notamment un abonnement Azure, un réseau virtuel Azure et un compte de stockage.
 - [Préparer](tutorial-prepare-on-premises-vmware.md) des serveurs VMware et des machines virtuelles sur site.
@@ -121,7 +121,7 @@ Les partenaires peuvent également ajouter un nouvel utilisateur à l’abonneme
 
   Azure Site Recovery propose en outre trois [rôles d’utilisateur prédéfinis](site-recovery-role-based-linked-access-control.md), qui peuvent être utilisés pour limiter davantage les niveaux d’accès en fonction des besoins.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
   [Découvrez plus en détails](site-recovery-role-based-linked-access-control.md) le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery.
 
   [Gérer les environnements VMware mutualisés](site-recovery-multi-tenant-support-vmware-using-csp.md)

@@ -26,7 +26,7 @@ ms.lasthandoff: 02/03/2018
 
 Après avoir configuré une ressource Azure avec une identité du service administré (MSI), vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet article montre comment accorder à l’identité du service administré d’une machine virtuelle Azure un accès à un compte de stockage Azure, à l’aide du portail Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

@@ -34,7 +34,7 @@ Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Effectuer les deux premières parties de cette série de didacticiels :
 
    * Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Machine Learning et installer l’application Azure Machine Learning Workbench.
@@ -334,7 +334,7 @@ Pour tester le service web **irisapp** exécuté, utilisez un enregistrement JSO
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette troisième partie de la série de didacticiel à trois parties, vous avez appris à utiliser Machine Learning pour effectuer les tâches suivantes :
 > [!div class="checklist"]
 > * Rechercher le fichier de modèle.

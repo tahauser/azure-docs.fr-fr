@@ -26,7 +26,7 @@ ms.lasthandoff: 01/19/2018
 
 Une fois que vous avez effectué les étapes de cet article, votre stratégie personnalisée prend en charge l’inscription ou la connexion de « comptes locaux » via une adresse e-mail et un mot de passe. Vous préparez également votre environnement à l’ajout de fournisseurs d’identité (par exemple Facebook ou Azure AD). Nous vous encourageons à effectuer ces étapes avant de découvrir d’autres utilisations de l’infrastructure d’expérience d’identité Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, vérifiez que vous disposez d’un locataire Azure AD B2C, qui est pour l’ensemble de vos utilisateurs, applications, stratégies, etc. Si vous n’en avez pas déjà un, vous devez en [créer un locataire Azure AD B2C](active-directory-b2c-get-started.md). Nous encourageons fortement tous les développeurs à suivre les procédures pas à pas relatives aux stratégies intégrées d’Azure AD B2C et à configurer leurs applications avec des stratégies intégrées avant de continuer. Vos applications fonctionneront avec les deux types de stratégies après une modification mineure du nom de la stratégie pour appeler la stratégie personnalisée.
 
@@ -196,7 +196,7 @@ Lorsqu’un fichier est chargé, son nom est précédé de `B2C_1A_`.
 >Souvent, la mauvaise configuration de l’application IdentityExperienceFramework est à l’origine des échecs de connexion.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Ajouter Facebook en tant que fournisseur d’identité
 Pour configurer Facebook :

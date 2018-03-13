@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer du code sans serveur à l’aide d’Azure Functions
 > * Créer un abonnement d’événement Stockage Blob dans Event Grid
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -159,7 +159,7 @@ Notez que, lorsque l’image chargée disparaît, une copie de l’image chargé
 
 ![Application web publiée dans le navigateur Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

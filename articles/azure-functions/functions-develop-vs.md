@@ -36,7 +36,7 @@ Cette rubrique vous montre comment utiliser Azure Functions Tools pour Visual St
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure dans [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) ou ultérieure. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2017 :
 
@@ -143,7 +143,7 @@ Vous pouvez également gérer les paramètres d’application d’une des maniè
 * [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
 * [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure Functions Tools, consultez la section Common Questions (Questions courantes) de l’article de blog [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Visual Studio 2017 Tools pour Azure Functions).
 

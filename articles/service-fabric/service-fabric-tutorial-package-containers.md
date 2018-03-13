@@ -34,7 +34,7 @@ Ce didacticiel est le deuxième de la série. Dans ce didacticiel, un outil de g
 > * Déployer et exécuter l’application 
 > * Nettoyer l’application
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 - L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
@@ -365,7 +365,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
   </Resources>
  </ServiceManifest>
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, plusieurs conteneurs ont été mis en package dans une application Service Fabric à l’aide de Yeoman. Cette application a ensuite été déployée et exécutée sur un cluster Service Fabric. Les étapes suivantes ont été effectuées :
 

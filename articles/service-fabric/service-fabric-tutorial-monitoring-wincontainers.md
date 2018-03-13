@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * utiliser un espace de travail OMS pour afficher et interroger des journaux à partir de vos conteneurs et de vos nœuds ;
 > * configurer l’Agent OMS pour collecter des mesures sur les conteneurs et les nœuds.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez :
 - disposer d’un cluster sur Azure, ou en [créer un avec ce didacticiel](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ;
 - [y déployer une application en conteneur](service-fabric-host-app-in-a-container.md).
@@ -230,7 +230,7 @@ Revenez sur le Portail Azure et **actualisez** votre solution de monitorage des 
 ![Compteurs de performances 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

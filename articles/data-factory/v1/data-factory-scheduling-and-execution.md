@@ -185,7 +185,7 @@ Vous avez vu l’utilisation des propriétés de fréquence et d’intervalle de
 ### <a name="dataset-availability"></a>Disponibilité du jeu de données 
 Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **availability** :
 
-| Propriété | DESCRIPTION | Obligatoire | Default |
+| Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
 | frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b>: minute, heure, jour, semaine, mois |OUI |N/D |
 | interval |Spécifie un multiplicateur de fréquence<br/><br/>«Frequency» et «interval» déterminent la fréquence à laquelle la tranche est produite.<br/><br/>Si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/><b>Remarque :</b> si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle sur une valeur au moins égale à 15. |OUI |N/D |
@@ -233,7 +233,7 @@ Un jeu de données peut avoir une stratégie de validation définie qui spécifi
 
 La section **policy** de la définition du jeu de données définit les critères ou la condition que les segments du jeu de données doivent remplir. Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **policy** (stratégie) :
 
-| Nom de la stratégie | DESCRIPTION | Appliqué(e) à | Obligatoire | Default |
+| Nom de la stratégie | Description | Appliqué(e) à | Obligatoire | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valide le fait que les données dans un **objet blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |objet blob Azure |Non  |N/D |
 | minimumRows | Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Base de données SQL Azure</li><li>table Azure</li></ul> |Non  |N/D |
@@ -269,7 +269,7 @@ Pour plus d’informations sur ces propriétés et exemples, consultez l’artic
 ## <a name="activity-policies"></a>Stratégies d’activité
 Les stratégies affectent le comportement d'exécution d'une activité, en particulier lors du traitement du segment d'une table. Le tableau suivant fournit les détails.
 
-| Propriété | Valeurs autorisées | Valeur par défaut | DESCRIPTION |
+| Propriété | Valeurs autorisées | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | accès concurrentiel |Entier  <br/><br/>Valeur max : 10 |1 |Nombre d’exécutions simultanées de l’activité.<br/><br/>Il détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. Par exemple, si une activité doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Détermine l’ordre des segments de données qui sont traités.<br/><br/>Par exemple, si vous avez 2 segments (l’un se produisant à 16 heures et l’autre à 17 heures) et que les deux sont en attente d’exécution. Si vous définissez executionPriorityOrder sur NewestFirst, le segment à 17 h est traité en premier. De même, si vous définissez executionPriorityOrder sur OldestFIrst, le segment à 16 h est traité en premier. |

@@ -39,7 +39,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Créer un flux pour envoyer un e-mail si une réparation est rentable
 > * Exécuter le flux
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Un [compte Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) actif avec les mêmes informations d’identification que votre compte Azure. 
 + SharePoint, que vous utilisez comme source de données pour ce flux. Inscrivez-vous à un [essai gratuit d’Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) si vous n’avez pas encore SharePoint.
@@ -261,7 +261,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
 
     Comme vous pouvez le constater, les jetons ont été remplacés par les valeurs correctes à partir de la liste SharePoint et de la fonction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

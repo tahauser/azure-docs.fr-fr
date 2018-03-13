@@ -28,7 +28,7 @@ L’identité du service administré fournit des services Azure avec une identit
 
 Dans cet article, vous allez apprendre à activer et supprimer l’identité du service administré d’une machine virtuelle Azure, à l’aide du portail Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -69,7 +69,7 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - À l’aide du portail Azure, accordez à l’identité du service administré d’une machine virtuelle Azure [un accès à une autre ressource Azure](msi-howto-assign-access-portal.md).
 

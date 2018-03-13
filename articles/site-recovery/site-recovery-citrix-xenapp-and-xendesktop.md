@@ -32,7 +32,7 @@ Une solution de récupération d’urgence satisfaisante doit autoriser la modé
 Ce document fournit des instructions pas à pas pour la création d’une solution de récupération d’urgence pour vos déploiements locaux de Citrix XenApp sur les plateformes Hyper-V et VMware vSphere. Il décrit également comment effectuer un test de basculement (exercice de récupération d’urgence) et un basculement non planifié vers Azure à l’aide de plans de récupération, ainsi que les configurations prises en charge et les prérequis.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -195,6 +195,6 @@ Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un tes
 
 Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur la réplication des déploiements Citrix XenApp et XenDesktop, consultez [ce livre blanc](https://aka.ms/citrix-xenapp-xendesktop-with-asr). Examinez les conseils pour [répliquer d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

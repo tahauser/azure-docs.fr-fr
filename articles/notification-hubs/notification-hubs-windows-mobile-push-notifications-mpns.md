@@ -40,7 +40,7 @@ Ce didacticiel vous apprend à créer une application Windows Phone 8 vide qui 
 
 Ce didacticiel présente un scénario de diffusion simple avec Notification Hubs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce didacticiel requiert les éléments suivants :
 
 * [Visual Studio 2012 Express pour Windows Phone]ou version ultérieure.
@@ -131,7 +131,7 @@ Le concentrateur est maintenant créé et configuré pour envoyer une notificati
    > Pour recevoir une notification Push toast, l’application ne doit pas s’exécuter au premier plan.
    >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet exemple simple, vous avez diffusé des notifications Push à tous vos appareils Windows Phone 8. 
 
 Pour cibler certains utilisateurs, reportez-vous au didacticiel [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs] . 

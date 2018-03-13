@@ -33,7 +33,7 @@ Ce didacticiel présente les procédures suivantes :
 * [Modifier le mot de passe d’administrateur](#password)
 * [Configurer des connexions à distance](#remote)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -174,7 +174,7 @@ Ce didacticiel vous a montré comment créer une machine virtuelle Linux Red Hat
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous disposez d’une machine virtuelle SQL Server 2017  dans Azure, vous pouvez vous connecter en local avec **sqlcmd** pour exécuter des requêtes Transact-SQL.
 

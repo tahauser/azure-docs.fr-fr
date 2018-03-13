@@ -41,7 +41,7 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 > [!IMPORTANT]
 > Oozie n’est pas activé sur HDInsight joint à un domaine.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
@@ -731,7 +731,7 @@ Par exemple, pour le travail de ce document, vous utiliseriez les étapes suivan
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie et comment exécuter un travail Oozie. Pour en savoir plus sur l’utilisation de HDInsight, consultez les articles suivants :
 

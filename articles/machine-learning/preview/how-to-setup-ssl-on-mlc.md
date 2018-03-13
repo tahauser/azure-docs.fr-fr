@@ -21,7 +21,7 @@ ms.lasthandoff: 01/24/2018
 
 Ces instructions vous permettent de configurer SSL pour les appels de notation sur un cluster Azure Machine Learning Compute (MLC) 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 1. Choisissez un CNAME (nom DNS) à utiliser lorsque vous passez des appels de notation en temps réel.
 

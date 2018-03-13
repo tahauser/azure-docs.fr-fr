@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Azure HDInsight fournit un système HDFS (Hadoo Distributed File System) complet pour le Stockage Azure et Azure Data Lake Store. Le Stockage Azure et Data lake Store sont conçus en tant qu’extension HDFS pour fournir une expérience fluide aux clients. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Le Stockage Azure et Data Lake Store sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l’utilisation du Stockage Azure, consultez [Utiliser le Stockage Azure avec HDInsight][hdinsight-storage] et [Utiliser Data Lake Store avec HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Notez les prérequis suivants avant de démarrer :
 
@@ -291,7 +291,7 @@ Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` glob
 
 Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous savez comment obtenir des données avec HDInsight, consultez les articles suivants pour apprendre à effectuer des analyses :
 
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]

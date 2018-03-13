@@ -74,7 +74,7 @@ La méthode de création de clusters sécurisés est la même pour les clusters 
 Autant de certificats supplémentaires que vous souhaitez peuvent être spécifiés pour les opérations de client utilisateur ou administrateur. Par défaut, le certificat de cluster a des privilèges de client administrateur. Ces certificats de client supplémentaires ne doivent pas être installés dans le cluster, ils doivent juste être spécifiés comme étant autorisés dans la configuration. Toutefois, ils doivent être installés sur les machines client pour les connecter au cluster et effectuer des opérations de gestion.
 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 La méthode de création de clusters sécurisés est la même pour les clusters Linux et Windows. Ce guide couvre l’utilisation d’Azure PowerShell ou d’Azure CLI pour créer des clusters. Les conditions requises sont les suivantes : 
 
 -  [Azure PowerShell 4.1 et versions ultérieures][azure-powershell] ou [Azure CLI 2.0 et versions ultérieures][azure-CLI].
@@ -689,7 +689,7 @@ Oui. Cependant, n’oubliez pas d’ajouter l’URL de Service Fabric Explorer �
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Pourquoi dois-je disposer d’un certificat de serveur lorsqu’Azure AD est activé ?
 FabricClient et FabricGateway effectuent une authentification mutuelle. Pendant l’authentification Azure AD, l’intégration Azure AD fournit une identité de client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur les certificats Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificates-and-service-fabric]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 À ce stade, vous avez un cluster sécurisé avec l’authentification de gestion fournie par Azure Active Directory. Ensuite, [connectez-vous à votre cluster](service-fabric-connect-to-secure-cluster.md) et découvrez comment [gérer les secrets d’application](service-fabric-application-secret-management.md).
 
 

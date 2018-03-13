@@ -21,7 +21,7 @@ Cet article décrit comment [valider un point de terminaison HTTP](security-auth
 > [!NOTE]
 > Il est **fortement** recommandé d’utiliser un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) lors du déclenchement d’une fonction d’Azure avec Event Grid. L’utilisation d’un déclencheur Webhook générique ici est démonstrative.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Vous aurez besoin d’une application de fonction avec une [fonction déclenchée via HTTP](../azure-functions/functions-create-generic-webhook-triggered-function.md).
 
@@ -420,7 +420,7 @@ Enfin, testez que votre fonction étendue peut maintenant traiter votre type d�
 
 Vous pouvez également tester cette fonctionnalité en direct en [envoyant un événement personnalisé avec CURL à partir du portail](./custom-event-quickstart-portal.md) ou en [publiant vers une rubrique personnalisée](./post-to-custom-topic.md) à l’aide d’un service ou d’une application qui peut PUBLIER sur un point de terminaison tel que [Postman](https://www.getpostman.com/). Créez une rubrique personnalisée et un abonnement à des événements avec le point de terminaison défini en tant qu’URL de la fonction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Explorer les [Kits SDK Event Grid de gestion et de publication](./sdk-overview.md)
 * Découvrez comment [publier vers une rubrique personnalisée](./post-to-custom-topic.md)

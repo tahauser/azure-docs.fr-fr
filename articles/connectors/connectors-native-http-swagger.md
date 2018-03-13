@@ -77,14 +77,14 @@ Vous trouverez ci-dessous les détails des déclencheurs et des actions que ce c
 ## <a name="http--swagger-triggers"></a>Déclencheurs HTTP + Swagger
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs.](connectors-overview.md) Le connecteur HTTP + Swagger a un déclencheur.
 
-| Déclencheur | DESCRIPTION |
+| Déclencheur | Description |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
 ## <a name="http--swagger-actions"></a>Actions HTTP + Swagger
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) Le connecteur HTTP + Swagger a une action possible.
 
-| Action | DESCRIPTION |
+| Action | Description |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
@@ -95,7 +95,7 @@ Le connecteur HTTP + Swagger est créé avec une action possible. Vous trouverez
 Faites une demande HTTP sortante avec assistance des métadonnées Swagger.
 Un astérisque (*) signifie un champ obligatoire.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Method (Méthode)* |method |Verbe HTTP à utiliser. |
 | URI* |URI |URI de la requête HTTP. |
@@ -107,7 +107,7 @@ Un astérisque (*) signifie un champ obligatoire.
 
 Réponse HTTP
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | headers |objet |En-têtes de réponse |
 | body |objet |Objet Réponse |
@@ -116,7 +116,7 @@ Réponse HTTP
 ### <a name="http-responses"></a>Réponses HTTP
 Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. La table ci-dessous indique les réponses correspondantes et leurs descriptions.
 
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | 200 |OK |
 | 202 |Acceptée |
@@ -127,7 +127,7 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 
 - - -
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Rechercher d’autres connecteurs](apis-list.md)

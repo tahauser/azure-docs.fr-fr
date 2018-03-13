@@ -29,7 +29,7 @@ Apprenez à utiliser [l'interface de ligne de commande Azure](../cli-install-nod
 
 Cet article aborde uniquement l’utilisation de l’interface de ligne de commande Azure dans HDInsight. Pour une aide générale sur l’utilisation de l’interface Azure CLI, consultez la rubrique [Installer et configurer l’interface Azure CLI][azure-command-line-tools].
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -101,7 +101,7 @@ azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName>
 azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris comment effectuer différentes tâches d'administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]

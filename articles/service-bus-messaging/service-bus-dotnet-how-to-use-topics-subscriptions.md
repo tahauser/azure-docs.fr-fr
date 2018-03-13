@@ -32,7 +32,7 @@ Ce didacticiel couvre les étapes suivantes :
 4. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la rubrique.
 5. Écrivez une application de console .NET Core pour recevoir ces messages de l’abonnement.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou version ultérieure.
 2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
@@ -426,7 +426,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
 
 Félicitations ! Grâce à la bibliothèque .NET Standard, vous avez créé une rubrique et un abonnement, envoyé 10 messages et les avez reçus.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les [référentiels GitHub accompagnés d’exemples](https://github.com/Azure/azure-service-bus/tree/master/samples) qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Service Bus.
 

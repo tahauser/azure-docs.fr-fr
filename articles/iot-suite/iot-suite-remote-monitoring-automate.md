@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Modifier une règle existante
 > * Supprimer une règle
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -72,7 +72,7 @@ Utilisez les valeurs suivantes pour créer la règle :
 | Opérateur du déclencheur | Supérieur à                          |
 | Valeur de déclenchement    | 150                                   |
 | Niveau de gravité   | Avertissement                               |
-| DESCRIPTION      | Pression de refroidissement supérieure à 150 psi |
+| Description      | Pression de refroidissement supérieure à 150 psi |
 
 Pour enregistrer la nouvelle règle, choisissez **Appliquer**.
 
@@ -98,7 +98,7 @@ Pour supprimer définitivement une règle, sélectionnez-la dans la liste des r�
 
 Vous pouvez supprimer plusieurs règles en même temps. Pour cela, vous devez sélectionner plusieurs règles dans la liste.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

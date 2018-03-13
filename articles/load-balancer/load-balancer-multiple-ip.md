@@ -43,7 +43,7 @@ Dans ce scénario, nous utilisons la configuration suivante :
 - Azure Load Balancer est utilisé pour exposer deux adresses IP frontales, une pour chaque site web. Les adresses frontales sont utilisées pour répartir le trafic sur la configuration IP respective de chaque site web.
 - Le même numéro de port est utilisé pour les adresses IP frontales et pour celles du pool principal.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Notre exemple de scénario suppose que vous disposez d’un groupe de ressources nommé **contosofabrikam** configuré de la manière suivante :
 
@@ -193,6 +193,6 @@ Une fois les règles configurées, elles s’affichent dans les paramètres **R�
 
 La dernière étape consiste à configurer vos enregistrements de ressource DNS pour qu’ils pointent sur les adresses IP frontales respectives de votre équilibreur de charge. Vous pouvez héberger vos domaines dans Azure DNS. Pour plus d’informations sur l’utilisation d’Azure DNS avec un équilibrage de charge, voir [Utiliser Azure DNS avec d’autres services Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux, consultez [Log Analytics pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

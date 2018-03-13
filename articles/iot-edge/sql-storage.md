@@ -21,7 +21,7 @@ Utilisez les appareils Azure IoT Edge pour stocker les données générées en p
 
 Cet article fournit des instructions pour le déploiement d’une base de données SQL Server sur un appareil IoT Edge. Azure Functions, exécuté sur l’appareil IoT Edge, structure les données entrantes, puis les envoie vers la base de données. Les étapes décrites dans cet article peuvent également être appliquées aux autres bases de données qui fonctionnent dans des conteneurs, telles que MySQL ou PostgreSQL. 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 Avant de suivre les instructions de cet article, nous vous conseillons de prendre connaissance des didacticiels suivants :
 * Déployer Azure IoT Edge sur un appareil simulé dans [Windows](tutorial-simulate-device-windows.md) ou [Linux](tutorial-simulate-device-linux.md)
@@ -331,7 +331,7 @@ Consultez les données :
    GO
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Découvrez comment [configurer les images de conteneur SQL Server 2017 sur Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
 

@@ -38,7 +38,7 @@ Le numéro de build de mise à jour d’Azure Stack 1712 est **180106.1**. Si un
 > [!IMPORTANT]
 > Ne tentez pas de créer des machines virtuelles pendant l’installation de la mise à jour 1712. Voir [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) pour plus de détails.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez installer la [mise à jour 1711](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) d’Azure Stack avant d’appliquer cette mise à jour.
 

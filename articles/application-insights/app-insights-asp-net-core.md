@@ -25,7 +25,7 @@ Azure Application Insights assure une surveillance approfondie de votre applicat
 
 Cet article vous explique comment créer un exemple d’application de [pages Razor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) ASP.NET Core dans Visual Studio et démarrer la surveillance avec Azure Application Insights.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Kit de développement logiciel (SDK) NET Core 2.0.0 ou ultérieur.
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.3 ou ultérieur avec la charge de travail Développement ASP.NET et web.
@@ -212,7 +212,7 @@ Dans ce contexte, les _compteurs de performance_ font référence aux [compteurs
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Explorez les flux d’utilisateurs](app-insights-usage-flows.md) pour comprendre comment les utilisateurs naviguent dans l’application.
 * [Utilisez l’API](app-insights-api-custom-events-metrics.md) pour envoyer vos propres événements et mesures pour obtenir une vue plus détaillée des performances et de l’utilisation de votre application.
 * [Les tests de disponibilité](app-insights-monitor-web-app-availability.md) vérifient votre application en permanence dans le monde entier.

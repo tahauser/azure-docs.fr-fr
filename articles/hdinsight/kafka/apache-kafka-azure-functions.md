@@ -33,7 +33,7 @@ Kafka sur HDInsight ne fournit pas d’API sur l’Internet public. Pour publier
 > [!NOTE]
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Functions de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple producteur Kafka pour montrer que la configuration fonctionne.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Une application de fonction Azure. Pour en savoir plus, consultez la documentation [Créer votre première fonction](../../azure-functions/functions-create-first-azure-function.md).
 
@@ -251,7 +251,7 @@ Pour afficher les informations consignées par la fonction pendant l’exécutio
 
 Pour vérifier que les données sont arrivées dans la rubrique Kafka, utilisez les informations dans la section _Produire et utiliser des enregistrements_ du document [Créer un cluster Kafka](apache-kafka-get-started.md#produce-and-consume-records). L’élément `kafka-console-consumer` lit les données de la rubrique et affiche une liste des messages qui y sont stockés.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 

@@ -25,7 +25,7 @@ La Gestion des coûts Azure par Cloudyn vous permet de prévoir les futures dép
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
@@ -56,7 +56,7 @@ Dans l’exemple, vous pouvez voir les services qui ont le plus dépensé. Comme
 
 Dans l’image ci-dessus, le coût projeté annuel des machines virtuelles Azure est de 28 374 USD.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

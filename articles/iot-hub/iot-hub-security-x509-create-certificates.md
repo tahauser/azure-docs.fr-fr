@@ -23,7 +23,7 @@ ms.lasthandoff: 12/19/2017
 
 Pour mettre en place une sécurité basée sur un certificat X.509 dans le IoT Hub, vous devez commencer par une [chaîne d’approbation X.509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), qui inclut le certificat racine, ainsi que tous les certificats intermédiaires jusqu’au certificat feuille. Ce guide *explicatif* présente des exemples de scripts PowerShell qui utilisent [OpenSSL](https://www.openssl.org/) pour créer et signer les certificats X.509. Nous vous recommandons d’utiliser ce guide à des fins d’expérimentation uniquement, étant donné que plusieurs de ces étapes se produisent en réalité pendant la fabrication. Vous pouvez utiliser ces certificats pour simuler la sécurité dans votre IoT Hub Azure à l’aide de *l’authentification par certificat X.509*. Les étapes décrites dans ce guide créent des certificats localement sur votre ordinateur Windows. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce didacticiel suppose que vous avez acquis les fichiers binaires OpenSSL. Vous pouvez soit
     - télécharger le code source OpenSSL et générer les fichiers binaires sur votre ordinateur, ou 
     - télécharger et installer des [fichiers binaires OpenSSL tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/).

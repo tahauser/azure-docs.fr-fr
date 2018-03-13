@@ -35,7 +35,7 @@ Le schéma suivant illustre l’architecture logique du Kit de développement Az
 ## <a name="virtual-machine-roles"></a>Rôles de machine virtuelle
 Le Kit de développement Azure Stack offre des services à l’aide des machines virtuelles suivantes sur l’ordinateur hôte :
 
-| NOM | DESCRIPTION |
+| NOM | Description |
 | ----- | ----- |
 | **AzS-ACS01** | Services de stockage Azure Stack.|
 | **AzS-ADFS01** | Services de fédération Active Directory (ADFS).  |
@@ -52,7 +52,7 @@ Le Kit de développement Azure Stack offre des services à l’aide des machines
 | **AzS-XRP01** | Contrôleur de gestion d’infrastructure pour Microsoft Azure Stack, notamment les fournisseurs de ressources Calcul, Réseau et Stockage.|
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déployer Azure Stack](azure-stack-deploy.md)
 
 [Test des premiers scénarios](azure-stack-first-scenarios.md)

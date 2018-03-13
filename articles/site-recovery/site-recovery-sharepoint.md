@@ -40,7 +40,7 @@ Vous pouvez regarder la vidéo ci-dessous sur la récupération d’une applicat
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -212,5 +212,5 @@ Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.
 3.  Cliquez sur « Basculement ».
 4.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

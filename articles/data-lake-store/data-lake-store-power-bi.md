@@ -23,7 +23,7 @@ ms.lasthandoff: 02/23/2018
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Analyse des données dans Data Lake Store à l’aide de Power BI
 Dans cet article, vous allez apprendre à utiliser Power BI Desktop pour analyser et visualiser les données stockées dans Azure Data Lake Store.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

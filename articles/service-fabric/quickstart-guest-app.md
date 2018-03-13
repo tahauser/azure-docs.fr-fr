@@ -24,7 +24,7 @@ ms.lasthandoff: 03/02/2018
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
 
@@ -135,7 +135,7 @@ Accédez à cette adresse où vous verrez la réponse `HELLO WORLD`.
 
 N’oubliez pas de supprimer toutes les ressources que vous avez créées pour ce démarrage rapide, car celles-ci vous sont facturées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Apprenez-en davantage sur les [exécutables invités](service-fabric-deploy-existing-app.md).
 
 <!-- Image References -->

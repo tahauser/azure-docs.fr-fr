@@ -52,7 +52,7 @@ Les flux de travail d’approvisionnement de l’utilisateur Workday pris en cha
 
 Avant de commencer l’intégration de Workday, vérifiez les prérequis ci-dessous et lisez les conseils suivants sur la façon de faire correspondre votre architecture Active Directory et vos exigences d’approvisionnement de l’utilisateur avec la ou les solutions fournies par Azure Active Directory.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -774,6 +774,6 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

@@ -30,7 +30,7 @@ ms.lasthandoff: 01/19/2018
 
 Dans cet article, vous apprenez à utiliser le kit de développement logiciel (SDK) Python pour réaliser des opérations de gestion du système de fichiers sur Azure Data Lake Store. Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Store à l’aide de Python, consultez la section relative aux [opérations de gestion de compte sur Data Lake Store à l’aide de Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -127,7 +127,7 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
     ## Delete a directory
     adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Opérations de gestion des comptes sur  Data Lake Store à l’aide de Python](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>Voir aussi

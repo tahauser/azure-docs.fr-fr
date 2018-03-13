@@ -33,7 +33,7 @@ Commencez par créer une application logique. Pour cela, consultez [Créer une a
 ## <a name="create-a-connection-to-yammer"></a>Créer une connexion à Yammer
 Pour utiliser le connecteur Yammer, vous devez créer une **connexion**, puis fournir les détails de ces propriétés : 
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | par jeton |OUI |Indiquez les informations d’identification Yammer. |
 

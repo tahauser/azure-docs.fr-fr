@@ -38,7 +38,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Démarrer une exécution de pipeline.
 > * Surveiller l’exécution du pipeline.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -296,7 +296,7 @@ Le pipeline crée automatiquement le dossier de sortie nommé *fromonprem* dans 
     ![Fichier de sortie](media/tutorial-hybrid-copy-portal/fromonprem-file.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

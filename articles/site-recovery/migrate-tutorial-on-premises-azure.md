@@ -37,7 +37,7 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 Avant de commencer, il est utile d’examiner les architectures [VMware](vmware-azure-architecture.md) et [Hyper-V](hyper-v-azure-architecture.md) pour la récupération d’urgence.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 
@@ -121,7 +121,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous constaterez peut-être des délais de basculement plus longs pour les serveurs physiques, les machines virtuelles VMware Linux, les machines virtuelles VMware pour lesquelles le service DHCP n’est pas activé, et les machines virtuelles VMware qui ne disposent pas des pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez migré des machines virtuelles locales vers des machines virtuelles Azure. Vous pouvez maintenant configurer la récupération d’urgence pour les machines virtuelles Azure.
 

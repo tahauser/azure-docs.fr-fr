@@ -30,7 +30,7 @@ Avec les applications Logic Apps, vous pouvez vous connecter à Dynamics 365 (O
 
 Cette rubrique vous explique comment créer une application logique qui génère une tâche dans Dynamics 365 lorsqu’un prospect est créé dans Dynamics 365.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Un compte Azure.
 * Un compte Dynamics 365 (Online).
 
@@ -170,5 +170,5 @@ Pour plus d’informations sur la résolution des problèmes relatifs aux applic
 
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/crm/). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

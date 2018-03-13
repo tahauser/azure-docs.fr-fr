@@ -38,7 +38,7 @@ Vous devez tout d'abord charger votre fichier d'entrée souhaité dans Azure Med
 ### <a id="configuration"></a>Configuration de la présélection pour Hyperlapse
 Une fois votre contenu dans votre compte Media Services, vous devez construire la présélection de votre configuration.  Le tableau suivant décrit les champs spécifiés par l'utilisateur :
 
-| Champ | DESCRIPTION |
+| Champ | Description |
 | --- | --- |
 | StartFrame |L'image à partir de laquelle le traitement avec Microsoft Hyperlapse doit commencer. |
 | NumFrames |Le nombre d'images à traiter |

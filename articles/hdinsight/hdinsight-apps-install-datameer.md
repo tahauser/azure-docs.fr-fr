@@ -30,7 +30,7 @@ Cet article explique comment installer et exécuter l’application Hadoop publi
 
 Datameer est une application native pour la plateforme Hadoop, qui étend les fonctionnalités existantes d’Azure HDInsight et fournit une intégration, une préparation et une analyse rapides des données structurées et non structurées. Datameer peut accéder à plus de 70 sources et formats : structurés, semi-structurés et non structurés. Vous pouvez directement charger des données, ou utiliser leurs liaisons de données uniques pour extraire des données à la demande. Les fonctionnalités en libre-service et l’interface de feuille de calcul familière de Datameer réduisent la complexité de la technologie Big Data et accélèrent l’exploitation des données. L’interface de feuille de calcul fournit un mécanisme simple pour la saisie de formules déclaratives qui sont ensuite traduites en travaux Hadoop optimisés. Avec Datameer et vos compétences relatives à Excel et à l’analyse décisionnelle, vous pouvez utiliser Hadoop dans le cloud rapidement. Pour plus d’informations, consultez la [documentation de Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 
@@ -110,7 +110,7 @@ Les étapes suivantes présentent une démonstration « Hello World ».
 
 Félicitations ! Vous avez créé une visualisation de vos données sans écrire de code. Vous pouvez maintenant explorer les variations et des visualisations supplémentaires.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Documentation Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 * [Installer des applications personnalisées Hadoop sur Azure HDInsight](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight non publiées vers HDInsight.

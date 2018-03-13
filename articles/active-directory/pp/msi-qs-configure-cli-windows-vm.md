@@ -28,7 +28,7 @@ L’identité MSI fournit aux services Azure une identité managée dans Azure A
 
 Dans cet article, vous allez apprendre à activer et à supprimer l’identité MSI affectée à l’utilisateur pour une machine virtuelle Azure avec Azure CLI.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -117,7 +117,7 @@ La réponse contient les détails de l’identité MSI affectée à l’utilisat
    az vm remove-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Vue d’ensemble de l’identité du service administré](msi-overview.md)
 - Pour obtenir les guides de démarrages rapides complets sur la création de machines virtuelles Azure, consultez : 
