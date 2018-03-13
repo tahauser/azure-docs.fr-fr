@@ -197,7 +197,7 @@ La page **Vue d’ensemble** s’affiche. Cette page présente un aperçu de l�
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Mapper un domaine personnalisé](app-service-web-tutorial-custom-domain.md)

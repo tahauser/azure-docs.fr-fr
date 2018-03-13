@@ -320,7 +320,7 @@ L’expérience finale doit ressembler à ceci :
 <br/>
 ***Expérience finale***
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 À présent que vous avez terminé le premier didacticiel sur le machine learning et que vous avez configuré votre expérience, vous pouvez continuer à améliorer le modèle, puis le déployer en tant que service web prédictif.
 

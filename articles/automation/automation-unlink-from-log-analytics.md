@@ -50,6 +50,6 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables   
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour reconfigurer votre compte Automation et l’intégrer dans OMS Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 

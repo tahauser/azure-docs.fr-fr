@@ -205,7 +205,7 @@ Pour provisionner le package, utilisez un provisionnement externe, ce qui néces
 >[!NOTE]
 > Le provisionnement basé sur le chemin relatif du magasin d’images ne prend pas actuellement en charge les fichiers `sfpkg`. Le `sfpkg` ne doit donc pas être copié dans le magasin d’images.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application
 
 [Gestion des paramètres d’application pour plusieurs environnements][11] décrit comment configurer les paramètres et les variables d’environnement pour différentes instances d’application.

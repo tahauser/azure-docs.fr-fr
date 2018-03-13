@@ -58,6 +58,6 @@ Dans le portail Azure, accédez à **Plus de services** > **Mise en réseau** > 
 
 Accédez à une zone DNS dans le portail. Sur le panneau **Zone DNS**, cliquez sur **Supprimer la zone**. Vous êtes invité à confirmer la suppression de la zone DNS. La suppression d’une zone DNS entraîne la suppression de tous les enregistrements présents dans la zone.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez à travailler avec votre zone DNS et vos enregistrements en vous rendant sur [Prise en main d’Azure DNS à l’aide du portail Azure](dns-getstarted-portal.md).

@@ -66,7 +66,7 @@ Plusieurs options vous permettent d’ajouter des comptes de stockage dotés du 
 - Créez un cluster à l’aide du [portail Azure](https://portal.azure.com) et indiquez le compte de stockage lié.
 - Utilisez l’action de script pour ajouter des comptes de stockage doté du transfert sécurisé à un cluster HDInsight existant.  Pour plus d’informations, consultez [Ajouter des comptes de stockage supplémentaires à HDInsight](hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à créer un cluster HDInsight et à activer le transfert sécurisé pour les comptes de stockage.
 
 Pour en savoir plus sur l’analyse des données avec HDInsight, consultez les articles suivants :

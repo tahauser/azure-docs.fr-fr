@@ -255,7 +255,7 @@ Le travail est automatiquement supprimé une fois terminé. Si vous avez besoin 
 stopCluster(cluster)
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

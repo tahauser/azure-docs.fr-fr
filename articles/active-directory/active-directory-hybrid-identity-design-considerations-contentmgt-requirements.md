@@ -61,7 +61,7 @@ Lors de la planification de votre solution d'identité hybride, veillez à ce qu
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les exigences de contrôle d’accès](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

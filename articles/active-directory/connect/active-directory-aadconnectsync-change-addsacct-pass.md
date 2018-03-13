@@ -49,7 +49,7 @@ Pour mettre à jour le service de synchronisation avec le nouveau mot de passe 
 
 8. Redémarrez le service de synchronisation Azure AD Connect sous le Gestionnaire de contrôle des services Windows. Cela permet de s’assurer que toute référence à l’ancien mot de passe est supprimée du cache mémoire.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)

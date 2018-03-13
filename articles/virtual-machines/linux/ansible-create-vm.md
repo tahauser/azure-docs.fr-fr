@@ -102,5 +102,5 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet exemple crée une machine virtuelle dans un groupe de ressources existant avec un réseau virtuel déjà déployé. Pour obtenir un exemple plus détaillé de la façon d’utiliser Ansible pour créer des ressources de support, comme un réseau virtuel et des règles de groupe de sécurité réseau, consultez [Créer un environnement de machine virtuelle complète avec Ansible](ansible-create-complete-vm.md).

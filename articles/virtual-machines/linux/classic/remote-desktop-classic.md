@@ -126,5 +126,5 @@ Sur un ordinateur Windows, démarrez le client Bureau à distance et entrez le n
 
 Connectez-vous avec le nom d’utilisateur et le mot de passe de votre machine virtuelle Linux.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de xrdp, consultez [http://www.xrdp.org/](http://www.xrdp.org/).

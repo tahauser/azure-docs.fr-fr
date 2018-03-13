@@ -98,7 +98,7 @@ Au moins un programme exécutable de l'application doit exécuter activement le 
 ## <a name="closefault-behavior"></a>Comportement de fermeture/erreur
 Dans une application qui héberge le siphon, si l’instance [MessagingFactory][MessagingFactory] principale ou secondaire connaît une défaillance ou est fermée sans que son partenaire connaisse une défaillance ou soit fermé également, et que le siphon détecte cet état, le siphon réagit. Si l’autre instance [MessagingFactory][MessagingFactory] n’est pas fermée dans les 5 secondes, le siphon place l’instance [MessagingFactory][MessagingFactory] toujours ouverte en état de défaillance.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez [Modèles de messagerie asynchrone et haute disponibilité][Asynchronous messaging patterns and high availability] pour une discussion détaillée sur la messagerie asynchrone de Service Bus. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

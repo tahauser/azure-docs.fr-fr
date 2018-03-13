@@ -70,7 +70,7 @@ Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes 
 
     ![Image de la recherche de l’utilisation du processeur](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## <a name="next-steps"></a>étapes suivantes
+ ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Log Analytics, consultez le document [Prise en main d’un espace de travail Log Analytics](../../log-analytics/log-analytics-get-started.md).
 

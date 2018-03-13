@@ -306,7 +306,7 @@ D’autres systèmes disposent d’un service centralisé unique au niveau du cl
 
 Le modèle d’intégrité est très utilisé pour la surveillance et le diagnostic, pour évaluer l’intégrité du cluster et des applications, et pour les mises à niveau surveillées. D’autres services utilisent les données d’intégrité pour effectuer des réparations automatiques, générer l’historique d’intégrité du cluster et émettre des alertes sous certaines conditions.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Utilisation des rapports d’intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

@@ -49,7 +49,7 @@ Grâce à la gestion des coûts, vous pouvez déterminer quelle est l’utilisat
 
 Si vous avez approvisionné des instances réservées AWS, vous pouvez optimiser leur utilisation grâce aux rapports d’optimisation. Vous y trouverez des recommandations d’achat et ils vous permettront de modifier les réservations inutilisées et de planifier l’approvisionnement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous en savez un peu plus sur la gestion des coûts, passez à l’étape suivante en inscrivant votre environnement cloud et commencez à explorer vos données.
 

@@ -91,7 +91,7 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Configuration générale de votre service cloud](cloud-services-how-to-configure-portal.md).
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage-portal.md).

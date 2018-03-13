@@ -124,7 +124,7 @@ Pour utiliser l’authentification PassThrough, seulement deux modifications doi
 1. Dans [Publication du point de terminaison hôte Bureau à distance](#publish-the-rd-host-endpoint), à l’étape 1, définissez la méthode de pré-authentification **PassThrough**.
 2. Dans [Trafic RDS direct vers le proxy d’application](#direct-rds-traffic-to-application-proxy), ignorez l’étape 8 toute entière.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considérations de sécurité pour l’accès aux applications à distance à l’aide du proxy d’application Azure AD](application-proxy-security-considerations.md)

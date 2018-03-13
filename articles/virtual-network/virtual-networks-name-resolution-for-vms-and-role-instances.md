@@ -194,7 +194,7 @@ Quand vous utilisez le modèle de déploiement Classic, des serveurs DNS pour le
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Modèle de déploiement Resource Manager :
 

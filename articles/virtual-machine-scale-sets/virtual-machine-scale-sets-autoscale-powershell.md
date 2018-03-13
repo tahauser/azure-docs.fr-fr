@@ -139,7 +139,7 @@ Les exemples précédents ont automatiquement mis à l’échelle un groupe iden
 Pour créer des règles de mise à l’échelle automatique basées sur une planification plutôt que sur des métriques de l’hôte, utilisez le portail Azure. Il n’est pas possible actuellement de créer des règles basées sur une planification avec Azure PowerShell.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser des règles de mise à l’échelle automatique pour mettre à l’échelle horizontalement, et augmenter ou diminuer le *nombre* d’instances de machine virtuelle dans votre groupe identique. Vous pouvez également mettre à l’échelle verticalement pour augmenter ou diminuer la *taille* d’instance de machine virtuelle. Pour plus d’informations, voir [Mise à l’échelle verticale avec des groupes de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Pour plus d’informations sur la gestion de vos instances de machine virtuelle, voir [Gérer les groupes de machines virtuelles identiques avec Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

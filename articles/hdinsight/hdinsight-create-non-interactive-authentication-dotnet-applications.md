@@ -124,7 +124,7 @@ Affectez à votre application Azure AD un [rôle](../active-directory/role-based
     ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Créez une application Azure Active Directory et un principal du service dans le portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Découvrez comment [authentifier un principal du service à l’aide d’Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 * En savoir plus sur le [Contrôle d’accès en fonction du rôle dans Azure (RBAC)](../active-directory/role-based-access-control-configure.md).

@@ -92,7 +92,7 @@ Une fois le déploiement terminé, vous pouvez afficher le nouveau groupe de mac
 
  Le portail vous explique comment gérer visuellement votre infrastructure Azure par le biais d’un navigateur web, tandis qu’Azure Resource Explorer vous permet d’explorer et de déboguer très facilement des ressources Azure, en vous donnant un aperçu de la « vue d’instance » et en vous indiquant également les commandes PowerShell pour les ressources que vous recherchez.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois les groupes de machines virtuelles identiques déployés avec succès via Visual Studio, vous pouvez personnaliser davantage votre projet en fonction des besoins de votre application. Vous pouvez, par exemple, configurer la mise à l’échelle automatique via l’ajout d’une ressource **Insights**, l’ajout d’une infrastructure à votre modèle (comme des machines virtuelles autonomes) ou le déploiement d’applications à l’aide de l’extension de script personnalisé. Vous trouverez de bons exemples de modèles dans le référentiel GitHub [Modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates) (recherchez le terme « vmss »).
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png

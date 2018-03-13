@@ -202,7 +202,7 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans la troisième partie de la série, vous avez appris à télécharger de grandes quantités de données aléatoires à partir d’un compte de stockage, notamment comment :
 

@@ -190,7 +190,7 @@ Il est possible d’utiliser des paramètres dynamiques à la place. Par exemple
 
 Dans ce cas, les fichiers d’entrée sont toujours récupérés à partir du dossier /datalake/input et les fichiers de sortie sont générés dans le dossier /datalake/output. Les noms de fichiers sont dynamiques en fonction de l’heure de début de la fenêtre lorsque le pipeline est déclenché.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité Hive](transform-data-using-hadoop-hive.md)

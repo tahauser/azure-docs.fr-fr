@@ -448,6 +448,6 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 | RemoteIPLatitude | Valeur de latitude de l’adresse IP |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Lancez une recherche dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.

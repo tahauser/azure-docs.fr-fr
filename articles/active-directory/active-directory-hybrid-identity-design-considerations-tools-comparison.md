@@ -91,6 +91,6 @@ PP = Version préliminaire publique
 | Autorisation du blocage des attributs circulant d’AD vers Azure AD |● |● | | | |
 | Autorisation de la personnalisation avancée pour les flux d’attributs |● |● | |● |● |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 

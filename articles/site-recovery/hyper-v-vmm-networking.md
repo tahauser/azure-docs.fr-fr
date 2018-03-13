@@ -125,7 +125,7 @@ Dans cet exemple, nous avons des adresses IP différentes entre le site principa
 ![Adresse IP différente - après le basculement](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Exécuter un basculement](hyper-v-vmm-failover-failback.md)
 

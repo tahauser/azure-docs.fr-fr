@@ -419,7 +419,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également configurer la fonctionnalité Event Hubs Capture via le [portail Azure](https://portal.azure.com). Pour en savoir plus, voir [Activer Event Hubs Capture à l’aide du portail Azure](event-hubs-capture-enable-through-portal.md).
 

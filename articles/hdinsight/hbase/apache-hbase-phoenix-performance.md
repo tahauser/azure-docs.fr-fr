@@ -233,7 +233,7 @@ Si votre scénario priorise la vitesse d’écriture par rapport à l’intégri
 
 Pour plus d’informations sur cela et d’autres options, consultez [Phoenix Grammar](http://phoenix.apache.org/language/index.html#options).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Guide d’optimisation de Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Index secondaires](http://phoenix.apache.org/secondary_indexing.html)

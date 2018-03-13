@@ -137,5 +137,5 @@ La dernière version de l’outil Planificateur de déploiement ASR est 2.1.
 Reportez-vous à la page [Historique des versions du planificateur de déploiement](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pour voir les correctifs ajoutés à chaque mise à jour.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Exécutez le planificateur de déploiement](site-recovery-hyper-v-deployment-planner-run.md).

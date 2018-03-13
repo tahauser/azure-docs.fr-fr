@@ -67,5 +67,5 @@ Sélectionnez **+vCenter** pour connecter un serveur VMware vCenter ou un ordina
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Configurez votre environnement cible](./site-recovery-prepare-target-vmware-to-azure.md) dans Azure.

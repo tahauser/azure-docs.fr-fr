@@ -363,7 +363,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Plage horaire   dans les journaux serveur et réseau |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |Serveur, réseau |
 | Plage horaire   dans les journaux serveur |AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 et AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 |Serveur |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les scénarios de résolution des problèmes de bout en bout dans Azure Storage, consultez les ressources suivantes :
 
 * [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)

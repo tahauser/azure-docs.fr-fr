@@ -303,6 +303,6 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 *Est-il possible d'ignorer une recommandation ?* Oui, consultez [Ignorer les recommandations](#Ignore-recommendations).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de System Center Operations Manager Health Check.

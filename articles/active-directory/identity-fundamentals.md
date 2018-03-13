@@ -75,5 +75,5 @@ Avec la gestion des identités Azure, vous pouvez :
 
 -   tirer parti de la [haute disponibilité et fiabilité](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) d’une solution d’entreprise de gestion des identités et des accès basée sur le cloud de niveau international.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

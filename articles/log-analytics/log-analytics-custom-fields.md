@@ -137,7 +137,7 @@ Nous pouvons maintenant utiliser le champ personnalisé comme n’importe quelle
 
 ![Regrouper par requête](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 * Surveillez les [fichiers journaux personnalisés](log-analytics-data-sources-custom-logs.md) que vous analysez à l’aide de champs personnalisés.
 

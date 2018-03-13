@@ -110,7 +110,7 @@ do
 done 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Supprimer le compte de stockage](../../storage/common/storage-create-storage-account.md)
 

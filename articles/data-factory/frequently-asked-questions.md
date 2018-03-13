@@ -196,7 +196,7 @@ Vous pouvez utiliser la construction `@coalesce` dans les expressions pour gére
 ### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>Puis-je utiliser de nouvelles tentatives et des délais d’expiration au niveau des activités dans la version 2 ?
 Oui. Pour régir l’exécution des activités dans la version 2 comme dans la version 1, vous pouvez configurer de nouvelles tentatives et des délais d’expiration au niveau des activités. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour créer une fabrique de données de version 2, consultez les didacticiels suivants :
 
 - [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-dot-net.md)

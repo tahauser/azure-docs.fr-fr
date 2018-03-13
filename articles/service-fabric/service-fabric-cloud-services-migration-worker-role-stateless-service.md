@@ -251,7 +251,7 @@ Dans Service Fabric, un point d’entrée de démarrage est configuré pour chaq
 ## <a name="a-note-about-development-environment"></a>Remarque sur l’environnement de développement
 Les services cloud et Service Fabric sont tous deux intégrés à Visual Studio avec les modèles de projet et la prise en charge du débogage, de la configuration et du déploiement, localement et sur Azure. Les services cloud et Service Fabric fournissent également tous deux un environnement local d’exécution de développement. La différence est que, tandis que l’exécution de développement du service cloud émule l’environnement Azure sur lequel il s’exécute, Service Fabric n’utilise pas d’émulateur, mais l’exécution Service Fabric dans son intégralité. L’environnement Service Fabric que vous exécutez sur votre machine de développement locale est le même que celui qui s’exécute en production.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus en détail les services fiables Service Fabric et les différences fondamentales entre les services cloud et l’architecture d’application Service Fabric, afin de comprendre comment tirer parti de l’ensemble des fonctionnalités de Service Fabric.
 
 * [Découvrir les services fiables Service Fabric](service-fabric-reliable-services-quick-start.md)

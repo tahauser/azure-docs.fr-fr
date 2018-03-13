@@ -123,7 +123,7 @@ Pour conserver la lettre de lecteur sur les machines virtuelles après basculeme
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!WARNING]
 > Une fois le basculement des machines virtuelles effectué et le centre de données local disponible, vous devez [**à nouveau protéger**](site-recovery-how-to-reprotect.md) les machines virtuelles VMware dans le centre de données local.

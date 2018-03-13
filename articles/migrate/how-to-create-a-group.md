@@ -28,7 +28,7 @@ Cet article explique comment créer un groupe de machines pour l’évaluation p
 
 Une fois le groupe créé, vous pouvez le modifier en le sélectionnant sur la page **Groupes** et en ajoutant ou en supprimant des machines.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment utiliser le [mappage de dépendances de machine](how-to-create-group-machine-dependencies.md) pour créer des groupes à haute fiabilité.
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

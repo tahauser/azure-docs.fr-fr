@@ -55,7 +55,7 @@ Sur ce panneau, vous pouvez supprimer les affectations d’accès affectées dir
 2. Sélectionnez **Supprimer**, puis **Oui** pour confirmer.
     ![Supprimer l’affectation d’accès - capture d’écran](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Familiarisez-vous avec le contrôle d’accès en fonction du rôle afin [d’Utiliser les affectations de rôle pour gérer l’accès à vos ressources d’abonnement Azure](role-based-access-control-configure.md)
 * Consultez les [rôles RBAC intégrés](role-based-access-built-in-roles.md)

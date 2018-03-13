@@ -77,7 +77,7 @@ Le compte d’utilisateur administrateur de serveur peut être utilisé pour cr�
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs pour leur permettre de se connecter : consultez [Créer et gérer des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
 
 Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation du produit PostgreSQL relative aux [rôles et privilèges de base de données](https://www.postgresql.org/docs/current/static/user-manag.html), à la [syntaxe GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html) et aux [privilèges](https://www.postgresql.org/docs/current/static/ddl-priv.html).

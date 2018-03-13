@@ -94,7 +94,7 @@ Azure Cosmos DB fournit les meilleures fonctionnalités des bases de données re
 
 N’importe quelle [application web, mobile, IoT ou de jeux](use-cases.md) qui doit gérer des volumes importants de données, de lectures et d’écritures sur une échelle [globale](distribute-data-globally.md) avec un temps de réponse quasi en temps réel pour une grande variété de données profite de la haute disponibilité, du débit élevé, de la faible latence et de la cohérence ajustable [garanties](https://azure.microsoft.com/support/legal/sla/cosmos-db/) d’Azure Cosmos DB. En savoir plus sur la façon dont Azure Cosmos DB peut s’appliquer à l’[IoT et la télématique](use-cases.md#iot-and-telematics), à la [vente au détail et au marketing](use-cases.md#retail-and-marketing), aux [jeux](use-cases.md#gaming) et [applications Web et mobiles](use-cases.md#web-and-mobile-applications).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Bien démarrer avec Azure Cosmos DB grâce à l’un de nos guides de démarrage rapide :
 
 * [Prise en main de l’API SQL Azure Cosmos DB](create-sql-api-dotnet.md)

@@ -185,7 +185,7 @@ Cette section explique comment accéder à l’API **Assets** à l’aide de **P
 
 La réponse retournée contient les ressources qui se trouvent dans votre compte.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Essayez l’exemple de code qui se trouve dans [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Authentification Azure AD pour l’accès à Azure Media Services : par le biais d’une API REST)
 * [Charger des fichiers à l’aide de .NET](media-services-dotnet-upload-files.md)

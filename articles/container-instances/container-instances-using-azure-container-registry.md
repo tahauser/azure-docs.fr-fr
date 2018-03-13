@@ -69,7 +69,7 @@ Si l’utilisateur administrateur du registre de conteneurs Azure est désactiv�
 
 Pour plus d’informations, consultez [S’authentifier avec Azure Container Registry à partir d’Azure Container Instances](../container-registry/container-registry-auth-aci.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer des conteneurs, les envoyer (push) à un Registre de conteneurs privé et les déployer sur Azure Container Instances en [effectuant le didacticiel](container-instances-tutorial-prepare-app.md).
 

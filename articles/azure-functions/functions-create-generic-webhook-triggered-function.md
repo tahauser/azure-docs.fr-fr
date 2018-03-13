@@ -163,7 +163,7 @@ Vous pouvez maintenant tester la fonction en créant un nouveau groupe de ressou
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez créé une fonction qui s’exécute lorsqu’une requête est reçue à partir d’un webhook générique. 
 

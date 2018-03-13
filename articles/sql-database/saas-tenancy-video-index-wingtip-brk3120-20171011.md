@@ -309,7 +309,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Premier article du didacticiel][saas-how-welcome-wingtip-app-679t]
 

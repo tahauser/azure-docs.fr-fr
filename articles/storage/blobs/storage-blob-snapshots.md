@@ -165,7 +165,7 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Vous trouverez plus d’informations sur l’utilisation des captures instantanées de disque de machine virtuelle (VM) dans [Sauvegarder les disques de machines virtuelles Azure non gérés avec des captures instantanées incrémentielles](../../virtual-machines/windows/incremental-snapshots.md)
 

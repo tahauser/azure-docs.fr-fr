@@ -150,7 +150,7 @@ Le code ci-dessous montre comment changer la configuration d’une application e
 
 Il existe de nombreux paramètres de configuration de base que vous devez surveiller et régler pour garantir que vos travaux Spark s’exécutent de manière prévisible et performante. Ces paramètres permettent de déterminer la meilleure configuration de cluster Spark pour vos charges de travail particulières.  Vous devez également surveiller l’exécution de travaux Spark à long terme et/ou gourmands en ressources.  Les défis les plus courants concernent la sollicitation de la mémoire due aux configurations incorrectes (en particulier les Exécuteurs de taille incorrecte), aux longues opérations et aux tâches qui entraînent des opérations cartésiennes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](../hdinsight-component-versioning.md)
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)

@@ -217,7 +217,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article de prise en main, vous avez créé un groupe identique de base et vous avez utilisé l’extension de script personnalisé afin d’installer un serveur web IIS de base sur les instances de machine virtuelle. Pour plus d’automatisation et d’évolutivité, développez votre groupe identique à l’aide des articles de procédures suivants :
 
 - [Déployer votre application sur des groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)

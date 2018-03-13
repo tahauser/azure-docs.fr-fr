@@ -214,7 +214,7 @@ Voici quelques points à retenir :
 * Pour les transactions qui contiennent plusieurs opérations, les opérations sont appliquées dans l’ordre dans lequel elles ont été reçues sur le réplica principal.
 * Lors du traitement d’une mauvaise progression, certaines opérations peuvent être annulées. Des notifications sont déclenchées pour ces opérations d’annulation afin de ramener le réplica à un état stable. Les notifications d’annulation présentent une importante différence. En effet, les événements avec des clés en double sont agrégés. Par exemple, si la transaction T1 est annulée, vous ne verrez qu’une seule notification Delete(X).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Collections fiables](service-fabric-work-with-reliable-collections.md)
 * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Sauvegarde et restauration de Reliable Services (récupération d’urgence)](service-fabric-reliable-services-backup-restore.md)

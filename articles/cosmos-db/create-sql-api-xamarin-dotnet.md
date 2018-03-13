@@ -124,7 +124,7 @@ Si vous ne pensez pas utiliser à nouveau cette application, supprimez toutes le
 1. À partir du menu de gauche dans le portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous venez de créer. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer une collection à l’aide de l’Explorateur de données, et à concevoir et déployer une application Xamarin. Vous pouvez maintenant importer des données supplémentaires à votre compte Cosmos DB. 
 

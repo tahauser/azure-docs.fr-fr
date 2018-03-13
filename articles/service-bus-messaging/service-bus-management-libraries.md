@@ -75,7 +75,7 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Informations de référence sur l’API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

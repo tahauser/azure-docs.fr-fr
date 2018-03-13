@@ -178,7 +178,7 @@ Ces étapes expliquent comment obtenir un compte PingAccess (si vous n’en avez
 
 Une fois toutes ces étapes effectuées, votre application doit être opérationnelle. Pour la tester, ouvrez un navigateur et accédez à l’URL externe que vous avez créée lors de la publication de l’application dans Azure. Connectez-vous au compte de test que vous avez attribué à l’application.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer PingAccess pour Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Comment le proxy d’application Azure AD fournit-il une authentification unique ?](application-proxy-sso-overview.md)

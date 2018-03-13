@@ -64,7 +64,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 - L’installation de plusieurs agents fournit une haute disponibilité des requêtes de connexion.
 - Elle permet de [protéger](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) vos comptes locaux contre les attaques de mot de passe par recherche exhaustive dans le cloud.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
 - [**Verrouillage intelligent**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.

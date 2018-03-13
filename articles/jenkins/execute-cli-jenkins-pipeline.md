@@ -221,7 +221,7 @@ L’application web sous Linux prend en charge une méthode différente pour le 
 
     Accédez à http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (remplacez &lt;x> et &lt;y> par n’importe quels chiffres) pour obtenir la somme de x et de y
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez configuré un pipeline Jenkins qui extrait le code source dans le dépôt GitHub. Il exécute Maven pour générer un fichier war et utilise ensuite l’interface CLI Azure pour le déploiement vers Azure App Service. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

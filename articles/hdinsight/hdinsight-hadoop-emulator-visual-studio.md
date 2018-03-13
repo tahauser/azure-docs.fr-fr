@@ -203,7 +203,7 @@ Vous pouvez ensuite créer la table à l’aide d’un formulaire. Au bas de la 
 
 ![Capture d’écran du formulaire utilisé pour créer une table](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Se familiariser avec Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Didacticiel Hadoop - Prise en main de HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

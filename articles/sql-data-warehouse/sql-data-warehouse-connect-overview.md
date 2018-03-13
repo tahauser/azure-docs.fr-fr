@@ -72,7 +72,7 @@ SQL Data Warehouse standardise certains paramètres pendant la connexion et la c
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour vous connecter à Visual Studio et l’utiliser pour lancer des requêtes, consultez la page [Envoyer des requêtes avec Visual Studio][Query with Visual Studio]. Pour en savoir plus sur les options d’authentification, consultez la page [Authentification sur Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->

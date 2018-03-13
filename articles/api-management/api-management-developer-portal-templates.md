@@ -179,7 +179,7 @@ Pour restaurer la version par défaut de tous les modèles, cliquez sur **Restor
 
 Les modèles restaurés doivent ensuite être publiés un par un ou tous en même temps en suivant les étapes décrites dans la section [Pour publier un modèle](#to-publish-a-template).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

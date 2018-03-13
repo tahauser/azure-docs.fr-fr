@@ -278,7 +278,7 @@ Voici quelques exemples de requête, et la façon d’interpréter certains mesu
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | La requête est exécutée en tant qu’analyse, car elle utilise `LOWER`, et 500 documents sur les 2491 récupérés sont retournés. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](sql-api-sql-query.md). 
 * Pour obtenir plus d’informations sur les unités de requête, consultez [Unités de requête](request-units.md).
 * Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](indexing-policies.md) 

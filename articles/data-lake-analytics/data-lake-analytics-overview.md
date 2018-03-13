@@ -50,7 +50,7 @@ Data Lake Analytics est une solution économique permettant d'exécuter vos char
   
 Data Lake Analytics fonctionne avec Azure Data Lake Store pour fournir les performances, le débit et la parallélisation les plus élevés, et fonctionne avec les objets blob Stockage Azure, Azure SQL Database et Azure Warehouse.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  
   * Prise en main de Data Lake Analytics à l’aide du [portail Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
   * Gérer Data Lake Analytics à l’aide du [portail Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Kit de développement logiciel (SDK) Azure .NET](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)

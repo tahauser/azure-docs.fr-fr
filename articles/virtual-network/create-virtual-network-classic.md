@@ -159,7 +159,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 
 ---
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir tous les paramètres de réseau virtuel et de sous-réseau, consultez [Gérer des réseaux virtuels](virtual-network-manage-network.md) et [Gérer les sous-réseaux virtuels](virtual-network-manage-subnet.md). Vous disposez de différentes options pour l’utilisation de réseaux virtuels et de sous-réseaux dans un environnement de production afin de répondre à différentes exigences.
 - Pour filtrer le trafic de sous-réseau entrant et sortant, créez des [groupes de sécurité réseau](virtual-networks-nsg.md) et appliquez-les à des sous-réseaux.

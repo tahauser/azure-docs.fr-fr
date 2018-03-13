@@ -40,6 +40,6 @@ Les actions n’apparaissent pas immédiatement dans le journal d’audit des ac
 Attendez entre 15 minutes et 1 heure pour voir si les actions apparaissent dans le journal. Si elles n’apparaissent toujours pas, veuillez créer un ticket de support pour que nous résolvions le problème.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez le [FAQ sur les rapports Azure Active Directory](active-directory-reporting-faq.md).
 

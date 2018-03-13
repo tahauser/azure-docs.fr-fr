@@ -332,6 +332,6 @@ Si une des applets de commande échoue, vous pouvez collecter des journaux suppl
    ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Inscrire Azure Stack](azure-stack-registration.md)

@@ -208,7 +208,7 @@ Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-A
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Vous avez ensuite utilisé ces ressources pour créer une passerelle d’application. Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
 

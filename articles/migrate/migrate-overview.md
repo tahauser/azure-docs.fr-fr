@@ -99,5 +99,5 @@ Une fois que vous avez évalué des machines locales pour la migration avec le s
 
 
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 [Suivre un didacticiel](tutorial-assessment-vmware.md) pour créer une évaluation pour une machine virtuelle VMware locale.

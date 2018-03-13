@@ -149,7 +149,7 @@ Requête Webhook
 | body |objet |Objet de la requête Webhook |
 | Code d’état |int |Code d’état de la requête Webhook |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Rechercher d’autres connecteurs](apis-list.md)

@@ -262,7 +262,7 @@ pip uninstall sfctl
 pip install sfctl
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Déployer une application avec l’interface de ligne de commande Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Prise en main de Service Fabric sur Linux](service-fabric-get-started-linux.md)

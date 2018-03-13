@@ -142,7 +142,7 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 | Get Page Ranges |Tous |Tous |
 | Append Blob |Propriétaire uniquement |Propriétaire uniquement |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Utilisation des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -201,7 +201,7 @@ Vérifiez que le cluster ou la machine hébergeant l’image de conteneur Jenkin
       > Le cluster ici peut être identique à celui qui héberge l’application de conteneur Jenkins dans le cas où vous utilisez Service Fabric pour déployer l’image de conteneur Jenkins.
       >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 GitHub et Jenkins sont maintenant configurés. Envisagez d’effectuer des exemples de modifications dans votre projet ``MyActor`` dans l’exemple de référentiel, https://github.com/sayantancs/SFJenkins. Envoyez vos modifications à la branche ``master`` distante (ou à n’importe quelle branche configurée pour être compatible). Cela déclenche le travail Jenkins, ``MyJob``, que vous avez configuré. Il extrait les modifications de GitHub, les génère et déploie l’application sur le point de terminaison du cluster spécifié dans les actions après génération.  
 
   <!-- Images -->

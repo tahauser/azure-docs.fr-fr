@@ -224,7 +224,7 @@ Pour différents types d’environnements de génération, vous pouvez obtenir e
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)

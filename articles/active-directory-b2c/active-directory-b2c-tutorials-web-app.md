@@ -200,7 +200,7 @@ Maintenant l’utilisateur peut utiliser son adresse e-mail pour vous connecter 
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à créer un locataire Azure AD B2C, créer des stratégies et mettre à jour de l’exemple d’application web pour utiliser votre locataire Azure AD B2C. Passez au prochain didacticiel pour apprendre à inscrire, configurer et appeler une API web ASP.NET protégée par votre client Azure AD B2C.
 

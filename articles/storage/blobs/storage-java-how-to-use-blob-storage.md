@@ -265,7 +265,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 
 * [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]

@@ -174,6 +174,6 @@ Vous pouvez également effectuer une recherche dans les journaux simple dans le 
 
 Dans les résultats de recherche retournés, vous devez voir des enregistrements de pulsation pour l’ordinateur, indiquant qu’il est connecté et qu’il rend compte au service.   
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez [Gestion et maintenance de l’agent Log Analytics sous Windows et Linux](log-analytics-agent-manage.md) pour en savoir plus sur la gestion de l’agent pendant le cycle de vie de son déploiement sur vos machines.  

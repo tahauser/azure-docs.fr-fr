@@ -32,7 +32,7 @@ Accordez ces privilèges lorsque :
 2. L’administrateur de l’organisation hôte définit les stratégies qui permettent à Sam d’identifier et d’ajouter d’autres utilisateurs de l’organisation partenaire (Litware).
 3. Maintenant, Sam peut ajouter d’autres utilisateurs Litware au répertoire, à des groupes et à des applications WoodGrove sans avoir besoin d’utiliser des invitations. Si Sam possède les privilèges d’énumération appropriés de Litware, cela se produit automatiquement.
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

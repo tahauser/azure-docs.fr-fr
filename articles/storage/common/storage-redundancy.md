@@ -143,7 +143,7 @@ Le stockage ZRS ne prend actuellement pas en charge la géoréplication. Si votr
 #### <a name="10-what-happens-when-one-or-more-zrs-zones-go-down"></a>10. Que se passe-t-il quand une ou plusieurs zones ZRS est défaillante ? 
 Lorsque la première zone est défaillante, le stockage ZRS continue d’écrire des réplicas de vos données sur les deux zones restantes de la région. Si une deuxième zone est défaillante, l’accès en lecture et en écriture est indisponible jusqu’à ce qu’au moins deux zones soient à nouveau disponibles. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 * [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [À propos des comptes de stockage Azure](../storage-create-storage-account.md)

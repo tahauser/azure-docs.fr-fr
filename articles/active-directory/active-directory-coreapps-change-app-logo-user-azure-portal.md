@@ -41,7 +41,7 @@ Il est facile de modifier le nom ou le logo d’une application d’entreprise p
     ![Modification du logo de l’application ou de la commande PropriétésNom](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 8. Sélectionnez la commande **Enregistrer** .
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Voir tous mes groupes](active-directory-groups-view-azure-portal.md)
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](active-directory-coreapps-assign-user-azure-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-remove-assignment-azure-portal.md)

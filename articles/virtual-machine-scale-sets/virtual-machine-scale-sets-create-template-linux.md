@@ -172,7 +172,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article de prise en main, vous avez créé un groupe identique Linux avec un modèle Azure et vous avez utilisé l’extension de script personnalisé afin d’installer un serveur web Python de base sur les instances de machine virtuelle. Pour plus d’automatisation et d’évolutivité, développez votre groupe identique à l’aide des articles de procédures suivants :
 
 - [Déployer votre application sur des groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)

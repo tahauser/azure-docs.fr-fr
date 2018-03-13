@@ -387,5 +387,5 @@ Pour plus d’informations sur la collecte et l’utilisation des données, cons
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [utiliser Service Map](operations-management-suite-service-map.md) une fois le déploiement et la configuration effectués.

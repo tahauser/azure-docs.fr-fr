@@ -84,5 +84,5 @@ Pour rendre les services de Azure Stack (tels que les portails, Azure Resource M
  
 Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) et [sortantes](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la syndication de Place de marché, les correctifs et les mises à jour, l’inscription et les données d’utilisation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Connectivité de la frontière](azure-stack-border-connectivity.md)

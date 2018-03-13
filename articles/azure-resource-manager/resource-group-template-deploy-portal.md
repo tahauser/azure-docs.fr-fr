@@ -131,7 +131,7 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 
    ![Déployer un modèle enregistré](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour récupérer un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).

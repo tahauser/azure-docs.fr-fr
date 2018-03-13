@@ -54,7 +54,7 @@ Tous les types de clusters HDInsight déploient YARN. ResourceManager est déplo
 
 ![YARN sur HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de MapReduce dans Hadoop sur HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Présentation d’Azure HDInsight](hadoop/apache-hadoop-introduction.md)

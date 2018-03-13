@@ -237,7 +237,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
 
     Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l’instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le concentrateur d'événements, afin d'utiliser le parallélisme maximal autorisé par ce concentrateur d'événements.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements][Event Hubs overview]

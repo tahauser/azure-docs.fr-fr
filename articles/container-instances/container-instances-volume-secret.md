@@ -39,7 +39,7 @@ Par exemple, le modèle Resource Manager suivant crée un groupe de conteneurs c
 
 Pour voir un exemple de déploiement d’instance de conteneur avec un modèle Azure Resource Manager, consultez [Déployer des groupes de plusieurs conteneurs dans Azure Container Instances](container-instances-multi-container-group.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment monter d’autres types de volumes dans Azure Container Instances :
 

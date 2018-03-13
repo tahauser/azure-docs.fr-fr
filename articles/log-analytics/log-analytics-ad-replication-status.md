@@ -152,5 +152,5 @@ Pour obtenir de l’aide sur la connexion d’un contrôleur de domaine, consult
 
 Si vous ne souhaitez connecter aucun de vos contrôleurs de domaine directement à Log Analytics ou à SCOM, consultez la page [Autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer des données AD à Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.

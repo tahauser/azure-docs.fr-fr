@@ -181,7 +181,7 @@ Les éléments suivants indiquent comment gérer les ressources au sein d’un c
         ![lien ciblé dans l’explorateur de fichiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Consultez les [dernières notes de publication et vidéos de l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com).
 * Découvrez comment [gérer Azure Cosmos DB dans l’Explorateur Stockage Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
 * Pour en savoir plus sur l’Explorateur Stockage, voir [Prise en main de l’Explorateur Stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).

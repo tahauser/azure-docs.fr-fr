@@ -164,7 +164,7 @@ Les enregistrements d’alerte créés par des règles d’alerte dans Log Analy
 Il existe d’autres genres d’enregistrements d’alerte créés par la [solution de gestion des alertes](log-analytics-solution-alert-management.md) et par les [exportations Power BI](log-analytics-powerbi.md).  Ces enregistrements ont tous pour **Type** **Alert**, mais se distinguent par leur propriété **SourceSystem**.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Installez la [solution de gestion des alertes](log-analytics-solution-alert-management.md) pour analyser les alertes créées dans Log Analytics, ainsi que les alertes collectées à partir de System Center Operations Manager.
 * Approfondissez vos connaissances sur les [recherches dans les journaux](log-analytics-log-searches.md) pouvant générer des alertes.
 * Effectuez une procédure pas à pas pour [configurer un webhook](log-analytics-alerts-webhooks.md) avec une règle d’alerte.  

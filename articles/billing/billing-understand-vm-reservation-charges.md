@@ -45,7 +45,7 @@ Pour comprendre et voir l’application de vos réservations dans les rapports d
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Application de la remise de réservation aux machines virtuelles Windows
 Lorsque vous exécutez les instances de machine virtuelle Windows, la réservation est appliquée pour couvrir les coûts d’infrastructure. L’application de la réservation aux coûts d’infrastructure de machine virtuelle pour les machines virtuelles Windows est identique à celle qui est appliquée pour les machines virtuelles non Windows. Vous payez séparément, par processeur virtuel, pour les logiciels Windows. Consultez [Coûts des logiciels Windows avec les réservations](https://go.microsoft.com/fwlink/?linkid=862756). Vous pouvez couvrir vos coûts de licence avec [Azure Hybrid Benefit pour Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
 
 - [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)

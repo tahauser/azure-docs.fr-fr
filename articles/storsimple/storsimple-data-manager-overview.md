@@ -81,6 +81,6 @@ Si la région de votre service Data Manager est différente de celle de votre d�
 
 ![Service et définition de la tâche dans des régions différentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).

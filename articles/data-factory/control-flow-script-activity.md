@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

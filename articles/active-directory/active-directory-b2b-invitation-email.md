@@ -69,7 +69,7 @@ Le pied de page contient la marque de la société Microsoft et permet au destin
   ![quand le destinataire n’a pas besoin de réclamer l’invitation](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

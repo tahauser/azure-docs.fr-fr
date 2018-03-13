@@ -65,6 +65,6 @@ New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataF
 Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les considérations de sécurité pour le déplacement des données, consultez [Data movement security considerations](data-movement-security-considerations.md) (Considérations de sécurité pour le déplacement des données).
 

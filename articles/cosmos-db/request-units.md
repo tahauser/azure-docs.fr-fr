@@ -346,7 +346,7 @@ Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de r
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API pour MongoDB
 Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le débit réservé avec les bases de données Azure Cosmos DB, explorez ces ressources :
 
 * [Tarification de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)

@@ -256,7 +256,7 @@ Pour voir un exemple d’utilisation de deux types de cluster au sein d’un ré
 
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu’est-ce que HDInsight, l’écosystème Hadoop et les clusters Hadoop ?](hadoop/apache-hadoop-introduction.md)
 - [Prise en main de Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

@@ -69,7 +69,7 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - À l’aide du portail Azure, accordez à l’identité du service administré d’une machine virtuelle Azure [un accès à une autre ressource Azure](msi-howto-assign-access-portal.md).
 

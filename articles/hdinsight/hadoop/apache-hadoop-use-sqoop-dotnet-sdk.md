@@ -121,7 +121,7 @@ HDInsight basé sur Linux présente les limitations suivantes :
 
 * Traitement par lots : lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Utilisation d'Oozie avec HDInsight](../hdinsight-use-oozie.md): utilisez l’action Sqoop dans un flux de travail Oozie.

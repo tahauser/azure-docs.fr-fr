@@ -53,7 +53,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Crée un serveur logique qui héberge l’instance SQL Database. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

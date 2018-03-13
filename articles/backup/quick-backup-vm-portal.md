@@ -94,7 +94,7 @@ Si vous vous apprêtez à passer à un didacticiel de sauvegarde expliquant comm
     ![Supprimer le groupe de ressources à partir du portail Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services, activé la protection sur une machine virtuelle et créé le point de récupération initial. Pour en savoir plus sur la sauvegarde Azure et Recovery Services, passez aux didacticiels.
 
 > [!div class="nextstepaction"]

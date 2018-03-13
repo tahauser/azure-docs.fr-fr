@@ -104,6 +104,6 @@ Pour mettre à niveau un disque de données non managé, suivez les étapes déc
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la gestion des disques de données des [machines virtuelles revendicables](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

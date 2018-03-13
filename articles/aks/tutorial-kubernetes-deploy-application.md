@@ -123,7 +123,7 @@ Si l’application ne s’est pas chargée, il y a peut-être un problème d’a
 
 Suivez ces étapes pour [autoriser l’accès via un secret Kubernetes](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, l’application de vote Azure a été déployée sur un cluster Kubernetes dans ACS. Les tâches accomplies sont les suivantes :  
 

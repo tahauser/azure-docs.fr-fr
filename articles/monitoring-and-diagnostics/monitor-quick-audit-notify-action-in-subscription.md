@@ -93,7 +93,7 @@ Pour tester l’alerte, répétez les étapes de la section précédente sur la 
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et le groupe de sécurité réseau. Pour ce faire, tapez le nom du groupe de ressources que vous avez créé dans la zone de recherche en haut du portail et cliquez sur le nom du groupe de ressources. Dans la section qui s’affiche, cliquez sur le bouton **Supprimer un groupe de ressources**, tapez le nom du groupe de ressources, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez effectué une opération pour générer un événement de journal d’activité et vous avez créé une alerte de journal d’activité pour être averti si cette opération se produit de nouveau à l’avenir. Vous avez ensuite testé l’alerte en réexécutant cette opération. Dans Azure, les événements de journal d’activité des 90 derniers jours sont disponibles. Si vous souhaitez conserver des événements pendant plus de 90 jours, essayez d’archiver les données de votre journal d’activité de la même façon que vos autres données de surveillance.
 

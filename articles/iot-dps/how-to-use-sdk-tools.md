@@ -69,5 +69,5 @@ Le **certificat client** est le certificat feuille sur l’appareil.  Le **certi
 
 Les certificats racine ou intermédiaire peuvent être utilisés pour créer un groupe d’inscriptions ou une inscription individuelle par [programmation](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) ou à l’aide du [portail](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Développer à l’aide du [SDK Azure IoT]( https://github.com/Azure/azure-iot-sdks) pour Azure IoT Hub et le service Azure IoT Hub Device Provisioning

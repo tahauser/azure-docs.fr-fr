@@ -241,6 +241,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les autres extensions de scripts de machine virtuelle, consultez la page [Vue d’ensemble des extensions de scripts Azure pour Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

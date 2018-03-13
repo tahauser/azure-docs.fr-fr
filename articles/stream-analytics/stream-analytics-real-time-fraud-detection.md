@@ -408,7 +408,7 @@ Toutefois, si vous en avez terminé et n’avez pas besoin des ressources que vo
 
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez poursuivre ce didacticiel en lisant l’article suivant :
 

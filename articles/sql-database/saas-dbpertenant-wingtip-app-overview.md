@@ -53,7 +53,7 @@ Après avoir déployé l’application, explorez les didacticiels suivants qui s
 |[Exécuter l’analytique sur les données client extraites](saas-tenancy-tenant-analytics.md) | Extrayez les données client dans une base de données analytique ou un entrepôt de données pour les requêtes analytiques en mode hors connexion. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Conseils généraux et astuces relatifs au déploiement et à l’utilisation de l’exemple d’application SaaS Wingtip Tickets](saas-tenancy-wingtip-app-guidance-tips.md)
 

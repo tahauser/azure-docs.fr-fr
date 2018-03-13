@@ -123,7 +123,7 @@ Vous rencontrez des problèmes avec des erreurs de liaisons ? Consultez la docu
 ## <a name="reporting-issues"></a>Problèmes liés aux rapports
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)

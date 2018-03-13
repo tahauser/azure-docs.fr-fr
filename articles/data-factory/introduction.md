@@ -126,7 +126,7 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 ## <a name="compare-with-version-2"></a>Comparer avec la version 2
 Pour obtenir la liste des différences entre les versions 1 et 2 du service Data Factory, consultez [Comparer avec la version 1](compare-versions.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Prise en main de la création d’un pipeline Data Factory à l’aide d’un des outils/kits de développement logiciel suivants : 
 
 - [IU Data Factory dans le portail Azure](quickstart-create-data-factory-portal.md)

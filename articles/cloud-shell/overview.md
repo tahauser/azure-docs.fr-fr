@@ -101,6 +101,6 @@ En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) 
 ## <a name="pricing"></a>Tarifs
 La machine qui héberge Cloud Shell est gratuite, avec comme condition préalable le montage d’un partage Azure Files. Les coûts de stockage standard s’appliquent.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
 [Démarrage rapide de PowerShell dans Cloud Shell (préversion)](quickstart-powershell.md)

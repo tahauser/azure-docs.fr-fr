@@ -217,6 +217,6 @@ Créez une image gérée à partir d’un disque dur virtuel de système d’exp
     ```
 
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Vous pouvez à présent [créer une machine virtuelle à partir de l’image managée généralisée](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 

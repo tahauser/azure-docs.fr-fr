@@ -127,7 +127,7 @@ Le résultat ressemble à ce qui suit.
 
     ![page rails par défaut][default-rails-cloud]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué la plupart des étapes manuellement. Dans un environnement de production, vous écririez votre application sur un ordinateur de développement et la déploieriez sur la machine virtuelle Azure. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques. Pour plus d’informations, consultez http://rubyonrails.org/deploy/.
 
 Pour en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][rails-guides].

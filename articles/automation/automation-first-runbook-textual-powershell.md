@@ -148,7 +148,7 @@ Les runbooks PowerShell ont les mêmes cycle de vie, fonctionnalités et mode de
 3. Les Runbooks PowerShell Workflow prennent en charge l’exécution parallèle et série, alors que les Runbooks PowerShell peuvent exécuter des commandes en série uniquement.
 4. Dans un runbook PowerShell Workflow, une activité, une commande ou un bloc de script peut avoir sa propre instance d’exécution, alors que dans un Runbook PowerShell, tous les éléments du script s’exécutent dans une instance d’exécution unique. Il existe également certaines [différences syntaxiques](https://technet.microsoft.com/magazine/dn151046.aspx) entre un Runbook PowerShell natif et un Runbook PowerShell Workflow.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)

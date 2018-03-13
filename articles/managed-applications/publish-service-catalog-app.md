@@ -241,7 +241,7 @@ Maintenant, nous allons utiliser le portail pour déployer l’application manag
 
 Une fois le déploiement terminé, l’application managée existe dans un groupe de ressources nommé applicationGroup. Le compte de stockage existe dans un groupe de ressources nommé applicationGroup plus une valeur de chaîne de hachage.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
 * Pour voir des exemples de projets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).

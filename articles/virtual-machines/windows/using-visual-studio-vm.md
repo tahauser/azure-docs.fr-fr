@@ -101,7 +101,7 @@ Pour plus d’informations, consultez [Capture d’une machine virtuelle vers un
 
 En outre, vos tâches de développement ou technologies peuvent nécessiter une mise à l’échelle (par exemple différentes variétés de configurations de développement et plusieurs configurations d’ordinateurs).  Vous pouvez utiliser Azure DevTest Labs pour créer des _recettes_ qui automatisent la construction de votre « image en or », et pour gérer les stratégies des machines virtuelles de votre équipe.  [Utiliser Azure DevTest Labs pour développeurs](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-developer-lab) est la meilleure source pour obtenir plus d’informations sur DevTest Labs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous en savez plus sur les images Visual Studio préconfigurées, l’étape suivante consiste à créer une machine virtuelle :
 
 * [Créer une machine virtuelle avec le portail Azure](quick-create-portal.md)

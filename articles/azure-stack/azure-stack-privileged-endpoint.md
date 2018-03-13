@@ -167,5 +167,5 @@ Pour fermer la session du point de terminaison :
 
 Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. Si vous fermez la session du point de terminaison privilégié à l’aide des applets de commande `Exit-PSSession` ou `Exit`, ou que vous fermez simplement la console PowerShell, les journaux de transcription ne sont pas transférés vers un partage de fichiers. Ils demeurent dans le point de terminaison privilégié. La prochaine fois que vous exécutez `Close-PrivilegedEndpoint` et que vous incluez un partage de fichiers, les journaux de transcription issus de la (des) session(s) précédente(s) sont également transférés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md)

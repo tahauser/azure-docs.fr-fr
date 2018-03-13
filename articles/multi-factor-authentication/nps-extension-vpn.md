@@ -453,7 +453,7 @@ Pour résoudre des problèmes supplémentaires, vous pouvez utiliser un analyseu
 
 Pour plus d’informations, consultez [Intégrer votre infrastructure NPS existante à Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Se procurer Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
 [Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](multi-factor-authentication-get-started-server-rdg.md)

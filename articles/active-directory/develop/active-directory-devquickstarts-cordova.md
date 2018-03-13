@@ -285,7 +285,7 @@ Les étapes concrètes pour l’exécution de l’application varient selon la p
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Vous pouvez maintenant passer à des scénarios plus avancés (et plus intéressants). Par exemple : [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

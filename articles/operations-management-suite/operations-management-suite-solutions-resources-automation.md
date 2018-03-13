@@ -649,5 +649,5 @@ L’exemple utilise des variables de [paramètres de solution standard](operatio
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajout d’une vue à votre solution](operations-management-suite-solutions-resources-views.md) pour visualiser les données collectées.

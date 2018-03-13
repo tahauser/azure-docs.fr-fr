@@ -224,7 +224,7 @@ Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** appara
 ## <a name="questions"></a>Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
 * Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).

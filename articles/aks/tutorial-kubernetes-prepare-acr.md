@@ -151,7 +151,7 @@ v1
 
 Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, un Azure Container Registry a été préparé pour une utilisation dans un cluster ACS. Les étapes suivantes ont été effectuées :
 

@@ -122,7 +122,7 @@ Enregistrez vos paramètres.
 
 Les requêtes DNS doivent commencer à trouver votre application App Service immédiatement après la propagation DNS.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment lier un certificat SSL personnalisé à App Service.
 

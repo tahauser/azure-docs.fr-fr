@@ -148,7 +148,7 @@ Azure Data Factory renseigne cette colonne conformément à ses besoins pour s
 
 Comme pour le mécanisme 1, l’activité de copie nettoie automatiquement les données de la tranche spécifiée dans la table SQL de destination. Ensuite, elle insère les données de la source dans la table de destination. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour accéder à des exemples JSON complets, consultez les articles suivants sur les connecteurs : 
 
 - [Base de données SQL Azure](data-factory-azure-sql-connector.md)

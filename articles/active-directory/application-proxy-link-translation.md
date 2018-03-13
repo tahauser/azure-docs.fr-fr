@@ -86,7 +86,7 @@ Maintenant, lorsque les utilisateurs accèdent à cette application, le proxy re
 
 Nous souhaitons votre aide pour que cette fonctionnalité fonctionne pour toutes vos applications. Nous recherchons plus de 30 balises dans le code HTML et CSS. Si vous disposez d’un exemple de liens générés qui ne sont pas en cours de traduction, envoyez un extrait de code aux [Commentaires du Proxy d’application](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Utilisez des domaines personnalisés avec le Proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md) pour que les URL interne et externe soit identiques
 
 [Configurer les mappages d’accès alternatifs dans SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

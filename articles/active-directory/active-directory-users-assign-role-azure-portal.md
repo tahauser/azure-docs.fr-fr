@@ -38,7 +38,7 @@ Cet article explique comment affecter un rôle d’administration à un utilisat
       ![Affectation d’un utilisateur à un rôle](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Sélectionnez **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Guide de démarrage rapide : Ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md)
 * [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 * [Ajouter des utilisateurs invités à partir d’un autre répertoire](active-directory-b2b-what-is-azure-ad-b2b.md) 

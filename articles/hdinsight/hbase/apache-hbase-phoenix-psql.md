@@ -144,7 +144,7 @@ Pour un chargement à un débit supérieur distribué sur le cluster, utilisez l
 
 * Évitez les zones réactives du serveur de la région. Si votre clé de ligne augmente de manière monolithique, les écritures séquentielles HBase peuvent entraîner un « hotspotting » du serveur de la région. Un *Salting* de la clé de ligne réduit les écritures séquentielles. Phoenix fournit une méthode transparente de « salting » de la clé de ligne avec un octet de « salting » pour une table particulière, comme indiqué ci-dessous.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Chargement de données en bloc avec Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html)
 * [Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDinsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)

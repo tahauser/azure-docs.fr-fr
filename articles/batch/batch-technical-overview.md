@@ -87,7 +87,7 @@ N’oubliez pas qu’il ne s’agit ici que d’une des nombreuses façons d’u
 
 Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md) pour des informations plus détaillées sur les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités d’API que vous pouvez utiliser lors de la création de votre application Batch. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Bien démarrer avec Azure Batch grâce à l’un de ces guides de démarrage rapide :
 * [Exécutez votre premier travail Batch avec l’interface de ligne de commande Azure](quick-create-cli.md)

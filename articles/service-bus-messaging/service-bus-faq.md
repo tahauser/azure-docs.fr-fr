@@ -111,7 +111,7 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Bus, lisez les articles suivants :
 
 * [Présentation d’Azure Service Bus Premium (billet de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

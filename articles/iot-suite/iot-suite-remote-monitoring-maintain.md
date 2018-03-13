@@ -84,7 +84,7 @@ Pour afficher les détails d’un travail ou d’un appel de méthode en particu
 
 ![Affichage des détails d’une tâche](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

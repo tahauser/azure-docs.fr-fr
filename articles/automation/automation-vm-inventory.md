@@ -63,7 +63,7 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 5. Dans la fenêtre de confirmation, cliquez sur **Oui**.  
     Cette action déconnecte la machine de la fonction de gestion.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la gestion des modifications dans les paramètres de registre et les fichiers sur vos machines virtuelles, consultez l’article relatif au [suivi des modifications apportées à votre environnement logiciel avec la solution Change Tracking](../log-analytics/log-analytics-change-tracking.md).
 * Pour en savoir plus sur la gestion des mises à jour de package et Windows sur vos machines virtuelles, consultez la section relative à la [solution Update Management dans OMS](../operations-management-suite/oms-solution-update-management.md).

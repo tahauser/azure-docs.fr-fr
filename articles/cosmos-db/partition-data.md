@@ -219,7 +219,7 @@ Si vous implémentez une application multilocataire en utilisant Azure Cosmos DB
 
 Vous pouvez également utiliser une approche à plusieurs niveaux/combinée qui regroupe les petits clients et migre les clients plus volumineux vers leur propre conteneur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, nous avons fourni une vue d’ensemble des concepts et des bonnes pratiques de partitionnement avec les API Azure Cosmos DB. 
 
 * Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md).

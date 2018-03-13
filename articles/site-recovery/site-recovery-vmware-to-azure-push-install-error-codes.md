@@ -95,6 +95,6 @@ Cette erreur peut être signalée par le service pour plusieurs raisons. Choisis
 * [Résolution des problèmes WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [Résolution des problèmes liés aux scripts et aux services WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Découvrez comment](tutorial-vmware-to-azure.md) configurer la récupération d’urgence de machines virtuelles VMware.

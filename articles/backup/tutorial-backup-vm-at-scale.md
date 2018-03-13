@@ -171,7 +171,7 @@ Si vous souhaitez suivre les didacticiels suivants, ne nettoyez pas les ressourc
     Une fois le coffre supprimé, vous revenez à la liste des coffres Recovery Services.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opérations suivantes :
 

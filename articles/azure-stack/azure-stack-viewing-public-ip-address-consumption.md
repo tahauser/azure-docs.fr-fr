@@ -66,5 +66,5 @@ Quand une adresse IP publique est affectée, elle apparaît dans une liste ou da
 | Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |OUI |Non  |
 | Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |OUI |Non  |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gérer les comptes de stockage dans Azure Stack](azure-stack-manage-storage-accounts.md)

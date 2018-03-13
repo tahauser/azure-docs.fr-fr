@@ -159,7 +159,7 @@ Notez que, lorsque l’image chargée disparaît, une copie de l’image chargé
 
 ![Application web publiée dans le navigateur Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

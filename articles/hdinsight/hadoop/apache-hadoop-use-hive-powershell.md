@@ -110,7 +110,7 @@ Cette applet de commande retourne les informations écrites sur STDERR lors de l
 
 Comme vous pouvez le constater, Azure PowerShell permet d'exécuter facilement des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations générales sur Hive dans HDInsight :
 

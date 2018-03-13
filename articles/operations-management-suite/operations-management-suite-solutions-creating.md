@@ -80,7 +80,7 @@ Une fois que vous avez terminé et testé votre solution, vous pouvez la rendre 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [créer un fichier de solution](operations-management-suite-solutions-solution-file.md) pour votre solution de gestion.
 * Découvrez comment [créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.

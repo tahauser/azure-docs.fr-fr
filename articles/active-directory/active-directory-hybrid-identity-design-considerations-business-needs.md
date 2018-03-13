@@ -104,7 +104,7 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les exigences de synchronisation de répertoire](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

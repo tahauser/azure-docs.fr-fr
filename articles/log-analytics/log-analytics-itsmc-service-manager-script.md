@@ -318,5 +318,5 @@ if(!$err)
 }
 
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Configurez la connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

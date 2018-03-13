@@ -108,7 +108,7 @@ Lorsqu’une solution de gestion est supprimée, toutes les ressources de la sol
 ## <a name="creating-a-management-solution"></a>Création d’une solution de gestion
 Une aide complète à la création de solutions de gestion est disponible dans [Création de solutions dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
 * Créez vos propres [solutions de gestion](operations-management-suite-solutions-creating.md).
 

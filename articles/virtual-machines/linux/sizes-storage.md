@@ -34,5 +34,5 @@ ms.lasthandoff: 01/12/2018
 - [GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

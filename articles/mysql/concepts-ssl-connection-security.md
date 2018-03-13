@@ -27,5 +27,5 @@ Les chaînes de connexion pour les différents langages de programmation sont af
 
 Pour découvrir comment activer ou désactiver la connexion SSL pour le développement d’applications, consultez la page [Guide pratique : configurer SSL](howto-configure-ssl.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Bibliothèques de connexions de la base de données Azure pour MySQL](concepts-connection-libraries.md)

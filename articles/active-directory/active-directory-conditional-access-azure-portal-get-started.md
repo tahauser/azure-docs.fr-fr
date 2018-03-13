@@ -156,7 +156,7 @@ Pour tester votre stratégie, vous devez accéder à votre application à partir
 L’authentification multifacteur ne doit être requise que si la tentative de connexion émane d’un appareil qui ne figure pas parmi les adresses IP approuvées que vous avez configurées. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

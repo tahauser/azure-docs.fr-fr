@@ -72,7 +72,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 | arguments           | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non        |
 | defines             | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Pig. | Non        |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

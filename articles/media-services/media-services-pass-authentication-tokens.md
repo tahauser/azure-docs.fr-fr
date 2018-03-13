@@ -53,6 +53,6 @@ Cette option est utilisée uniquement pour l’acquisition de licence PlayReady,
 
 - Via une autre liste de lecture HTTP Live Streaming (HLS). Si vous devez configurer l’authentification par jeton pour la liste de lecture AES + HLS sur iOS/Safari, il n’y a aucun moyen d’envoyer directement le jeton. Veuillez consulter ce [billet de blog](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) pour savoir comment remplacer la liste de lecture pour activer ce scénario.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

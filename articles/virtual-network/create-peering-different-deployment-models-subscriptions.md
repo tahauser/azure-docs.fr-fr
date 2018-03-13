@@ -336,7 +336,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
     > [!WARNING]
     > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (classiques) existants dans votre abonnement. Assurez-vous de ne supprimer que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer une pour une utilisation en production.
 - Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).

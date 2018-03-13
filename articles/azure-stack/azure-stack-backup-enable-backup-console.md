@@ -47,7 +47,7 @@ Activez le service de sauvegarde d’infrastructure via le portail d’administr
 
 Pour exécuter une sauvegarde, vous devez télécharger les outils Azure Stack, puis exécuter la cmdlet PowerShell **Start-AzSBackup** sur votre nœud administration Azure Stack. Pour plus d’informations, voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
  - Apprenez à exécuter une sauvegarde. Voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
 - Apprenez à vérifier que votre sauvegarde a été exécutée. Voir [Confirmer la sauvegarde dans le portail d’administration](azure-stack-backup-back-up-azure-stack.md ).

@@ -283,7 +283,7 @@ Pour générer la solution GetStarted qui contient tous les exemples de cet arti
 * [Un compte Azure Cosmos DB][create-account].
 * La solution [GetStarted](https://github.com/stalker314314/DocumentDBCpp) disponible sur GitHub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [surveiller un compte Azure Cosmos DB](monitor-accounts.md).
 * Exécutez des requêtes sur un exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).
 * Consultez la section Developer (Développeur) de la [page de documentation Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/) pour découvrir plus en détail le modèle de programmation.

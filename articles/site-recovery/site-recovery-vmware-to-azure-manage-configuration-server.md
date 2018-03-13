@@ -153,6 +153,6 @@ Pour les déploiements de serveurs de configuration effectués avant mai 2016, l
 3. Sélectionnez **Renouveler les certificats**. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les tutoriels pour en savoir plus sur la configuration de la reprise après sinistre des [machines virtuelles VMware](tutorial-vmware-to-azure.md) dans Azure.

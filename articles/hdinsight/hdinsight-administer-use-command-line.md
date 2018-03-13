@@ -101,7 +101,7 @@ azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName>
 azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment effectuer différentes tâches d'administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]

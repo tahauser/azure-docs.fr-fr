@@ -76,7 +76,7 @@ Pour déléguer la gestion de l’accès à une réservation :
 6. Entrez l’adresse e-mail de l’utilisateur à ajouter en tant que propriétaire. 
 7. Sélectionnez l’utilisateur, puis **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
 
 - [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)

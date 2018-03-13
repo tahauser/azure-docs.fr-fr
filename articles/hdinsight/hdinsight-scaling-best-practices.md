@@ -327,7 +327,7 @@ La dernière option consiste à rechercher les rares cas où HDFS passe en mode 
     hdfs dfsadmin -fs hdfs://headnodehost:9000 -safemode leave
     ```
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d'Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Mise à l’échelle des clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)

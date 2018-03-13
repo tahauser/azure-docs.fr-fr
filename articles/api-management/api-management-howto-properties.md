@@ -107,7 +107,7 @@ Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-i
 
 Alors que les valeurs de propriété peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres propriétés. Si le texte contenant une référence de propriété est utilisé pour une valeur de propriété, comme `Property value text {{MyProperty}}`, cette référence de propriété n’est pas remplacée et est incluse dans la valeur de propriété.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur l’utilisation des stratégies
   * [Stratégies dans Gestion des API](api-management-howto-policies.md)
   * [Référence de stratégie](https://msdn.microsoft.com/library/azure/dn894081.aspx)

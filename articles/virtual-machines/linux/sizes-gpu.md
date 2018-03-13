@@ -43,5 +43,5 @@ Pour les étapes d’installation et de vérification des pilotes, consultez l�
 - [Optimisé pour le stockage](sizes-storage.md)
 - [Calcul haute performance](sizes-hpc.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

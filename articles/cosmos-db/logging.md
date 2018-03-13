@@ -451,7 +451,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 | responseLength | responseLength_s | Longueur de la réponse, en octets.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Ce champ n’est pas vide lorsque des [jetons de ressource](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) sont utilisés pour l’authentification et pointe vers l’ID de ressource de l’utilisateur. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour comprendre non seulement comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 - Pour en savoir plus sur les hubs d’événements, lisez les articles suivants :

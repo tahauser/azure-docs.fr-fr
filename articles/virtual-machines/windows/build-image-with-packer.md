@@ -294,7 +294,7 @@ Vous pouvez alors entrer l’adresse IP publique dans un navigateur web.
 ![Site IIS par défaut](./media/build-image-with-packer/iis.png) 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, IIS était déjà installé et vous avez utilisé Packer pour créer une image de machine virtuelle. Vous pouvez utiliser cette image de machine virtuelle avec les flux de travail de déploiement existants, par exemple pour déployer votre application sur les machines virtuelles créées à partir de l’image avec Team Services, Ansible, Chef ou Puppet.
 
 Pour obtenir d’autres exemples de modèles Packer pour d’autres distributions Windows, consultez [ce référentiel GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

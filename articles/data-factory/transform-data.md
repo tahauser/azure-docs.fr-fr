@@ -81,5 +81,5 @@ Vous créez un service lié à l’environnement de calcul puis l’utilisez lor
 
 Consultez l’article [Services liés de calcul](compute-linked-services.md) pour en savoir plus sur les services de calcul pris en charge par Data Factory. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez le didacticiel suivant pour voir un exemple d’utilisation d’une activité de transformation : [Didacticiel - Transformation des données à l’aide de Spark](tutorial-transform-data-spark-powershell.md)

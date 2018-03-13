@@ -253,7 +253,7 @@ Le moteur de synchronisation stocke les informations d’état de l’exportatio
 
 Par exemple, si le moteur de synchronisation exporte l’attribut C, qui a la valeur 5, vers une source de données connectée, il stocke la valeur C=5 dans sa mémoire de statut d’exportation. Chaque exportation supplémentaire de cet objet entraîne une nouvelle tentative d’exportation de la valeur C=5 vers la source de données connectée, car le moteur de synchronisation suppose que cette valeur n’a pas été appliquée à l’objet de manière continue (sauf si une valeur différente a été importée récemment à partir de la source de données connectée). La mémoire d’exportation est désactivée en cas de réception de la valeur C=5 au cours d’une opération d’importation sur l’objet.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

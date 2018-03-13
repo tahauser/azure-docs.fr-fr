@@ -61,7 +61,7 @@ Dans Azure, il existe des Workers partagés et dédiés. Un Worker partagé pren
 
 App Service sur Azure Stack utilise la même interface utilisateur que celle utilisée par Azure App Service, ce qui est également le cas du serveur principal. Certaines fonctionnalités sont désactivées et ne sont pas fonctionnelles dans Azure Stack. Les exigences ou les services spécifiques à Azure dont ces fonctionnalités ont besoin ne sont pas encore disponibles dans Azure Stack.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 
 - [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)

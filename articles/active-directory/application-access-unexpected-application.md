@@ -121,5 +121,5 @@ Pour **désactiver toutes les futures opérations de consentement de l’utilisa
 
 6.  Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

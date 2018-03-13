@@ -84,7 +84,7 @@ ms.lasthandoff: 01/24/2018
 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Création d’un tableau de bord](app-insights-dashboards.md)
 * [Recherche de diagnostic](app-insights-diagnostic-search.md)
 * [Exploration des mesures](app-insights-metrics-explorer.md)

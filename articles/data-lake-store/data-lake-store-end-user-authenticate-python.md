@@ -116,7 +116,7 @@ Utilisez cet extrait de code pour l’authentification auprès d’Azure AD dans
 
 Cette option est déconseillée. Pour plus d’informations, consultez la page [Authentification Azure à l’aide du SDK Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
    
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification des utilisateurs finals auprès d’Azure Data Lake Store avec Python. Vous pouvez maintenant consulter les articles suivants, qui expliquent comment utiliser Python pour travailler avec Azure Data Lake Store.
 
 * [Opérations de gestion des comptes sur Data Lake Store à l’aide de Python](data-lake-store-get-started-python.md)

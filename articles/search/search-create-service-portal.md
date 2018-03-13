@@ -109,7 +109,7 @@ Bien que la plupart des clients utilisent un seul service, une redondance des se
 
 Il n’est pas nécessaire de disposer d’un second service pour la haute disponibilité. La haute disponibilité des requêtes est atteinte si vous utilisez au moins deux réplicas dans le même service. Les mises à jour des réplicas sont séquentielles, ce qui signifie qu’au moins l’un d’eux est opérationnel lors du déploiement d’une mise à jour de service. Pour plus d’informations sur la disponibilité, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir approvisionné un service Recherche Azure, vous pouvez [définir un index](search-what-is-an-index.md) afin de pouvoir télécharger vos données et effectuer des recherches dans vos données. 
 
 > [!div class="nextstepaction"]

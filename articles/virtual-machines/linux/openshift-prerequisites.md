@@ -125,7 +125,7 @@ Prenez note de la propriété appId renvoyée par la commande :
 
 Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet article a abordé les thèmes suivants :
 > [!div class="checklist"]

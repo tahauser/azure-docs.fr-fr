@@ -84,7 +84,7 @@ Pour un tableau des limites, quotas et contraintes du service, ainsi que des fon
 
 <a name="Next Steps"></a>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants :
   
     [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/)

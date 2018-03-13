@@ -159,7 +159,7 @@ Le clustering est disponible uniquement pour les caches de niveau Premium.
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>J’obtiens des exceptions MOVE lorsque j’utilise StackExchange.Redis et le clustering, que dois-je faire ?
 Si vous utilisez StackExchange.Redis et recevez des exceptions `MOVE` lors du clustering, assurez-vous que vous utilisez [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) ou version ultérieure. Pour obtenir des instructions sur la configuration de vos applications .NET afin d’utiliser StackExchange.Redis, consultez [Configuration des clients de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
 * [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)

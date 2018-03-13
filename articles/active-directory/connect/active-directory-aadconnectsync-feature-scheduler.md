@@ -168,7 +168,7 @@ Dans l'illustration ci-dessus, la première ligne est dans un état où le moteu
 ## <a name="scheduler-and-installation-wizard"></a>Planificateur et Assistant d’installation
 Si vous démarrez l’Assistant d’installation, le planificateur est temporairement interrompu. Ce comportement repose sur l’hypothèse que vous apportez des modifications de configuration et le fait que ces paramètres ne peuvent pas être appliqués si le moteur de synchronisation s’exécute activement. Pour cette raison, ne laissez pas l’Assistant d’installation ouvert, car il empêche le moteur de synchronisation d’effectuer toutes les actions de synchronisation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

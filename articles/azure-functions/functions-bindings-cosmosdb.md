@@ -752,7 +752,7 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 |---|---|
 | CosmosDB | [Codes d’erreur CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Accéder à un guide de démarrage rapide qui utilise un déclencheur Cosmos DB](functions-create-cosmos-db-triggered-function.md)

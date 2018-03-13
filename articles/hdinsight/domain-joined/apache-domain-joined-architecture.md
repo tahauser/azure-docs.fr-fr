@@ -55,7 +55,7 @@ Il existe deux manières de faire en sorte que les contrôleurs de domaine Activ
 
 - **Active Directory sur des machines virtuelles Azure IaaS** : cette option vous permet de déployer et gérer votre propre domaine Windows Server Active Directory sur des machines virtuelles Azure IaaS. Pour plus d’informations, voir [Configurer un environnement de bac à sable joint à un domaine](./apache-domain-joined-configure.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine, consultez l’article [Configurer des clusters HDInsight joints à un domaine](apache-domain-joined-configure.md).
 * Pour gérer des clusters HDInsight joints à un domaine, consultez l’article [Gestion des clusters HDInsight joints à un domaine](apache-domain-joined-manage.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez l’article [Configure Hive policies for domain-joined HDInsight clusters (Configurer des stratégies Hive pour les clusters HDInsight joints à un domaine)](apache-domain-joined-run-hive.md).

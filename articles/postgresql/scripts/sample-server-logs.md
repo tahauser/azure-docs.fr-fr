@@ -45,7 +45,7 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Téléchargez les fichiers journaux. |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour PostgreSQL](../sample-scripts-azure-cli.md)
 - [Configurer et consulter les journaux du serveur sur le Portail Azure](../howto-configure-server-logs-in-portal.md)

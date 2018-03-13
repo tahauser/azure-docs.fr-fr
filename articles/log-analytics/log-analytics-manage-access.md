@@ -292,6 +292,6 @@ Vous pouvez modifier l’organisation Azure Active Directory d’un espace de tr
 3. Entrez les informations d’identité de l’administrateur de votre domaine Azure Active Directory. Ensuite, une confirmation indiquant que votre espace de travail est lié à votre domaine Azure Active Directory s’affiche.  
     ![confirmation d’espace de travail lié](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Comprendre l’utilisation de données](log-analytics-usage.md) pour apprendre à analyser le volume de données collectées par les solutions et envoyées par les ordinateurs.
 * [Ajouter des solutions de gestion Log Analytics à partir d’Azure Marketplace](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.

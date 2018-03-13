@@ -468,7 +468,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à effectuer les opérations suivantes :
 

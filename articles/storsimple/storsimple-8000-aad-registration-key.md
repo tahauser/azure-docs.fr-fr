@@ -93,7 +93,7 @@ Procédez comme suit pour générer une clé d’inscription du service AAD.
     > [!NOTE] 
     > Si vous créez un StorSimple Cloud Appliance sur le service inscrit à votre appareil StorSimple 8000, ne générez pas de clé d’inscription lorsque la création est en cours. Attendez que la création se termine, puis générez la clé d’inscription.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le déploiement d’un [appareil StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

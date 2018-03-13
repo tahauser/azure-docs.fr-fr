@@ -27,5 +27,5 @@ Pour plus d’informations sur la création de captures instantanées, consultez
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez essayer la sauvegarde Azure en suivant le « didacticiel sur la sauvegarde des machines virtuelles Windows » pour [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) ou [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

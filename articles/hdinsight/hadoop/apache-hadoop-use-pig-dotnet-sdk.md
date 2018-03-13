@@ -122,7 +122,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 
 8. Pour quitter l’application, appuyez sur **Entrée**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Pig dans HDInsight, consultez [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md).
 

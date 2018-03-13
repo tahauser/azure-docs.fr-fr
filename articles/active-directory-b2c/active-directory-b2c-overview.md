@@ -64,7 +64,7 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 * [Personnaliser l’aspect des pages d’inscription, de connexion et des autres pages accessibles aux consommateurs](active-directory-b2c-reference-ui-customization.md) prises en charge par Azure Active Directory B2C.
 * [Utiliser l’API Azure Active Directory Graph pour créer, lire, mettre à jour et supprimer des consommateurs par programme](active-directory-b2c-devquickstarts-graph-dotnet.md) dans votre client Azure Active Directory B2C.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les liens ci-dessous vous permettent d’explorer le service en profondeur :
 

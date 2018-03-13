@@ -47,7 +47,7 @@ Pour agir sur un événement et lancer un runbook à partir des résultats de vo
 
 Si vous sélectionnez un runbook qui a été configuré pour être [appelé à partir d’une alerte Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md), celui-ci possède un paramètre d’entrée appelé **WebhookData** qui est de type **objet**.  Si le paramètre d’entrée est obligatoire, vous devez transmettre les résultats de recherche au runbook pour qu’il puisse convertir la chaîne au format JSON en un type d’objet vous permettant de filtrer sur des éléments spécifiques que vous référencerez dans les activités de runbook.  Pour ce faire, sélectionnez **Résultats de la recherche (Objet)** dans la liste déroulante.<br><br> ![Sélectionner un objet de données Webhook pour le paramètre de runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour connaître tous les champs de recherche et facettes disponibles dans Log Analytics, consultez les [informations de référence sur la recherche de journal avec Log Analytics](log-analytics-search-reference.md) .
 * Pour découvrir comment appeler un runbook Automation automatiquement, consultez [Appeler un runbook Automation Azure à partir d’une alerte Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

@@ -58,7 +58,7 @@ Les réservations sont disponibles pour la plupart des tailles de machine virtue
 - Quota insuffisant : une instance de machine virtuelle réservée qui s’étend sur un seul abonnement doit avoir le quota de processeurs virtuels disponibles dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a une limite de quota de 10 processeurs virtuels pour la famille de la série D, vous ne pouvez pas acheter d’instance de machine virtuelle réservée pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, prenons un abonnement avec un quota de 10 processeurs virtuels pour la famille de la série D. Si cet abonnement a deux instances de standard_D1 déployées, vous pouvez acheter une instance de machine virtuelle réservée pour 10 instances standard_D1 dans cet abonnement. 
 - Restrictions de capacité : dans de rares cas, Azure limite l’achat de nouvelles réservations pour certaines tailles de machine virtuelle, en raison d’une faible capacité dans une région.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Commencer à économiser sur vos machines virtuelles en achetant une [instance de machine virtuelle réservée](https://go.microsoft.com/fwlink/?linkid=861721). 
 
 Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.

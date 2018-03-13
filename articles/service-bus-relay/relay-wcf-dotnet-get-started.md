@@ -215,7 +215,7 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
 </behaviors>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les principes de base d’Azure Relay, suivez ces liens pour en savoir plus.
 
 * [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)

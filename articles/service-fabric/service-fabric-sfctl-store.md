@@ -76,6 +76,6 @@ Retourne les informations sur le contenu du magasin d’images dans le chemin d�
 | --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

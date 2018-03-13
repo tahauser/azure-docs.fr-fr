@@ -91,7 +91,7 @@ Un locataire Azure AD B2C **ne peut pas** être lié à des abonnements CSP.
 
 Un utilisateur peut avoir établi une restriction régionale pour la création de ressources Azure. Cette restriction peut empêcher la création de ressources Azure AD B2C. Pour atténuer ce problème, assouplissez cette restriction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois ces étapes effectuées pour chacun de vos locataires Azure AD B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
 

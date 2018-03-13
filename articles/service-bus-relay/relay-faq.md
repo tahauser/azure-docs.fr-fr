@@ -129,7 +129,7 @@ Les signatures d’accès partagé (SAP) sont des mécanismes d’authentificati
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Est-il possible de mettre des points de terminaison de relais en liste verte ?
 Oui. Le client de relais établit des connexions au service Azure Relay en utilisant des noms de domaine complets (FQDN). Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge la mise en liste verte de DNS.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)

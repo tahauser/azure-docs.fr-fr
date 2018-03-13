@@ -94,6 +94,6 @@ Avec cette topologie :
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Vue d’ensemble de l’identité](azure-stack-identity-overview.md)   
 - [Intégration au centre de données - Identité](azure-stack-integrate-identity.md)

@@ -327,7 +327,7 @@ Le nom de ce paramètre d’application passe dans le paramètre de connexion de
 |---|---|
 | Hub de notification | [Guide des opérations](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

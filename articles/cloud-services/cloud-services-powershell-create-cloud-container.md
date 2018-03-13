@@ -49,6 +49,6 @@ Pour plus d’informations sur la création du service cloud Azure, exécutez :
 Get-help New-AzureService
 ```
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 * Pour gérer le déploiement du service cloud, reportez-vous aux rubriques relatives aux commandes [Get-AzureService](/powershell/module/Azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/Azure/Remove-AzureService?view=azuresmps-4.0.0) et [Set-AzureService](/powershell/module/azure/set-azureservice?view=azuresmps-4.0.0). Pour plus d’informations, vous pouvez également consulter l’article [Configuration des services cloud](cloud-services-how-to-configure-portal.md) .
 * Pour publier votre projet de service cloud dans Azure, consultez l’exemple de code **PublishCloudService.ps1** issu du [référentiel de services cloud archivé](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

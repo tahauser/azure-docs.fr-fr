@@ -135,7 +135,7 @@ Après quelques minutes, l’état issu de la commande PowerShell ci-dessus doit
 
 Vous pouvez essayer de mettre à niveau de la version 2 à la version 3, ou de la version 2 à la version 1 en guise d’exercice. Le passage de la version 2 à la version 1 est également considéré comme une mise à niveau. Amusez-vous avec les délais d'attente et les stratégies de contrôle d'intégrité pour vous familiariser avec ceux-ci. Lorsque vous déployez sur un cluster Azure, les paramètres doivent être définis correctement. Nous vous recommandons de définir les délais d’attente de manière plus restrictive.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 Contrôlez les mises à niveau de votre application à l’aide des [paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).

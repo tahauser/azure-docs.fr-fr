@@ -118,5 +118,5 @@ La connexion d’origine entre Azure East Asia et le centre de données local do
 
 Pour garantir la résilience des applications, nous vous recommandons d’héberger chaque application dans son propre réseau virtuel Azure dédié. Les applications peuvent ensuite être basculées de manière isolée, et les connexions « local à source » nécessaires peuvent être acheminées vers la région cible, comme décrit ci-dessus.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Découvrez-en plus sur les [plans de récupération](site-recovery-create-recovery-plans.md).

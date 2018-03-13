@@ -57,7 +57,7 @@ L’utilisation de l’offre d’instance réservée s’affiche également dans
 1. Vous n’êtes pas facturé pour le composant matériel de la machine virtuelle, car il est couvert par l’offre d’instance réservée. 
 2. Vous êtes facturé pour les logiciels Windows puisque Azure Hybrid Benefit n’est pas utilisé. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les instances de machine virtuelle réservées, voir les articles suivants.
 
 - [Prépayer les machines virtuelles avec des instances de machines virtuelles réservées](../virtual-machines/windows/prepay-reserved-vm-instances.md)

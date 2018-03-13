@@ -493,6 +493,6 @@ La méthode d’ouverture des ports dépend de la solution de pare-feu que vous 
 
 Répétez ces étapes sur la seconde machine virtuelle SQL Server.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)

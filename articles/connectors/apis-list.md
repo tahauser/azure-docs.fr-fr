@@ -142,7 +142,7 @@ Afin d’améliorer Azure Logic Apps et les connecteurs, votez pour des idées o
 
 Manque-t-il une rubrique de connecteur ou des informations que vous jugez importantes ? Si tel est le cas, aidez-nous en complétant nos rubriques existantes ou écrivez votre propre rubrique. Notre documentation est open source et hébergée sur GitHub. Commencez sans tarder dans notre [référentiel GitHub](https://github.com/Microsoft/azure-docs). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Créer des API personnalisées pour les applications logiques](../logic-apps/logic-apps-create-api-app.md)
 * [Analyser vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)

@@ -238,7 +238,7 @@ Dans cette section, nous envoyons des données dans la table **hvactable** que v
 
         SELECT COUNT(*) FROM hvactable
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Traiter des événements de streaming structuré à l’aide d’Event Hubs](apache-spark-eventhub-structured-streaming.md)

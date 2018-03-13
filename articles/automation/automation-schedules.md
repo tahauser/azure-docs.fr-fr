@@ -137,6 +137,6 @@ Les exemples de commandes suivants montrent comment désactiver une planificatio
     Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour vous familiariser avec les Runbooks dans Azure Automation, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md) 
 

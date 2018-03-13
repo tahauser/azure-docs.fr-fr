@@ -91,7 +91,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour accéder à des exemples JSON complets, consultez les articles suivants sur les connecteurs : 
 
 - [Base de données SQL Azure](data-factory-azure-sql-connector.md)

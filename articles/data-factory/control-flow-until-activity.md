@@ -289,7 +289,7 @@ while ($True) {
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité IfCondition](control-flow-if-condition-activity.md)

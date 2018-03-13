@@ -227,7 +227,7 @@ az vm extension set \
   --protected-settings disk_check_repair.json
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 La mise à jour de Linux à l’aide d’une extension Azure VMAccess est une méthode permettant d’apporter des modifications à une machine virtuelle Linux en cours d’exécution. Vous pouvez également utiliser des outils tels que cloud-init et des modèles Azure Resource Manager pour modifier votre machine virtuelle Linux au démarrage.
 
 [Extensions et fonctionnalités de machine virtuelle pour Linux](extensions-features.md)

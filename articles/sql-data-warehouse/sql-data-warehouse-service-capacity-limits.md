@@ -88,7 +88,7 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | sys.dm_pdw_os_event_logs |10 000 |
 | sys.dm_pdw_sql_requests |Les 1 000 dernières demandes SQL stockées dans sys.dm_pdw_exec_requests. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez la rubrique [Vue d’ensemble de référence de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

@@ -84,6 +84,6 @@ Quand vous démarrez un basculement, les machines virtuelles sont créées dans 
 
 ![Processus de basculement](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Répliquer rapidement](azure-to-azure-quickstart.md) une machine virtuelle Azure dans une région secondaire.

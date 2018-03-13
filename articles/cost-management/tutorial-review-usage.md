@@ -96,7 +96,7 @@ Utilisez l’onglet **Scheduling (Planification)** pour recevoir un e-mail du ra
 Vous pouvez également sélectionner la métrique de seuil Cost Percentage vs. Budget (Pourcentage du coût vs budget) pour créer des alertes. Cette métrique vous permet d’utiliser des pourcentages budgétaires au lieu de valeurs de devise.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

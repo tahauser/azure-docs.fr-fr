@@ -178,7 +178,7 @@ Vous trouverez des détails sur l’utilisation de Azure PowerShell pour s’aut
 ### <a name="authenticate-with-azure-cli"></a>S’authentifier avec Azure CLI
 Vous trouverez des détails sur l’utilisation de Azure PowerShell pour s’authentifier auprès de Azure Stack dans l’article [Installer et configurer CLI pour l’utiliser avec Azure Stack](/azure/azure-stack/user/azure-stack-connect-cli.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Architecture d’identités](azure-stack-identity-architecture.md)   
 - [Intégration au centre de données - Identité](azure-stack-integrate-identity.md)
 

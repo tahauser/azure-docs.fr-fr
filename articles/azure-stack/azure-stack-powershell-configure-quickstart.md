@@ -182,7 +182,7 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 
 Une fois le groupe de ressources créé, la propriété **État de l’approvisionnement** est définie sur **Réussi**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Installer et configurer l’interface de ligne de commande](azure-stack-connect-cli.md)
 

@@ -96,7 +96,7 @@ Avant de déployer le planificateur d’instantané de partage, étudiez attenti
 
 Les instantanés de partage assurent uniquement une protection au niveau des fichiers. Ils n’empêchent pas les suppressions accidentelles sur un compte de stockage ou un partage de fichiers. Pour protéger un compte de stockage contre les suppressions accidentelles, vous pouvez verrouiller celui-ci ou le groupe de ressources.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Utiliser des instantanés de partage](storage-how-to-use-files-snapshots.md)
 * [Forum aux questions sur les instantanés de partage](storage-files-faq.md)
 

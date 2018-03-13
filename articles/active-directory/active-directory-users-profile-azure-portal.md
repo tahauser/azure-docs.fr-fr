@@ -38,7 +38,7 @@ Cet article explique comment ajouter des informations de profil utilisateur, com
     ![Ouverture des informations de travail](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 6. Ajoutez ou modifiez les informations du profil. Ensuite, dans la barre de commandes, sélectionnez **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](active-directory-users-assign-role-azure-portal.md)

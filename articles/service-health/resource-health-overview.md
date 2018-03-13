@@ -91,7 +91,7 @@ Vous pouvez également accéder à Resource Health en cliquant sur **Tous les se
 
 ![Ouvrir Resource Health depuis Tous les services](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Resource Health, consultez les ressources suivantes :
 -  [Types de ressources et les contrôles d’intégrité dans Azure Resource Health](resource-health-checks-resource-types.md)

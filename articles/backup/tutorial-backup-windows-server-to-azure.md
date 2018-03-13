@@ -142,7 +142,7 @@ Vous avez établi la planification lors de l’exécution des tâches de sauvega
 4.  Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans le volet **Travaux** de la console de l’agent MARS.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opérations suivantes : 
  

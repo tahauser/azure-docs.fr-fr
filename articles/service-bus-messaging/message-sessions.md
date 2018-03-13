@@ -79,7 +79,7 @@ Toutes les sessions existantes dans une file d’attente ou un abonnement peuven
 
 L’état de session stocké dans une file d’attente ou dans un abonnement est pris en compte dans le quota de stockage de cette entité. Lorsque l’application a terminé avec une session, il est donc recommandé de faire en sorte que l’application supprime l’état de session conservé afin d’éviter un coût de gestion externe.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez [un exemple complet](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) des procédures d’envoi et de réception de messages basés sur la session à partir de files d’attente Service Bus à l’aide de la bibliothèque .NET Standard.
 - Consultez [un exemple](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) qui utilise le client .NET Framework pour traiter les messages prenant en charge la session. 

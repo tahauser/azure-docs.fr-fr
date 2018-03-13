@@ -130,7 +130,7 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
     ![Exemple de journal d’accès - résultats de la requête](./media/hdinsight-apps-install-cask/log-query-results.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation Cask](http://cask.co/resources/documentation/).
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.

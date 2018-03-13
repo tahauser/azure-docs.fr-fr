@@ -172,7 +172,7 @@ Consultez la documentation de la cmdlet pour en savoir plus.
 Pour accéder à une machine virtuelle spécifique qui est protégée par la solution Juste à temps, vous devez exécuter la commande suivante dans votre session PowerShell : Invoke-ASCJITAccess.
 Consultez la documentation de la cmdlet pour en savoir plus.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a fait découvrir en quoi l’accès Juste à temps à la machine virtuelle dans Security Center peut vous aider à contrôler l’accès à vos machines virtuelles Azure.
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :

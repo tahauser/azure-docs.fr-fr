@@ -72,7 +72,7 @@ Voici la configuration requise pour que les machines virtuelles Windows prenant 
 - [Optimisé pour le stockage](../virtual-machines-windows-sizes-storage.md)
 - [Optimisé pour le GPU](sizes-gpu.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir les listes de vérification à mettre en œuvre afin d’utiliser les instances nécessitant beaucoup de ressources système avec HPC Pack sur Windows Server, consultez [Configuration d’un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

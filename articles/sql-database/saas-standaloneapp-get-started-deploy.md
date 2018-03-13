@@ -120,7 +120,7 @@ Chaque base de données client est une base de données *autonome* de 50 DTU.
 
 Lorsque vous avez fini d’utiliser l’exemple, supprimez tous les groupes de ressources que vous avez créés pour arrêter la facturation associée.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

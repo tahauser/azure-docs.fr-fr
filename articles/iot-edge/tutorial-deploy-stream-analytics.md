@@ -204,7 +204,7 @@ Vous devriez voir la température de l’ordinateur augmenter progressivement ju
    ![Journal de docker][9]
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez configuré un conteneur de stockage Azure et un travail Streaming Analytics pour qu’ils analysent les données de votre appareil IoT Edge. Vous avez ensuite chargé un module Azure Stream Analytics personnalisé pour extraire les données de votre appareil et les faire passer par le flux jusqu’à un objet blob pour les télécharger. Vous pouvez passer à d’autres didacticiels pour savoir comment Azure IoT Edge peut trouver d’autres solutions pour votre entreprise.
 

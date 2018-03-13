@@ -91,5 +91,5 @@ Veillez à ajouter un enregistrement approprié lors de l’écriture de votre p
 | Pre-ScriptTimeout | L’exécution du pré-script de sauvegarde cohérente des applications a expiré. | Vérifiez le script et augmentez le délai d’expiration dans le fichier **VMSnapshotScriptPluginConfig.json** situé à l’emplacement **/etc/azure**. |
 | Post-ScriptTimeout | L’exécution du post-script de sauvegarde cohérente des applications a expiré. | Vérifiez le script et augmentez le délai d’expiration dans le fichier **VMSnapshotScriptPluginConfig.json** situé à l’emplacement **/etc/azure**. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

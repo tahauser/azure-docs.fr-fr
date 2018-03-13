@@ -395,7 +395,7 @@ Voici des références relatives au monitoring et au réglage des performances p
 * SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)

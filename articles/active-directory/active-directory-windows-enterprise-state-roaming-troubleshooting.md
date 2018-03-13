@@ -175,7 +175,7 @@ Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Utilisez le forum [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) pour fournir des commentaires et des suggestions sur la façon d’améliorer Enterprise State Roaming.
 

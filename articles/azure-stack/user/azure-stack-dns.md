@@ -98,5 +98,5 @@ Les limites par défaut suivantes s’appliquent lors de l’utilisation du syst
 | Jeux d’enregistrements par zone| 5 000|
 | Enregistrements par jeu d’enregistrements| 20|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Introduction aux noms de domaine internationaux (IDN) pour Azure Stack](azure-stack-understanding-dns.md)

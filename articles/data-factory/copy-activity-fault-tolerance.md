@@ -107,7 +107,7 @@ data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an i
 data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)

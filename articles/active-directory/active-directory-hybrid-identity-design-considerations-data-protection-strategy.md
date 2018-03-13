@@ -165,7 +165,7 @@ En plus de la fonctionnalité de création de rapports de base d’Azure AD Prem
 
 Étant donné que les options de réponse aux incidents utilisent une approche multicouche, la comparaison entre ces options n’est pas pertinente pour cette tâche. Assurez-vous que vous exploitez toutes les options disponibles pour chaque scénario pour lequel vous devez utiliser la fonctionnalité de création de rapports Azure AD dans le cadre du processus de réponse aux incidents de votre entreprise.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Voir aussi

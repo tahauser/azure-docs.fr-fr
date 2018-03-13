@@ -135,5 +135,5 @@ Pour voir le conteneur en action, ouvrez un navigateur web et entrez l’adresse
 
 ![Exécution d’un conteneur ngnix](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez également créer des hôtes avec [l’extension de machine virtuelle Docker](dockerextension.md). Pour obtenir des exemples sur l’utilisation de Docker Compose, consultez [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples dans Azure](docker-compose-quickstart.md).

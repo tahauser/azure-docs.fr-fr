@@ -173,7 +173,7 @@ Cette section explique comment configurer votre stratégie d’accès conditionn
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment Microsoft a implémenté cette fonctionnalité, consultez [Amélioration de l’accès à distance dans Windows 10 avec un profil VPN automatique](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile).    
 

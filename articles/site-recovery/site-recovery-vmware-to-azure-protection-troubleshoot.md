@@ -115,5 +115,5 @@ Ouvrez-la et cliquez sur Action > Modifier les propriétés. Sous l’onglet Co
 
 * **Vérifiez si la bande passante de limitation n’est pas limitée sur le serveur de traitement** : augmentez la bande passante et vérifiez si le problème persiste.
 
-##<a name="next-steps"></a>étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin d’aide, posez votre question sur le [forum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Nous avons une communauté active et un de nos ingénieurs pourra vous aider.

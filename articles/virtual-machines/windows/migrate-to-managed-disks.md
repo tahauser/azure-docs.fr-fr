@@ -91,6 +91,6 @@ Consultez la [tarification des disques gérés](https://azure.microsoft.com/pric
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [disques gérés](managed-disks-overview.md)

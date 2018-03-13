@@ -352,7 +352,7 @@ Le tableau suivant répertorie les attributs de déclencheur et de liaison dispo
 | ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
 | ||[Twilio](functions-bindings-twilio.md#attributes)| 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons](functions-triggers-bindings.md)

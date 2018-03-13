@@ -78,7 +78,7 @@ Pour obtenir plus d’informations et des exemples de contextes de calcul RevoSc
 
 Vous pouvez également consulter la section [Distributed computing overview](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) (Vue d’ensemble de l’informatique distribuée) dans la [documentation Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez découvert les options disponibles pour spécifier si l’exécution est mise en parallèle, et comment, sur les différents cœurs du nœud périphérique ou du cluster HDInsight. Pour plus d’informations sur l’utilisation de R Server avec des clusters HDInsight, consultez les rubriques suivantes :
 
 * [Vue d’ensemble : R Server sur HDInsight (version préliminaire)](r-server-overview.md)

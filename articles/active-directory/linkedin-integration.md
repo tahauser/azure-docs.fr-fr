@@ -59,7 +59,7 @@ Cette stratégie de groupe affecte uniquement les applications Office 2016 insta
 
 * [Centre d’aide LinkedIn](https://www.linkedin.com/help/linkedin)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Utilisez le lien suivant pour afficher vos paramètres d’intégration LinkedIn actuels dans le portail Azure :
 
 [Configurer l’intégration de LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

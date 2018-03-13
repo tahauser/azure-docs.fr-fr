@@ -47,6 +47,6 @@ DevTest Labs prend en charge la création de machines virtuelles basées sur des
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez configuré comment les images Azure Marketplace sont autorisées durant la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm.md).
 

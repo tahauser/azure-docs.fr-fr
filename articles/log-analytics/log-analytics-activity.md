@@ -97,7 +97,7 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 
 ![Tableau de bord Journaux d’activité Azure](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Créez une [alerte](log-analytics-alerts-creating.md) lorsqu’une activité spécifique se produit.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

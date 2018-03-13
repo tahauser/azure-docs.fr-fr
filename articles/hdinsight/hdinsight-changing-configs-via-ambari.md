@@ -456,7 +456,7 @@ L’utilisation de la mémoire tampon d’allocation locale de Memstore est dét
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md)

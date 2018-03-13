@@ -49,7 +49,7 @@ Si votre application envoie un trop grand nombre de noms d’affichages de page,
 
 Si votre application envoie un trop grand nombre de noms d’événements personnalisés, modifiez les noms dans le code de manière à ce qu’ils soient moins spécifiques. Une fois encore, évitez d’insérer des URL et autres informations dynamiques ou par page directement dans les noms d’événements personnalisés. Déplacez plutôt ces détails dans les propriétés personnalisées de l’événement personnalisé à l’aide de l’API `trackEvent`. Par exemple, au lieu de `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, nous vous suggérons une solution comme `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de l’analyse de l'utilisation](app-insights-usage-overview.md)
 

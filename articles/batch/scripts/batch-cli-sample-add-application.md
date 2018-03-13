@@ -56,6 +56,6 @@ Chaque commande du tableau renvoie à une documentation spécifique.
 | [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Met à jour les propriétés d’une application.  |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).

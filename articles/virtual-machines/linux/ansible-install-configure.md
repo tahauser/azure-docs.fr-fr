@@ -197,5 +197,5 @@ export AZURE_SECRET=531dcffa-3aff-4488-99bb-4816c395ea3f
 export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ansible et les modules du SDK Azure Python SDK nécessaires sont maintenant installés, et des informations d’identification sont définies pour être utilisées par Ansible. Découvrez comment [créer une machine virtuelle avec Ansible](ansible-create-vm.md). Vous pouvez également découvrir comment [créer une machine virtuelle Azure complète et des ressources de support avec Ansible](ansible-create-complete-vm.md).

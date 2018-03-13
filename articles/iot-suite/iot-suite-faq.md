@@ -82,7 +82,7 @@ Actuellement, vous ne pouvez pas créer de solution préconfigurée avec un abon
 
 Consultez le billet de blog d’Eric Golpe, [Procédure pas à pas pour la suppression d’un client Azure AD](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 

@@ -122,7 +122,7 @@ Pour supprimer un compte Azure Data Lake Store, cliquez sur **Supprimer**dans le
 
 ![Supprimer un compte Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Supprimer un compte Data Lake")
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

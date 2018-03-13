@@ -143,7 +143,7 @@ Utilisez les étapes suivantes pour générer et déployer le projet sur votre c
 
 7. Utilisez __Ctrl + C__ pour quitter le producteur. Continuez à utiliser __Ctrl + C__ pour quitter l’application et le consommateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez découvert comment utiliser l’API de flux Kafka avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
 

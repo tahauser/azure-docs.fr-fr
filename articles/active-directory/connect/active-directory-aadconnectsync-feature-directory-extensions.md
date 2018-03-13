@@ -60,7 +60,7 @@ Vous avez également la possibilité d’interroger les attributs par le biais d
 >
 > Pour plus d’informations, consultez l’article [Microsoft Graph : Utilisation de paramètres de requête](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

@@ -81,7 +81,7 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des exemples cloud-init supplémentaires de modifications de configuration, consultez les rubriques suivantes :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)

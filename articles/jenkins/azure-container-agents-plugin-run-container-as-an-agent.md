@@ -327,6 +327,6 @@ Si vous n’avez plus besoin d’utiliser les ressources d’un groupe de ressou
 az group delete -n <resourceGroup>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Visitez le Hub Jenkins sur Azure pour découvrir les derniers articles et exemples](https://docs.microsoft.com/azure/jenkins/)

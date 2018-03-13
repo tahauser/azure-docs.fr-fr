@@ -53,5 +53,5 @@ Pour plus d’informations, telles que le nom complet de la colonne, déplacez l
 
 Pour inclure des relations entre ressources qui ont déjà été inscrites, vous devez réinscrire les ressources.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Gestion des ressources de données](data-catalog-how-to-manage.md)

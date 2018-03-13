@@ -87,7 +87,7 @@ Pour supprimer toutes les ressources créées dans cet article, procédez comme 
 Remove-AzureRMResourceGroup -Name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md).
 

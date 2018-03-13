@@ -214,5 +214,5 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     
 4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Explorez la documentation de l’API [Search Service d’Azure Location Based Services](https://docs.microsoft.com/rest/api/location-based-services/search). 

@@ -508,5 +508,5 @@ $RGDeployArgs = @{
 New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir déployé les agents du Service Mobilité, vous pouvez [activer la réplication](site-recovery-vmware-to-azure.md) des machines virtuelles.

@@ -73,7 +73,7 @@ Cela permet à l'application client du développeur de laisser le choix de la cr
 ## <a name="summary"></a>Résumé
 Gestion des API Azure permet la limitation du débit et du devis pour à la fois protéger et valoriser votre service API. Les nouvelles stratégies de limitation avec les règles de portée personnalisées vous permettent un contrôle plus fin sur les stratégies afin de permettre à vos clients de créer de meilleures applications. Les exemples de cet article illustrent l'utilisation de ces nouvelles stratégies avec la création de clés de limitation appliquées aux adresses IP clientes, à l’identité de l'utilisateur et les valeurs générées par le client. Toutefois, il existe de nombreuses autres parties du message qui peuvent être utilisées telles que l’agent utilisateur, les fragments de chemin d'URL, ou la taille des messages.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Faites-nous part de vos commentaires dans le thread Disqus de cette rubrique. Il serait intéressant d’en savoir davantage sur les autres valeurs de clé potentielles qui se sont avérées être un choix judicieux dans vos scénarios.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Regarder une vidéo de présentation de ces stratégies.

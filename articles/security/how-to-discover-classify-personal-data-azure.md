@@ -187,7 +187,7 @@ Pour obtenir des instructions détaillées sur la création de requêtes SQL, co
 
 Si vous débutez avec Azure Cosmos DB et que vous voulez apprendre à créer une base de données, ajouter une collection et ajouter des données, consultez le didacticiel de démarrage rapide [Azure Cosmos DB : Développer une application web API SQL](../cosmos-db/create-sql-api-dotnet.md). Si vous préférez utiliser un autre langage que .NET, par exemple Java ou Python, choisissez simplement votre langage préféré une fois que vous êtes sur le site.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

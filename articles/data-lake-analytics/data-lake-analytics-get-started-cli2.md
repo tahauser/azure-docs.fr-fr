@@ -215,7 +215,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour afficher le document de référence Data Lake Analytics CLI 2.0, consultez [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla).
 * Pour afficher le document de référence Data Lake Store CLI 2.0, consultez [Data Lake Store](https://docs.microsoft.com/cli/azure/dls).

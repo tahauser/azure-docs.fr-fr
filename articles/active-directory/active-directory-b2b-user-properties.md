@@ -91,7 +91,7 @@ Il est possible de désactiver les limitations des utilisateurs invités par dé
 
 ![Supprimer des limitations pour les utilisateurs invités](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

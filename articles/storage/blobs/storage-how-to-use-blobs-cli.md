@@ -266,7 +266,7 @@ Si vous n’avez plus besoin des ressources de votre groupe de ressources, notam
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez découvert les bases de l’utilisation d’objets blob dans Stockage Azure :
 

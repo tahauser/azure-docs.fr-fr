@@ -218,7 +218,7 @@ Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-A
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la surveillance des machines virtuelles, consultez [Surveiller et mettre à jour une machine virtuelle Windows avec Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Pour plus d’informations sur l’utilisation d’Azure Security Center pour implémenter les pratiques de sécurité recommandées, consultez [Surveiller la sécurité des machines virtuelles à l’aide d’Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).

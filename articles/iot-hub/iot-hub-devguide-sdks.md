@@ -88,7 +88,7 @@ La liste suivant contient des liens vers la documentation de référence sur les
 * [IoT Hub REST][lnk-rest-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 

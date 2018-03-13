@@ -353,5 +353,5 @@ Lorsque vous copiez des données à partir d’un magasin de données relationne
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

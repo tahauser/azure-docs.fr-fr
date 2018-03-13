@@ -121,7 +121,7 @@ Si l’identité de connexion déléguée est utilisée, il se peut que la valeu
 Si une erreur se produit dans le processus d’authentification unique, elle apparaît dans le journal des événements d’ordinateur du connecteur, comme expliqué dans la section [Résolution des problèmes](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Toutefois, dans certains cas, la demande est correctement envoyée à l’application principale, mais celle-ci répond dans plusieurs réponses HTTP. Pour résoudre ces cas, il faut tout d’abord examiner le numéro d’événement 24029 sur l’ordinateur connecteur dans le journal des événements de session du proxy d’application. L’identité de l’utilisateur qui a été utilisée pour la délégation s’affiche dans le champ « utilisateur » dans les détails de l’événement. Pour activer le journal de session, sélectionnez **Afficher les journaux d’analyse et de débogage** dans le menu Affichage de l’Observateur d’événements.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment configurer une application de proxy d’application pour utiliser la délégation Kerberos contrainte ?](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)

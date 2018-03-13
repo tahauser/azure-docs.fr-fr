@@ -66,7 +66,7 @@ Suivez les démarrages rapides de MongoDB pour créer un compte Azure Cosmos DB 
 * [Développer une application web API MongoDB avec .NET et le Portail Azure](create-mongodb-dotnet.md)
 * [Développer une application console API MongoDB avec Java et le Portail Azure](create-mongodb-java.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Des informations sur l’API MongoDB d’Azure Cosmos DB sont intégrées dans l’ensemble de la documentation Azure Cosmos DB, mais voici quelques points qui vous aideront à démarrer :
 

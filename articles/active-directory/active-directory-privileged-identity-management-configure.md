@@ -148,7 +148,7 @@ La deuxième option consiste à configurer des [révisions d’accès](active-di
 Votre organisation doit disposer d’un abonnement Azure AD Premium P2 (ou EMS E5) d’évaluation ou payant dans son client pour pouvoir utiliser Azure AD PIM.  En outre, les licences doivent être affectées aux administrateurs du client.  Plus précisément, les licences doivent être affectées aux administrateurs dans les rôles Azure AD gérés via Azure AD PIM, aux administrateurs dans les rôles RBAC Azure gérés via Azure AD PIM et à tous les utilisateurs non administrateurs qui effectuent des révisions d’accès.
 Si votre organisation ne renouvelle pas son abonnement Azure AD Premium P2 ou si votre période d’évaluation expire, les fonctionnalités d’Azure AD PIM ne seront plus disponibles dans votre client, les affectations de rôles éligibles seront supprimées et les utilisateurs ne pourront plus activer de rôles. Vous trouverez plus d’informations à ce sujet dans les [spécifications de l’abonnement à Azure AD PIM](./privileged-identity-management/subscription-requirements.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

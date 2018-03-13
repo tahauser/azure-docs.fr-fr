@@ -94,6 +94,6 @@ C’est ce qu’on appelle le « transfert du disque de données ». Le disque
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Une fois la machine virtuelle crée, vous pouvez vous y connecter en sélectionnant **Se connecter** dans son volet de gestion.
 * Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

@@ -267,6 +267,6 @@ Si vous souhaitez connaître la quantité de données qui transite par votre con
    
     ![Données entrantes et sortantes](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Déployer des applications sur Azure et Azure Stack](azure-stack-solution-pipeline.md)

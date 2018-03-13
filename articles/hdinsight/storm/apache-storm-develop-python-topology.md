@@ -149,7 +149,7 @@ Pour arrêter la topologie, appuyez sur __Ctrl+C__.
 > * le bouton **Tuer** dans l’interface utilisateur Storm.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les documents suivants pour découvrir d’autres façons de travailler avec HDInsight :
 

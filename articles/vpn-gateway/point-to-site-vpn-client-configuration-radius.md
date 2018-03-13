@@ -250,7 +250,7 @@ Pour utiliser un type d’authentification différent (par mot de passe à usage
   * Itinéraires : itinéraires que vous devez configurer dans votre profil afin que seul le trafic en direction du réseau virtuel Azure ne passe par le tunnel P2S.
   * Le dossier GenericDevice contient aussi un fichier .cer nommé VpnServerRoot. Ce fichier contient le certificat racine requis pour valider la passerelle VPN Azure lors de la configuration de la connexion P2S. Installez le certificat sur tous les appareils qui se connecteront au réseau virtuel Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Revenez à l’article pour [terminer la configuration P2S](point-to-site-how-to-radius-ps.md).
 

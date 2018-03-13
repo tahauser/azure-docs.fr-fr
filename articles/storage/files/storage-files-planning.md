@@ -98,7 +98,7 @@ Il existe de nombreuses options pour facilement transférer en bloc les données
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** : AzCopy est un utilitaire de ligne de commande conçu pour copier avec des performances optimales des données vers et à partir d’Azure Files, ou de Stockage Blob Azure, en utilisant des commandes simples. AzCopy est disponible pour Windows et Linux.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)
 * [Déploiement d’Azure Files](storage-files-deployment-guide.md)
 * [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)

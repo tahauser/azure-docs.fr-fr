@@ -358,7 +358,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
     
     ![][20]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :  
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)

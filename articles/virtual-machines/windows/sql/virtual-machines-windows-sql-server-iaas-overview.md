@@ -106,7 +106,7 @@ Le Programme d’amélioration du produit est activé par défaut. Il transmet r
 * [Documentation de SQL Server](https://docs.microsoft.com/sql/index)
 * [Comparaison Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Prise en main de SQL Server sur des machines virtuelles Azure :
 

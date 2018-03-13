@@ -173,7 +173,7 @@ Pour ce faire, il faut ajouter la propriété `GatewayHostName` à votre chaîne
 
 Ces deux étapes permettent à votre application d’appareil de se connecter à l’appareil de passerelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Comprendre les exigences et outils de développement de modules IoT Edge][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

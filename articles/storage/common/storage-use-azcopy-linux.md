@@ -621,7 +621,7 @@ Si vous ne pouvez pas empêcher d’autres applications d’écrire sur les obje
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Exécuter une instance de AzCopy sur un même ordinateur.
 AzCopy est conçu pour optimiser l'utilisation de votre ressource de l'ordinateur afin d’accélérer le transfert de données. Nous vous recommandons d'exécuter une seule instance de AzCopy sur un même ordinateur et de spécifier l'option `--parallel-level` si vous avez besoin de plus d'opérations simultanées. Pour plus d'informations, tapez `AzCopy --help parallel-level` dans la ligne de commande.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressources suivantes :
 
 ### <a name="azure-storage-documentation"></a>Documentation d’Azure Storage :

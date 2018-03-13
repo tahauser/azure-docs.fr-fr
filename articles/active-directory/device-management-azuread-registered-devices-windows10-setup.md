@@ -102,7 +102,7 @@ Vous pouvez également examiner les paramètres de l’appareil dans le portail 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 

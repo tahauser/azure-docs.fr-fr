@@ -165,5 +165,5 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la protection des [machines virtuelles de VMware vers Azure à l’aide d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).

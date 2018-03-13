@@ -211,7 +211,7 @@ Vous trouverez des informations générales sur les itinéraires définis par l'
 
 Pour plus d’informations sur ExpressRoute, voir [Aperçu technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
 * [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)

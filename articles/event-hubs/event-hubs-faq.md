@@ -116,7 +116,7 @@ Un support technique pour les hubs d'événements est disponible via les [forums
 
 Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) .
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)

@@ -123,5 +123,5 @@ Si vous disposez d’une version précédente du planificateur de déploiement, 
 La dernière version de l’outil Planificateur de déploiement Site Recovery est 2.1.
 Reportez-vous à la page [Historique des versions du Planificateur de déploiement Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pour voir les correctifs ajoutés à chaque mise à jour.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Exécuter le Planificateur de déploiement Site Recovery](site-recovery-vmware-deployment-planner-run.md)

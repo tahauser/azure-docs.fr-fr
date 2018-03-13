@@ -457,7 +457,7 @@ La fonction DBCC SHOW_STATISTICS() est implémentée de manière plus stricte da
 - Vous ne pouvez pas utiliser les noms de colonnes pour identifier les objets de statistiques.
 - L’erreur personnalisée 2767 n’est pas prise en charge.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus, consultez la section [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] de MSDN.
 
   Pour plus d’informations, consultez les articles [Vue d’ensemble des tables][Overview], [Types de données de table][Data Types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition] et [Tables temporaires][Temporary].

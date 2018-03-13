@@ -61,7 +61,7 @@ La consommation en fonction de l’utilisation inclut un [compte d’intégratio
 
 Logic Apps offre également des comptes d’intégration de base et standard avec le contrat SLA Logic Apps pris en charge. Vous pouvez utiliser des comptes d’intégration de base quand vous souhaitez uniquement utiliser la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenariat commercial avec une entité professionnelle plus importante. Les comptes d’intégration standard prennent en charge les relations B2B plus complexes et augmentent le nombre d’entités que vous pouvez gérer. Pour plus d’informations, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur Logic Apps][whatis]
 * [Créer votre première application logique][create]

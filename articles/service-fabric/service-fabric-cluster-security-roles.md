@@ -101,7 +101,7 @@ Le contrôle d’accès administrateur a également accès aux opérations préc
 ## <a name="changing-default-settings-for-client-roles"></a>Modification des paramètres par défaut des rôles clients
 Dans le fichier du manifeste de cluster, vous pouvez fournir au client des capacités d’administration, si nécessaire. Vous pouvez modifier les valeurs par défaut en accédant à l’option **Paramètres de structure** durant la [création du cluster](service-fabric-cluster-creation-via-portal.md) et en fournissant les paramètres ci-dessus dans les champs **nom**, **admin**, **utilisateur** et **valeur**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)
 
 [Création d’un cluster Service Fabric](service-fabric-cluster-creation-via-portal.md)

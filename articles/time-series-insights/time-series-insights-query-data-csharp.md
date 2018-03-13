@@ -449,6 +449,6 @@ namespace TimeSeriesInsightsQuerySample
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Informations de référence sur l’API REST](/rest/api/time-series-insights/time-series-insights-reference-queryapi).

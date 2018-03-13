@@ -774,6 +774,6 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)

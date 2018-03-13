@@ -41,7 +41,7 @@ Cet article explique comment modifier les paramètres d’un groupe dans Azure A
 
    ![Enregistrement des modifications de propriétés](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

@@ -76,7 +76,7 @@ using (scope = new TransactionScope())
 } 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les files d’attente de lettres mortes Service Bus, consultez les articles suivants :
 

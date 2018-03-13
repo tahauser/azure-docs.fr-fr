@@ -85,7 +85,7 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 
     ![Cliquez sur Enregistrer dans le navigateur](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Gestion des disques Azure avec l’interface de ligne de commande Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

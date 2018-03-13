@@ -56,7 +56,7 @@ Utilisez [l’outil rééquilibrage de partition Kafka](https://github.com/hdins
 
 Pour plus d’informations sur la connexion à HDInsight avec SSH, consultez le document [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Évolutivité de Kafka sur HDInsight](apache-kafka-scalability.md)
 * [Mise en miroir avec Kafka sur HDInsight](apache-kafka-mirroring.md)

@@ -89,6 +89,6 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
    La page confirme la fin du téléchargement et affiche le message **Jeu de données chargé**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Gérez les données de référence](time-series-insights-manage-reference-data-csharp.md) par programme.
 * Pour obtenir des informations de référence d’API complètes, consultez le document [API de données de référence](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

@@ -63,7 +63,7 @@ Si vous souhaitez que tous les éléments soient supprimés, procédez comme sui
 3. Tout en maintenant le connecteur Azure Active Directory sélectionné, sélectionnez l’action **Exécuter**, puis **Exporter**.
 4. Pour réactiver la protection, exécutez l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Remplacez 500 par la valeur que vous avez notée lors de la récupération du seuil de suppression actuel. Indiquez un compte et un mot de passe d’administrateur général Azure AD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)

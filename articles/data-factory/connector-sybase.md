@@ -169,5 +169,5 @@ Lors de la copie des données à partir de Sybase, les mappages suivants sont ut
 Sybase prend en charge les types T-SQL. Pour obtenir une table de mappage entre les types SQL et les types de données intermédiaires d’Azure Data Factory, consultez la section [Connecteur Azure SQL Database - Mappage de type de données](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

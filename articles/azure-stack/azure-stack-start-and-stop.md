@@ -84,6 +84,6 @@ Si les services d’infrastructure et de locataire ne démarrent pas dans les 2 
 
 5. Si l’exécution de **Start-AzureStack** entraîne un échec, contactez les services du support technique Microsoft. 
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 
 Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, voir Outils de diagnostic Azure Stack. Outils de diagnostic Azure Stack. Outils de diagnostic Azure Stack. Outils de diagnostic Azure Stack.

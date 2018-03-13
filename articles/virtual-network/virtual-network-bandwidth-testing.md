@@ -166,7 +166,7 @@ Vous devez ajouter la section suivante à votre ServiceDefinition.csdef
 </Endpoints> 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En fonction des résultats, vous pourriez être en mesure [d’optimiser le de débit réseau](virtual-network-optimize-network-bandwidth.md) pour votre scénario.
 * Découvrez de quelle façon [la bande passante est allouée aux machines virtuelles] (virtual-machine-network-throughput.md)
 * En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)

@@ -33,7 +33,7 @@ Avec Azure AD B2B Collaboration, il est facile de prendre n'importe quelle adres
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

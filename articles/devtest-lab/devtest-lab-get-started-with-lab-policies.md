@@ -88,6 +88,6 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 
 Une fois activée, cette stratégie n’est pas automatiquement appliquée à toutes les machines virtuelles dans le laboratoire en cours. Pour appliquer ce paramètre à une machine virtuelle existante, ouvrez le volet de gestion de la machine virtuelle et modifiez son paramètre **Démarrage automatique**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md) - Apprenez à modifier les autres stratégies de laboratoire.

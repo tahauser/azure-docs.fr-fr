@@ -79,7 +79,7 @@ Cliquez sur une règle pour fournir une liste des alertes relatives à cette rè
  
 ![détails de l’alerte][9]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment activer un pare-feu d’applications web sur une passerelle d’application existante, consultez [Créer ou mettre à jour une passerelle d’application Azure avec un pare-feu d’applications web](application-gateway-web-application-firewall-portal.md).
 

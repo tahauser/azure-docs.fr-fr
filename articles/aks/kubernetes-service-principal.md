@@ -85,7 +85,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 * Si vous utilisez la commande `az aks create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/acsServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
 * Lors de la suppression d’un cluster AKS qui a été créé par `az aks create`, le principal du service qui a été créé automatiquement ne sera pas supprimé. Vous pouvez utiliser `az ad sp delete --id $clientID` pour le supprimer.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les principaux de service Azure Active Directory, consultez la documentation d’applications Azure AD.
 

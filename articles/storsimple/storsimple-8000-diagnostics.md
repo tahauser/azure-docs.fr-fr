@@ -437,7 +437,7 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 | RemoteManagementMode    | Indique si l’appareil peut être géré à distance via son interface Windows PowerShell. |
 | FipsMode                | Indique si le mode FIPS (Federal Information Processing Standard) est activé sur votre appareil. La norme FIPS 140 définit les algorithmes de chiffrement qui sont approuvés pour une utilisation sur les systèmes informatiques du gouvernement fédéral américain dans le but de protéger les données sensibles. Pour les appareils exécutant Update 4 ou version ultérieure, le mode FIPS est activé par défaut. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez la [syntaxe de l’applet de commande Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

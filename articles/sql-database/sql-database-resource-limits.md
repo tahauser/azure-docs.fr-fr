@@ -152,7 +152,7 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 - Augmenter le niveau de performance ou le niveau de service du pool élastique ou de la base de données. Consultez [Base de données unique : modifier la taille de stockage](#single-database-change-storage-size), [Base de données unique : modifier les DTU](#single-database-change-dtus), [Pool élastique : modifier la taille du stockage](#elastic-pool-change-storage-size) et [Pool élastique : modifier les eDTU](#elastic-pool-change-edtus).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-service-tiers.md).
 - Pour plus d’informations sur les bases de données uniques, consultez [Ressources d’une base de données unique](sql-database-resource-limits.md).

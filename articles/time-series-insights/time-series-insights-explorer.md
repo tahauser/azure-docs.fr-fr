@@ -106,6 +106,6 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
 Vous avez maintenant vu les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 >[Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

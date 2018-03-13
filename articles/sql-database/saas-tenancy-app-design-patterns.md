@@ -185,7 +185,7 @@ Le tableau suivant récapitule les différences entre les principaux modèles de
 | Complexité opérationnelle | Faible-Élevée. Simple au niveau individuel, complexe à grande échelle. | Faible-Moyenne. Les modèles permettent de réduire la complexité à grande échelle. | Faible-Élevée. La gestion des locataires individuels est complexe. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Déployer et explorer une application Wingtip multi-locataire qui utilise le modèle SaaS de base de données par locataire - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

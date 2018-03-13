@@ -80,7 +80,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
 
 Le SDK Data Lake Store propose des méthodes pratiques pour gérer les jetons de sécurité nécessaires pour communiquer avec le compte Data Lake Store. Toutefois, le Kit de développement (SDK) n’impose pas d’utiliser ces seules méthodes. Vous pouvez utiliser tout autre moyen pour obtenir le jeton, par exemple à l’aide du [SDK Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java), ou de votre propre code personnalisé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification des utilisateurs finals auprès d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Java. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) Java pour travailler avec Azure Data Lake Store.
 
 * [Opérations de gestion du système de fichiers sur Data Lake Store à l’aide du kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)

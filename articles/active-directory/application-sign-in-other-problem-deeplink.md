@@ -273,5 +273,5 @@ créez un ticket de support en fournissant les informations suivantes, si dispon
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)

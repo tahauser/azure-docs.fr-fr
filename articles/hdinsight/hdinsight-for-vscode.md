@@ -293,7 +293,7 @@ HDInsight pour VS Code prend en charge les fonctionnalités suivantes :
 
     ![coloration syntaxique dans HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="demo"></a>Démonstration
 * HDInsight pour VS Code : [vidéo](https://go.microsoft.com/fwlink/?linkid=858706)

@@ -262,7 +262,7 @@ Cette commande CLI retourne des informations détaillées sur la collection :
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour une présentation de l’identité MSI, consultez [Identité du service administré (MSI) pour les ressources Azure](msi-overview.md).
 

@@ -272,7 +272,7 @@ Votre site NGINX sécurisé et votre application Node.js apparaissent maintenant
 ![Afficher le site NGINX sécurisé en cours d’exécution](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ce didacticiel vous a montré comment configurer des machines virtuelles au premier démarrage avec cloud-init. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

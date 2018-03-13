@@ -291,7 +291,7 @@ Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` glob
 
 Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous savez comment obtenir des données avec HDInsight, consultez les articles suivants pour apprendre à effectuer des analyses :
 
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]

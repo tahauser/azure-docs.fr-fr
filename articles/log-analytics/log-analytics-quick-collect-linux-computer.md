@@ -120,7 +120,7 @@ Pour supprimer l’agent, exécutez la commande suivante sur l’ordinateur Linu
 
 Pour supprimer l’espace de travail, sélectionnez l’espace de travail Log Analytics que vous avez créé précédemment, puis, dans la page de ressource, cliquez sur **Supprimer**.<br><br> ![Supprimer la ressource Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous collectez des données opérationnelles et de performances à partir de votre ordinateur Linux local, vous pouvez commencer aisément à explorer et à analyser les données que vous collectez *gratuitement*, et agir en conséquence.  
 
 Pour savoir comment consulter et analyser les données, passez au didacticiel suivant.   

@@ -59,6 +59,6 @@ Le disque dur virtuel utilisé dans cet exemple de modèle est WindowsServer-201
 3. Ouvrir le portail Azure Stack, cliquez sur **Parcourir**, cliquez sur **Machines virtuelles** et recherchez votre nouvelle machine virtuelle (*myDeployment001*).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer des modèles avec Visual Studio](azure-stack-deploy-template-visual-studio.md)
 

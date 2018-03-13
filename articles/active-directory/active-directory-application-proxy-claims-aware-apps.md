@@ -52,7 +52,7 @@ Si toutes les URL internes de vos applications sont des noms de domaines complet
 
    ![Ajouter un point de terminaison, définition de la valeur de l’URL approuvée – capture d’écran](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Activer l’authentification unique](application-proxy-sso-overview.md) pour les applications qui ne prennent pas en charge les revendications
 * [Activation d’applications clientes natives de manière à ce qu’elles interagissent avec des applications proxy](active-directory-application-proxy-native-client.md)
 

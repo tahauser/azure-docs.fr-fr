@@ -116,7 +116,7 @@ Pour récupérer l’URI de redirection, procédez comme suit.
 
 5. Répétez les deux dernières étapes pour accorder également des autorisations à **l’API Gestion des services Microsoft Azure**.
    
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez créé une application native Azure AD et regroupé les informations nécessaires à vos applications clientes créées à l’aide du SDK .NET, du SDK Java, de l’API REST, etc. Vous pouvez à présent passer aux articles suivants qui traitent de l’utilisation de l’application web Azure AD, d’abord pour vous authentifier auprès de Data Lake Store, et ensuite pour effectuer d’autres opérations sur le magasin.
 
 * [Authentification des utilisateurs finaux auprès de Data Lake Store avec le Kit SDK Java](data-lake-store-end-user-authenticate-java-sdk.md)

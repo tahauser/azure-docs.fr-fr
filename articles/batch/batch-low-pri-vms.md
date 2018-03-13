@@ -184,7 +184,7 @@ Pour afficher les mesures dans le portail Azure :
 
 ![Mesures pour les nœuds de priorité basse](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md). Elle contient des informations indispensables pour toute personne se préparant à l’utilisation de Batch. L’article contient des informations plus détaillées sur les ressources du service Batch telles que les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités API que vous pouvez utiliser lors de la création de votre application Batch.
 * Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.

@@ -276,7 +276,7 @@ Output:
 Hello World, I'm Java - Draft Rocks!
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l'utilisation de Draft, consultez la documentation Draft sur GitHub.
 

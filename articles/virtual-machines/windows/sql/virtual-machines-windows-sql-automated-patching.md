@@ -124,7 +124,7 @@ L’installation et la configuration de l’agent IaaS de SQL Server peuvent 
 
 Pour désactiver la mise à jour corrective automatique, exécutez le même script sans le paramètre **-Enable** pour la commande **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).

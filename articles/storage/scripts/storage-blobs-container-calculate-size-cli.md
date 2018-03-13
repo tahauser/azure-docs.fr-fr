@@ -54,7 +54,7 @@ Ce script utilise les commandes suivantes pour calculer la taille du conteneur d
 | [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Charge des fichiers locaux dans un conteneur de stockage d’objets blob Azure. |
 | [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Répertorie les objets blob inclus dans un conteneur de stockage d’objets blob Azure. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 

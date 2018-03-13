@@ -87,7 +87,7 @@ Service Fabric dispose de plusieurs fonctionnalités de gestion des conteneurs, 
 * Possibilité de définir des identifiants de sécurité sur le conteneur.
 * Différents modes de mise en réseau pour les conteneurs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris ce qu’était un conteneur. Vous savez désormais que Service Fabric est un orchestrateur de conteneurs et qu’il fournit des fonctionnalités de prise en charge des conteneurs. Nous allons désormais parcourir ces différentes fonctionnalités, afin de vous indiquer comment les utiliser.
 
 [Créer sa première application conteneur Service Fabric sous Windows](service-fabric-get-started-containers.md)

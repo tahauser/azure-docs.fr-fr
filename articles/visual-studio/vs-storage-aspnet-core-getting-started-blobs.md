@@ -511,7 +511,7 @@ Les étapes suivantes montrent comment supprimer un objet blob :
 
 1. Exécutez l’application, puis sélectionnez **Supprimer l’objet blob** pour supprimer l’objet blob spécifié dans l’appel de méthode `CloudBlobContainer.GetBlockBlobReference`. Le texte *success!* (réussite) doit s’afficher dans le navigateur. Sélectionnez le bouton **Précédent** du navigateur, puis **Lister les objets blob** pour vérifier que l’objet blob ne se trouve plus dans le conteneur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à stocker, à lister et à récupérer des objets blob dans le Stockage Azure à l’aide d’ASP.NET Core. Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
 

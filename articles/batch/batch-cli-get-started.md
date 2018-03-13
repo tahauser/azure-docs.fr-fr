@@ -176,7 +176,7 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * Le [forum Batch][batch_forum] est géré par les membres de l’équipe Batch. Vous pouvez y publier vos questions si vous rencontrez des problèmes ou si vous avez besoin d’aide pour une opération spécifique.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur Azure CLI, consultez la [documentation relative à Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Pour plus d’informations sur les ressources Batch, consultez [Vue d’ensemble d’Azure Batch pour les développeurs](batch-api-basics.md).

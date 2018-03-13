@@ -107,7 +107,7 @@ az vm availability-set list-sizes \
      --output table  
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

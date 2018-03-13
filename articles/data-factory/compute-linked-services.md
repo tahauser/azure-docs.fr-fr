@@ -446,5 +446,5 @@ Le tableau suivant fournit des règles d'affectation de noms pour les artefacts 
 | Services/tables/pipelines liés | Unique dans une fabrique de données. Les noms sont sensibles à la casse. | <ul><li>Un tableau peut contenir un maximum de 260 caractères.</li><li>Les noms d’objet doivent commencer par une lettre, un chiffre ou un trait de soulignement (_).</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |
 | Groupe de ressources                   | Unique sur Microsoft Azure. Les noms sont sensibles à la casse. | <ul><li>Nombre maximal de caractères : 1 000.</li><li>Un nom peut contenir des lettres, des chiffres et les caractères suivants : « - », « _ », « , » et « . ».</li></ul> |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des activités de transformation prises en charge par Azure Data Factory, voir [Transformer des données](transform-data.md).

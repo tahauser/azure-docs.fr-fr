@@ -177,7 +177,7 @@ Dans la version initiale de la géoréplication, Cache Redis Azure ne prend pas 
 Actuellement, pour lancer le basculement, vous devez supprimer le lien de géoréplication dans le portail Azure, puis modifier le point de terminaison de connexion dans le client Redis du cache lié principal au cache secondaire (précédemment lié). Une fois les deux caches dissociés, le réplica redevient un cache en lecture-écriture normal, et accepte directement les demandes des clients Redis.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le [Niveau Premium de Cache Redis Azure](cache-premium-tier-intro.md).
 

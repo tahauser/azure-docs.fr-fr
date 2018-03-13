@@ -61,7 +61,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Échange les rôles des serveurs dans le groupe de basculement et transfère l’ensemble des bases de données secondaires sur le rôle principal. |
 | [Get-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Récupère un groupe de basculement Azure SQL Database spécifique ou répertorie les groupes de basculement sur un serveur. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 

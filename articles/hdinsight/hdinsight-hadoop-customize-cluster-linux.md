@@ -511,7 +511,7 @@ Deux exceptions :
 
     Aucune nouvelle action de script ne peut être exécutée sur ce cluster en raison d’un conflit de noms de script dans les scripts existants. Les noms de script fournis au moment de la création du cluster doivent être uniques. Les scripts existants sont exécutés lors du redimensionnement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)

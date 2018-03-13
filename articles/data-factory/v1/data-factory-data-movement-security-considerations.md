@@ -190,7 +190,7 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 **Question :** Quels sont les certificats requis pour la passerelle ?
 **Réponse :** La passerelle actuelle requiert un certificat qui est utilisé par l’application Gestionnaire des informations d’identification pour configurer en toute sécurité les informations d’identification des banques de données. Ce certificat est un certificat auto-signé créé et configuré lors de l’installation de la passerelle. Vous pouvez également utiliser votre propre certificat TLS/SSL. Pour en savoir plus, consultez la section [Application Gestionnaire des informations d’identification ClickOnce](#click-once-credentials-manager-app). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les performances de l’activité de copie, consultez le [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).
 
  

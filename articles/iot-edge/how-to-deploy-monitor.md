@@ -166,7 +166,7 @@ Quand vous supprimez un déploiement, tous les appareils prennent leur déploiem
 1. Sélectionnez **Supprimer**.
 1. Un message vous informe que cette action va supprimer ce déploiement et restaurer tous les appareils à leur état précédent.  Cela signifie qu’un déploiement avec une priorité inférieure sera utilisé.  Si aucun autre déploiement n’est ciblé, aucun module n’est supprimé. Si les clients souhaitent procéder ainsi, ils doivent créer un déploiement avec zéro module et le déployer sur les mêmes appareils. Sélectionnez **Oui** si vous souhaitez continuer. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le [déploiement des modules sur des appareils Edge][lnk-deployments].
 

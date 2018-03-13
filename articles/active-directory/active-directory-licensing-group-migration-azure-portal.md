@@ -81,7 +81,7 @@ Voici ce à quoi le processus de migration peut ressembler :
   ![Licences directes supprimées](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des groupes, consultez :
 

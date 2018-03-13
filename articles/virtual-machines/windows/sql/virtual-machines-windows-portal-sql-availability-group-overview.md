@@ -47,6 +47,6 @@ Vous pouvez également créer les machines virtuelles vous-même sans le modèle
 
 - [Créer un groupe de disponibilité AlwaysOn pour améliorer la disponibilité et la récupération d’urgence](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Configurer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles dans différentes régions](virtual-machines-windows-portal-sql-availability-group-dr.md).

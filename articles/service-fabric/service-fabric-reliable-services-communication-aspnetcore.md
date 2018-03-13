@@ -347,7 +347,7 @@ Les services avec état qui sont appelés uniquement à partir du cluster doiven
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Avec l’affectation de port dynamique, ce paramètre empêche le problème d’erreur d’identité décrit précédemment. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Débogage de votre application Service Fabric à l’aide de Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

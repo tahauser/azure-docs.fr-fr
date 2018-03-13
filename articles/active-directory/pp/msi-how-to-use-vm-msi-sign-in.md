@@ -98,7 +98,7 @@ Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure da
 
 Si ce n’est pas le cas, vous devez réaffecter l’identité MSI à votre ressource ou résoudre le problème de déploiement. Consultez [Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour activer l’identité MSI sur une machine virtuelle Azure, consultez [Configurer l’identité du service administré (MSI) de la machine virtuelle à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).
 

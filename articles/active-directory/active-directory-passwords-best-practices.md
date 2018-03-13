@@ -83,7 +83,7 @@ Vous devez [renseigner les données d’authentification de vos utilisateurs](ac
 
 Il est facile de désactiver la réinitialisation du mot de passe libre-service. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)
 * [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)

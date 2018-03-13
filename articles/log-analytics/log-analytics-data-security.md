@@ -162,7 +162,7 @@ La période de rétention des données collectées stockées dans la base de don
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utiliser Log Analytics pour accéder aux données
 Pour accéder à votre espace de travail Log Analytics, vous vous connectez au portail Azure à l’aide du compte professionnel ou d’un compte Microsoft que vous avez configuré précédemment. La totalité du trafic entre le portail et le service Log Analytics est envoyée par le biais d’un canal HTTPS sécurisé. Lorsque vous utilisez le portail, un ID de session est généré sur le client utilisateur (navigateur web), et les données sont stockées dans un cache local jusqu’à la fin de la session. Ensuite, le cache est supprimé. Les cookies côté client qui ne contiennent pas d’informations d’identification personnelle ne sont pas supprimés automatiquement. Les cookies de session sont marqués HTTPOnly et sécurisés. Après une période d’inactivité prédéfinie, la session du portail Azure prend fin.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment collecter des données avec Log Analytics pour vos machines virtuelles Azure en suivant les instructions de l’article de [démarrage rapide concernant Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
 
 *  Si vous souhaitez collecter des données à partir d’ordinateurs physiques ou virtuels Windows ou Linux de votre environnement, consultez l’article de [démarrage rapide pour les ordinateurs Linux](log-analytics-quick-collect-linux-computer.md) ou de [démarrage rapide pour les ordinateurs Windows](log-analytics-quick-collect-windows-computer.md).

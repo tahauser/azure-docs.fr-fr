@@ -190,7 +190,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 | [Mettre à jour un groupe de basculement](/rest/api/sql/failovergroups/update) | Met à jour un groupe de basculement. |
 |  | |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des exemples de scripts, consultez :
    - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

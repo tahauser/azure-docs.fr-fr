@@ -277,5 +277,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Pour plus d’informations sur les problèmes connus, consultez [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Utilisation des portails administrateur et utilisateur dans Azure Stack](azure-stack-manage-portals.md)

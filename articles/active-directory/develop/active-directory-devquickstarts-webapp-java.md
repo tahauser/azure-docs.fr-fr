@@ -1713,7 +1713,7 @@ Vous disposez à présent d’un fichier adal4jsample.war dans votre répertoire
 > Vous pouvez aisément déployer un fichier .war avec les derniers serveurs Tomcat. Accédez à http://localhost:8080/manager/, puis suivez les instructions de chargement du fichier adal4jsample.war. Il se déploiera automatiquement pour vous avec le point de terminaison correct.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous disposez désormais d’une application Java fonctionnelle qui peut authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant les utilisateurs. Si vous n’avez pas encore rempli votre client avec des utilisateurs, il est judicieux de le faire à ce stade.
 
 À titre de référence supplémentaire, vous pouvez obtenir l’exemple terminé (sans vos valeurs de configuration) de deux manières :

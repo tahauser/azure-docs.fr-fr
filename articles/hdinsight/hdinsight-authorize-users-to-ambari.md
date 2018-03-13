@@ -140,7 +140,7 @@ Nous avons affecté le rôle *Utilisateur du cluster* à notre utilisateur de do
 
 ![Utilisateur avec le rôle d’utilisateur du cluster](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer les stratégies Hive dans HDInsight joint à un domaine](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gérer des clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-manage.md)

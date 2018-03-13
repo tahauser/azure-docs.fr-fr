@@ -43,7 +43,7 @@ Si vous avez un serveur Analysis Services dans le portail Azure, vous pouvez rap
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Didacticiel Adventure Works](/tutorials/aas-adventure-works-tutorial.md)   
 [Passerelle de données locale Azure](analysis-services-gateway.md)  

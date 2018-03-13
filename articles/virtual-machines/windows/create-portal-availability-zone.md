@@ -122,6 +122,6 @@ Location           : eastus2
 Tags               : {}
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à créer une machine virtuelle dans une zone de disponibilité. Apprenez-en davantage sur les [régions et la disponibilité](regions-and-availability.md) des machines virtuelles Azure.

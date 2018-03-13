@@ -409,6 +409,6 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
    ![Support des métadonnées d’instance](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [événements planifiés](scheduled-events.md)

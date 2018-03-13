@@ -190,7 +190,7 @@ Déployez l’application avec le CLI DC/OC.
 dcos marathon app add acrDemo.json
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez configurer le contrôleur de domaine/système d’exploitation pour utiliser Azure Container Registry, y compris les tâches suivantes :
 

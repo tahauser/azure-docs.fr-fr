@@ -332,7 +332,7 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
 
 4. Recompilez et exécutez l’application, puis connectez-vous avec le fournisseur d’authentification choisi et vérifiez que vous êtes en mesure d’accéder aux données en tant qu’utilisateur authentifié.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajouter des notifications Push à votre application Android](app-service-mobile-xamarin-forms-get-started-push.md)

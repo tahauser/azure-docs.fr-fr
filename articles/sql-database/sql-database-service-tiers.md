@@ -72,7 +72,7 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 Pour plus d’informations sur les niveaux de performances et options de taille de stockage spécifiques disponibles, consultez [Limites de ressources de base de données SQL](sql-database-resource-limits.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [Ressources d’une base de données unique](sql-database-single-database-resources.md).
 - Pour en savoir plus sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).

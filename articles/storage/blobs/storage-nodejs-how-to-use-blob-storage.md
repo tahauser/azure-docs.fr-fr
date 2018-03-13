@@ -409,7 +409,7 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer des sign
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez les ressources suivantes.
 
 * [Kit de développement logiciel (SDK) Stockage Azure pour la référence de l’API Node][Kit de développement logiciel (SDK) Stockage Azure pour la référence de l'API Node]  

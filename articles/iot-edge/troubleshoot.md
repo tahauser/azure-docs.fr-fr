@@ -97,5 +97,5 @@ Edge Agent ne possède pas les autorisations pour accéder à l’image d’un m
 ### <a name="resolution"></a>Résolution :
 Essayez d’exécuter à nouveau la commande `iotedgectl login`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pensez que vous avez trouvé un bogue dans la plateforme IoT Edge ? Veuillez [soumettre un problème](https://github.com/Azure/iot-edge/issues) afin que nous puissions poursuivre les améliorations. 

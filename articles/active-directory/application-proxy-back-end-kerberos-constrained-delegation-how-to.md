@@ -178,5 +178,5 @@ Si vous ne progressez toujours pas dans la résolution de votre problème, adres
 
 -   Authentification à deux tronçons : couramment utilisée dans les scénarios où une application est hiérarchisée, avec un serveur principal et un serveur frontal requérant tous deux une authentification comme les services SQL Reporting.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Configurer la délégation Kerberos contrainte (KCD) sur un domaine géré](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)

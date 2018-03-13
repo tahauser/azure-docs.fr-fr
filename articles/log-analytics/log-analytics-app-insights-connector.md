@@ -261,6 +261,6 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 
 Cette solution ne dispose pas d’un ensemble d’exemples de recherches dans les journaux affiché sur le tableau de bord. Toutefois, les requêtes d’exemples de recherches dans les journaux avec les descriptions sont affichées dans la section [Consulter les informations Application Insights Connector](#view-application-insights-connector-information).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Utilisez [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées sur vos applications Application Insights.

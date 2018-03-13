@@ -133,7 +133,7 @@ Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour su
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Tâches de post-déploiement](./openshift-post-deployment.md)
 - [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-troubleshooting.md)

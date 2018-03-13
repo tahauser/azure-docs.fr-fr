@@ -111,7 +111,7 @@ Le [Chiffrement du service de stockage Azure](../articles/storage/common/storage
 
 Azure Disk Encryption vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Cela inclut les disques gérés. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque. Pour plus d’informations, voir [Azure Disk Encryption pour machines virtuelles Windows et Linux IaaS](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 

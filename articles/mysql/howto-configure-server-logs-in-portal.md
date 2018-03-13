@@ -64,7 +64,7 @@ Une fois que la journalisation commence, vous pouvez afficher la liste des journ
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-in-portal/5-download.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour découvrir comment télécharger des journaux par programme, voir [Accéder aux journaux du serveur à l’aide de l’interface de ligne de commande](howto-configure-server-logs-in-cli.md).
 - Apprenez-en davantage sur les [Journaux du serveur](concepts-server-logs.md) dans Azure Database pour MySQL. 
 - Pour plus d’informations sur les définitions de paramètres et la journalisation de MySQL, voir la documentation MySQL sur les [Journaux](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).

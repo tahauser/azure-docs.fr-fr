@@ -110,7 +110,7 @@ Lorsque vous avez besoin d’une communication directe entre les applications, l
 
 La connexion d’applications a toujours fait partie de l’assemblage de solutions complètes, et l’éventail de scénarios qui requièrent des services et des applications pour communiquer entre eux augmentera, étant donné que de plus en plus d’applications et de périphériques sont connectés à Internet. En fournissant pour cela des technologies cloud comme les files d’attente, les rubriques et les relais, Service Bus vise à rendre cette fonction essentielle encore plus simple à implémenter et plus largement accessible.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris les principes de base d’Azure Service Bus, consultez ces liens pour en savoir plus :
 

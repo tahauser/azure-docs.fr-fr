@@ -264,6 +264,6 @@ Utilisez les commandes suivantes pour analyser l’activité de basculement. Vou
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [En savoir plus](/powershell/module/azurerm.recoveryservices.backup/#recovery) sur Site Recovery avec les applets de commande PowerShell Azure Resource Manager.

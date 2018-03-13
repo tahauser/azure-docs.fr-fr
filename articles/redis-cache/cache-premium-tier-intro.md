@@ -93,7 +93,7 @@ Pour plus d’informations, consultez [Comment configurer la géoréplication po
 ## <a name="to-scale-to-the-premium-tier"></a>Mise à l’échelle au niveau premium
 Pour configurer le niveau premium, il suffit de choisir l’un des niveaux premium dans le panneau **Changer le niveau tarifaire** . Vous pouvez également mettre votre cache à l’échelle au niveau premium à l’aide de PowerShell et de l’interface de ligne de commande. Pour obtenir des instructions détaillées, consultez [Mise à l’échelle du Cache Redis Azure](cache-how-to-scale.md) et [Automatisation d’une opération de mise à l’échelle](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Créez un cache et explorez les nouvelles fonctionnalités de niveau Premium.
 
 * [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md)

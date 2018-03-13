@@ -168,6 +168,6 @@ Revenez au point de terminaison CDN en cliquant sur **Mise en réseau** > **Prof
 
 Une fois cette étape accomplie, revenez à votre zone DNS, puis créez un enregistrement CNAME sans le préfixe cdnverify.  Ensuite, vous pouvez supprimer en toute sécurité l’enregistrement CNAME avec le préfixe cdnverify. Pour plus d’informations sur le CDN et la façon de configurer un domaine personnalisé sans l’étape d’inscription intermédiaire, voir [Mapper du contenu Azure CDN à un domaine personnalisé](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrir comment [Configurer des DNS inversés dans les services hébergés par Azure](dns-reverse-dns-for-azure-services.md).

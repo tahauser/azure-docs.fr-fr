@@ -179,6 +179,6 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 | Débit de lecture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
 | Débit d’écriture des VM |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Configurer la réplication](hyper-v-vmm-disaster-recovery.md)

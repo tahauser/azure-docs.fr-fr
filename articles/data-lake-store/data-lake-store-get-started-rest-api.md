@@ -72,7 +72,7 @@ Un résultat similaire à l’extrait de code suivant doit s’afficher :
     ...
     ...
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Opérations du système de fichiers sur Data Lake Store à l’aide de l’API REST](data-lake-store-data-operations-rest-api.md)
 
 ## <a name="see-also"></a>Voir aussi

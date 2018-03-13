@@ -210,7 +210,7 @@ Vous créez généralement votre application Spark Streaming localement, puis la
 
 L’état de toutes les applications peut également être vérifié à l’aide d’une requête GET sur un point de terminaison LIVY. Enfin, vous pouvez arrêter une application en cours d’exécution en émettant une requête DELETE sur le point de terminaison LIVY. Pour plus d’informations sur l’API LIVY, consultez [Travaux à distance avec LIVY](apache-spark-livy-rest-interface.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un cluster Apache Spark dans HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guide de programmation de Spark Streaming](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

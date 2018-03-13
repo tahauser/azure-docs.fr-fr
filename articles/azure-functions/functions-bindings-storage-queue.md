@@ -480,7 +480,7 @@ Dans les fonctions JavaScript, utilisez `context.bindings.<name>` pour accéder 
 | Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Objet blob, Table, File d’attente |  [Résolution des problèmes](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Accéder à un guide de démarrage rapide qui utilise un déclencheur de stockage de file d’attente](functions-create-storage-queue-triggered-function.md)

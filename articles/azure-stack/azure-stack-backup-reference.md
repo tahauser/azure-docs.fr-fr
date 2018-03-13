@@ -115,6 +115,6 @@ Tenez compte de ces limites quand vous planifiez, déployez et utilisez vos inst
 | Sauvegarde des données du fournisseur de ressources App Services, Function, SQL, MySql | Non compris | Reportez-vous à l’aide publiée pour le déploiement et la gestion des fournisseurs de ressources à valeur ajoutée créés par Microsoft.                                                  |
 | Fournisseurs de ressources de sauvegarde tiers                              | Non compris | Reportez-vous à l’aide publiée pour le déploiement et la gestion des fournisseurs de ressources à valeur ajoutée créés par des fournisseurs tiers.                                          |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
  - Pour plus d’informations sur le service Infrastructure Backup, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).

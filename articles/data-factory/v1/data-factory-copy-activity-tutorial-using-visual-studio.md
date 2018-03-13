@@ -509,7 +509,7 @@ Au cours du déploiement, les valeurs du fichier de configuration sont utilisée
 Il n’est pas recommandé et souvent déconseillé vis-à-vis de la stratégie de sécurité pour valider des données sensibles telles que des chaînes de connexion au référentiel de code. Consultez l’exemple [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sur GitHub pour en savoir plus sur le stockage d’informations sensibles dans Azure Key Vault et son utilisation lors de la publication des entités Data Factory. L’extension Secure Publish pour Visual Studio permet de stocker les secrets dans Key Vault, et seules les références à ceux-ci sont spécifiés dans des services / configurations de déploiement liés. Ces références sont résolues lorsque vous publiez des entités Data Factory dans Azure. Ces fichiers peuvent ensuite être validés sur le référentiel source sans exposer les secrets.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

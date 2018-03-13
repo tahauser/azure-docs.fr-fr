@@ -81,7 +81,7 @@ Pour plus d’informations sur la mise à niveau d’un registre Classique vers 
 
 Pour plus d’informations sur la tarification de chacune des références SKU Azure Container Registry, voir [Tarification Container Registry][container-registry-pricing].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 **Feuille de route Azure Container Registry**
 

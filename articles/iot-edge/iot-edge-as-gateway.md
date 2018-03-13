@@ -51,7 +51,7 @@ Voici un aide-mémoire qui compare les primitives IoT Hub lors de l’utilisatio
 
 Lorsque vous utilisez un modèle de passerelle opaque (traduction de protocole), tous les appareils qui se connectent via cette passerelle partagent la même file d’attente cloud sur l’appareil, qui peut contenir au maximum 50 messages. De ce fait, le modèle de passerelle opaque ne doit être utilisé que lorsque très peu d’appareils se connectent via la passerelle de chaque champ et que le trafic entre le cloud et l’appareil est faible.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Utiliser un appareil IoT Edge en tant que [passerelle transparente][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md

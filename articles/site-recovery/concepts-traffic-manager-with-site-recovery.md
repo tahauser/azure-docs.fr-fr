@@ -120,7 +120,7 @@ Vous pouvez optimiser davantage la valeur de durée de vie (TTL) du DNS pour le 
 
 La durée de vie subie par le client n’augmente pas en cas d’augmentation du nombre de programmes de résolution DNS entre le client et le serveur DNS de référence. Les programmes de résolution DNS effectuent le décompte de la durée de vie et passent uniquement une valeur de durée de vie qui reflète le temps écoulé depuis la mise en cache de l’enregistrement. Ainsi, l’enregistrement DNS est actualisé sur le client une fois la durée de vie terminée, quel que soit le nombre de programmes de résolution DNS.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [méthodes de routage](../traffic-manager/traffic-manager-routing-methods.md)de Traffic Manager
 - En savoir plus sur les [profils imbriqués Traffic Manager](../traffic-manager/traffic-manager-nested-profiles.md)
 - En savoir plus sur la [surveillance du point de terminaison](../traffic-manager/traffic-manager-monitoring.md).

@@ -71,6 +71,6 @@ Votre compte Google apparaît dans la liste des comptes, et devrait indiquer **A
 
 Après quelques heures, les rapports Cost Management affichent les informations de coût et d’utilisation de Google.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur Azure Cost Management par Cloudyn, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](./tutorial-review-usage.md) pour Cost Management.

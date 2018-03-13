@@ -86,7 +86,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 
 À l’issue du didacticiel, vous disposez d’un cluster ACS Kubernetes prêt pour les charges de travail. Dans les didacticiels suivants, une application à plusieurs conteneurs est déployée sur ce cluster, mise à l’échelle, mise à jour et surveillée.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, un cluster Azure Container Service Kubernetes a été déployé. Les étapes suivantes ont été effectuées :
 

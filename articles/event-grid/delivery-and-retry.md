@@ -64,7 +64,7 @@ Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle t
 
 Azure Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour afficher l’état des remises des événements, consultez [Surveiller la remise des messages Event Grid](monitor-event-delivery.md).
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).

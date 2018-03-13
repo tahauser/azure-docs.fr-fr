@@ -45,7 +45,7 @@ Pour accéder à une entité, le client requiert un jeton SAP créé à l’aide
 
 La prise en charge de l’authentification SAP pour Azure Relay est incluse dans le Kit de développement logiciel (SDK) Azure .NET, versions 2.0 et ultérieures. SAP inclut l’assistance pour [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur la signature d’accès partagé (SAP), consultez [Authentification de Service Bus avec les signatures d’accès partagé](../service-bus-messaging/service-bus-sas.md).
 - Pour en savoir plus sur la fonctionnalité Connexions hybrides, consultez le [Guide du protocole de connexions hybrides Azure Relay](relay-hybrid-connections-protocol.md).

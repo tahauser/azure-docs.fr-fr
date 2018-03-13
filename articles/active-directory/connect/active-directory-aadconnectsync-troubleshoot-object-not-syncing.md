@@ -143,7 +143,7 @@ Si le connecteur Azure AD est manquant, lisez [Attributs MV](#MV-attributes) pou
 
 Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#connector-space-object-properties). Sélectionnez une ligne et cliquez sur **Propriétés**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

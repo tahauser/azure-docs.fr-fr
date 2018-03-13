@@ -136,7 +136,7 @@ Supprimez le cluster en effectuant un clic droit sur l’application de **Gestio
 
 Si vous choisissez cette option, Visual Studio redéploiera le cluster la prochaine fois que vous exécuterez l’application. Optez pour cette option si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les services [Reliable Services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 

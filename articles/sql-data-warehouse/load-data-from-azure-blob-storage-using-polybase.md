@@ -599,7 +599,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 5. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Dans ce didacticiel, vous avez appris à créer un entrepôt de données et un utilisateur pour le chargement des données. Vous avez créé des tables externes pour définir la structure des données stockées dans Azure Storage Blob, puis avez utilisé l’instruction PolyBase CREATE TABLE AS SELECT pour charger des données dans votre entrepôt de données. 
 
 Voici les étapes que vous avez effectuées :

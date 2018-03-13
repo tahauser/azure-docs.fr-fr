@@ -55,7 +55,7 @@ Une fois que la base de données est provisionnée, l’administrateur Azure AD 
 En plus de prendre en charge les nouvelles installations d’Azure AD Connect, cette fonctionnalité permet également la délégation pour tous les scénarios liés à l’indicateur **/UseExistingDatabase**.  Pour plus d’informations sur l’installation d’Azure AD Connect avec une base de données existante, consultez [Installer Azure AD Connect à l’aide d’une base de données ADSync existante](active-directory-aadconnect-existing-database.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Prise en main d’Azure AD Connect à l’aide de paramètres express](active-directory-aadconnect-get-started-express.md)
 - [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 - [Installer Azure AD Connect à l’aide d’une base de données ADSync existante](active-directory-aadconnect-existing-database.md)  

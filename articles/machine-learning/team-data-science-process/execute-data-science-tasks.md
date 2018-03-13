@@ -105,7 +105,7 @@ REMARQUE : Pour un déploiement à l’aide de Microsoft Azure Machine Learning 
 Quand plusieurs modèles sont en production, il peut être utile d’effectuer un [test A/B](https://en.wikipedia.org/wiki/A/B_testing) pour comparer les performances des modèles. 
 
  
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Suivre la progression des projets de science des données](track-progress.md) montre comment un scientifique des données peut suivre la progression d’un projet de science des données.
  

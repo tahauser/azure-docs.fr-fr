@@ -111,7 +111,7 @@ Dans ce cas, nous pouvons voir que le processus de sauvegarde consomme de façon
 - Service Map expose les données collectées par les autres solutions de gestion pour vous aider à identifier les problèmes avec votre application et son infrastructure sous-jacente.
 - [Recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) vous permet de consulter des données spécifiques recueillies dans l’espace de travail Log Analytics.    
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Carte de service](operations-management-suite-service-map.md).
 - [Déployer et configurer](operations-management-suite-service-map-configure.md) Carte de service.
 - En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md) qui est requis pour Service Map et conserve les données opérationnelles stockées par les agents.

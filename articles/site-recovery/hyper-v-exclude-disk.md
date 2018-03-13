@@ -225,5 +225,5 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle Azure :
 
 ![Paramètres du fichier d’échange sur la machine virtuelle Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md) .

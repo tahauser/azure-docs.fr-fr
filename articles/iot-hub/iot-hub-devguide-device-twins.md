@@ -346,7 +346,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
 * L’article [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous savez ce que sont des jumeaux d’appareil, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
 * [Appeler une méthode directe sur un appareil][lnk-methods]

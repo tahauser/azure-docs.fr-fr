@@ -427,7 +427,7 @@ Dans cette planification, vous créez un déclencheur de planificateur pour le p
     ![Liste d’exécutions du déclencheur](./media/tutorial-copy-data-portal/trigger-runs-list.png)
 10. Vérifiez que deux lignes par minute (pour chaque exécution du pipeline) sont insérées dans la table **emp** jusqu’à l’heure de fin spécifiée. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

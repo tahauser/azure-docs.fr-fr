@@ -74,5 +74,5 @@ Le workflow suivant décrit comment vous pouvez personnaliser et utiliser l’ex
 4. **Importez le fichier .CER**. L’autorité de certification renvoie un fichier .CER. À l’aide du même ordinateur Windows que celui à partir duquel vous avez généré le fichier de requête, importez le fichier .CER retourné dans le magasin de l’ordinateur/personnel. 
 5. **Exportez et copiez le fichier . PFX dans les dossiers de déploiement**. Exportez le certificat (y compris la clé privée) au format de fichier .PFX, puis copiez le fichier .PFX dans les dossiers de déploiement décrits dans les [exigences d’infrastructure à clé publique de déploiement Azure Stack](azure-stack-pki-certs.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Préparer des certificats PKI Azure Stack](prepare-pki-certs.md)

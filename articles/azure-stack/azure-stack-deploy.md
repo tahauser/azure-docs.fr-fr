@@ -125,7 +125,7 @@ Assurez-vous que le serveur DHCP est disponible sur le réseau auquel la carte r
 Azure Stack nécessite un accès à Internet, directement ou via un proxy transparent. Azure Stack ne prend pas en charge la configuration d’un proxy web pour l’accès à Internet. L’adresse IP de l’hôte et la nouvelle adresse IP assignée à MAS-BGPNAT01 (par DHCP ou IP statique) doivent pouvoir accéder à Internet. Les ports 80 et 443 sont utilisés sous les domaines graph.windows.net et login.microsoftonline.com.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Télécharger le package de déploiement du Kit de développement Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Déployer le Kit de développement Azure Stack](azure-stack-run-powershell-script.md)

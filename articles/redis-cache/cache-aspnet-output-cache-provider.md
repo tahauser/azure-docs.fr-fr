@@ -89,6 +89,6 @@ Dans l’exemple précédent, les données de page mises en cache resteront dans
 
 Une fois ces étapes effectuées, votre application est configurée pour utiliser le fournisseur de caches de sortie Redis.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez la page [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md)(en anglais).
 

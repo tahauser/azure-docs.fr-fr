@@ -252,7 +252,7 @@ En ajustant le script PowerShell, vous pouvez personnaliser la sortie et la mise
 
 Vous pouvez personnaliser davantage la solution pour générer des notifications par e-mail basées sur un événement de réglage spécifique, envoyées à plusieurs destinataires, pour plusieurs bases de données ou abonnements, en fonction de vos scénarios personnalisés. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la façon dont le réglage automatisé peut vous aider à améliorer les performances de la base de données, consultez [Réglage automatique dans Azure SQL Database](sql-database-automatic-tuning.md).
 - Pour activer le réglage automatique dans Azure SQL Database afin de gérer votre charge de travail, consultez [Activer le réglage automatique](sql-database-automatic-tuning-enable.md).

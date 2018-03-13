@@ -228,6 +228,6 @@ mysqli_close($conn);
 ?>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Se connecter à Azure Database pour MySQL via SSL] (howto-configure-ssl.md)

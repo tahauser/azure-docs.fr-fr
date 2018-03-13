@@ -518,7 +518,7 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
    * Pipeline : **PipelineBlobSample**
 20. Vérifiez que les deux enregistrements d’employés sont créés dans la table **emp** de la base de données Azure SQL spécifiée.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour la documentation complète sur l’API .NET pour Data Factory, consultez [Informations de référence sur l’API .NET Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 
 Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 

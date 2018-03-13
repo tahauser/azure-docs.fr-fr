@@ -66,5 +66,5 @@ Vous pouvez ensuite établir une connexion SSH à votre machine virtuelle comme 
 ssh azureuser@<ipAddress>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, vous avez créé une machine virtuelle Linux de base. Pour d’autres modèles Resource Manager qui incluent des infrastructures d’applications ou créent des environnements plus complexes, parcourez la [galerie de modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/).

@@ -130,7 +130,7 @@ Ce court exemple permet de se connecter à l’API AMS et de répertorier tous l
             }
  ```
 
-##<a name="next-steps"></a>étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 
 [Vous pouvez désormais vous connecter à l’API AMS](media-services-use-aad-auth-to-access-ams-api.md) et commencer à [développer](media-services-dotnet-get-started.md).
 

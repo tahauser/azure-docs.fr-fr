@@ -65,7 +65,7 @@ Nous pourrions créer des connecteurs pour d’autres orchestrateurs qui s’int
 > [!WARNING]
 > Le connecteur ACI pour Kubernetes est *expérimental* et ne doit pas être utilisé en production.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Créez votre premier conteneur avec Azure Container Instances à l’aide du [guide de démarrage rapide](container-instances-quickstart.md).
 

@@ -12,7 +12,7 @@ Utilisez d’autres services et outils Azure. Lorsque vous avez connecté votre 
 | [Prévisions météorologiques avec des données de capteur][Weather_Forecast]      | Azure Machine Learning             |
 | [Détection d’anomalie et réaction automatiques][Anomaly_Detect] | Azure Logic Apps                   |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Lorsque vous avez terminé ces tutoriels, vous pouvez explorer davantage les capacités de IoT Hub dans le [guide du développeur][lnk-dev-guide]. D’autres tutoriels sont disponibles dans la section [Procédure][lnk-how-to].
 

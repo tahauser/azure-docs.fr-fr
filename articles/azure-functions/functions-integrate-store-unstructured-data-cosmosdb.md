@@ -141,7 +141,7 @@ Vous êtes parvenu à ajouter une liaison à votre déclencheur HTTP qui stocke 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 

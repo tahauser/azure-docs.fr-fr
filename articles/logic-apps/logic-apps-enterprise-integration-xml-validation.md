@@ -58,6 +58,6 @@ Vous avez maintenant terminé de configurer votre connecteur de validation. Dans
 
 Pour tester votre action de validation, envoyez une demande au point de terminaison HTTP.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")   
 

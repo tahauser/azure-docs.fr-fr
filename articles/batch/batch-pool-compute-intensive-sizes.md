@@ -138,7 +138,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour exécuter des travaux MPI sur un pool Azure Batch, consultez les exemples [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
 

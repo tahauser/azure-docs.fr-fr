@@ -155,7 +155,7 @@ L’exemple précédent montrait une connexion standard, qui nécessite que le c
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajouter des notifications Push à votre application Android](app-service-mobile-windows-store-dotnet-get-started-push.md)  

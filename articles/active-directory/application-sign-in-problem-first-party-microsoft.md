@@ -524,6 +524,6 @@ L’accès à l’application peut être bloqué, car l’opération de consente
 
 -   Vous pouvez également appliquer ce consentement de niveau administrateur en suivant les instructions situées dans la section **Demander les autorisations d’un administrateur Active Directory** de la rubrique [Utilisation du point de terminaison de consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Utilisation du point de terminaison de consentement administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

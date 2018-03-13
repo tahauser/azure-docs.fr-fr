@@ -232,7 +232,7 @@ az dls account delete --account mydatalakestore
 
 Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

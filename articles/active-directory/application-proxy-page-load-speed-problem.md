@@ -35,5 +35,5 @@ Même si certains centres de données Azure n’incluent pas encore le Proxy d�
 
 Nous travaillons sur des fonctionnalités supplémentaires visant à améliorer la latence pour les locataires qui constatent actuellement des temps de latence longs. Nous ne manquerons pas de partager avec vous la documentation dès qu’elle sera disponible.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md)

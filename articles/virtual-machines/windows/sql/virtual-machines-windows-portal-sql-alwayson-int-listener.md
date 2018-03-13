@@ -298,6 +298,6 @@ Si un groupe de disponibilité participe à un groupe de disponibilité distribu
 
 Répétez ces étapes pour l’équilibrage de charge sur les autres groupes de disponibilité qui participent aux groupes de disponibilité distribués.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer un groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure dans des régions différentes](virtual-machines-windows-portal-sql-availability-group-dr.md)

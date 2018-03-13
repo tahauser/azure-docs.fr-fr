@@ -86,6 +86,6 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   * Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).
   * Ajoutez la nouvelle machine virtuelle au même réseau virtuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Linux arrêtée ou que vous redimensionnez une machine virtuelle Linux existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Linux existante dans Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

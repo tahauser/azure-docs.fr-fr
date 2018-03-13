@@ -139,7 +139,7 @@ Par exemple, le client A peut utiliser une application instanciée avec le type 
 
 Bien que ce modèle offre une certaine flexibilité, nous prévoyons également de prendre en charge un modèle de déploiement plus simple, basé sur les instances, dans lequel les types sont implicites à partir du fichier manifeste. Dans ce modèle, chaque application obtient son propre manifeste indépendant. Nous proposons cela en version préliminaire, en ajoutant la prise en charge du format docker-compose.yml, qui est un format de déploiement basé sur les instances.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Lisez les informations sur le [Modèle d’application Service Fabric](service-fabric-application-model.md)
 * [Bien démarrer avec l’interface CLI Service Fabric](service-fabric-cli.md)

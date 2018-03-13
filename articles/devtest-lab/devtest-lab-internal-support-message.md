@@ -67,6 +67,6 @@ Quand vous ne souhaitez plus afficher ce message de support pour les utilisateur
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Les déclarations de support interne sont généralement utilisées pour fournir des informations de support qui ne changent pas fréquemment. Vous pouvez également découvrir comment [publier une annonce sur un lab](devtest-lab-announcements.md) pour informer les utilisateurs de mises à jour ou de modifications temporaires du lab.
 * La page [Définir des stratégies et des planifications](devtest-lab-set-lab-policy.md) vous indique comme vous pouvez appliquer d’autres conventions et restrictions sur votre abonnement à l’aide de stratégies personnalisées.

@@ -1127,7 +1127,7 @@ Cette action en boucle exécute des actions internes jusqu’à ce qu’une cond
 | timeout | Non  | Chaîne | La limite de délai d’expiration au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie la durée pendant laquelle la boucle doit s’exécuter |
 ||||| 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md)
 * [API REST de workflow](https://docs.microsoft.com/rest/api/logic/workflows)

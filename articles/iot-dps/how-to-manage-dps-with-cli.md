@@ -96,7 +96,7 @@ Effectuez les étapes d’installation décrites précédemment avant de commenc
 [6]: ./media/how-to-manage-dps-with-cli/link-hub.jpg
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

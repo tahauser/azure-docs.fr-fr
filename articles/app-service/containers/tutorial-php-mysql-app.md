@@ -586,7 +586,7 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

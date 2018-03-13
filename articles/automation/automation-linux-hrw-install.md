@@ -79,7 +79,7 @@ Les types de Runbook suivants ne fonctionnent pas sur un Worker hybride Linux :
 * Graphique
 * Graphique workflow PowerShell
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez [exécuter des runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre comment configurer vos runbooks afin d’automatiser les processus dans votre centre de données local ou un autre environnement cloud.
 * Pour obtenir des instructions sur la suppression des Runbooks Worker hybrides, consultez [Remove Azure Automation Hybrid Runbook Workers](automation-remove-hrw.md) (Supprimer des Runbooks Worker hybrides Azure Automation).

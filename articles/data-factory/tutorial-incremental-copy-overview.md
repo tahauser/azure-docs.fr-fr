@@ -45,7 +45,7 @@ Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 [Copier de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Accéder au didacticiel suivant : 
 
 > [!div class="nextstepaction"]

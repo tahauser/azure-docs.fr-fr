@@ -158,7 +158,7 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour savoir comment intégrer des nœuds devant être gérés avec Azure Automation DSC, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).
 * Pour apprendre à utiliser le portail Azure et vous servir d’Automation DSC, consultez [Bien démarrer avec Azure Automation DSC](automation-dsc-getting-started.md).

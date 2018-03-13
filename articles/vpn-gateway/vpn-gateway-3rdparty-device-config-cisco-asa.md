@@ -307,5 +307,5 @@ sysopt connection tcpmss 1350
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour configurer des connexions entre différents locaux et entre deux réseaux virtuels en mode actif/actif, consultez [Configurer des passerelles VPN en mode actif/actif](vpn-gateway-activeactive-rm-powershell.md).

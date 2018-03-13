@@ -39,6 +39,6 @@ Commandes permettant de gérer les clusters et entités Service Fabric. Cette v
 | [service](service-fabric-sfctl-service.md) | Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.|
 | [store](service-fabric-sfctl-store.md)   | Effectue des opérations élémentaires au niveau des fichiers dans le magasin d’images de cluster.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

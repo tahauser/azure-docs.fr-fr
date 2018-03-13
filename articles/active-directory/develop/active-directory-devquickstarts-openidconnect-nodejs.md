@@ -402,7 +402,7 @@ Votre application est maintenant correctement configurée pour communiquer avec 
     </html>
     ```
 
-##<a name="next-steps"></a>étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 Enfin, générez et exécutez votre application. Exécutez `node app.js`, puis accédez à `http://localhost:3000`.
 
 Connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire, et notez comment l’identité de l’utilisateur est indiquée dans la liste de comptes. Vous disposez désormais d’une application web sécurisée à l’aide de protocoles standard et pouvant authentifier les utilisateurs avec leurs comptes personnels et professionnels/scolaires.

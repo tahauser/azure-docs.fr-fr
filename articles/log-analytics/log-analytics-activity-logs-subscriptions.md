@@ -337,7 +337,7 @@ La dernière étape consiste à consulter l’espace de travail Log Analytics po
 
 ![Tester l’application logique](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez créé une application logique pour lire des journaux d’activité Azure à partir d’un Event Hub et les envoyer à Log Analytics pour analyse. Pour en savoir plus sur la visualisation de données dans Log Analytics, notamment sur la création de tableaux de bords, consultez le didacticiel consacré à ce sujet.
 

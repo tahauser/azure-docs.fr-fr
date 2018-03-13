@@ -178,6 +178,6 @@ Maintenant que le problème est résolu, réactivez le planificateur de synchron
 > [!Note]
 > Les étapes précédentes ne s’appliquent qu’aux versions récentes (1.1.xxx.x) d’Azure AD Connect avec le planificateur intégré. Si vous utilisez des versions plus anciennes (1.0.xxx.x) d’Azure AD Connect, qui utilisent le planificateur de tâches Windows, ou votre propre planificateur personnalisé (peu courant) pour déclencher une synchronisation périodique, vous devez les désactiver en conséquence.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 

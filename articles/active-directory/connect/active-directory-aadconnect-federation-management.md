@@ -270,5 +270,5 @@ Pour n’avoir que le domaine racine dans la valeur de revendication de l’éme
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [options de connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).

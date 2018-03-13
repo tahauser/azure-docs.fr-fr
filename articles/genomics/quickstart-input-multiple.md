@@ -156,5 +156,5 @@ output_storage_account_container: outputs
 
 Envoyez le fichier `config.txt` avec cet appel : `msgen submit -f config.txt`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez chargé plusieurs fichiers BAM ou des fichiers FASTQ appariés dans Stockage Azure et avez soumis un workflow au service Microsoft Genomics via le client Python `msgen`. Pour plus d’informations sur la soumission du workflow et les autres commandes pouvant être utilisées avec le service Microsoft Genomics, consultez la [FAQ](frequently-asked-questions-genomics.md). 

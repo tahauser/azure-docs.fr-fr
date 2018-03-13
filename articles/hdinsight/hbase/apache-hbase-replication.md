@@ -276,7 +276,7 @@ La section `print_usage()` du [script](https://raw.githubusercontent.com/Azure/h
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel a décrit la configuration de la réplication HBase dans un réseau virtuel ou entre deux réseaux virtuels dans Azure. Pour en savoir plus sur HDInsight et HBase, consultez les articles suivants :
 

@@ -176,5 +176,5 @@ Comme dernière étape, tous les certificats que vous avez préparés doivent ê
 <sup>*</sup> Les certificats signalés par un astérisque * sont nécessaires uniquement lorsqu’AD FS est utilisé en tant que magasin d’identités.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Intégration des identités au centre de données](azure-stack-integrate-identity.md)

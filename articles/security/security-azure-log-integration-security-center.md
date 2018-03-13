@@ -49,7 +49,7 @@ Les étapes suivantes créent le principal de service nécessaire pour Azure Act
 
 Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support](/azure-supportability/how-to-create-azure-support-request.md) et sélectionnez le service **Intégration des journaux** pour demander un support.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’intégration des journaux Azure, consultez les documents suivants :
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : Centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation sur l’intégration des journaux Azure.

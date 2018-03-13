@@ -123,5 +123,5 @@ Le flux de travail complet décrivant ces concepts est illustré dans le schéma
 
    Absolument. Vous pouvez exécuter 100 fois plus de services/points de terminaison sur un même cluster. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour bien commencer avec la gestion des modèles, consultez [Configuration de la gestion des modèles](deployment-setup-configuration.md).

@@ -106,7 +106,7 @@ Ces commandes s’appuient sur la communication à distance PowerShell et néces
 |PowerShell  |5.1 et [6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Démarrage rapide avec PowerShell dans Cloud Shell (préversion)](quickstart-powershell.md)
 

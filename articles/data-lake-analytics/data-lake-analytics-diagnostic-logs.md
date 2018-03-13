@@ -217,5 +217,5 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 Azure Data Lake Analytics fournit un exemple de traitement et d’analyse des données de journal. Vous trouverez l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md)

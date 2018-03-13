@@ -215,7 +215,7 @@ Le scénario suivant est destiné à la mise à niveau de HDInsight 3.4 vers 3.6
 11. Lancez l’ingestion des données pour voir si tout fonctionne comme prévu.
 12. Si le nouveau cluster vous convient, supprimez le cluster d’origine.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur HBase et la mise à niveau de clusters HDInsight, consultez les articles suivants :
 

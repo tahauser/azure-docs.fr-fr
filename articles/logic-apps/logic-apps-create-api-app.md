@@ -235,7 +235,7 @@ Pour mettre vos API personnalisées à la disposition de tous les utilisateurs d
 
 * Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer les erreurs et exceptions](../logic-apps/logic-apps-exception-handling.md)
 * [Appeler, déclencher ou imbriquer des applications logiques via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md)

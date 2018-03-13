@@ -152,7 +152,7 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
 
      ![Azure Log Analytics - Vue de la requête](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Surveiller les messages B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
 

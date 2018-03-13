@@ -76,7 +76,7 @@ Les modèles Azure Resource Manager utilisent un attribut d’emplacement pour p
     }
     ]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
 * [Déployer des modèles avec l’interface de ligne de commande Azure](azure-stack-deploy-template-command-line.md)
 * [Déployer des modèles avec Visual Studio](azure-stack-deploy-template-visual-studio.md)

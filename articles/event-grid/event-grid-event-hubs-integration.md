@@ -207,7 +207,7 @@ Vous avez terminé de configurer votre hub d’événements, SQL Data Warehouse,
 
 6. Générez la solution. Exécutez l’application WindTurbineGenerator.exe. Après quelques minutes, interrogez la table dans votre entrepôt de données pour les données migrées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).
 * Pour découvrir Event Hubs Capture, consultez [Activer Event Hubs Capture à l’aide du portail Azure](../event-hubs/event-hubs-capture-enable-through-portal.md).

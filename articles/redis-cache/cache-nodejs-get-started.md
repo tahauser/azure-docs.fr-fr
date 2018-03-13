@@ -82,7 +82,7 @@ Sortie :
     value
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Activez les diagnostics du cache](cache-how-to-monitor.md#enable-cache-diagnostics) afin de pouvoir [surveiller](cache-how-to-monitor.md) l’intégrité de votre cache.
 * Lisez la [documentation Redis](http://redis.io/documentation)officielle.
 

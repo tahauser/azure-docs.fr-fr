@@ -76,7 +76,7 @@ Pour envoyer ou recevoir des messages, saisissez le nom de l’espace de noms et
  
 Notez que l’identité de service administré fonctionne uniquement à l’intérieur de l’environnement Azure et seulement dans le déploiement App Service dans lequel vous l’avez configurée. Notez également que les identités de service administré ne fonctionnent pas avec les emplacements de déploiement App Service pour l’instant.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 

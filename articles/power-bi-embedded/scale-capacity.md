@@ -59,7 +59,7 @@ Cela suppose d’avoir créé une capacité Power BI Embedded. Dans le cas contr
 
     ![Confirmer le niveau actuel](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour suspendre ou démarrer votre capacité, consultez la page [Suspendre et démarrer une capacité Power BI Embedded sur le Portail Azure](pause-start.md).
 

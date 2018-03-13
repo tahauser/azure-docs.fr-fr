@@ -101,7 +101,7 @@ Pour supprimer l’adresse IP privée statique de la machine virtuelle créée c
 
 Dans le volet **Adresses IP** illustré ci-dessus, sous **Affectation**, cliquez sur **Dynamique**, puis sur **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .
 * En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md) .
 * Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).

@@ -177,7 +177,7 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Télécharger les éléments multimédias](media-services-deliver-asset-download.md)
 * [Configurer une stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
 

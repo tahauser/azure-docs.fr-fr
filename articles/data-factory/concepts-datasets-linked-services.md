@@ -221,7 +221,7 @@ Voici quelques différences entre les jeux de données Data Factory V1 et V2 :
 - Les propriétés de stratégie et de disponibilité ne sont pas prises en charge dans V2. L’heure de début d’un pipeline dépend des [déclencheurs](concepts-pipeline-execution-triggers.md).
 - Les jeux de données étendus (définis dans un pipeline) ne sont pas pris en charge dans V2. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les didacticiels suivants pour obtenir des instructions pas à pas sur la création de pipelines et de jeux de données à l’aide de l’un de ces outils ou Kits de développement logiciel (SDK). 
 
 - [Démarrage rapide : créer une fabrique de données à l’aide de .NET](quickstart-create-data-factory-dot-net.md)

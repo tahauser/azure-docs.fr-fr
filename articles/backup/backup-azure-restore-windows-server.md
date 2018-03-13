@@ -176,5 +176,5 @@ Si Azure Backup ne monte pas efficacement le volume de montage, même lorsque v
 
 Si elle échoue encore, redémarrez votre serveur/client. Si un redémarrage n’est pas souhaitable, ou si la récupération échoue même après le redémarrage du serveur, essayez de l’exécuter au moyen d’un autre ordinateur et contactez le Support Azure en accédant au [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), puis en soumettant une demande de support.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).

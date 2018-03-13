@@ -150,6 +150,6 @@ Afin que votre déploiement puisse bénéficier de notre contrat de niveau de se
 ### <a name="back-up-the-vm"></a>Sauvegarder la machine virtuelle
 Un [coffre Recovery Services](../../backup/backup-introduction-to-azure-backup.md) est utilisé pour protéger les données et les actifs dans la Sauvegarde Azure et Azure Site Recovery Services. Vous pouvez utiliser un coffre Recovery Services pour [déployer et gérer les sauvegardes des machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Si votre objectif est d’utiliser des machines virtuelles Linux, consultez [Azure et Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour en savoir plus sur les instructions de configuration de votre infrastructure, consultez [Exploration d’un exemple d’infrastructure Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

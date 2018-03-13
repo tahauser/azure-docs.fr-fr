@@ -191,7 +191,7 @@ Lorsque vous créez un élément de la liste de tâches, l’application web eff
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet article vous a expliqué en détail comment protéger une API Web ASP.NET en inscrivant et en définissant des étendues dans Azure AD B2C. Pour en savoir plus sur le développement de ce scénario, notamment sur les procédures pas à pas relatives au code, passez au didacticiel suivant.
 

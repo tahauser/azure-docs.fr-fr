@@ -60,7 +60,7 @@ Ensuite, mettez à jour l’application pour authentifier les utilisateurs avant
 ## <a name="cache-tokens"></a>Mise en cache de jetons d'authentification sur le client
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajout de notifications Push à votre application Android](app-service-mobile-android-get-started-push.md).

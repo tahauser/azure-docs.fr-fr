@@ -195,7 +195,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les blogs Microsoft suivants pour les deux procédures pas à pas différent du processus de sauvegarde et de restauration.
 
 * [Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

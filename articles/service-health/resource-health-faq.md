@@ -100,7 +100,7 @@ Oui.  Azure Resource Health est gratuit.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quelles sont les recommandations que fournit Resource Health ?
 En fonction de l’état d’intégrité, Resource Health fournit des recommandations dans le but de réduire le temps passé à résolution les problèmes. Pour les ressources disponibles, les recommandations sont axées sur la façon de résoudre les principaux problèmes rencontrés par les clients. Si la ressource est indisponible en raison d’un événement Azure non planifié, l’objectif principal est de vous assister pendant et après le processus de récupération. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur Resource Health :
 -  [Vue d’ensemble d’Azure Resource Health](Resource-health-overview.md)

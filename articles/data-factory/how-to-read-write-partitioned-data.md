@@ -174,5 +174,5 @@ Définition du pipeline :
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir une description complète de la création d’une fabrique de données avec un pipeline, consultez [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 

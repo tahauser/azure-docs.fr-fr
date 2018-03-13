@@ -114,5 +114,5 @@ Pour créer une base de données, une collection et des documents à l’aide de
 
     ![Capture d’écran des résultats de requête MongoChef](./media/mongodb-mongochef/QueryDocument1.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Explorez les [exemples](mongodb-samples.md) d’API Azure Cosmos DB MongoDB.

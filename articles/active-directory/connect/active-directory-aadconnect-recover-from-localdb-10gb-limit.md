@@ -100,5 +100,5 @@ En général, ce problème indique que la taille de base de données de 10 Go n
 * Pour obtenir des instructions sur la configuration à distance de SQL avec Azure AD Connect, consultez l’article [Installation personnalisée d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
 * Pour obtenir des instructions sur la migration de basculement pour la mise à niveau d’Azure AD Connect, consultez l’article [Azure AD Connect : effectuer une mise à niveau vers la dernière version](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

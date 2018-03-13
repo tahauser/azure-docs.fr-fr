@@ -132,7 +132,7 @@ Vous avez correctement restauré la base de données à un point dans le temps, 
 
 Notez qu’une fois que vous restaurez la base de données, 10 à 15 minutes supplémentaires sont nécessaires avant que la première sauvegarde complète soit à nouveau disponible pour la restauration. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

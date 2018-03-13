@@ -71,6 +71,6 @@ Dans cette section, nous partons du principe que vous disposez déjà d’un par
 6. Cliquez avec le bouton droit sur le fichier et choisissez **Télécharger** pour le télécharger sur votre ordinateur local.
    
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également créer et gérer des partages de fichiers à l’aide de PowerShell. Pour plus d’informations, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../storage/files/storage-dotnet-how-to-use-files.md).

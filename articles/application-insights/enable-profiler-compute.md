@@ -221,7 +221,7 @@ L’activation du profileur sur un serveur local correspond à l’exécution d�
 
 Nous ne prévoyons pas une prise en charge officielle du profileur pour les serveurs locaux. Si vous souhaitez tester ce scénario, vous pouvez [télécharger le code de prise en charge](https://github.com/ramach-msft/AIProfiler-Standalone). Nous *ne sommes pas* responsables de la mise à jour de ce code, et nous ne répondons pas aux demandes de fonctionnalités ni aux questions relatives à des problèmes liés au code.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Générez le trafic vers votre application (par exemple, lancez un [test de disponibilité](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Attendez ensuite 10 à 15 minutes le temps que les traces soient envoyées à l’instance Application Insights.
 - Consultez [Traces du profileur](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) dans le portail Azure.

@@ -570,7 +570,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 Vous pouvez utiliser le paramètre de sortie pour répondre à l’appelant HTTP ou Webhook. Vous pouvez également utiliser les modèles de réponse de la norme du langage. Par obtenir des exemples de réponse, consultez l’[exemple de déclencheur](#trigger---example) et l’[exemple de webhook](#trigger---webhook-example).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

@@ -77,6 +77,6 @@ Cette article décrit certaines erreurs courantes liées au déploiement Azure q
 
 Si vous rencontrez une erreur au cours du déploiement, Resource Manager retourne un code d’erreur. Vous pouvez afficher le message d’erreur via le portail, PowerShell ou Azure CLI. Il se peut que le message d’erreur externe soit trop général pour aider à résoudre le problème. Recherchez le message interne qui contient des informations détaillées sur l’erreur. Pour plus d’informations, consultez [Déterminer le code d’erreur](resource-manager-troubleshoot-tips.md#determine-error-code).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).

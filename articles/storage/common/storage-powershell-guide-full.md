@@ -240,7 +240,7 @@ Si vous avez créé un groupe de ressources et un compte de stockage pour cet ex
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet article couvre les opérations courantes utilisant les applets de commande de plan de gestion pour gérer les comptes de stockage. Vous avez appris à effectuer les actions suivantes : 
 

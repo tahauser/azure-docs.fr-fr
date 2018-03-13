@@ -154,7 +154,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Configuration d’un nom de domaine personnalisé dans Azure App Service]
 * [Activer le protocole HTTPS pour une application dans Azure App Service]
 * [Faire évoluer une application Web dans Azure App Service]

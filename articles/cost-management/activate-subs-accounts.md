@@ -104,6 +104,6 @@ Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer
 
 Vous devrez peut-être également accorder aux administrateurs de service, propriétaires de compte et administrateurs d’entreprise l’autorisation _d’afficher les frais_ avec l’API de facturation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous n’avez pas encore suivi le premier didacticiel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).

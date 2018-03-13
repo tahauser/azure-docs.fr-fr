@@ -190,7 +190,7 @@ Vous pouvez également vérifier si la journalisation DEBUG est activée pour un
 
 Pour collecter les journaux de tous les nœuds dans un seul emplacement central, vous pouvez créer un flux de données, tel que l’ingestion de toutes les entrées de journal dans Solr.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Pratique de journalisation et monitoring pour HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Accéder aux journaux des applications YARN dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

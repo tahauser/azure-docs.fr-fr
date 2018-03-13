@@ -193,7 +193,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
     ![Azure Map Control et Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

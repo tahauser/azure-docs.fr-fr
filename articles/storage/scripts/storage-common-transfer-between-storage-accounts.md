@@ -70,7 +70,7 @@ Ce script utilise les commandes suivantes pour copier des données d’un compte
 | [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Retourne les conteneurs associés à ce compte de stockage. |
 | [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Crée un contexte de stockage Azure. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 

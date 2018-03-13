@@ -359,7 +359,7 @@ Les seules valeurs possibles sont les suivantes : and 'latest'".
 - Fournissez la propriété manquante.
 - Supprimez la propriété qui a besoin de la propriété manquante.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [l’utilisation des groupes identiques de machines virtuelles avec l’extension DSC Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 * En savoir plus sur la [Gestion des informations d’identification sécurisées de DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

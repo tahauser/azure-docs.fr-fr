@@ -76,6 +76,6 @@ Le modèle pour manipuler une ressource Event Hubs quelconque suit un protocole 
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Espace de noms Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

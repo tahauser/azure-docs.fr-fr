@@ -77,7 +77,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
 
 Microsoft Azure AD fournit une implémentation efficace d’un processus de synchronisation. Dans un environnement initialisé, seuls les objets nécessitant des mises à jour sont traités pendant un cycle de synchronisation. La mise à jour des mappages d’attributs a un impact sur les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. Il est recommandé de limiter au minimum le nombre de modifications consécutives de vos mappages d’attributs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)

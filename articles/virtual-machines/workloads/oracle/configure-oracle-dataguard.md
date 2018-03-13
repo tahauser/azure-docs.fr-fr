@@ -685,7 +685,7 @@ Quand vous n’avez plus besoin de la machine virtuelle, vous pouvez utiliser la
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Didacticiel : Créer des machines virtuelles à haute disponibilité](../../linux/create-cli-complete.md)
 

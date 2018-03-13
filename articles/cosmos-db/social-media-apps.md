@@ -250,5 +250,5 @@ Cet article tente de vous éclairer sur les alternatives de création de réseau
 
 En réalité, il n’existe aucune solution parfaite pour ce type de scénario. C’est la synergie créée par la combinaison d’excellents services qui nous permet de concevoir des expériences exceptionnelles  : la rapidité et la liberté d’Azure Cosmos DB pour une application sociale intéressante, l’intelligence d’une solution de recherche de premier ordre comme Recherche Azure, la flexibilité d’Azure App Services pour héberger non pas des applications indépendantes du langage, mais des processus d’arrière-plan puissants, ainsi que les outils de stockage Azure et Azure SQL Database extensibles pour le stockage de grandes quantités de données et la puissance d’analyse d’Azure Machine Learning pour créer les connaissances et l’intelligence décisionnelle capables de fournir des commentaires à nos processus et de nous aider à présenter le bon contenu aux bons utilisateurs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les cas d’usage de Cosmos DB, consultez [Cas d’utilisation courants et scénarios pour Cosmos DB](use-cases.md).

@@ -45,5 +45,5 @@ Si vous souhaitez répertorier votre application avec cette technologie, faites-
 
 Pour faire remonter un problème, envoyez un message électronique à [l’équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) et nous vous répondrons dès que possible.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)

@@ -45,7 +45,7 @@ Vous pouvez choisir de déployer Azure Stack en le connectant ou non à internet
 
 Une fois que vous avez choisi le modèle de connexion à Azure à utiliser pour le déploiement Azure Stack, vous devrez prendre d’autres décisions liées au modèle de connexion pour sélectionner le magasin d’identités et le mode de facturation. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Décisions de déploiement Azure Stack connecté à Azure](azure-stack-connected-deployment.md)
 

@@ -53,7 +53,7 @@ Si vous provisionnez 1 000 unités de requête par seconde, vous obtenez un tota
 
 La plupart des magasins d’objets et d’objets Blob de base facturent 0,40 $ le million de transactions de lecture et 5 $ le million de transactions d’écriture. S’il est utilisé de manière optimale, Cosmos DB peut être jusqu’à 98 % moins cher que les autres solutions (pour les transactions de 1 Ko).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez régulièrement cette rubrique pour obtenir de nouveaux articles sur l’optimisation de l’approvisionnement des ressources Azure Cosmos DB. En attendant, n’hésitez pas à utiliser notre [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
 

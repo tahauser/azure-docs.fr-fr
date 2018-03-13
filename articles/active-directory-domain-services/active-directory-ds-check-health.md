@@ -76,7 +76,7 @@ Les alertes sont classées en trois niveaux de gravité : critique, avertissemen
  * Les **alertes d’avertissement** vous avertissent des problèmes qui peuvent avoir un impact sur votre domaine managé à l’avenir. Ces alertes fournissent des recommandations pour sécuriser votre domaine managé.
  * Les **alertes d’information** sont des notifications qui n’ont pas effets négatifs sur votre domaine. Les alertes d’information sont conçues pour vous tenir informé de ce qui se passe dans votre domaine et Azure AD Domain Services.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Résoudre les alertes sur votre domaine managé](active-directory-ds-troubleshoot-alerts.md)
 - [En savoir plus sur Azure AD Domain Services](active-directory-ds-overview.md)
 - [Contacter l’équipe produit](active-directory-ds-contact-us.md)

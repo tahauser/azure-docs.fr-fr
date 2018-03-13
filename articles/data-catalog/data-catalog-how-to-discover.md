@@ -64,5 +64,5 @@ Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les 
 ## <a name="summary"></a>Résumé
 L’inscription des sources de données dans Data Catalog facilite leur détection et leur compréhension, car elle consiste à copier les métadonnées descriptives et structurelles des sources de données dans le service Catalog. Une fois qu’une source de données a été inscrite, vous pouvez la détecter grâce aux fonctionnalités de filtrage et de recherche du portail Data Catalog.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations détaillées sur la détection des sources de données, consultez [Bien démarrer avec Azure Data Catalog](data-catalog-get-started.md).

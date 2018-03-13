@@ -57,6 +57,6 @@ Une action est une opération effectuée par le flux de travail défini dans une
 
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/salesforce/). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

@@ -434,7 +434,7 @@ az group delete --name myResourceGroup
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure

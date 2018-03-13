@@ -44,7 +44,7 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Affiche la configuration d’un serveur Azure Database pour MySQL. |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour MySQL](../sample-scripts-azure-cli.md)
 - Pour plus d’informations sur les paramètres de serveur, consultez [Procédure de configuration des paramètres de serveur dans Azure Database pour MySQL](../howto-server-parameters.md).

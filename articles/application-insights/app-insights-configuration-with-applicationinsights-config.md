@@ -261,7 +261,7 @@ Si vous souhaitez simplement envoyer un ensemble spécifique d’événements à
 
 Pour obtenir une nouvelle clé, [créez une ressource dans le portail Application Insights][new].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur l’API][api].
 
 <!--Link references-->

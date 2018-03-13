@@ -179,6 +179,6 @@ Pour plus d'informations sur la sécurité et FIPS, consultez [Synchronisation, 
 ## <a name="troubleshoot-password-synchronization"></a>Résoudre les problèmes de synchronisation de mot de passe
 Si vous avez des problèmes avec la synchronisation de mot de passe, consultez [Résolution des problèmes de synchronisation du mot de passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Azure AD Connect Sync : Personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)

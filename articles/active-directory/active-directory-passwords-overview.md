@@ -63,7 +63,7 @@ Vous trouverez plus d’informations sur les licences, les prix et les plans fut
 * [Mises à jour Azure](https://azure.microsoft.com/updates/)
 * [Feuille de route Azure](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Prêt à vous lancer avec SSPR ? [Configurez la réinitialisation de mot de passe en libre-service Azure AD](active-directory-passwords-getting-started.md).
 * Planifiez un déploiement SSPR réussi pour vos utilisateurs à l’aide des conseils de notre [guide de lancement](active-directory-passwords-best-practices.md).

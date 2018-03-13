@@ -190,7 +190,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Par le biais de ce guide de démarrage rapide, vous avez déployé un cluster Kubernetes, vous vous êtes connecté avec `kubectl` et vous avez déployé un pod avec un conteneur IIS. Pour plus d’informations sur Azure Container Service, passez au didacticiel Kubernetes.
 

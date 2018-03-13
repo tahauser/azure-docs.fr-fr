@@ -214,6 +214,6 @@ Voici quelques meilleures pratiques pour l’exécution de votre base de donnée
 
 Pour plus d’informations, consultez [Meilleures pratiques pour Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Assistant Copie de Data Factory](data-factory-copy-wizard.md) : cet article fournit des détails sur l’Assistant Copie.
 * [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) : cet article contient le guide sur le réglage et les mesures de performances de référence.

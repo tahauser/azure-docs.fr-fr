@@ -91,7 +91,7 @@ IoT Hub s’efforce de fournir une faible latence pour toutes les opérations. T
 Plusieurs unités IoT Hub affectent la limitation comme décrit précédemment, mais ne fournissent pas d’avantages ni de garanties supplémentaires en termes de latence.
 Si vous constatez des augmentations inattendues de la latence des opérations, contactez le [Support Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 
 * [Points de terminaison IoT Hub][lnk-devguide-endpoints]

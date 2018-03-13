@@ -157,6 +157,6 @@ Pour plus d’informations sur le script PowerShell ERCS_AzureStackLogs.ps1, vou
 > [!NOTE]
 > Nous appliquons des limites de taille et d’âge aux journaux collectés, car il est essentiel de garantir une utilisation efficace de votre espace de stockage afin de s’assurer que vous ne vous retrouverez pas submergé de journaux. Toutefois, lorsque vous diagnostiquez un problème, vous avez parfois besoin de journaux qui n’existent plus, à cause de ces limites. Par conséquent, nous vous **recommandons vivement** de décharger vos journaux vers un espace de stockage externe (un compte de stockage dans Azure, un dispositif de stockage local supplémentaire, etc.) toutes les 8 à 12 heures, et de les conserver pendant 1 à 3 mois, en fonction de vos besoins. Vérifiez également que l’emplacement de stockage est chiffré.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md)
 

@@ -238,7 +238,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Dynamics 365 |12076:5140 |
 | Autres services Office 365 en ligne |12076:5200 |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Configurez votre connexion ExpressRoute.
   
   * [Créer et modifier un circuit](expressroute-howto-circuit-arm.md)

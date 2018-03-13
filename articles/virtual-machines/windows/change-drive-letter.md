@@ -62,6 +62,6 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 8. Cliquez sur **Appliquer**. Vous serez averti que l'ordinateur doit être redémarré pour que les modifications prennent effet.
 9. Redémarrez la machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en y [attachant un disque de données supplémentaire](attach-managed-disk-portal.md).
 

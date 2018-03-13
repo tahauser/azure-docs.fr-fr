@@ -102,7 +102,7 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 * L’authentification Azure AD est prise en charge pour SQL Database dans les panneaux **Importer la base de données** et **Exporter la base de données** du portail Azure. L’importation et l’exportation à l’aide de l’authentification Azure AD sont également prises en charge depuis l’invite de commandes PowerShell.   
 * L’authentification Azure AD est prise en charge pour SQL Database et SQL Data Warehouse via l’interface de ligne de commande (CLI). Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md) et [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour apprendre à créer et à remplir Azure AD, puis à configurer Azure AD avec Azure SQL Database ou SQL Data Warehouse, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - Pour obtenir une vue d’ensemble de l’accès et du contrôle dans la base de données SQL, voir [Accès à la base de données SQL et contrôle](sql-database-control-access.md).
 - Pour une vue d’ensemble des connexions, des utilisateurs et des rôles de base de données dans la base de données SQL, voir [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md).

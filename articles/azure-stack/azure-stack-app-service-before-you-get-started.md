@@ -316,6 +316,6 @@ Procédez comme suit :
 | CertificatePassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Installer le fournisseur de ressources App Service](azure-stack-app-service-deploy.md)

@@ -336,7 +336,7 @@ Diskspd est un générateur de charge de stockage et un outil de test de perform
 
 Xperf est un outil en ligne de commande qui permet de capturer des suivis à partir de Windows Performance Toolkit. Pour plus d’informations, consultez [Windows Performance Toolkit : Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez charger les journaux de diagnostic et les rapports vers le Support Microsoft pour un examen approfondi. Le Support peut vous demander de transmettre la sortie générée par PerfInsights pour faciliter le processus de dépannage.
 

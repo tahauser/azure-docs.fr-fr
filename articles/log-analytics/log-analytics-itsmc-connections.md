@@ -397,7 +397,7 @@ Pour générer l’ID client/la clé de Cherwell, procédez comme suit :
     ![Id utilisateur de Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  - [Créer des éléments de travail ITSM pour des alertes Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
  - [Créer des éléments de travail ITSM à partir d’enregistrements de journaux Log Analytics](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Créer des éléments de travail ITSM à partir des alertes Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

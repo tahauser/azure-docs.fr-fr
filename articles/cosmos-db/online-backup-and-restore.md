@@ -59,7 +59,7 @@ En cas de suppression accidentelle de vos données, vous pouvez [émettre un tic
 ## <a name="handling-data-corruption"></a>Gestion de l’altération des données
 Azure Cosmos DB conserve les deux dernières sauvegardes de chaque partition dans le compte de base de données. Ce modèle fonctionne bien lorsque un conteneur (collection de documents, graphique, table) ou une base de données est accidentellement supprimé car une des dernières versions peut être restaurée. Toutefois, dans le cas où les utilisateurs présentent un problème d’altération des données, Azure Cosmos DB peut ne pas être informé de l’altération des données et il est possible que l’altération supprime les sauvegardes existantes. Dès que l’altération est supprimée, l’utilisation doit supprimer le conteneur altéré (collection/graphe/table) afin que les sauvegardes soient protégées contre l’écrasement des données altérées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour répliquer votre base de données dans plusieurs centres de données, consultez [Azure Cosmos DB, un service de base de données mondialement distribué sur Azure](distribute-data-globally.md). 
 

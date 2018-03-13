@@ -48,7 +48,7 @@ Le diagramme suivant montre la relation entre les applications et les instances 
 > 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Découvrez-en plus sur l’[extensibilité des applications](service-fabric-concepts-scalability.md).
 - Découvrez-en plus sur l’[état](service-fabric-concepts-state.md), le [partitionnement](service-fabric-concepts-partitioning.md) et la [disponibilité](service-fabric-availability-services.md) des services.
 - Pour savoir comment les applications et les services sont définis, consultez [Manifestes des applications et des services](service-fabric-application-and-service-manifests.md).

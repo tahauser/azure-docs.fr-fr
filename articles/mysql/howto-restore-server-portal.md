@@ -76,6 +76,6 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 >[!Note]
 >Notez que le serveur créé par la restauration à un point dans le temps a les mêmes nom de connexion administrateur de serveur et mot de passe qui étaient valides pour le serveur existant au point dans le temps choisi. Vous pouvez modifier le mot de passe sur la page **Vue d’ensemble** du nouveau serveur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
 - En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

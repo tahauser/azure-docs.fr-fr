@@ -92,7 +92,7 @@ Si vous n’êtes pas sûr des cas dans lesquels vous utilisez l’authentificat
 6. Confirmez que vous voulez supprimer ce mot de passe en cliquant sur **Oui**.
 7. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 

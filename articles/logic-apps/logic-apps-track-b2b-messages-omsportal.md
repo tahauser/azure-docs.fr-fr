@@ -238,7 +238,7 @@ Voici les formats de noms pour chaque dossier et fichier de message EDIFACT tél
 | Entrée, sortie et, si configurés, fichiers d’accusé de réception | **Charge utile d’entrée**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_input_payload.txt </p>**Charge utile de sortie**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_sortie\_payload.txt </p></p>**Entrées**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_inputs.txt </p></p>**Sorties**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Interroger des messages B2B dans Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schémas de suivi AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

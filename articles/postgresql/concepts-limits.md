@@ -65,7 +65,7 @@ Le système Azure a besoin de cinq connexions pour effectuer le monitoring du se
 1.  Lorsque vous utilisez la fonctionnalité PITR, le nouveau serveur est créé avec la même configuration que le serveur sur lequel il est basé.
 2.  La restauration d’un serveur supprimé n’est pas prise en charge.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Comprendre [les éléments disponibles dans chaque niveau tarifaire](concepts-pricing-tiers.md)
 - Découvrir [les versions prises en charge de la base de données PostgreSQL](concepts-supported-versions.md)
 - Consulter le [guide pratique : sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL à l’aide du portail Azure](howto-restore-server-portal.md)

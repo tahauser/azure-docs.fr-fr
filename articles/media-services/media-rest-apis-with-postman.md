@@ -54,6 +54,6 @@ Cet environnement et la collection sont utilisés dans les articles qui indiquen
 
     ![Charger un fichier](./media/media-services-rest-upload-files/postman-import-collection.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez l’article [charger des ressources](media-services-rest-upload-files.md).  

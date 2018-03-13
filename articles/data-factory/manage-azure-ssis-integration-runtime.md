@@ -91,7 +91,7 @@ Une fois que vous avez configuré et démarré une instance du runtime d’inté
     Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le runtime Azure-SSIS, voir les rubriques suivantes : 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) (Runtime d’intégration Azure-SSIS). Cet article fournit des informations conceptuelles sur les runtimes d’intégration en général, y compris sur le runtime d’intégration Azure-SSIS. 

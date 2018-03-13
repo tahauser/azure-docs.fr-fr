@@ -159,6 +159,6 @@ Chaque fois qu’il vous est nécessaire de transférer des données de StorSimp
     ![Lancer l’exécution du travail 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez .NET SDK pour lancer les travaux StorSimple Data Manager](storsimple-data-manager-dotnet-jobs.md).

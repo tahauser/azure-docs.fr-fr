@@ -91,7 +91,7 @@ Vous pouvez également appeler des opérations depuis le **portail des développ
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)

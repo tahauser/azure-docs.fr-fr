@@ -310,7 +310,7 @@ Consultez les articles suivants pour plus d’informations sur la surveillance e
 - [Surveiller un runtime d’intégration Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime)
 - [Gérer un runtime d’intégration Azure-SSIS](manage-azure-ssis-integration-runtime.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à : 
 
 > [!div class="checklist"]

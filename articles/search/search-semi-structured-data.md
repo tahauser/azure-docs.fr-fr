@@ -276,7 +276,7 @@ N’hésitez pas à mettre en pratique ce que vous avez appris et à essayer vou
 
 Le paramètre `$filter` fonctionne uniquement avec des métadonnées qui ont été marquées comme « filtrables » lors de la création de l’index.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à rechercher des données semi-structurées en utilisant Recherche Azure, à savoir comment effectuer les tâches suivantes :
 

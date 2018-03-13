@@ -117,7 +117,7 @@ Vous pouvez également examiner les paramètres de l’appareil dans le portail 
 Pour plus d’informations, consultez [Localiser des appareils](device-management-azure-portal.md#locate-devices).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes : 
 

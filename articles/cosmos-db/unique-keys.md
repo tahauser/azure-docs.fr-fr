@@ -133,7 +133,7 @@ L’exemple de commande suivant montre comment créer un index unique sur les ch
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à créer des clés uniques pour les éléments d’une base de données. Si vous créez un conteneur pour la première fois, consultez [Partitionnement de données Azure Cosmos DB](partition-data.md), car les clés uniques et les clés de partition dépendent les unes des autres. 
 

@@ -50,7 +50,7 @@ L’autre solution consiste à utiliser la fonctionnalité de géorestauration d
 > [!IMPORTANT]
 > La géorestauration n’est possible que si vous avez approvisionné le serveur avec le stockage de sauvegardes géoredondantes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les sauvegardes automatisées, consultez [Sauvegardes dans Azure Database pour MySQL](concepts-backup.md).
 - Pour effectuer une restauration à un point dans le temps à l’aide du portail Azure, consultez  [Restauration d’une base de données à un point dans le temps à l’aide du portail Azure](howto-restore-server-portal.md).

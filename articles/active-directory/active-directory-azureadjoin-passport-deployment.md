@@ -105,7 +105,7 @@ Si vous utilisez l’authentification basée sur un certificat pour l’authenti
 
 Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir **Installer dans Passport for Work, sinon mettre en échec** en tant que **Fournisseur de stockage de clés**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [S’authentifier sans mots de passe](active-directory-azureadjoin-passport.md)

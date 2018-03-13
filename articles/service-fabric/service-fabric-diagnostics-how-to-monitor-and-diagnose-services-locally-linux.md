@@ -140,6 +140,6 @@ Les exemples dans [C# Samples](https://github.com/Azure-Samples/service-fabric-d
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le code de suivi ajouté à votre application fonctionne également pour le diagnostic de votre application sur un cluster Microsoft Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent comment les configurer.
 * [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)

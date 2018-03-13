@@ -130,7 +130,7 @@ Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les
 Remove-AzureRmResourceGroup -Name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous savez créer des rubriques et des abonnements d’événements, vous pouvez en apprendre davantage sur Event Grid et ce qu’il peut vous offrir :
 

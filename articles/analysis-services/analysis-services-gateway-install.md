@@ -117,6 +117,6 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations de dépannage, veillez à consulter la page [Passerelle de données locale](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Gérer Analysis Services](analysis-services-manage.md)   
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)

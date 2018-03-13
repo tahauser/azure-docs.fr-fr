@@ -144,7 +144,7 @@ Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
 - [Pilote JDBC Microsoft pour SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues) (Signaler des problèmes/poser des questions)

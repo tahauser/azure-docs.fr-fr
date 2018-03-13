@@ -38,7 +38,7 @@ Les Kits SDK de publication permettent de publier (POST) des événements sur de
 * [Python](https://pypi.python.org/pypi/azure-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_event_grid)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Event Grid, consultez l’article [What is Event Grid?](overview.md) (Présentation d’Event Grid).
 * Pour connaître les commandes Event Grid dans Azure CLI, consultez la section [Azure CLI](/cli/azure/eventgrid).

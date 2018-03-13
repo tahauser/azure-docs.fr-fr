@@ -109,7 +109,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article de prise en main, vous avez créé un groupe identique de base et vous avez utilisé l’extension de script personnalisé afin d’installer un serveur web NGINX de base sur les instances de machine virtuelle. Pour une meilleure automatisation et évolutivité, développez votre groupe identique à l’aide des articles de procédures suivants :
 
 - [Déployer votre application sur des groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)

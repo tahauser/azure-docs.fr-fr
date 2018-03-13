@@ -300,7 +300,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 Envoyez des rapports d’intégrité à l’aide de REST, avec les demandes POST accédant à l’entité choisie et dont le corps présente une description du rapport d’intégrité. Par exemple, découvrez comment envoyer des [rapports REST sur l’intégrité du cluster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) ou des [rapports REST sur l’intégrité du service](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Toutes les entités sont prises en charge.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Grâce aux données d’intégrité, les enregistreurs de service et les administrateurs de cluster/d’application peuvent réfléchir à des façons de consommer les informations. Par exemple, ils peuvent configurer des alertes basées sur l’état d’intégrité pour intercepter des problèmes graves avant qu’ils provoquent des pannes. Les administrateurs peuvent également configurer des systèmes de réparation pour résoudre les problèmes automatiquement.
 
 [Présentation du contrôle d’intégrité de Service Fabric](service-fabric-health-introduction.md)

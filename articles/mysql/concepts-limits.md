@@ -95,6 +95,6 @@ Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur su
 ## <a name="current-known-issues"></a>Problèmes connus
 - L’instance de serveur MySQL affiche la mauvaise version de serveur une fois la connexion établie. Pour obtenir la bonne version de l’instance de serveur, utilisez la commande select version(); dans l’invite MySQL.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Éléments disponibles dans chaque niveau de service](concepts-pricing-tiers.md)
 - [Versions de base de données MySQL prises en charge](concepts-supported-versions.md)

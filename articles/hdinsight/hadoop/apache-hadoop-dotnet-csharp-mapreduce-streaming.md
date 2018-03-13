@@ -238,7 +238,7 @@ Ce script vous invite à entrer le nom et le mot de passe du compte de connexion
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de MapReduce avec HDInsight, consultez [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md).
 

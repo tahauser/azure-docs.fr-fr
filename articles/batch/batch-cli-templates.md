@@ -259,7 +259,7 @@ La prise en charge du transfert de fichiers et des modèles a seulement été aj
 
 Testez l’extension Batch pour l’interface de ligne de commande Azure et faites-nous part de vos commentaires et de vos suggestions dans les commentaires de cet article ou via le [forum Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez l’article du blog au sujet des modèles de lot : [Exécution des travaux Azure Batch à l’aide de l’interface de ligne de commande Azure - aucun code requis](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Une documentation détaillée sur l’installation et l’utilisation, des exemples et du code source sont disponibles dans le [dépôt GitHub Azure](https://github.com/Azure/azure-batch-cli-extensions).

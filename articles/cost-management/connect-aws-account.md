@@ -98,6 +98,6 @@ Votre compte AWS apparaît dans la liste des comptes. L’**état de votre compt
 
 Cost Management commence la collecte des données et le remplissage des rapports. Toutefois, certains rapports d’optimisation peuvent nécessiter la collecte de données pendant quelques jours avant que des recommandations précises ne soient générées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur Azure Cost Management par Cloudyn, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](tutorial-review-usage.md) pour Cost Management.

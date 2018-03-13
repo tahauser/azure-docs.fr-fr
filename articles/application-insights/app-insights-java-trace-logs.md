@@ -160,7 +160,7 @@ Les exceptions envoyées via les enregistreurs d’événements s’afficheront 
 
 ![Dans Application Insights, ouvrez Recherche](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Recherche de diagnostic][diagnostic]
 
 <!--Link references-->

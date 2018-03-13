@@ -122,7 +122,7 @@ Nous allons maintenant déployer notre deuxième modèle.  Ce modèle vous montr
 
 <a name="NextSteps"></a>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
 * Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](http://azure.com/docdb).

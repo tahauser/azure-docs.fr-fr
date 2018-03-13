@@ -44,5 +44,5 @@ Pour plus d’informations sur ces paramètres, voir [Présentation de la conser
 
 7. Sélectionnez **Enregistrer** pour configurer les modifications.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir [Présentation de la conservation des données dans Time Series Insights](time-series-insights-concepts-retention.md).

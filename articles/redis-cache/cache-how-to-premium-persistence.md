@@ -179,7 +179,7 @@ Lorsque le clustering est activé, chaque partition dans le cache a son propre e
 Après une réécriture, deux jeux de fichiers AOF se trouvent dans le stockage. Les réécritures s’effectuent en arrière-plan et s’ajoutent au premier jeu de fichiers, alors que les opérations définies qui sont envoyées dans le cache lors de la réécriture s’ajoutent au deuxième jeu. Une sauvegarde est temporairement stockée pendant les réécritures en cas d’échec, mais elle est immédiatement supprimée à la fin de la réécriture.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
 * [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)

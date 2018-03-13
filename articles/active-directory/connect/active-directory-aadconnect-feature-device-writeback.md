@@ -149,5 +149,5 @@ Vérifiez la configuration dans Active Directory :
 * [Gestion des risques avec accès conditionnel](../active-directory-conditional-access-azure-portal.md)
 * [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

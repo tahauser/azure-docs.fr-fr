@@ -61,7 +61,7 @@ Pour déplacer des ressources vers un nouvel abonnement, renseignez une valeur p
 
 Comme dans l’exemple précédent, vous devez confirmer le déplacement. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources ou un nouvel abonnement, consultez [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md)
 * Pour plus d’informations sur le contrôle d’accès en fonction du rôle dans Azure Automation, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 * Pour plus d’informations sur les applets de commande PowerShell permettant de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)

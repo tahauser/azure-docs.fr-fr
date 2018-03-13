@@ -962,7 +962,7 @@ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft
 -   **Sections de la stratégie :** inbound, outbound, backend  
 -   **Étendues de la stratégie :** toutes les étendues  
   
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 + [Stratégies dans Gestion des API](api-management-howto-policies.md) 

@@ -119,7 +119,7 @@ Utilisez la commande suivante pour supprimer votre compte Data Lake Store.
 
 Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Recommandations en matière d’optimisation des performances pour l’utilisation de PowerShell avec Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 * [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)

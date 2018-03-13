@@ -86,7 +86,7 @@ Dans ce scénario, l’application invite l’utilisateur à se connecter. Toute
 
 Pour plus d’informations sur l’authentification utilisateur interactive, consultez [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Store avec l’API REST. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser l’API REST pour travailler avec Azure Data Lake Store.
 
 * [Opérations de gestion des comptes sur Data Lake Store à l’aide de l’API REST](data-lake-store-get-started-rest-api.md)

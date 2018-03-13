@@ -817,7 +817,7 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 # END: Execute the script.
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des groupes, consultez les articles suivants :
 

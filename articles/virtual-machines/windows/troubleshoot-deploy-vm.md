@@ -130,7 +130,7 @@ Choisissez une taille prise en charge par le cluster du groupe à haute disponib
 Oui. Vous pouvez ajouter une machine virtuelle classique existante à un nouveau groupe ou à un groupe à haute disponibilité déjà existant. Pour plus d’informations, consultez [Ajouter une machine virtuelle existante à un groupe à haute disponibilité](classic/configure-availability-classic.md#addmachine).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).
 
 Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.

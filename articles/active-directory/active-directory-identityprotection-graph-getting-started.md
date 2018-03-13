@@ -207,7 +207,7 @@ Il suffit d’ajouter l’ID client, la clé secrète, ainsi que le domaine du l
     } 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Félicitations, vous venez de créer votre premier appel à Microsoft Graph !  
 Vous pouvez à présent interroger les événements à risque concernant l’identité et utiliser les données comme bon vous semble.

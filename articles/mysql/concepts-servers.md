@@ -49,7 +49,7 @@ Les éléments suivants permettent de garantir un accès sécurisé à votre bas
 ## <a name="how-do-i-manage-a-server"></a>Comment gérer un serveur ?
 Vous pouvez gérer des serveurs de bases de données Azure pour MySQL à l’aide du Portail Azure ou d’Azure CLI.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Vous trouverez une vue d’ensemble du service à la page [Vue d’ensemble de la base de données Azure pour MySQL](./overview.md).
 - Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](./concepts-service-tiers.md).
 - Pour plus d’informations sur la connexion au service, consultez la page [Bibliothèques de connexions de la base de données Azure pour MySQL](./concepts-connection-libraries.md).

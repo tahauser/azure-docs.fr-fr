@@ -111,7 +111,7 @@ Pour plus d’informations, consultez [Configurer SharePoint Online et Exchange 
 L’utilisation de l’accès conditionnel requiert une licence Azure AD Premium. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions gratuite, de base et Premium](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous souhaitez en savoir plus sur :
     - les conditions, consultez [Conditions d’emplacement dans l’accès conditionnel Azure Active Directory](active-directory-conditional-access-conditions.md).

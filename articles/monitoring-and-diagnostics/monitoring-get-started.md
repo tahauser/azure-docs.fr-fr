@@ -100,5 +100,5 @@ En suivant ces étapes et en épinglant toutes les mosaïques pertinentes à un 
 
 ![Tableau de bord Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Lisez la [Présentation d’Azure Monitor](monitoring-overview.md)

@@ -150,7 +150,7 @@ Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez t
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
 * [Guide pratique pour configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB](tutorial-global-distribution-mongodb.md)

@@ -180,7 +180,7 @@ En supposant que le nom d'utilisateur des informations d'identification soit *js
 jsmith
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * L’architecture des Runbooks dans cet article fournit une vue d’ensemble globale des ressources de gestion des Runbooks dans Azure et localement avec Runbook Worker hybride. Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md).
 * Pour en savoir plus sur la création de Runbooks modulaires à utiliser par d’autres Runbooks pour des fonctions spécifiques ou communes, consultez [Runbooks enfants](automation-child-runbooks.md).
 

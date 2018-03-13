@@ -212,7 +212,7 @@ Dans ce contexte, les _compteurs de performance_ font référence aux [compteurs
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Explorez les flux d’utilisateurs](app-insights-usage-flows.md) pour comprendre comment les utilisateurs naviguent dans l’application.
 * [Utilisez l’API](app-insights-api-custom-events-metrics.md) pour envoyer vos propres événements et mesures pour obtenir une vue plus détaillée des performances et de l’utilisation de votre application.
 * [Les tests de disponibilité](app-insights-monitor-web-app-availability.md) vérifient votre application en permanence dans le monde entier.

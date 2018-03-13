@@ -182,7 +182,7 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 > Pour obtenir une liste de toutes les applets de commande disponibles dans une instance d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

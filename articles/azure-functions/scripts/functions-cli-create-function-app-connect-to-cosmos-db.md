@@ -53,7 +53,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Créer la base de données cosmosdb |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Nettoyer |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

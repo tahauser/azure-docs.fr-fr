@@ -215,7 +215,7 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour créer une table distribuée, utilisez l’une de ces instructions :
 

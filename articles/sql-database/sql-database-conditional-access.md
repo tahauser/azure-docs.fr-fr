@@ -46,6 +46,6 @@ SQL Database et SQL Data Warehouse prennent tous deux en charge l’accès condi
 L’application sélectionnée (Azure SQL Database), qui permet de se connecter à Azure SQL DB/DW à l’aide d’Azure AD Premium, applique maintenant la stratégie d’accès conditionnel sélectionnée **Imposer l’authentification multifacteur**.  
 Pour toute question sur Azure SQL Database et Data Warehouse en ce qui concerne Multi-Factor Authentication, contactez MFAforSQLDB@microsoft.com.  
 
-## <a name="next-steps"></a>étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
 
 Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](sql-database-security-tutorial.md).

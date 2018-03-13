@@ -529,7 +529,7 @@ Pour plus d’informations, consultez [Diffusion en continu des journaux](../app
 
 [!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez les ressources suivantes :
 

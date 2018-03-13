@@ -59,7 +59,7 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 2. Cliquez sur **Overview**.
 3. Le **profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage.  Dans le cas du routage géographique, Traffic Manager examine l’adresse IP source de la demande entrante et détermine la région d’où elle provient. Si cette région est mappée à un point de terminaison, le trafic est acheminé vers cet emplacement. Si cette région n’est pas mappée à un point de terminaison, Traffic Manager renvoie une réponse NODATA.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez-en davantage sur la [méthode de routage du trafic géographique](traffic-manager-routing-methods.md#geographic).
 - Découvrez comment [tester les paramètres Traffic Manager](traffic-manager-testing-settings.md).

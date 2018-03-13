@@ -90,7 +90,7 @@ Si une fonction d’orchestrateur doit se terminer, il vous suffit de ne *pas* a
 
 Si une fonction d’orchestrateur entre dans une boucle infinie et doit être arrêtée, utilisez dans ce cas la méthode [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_). Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Apprendre à implémenter des orchestrations de singleton](durable-functions-singletons.md)

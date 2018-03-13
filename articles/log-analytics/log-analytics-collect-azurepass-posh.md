@@ -77,7 +77,7 @@ Si vous avez une ressource qui envoie déjà des données à un espace de travai
 
 Vous serez invité à fournir les mêmes informations que quand vous avez exécuté le script pour effectuer la configuration initiale.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions. 
 

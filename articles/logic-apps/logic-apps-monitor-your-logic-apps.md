@@ -279,7 +279,7 @@ Par exemple, l’événement `ActionCompleted` a les propriétés `clientTrackin
   }
   ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Création de modèles pour le déploiement d’applications logiques et la gestion des versions](../logic-apps/logic-apps-create-deploy-template.md)
 * [Scénarios B2B et communication avec Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

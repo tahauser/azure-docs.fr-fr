@@ -105,7 +105,7 @@ Les applications logiques offrent également une intégration avec de nombreux s
 
 * [Livre blanc : Gestion de cas de bout en bout d’intégration d’entreprise avec des services Azure, tels que des applications logiques](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer des définitions de flux de travail avec le langage de définition de flux de travail](../logic-apps/logic-apps-author-definitions.md)
 * [Gérer les erreurs et les exceptions dans Azure Logic Apps](../logic-apps/logic-apps-exception-handling.md)

@@ -104,7 +104,7 @@ Apache Avro propose des guides de mise en route complets pour [Java][Java] et [P
 
 Event Hubs Capture est mesuré de la même façon que les unités de débit, au tarif horaire. La facturation est directement proportionnelle au nombre d’unités de débit achetées pour l’espace de noms. En même temps que les unités de débit augmentent et diminuent, Event Hubs Capture augmente et diminue pour fournir des performances adaptées. Les compteurs se produisent en même temps. Pour plus d’informations sur les prix appliqués, consultez [Tarification d’Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Event Hubs Capture est la solution la plus simple pour charger des données dans Azure. À l’aide d’Azure Data Lake, d’Azure Data Factory et d’Azure HDInsight, vous pouvez effectuer un traitement par lots, ainsi que d’autres analyses en utilisant des outils et des plateformes de votre choix, à l’échelle requise.
 

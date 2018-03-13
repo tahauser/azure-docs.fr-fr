@@ -84,7 +84,7 @@ Dans l’exemple précédent, la stratégie **AllowedVmSizesInLab** est utilisé
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir accordé aux utilisateurs des autorisations sur des stratégies de laboratoire spécifiques, voici des étapes à prendre en compte :
 
 * [Sécuriser l’accès à un laboratoire](devtest-lab-add-devtest-user.md)

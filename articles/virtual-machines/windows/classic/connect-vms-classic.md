@@ -34,5 +34,5 @@ Si vous placez vos machines virtuelles dans le même service cloud autonome, vou
 
 [!INCLUDE [virtual-machines-common-classic-connect-vms](../../../../includes/virtual-machines-common-classic-connect-vms.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez créé une machine virtuelle, il convient de lui [ajouter un disque de données](attach-disk.md) pour que vos services et charges de travail disposent d’un emplacement de stockage des données.

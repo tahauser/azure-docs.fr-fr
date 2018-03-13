@@ -160,7 +160,7 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 18. Sur votre ordinateur local, revenez à l’onglet du navigateur pour afficher le portail Azure, puis dans **Étape 3 : Démonter les disques après la récupération**, cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

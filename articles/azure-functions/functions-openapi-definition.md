@@ -290,7 +290,7 @@ Avant d’utiliser la définition de l’API, il est conseillé de la tester dan
 
     ![Option Send a request (Envoyer une demande)](media/functions-openapi-definition/send-request.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

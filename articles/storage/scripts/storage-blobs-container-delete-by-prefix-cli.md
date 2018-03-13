@@ -53,7 +53,7 @@ Ce script utilise les commandes suivantes pour supprimer des conteneurs selon un
 | [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Répertorie les conteneurs inclus dans un compte de stockage Azure. |
 | [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Supprime des conteneurs dans un compte de stockage Azure. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 

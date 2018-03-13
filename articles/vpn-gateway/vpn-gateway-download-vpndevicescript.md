@@ -101,6 +101,6 @@ Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connectio
 
 Une fois que vous avez téléchargé et validé le script de configuration, l’étape suivante consiste à appliquer le script à votre périphérique VPN. La procédure réelle varie en fonction de la marque et du modèle du périphérique VPN. Consultez les guides d’utilisation ou les pages d’instruction de vos périphériques VPN.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.

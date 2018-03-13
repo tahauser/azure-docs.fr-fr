@@ -50,7 +50,7 @@ L’objectif de cette rubrique est de vous expliquer comment définir le port n�
    ![Modifier les chaînes multiples](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Cliquez sur **OK** pour fermer la boîte de dialogue **Modifier les chaînes multiples**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md) 
 

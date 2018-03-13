@@ -66,6 +66,6 @@ Pour redimensionner une machine virtuelle à une taille non disponible dans le c
 
 Vous trouverez [ici](https://github.com/Azure/azure-vm-scripts) un exemple de script de suppression et de recréation d’un service cloud avec une nouvelle taille de machines virtuelles. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Redimensionnez une machine virtuelle créée avec le modèle de déploiement Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

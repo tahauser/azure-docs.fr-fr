@@ -143,7 +143,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Référence - Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 À présent que vous savez comment télécharger des fichiers depuis des appareils avec IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT :
 

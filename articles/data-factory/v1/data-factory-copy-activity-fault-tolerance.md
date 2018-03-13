@@ -86,5 +86,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’activité de copie dans Azure Data Factory, voir [Déplacer des données à l’aide de l’activité de copie](data-factory-data-movement-activities.md).

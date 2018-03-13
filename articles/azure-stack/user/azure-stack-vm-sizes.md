@@ -121,6 +121,6 @@ Cet article répertorie les tailles de machine virtuelle prises en charge dans A
 |**Standard_DS14_v2** |16  |112 |224  |1 000 |64 000  |64 / 64x2 300  |8 / 12000 |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)

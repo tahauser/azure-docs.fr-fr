@@ -48,7 +48,7 @@ Le tableau suivant illustre comment les mécanismes d’authentification de l’
 
 Pour plus d’informations sur la façon d’utiliser Azure Active Directory pour l’authentification, consultez [Scénarios d’authentification Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Authentification de service à service](data-lake-store-service-to-service-authenticate-using-active-directory.md)

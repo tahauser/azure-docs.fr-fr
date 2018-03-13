@@ -116,6 +116,6 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Configurez la récupération d’urgence des [machines virtuelles VMware](tutorial-vmware-to-azure.md) vers Azure.

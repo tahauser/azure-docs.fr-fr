@@ -968,7 +968,7 @@ user=joe              | Ce modèle correspond lorsque la chaîne de requête d�
 
 </br>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md)
 * [Informations de référence du moteur de règles](cdn-rules-engine-reference.md)
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)

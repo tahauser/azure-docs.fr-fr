@@ -189,7 +189,7 @@ Pour illustrer le basculement du service, il est possible de simuler un redémar
 
     ![Succès du redémarrage du nœud dans Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
 > [!div class="checklist"]

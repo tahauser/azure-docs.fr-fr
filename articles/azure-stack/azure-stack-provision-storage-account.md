@@ -32,7 +32,7 @@ Les comptes de stockage incluent les services d’objets Blob et de Table, ainsi
 
     ![](media/azure-stack-provision-storage-account/image03.png)
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 [Utiliser les modèles Azure Resource Manager](user/azure-stack-arm-templates.md)
 
 [Découvrir les comptes de stockage Azure](../storage/common/storage-create-storage-account.md)

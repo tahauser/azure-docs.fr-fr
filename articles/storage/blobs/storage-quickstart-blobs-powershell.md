@@ -110,7 +110,7 @@ Supprimez toutes les ressources que vous avez créées. Pour ce faire, le plus s
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage Blob Azure. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
 

@@ -62,7 +62,7 @@ La vignette Mise à jour affiche la version actuelle d’Azure Stack. Vous pouve
  
 - Dans la vignette **Gestion des régions**, cliquez sur le nom de la région. Consultez la version actuelle dans la vignette **Mise à jour**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md) 
 - [Gestion des régions dans Azure Stack](azure-stack-region-management.md)     

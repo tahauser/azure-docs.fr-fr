@@ -241,7 +241,7 @@ Vous pouvez utiliser le menu Paramètres pour arrêter les appareils simulés. C
 
     ![Menu Paramètres](media/iot-suite-remote-monitoring-explore/settings.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

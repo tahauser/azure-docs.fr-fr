@@ -117,7 +117,7 @@ Pour les sources de données cloud :
 
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Passerelle locale](analysis-services-gateway.md)   
 [Gérer votre serveur](analysis-services-manage.md)   
 

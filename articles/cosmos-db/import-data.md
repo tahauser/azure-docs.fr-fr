@@ -549,7 +549,7 @@ Choisissez ensuite si vous souhaitez consigner tous les messages d’erreur, uni
    
     ![Capture d’écran des options d’exportation JSON Azure Cosmos DB](./media/import-data/newimport.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez effectué les tâches suivantes :
 

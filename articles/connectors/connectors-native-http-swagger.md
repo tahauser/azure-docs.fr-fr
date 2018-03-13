@@ -127,7 +127,7 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 
 - - -
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Rechercher d’autres connecteurs](apis-list.md)

@@ -84,6 +84,6 @@ Pour supprimer un élément de la galerie du groupe de machines virtuelles ident
 > L’élément de la galerie n’est pas forcément supprimé immédiatement de la marketplace. Vous devrez peut-être pour cela actualiser le portail plusieurs fois.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Forum aux questions sur Azure Stack](azure-stack-faq.md)
 

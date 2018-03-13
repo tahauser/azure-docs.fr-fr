@@ -197,7 +197,7 @@ Connection: keep-alive
 
 Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP à l’application web principale via le réseau local du groupe pour s’assurer qu’il fonctionne. Cet exemple d’annexe peut être étendu pour déclencher une alerte suite à la réception d’un code de réponse HTTP autre que 200 OK.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce document a couvert les étapes nécessaires pour le déploiement d’une instance Azure Container à plusieurs conteneurs. Pour une expérience d’Azure Container Instances de bout en bout, voir le didacticiel d’Azure Container Instances.
 

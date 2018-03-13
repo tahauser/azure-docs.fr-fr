@@ -82,7 +82,7 @@ Les alertes de métriques n’utilisent pas encore les groupes d’actions. Dans
 * envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
 * appeler un webhook, qui permet de lancer des actions d’automatisation supplémentaires.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :
 
 * En savoir plus sur les [métriques](monitoring-overview-metrics.md)

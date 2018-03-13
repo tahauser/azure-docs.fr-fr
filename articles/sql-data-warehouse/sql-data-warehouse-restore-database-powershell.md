@@ -154,7 +154,7 @@ $GeoRestoredDatabase.status
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions d’Azure SQL Database, consultez la rubrique [Vue d’ensemble de la continuité des activités Azure SQL Database][Azure SQL Database business continuity overview].
 
 <!--Image references-->

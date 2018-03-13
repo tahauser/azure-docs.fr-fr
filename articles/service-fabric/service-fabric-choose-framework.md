@@ -57,7 +57,7 @@ Reposant sur Reliable Services, l'infrastructure Reliable Actor est une infrastr
 
 [Créer un service frontal à l’aide d’ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Vue d’ensemble de Service Fabric et des conteneurs](service-fabric-containers-overview.md)
 
 [Présentation de Reliable Services](service-fabric-reliable-services-introduction.md)

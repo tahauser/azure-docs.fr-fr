@@ -162,7 +162,7 @@ Nous vous conseillons de contacter l’utilisateur pour vérifier s’il s’est
 
 
  
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les événements à risque sont l’élément de base qui définit le niveau de protection de vos identités Azure AD. Azure AD peut détecter actuellement six événements à risque : 
 

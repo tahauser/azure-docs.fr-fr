@@ -96,7 +96,7 @@ Dans l’exemple suivant, l’accès à un compte de stockage est accordé à un
    }
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 - Pour activer une identité MSI affectée par l’utilisateur sur une machine virtuelle Azure, consultez [Configurer une identité MSI (Managed Service Identity) affectée par l’utilisateur pour une machine virtuelle, à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).

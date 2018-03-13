@@ -36,6 +36,6 @@ Les modèles Resource Manager déploient et approvisionnent toutes les ressource
 5. Cliquez sur **Groupe de ressources**, choisissez un groupe de ressources existant ou créez-en un, puis cliquez sur **OK**.
 6. Cliquez sur **Créer**. Le tableau de bord contient maintenant une nouvelle vignette qui suit la progression du déploiement de votre modèle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
 

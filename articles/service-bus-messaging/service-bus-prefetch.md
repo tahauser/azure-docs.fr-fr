@@ -53,7 +53,7 @@ Si vous avez besoin d’un haut débit et que votre processus de traitement des 
 
 Le nombre maximal de prérécupérations et la durée de verrouillage configurés sur la file d’attente ou l’abonnement doivent être équilibrés, de sorte que le délai d’expiration du verrouillage dépasse au moins le temps de traitement des messages prévu cumulé pour la taille maximale de la mémoire tampon de prérécupération, plus un message. Parallèlement, il convient d’éviter que le délai d’expiration du verrouillage soit si long que les messages risquent de dépasser leur valeur [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) maximale lorsqu’ils sont accidentellement abandonnés, ce qui nécessite alors d’attendre l’arrivée à expiration du verrouillage des messages pour que ces derniers puissent faire l’objet d’une nouvelle tentative de remise.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

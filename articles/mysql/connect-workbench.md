@@ -108,6 +108,6 @@ Pour vous connecter au serveur Azure MySQL à l’aide de l’outil d’interfac
 
 Vous êtes à présent connecté à la base de données Azure pour MySQL à l’aide de MySQL Workbench et avez interrogé des données à l’aide du langage SQL.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./concepts-migrate-import-export.md)

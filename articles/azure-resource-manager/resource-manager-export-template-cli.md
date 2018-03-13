@@ -203,7 +203,7 @@ Votre modèle doit maintenant ressembler à ceci :
 
 Redéployez le modèle modifié.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur l’utilisation du portail pour exporter un modèle, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 * Pour définir des paramètres dans le modèle, consultez [Création de modèles](resource-group-authoring-templates.md#parameters).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).

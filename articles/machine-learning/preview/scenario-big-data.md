@@ -419,7 +419,7 @@ Choisissez une chaîne unique comme environnement pour l’opérationnalisation.
    Pour en savoir plus, consultez [How to scale operationalization on your Azure Container Service cluster](how-to-scale-clusters.md) (Mise à l’échelle d’une opérationnalisation sur un cluster Azure Container Service).
  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet exemple montre comment utiliser Machine Learning Workbench pour effectuer l’apprentissage d’un modèle Machine Learning sur du Big Data et opérationnaliser le modèle formé. Vous avez appris à configurer et à utiliser différentes cibles de calcul, à exécuter l’historique des indicateurs de performances à des fins de suivi, et à utiliser différentes exécutions.
 

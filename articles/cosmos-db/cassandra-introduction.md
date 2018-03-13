@@ -88,7 +88,7 @@ Une fois que vous avez rejoint le programme en préversion, suivez les démarrag
 * [Démarrage rapide : Créer une application web Cassandra avec .NET et Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Démarrage rapide : Créer une application web Cassandra avec Python et Azure Cosmos DB](create-cassandra-python.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Des informations sur l’API Cassandra d’Azure Cosmos DB sont intégrées dans l’ensemble de la documentation Azure Cosmos DB, mais voici quelques points qui vous aideront à démarrer :
 

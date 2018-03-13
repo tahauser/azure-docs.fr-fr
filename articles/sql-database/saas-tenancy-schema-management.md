@@ -120,7 +120,7 @@ Observez les éléments suivants dans le script _OnlineReindex.sql_ :
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

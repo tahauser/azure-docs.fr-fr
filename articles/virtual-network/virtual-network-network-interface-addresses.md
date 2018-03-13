@@ -201,7 +201,7 @@ Une adresse IP publique est créée avec la référence SKU de base ou standard.
 > [!NOTE]
 > Quand vous assignez une adresse IP publique de référence SKU Standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec différentes configurations IP, consultez les articles suivants :
 
 |Tâche|Outil|

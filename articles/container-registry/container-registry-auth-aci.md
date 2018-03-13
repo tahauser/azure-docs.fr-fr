@@ -44,7 +44,7 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les articles suivants incluent des détails supplémentaires sur l’utilisation des principaux de service et ACR :
 

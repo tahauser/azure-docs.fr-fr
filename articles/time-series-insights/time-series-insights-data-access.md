@@ -66,7 +66,7 @@ Effectuez les étapes suivantes pour accorder l’accès aux données à un util
 
    ![Gérer la source Time Series Insights - Résultats](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez le [Guide pratique pour ajouter une source d’événement Event Hub à votre environnement Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * [Envoyer des événements](time-series-insights-send-events.md) à la source d’événement.
 * Affichez votre environnement dans [l’explorateur Time Series Insights](https://insights.timeseries.azure.com).

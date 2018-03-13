@@ -499,7 +499,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez l’exemple suivant pour créer un pipeline à l’aide du Kit de développement logiciel .NET qui copie les données d’un stockage d’objets blob Azure dans une base de données SQL Azure : 
 
 - [Créer un pipeline pour copier des données de stockage d’objets Blob dans SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

@@ -431,6 +431,6 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Configurer une stratégie de remise d’éléments](media-services-dotnet-configure-asset-delivery-policy.md).
 

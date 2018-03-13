@@ -321,6 +321,6 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’activité de procédure stockée, consultez l’article [Activité de procédure stockée](data-factory-stored-proc-activity.md).
 

@@ -309,7 +309,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
   -RetentionEnabled $true -RetentionInDays 90
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [journalisation des diagnostics de ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 

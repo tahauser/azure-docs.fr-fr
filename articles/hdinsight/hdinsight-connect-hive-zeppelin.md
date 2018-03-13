@@ -73,7 +73,7 @@ Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants
     Les résultats de la requête sont retournés plus rapidement qu’avec une requête Hive standard.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à visualiser des données de HDInsight à l’aide de Power BI.  Pour en savoir plus, consultez les articles suivants :
 
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).

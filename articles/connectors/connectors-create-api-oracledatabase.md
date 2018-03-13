@@ -133,5 +133,5 @@ Le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?
 Vous pouvez améliorer Logic Apps et les connecteurs en votant et en soumettant vos idées sur [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](apis-list.md) et explorez les connecteurs disponibles dans Logic Apps en consultant notre [liste d’API](../logic-apps/quickstart-create-first-logic-app-workflow.md).

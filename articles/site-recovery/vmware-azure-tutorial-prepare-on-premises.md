@@ -106,7 +106,7 @@ Pour vous connecter à des machines virtuelles Linux à l’aide de SSH après l
 2. Sur la machine virtuelle Azure, après le basculement, autorisez les connexions entrantes au port SSH pour les règles des groupes de sécurité réseau sur la machine virtuelle basculée, et pour le sous-réseau Azure auquel elle est connectée.
    [Ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md) pour la machine virtuelle. Vous pouvez vérifier les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware](vmware-azure-tutorial.md)

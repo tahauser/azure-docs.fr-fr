@@ -86,7 +86,7 @@ Le script **UpdateSyncSchema** utilise les commandes suivantes. Chaque commande 
 | [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Met à jour un schéma de synchronisation. |
 |||
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation d’Azure PowerShell](/powershell/azure/overview).
 

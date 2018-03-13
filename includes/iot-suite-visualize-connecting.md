@@ -39,6 +39,6 @@ Pour appeler des méthodes sur vos périphériques, utilisez la page **Périphé
 > [!NOTE]
 > Pour suivre l’état de la tâche dans la solution, choisissez **Afficher**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 L’article [Personnaliser la solution de surveillance à distance préconfigurée](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) décrit quelques méthodes permettant de personnaliser la solution préconfigurée.

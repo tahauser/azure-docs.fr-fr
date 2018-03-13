@@ -56,7 +56,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez créé votre laboratoire, voici quelques étapes à prendre en compte :
 
 * [Sécuriser l’accès à un laboratoire](devtest-lab-add-devtest-user.md)

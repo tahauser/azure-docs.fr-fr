@@ -101,7 +101,7 @@ Le tableau ci-dessous récapitule les ressources du compte d’identification Cl
 | AzureClassicRunAsConnection |Ressource de connexion créée automatiquement. La ressource permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Classic des runbooks. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Pour obtenir des informations sur la prise en main des Runbooks de workflow PowerShell, voir [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md).

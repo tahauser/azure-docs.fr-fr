@@ -142,7 +142,7 @@ Message is Process new file...
 Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

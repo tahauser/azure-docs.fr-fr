@@ -108,7 +108,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les Webhooks et les alertes Azure par le biais de la vidéo décrivant [l’intégration d’alertes Azure à PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080).
 * Découvrez comment [exécuter des scripts Azure Automation (runbooks) sur des alertes Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
 * Découvrez comment [utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).

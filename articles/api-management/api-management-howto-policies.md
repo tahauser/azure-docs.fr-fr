@@ -113,7 +113,7 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 </ip-filter>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 

@@ -107,7 +107,7 @@ Lorsque vous [créez la machine virtuelle](devtest-lab-add-vm.md), vous pouvez d
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez défini et appliqué les différents paramètres de stratégies des machines virtuelles pour votre laboratoire, voici ce que vous pouvez essayer de faire :
 
 * [Comprendre les adresses IP partagées](devtest-lab-shared-ip.md) : explique comment les adresses IP partagées sont utilisées dans DevTest Labs pour réduire le nombre d’adresses IP publiques requises pour se connecter aux machines virtuelles de votre laboratoire.

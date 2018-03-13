@@ -202,7 +202,7 @@ La dernière étape à effectuer consiste à garantir que SharePoint peut trouve
 
 Vous pouvez maintenant accéder au site SharePoint en externe par l’intermédiaire du proxy d’application Azure AD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](active-directory-application-proxy-custom-domains.md)
 - [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)

@@ -50,7 +50,7 @@ Identifiez les utilisateurs qui ne se sont pas inscrits auprès de MFA à l’ai
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Pour les utilisateurs](end-user/multi-factor-authentication-end-user.md)
 * [Où déployer](multi-factor-authentication-get-started.md)

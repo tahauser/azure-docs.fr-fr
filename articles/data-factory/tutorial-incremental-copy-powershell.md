@@ -726,7 +726,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     data_source_table | 2017-09-07 09:01:00.000
 
      
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

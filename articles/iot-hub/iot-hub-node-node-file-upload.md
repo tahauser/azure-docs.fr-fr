@@ -213,7 +213,7 @@ Vous pouvez utiliser le portail pour afficher le fichier chargé dans le contene
 
 ![Fichier chargé](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et fonctionnalités d’IoT Hub avec les articles suivants :
 

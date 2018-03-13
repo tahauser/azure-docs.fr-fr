@@ -169,7 +169,7 @@ La dernière étape consiste à créer une machine virtuelle à partir du disque
     ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez restauré un disque à partir d’un point de récupération, puis créé une machine virtuelle à partir du disque. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

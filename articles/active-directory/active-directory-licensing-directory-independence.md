@@ -50,5 +50,5 @@ Pour ajouter un locataire Azure AD dans le portail Azure, connectez-vous au [po
 > Contrairement aux autres ressources Azure, vos locataires ne sont pas des ressources enfants d’un abonnement Azure. Si votre abonnement Azure est annulé ou qu’il est arrivé à expiration, vous pouvez toujours accéder aux données de votre locataire via Azure PowerShell, l’API Azure Graph ou le centre d’administration Office 365. Vous pouvez aussi [associer un autre abonnement au locataire](active-directory-how-subscriptions-associated-directory.md).
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et découvrir les bonnes pratiques, consultez [Qu’est-ce que la gestion des licences de locataires Azure Active Directory ?](active-directory-licensing-whatis-azure-portal.md).

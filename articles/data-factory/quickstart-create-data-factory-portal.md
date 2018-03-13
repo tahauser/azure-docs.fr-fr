@@ -238,5 +238,5 @@ Cette procédure est facultative dans ce didacticiel. Vous pouvez créer un *dé
    ![Basculer vers l’affichage « Exécutions du déclencheur »](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 10. Vérifiez qu’un fichier de sortie est créé pour chaque exécution du pipeline jusqu’à la date/heure de fin spécifiée dans le dossier de **sortie**. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios, consultez les [didacticiels](tutorial-copy-data-portal.md). 

@@ -27,6 +27,6 @@ Consultez la [documentation] MySQL (https://dev.mysql.com/doc/relnotes/mysql/5.7
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 La base de données Azure pour MySQL gère automatiquement les correctifs pour les mises à jour de version mineures. Les mises à niveau de version majeures, par exemple  de MySQL 5.6 à MySQL 5.7 ne sont pas prises en charge.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](./concepts-pricing-tiers.md).

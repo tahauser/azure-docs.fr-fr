@@ -283,7 +283,7 @@ Les propriétés souhaitées sont définies lors de l’application d’un manif
 | clients.{device or module identity}.lastConnectTime | Dernière connexion de l’appareil ou du module |
 | clients.{device or module identity}.lastDisconnectTime | Dernière déconnexion de l’appareil ou du module |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous savez comment les modules IoT Edge sont utilisés, [Comprendre les exigences et les outils de développement de modules IoT Edge][lnk-module-dev].
 

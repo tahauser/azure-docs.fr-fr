@@ -86,7 +86,7 @@ Par exemple, vous pouvez utiliser une procédure stockée avec Azure SQL Databas
 
 Un autre exemple consiste à utiliser un système de fichiers partitionné comme les objets BLOB Stockage Azure ou Azure Data Lake store. Dans ce cas, votre logique de récepteur n’a pas besoin de vérifier l’existence d’un fichier. Si le fichier représentant l’événement existe, il est simplement remplacé par les mêmes données. Sinon, un fichier est créé dans le chemin calculé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de Spark Streaming](apache-spark-streaming-overview.md)
 * [Création de travaux Spark Streaming hautement disponibles dans YARN](apache-spark-streaming-high-availability.md)

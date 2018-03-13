@@ -93,7 +93,7 @@ Choisissez **Supprimer**.
 
    ![Supprimer un partenaire](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur les contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
 

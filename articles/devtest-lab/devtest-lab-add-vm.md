@@ -111,7 +111,7 @@ Une fois enregistré, vous pouvez utiliser le modèle Azure Resource Manager pou
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Une fois la machine virtuelle créée, vous pouvez vous y connecter en sélectionnant **Connexion** dans le volet de la machine virtuelle.
 * Découvrez comment [créer des artefacts personnalisés pour vos machines virtuelles DevTest Labs](devtest-lab-artifact-author.md).
 * Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

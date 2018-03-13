@@ -78,7 +78,7 @@ Pour activer l’authentification multifacteur, les utilisateurs doivent être d
 
     ![Image relative aux paramètres point à site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Intégration de votre infrastructure NPS existante à Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)

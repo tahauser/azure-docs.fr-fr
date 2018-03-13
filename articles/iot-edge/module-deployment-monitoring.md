@@ -116,7 +116,7 @@ Effectuez des restaurations dans l’ordre suivant :
    * Le deuxième déploiement doit désormais inclure l’état de déploiement pour les appareils qui ont été restaurés.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller les modules IoT Edge à l’échelle][lnk-howto].
 * En savoir plus sur d’autres concepts IoT Edge tels que le [runtime IoT Edge][lnk-runtime] et [les modules IoT Edge][lnk-modules].

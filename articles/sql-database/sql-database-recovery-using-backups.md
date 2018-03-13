@@ -152,7 +152,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 ## <a name="summary"></a>Résumé
 Les sauvegardes automatiques protègent vos bases de données des erreurs utilisateur et des erreurs d’application, de la suppression accidentelle d’une base de données et des interruptions prolongées. Cette fonctionnalité intégrée est disponible pour tous les niveaux de service et de performances. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 * Pour plus d’informations sur la rétention des sauvegardes à long terme, consultez [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md).

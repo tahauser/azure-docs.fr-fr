@@ -151,7 +151,7 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 | [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Création d’une machine virtuelle                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Supprime un groupe de ressources et toutes les ressources contenues.                                                                                                                         |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 

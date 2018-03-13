@@ -69,5 +69,5 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Exigences relatives à l’infrastructure à clé publique d’Azure Stack](azure-stack-pki-certs.md)

@@ -72,7 +72,7 @@ Votre nouveau modèle s’affiche dans votre navigateur. À ce stade, vous pouve
 > Quand vous modifiez les métadonnées du modèle ou créez des mesures dans votre navigateur, vous enregistrez les modifications apportées à votre modèle dans Azure. Si vous travaillez également sur votre modèle dans SSDT, Power BI Desktop ou Excel, il peut être désynchronisé.
 
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
 [Connexion avec Excel](analysis-services-connect-excel.md)  
 

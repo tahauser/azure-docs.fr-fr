@@ -72,7 +72,7 @@ Pour plus d’informations sur l’accès aux journaux, consultez les documents 
 
 * [Accéder aux journaux des applications YARN dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de C# avec MapReduce dans HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 

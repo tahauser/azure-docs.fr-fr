@@ -115,5 +115,5 @@ Le [rôle de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azu
 
 Le rôle de playbook azure_preview_module est publié toutes les trois semaines.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les rôles de playbook, consultez [Creating Reusable Playbooks](http://docs.ansible.com/ansible/latest/playbooks_reuse.html) (Création de playbooks réutilisables). 

@@ -231,7 +231,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
     ![Onglet Modifier](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le pipeline dans cet exemple copie des données depuis une base de données SQL Server locale vers un stockage Blob. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

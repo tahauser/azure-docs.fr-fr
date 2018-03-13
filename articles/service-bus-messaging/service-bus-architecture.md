@@ -45,7 +45,7 @@ Lorsqu'un client envoie une requête à Service Bus, l'équilibrage de charge Az
 
 ![Traitement des requêtes de messagerie entrantes](./media/service-bus-architecture/ic690644.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez une vue d'ensemble de l’architecture Service Bus, consultez les liens suivants pour plus d'informations :
 

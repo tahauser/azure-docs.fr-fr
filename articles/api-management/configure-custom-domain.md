@@ -62,6 +62,6 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Mettre à niveau votre service et le mettre à l’échelle](upgrade-and-scale.md)

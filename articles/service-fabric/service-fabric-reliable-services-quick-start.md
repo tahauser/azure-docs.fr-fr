@@ -215,7 +215,7 @@ Une fois que les services commencent à s’exécuter, vous pouvez afficher les 
 
 ![Afficher les événements de diagnostic dans Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déboguer votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
 
 [Prise en main : services de l’API Web Service Fabric avec auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi.md)

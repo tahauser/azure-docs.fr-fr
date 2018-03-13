@@ -57,7 +57,7 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les différentes tailles de machines virtuelles qui sont disponibles :
 - [Usage général](sizes-general.md)

@@ -217,7 +217,7 @@ L’écriture différée des mots de passe est un service à bande passante faib
 
 La taille de chaque message décrit précédemment est généralement inférieure à 1 Ko. Même sous des charges extrêmes, le service d’écriture différée des mots de passe lui-même utilise quelques kilobits par seconde de bande passante. Étant donné que chaque message est envoyé en temps réel, uniquement lorsqu’une opération de mise à jour du mot de passe le requiert, et étant donné que la taille du message est très limitée, l’utilisation de la bande passante de la fonctionnalité d’écriture différée est effectivement trop petite pour produire un impact mesurable.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).

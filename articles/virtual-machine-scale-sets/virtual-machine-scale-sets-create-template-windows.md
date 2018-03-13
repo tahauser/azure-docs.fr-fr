@@ -180,7 +180,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article de prise en main, vous avez créé un groupe identique Windows avec un modèle Azure et vous avez utilisé l’extension DSC PowerShell afin d’installer une application ASP.NET de base sur les instances de machine virtuelle. Pour plus d’automatisation et d’évolutivité, développez votre groupe identique à l’aide des articles de procédures suivants :
 
 - [Déployer votre application sur des groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)

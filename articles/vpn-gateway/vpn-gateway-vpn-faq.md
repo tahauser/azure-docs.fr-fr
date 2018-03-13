@@ -240,7 +240,7 @@ Non. Seul le trafic qui possède une IP de destination contenue dans les plages 
 
 Des informations supplémentaires sur les réseaux virtuels sont disponibles dans le [Forum Aux Questions sur les réseaux virtuels](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 * Pour plus d’informations sur les paramètres de configuration de la passerelle VPN, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).

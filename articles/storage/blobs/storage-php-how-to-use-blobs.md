@@ -315,7 +315,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les principes de base du service blob Azure, suivez ces liens pour apprendre à exécuter les tâches de stockage plus complexes.
 
 * Visitez les [informations de référence sur l’API pour la bibliothèque de client PHP Stockage Azure](http://azure.github.io/azure-storage-php/)

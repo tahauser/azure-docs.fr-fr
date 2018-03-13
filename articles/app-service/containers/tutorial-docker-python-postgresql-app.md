@@ -498,7 +498,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 
 ![Page App Service du Portail Azure](./media/tutorial-docker-python-postgresql-app/app-mgmt.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 

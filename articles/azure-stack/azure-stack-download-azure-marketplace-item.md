@@ -153,6 +153,6 @@ Avant de pouvoir utiliser l’outil de syndication de la Place de marché, véri
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)

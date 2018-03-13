@@ -115,7 +115,7 @@ Les conditions à remplir sont les suivantes :
 * L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un répertoire auquel un autre utilisateur a associé un abonnement. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Forum Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
 * [Forum Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
 * [StackOverflow pour questions Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)

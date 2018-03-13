@@ -580,7 +580,7 @@ Pour aider à diagnostiquer les échecs de démarrage du conteneur, Service Fabr
 Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à conserver en cas d’échec. Si une valeur négative est spécifiée, tous les conteneurs en échec sont conservés. Quand l’attribut **ContainersRetentionCount** n’est pas spécifié, aucun conteneur n’est conservé. L’attribut **ContainersRetentionCount** prend également en charge les paramètres de l’application. Les utilisateurs peuvent ainsi spécifier des valeurs différentes pour les clusters de test et de production. Il est recommandé d’utiliser des contraintes de placement pour cibler le service de conteneur sur un nœud particulier lors de l’utilisation de cette fonctionnalité pour empêcher le service de conteneur de se déplacer vers d’autres nœuds. Tous les conteneurs conservés à l’aide de cette fonctionnalité doivent être supprimés manuellement.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur l’exécution des [conteneurs sur Service Fabric](service-fabric-containers-overview.md).
 * Consultez le didacticiel [Déployer une application .NET dans un conteneur vers Azure Service Fabric](service-fabric-host-app-in-a-container.md).
 * En savoir plus sur le [cycle de vie des applications](service-fabric-application-lifecycle.md) Service Fabric.

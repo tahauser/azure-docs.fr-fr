@@ -43,7 +43,7 @@ Les clients VPN Mac sont pris en charge avec le modèle de déploiement de Resou
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Poursuivez votre configuration point à site.
 

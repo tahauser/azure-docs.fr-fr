@@ -73,7 +73,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Limitations des procédures stockées |Consultez [Limitations des procédures stockées][Stored procedure limitations] pour comprendre certaines limitations des procédures stockées. |
 | Les fonctions définies par l’utilisateur ne prennent pas en charge les instructions SELECT |Il s’agit d’une limitation actuelle de nos fonctions définies par l’utilisateur.  Consultez [CREATE FUNCTION][CREATE FUNCTION] pour connaître la syntaxe que nous prenons en charge. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à votre problème, voici d’autres ressources que vous pouvez consulter.
 
 * [Blogs]

@@ -33,7 +33,7 @@ Un espace de noms est un conteneur d’étendue pour tous les composants Azure R
 
 Félicitations ! Vous venez de créer un espace de noms Relay.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [FAQ Relay](relay-faq.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)

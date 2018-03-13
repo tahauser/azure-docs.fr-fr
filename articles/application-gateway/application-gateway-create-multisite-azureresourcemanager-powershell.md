@@ -265,7 +265,7 @@ Remplacez l’adresse par celle de votre autre domaine. Voici ce qui doit appara
 
 ![Tester le site fabrikam dans la passerelle d’application](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à effectuer les opérations suivantes :
 

@@ -413,7 +413,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect Sync : Personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)

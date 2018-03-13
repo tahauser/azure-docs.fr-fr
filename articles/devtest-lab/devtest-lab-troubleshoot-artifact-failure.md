@@ -56,6 +56,6 @@ Une fois que vous avez créé un artefact, vous pouvez vérifier si la procédur
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 * [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un référentiel Git à un labo](devtest-lab-add-artifact-repo.md).
 

@@ -55,7 +55,7 @@ Le langage possède de nombreuses fonctionnalités attrayantes :
 
 La [référence complète du langage](https://go.microsoft.com/fwlink/?linkid=856079) détaille chaque commande prise en charge et se met à jour régulièrement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Prise en main du [portail Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * Prise en main de l[’écriture de requêtes](https://go.microsoft.com/fwlink/?linkid=856078)
 * Consultez l[’aide-mémoire des utilisateurs de SQL](https://aka.ms/sql-analytics) pour obtenir la traduction des idiomes courants.

@@ -77,5 +77,5 @@ Si aucune propriété n’est configurée sur la source d’événements (timeSt
 
 Si vous devez mettre votre environnement à l’échelle pour prendre en charge une capacité supplémentaire ou pour augmenter la durée de conservation, consultez [Mise à l’échelle de votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md) pour plus d’informations.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la commutation du comportement de conservation, consultez [Configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).

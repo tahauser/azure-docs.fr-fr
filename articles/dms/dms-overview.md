@@ -37,7 +37,7 @@ La préversion d’Azure Database Migration Service est actuellement disponible 
 - Asie du Sud-Est
 - Inde occidentale
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Créer une instance d’Azure Database Migration Service à l’aide du portail Azure](quickstart-create-data-migration-service-portal.md).
 - [Migrer SQL Server vers Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
 - [Vue d’ensemble des prérequis pour l’utilisation d’Azure Database Migration Service](pre-reqs.md).

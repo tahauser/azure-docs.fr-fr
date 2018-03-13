@@ -252,7 +252,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
     ![Exécuter les applications pour planifier des tâches][img-schedulejobs]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 

@@ -52,7 +52,7 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure. |
 | [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crée une Function App. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 

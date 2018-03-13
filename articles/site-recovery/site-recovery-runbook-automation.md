@@ -261,5 +261,5 @@ Pour un autre exemple, regardez la vidéo suivante. Elle montre comment récupé
 * [Vue d’ensemble d’Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble d’Azure Automation")
 * [Ressources de script pour les professionnels de l'informatique](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Ressources de script pour les professionnels de l'informatique")
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](site-recovery-failover.md) sur l’exécution des basculements.

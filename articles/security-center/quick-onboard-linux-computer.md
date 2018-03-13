@@ -81,7 +81,7 @@ Pour supprimer l’agent :
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez provisionné l’agent sur un ordinateur Linux. Pour en savoir plus sur l’utilisation de Security Center, passez au didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité de vos ressources.
 
 > [!div class="nextstepaction"]

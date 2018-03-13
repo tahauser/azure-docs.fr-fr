@@ -71,7 +71,7 @@ Après sa création, un groupe d’actions apparaît dans la section **Groupes d
 * Ajouter, modifier ou supprimer des actions.
 * Supprimer le groupe d’actions.
 
-## <a name="next-steps"></a>étapes suivantes ##
+## <a name="next-steps"></a>Étapes suivantes ##
 * En savoir plus sur le [comportement des alertes SMS](monitoring-sms-alert-behavior.md).  
 * [Comprendre le schéma Webhook des alertes du journal d’activité](monitoring-activity-log-alerts-webhook.md).  
 * En savoir plus sur [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)

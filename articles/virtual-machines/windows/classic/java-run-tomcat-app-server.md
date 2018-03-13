@@ -131,7 +131,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 
     L’activation du démarrage automatique de Tomcat lui permet de redémarrer en même temps que la machine virtuelle (par exemple, après des mises à jour logicielles nécessitant un redémarrage).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre davantage sur les autres services, tels qu’Azure Storage, Service Bus et la base de données SQL, à inclure dans vos applications Java. Afficher les informations disponibles dans le [Centre de développement Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

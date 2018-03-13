@@ -111,7 +111,7 @@ Comme mentionné précédemment, le service qui vous convient le mieux dépend d
 
 Vous pouvez appeler une application logique dans un flux. Vous pouvez également appeler une fonction dans une application logique et une application logique dans une fonction. L’intégration entre Flow, Logic Apps et Functions continue de s’améliorer au fil du temps. Vous pouvez créer quelque chose dans un service et l’utiliser dans les autres services. Par conséquent, tout investissement dans ces trois technologies est pertinent.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Prenez en main chacun de ces services en créant votre premier flux, application logique, application de fonction ou tâche web. Cliquez sur l’un des liens suivants :
 
 * [Prise en main de Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)

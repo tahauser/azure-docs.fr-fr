@@ -230,7 +230,7 @@ a75caa09eb1f: Pushed
 v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez créé un registre de conteneurs géorépliqué privé, généré une image conteneur, puis envoyé cette image à votre registre. En suivant les étapes de ce didacticiel, vous avez :
 

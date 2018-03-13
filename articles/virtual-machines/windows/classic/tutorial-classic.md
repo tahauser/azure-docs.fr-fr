@@ -44,7 +44,7 @@ Vous pouvez également créer des machines virtuelles en utilisant [vos propres 
 ## <a id="createvirtualmachine"></a>Créer la machine virtuelle
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sur le Portail Azure.
 * Connectez-vous à votre machine virtuelle. Pour obtenir des instructions, consultez [Connexion à une machine virtuelle exécutant Windows Server](connect-logon.md).
 * Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez la page [Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement Classic](attach-disk.md).

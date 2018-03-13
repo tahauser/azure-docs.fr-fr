@@ -89,7 +89,7 @@ Deux causes courantes peuvent être à l’origine de cette erreur :
 
     IL arrive parfois que le service Relay subisse des retards dans le traitement des requêtes. Cela peut se produire, par exemple, pendant les périodes à fort trafic. Dans ce cas, réessayez l’opération après un certain délai, jusqu’à ce qu’elle réussisse. Si la même opération échoue encore après plusieurs tentatives, consultez le [Site de statut des services Azure](https://azure.microsoft.com/status/) pour voir s’il existe des interruptions de service connues.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [FAQ Azure Relay](relay-faq.md)
 * [Créer un espace de noms Relay](relay-create-namespace-portal.md)
 * [Bien démarrer avec Azure Relay et .NET](relay-hybrid-connections-dotnet-get-started.md)

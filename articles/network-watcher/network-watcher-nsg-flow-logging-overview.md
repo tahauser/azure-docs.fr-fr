@@ -100,7 +100,7 @@ Vous trouverez ci-dessous un exemple de journal de flux. Comme vous pouvez le vo
         ...
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment activer les journaux de flux en consultant [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
 

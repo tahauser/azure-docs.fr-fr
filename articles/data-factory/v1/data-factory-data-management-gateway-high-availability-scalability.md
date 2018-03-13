@@ -256,7 +256,7 @@ Pour effectuer une restauration à partir de la préversion, supprimez tous les 
 Après la suppression, cliquez sur **Fonctionnalités de préversion** dans la même page du portail Azure et désactivez la fonctionnalité de préversion. Vous avez réinitialisé votre passerelle qui redevient alors une passerelle à nœud unique à disponibilité générale.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants :
 - [Passerelle de gestion des données](data-factory-data-management-gateway.md) - fournit une vue d’ensemble descriptive de la passerelle.
 - [Déplacer des données entre des magasins de données locaux et dans le cloud](data-factory-move-data-between-onprem-and-cloud.md) - contient une procédure pas à pas donnant des instructions sur l’utilisation d’une passerelle à nœud unique. 

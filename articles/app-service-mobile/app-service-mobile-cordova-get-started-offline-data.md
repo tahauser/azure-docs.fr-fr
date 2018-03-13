@@ -189,7 +189,7 @@ Dans cette section, vous reconnectez l'application au serveur principal mobile, 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 * [Visual Studio Tools pour Apache Cordova]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Consultez les fonctionnalités de synchronisation hors connexion plus avancées, comme la résolution des conflits dans [l’exemple de synchronisation hors connexion]
 * Consultez la référence de l’API de synchronisation hors connexion dans la [documentation de l’API](https://azure.github.io/azure-mobile-apps-js-client).
 

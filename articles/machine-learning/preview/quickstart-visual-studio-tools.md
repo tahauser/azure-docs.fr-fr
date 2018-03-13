@@ -76,6 +76,6 @@ L’Explorateur de tâches répertorie toutes les expériences envoyées pour ce
 Avec l’affichage de l’Explorateur de tâches ouvert, cliquez sur la première exécution de la liste.
 Cela chargera le panneau Résumé de la tâche et le panneau Journaux et résultats.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Guide pratique pour configurer Azure Machine Learning afin qu’il fonctionne avec un IDE](./how-to-configure-your-IDE.md)

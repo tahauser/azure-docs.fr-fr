@@ -180,7 +180,7 @@ Dans ce cas, les résultats de la requête sont d’abord mappés vers les colon
 
 ![Flux du mappage de colonnes 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Suivez le didacticiel sur l’activité de copie dans l’article suivant : 
 
 - [Copie de données à partir du Stockage Blob vers une base de données SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

@@ -131,7 +131,7 @@ Cliquez sur **Sélectionner**, puis sur **OK**. Vous pouvez à présent afficher
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles](../azure-resource-manager/resource-group-authoring-templates.md)
 * Pour mieux comprendre les fonctions que vous pouvez utiliser dans un modèle Resource Manager, voir [Fonctions des modèles](../azure-resource-manager/resource-group-template-functions.md)
 

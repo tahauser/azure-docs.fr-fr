@@ -128,7 +128,7 @@ Exécutez ensuite la commande `Get-AzureVM` . Notez que la propriété **GuestAg
    GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble d’agent de machine virtuelle Azure](agent-user-guide.md)
 - [Extensions et fonctionnalités de machine virtuelle pour Windows](extensions-features.md)

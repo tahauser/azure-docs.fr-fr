@@ -59,7 +59,7 @@ Pour enregistrer le rapport ou manipuler les données, exportez les modification
 
 ![ChangeLog affiché en tant que feuille de calcul - capture d’écran](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
 * En savoir plus sur la gestion du [contrôle d’accès en fonction du rôle Azure avec PowerShell](role-based-access-control-manage-access-powershell.md)
 

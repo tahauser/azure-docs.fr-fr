@@ -87,7 +87,7 @@ Grâce à la [réinitialisation de mot de passe en libre-service](active-directo
 Revoyez les propriétés SSPR activées sous **Azure Active Directory** > **Réinitialisation du mot de passe** pour vous assurer que les attributions correctes d’utilisateur et de groupe sont ont été effectuées. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Page du service Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Page d’informations de tarification relatives à Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

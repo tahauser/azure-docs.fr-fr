@@ -150,6 +150,6 @@ Envisagez d’effectuer la migration des stratégies que vous n’avez pas cré�
 Pour plus d’informations, consultez [Migrer les stratégies classiques dans le portail Azure](active-directory-conditional-access-migration.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).

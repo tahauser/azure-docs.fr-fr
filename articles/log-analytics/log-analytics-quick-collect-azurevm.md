@@ -98,7 +98,7 @@ Par exemple, la requête présentée dans l’image suivante a retourné 78 000
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Quand vous n’en avez plus besoin, supprimez l’espace de travail Log Analytics. Pour ce faire, sélectionnez l’espace de travail Log Analytics que vous avez créé précédemment puis, dans la page de ressource, cliquez sur **Supprimer**.<br> ![Supprimer la ressource Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous collectez des données opérationnelles et de performances à partir de vos machines virtuelles Windows ou Linux, vous pouvez commencer à explorer et à analyser facilement les données que vous collectez *gratuitement* et agir en conséquence.  
 
 Pour savoir comment consulter et analyser les données, passez au didacticiel suivant.   

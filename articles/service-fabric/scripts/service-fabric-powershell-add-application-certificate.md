@@ -39,7 +39,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 |---|---|
 | [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | Ajoutez un nouveau certificat d’application au groupe de machines virtuelles identiques qui composent le cluster.  |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 

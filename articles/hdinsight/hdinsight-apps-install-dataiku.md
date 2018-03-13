@@ -116,7 +116,7 @@ Vous pouvez à présent explorer DSS à l’aide des exemples de données. Vous 
 
 Pour accéder à des didacticiels complets, consultez [Learn Dataiku DSS](https://www.dataiku.com/learn/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation sur Dataiku DSS](https://doc.dataiku.com/dss/latest/).
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight non publiées sur HDInsight.

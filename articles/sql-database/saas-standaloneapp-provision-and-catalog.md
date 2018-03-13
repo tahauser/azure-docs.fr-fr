@@ -140,7 +140,7 @@ Lorsque vous avez terminé l’exploration de l’exemple, supprimez tous les gr
 
 - Pour en savoir plus sur les applications de base de données SaaS mutualisées, voir [Concevoir des modèles pour des applications SaaS mutualisées](saas-tenancy-app-design-patterns.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

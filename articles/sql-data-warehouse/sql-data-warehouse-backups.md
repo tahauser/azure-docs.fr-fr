@@ -72,7 +72,7 @@ Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une ca
 > Si vous supprimez une instance SQL Server logique, toutes les bases de données qui appartiennent à l’instance sont également supprimées, sans pouvoir être récupérées. Vous ne pouvez pas restaurer un serveur supprimé.
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour restaurer un entrepôt de données SQL, consultez [Restaurer un entrepôt de données SQL](sql-data-warehouse-restore-database-overview.md).
 
 Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](../sql-database/sql-database-business-continuity.md)

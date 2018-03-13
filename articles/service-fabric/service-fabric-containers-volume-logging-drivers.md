@@ -95,5 +95,5 @@ Quand vous spécifiez un plug-in de volume, Service Fabric crée automatiquement
 ```
 Si un pilote de journalisation Docker est spécifié, vous devez déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster. Vous pouvez utiliser la balise **DriverOption** pour spécifier des options pour le pilote de journal.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour déployer des conteneurs sur un cluster Service Fabric, consultez l’article [Déployer un conteneur sur Service Fabric](service-fabric-deploy-container.md).

@@ -134,7 +134,7 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 
 Pour plus d’informations sur la définition de ces options de configuration, consultez [Create IoT hubs][lnk-portal] (Créer des hubs IoT).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les SDK que vous pouvez utiliser pour recevoir des messages cloud-à-appareil, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
 

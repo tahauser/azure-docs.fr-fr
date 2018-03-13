@@ -713,7 +713,7 @@ project_table   2017-10-01 00:00:00.000
 
 Notez que les valeurs de filigrane des deux tables ont été mises à jour.
      
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

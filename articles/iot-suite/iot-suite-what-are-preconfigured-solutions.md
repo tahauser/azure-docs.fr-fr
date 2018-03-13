@@ -146,7 +146,7 @@ Si vous souhaitez voir d’autres langages d’implémentation, faites une requ�
 
 L’interface utilisateur est générée à l’aide de la bibliothèque Javascript [React](https://facebook.github.io/react/). Le code source est open source, vous pouvez le télécharger et le personnaliser.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez une vue d’ensemble des solutions préconfigurées de IoT Suite, voici les étapes suggérées pour chacune d’elles :
 

@@ -117,7 +117,7 @@ La réponse contient les détails de l’identité MSI affectée à l’utilisat
    az vm remove-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble de l’identité du service administré](msi-overview.md)
 - Pour obtenir les guides de démarrages rapides complets sur la création de machines virtuelles Azure, consultez : 

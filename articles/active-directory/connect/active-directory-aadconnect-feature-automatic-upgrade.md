@@ -100,5 +100,5 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

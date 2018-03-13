@@ -90,7 +90,7 @@ D’autres guides de cette collection sont basés sur ce démarrage rapide. Si v
 
 3.  Sélectionnez **Supprimer l’affectation**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez affecté une définition de stratégie à une étendue. La définition de stratégie permet de s’assurer que toutes les ressources dans l’étendue sont conformes, ainsi que d’identifier celles qui ne le sont pas.
 

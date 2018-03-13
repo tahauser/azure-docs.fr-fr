@@ -258,7 +258,7 @@ Les NSG ci-après sont créés et associés aux NIC des machines virtuelles suiv
 
 Étant donné que certains NSG sont associés à des NIC spécifiques, les règles s’appliquent aux ressources déployées par le biais de Resource Manager. Les règles sont combinées pour le sous-réseau et la NIC, selon leur mode d’association. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Déployer les NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)
 * [Déployer les NSG (Classic)](virtual-networks-create-nsg-classic-ps.md)
 * [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).

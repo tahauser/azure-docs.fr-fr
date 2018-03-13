@@ -193,7 +193,7 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 
 Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-8000-deployment-walkthrough-u2.md).
 

@@ -152,6 +152,6 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), le [déploiement Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), et la [synchronisation de dossiers de cloud](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

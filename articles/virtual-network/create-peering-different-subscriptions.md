@@ -380,7 +380,7 @@ L’appairage de réseaux virtuels au sein d’une même région est généralem
 
     N’effectuez pas les étapes décrites dans les sections Portail, Interface de ligne de commande Azure, PowerShell ou Modèle Resource Manager de cet article tant que la sortie **RegistrationState** que vous avez reçue après avoir entré la commande précédente n’est pas **Registered** pour les deux abonnements.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer une pour une utilisation en production.
 - Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).

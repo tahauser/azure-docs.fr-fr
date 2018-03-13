@@ -147,7 +147,7 @@ Les utilisateurs de sérialiseurs personnalisés doivent respecter les instructi
 Une façon courante de prendre en charge toutes les versions consiste à ajouter au début des informations sur la taille et à ajouter uniquement les propriétés facultatives.
 Chaque version peut ainsi lire un maximum d’informations et passer à la dernière partie du flux de données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
   * [Sérialisation et mise à niveau](service-fabric-application-upgrade-data-serialization.md)
   * [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.

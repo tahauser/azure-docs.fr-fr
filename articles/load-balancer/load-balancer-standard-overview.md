@@ -468,7 +468,7 @@ Les limitations suivantes s’appliquent au moment de la préversion et sont sus
 - Le portail ne prend pas encore en charge les régions développées en préversion.  Veuillez utiliser les outils client comme les modèles, Azure CLI 2.0 ou PowerShell comme solution de contournement.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [la référence De base de Load Balancer](load-balancer-overview.md)
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

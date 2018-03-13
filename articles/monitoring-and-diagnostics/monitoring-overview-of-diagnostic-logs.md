@@ -174,7 +174,7 @@ L’ajout d’un paramètre de diagnostic permet d’afficher le panneau Paramè
 ## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Services, catégories et schémas pris en charge pour les journaux de diagnostic de ressources
 [Consultez cet article](monitoring-diagnostic-logs-schema.md) pour obtenir la liste complète des services pris en charge et des catégories de journaux et des schémas utilisés par ces services.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modifier les paramètres de diagnostic des ressources via l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)

@@ -109,5 +109,5 @@ Sélectionnez **Feedback** (Commentaire) pour donner votre avis sur les fonction
 
 ![Commentaires](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la surveillance et la gestion des pipelines, consultez [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md).

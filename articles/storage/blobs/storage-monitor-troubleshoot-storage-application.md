@@ -110,7 +110,7 @@ Une fois le journal ouvert, vous pouvez consulter les événements de stockage. 
 
 L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux qu’il contient.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans le quatrième et dernier volet de la série, vous avez appris à surveiller et résoudre les problèmes de votre compte de stockage, notamment :
 

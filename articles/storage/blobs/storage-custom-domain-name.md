@@ -154,6 +154,6 @@ Utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershe
       -CustomDomainName ""
   ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Mapper un domaine personnalisé à un point de terminaison Azure CDN (Content Delivery Network)](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)

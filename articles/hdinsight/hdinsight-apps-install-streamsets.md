@@ -76,7 +76,7 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
 7. Vous êtes maintenant prêt à suivre le [didacticiel StreamSets](https://streamsets.com/documentation/datacollector/latest/help/#Tutorial/Tutorial-title.html). Il vous indique une procédure pas à pas pour la création de votre premier pipeline.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation StreamSets Data Collector](https://streamsets.com/documentation/datacollector/latest/help/#Getting_Started/GettingStarted_Title.html#concept_htw_ghg_jq).
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.

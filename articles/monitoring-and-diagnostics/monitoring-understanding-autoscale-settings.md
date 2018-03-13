@@ -307,7 +307,7 @@ La mise à l’échelle automatique calcule la nouvelle capacité déterminée p
 
 Par exemple, choisissons un groupe de machines virtuelles avec une capacité actuelle de 10. Il existe deux règles de descente en puissance : une qui diminue la capacité de 50 %, et une autre qui diminue la capacité de 3 unités. La première règle entraînerait une nouvelle capacité de 5, et la deuxième règle une capacité de 7. Pour garantir la disponibilité du service, la mise à l’échelle automatique choisit l’action qui résulte dans la capacité maximale, par conséquent, la deuxième règle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la mise à l’échelle automatique, consultez les ressources suivantes :
 
 * [Vue d’ensemble de la mise à l’échelle automatique](monitoring-overview-autoscale.md)

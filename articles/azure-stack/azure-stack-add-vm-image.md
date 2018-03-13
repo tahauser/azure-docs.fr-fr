@@ -203,6 +203,6 @@ Les images doivent être en mesure d’être référencées par un URI de stocka
 
 4. Pour rendre une image de machine virtuelle plus rapidement disponible dans l’interface utilisateur, c’est une bonne idée de [créer un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

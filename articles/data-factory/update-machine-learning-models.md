@@ -272,7 +272,7 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
     }
 }
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

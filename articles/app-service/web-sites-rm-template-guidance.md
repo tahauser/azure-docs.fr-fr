@@ -107,6 +107,6 @@ Le nom de votre application web doit être globalement unique. Vous pouvez utili
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour suivre un tutoriel sur le déploiement d’applications web avec un modèle, consultez [Provisionner et déployer des microservices de manière prévisible dans Azure](app-service-deploy-complex-application-predictably.md).

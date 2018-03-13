@@ -354,5 +354,5 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 Pour toute question ou tout commentaire à propos de la solution IT Service Management Connector, contactez-nous à l’adresse [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Ajouter des produits/services ITSM à IT Service Management Connector](log-analytics-itsmc-connections.md).

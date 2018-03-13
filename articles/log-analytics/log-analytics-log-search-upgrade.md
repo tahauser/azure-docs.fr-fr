@@ -95,7 +95,7 @@ Si vous êtes déjà familiarisé avec l’ancien langage de requête Log Analyt
 ![Convertisseur de langage](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [didacticiel sur le nouveau langage](https://go.microsoft.com/fwlink/?linkid=856078).
 - Suivez le [didacticiel sur l’utilisation du portail Recherche dans les journaux](log-analytics-log-search-log-search-portal.md) avec le nouveau langage de requête.
 - Lisez la présentation du nouveau [portail Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).

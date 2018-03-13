@@ -56,7 +56,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Crée une instance SQL Database au sein du serveur logique. |
 | [az group delete](/cli/azure/resource#az_resource_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

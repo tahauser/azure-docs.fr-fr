@@ -135,7 +135,7 @@ Azure Stream Analytics implémente cette fonctionnalité à l’aide de la claus
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour une assistance supplémentaire, essayez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main de Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)

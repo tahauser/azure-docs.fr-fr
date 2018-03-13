@@ -287,7 +287,7 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 

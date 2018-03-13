@@ -60,7 +60,7 @@ Pour partager une copie des données dans un rapport des utilisateurs, des sessi
 
 La section **Meet your users** (Découvrir vos utilisateurs) fournit des informations sur cinq exemples d’utilisateurs mis en correspondance par la requête actuelle. La prise en compte et l’analyse des comportements des personnes, en plus des agrégats, fournissent des informations sur la façon dont les personnes utilisent réellement votre application.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.

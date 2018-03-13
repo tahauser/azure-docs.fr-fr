@@ -74,7 +74,7 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 4. Cliquez sur **Référence** > sélectionnez le SKU SQL que vous avez créé pour le serveur d’hébergement SQL > **OK**.
 5. Cliquez sur **Créer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

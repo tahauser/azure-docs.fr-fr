@@ -760,7 +760,7 @@ Pour que le projet utilise la version complète de l'émulateur, cliquez avec le
 
 Pour exécuter l'application avec l'émulateur complet, vous devez ouvrir Visual Studio avec les privilèges d'administrateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 L'application Contoso Ads est intentionnellement simple pour un didacticiel de prise en main. Par exemple, elle n’implémente pas [l’injection de dépendances](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ni les [modèles de référentiel et d’élément de travail](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), elle [n’utilise pas d’interface pour la connexion](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), ni les [migrations Code First EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) pour gérer les changements de modèles de données ou la [résilience des connexions EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) pour gérer les erreurs réseau temporaires, etc.
 
 Voici quelques exemples d'applications de service cloud qui montrent des pratiques d'encodage réelles, de la plus simple à la plus complexe :

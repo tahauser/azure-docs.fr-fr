@@ -70,7 +70,7 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressource
 
 ![cleanup](./media/get-started-create-service-instance/cleanup.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Importer et publier votre première API](import-and-publish.md)

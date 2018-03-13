@@ -76,7 +76,7 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | W3CIISLog &#124; où csHost==« www.contoso.com » &#124; résumer count() par csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
 | W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.

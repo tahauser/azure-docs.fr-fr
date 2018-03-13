@@ -74,7 +74,7 @@ Si vos applications utilisent des en-têtes pour l’authentification, choisisse
 
 Pour plus d’informations sur la configuration de l’authentification basée sur l’en-tête, consultez la page [Authentification basée sur l’en-tête pour une authentification unique avec le Proxy d’application et PingAccess](application-proxy-ping-access.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Authentification unique avec le proxy d’application](application-proxy-sso-azure-portal.md)
 - [Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)

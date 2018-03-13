@@ -187,7 +187,7 @@ Si une restauration est nécessaire, procédez comme suit :
 
 Le nouveau serveur est maintenant en place, avec les données d’utilisateur et de configuration d’origine que vous aviez sauvegardées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Installez et configurez le [portail utilisateur](multi-factor-authentication-get-started-portal.md) pour une utilisation en libre-service.
 - Installez et configurez le serveur Azure MFA avec [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [l’authentification RADIUS](multi-factor-authentication-get-started-server-radius.md) ou [l’authentification LDAP](multi-factor-authentication-get-started-server-ldap.md).

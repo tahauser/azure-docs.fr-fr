@@ -167,5 +167,5 @@ Suivez ces bonnes pratiques pour la configuration d’ExpressRoute :
  >[!IMPORTANT]
  > Si la région principale est complètement en panne, l’opération de déconnexion peut échouer. Cela empêchera le réseau virtuel cible d’obtenir la connectivité ExpressRoute.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Commencez à protéger vos charges de travail en [répliquant des machines virtuelles Azure](site-recovery-azure-to-azure.md).

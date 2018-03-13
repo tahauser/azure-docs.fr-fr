@@ -484,7 +484,7 @@ Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `
 | Service Bus | [Codes d’erreur de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Service Bus | [Limites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

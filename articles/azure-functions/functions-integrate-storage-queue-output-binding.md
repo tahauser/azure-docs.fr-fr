@@ -153,7 +153,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez ajouté une liaison de sortie à une fonction existante. Pour en savoir plus sur la liaison vers le stockage de files d’attente, consultez la page [Liaisons de file d’attente de stockage Azure Functions](functions-bindings-storage-queue.md). 
 

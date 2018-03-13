@@ -119,7 +119,7 @@ Si vous rencontrez des problèmes, consultez les [FAQ](https://microsoft.github.
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à connecter un appareil DevKit à votre solution Azure IoT Suite et à visualiser les données des capteurs, nous vous suggérons les étapes suivantes :
 

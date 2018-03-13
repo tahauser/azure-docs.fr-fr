@@ -99,7 +99,7 @@ La surveillance des sauvegardes (agent MARS et IaaS) est une nouvelle fonctionna
 **Comment signaler un problème ?**</br>
 Si une partie de la mise à niveau du coffre échoue, notez l’OperationId mentionné dans l’erreur. Le Support technique de Microsoft travaillera de manière proactive pour résoudre le problème. Vous pouvez contacter le Support ou nous envoyer un e-mail à l’adresse rsvaultupgrade@service.microsoft.com avec votre ID d’abonnement, le nom du coffre et l’OperationId. Nous tenterons de résoudre le problème le plus rapidement possible. Ne retentez l’opération que sauf si vous y êtes explicitement invité par Microsoft.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants pour :</br>
 [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>

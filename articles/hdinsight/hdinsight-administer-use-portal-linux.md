@@ -364,7 +364,7 @@ La section **Utilisation** du panneau du cluster HDInsight affiche des informati
 * [Utilisation de Hive avec HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez découvert certaines fonctions d’administration de base. Pour en savoir plus, consultez les articles suivants :
 

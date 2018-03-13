@@ -161,6 +161,6 @@ Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, 
 
 [Apprenez-en plus](site-recovery-citrix-xenapp-and-xendesktop.md) sur la protection des déploiements de Citrix XenApp et XenDesktop. Vous pouvez également consulter le [livre blanc de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) détaillant les mêmes informations.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Prise en main](azure-to-azure-quickstart.md) de la réplication d’une machine virtuelle Azure.

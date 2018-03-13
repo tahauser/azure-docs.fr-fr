@@ -74,7 +74,7 @@ Les scripts PowerShell et Bash fournis dans la documentation et les Kits de dév
 
    ![Charger la vérification du certificat](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment utiliser le portail pour créer un groupe d’inscription, consultez [Gérer les inscriptions d’appareils avec le portail Azure](how-to-manage-enrollments.md).
 - Pour savoir comment utiliser les Kits de développement logiciel (SDK) pour créer un groupe d’inscription, consultez [Gérer les inscriptions d’appareils avec les Kits de développement logiciel (SDK) Service](how-to-manage-enrollments-sdks.md).

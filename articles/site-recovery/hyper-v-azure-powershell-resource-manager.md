@@ -203,5 +203,5 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](https://msdn.microsoft.com/library/azure/mt637930.aspx) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.

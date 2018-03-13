@@ -148,7 +148,7 @@ Si vous avez plusieurs objets dans le même espace de connecteur joints au même
 Pour ce scénario, vous devez modifier la portée des règles de synchronisation, de façon à ce que les objets sources aient des règles de synchronisation différentes dans la portée. Cela vous permet de définir une précédence différente.  
 ![Plusieurs objets joints au même objet mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).

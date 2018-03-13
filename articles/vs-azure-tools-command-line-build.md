@@ -35,5 +35,5 @@ Par défaut, tous les projets Azure comprennent un fichier de configuration de s
 
 Si vous souhaitez utiliser un autre répertoire pour les fichiers de configuration et de package stockés, définissez le chemin d'accès à l'aide de l’option `/p:PublishDir=Directory\`, en incluant la barre oblique inverse de fin comme séparateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois le package créé, vous pouvez le déployer sur Azure.

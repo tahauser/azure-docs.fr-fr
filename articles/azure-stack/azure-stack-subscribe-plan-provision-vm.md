@@ -89,5 +89,5 @@ Si une offre possède un plan additionnel, vous pouvez ajouter ce plan à votre 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

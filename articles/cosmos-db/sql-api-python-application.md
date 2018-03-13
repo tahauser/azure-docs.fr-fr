@@ -434,7 +434,7 @@ S’il s’agit de la première application Python que vous avez exécutée sur 
 
 Si vous recevez une erreur sur votre page de vote et que vous avez nommé votre projet autrement que **tutorial**, assurez-vous que **\_\_init\_\_.py** fait référence au nom de projet correct dans la ligne : `import tutorial.view`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Vous venez de créer votre première application web Python avec Azure Cosmos DB, et de la publier sur Azure.
 
 Pour ajouter des fonctionnalités supplémentaires à votre application web, passez en revue les API disponibles dans le [Kit de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-python.md).

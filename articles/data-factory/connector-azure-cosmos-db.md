@@ -214,5 +214,5 @@ Pour obtenir une copie de ce type, indépendante du schéma :
 - Dans les jeux de données Cosmos DB, ne spécifiez pas la section « structure ». Et, dans la source ou le récepteur Cosmos DB de l’activité de copie, ne spécifiez pas de propriété « nestingSeparator ».
 - Lors de l’importation à partir de/exportation à destination de fichiers JSON, dans le jeu de données du magasin de fichiers correspondant, spécifiez le type de format comme « JsonFormat » et la configuration « filePattern » correctement ( pour plus de détails, voir [format JSON](supported-file-formats-and-compression-codecs.md#json-format)), ne spécifiez pas la section « structure », et ignorez les paramètres de format rest.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

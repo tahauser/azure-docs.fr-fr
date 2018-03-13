@@ -246,6 +246,6 @@ Les opérations Ambari suivantes ne sont pas prises en charge dans HDInsight :
 
 * __Déplacement du service Collecteur de métriques__. Quand vous affichez des informations sur le service Collecteur de métriques, l’une des actions disponibles à partir du menu Service Actions est __Move Metrics collector__. Cette opération n’est pas prise en charge avec HDInsight.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser [l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) avec HDInsight.

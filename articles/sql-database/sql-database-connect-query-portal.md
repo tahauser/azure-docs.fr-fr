@@ -164,6 +164,6 @@ Il y a quelques éléments à connaître lorsque vous travaillez avec l’édite
 6. Appuyer sur la touche F5 actualise la page de l’éditeur de requête et entraîne la perte de la requête en cours de traitement. Utilisez le bouton Exécuter dans la barre d’outils pour exécuter des requêtes.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir des informations sur le Transact-SQL pris en charge dans les bases de données SQL Azure, consultez [Différences de Transact-SQL dans la base de données SQL](sql-database-transact-sql-information.md).

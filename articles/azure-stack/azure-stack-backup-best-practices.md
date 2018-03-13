@@ -93,7 +93,7 @@ Les alertes suivantes sont prises en charge par le système :
 | La sauvegarde a échoué en raison de problèmes d’authentification               | Il peut y avoir un problème avec les informations d’identification ou un problème de réseau qui a un impact sur l’authentification.    | Mappez le partage à partir d’un autre ordinateur pour vérifier que le partage est accessible. Vous devrez peut-être mettre à jour les informations d’identification si elles ne sont plus valides. |
 | La sauvegarde a échoué en raison d’une défaillance générale                    | L’échec de la requête peut être dû à un problème occasionnel. Essayez de sauvegarder à nouveau.                    | Appelez le support technique                                                                                                                               |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
  - Passez en revue la documentation de référence pour le [service de sauvegarde de l’infrastructure](azure-stack-backup-reference.md).  
  - Activez le [service de sauvegarde de l’infrastructure](azure-stack-backup-enable-backup-console.md).

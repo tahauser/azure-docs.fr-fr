@@ -56,5 +56,5 @@ Pour résoudre cette erreur, deux possibilités s’offrent à vous :
 > [!NOTE] 
 > Dans de rares cas, les erreurs 41823 et 41840 peuvent être temporaires, ce qui signifie qu’il y a suffisamment de stockage OLTP en mémoire disponible, et que l’opération réussit quand elle est relancée. Par conséquent, nous vous recommandons de surveiller le stockage OLTP en mémoire total disponible et de commencer par recommencer l’opération lorsque vous rencontrez des erreurs 41823 ou 41840. Pour plus d’informations sur la logique de nouvelle tentative, consultez [Détection de conflit et logique de nouvelle tentative avec l’OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’instructions sur la surveillance, consultez [Analyse de base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md).

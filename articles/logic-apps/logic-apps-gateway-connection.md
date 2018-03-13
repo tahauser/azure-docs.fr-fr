@@ -171,7 +171,7 @@ Pour créer une autre ressource de passerelle, associer votre passerelle à une 
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Sécuriser vos applications logiques](./logic-apps-securing-a-logic-app.md)
 * [Exemples et scénarios courants pour les applications logiques](./logic-apps-examples-and-scenarios.md)

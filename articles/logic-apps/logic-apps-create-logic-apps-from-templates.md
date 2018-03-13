@@ -155,7 +155,7 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur la création d’applications logiques via des exemples, des scénarios, des témoignages de clients et des procédures pas à pas.
 

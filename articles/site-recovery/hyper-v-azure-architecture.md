@@ -139,7 +139,7 @@ Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez eff
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 
 Suivez [ce didacticiel](tutorial-prepare-azure.md) pour découvrir la réplication Hyper-V vers Azure.

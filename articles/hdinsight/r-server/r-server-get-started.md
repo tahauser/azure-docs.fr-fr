@@ -790,7 +790,7 @@ Une fois que tous les nœuds Worker désactivés ont été configurés pour s’
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, consultez [Exigences de contrôle d’accès](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant, vous devrez savoir comment créer un cluster HDInsight qui inclut R Server. Vous avez également appris les principes de base de l’utilisation de la console R à partir d’une session SSH. Les rubriques suivantes expliquent les autres méthodes de gestion et l’utilisation de R Server sur HDInsight :
 

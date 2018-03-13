@@ -205,7 +205,7 @@ Nous allons maintenant configurer l’adresse IP et le port frontal de l’équ
 
 ![Volet de navigation Pool d’IP du serveur principal de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)

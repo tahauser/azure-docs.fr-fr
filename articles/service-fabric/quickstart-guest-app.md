@@ -135,7 +135,7 @@ Accédez à cette adresse où vous verrez la réponse `HELLO WORLD`.
 
 N’oubliez pas de supprimer toutes les ressources que vous avez créées pour ce démarrage rapide, car celles-ci vous sont facturées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Apprenez-en davantage sur les [exécutables invités](service-fabric-deploy-existing-app.md).
 
 <!-- Image References -->

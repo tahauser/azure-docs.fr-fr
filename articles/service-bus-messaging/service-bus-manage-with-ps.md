@@ -159,7 +159,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 Vous pouvez utiliser le [module PowerShell de Service Bus](/powershell/module/azurerm.servicebus) pour approvisionner d’autres entités, telles que des rubriques et abonnements. La syntaxe de ces applets de commande est similaire à celle des applets de commande de création de file d’attente décrites dans la section précédente.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Service Bus [ici](/powershell/module/azurerm.servicebus). Cette page répertorie toutes les applets de commande disponibles.
 - Pour plus d’informations sur l’utilisation des modèles Azure Resource Manager, consultez l’article [Création de ressources Service Bus à l’aide de modèles Azure Resource Manager](service-bus-resource-manager-overview.md).

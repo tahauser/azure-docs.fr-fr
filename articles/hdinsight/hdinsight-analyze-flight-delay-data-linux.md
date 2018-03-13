@@ -286,7 +286,7 @@ Si vous n’avez pas de base de données SQL, consultez [Créer une base de donn
 
     Vous devez voir une liste des données dans la table. Tapez `exit` pour quitter l’utilitaire tsql.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir d’autres façons d’utiliser les données dans HDInsight, consultez les articles suivants :
 

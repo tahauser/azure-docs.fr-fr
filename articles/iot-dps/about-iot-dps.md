@@ -118,7 +118,7 @@ Pour plus d’informations sur les limites de quota :
 ## <a name="related-azure-components"></a>Composants Azure connexes
 Le service Device Provisioning automatise l’approvisionnement des appareils avec Azure IoT Hub. Découvrez plus d’informations sur [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez maintenant une vue d’ensemble de l’approvisionnement des appareils IoT dans Azure. L’étape suivante consiste à tester un scénario IoT de bout en bout.
 > [!div class="nextstepaction"]
 > [Configurer le service IoT Hub Device Provisioning avec le portail Azure](quick-setup-auto-provision.md)

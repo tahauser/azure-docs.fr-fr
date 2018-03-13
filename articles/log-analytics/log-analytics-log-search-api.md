@@ -413,5 +413,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.

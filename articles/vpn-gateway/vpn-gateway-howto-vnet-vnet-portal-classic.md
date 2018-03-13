@@ -287,5 +287,5 @@ Dans les exemples ci-dessous, notez que la clé partagée est exactement identiq
 * Tous les tunnels VPN du réseau virtuel, y compris les VPN de point à site, partagent la bande passante disponible pour la passerelle VPN, ainsi que le même contrat SLA concernant le temps d’activité des passerelles VPN dans Azure.
 * Le trafic de réseau virtuel à réseau virtuel circule sur la dorsale principale d’Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vérifiez vos connexions. Voir [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md).

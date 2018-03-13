@@ -139,7 +139,7 @@ Actuellement, un alias DNS présente les limitations suivantes :
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [PowerShell pour les alias DNS sur Azure SQL Database](dns-alias-powershell.md)
 

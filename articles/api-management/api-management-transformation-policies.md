@@ -702,7 +702,7 @@ OriginalUrl.
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez les rubriques suivantes :
 

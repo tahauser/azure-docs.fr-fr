@@ -658,7 +658,7 @@ Cet exemple repose sur les hypothèses suivantes :
 
 Après avoir suivi ces étapes, vous pouvez vous connecter aux ressources du réseau virtuel à l’aide de noms de domaine complets (FQDN). Vous pouvez à présent installer HDInsight dans le réseau virtuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour un exemple de bout en bout de configuration de HDInsight pour se connecter à un réseau local, voir [Connecter HDInsight à un réseau local](./connect-on-premises-network.md).
 * Pour configurer des clusters Hbase dans des réseaux virtuels Azure, consultez [Créer des clusters HBase sur HDInsight dans Réseau virtuel Azure](hbase/apache-hbase-provision-vnet.md).

@@ -56,7 +56,7 @@ Pour modifier les unités Data Warehouse Unit :
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous savez maintenant mettre à l’échelle le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
 
 > [!div class="nextstepaction"]

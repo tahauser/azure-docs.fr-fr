@@ -118,7 +118,7 @@ Voici quelques conseils que nous vous recommandons de suivre lors de la créatio
 
    N’oubliez pas qu’une fois que vous avez créé une affectation d’initiative à partir d’une définition d’initiative, toutes les nouvelles définitions de stratégie ajoutées à la définition d’initiative sont automatiquement ajoutées sous la ou les affectations d’initiative sous cette définition d’initiative. Cependant, si un nouveau paramètre est introduit dans la nouvelle définition de stratégie, vous devez mettre à jour la définition et les affectations de l’initiative en modifiant la définition ou les affectations de l’initiative.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez une vue d’ensemble d’Azure Policy et des autres concepts clés que nous avons introduits, voici les étapes suivantes que nous suggérons :
 

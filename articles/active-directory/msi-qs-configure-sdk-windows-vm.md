@@ -43,7 +43,7 @@ Azure prend en charge plusieurs plates-formes de programmation via une série de
 | Python | [Créer une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Créer une machine virtuelle Azure avec une MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez les articles connexes répertoriés sous la section relative à la configuration de MSI pour une machine virtuelle Azure pour savoir comment utiliser les modèles de portail Azure, PowerShell, CLI et des ressources.
 

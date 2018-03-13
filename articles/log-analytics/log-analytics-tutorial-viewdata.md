@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Graphique en courbes](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à créer des recherches de base dans les journaux en vue d’analyser les données de performances et d’événements.  Passez au didacticiel suivant pour apprendre à visualiser les données en créant un tableau de bord.
 
 > [!div class="nextstepaction"]

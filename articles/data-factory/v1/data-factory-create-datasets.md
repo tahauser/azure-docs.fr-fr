@@ -448,6 +448,6 @@ Vous pouvez créer des jeux de données étendus jusqu’à un pipeline à l’a
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur les pipelines, voir [Créer des pipelines](data-factory-create-pipelines.md). 
 - Pour plus d’informations sur la façon dont les pipelines sont planifiés et exécutés, voir [Planification et exécution dans Azure Data Factory](data-factory-scheduling-and-execution.md). 

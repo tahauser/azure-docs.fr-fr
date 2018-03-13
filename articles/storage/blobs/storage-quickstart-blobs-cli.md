@@ -109,7 +109,7 @@ Si vous n’avez plus besoin des ressources de votre groupe de ressources, y com
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et un conteneur du stockage Blob Azure. Pour en savoir plus sur l’utilisation des objets blob dans le stockage Azure, consultez le didacticiel sur l’utilisation du stockage Blob Azure.
 

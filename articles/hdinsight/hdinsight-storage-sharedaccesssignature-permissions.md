@@ -300,7 +300,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 * Il doit contenir au moins un caractère non alphanumérique.
 * Il doit contenir au moins une lettre minuscule et une lettre majuscule.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris comment ajouter un stockage à accès limité à votre cluster HDInsight, découvrez d’autres façons de travailler avec des données sur votre cluster :
 

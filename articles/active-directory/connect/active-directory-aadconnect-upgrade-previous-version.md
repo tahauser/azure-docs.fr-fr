@@ -129,5 +129,5 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
 
 Pour ajouter les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [l’intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

@@ -340,7 +340,7 @@ Les journaux de passerelle de gestion des données et PowerBIGateway figurent so
 
 [Fiddler](http://www.telerik.com/fiddler) est un outil gratuit développé par Telerik, qui surveille le trafic HTTP. Il permet de visualiser le trafic entre le service Power BI et l’ordinateur client. Ce service peut également indiquer les éventuelles erreurs et autres informations connexes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
     
 * [Connexion à des données locales à partir d’applications logiques](../logic-apps/logic-apps-gateway-connection.md)
 * [Fonctionnalités d’intégration d'entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)

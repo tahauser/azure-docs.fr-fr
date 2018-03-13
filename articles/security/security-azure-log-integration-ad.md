@@ -66,7 +66,7 @@ L’aide de la Communauté est disponible via le [forum MSDN d’intégration de
 
 Vous pouvez également ouvrir une [demande de support](../azure-supportability/how-to-create-azure-support-request.md). Pour ce faire, sélectionnez **Intégration du journal** comme service pour lequel vous demandez de l’aide.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’intégration des journaux Azure, consultez :
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : cette page du Centre de téléchargement donne plus d’informations, la configuration système requise et les instructions d’installation pour l’intégration des journaux Azure.

@@ -98,7 +98,7 @@ Vous trouverez plus d’informations sur la création des types d’alerte suiva
 | Tests de disponibilité | Application Insights | Non pris en charge dans l’expérience Alertes (préversion). |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Découvrez comment utiliser la nouvelle expérience Alertes (préversion) pour créer, afficher et gérer les alertes](monitor-alerts-unified-usage.md)
 - [En savoir plus sur les alertes de journal dans l’expérience Alertes (préversion)](monitor-alerts-unified-log.md)
 - [En savoir plus sur les alertes de métriques dans l’expérience Alertes (préversion)](monitoring-near-real-time-metric-alerts.md)

@@ -268,7 +268,7 @@ Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un 
 5. Continuez ainsi jusqu’à ce que toutes les étapes s’exécutent sans erreur.
 6. Une fois le débogage du cluster de test terminé, supprimez-le.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Analyse des journaux HDInsight](hdinsight-debug-jobs.md)

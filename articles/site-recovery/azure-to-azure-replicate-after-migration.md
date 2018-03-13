@@ -62,6 +62,6 @@ Si vous migrez des machines virtuelles VMware locales (ou des serveurs physiques
         ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Répliquer rapidement](azure-to-azure-quickstart.md) une machine virtuelle Azure dans une région secondaire.

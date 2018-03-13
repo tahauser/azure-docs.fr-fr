@@ -78,7 +78,7 @@ Pour configurer un gMSA (compte de service géré de groupe), un fichier de spé
   </ContainerHostPolicies>
 </Policies>
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)
 * [Déployer un conteneur Docker sur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)

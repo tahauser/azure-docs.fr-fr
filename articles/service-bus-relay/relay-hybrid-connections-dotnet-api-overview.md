@@ -134,7 +134,7 @@ var textWriter = new StreamWriter(hybridConnectionStream);
 await textWriter.WriteLineAsync("hello");
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Azure Relay, consultez les liens suivants :
 

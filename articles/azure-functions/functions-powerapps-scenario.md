@@ -218,7 +218,7 @@ Votre application est terminée ! Il est temps de l’exécuter et de voir les a
 
 1. Essayez les autres éoliennes pour voir ce qui est retourné par la fonction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

@@ -69,6 +69,6 @@ Azure Stack prend en charge un type de déploiement appelé mode de récupérati
 
 Aucune ressource Infrastructure as a Service (IaaS) ou Platform as a Service (PaaS) n’est récupérée lors du déploiement. Autrement dit, les machines virtuelles IaaS, les comptes de stockage, les objets BLOB, les tables, la configuration etc., sont perdues. L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois le déploiement terminé. Les utilisateurs qui se reconnectent ne voient plus leurs ressources. Les abonnements d’origine des utilisateurs sont restaurés, ainsi que les forfaits d’origine et les stratégies d’offres définies par l’administrateur. Les utilisateurs qui se reconnectent au système sont soumis aux mêmes contraintes que celles imposées par la solution d’origine avant le sinistre. Une fois la récupération cloud effectuée, l’opérateur peut restaurer manuellement les données à forte valeur ajoutée et tierces des fournisseurs de ressources, ainsi que les données associées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
  - En savoir plus sur les meilleures pratiques relatives à l’[utilisation du service de sauvegarde d’infrastructure](azure-stack-backup-best-practices.md).

@@ -144,7 +144,7 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur les [informations collectées dans le package de prise en charge](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
 * Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

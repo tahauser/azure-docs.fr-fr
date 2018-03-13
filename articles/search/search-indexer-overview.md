@@ -72,7 +72,7 @@ Un indexeur automatise certaines tâches liées à l’ingestion des données, m
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Étape 3 : Créer et planifier l’indexeur
 La définition de l’indexeur est une structure qui spécifie l’index, la source de données et une planification. Un indexeur peut faire référence à une source de données d’un autre service, à condition que celle-ci appartienne au même abonnement. Pour plus d’informations sur la structuration d’un indexeur, consultez l’article [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Création d’un indexeur (API REST Azure Search)).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez la structure de base, l’étape suivante consiste à passer en revue les exigences et les tâches propres à chaque type de source de données.
 
 * [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

@@ -146,7 +146,7 @@ Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes conne
   
  Vous pouvez utiliser le filtre, *= FALSE()*, pour refuser l’accès à toutes les lignes pour une table entière.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
   [Gérer les administrateurs de serveur](analysis-services-server-admins.md)   
   [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)  
   [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

@@ -253,7 +253,7 @@ Data Lake Tools pour Visual Studio prennent en charge la création et la soumiss
 * Actuellement, si les résultats sont lancés avec des valeurs NULL, ils ne sont pas affichés. Nous avons résolu ce problème. Si vous êtes bloqué sur ce problème, contactez l'équipe du support technique.
 * Le script HQL créé par Visual Studio est encodé selon le paramètre de région locale de l’utilisateur. Il peut ne pas s’exécuter correctement si l’utilisateur charge le script dans le cluster sous forme binaire.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à établir une connexion à des clusters HDInsight à partir de Visual Studio à l’aide du package Data Lake (HDInsight) Tools et à exécuter des requêtes Hive. Pour plus d'informations, consultez les pages suivantes :
 
 * [Utilisation de Hadoop Hive dans HDInsight](hdinsight-use-hive.md)

@@ -178,7 +178,7 @@ curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/h
 Hello AzureFunctions!
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez créé une application de fonction Java avec un déclencheur HTTP simple et vous l’avez déployée sur Azure Functions.
 

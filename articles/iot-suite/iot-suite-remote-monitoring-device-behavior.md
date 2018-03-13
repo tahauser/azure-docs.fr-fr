@@ -253,7 +253,7 @@ En cas d’erreur de syntaxe, l’interpréteur échoue et écrit une entrée `J
 
 L’article [Créer un appareil simulé](iot-suite-remote-monitoring-test.md) vous explique comment exécuter le service de simulation d’appareil en local. L’exécution du service en local facilite le débogage de vos appareils simulés avant de les déployer dans le cloud.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet article vous a décrit comment définir le comportement de votre propre modèle personnalisé d’appareil simulé. Cet article vous a montré comment :
 

@@ -60,7 +60,7 @@ Créez un compte Azure Cosmos DB dans le [portail Azure](https://portal.azure.c
 > Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Voici quelques conseils pour vous aider à démarrer :
 * [Azure Cosmos DB : Créer une application .NET à l’aide de l’API de table](create-table-dotnet.md)

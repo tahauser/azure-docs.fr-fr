@@ -159,7 +159,7 @@ Configurez des diagnostics pour enregistrer des données dans les journaux Appli
 
     ![Tester la passerelle d’application](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à effectuer les opérations suivantes :
 

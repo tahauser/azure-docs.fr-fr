@@ -48,7 +48,7 @@ En outre, ni le fournisseur du système de fichiers, ni le fournisseur de stocka
 
 Par conséquent, si ImageStoreConnectionString est configurable, on utilise en général simplement le paramètre par défaut. En cas de publication sur Azure avec Visual Studio, le paramètre est automatiquement défini en conséquence. Pour un déploiement par programmation sur des clusters hébergés dans Azure, la chaîne de connexion est toujours « fabric:ImageStore ». En cas de doute, sa valeur peut toujours être vérifiée en récupérant le manifeste de cluster par [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Les clusters de test et de production locaux doivent également être toujours configurés pour utiliser le fournisseur de service de magasin d’images.
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 [Déployer et supprimer des applications avec PowerShell][10]
 
 <!--Image references-->

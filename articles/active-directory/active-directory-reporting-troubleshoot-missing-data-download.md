@@ -39,6 +39,6 @@ Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nou
 
 Vous pouvez tirer parti des [API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md) pour extraire jusqu’à un million d’enregistrements pour un point donné. Nous vous recommandons d’exécuter un script de façon planifiée qui appelle les API de création de rapports pour extraire des enregistrements de manière incrémentielle sur une période donnée (par exemple, quotidienne ou hebdomadaire).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez le [FAQ sur les rapports Azure Active Directory](active-directory-reporting-faq.md).
 

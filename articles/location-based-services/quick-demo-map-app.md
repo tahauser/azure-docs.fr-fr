@@ -64,7 +64,7 @@ Les didacticiels expliquent en détail comment utiliser et configurer Azure Loca
 1. Fermez le navigateur qui exécute l’application web **AzureMapDemo.html**.
 2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre compte LBS. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé votre compte Azure LBS et vous avez lancé une application de démonstration à l’aide de votre compte. Pour découvrir comment créer votre propre application à l’aide des API Azure Location Based Services, passez au didacticiel suivant.
 

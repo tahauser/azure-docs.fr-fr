@@ -70,7 +70,7 @@ Prêtez attention aux grandes différences entre ces deux tâches. Elles sont pr
 
 ![Diagramme du processus de vérification des différences entre les tâches](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre des problèmes d’asymétrie des données](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 * [Déboguer du code C# défini par l’utilisateur pour des tâches U-SQL ayant échoué](data-lake-analytics-debug-u-sql-jobs.md)

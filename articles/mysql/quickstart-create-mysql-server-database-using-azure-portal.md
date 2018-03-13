@@ -235,7 +235,7 @@ Pour supprimer uniquement le serveur que vous venez de créer, procédez comme s
 
 3.  Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez votre nom de serveur dans la zone, **mydemoserver** dans notre exemple. Sélectionnez **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Concevoir votre première base de données Azure pour MySQL](./tutorial-design-database-using-portal.md)

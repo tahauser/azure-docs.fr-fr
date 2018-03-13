@@ -100,7 +100,7 @@ Intégrez vos partenaires externes de façon personnalisée en fonction des beso
 
 Avec Azure AD B2B Collaboration, vous pouvez tirer parti de la puissance d’Azure AD pour protéger vos relations avec vos partenaires de façon simple et intuitive pour vos utilisateurs finaux. Alors n’hésitez pas, rejoignez les milliers d’organisations qui utilisent déjà Azure AD B2B pour leur collaboration externe !
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Les expériences d’administrateurs sont trouvent dans le [portail Azure](https://portal.azure.com).
 

@@ -31,7 +31,7 @@ Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de 
 
 En outre, l’[Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) est un exemple hébergé sur GitHub qui vous permet de vous connecter à un espace de noms Service Bus et de gérer facilement les entités de messagerie. L’outil fournit des fonctionnalités avancées telles que les fonctionnalités d’importation/exportation et la possibilité de tester des entités de messagerie et des services de relais. Vous trouverez l’ensemble de la documentation et du code source de l’Explorateur Service Bus sur [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les emplacements des exemples sont ici :
 

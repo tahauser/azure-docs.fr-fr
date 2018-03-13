@@ -91,7 +91,7 @@ Par exemple, un schéma de données d’événement valide est :
 }]
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation de l’acheminement des événements personnalisés, consultez [Créer et acheminer des événements personnalisés avec Azure CLI et Event Grid](custom-event-quickstart.md) ou [Créer et acheminer des événements personnalisés avec Azure PowerShell et Event Grid](custom-event-quickstart-powershell.md).
 * Pour plus d’informations sur la clé d’authentification, consultez la page [Sécurité et authentification Azure Event Grid](security-authentication.md).

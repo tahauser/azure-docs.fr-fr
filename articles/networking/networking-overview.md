@@ -157,7 +157,7 @@ Vous pouvez déployer et configurer les ressources réseau Azure avec un des out
 
 Certains des services de mise en réseau Azure sont facturés, tandis que d’autres sont gratuits. Affichez les pages de facturation pour [Réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network), [Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [Application Gateway](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [Équilibrage de charge](https://azure.microsoft.com/pricing/details/load-balancer), [Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) et [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) pour plus d’informations.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Créez votre premier réseau virtuel et connectez-y plusieurs machines virtuelles en effectuant les étapes décrites dans l’article [Créer votre premier réseau virtuel](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Connectez votre ordinateur à un réseau virtuel en effectuant les étapes décrites dans l’article [Configurer une connexion de point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

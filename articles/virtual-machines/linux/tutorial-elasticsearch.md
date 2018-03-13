@@ -233,7 +233,7 @@ Sur la console Kibana, sélectionnez **Découvrir** pour rechercher, parcourir e
 
 ![Parcourir les événements Syslog dans Kibana](media/elasticsearch-install/kibana-search-filter.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez déployé Elastic Stack sur une machine virtuelle de développement dans Azure. Vous avez appris à effectuer les actions suivantes :
 

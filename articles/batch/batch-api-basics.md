@@ -499,7 +499,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
 * Passez en revue un exemple d’application Batch détaillée dans [Prise en main de la bibliothèque Azure Batch pour .NET](batch-dotnet-get-started.md). Il existe également une [version Python](batch-python-tutorial.md) du didacticiel qui exécute une charge de travail sur des nœuds de calcul Linux.
 * Téléchargez et installez [BatchLabs][batch_labs] pour l’utiliser lors du développement de vos solutions Batch. Utilisez BatchLabs pour aider à créer, déboguer et analyser les applications de Azure Batch. 

@@ -629,7 +629,7 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
 Pour arrêter la session de débogage, appuyez sur **Maj+F5**.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cette partie du didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

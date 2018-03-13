@@ -133,7 +133,7 @@ Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaite
 
 Pour voir un exemple de déploiement d’instance de conteneur avec un modèle Azure Resource Manager, consultez [Déployer des groupes de plusieurs conteneurs dans Azure Container Instances](container-instances-multi-container-group.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrir la relation existante entre [Azure Container Instances et les orchestrateurs de conteneurs](container-instances-orchestrator-relationship.md).
 

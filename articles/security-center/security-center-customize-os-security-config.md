@@ -316,7 +316,7 @@ Si vous ne disposez pas d’autorisations suffisantes, vous risquez de recevoir 
 
 ![Message d’erreur d’échec de l’action d’enregistrement](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment personnaliser les évaluations de la configuration de la sécurité du système d’exploitation dans Security Center. Pour en savoir plus sur les règles de configuration et sur la correction, consultez les pages :
 
 - [Règles de base et identificateurs de configuration courants de Security Center](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).

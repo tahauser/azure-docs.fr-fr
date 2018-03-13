@@ -169,7 +169,7 @@ Tous les types de ressources prennent en charge la fonction de modèle d’expor
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Vous pouvez déployer un modèle avec [PowerShell](resource-group-template-deploy.md), [l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md) ou [l’API REST](resource-group-template-deploy-rest.md).
 * Pour savoir comment exporter un modèle par le biais de PowerShell, consultez [Exporter des modèles Azure Resource Manager avec PowerShell](resource-manager-export-template-powershell.md).

@@ -101,7 +101,7 @@ Si vous êtes dépourvu de compte Automation lié à votre espace de travail Ope
 >[!NOTE]
 > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), la charge utile du Webhook a changé. Vous trouverez les détails du format dans la page [API REST Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les alertes de Log Analytics et sur leur création, consultez [Alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md).
 

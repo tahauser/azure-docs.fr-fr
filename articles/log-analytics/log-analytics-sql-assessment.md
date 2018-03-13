@@ -265,5 +265,5 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de SQL Health Check.

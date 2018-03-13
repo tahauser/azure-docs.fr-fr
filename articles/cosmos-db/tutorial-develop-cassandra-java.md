@@ -219,7 +219,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris comment effectuer les opérations suivantes :
 

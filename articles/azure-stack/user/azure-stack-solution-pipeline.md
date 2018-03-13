@@ -199,7 +199,7 @@ Vous pouvez maintenant tester le pipeline CI/CD hybride avec la dernière étape
 
 Vous pouvez maintenant utiliser votre nouveau pipeline CI/CD hybride comme module pour d’autres modèles de cloud hybrides.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à générer un pipeline CI/CD hybride qui :
 
 > [!div class="checklist"]

@@ -101,7 +101,7 @@ Exécutez `terraform apply` pour approvisionner les machines virtuelles sur Azur
 
 ![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Parcourir la liste des [modules Azure Terraform](https://registry.terraform.io/modules/Azure)
 - Créer un [groupe de machines virtuelles identiques avec Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

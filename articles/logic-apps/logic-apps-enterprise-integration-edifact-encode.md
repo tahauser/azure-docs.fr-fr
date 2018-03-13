@@ -96,6 +96,6 @@ Le connecteur Encode EDIFACT effectue les tâches suivantes :
 ## <a name="view-swagger-file"></a>Afficher le fichier Swagger
 Pour afficher les détails Swagger du connecteur EDIFACT, consultez [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 
 

@@ -187,6 +187,6 @@ Vous pouvez créer fournir des commentaires de deux façons :
 - **UserVoice**. Publiez vos idées portant sur des fonctionnalités de DNS Analytics à travailler. Consultez la [page UserVoice d’Operations Management Suite](https://aka.ms/dnsanalyticsuservoice).
 - **Rejoignez notre cohorte**. Nous sommes toujours enthousiastes quand de nouveaux clients rejoignent notre cohorte pour obtenir un accès en avant-première aux nouvelles fonctionnalités et nous aider à améliorer DNS Analytics. Si vous souhaitez rejoindre notre cohorte, répondez à cette [enquête rapide](https://aka.ms/dnsanalyticssurvey).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Effectuez des recherches dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de journal DNS détaillés.

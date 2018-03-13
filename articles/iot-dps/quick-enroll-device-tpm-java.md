@@ -148,7 +148,7 @@ Si vous prévoyez d’aller plus loin dans l’étude de l’exemple de service 
 1. Fermez la fenêtre du simulateur TPM que vous avez créée pour simuler l’appareil TPM.
 1. Accédez au service Device Provisioning dans le portail Azure, cliquez sur **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**. Sélectionnez *l’ID d’inscription* de l’appareil inscrit à l’aide de ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure du panneau. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez inscrit un appareil TPM simulé auprès du service Device Provisioning. Pour en savoir plus sur l’approvisionnement de l’appareil en profondeur, référez-vous au didacticiel relatif à l’installation du service d’approvisionnement d’appareil dans le portail Azure. 
 
 > [!div class="nextstepaction"]

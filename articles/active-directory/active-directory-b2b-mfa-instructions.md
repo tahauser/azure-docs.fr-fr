@@ -105,7 +105,7 @@ Les stratégies d’accès conditionnel en fonction des emplacements peuvent êt
 
 Actuellement, les stratégies de connexion en fonction des risques ne peuvent pas être appliquées aux utilisateurs B2B, car l’évaluation des risques s’effectue au niveau de l’organisation d’origine de l’utilisateur B2B.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

@@ -101,7 +101,7 @@ Vous pouvez également utiliser la cmdlet PowerShell **Remove-AzureRmVMSqlServer
 
     Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Commencez par utiliser l’un des services pris en charge par l’extension. Pour plus d’informations, consultez les articles référencés dans la section [Services pris en charge](#supported-services) de cet article.
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).

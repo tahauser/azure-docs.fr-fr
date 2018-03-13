@@ -54,7 +54,7 @@ Vous activez la fonctionnalité à l’aide de la propriété [autoDeleteOnIdle]
 La propriété **autoDeleteOnIdle** doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Elle ne peut pas être définie dans le portail.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

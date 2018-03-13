@@ -169,6 +169,6 @@ Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’é
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
 * Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.

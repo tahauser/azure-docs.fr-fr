@@ -69,7 +69,7 @@ Si vous procédez à un test avec un appareil ancien, consultez la rubrique [Ajo
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Test de l'application avec le service mobile publié
 Vous pouvez tester l’application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l’émulateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel, vous pouvez passer à l’un des didacticiels suivants :
 
 * [Ajout de l’authentification à votre application Android](app-service-mobile-android-get-started-users.md).

@@ -94,7 +94,7 @@ Une fois le runbook publié, la page de vue d’ensemble apparaît.
 
 Lorsqu’il n’est plus nécessaire, supprimez le runbook. Pour le faire, sélectionnez le runbook dans la liste de runbooks, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez créé, modifié, testé et publié un runbook et vous avez démarré un travail de runbook. Pour en savoir plus sur les runbooks Automation, consultez l’article traitant des différents types de runbooks que vous pouvez créer et utiliser dans Automation.
 

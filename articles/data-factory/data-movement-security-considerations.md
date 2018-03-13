@@ -184,7 +184,7 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 **Réponse :** Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que le runtime d’intégration auto-hébergé puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les performances de l’activité de copie, consultez le [Guide sur les performances et le réglage de l’activité de copie](copy-activity-performance.md).
 
  

@@ -373,7 +373,7 @@ Microsoft collecte automatiquement les données sur l’utilisation et les perfo
 Pour plus d’informations sur l’utilisation et la collecte de données, voir la [Déclaration de confidentialité des Services en ligne de Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
 
 

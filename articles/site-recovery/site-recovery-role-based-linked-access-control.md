@@ -75,7 +75,7 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 
 Envisagez d’utiliser les [rôles intégrés](../active-directory/role-based-access-built-in-roles.md) « Collaborateur de machine virtuelle » et « Collaborateur de machine virtuelle classique » pour les modèles de déploiement Resource Manager et classiques, respectivement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md): découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)

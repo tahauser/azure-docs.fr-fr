@@ -38,7 +38,7 @@ Utilisez les messages appareil-à-cloud pour envoyer des alertes et des données
 * Reportez-vous à [l’aide sur la communication appareil-à-cloud][lnk-d2c-guidance] en cas de doute entre l’utilisation des messages appareil-à-cloud, des propriétés signalées ou du chargement de fichiers.
 * Reportez-vous à [l’aide sur la communication cloud-à-appareil][lnk-c2d-guidance] en cas de doute entre l’utilisation des messages cloud-à-appareil, des propriétés de votre choix ou des méthodes directes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez la [messagerie appareil-à-cloud][lnk-d2c] IoT Hub.
 * Découvrez la [messagerie cloud-à-appareil][lnk-c2d] IoT Hub.

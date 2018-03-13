@@ -91,7 +91,7 @@ L’exemple suivant montre comment s’abonner à des événements de stockage d
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).
 * Pour découvrir Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

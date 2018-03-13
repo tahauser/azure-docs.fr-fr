@@ -109,7 +109,7 @@ Pour obtenir des informations encore plus précises sur l’application, vous [a
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur
 
 * [Azure Monitor dans une vidéo de l’Ignite 2016](https://myignite.microsoft.com/videos/4977)

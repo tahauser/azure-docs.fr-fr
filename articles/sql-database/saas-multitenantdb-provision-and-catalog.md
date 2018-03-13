@@ -272,7 +272,7 @@ Ce type de service automatique peut être simple ou complexe. Par exemple, le sy
 - [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

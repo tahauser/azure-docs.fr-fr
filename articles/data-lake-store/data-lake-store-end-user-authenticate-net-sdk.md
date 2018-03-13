@@ -110,7 +110,7 @@ Voici quelques informations utiles concernant l’extrait de code précédent :
 * Cependant, si vous souhaitez utiliser votre propre ID client application et domaine Azure AD, vous devez créer une application native Azure AD, puis utiliser l’ID locataire, l’ID client et l’URI de redirection Azure AD de l’application que vous avez créée. Consultez la page [créer une Application Active Directory pour l’authentification de l’utilisateur final avec Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) pour obtenir des instructions.
 
   
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser l’authentification des utilisateurs finaux auprès d’Azure Data Lake Store avec le Kit SDK .NET. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit SDK .NET pour travailler avec Azure Data Lake Store.
 
 * [Opérations de gestion des comptes sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)

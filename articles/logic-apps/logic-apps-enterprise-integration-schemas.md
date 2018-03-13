@@ -130,6 +130,6 @@ Azure affiche un message indiquant que le schéma a été téléchargé avec suc
 
     ![Votre compte d’intégration, avec « Schémas » mis en surbrillance](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack").  
 

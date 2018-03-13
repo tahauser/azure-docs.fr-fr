@@ -68,5 +68,5 @@ Connectez-vous à <https://login.microsoftonline.com> et utilisez les mêmes inf
 
 Sélectionnez votre compte d’utilisateur, puis sélectionnez « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur général ». Si vous ne pouvez accéder à aucune des pages de cette procédure, cela signifie que vous n’êtes pas administrateur général.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)

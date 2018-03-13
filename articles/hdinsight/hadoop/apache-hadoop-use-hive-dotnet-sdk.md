@@ -140,7 +140,7 @@ Le résultat de l’application doit être similaire à :
 
 ![Résultat de la tâche HDInsight Hadoop Hive](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d’Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)

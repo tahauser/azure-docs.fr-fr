@@ -283,7 +283,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)

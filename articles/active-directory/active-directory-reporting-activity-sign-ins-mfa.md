@@ -172,7 +172,7 @@ Azure Multi-Factor Authentication refusée ;
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez la page [Génération de rapports Azure Active Directory](active-directory-reporting-azure-portal.md).
 

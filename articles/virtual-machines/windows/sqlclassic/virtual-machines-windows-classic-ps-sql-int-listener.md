@@ -164,5 +164,5 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 ## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>Tester l'écouteur du groupe de disponibilité (au sein du même réseau virtuel)
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]

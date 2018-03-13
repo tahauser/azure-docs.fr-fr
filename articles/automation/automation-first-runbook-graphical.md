@@ -224,7 +224,7 @@ Vous modifiez maintenant le runbook afin qu’il tente de démarrer la machine v
 1. Enregistrez le Runbook et ouvrez le volet de test.
 1. Démarrez le Runbook avec la machine virtuelle arrêtée, et il devrait démarrer.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md)

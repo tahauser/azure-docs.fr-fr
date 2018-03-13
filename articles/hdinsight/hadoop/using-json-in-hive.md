@@ -144,7 +144,7 @@ SerDe constitue le meilleur moyen d’analyser des documents JSON imbriqués. Il
 ## <a name="summary"></a>Résumé
 En conclusion, le type d'opérateur JSON que vous choisissez dans Hive dépend de votre scénario. Si vous avez un document JSON simple avec un seul champ à rechercher, vous pouvez choisir d’utiliser la fonction UDF Hive get_json_object. Si la recherche porte sur plusieurs clés, vous pouvez utiliser json_tuple. Enfin, si vous disposez d'un document imbriqué, il est recommandé d'utiliser le SerDe JSON.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Articles associés :
 

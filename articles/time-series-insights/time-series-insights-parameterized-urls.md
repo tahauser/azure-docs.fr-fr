@@ -120,5 +120,5 @@ La vue complète (y compris le graphique) s’afficherait comme suit :
 
 ![Vue de graphique](media/parameterized-url/url2.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md)

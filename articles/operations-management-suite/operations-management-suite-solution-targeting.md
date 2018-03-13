@@ -72,6 +72,6 @@ Le ciblage de solution ne peut pas être utilisé avec les solutions suivantes, 
 
 - Évaluation de l’intégrité de l’agent
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les solutions de gestion, notamment les solutions qui peuvent être installées dans votre environnement en consultant [Ajout de solutions de gestion Azure Log Analytics dans votre espace de travail](../log-analytics/log-analytics-add-solutions.md).
 - En savoir plus sur la création de groupes d’ordinateurs en consultant [Groupes d’ordinateurs dans la recherche dans les journaux de Log Analytics](../log-analytics/log-analytics-computer-groups.md).

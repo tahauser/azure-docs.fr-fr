@@ -224,7 +224,7 @@ Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les
 
 * **Azure PowerShell** : lorsque vous utilisez l’applet de commande `New-AzureRmHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, de travail et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Utilisez les liens suivants pour en savoir plus sur les éléments mentionnés dans ce document.
 

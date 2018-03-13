@@ -62,6 +62,6 @@ Pour toutes les opérations de gestion et de chiffrement d’objets (clés et se
 ## <a name="ip-address-ranges"></a>Plages d’adresse IP
 Le service Key Vault utilise d’autres ressources Azure telles que l’infrastructure PaaS, de sorte qu’il n’est pas possible de fournir une plage spécifique des adresses IP qu’auront les points de terminaison Key Vault à un moment donné. Si votre pare-feu prend en charge uniquement des plages d’adresses IP, consultez le document [Plages IP des centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Pour l’authentification et l’identité (Azure Active Directory), votre application doit être en mesure de se connecter aux points de terminaison décrits dans [Authentication and identity Addresses (Authentification et identité des adresses)](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour toute question concernant Key Vault, rendez-vous sur les [forums Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 

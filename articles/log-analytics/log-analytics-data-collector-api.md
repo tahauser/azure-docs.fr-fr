@@ -464,5 +464,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Utilisez l’[API Recherche de journal](log-analytics-log-search-api.md) pour récupérer des données à partir du référentiel Log Analytics.

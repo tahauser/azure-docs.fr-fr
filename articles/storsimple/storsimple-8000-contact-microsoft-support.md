@@ -113,6 +113,6 @@ Procédez comme suit pour démarrer une session de support :
 > Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [diagnostiquer et résoudre les problèmes liés à votre appareil de la gamme StorSimple 8000](storsimple-8000-troubleshoot-deployment.md).

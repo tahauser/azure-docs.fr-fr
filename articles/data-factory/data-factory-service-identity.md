@@ -167,7 +167,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’identité de service de fabrique de données :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)

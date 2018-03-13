@@ -78,7 +78,7 @@ Azure Automation effectue la gestion tout au long du cycle de vie de votre infra
 
 Vous pouvez consulter le prix d’Azure Automation sur la page relative à la [tarification](https://azure.microsoft.com/pricing/details/automation/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Créer un compte Automation](automation-quickstart-create-account.md)

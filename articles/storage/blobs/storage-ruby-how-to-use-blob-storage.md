@@ -155,7 +155,7 @@ Pour supprimer un objet blob, utilisez la méthode **delete\_blob()**. L'exemple
 azure_blob_service.delete_blob(container.name, "image-blob")
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les liens ci-dessous :
 
 * [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)

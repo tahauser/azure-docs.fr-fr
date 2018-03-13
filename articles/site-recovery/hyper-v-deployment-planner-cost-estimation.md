@@ -177,5 +177,5 @@ Le planificateur de déploiement Site Recovery peut générer le rapport de coû
 |SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la protection des [machines virtuelles Hyper-V vers Azure à l’aide de Site Recovery](hyper-v-azure-tutorial.md).

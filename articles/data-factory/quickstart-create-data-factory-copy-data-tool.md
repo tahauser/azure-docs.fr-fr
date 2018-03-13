@@ -134,5 +134,5 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
 
     ![Onglet Modifier](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios, consultez les [didacticiels](tutorial-copy-data-portal.md). 

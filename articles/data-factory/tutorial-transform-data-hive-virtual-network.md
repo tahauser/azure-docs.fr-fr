@@ -394,7 +394,7 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
    246 en-US SCH-i500 District Of Columbia
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

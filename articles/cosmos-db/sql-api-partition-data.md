@@ -223,7 +223,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 Dans la section suivante, nous examinons la manière de passer des conteneurs à partition unique à des conteneurs partitionnés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, nous avons fourni une vue d’ensemble de l’utilisation du partitionnement des conteneurs Azure Cosmos DB avec l’API SQL. Consultez également [Partitionnement et mise à l’échelle horizontale](../cosmos-db/partition-data.md) pour découvrir une vue d’ensemble des concepts et bonnes pratiques pour le partitionnement avec l’API Azure Cosmos DB. 
 
 * Effectuez un test des performances et de la mise à l’échelle avec Azure Cosmos DB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md) pour obtenir un exemple.

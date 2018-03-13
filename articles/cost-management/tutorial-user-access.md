@@ -79,7 +79,7 @@ Pour visionner un didacticiel vidéo sur la création d’une hiérarchie d’en
 
 Si vous êtes un utilisateur Azure Enterprise Agreement, regardez un didacticiel vidéo sur l’association des comptes et des abonnements à des entités à l’adresse [Connexion à Azure Resource Manager avec la gestion des coûts Azure de Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

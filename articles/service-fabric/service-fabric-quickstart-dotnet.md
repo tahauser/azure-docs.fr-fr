@@ -216,7 +216,7 @@ Pour mettre à niveau l'application, procédez comme suit :
 
 10. Pendant l’exécution de la mise à niveau, vous pouvez continuer à utiliser l’application. Étant donné que vous avez deux instances du service en cours d’exécution dans le cluster, certaines de vos demandes peuvent obtenir une version mise à niveau de l’application, et d’autres utilisateurs l’ancienne version.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
 > [!div class="checklist"]

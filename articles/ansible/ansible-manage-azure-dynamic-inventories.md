@@ -212,6 +212,6 @@ Cette section présente une technique de test de l’installation de Nginx sur v
     tom@ansible-inventory-test-vm2:~$
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
 > [Créer une machine virtuelle Linux de base dans Azure avec Ansible](/azure/virtual-machines/linux/ansible-create-vm)

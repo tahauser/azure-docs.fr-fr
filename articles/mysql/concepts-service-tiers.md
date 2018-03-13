@@ -100,6 +100,6 @@ En réalité, un changement du niveau de performances d’un serveur crée une c
 
 La durée de la totalité du processus de mise à l’échelle dépend de la taille et du niveau tarifaire du serveur avant et après le changement. Par exemple, le changement des unités de calcul au sein du niveau tarifaire Standard ne demande normalement que quelques minutes. Les nouvelles propriétés du serveur ne sont appliquées qu’une fois les modifications terminées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur les unités de calcul, consultez [Présentation des unités de calcul](concepts-compute-unit-and-storage.md)
 - Découvrez comment [Surveiller et mettre à l’échelle un serveur Azure Database pour MySQL à l’aide d’Azure CLI](scripts/sample-scale-server.md)

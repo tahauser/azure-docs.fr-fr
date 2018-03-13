@@ -168,7 +168,7 @@ Pour ajouter vos propres serveurs OPC UA à la solution préconfigurée Usine co
 
 1. Les données de télémétrie transitent maintenant à partir de la passerelle. Vous pouvez afficher les données de télémétrie dans la vue **Emplacements des usines** du portail de solution Usine connectée, sous **Nouvelle fabrique**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’architecture de la solution préconfigurée Usine connectée, consultez la [présentation de la solution préconfigurée Usine connectée](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 

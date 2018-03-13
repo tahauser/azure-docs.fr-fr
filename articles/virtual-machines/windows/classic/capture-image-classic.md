@@ -73,7 +73,7 @@ Avant de capturer une image d’une machine virtuelle Azure, nous vous recommand
 
     ![Capture d’image réussie](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 L’image est prête à être utilisée pour créer des machines virtuelles. Pour ce faire, vous allez créer une machine virtuelle en sélectionnant l’élément de menu **Tous les services** en bas du menu Services, puis **Images de machine virtuelle (classiques)** dans le groupe **Calculer**. Pour obtenir des instructions, consultez [Création d’une machine virtuelle à partir d’une image](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md

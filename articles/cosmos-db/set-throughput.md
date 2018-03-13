@@ -105,6 +105,6 @@ Cette valeur de 400 unités de requête/s correspond au débit minimal disponibl
 
 Il n’existe aucune extension d’API MongoDB pour définir le débit. Nous vous recommandons d’utiliser l’API SQL, comme indiqué dans [Pour définir le débit à l’aide de l’API SQL pour .NET](#set-throughput-sdk).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’approvisionnement et la mise à l’échelle avec Cosmos DB, consultez [Partitioning and scaling with Cosmos DB (Partitionnement et mise à l’échelle avec Cosmos DB)](partition-data.md).

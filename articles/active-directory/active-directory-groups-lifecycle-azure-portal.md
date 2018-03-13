@@ -81,7 +81,7 @@ Si le groupe que vous restaurez contient des documents, des sites SharePoint ou 
 >   Par exemple, le groupe A a été créé il y a 400 jours et l’intervalle d’expiration est défini sur 180 jours. Lorsque vous appliquez les paramètres d’expiration, il reste 30 jours au groupe A avant qu’il ne soit supprimé, sauf si le propriétaire le renouvelle.
 > * Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un groupe nouveau, complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

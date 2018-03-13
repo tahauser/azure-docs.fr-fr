@@ -283,7 +283,7 @@ module.exports = function (context, input) {
 
 Vous trouverez plus d’informations sur le démarrage des instances dans la section [Gestion d’instance](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la création de points de contrôle et les comportements de réexécution](durable-functions-checkpointing-and-replay.md)

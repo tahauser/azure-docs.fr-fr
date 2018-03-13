@@ -201,7 +201,7 @@ Vous pouvez obtenir de l’aide sur les commandes de l’interface de commande a
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez créé les comptes Azure Machine Learning nécessaires et installé l’application Azure Machine Learning Workbench. Dans cette application, vous avez créé un projet, exécuté un script et exploré l’historique des exécutions du script.
 
 Pour obtenir une expérience plus approfondie de ce flux de travail, notamment la façon de déployer votre modèle Iris en tant que service web, suivez le didacticiel *Classifying Iris* (Classification d’iris) intégral. Ce dernier contient des étapes détaillées pour la [préparation des données](tutorial-classifying-iris-part-1.md), [l’expérimentation](tutorial-classifying-iris-part-2.md) et la [gestion des modèles](tutorial-classifying-iris-part-3.md). 

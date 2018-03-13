@@ -212,7 +212,7 @@ Là encore, ces requêtes renvoient un nombre à un point dans le temps. Si vous
 
 Pour une analyse SQL Database, vous pouvez obtenir des statistiques d’historique sur les sessions en interrogeant la vue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) et en consultant la colonne **active_session_count**. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Réglez automatiquement les index de base de données et interrogez les plans d’exécution avec le [réglage automatique d’Azure SQL Database](sql-database-automatic-tuning.md).
 - Effectuez automatiquement le monitoring des performances de base de données avec[Azure SQL Intelligent Insights](sql-database-intelligent-insights.md). Cette fonctionnalité fournit des informations de diagnostic et une analyse des causes racines des problèmes de performances.

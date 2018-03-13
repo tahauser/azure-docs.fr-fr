@@ -99,7 +99,7 @@ Une fois qu’une solution a été développée, elle peut être capturée et d�
 
 La solution Azure Functions peut aussi être intégrée au modèle de déploiement. De cette façon, la solution complète avec toutes les dépendances peut être gérée comme un seul et même modèle.  Vous trouverez un exemple de modèle de déploiement de fonction dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Voir d’autres exemples et scénarios relatifs à Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Regarder une vidéo de procédure pas à pas sur la création de cette solution de bout en bout](http://aka.ms/logicappsdemo)

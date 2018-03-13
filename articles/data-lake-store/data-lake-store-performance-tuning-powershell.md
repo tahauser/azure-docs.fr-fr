@@ -93,7 +93,7 @@ Vous pouvez continuer à ajuster ces paramètres en augmentant et en diminuant l
 
 * **Erreurs de limitation** : il se peut que vous rencontriez des erreurs de limitation si le nombre d’accès concurrentiels est trop élevé. En cas d’erreurs de limitation, vous devez réduire le nombre d’accès simultanés ou nous contacter.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

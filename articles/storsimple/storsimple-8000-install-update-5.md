@@ -112,6 +112,6 @@ Procédez comme suit pour télécharger et importer les correctifs logiciels.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez plus en détail la [version Update 5](storsimple-update5-release-notes.md).
 

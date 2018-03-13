@@ -106,7 +106,7 @@ Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et
 
 Vous pouvez utiliser [Azure IoT Edge][lnk-iot-edge] pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités, comme la possibilité de multiplexer les communications à partir de plusieurs appareils sur la même connexion IoT Hub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 

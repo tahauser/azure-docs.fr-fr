@@ -624,7 +624,7 @@ Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la comman
 
 Voilà, vous n’avez plus qu’à générer l’élément pour être sur la bonne voie ! 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Vous voulez un exemple de Node.js plus complexe ? Consultez [Création d’une application web Node.js avec Azure Cosmos DB](sql-api-nodejs-application.md).
 * Découvrez comment [surveiller un compte Azure Cosmos DB](monitor-accounts.md).
 * Exécutez des requêtes sur notre exemple de dataset dans le [Query Playground](https://www.documentdb.com/sql/demo).

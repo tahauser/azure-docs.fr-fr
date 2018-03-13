@@ -131,7 +131,7 @@ Le tableau suivant décrit le comportement de mise en cache par défaut des prod
 
 **Durée de cache du CDN** : indique le temps pendant lequel une ressource est mise en cache sur Azure CDN. Toutefois, si **Honorer l’origine** est Oui et que la réponse HTTP du serveur d’origine inclut l’en-tête de la directive de cache `Expires` ou `Cache-Control: max-age`, Azure CDN utilise la valeur de la durée spécifiée par l’en-tête à la place. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment personnaliser et remplacer le comportement de mise en cache par défaut sur CDN par le biais de règles de mise en cache, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md). 
 - Pour savoir comment utiliser des chaînes de requête pour contrôler le comportement de mise en cache, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des chaînes de requête](cdn-query-string.md).

@@ -680,7 +680,7 @@ Dans la page **Appareils**, vous pouvez provisionner des instances de votre type
 
 Vous pouvez afficher les données de télémétrie de **température interne** de l’appareil simulé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

@@ -120,7 +120,7 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur](hyper-v-vmm-networking.md) l’adressage IP après le basculement sur un site VMM secondaire.
 - [En savoir plus](concepts-on-premises-to-azure-networking.md) sur l’adressage IP après le basculement vers Azure

@@ -735,7 +735,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

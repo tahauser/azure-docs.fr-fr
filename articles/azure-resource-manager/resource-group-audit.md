@@ -146,7 +146,7 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 ## <a name="rest-api"></a>de l’API REST
 Les opérations REST à utiliser avec le journal d’activité font partie de l’ [API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’activité, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Les journaux d’activité Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez le billet de blog sur [l’affichage et l’analyse des journaux d’activité Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).

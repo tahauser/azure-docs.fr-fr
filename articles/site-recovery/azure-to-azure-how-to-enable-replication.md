@@ -76,7 +76,7 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 >Pendant la réplication initiale, l’état des peut prendre un certain temps à s’actualiser à défaut de progression. Cliquez sur le bouton **Actualiser** pour obtenir le dernier état.
 >
 
-# <a name="next-steps"></a>étapes suivantes
+# <a name="next-steps"></a>Étapes suivantes
 
 [En savoir plus](site-recovery-test-failover-to-azure.md) sur l’exécution d’un test de basculement.
 

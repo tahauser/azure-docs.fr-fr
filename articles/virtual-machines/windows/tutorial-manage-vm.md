@@ -274,7 +274,7 @@ La suppression d’un groupe de ressources supprime également toutes les ressou
 Remove-AzureRmResourceGroup -Name "myResourceGroupVM" -Force
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a montré les tâches de base de création et de gestion de machines virtuelles, notamment :
 

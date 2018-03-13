@@ -156,7 +156,7 @@ Adal.js facilite l’intégration des fonctionnalités d’identité communes da
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez à présent aborder d’autres scénarios. Vous souhaiterez peut-être essayer : [Appeler une API web CORS à partir d’une application à page unique](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

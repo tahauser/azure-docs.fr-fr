@@ -143,5 +143,5 @@ Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compat
 Dans V2, vous pouvez également surveiller les fabriques de données à l’aide d’[Azure Monitor](monitor-using-azure-monitor.md). Les nouvelles applets de commande PowerShell prennent en charge la surveillance des [runtimes d’intégration](monitor-integration-runtime.md). V1 et V2 prennent toutes deux en charge la surveillance visuelle à l’aide d’une application de surveillance pouvant être lancée depuis le portail Azure.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md). 

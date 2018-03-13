@@ -731,7 +731,7 @@ Par exemple, pour le travail de ce document, vous utiliseriez les étapes suivan
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie et comment exécuter un travail Oozie. Pour en savoir plus sur l’utilisation de HDInsight, consultez les articles suivants :
 

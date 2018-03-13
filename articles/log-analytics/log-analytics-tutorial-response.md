@@ -67,7 +67,7 @@ Les actions par e-mail envoient un message électronique contenant les détails 
 5. Ajoutez l’adresse du ou des destinataires de l’e-mail dans le champ **Destinataires**.  Si vous spécifiez plusieurs adresses, séparez-les par un point-virgule (;).
 6. Cliquez sur **Enregistrer** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Règle d’alerte avec notification par e-mail](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez découvert en quoi les règles d’alerte permettaient d’identifier et de répondre à un stade précoce à un problème déterminé quand elles exécutent des recherches dans les journaux à intervalles réguliers et qu’elles correspondent à des critères particuliers.  
 
 Suivez ce lien pour examiner des exemples de scripts Log Analytics prédéfinis.  

@@ -65,7 +65,7 @@ L’exemple de [traitement d’événement mis à l’échelle](https://code.msd
 
 L’exemple [d’importation des données à partir du web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) montre comment extraire des données à partir de flux publics (par exemple, le flux d’informations sur la circulation du Ministère des transports) et les distribuer vers un Event Hub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les versions de .NET Framework, visitez les liens suivants :
 

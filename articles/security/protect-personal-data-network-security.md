@@ -131,7 +131,7 @@ Après quelques secondes, la nouvelle règle s’affiche dans le NSG.
 
 Pour obtenir des instructions sur la manière de créer des NSG dans des sous-réseaux, de créer des règles et d’associer un NSG à un sous-réseau frontal et principal, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Sécurité du réseau Azure](https://azure.microsoft.com/blog/azure-network-security/)
 

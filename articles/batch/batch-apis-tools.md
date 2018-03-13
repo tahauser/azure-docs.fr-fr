@@ -75,7 +75,7 @@ Voici quelques outils supplémentaires qui peuvent être utiles pour générer e
 - Pour en savoir plus sur la journalisation des événements à partir de votre application Batch, consultez [Consigner des événements pour l’analyse et l’évaluation de diagnostic des solutions Batch](batch-diagnostics.md). Pour en savoir plus sur les événements déclenchés par le service Batch, voir [Batch Analytics](batch-analytics.md).
 - Pour plus d’informations sur les variables d’environnement des nœuds de calcul, consultez [Variables d’environnement de nœud de calcul Azure Batch](batch-compute-node-environment-variables.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md). Elle contient des informations indispensables pour toute personne se préparant à l’utilisation de Batch. L’article contient des informations plus détaillées sur les ressources du service Batch telles que les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités API que vous pouvez utiliser lors de la création de votre application Batch.
 * [Prise en main de la bibliothèque Azure Batch pour .NET](tutorial-parallel-dotnet.md) pour apprendre à utiliser C# et la bibliothèque .NET Batch pour exécuter une charge de travail simple à l’aide d’un flux de travail Batch courant. Une [version Python](tutorial-parallel-python.md) et un [didacticiel Node.js](batch-nodejs-get-started.md) sont également disponibles.

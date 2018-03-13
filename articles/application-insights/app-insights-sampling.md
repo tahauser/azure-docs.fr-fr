@@ -357,6 +357,6 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 
 * Initialisez une instance distincte de TelemetryClient avec une nouvelle instance TelemetryConfiguration (et non la valeur Active par défaut). Utilisez cette instance pour envoyer vos événements rares.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [filtrage](app-insights-api-filtering-sampling.md) peut fournir un contrôle plus strict de ce que le Kit de développement logiciel (SDK) envoie.
 

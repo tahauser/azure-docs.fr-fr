@@ -65,6 +65,6 @@ Supposons que ce partenaire possède ces métadonnées avec des détails `routin
 
    ![Recherche](media/logic-apps-enterprise-integration-metadata/image5.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur les contrats](logic-apps-enterprise-integration-agreements.md)

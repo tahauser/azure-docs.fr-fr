@@ -293,7 +293,7 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Redémarrer le service de synchronisation Azure AD"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Le code de support se trouve en bas à droite de la fenêtre"
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les articles suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 

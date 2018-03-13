@@ -158,7 +158,7 @@ Cliquez sur **Afficher tout...**  pour consulter la liste complète des ordinate
 Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Recherche de données à l’aide de recherches de journal](log-analytics-log-searches.md) pour apprendre à utiliser le langage de recherche. Vous pouvez utiliser des requêtes de recherche pour effectuer des analyses supplémentaires sur les données d’utilisation.
 * Utilisez les étapes décrites dans [Création d’une règle d’alerte](log-analytics-alerts-creating.md#create-an-alert-rule) pour être averti lorsqu’un critère de recherche est rempli.
 * Utiliser le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement

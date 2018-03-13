@@ -58,5 +58,5 @@ Certains clients démarrent avec une solution cloud uniquement avec Azure AD et 
 
 Si la seule raison pour laquelle vous souhaitez ajouter un répertoire AD local est pour la prise en charge d’applications métier, vous devrez peut-être envisager d’utiliser les [services de domaine Azure AD](../../active-directory-domain-services/index.md) à la place.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

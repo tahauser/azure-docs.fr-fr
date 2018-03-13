@@ -379,7 +379,7 @@ Le pipeline fonctionnant comme prévu, vous pouvez créer un déclencheur pour l
 
     ![Exécutions de déclencheur](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants de la documentation relative à SSIS : 
 
 - [Déployer, exécuter et surveiller un package SSIS sur Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

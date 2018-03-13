@@ -68,7 +68,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 >[!NOTE]
 >Concernant Windows 10, il est recommandé d’utiliser [Azure AD Join](../active-directory-azureadjoin-overview.md) pour une expérience optimale d’authentification unique dans Azure AD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
 - [**Immersion technique**](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.

@@ -115,7 +115,7 @@ Allez à l’adresse http://localhost:8080 dans votre navigateur pour confirmer 
 
 ![Exécution locale de l’application dans le navigateur][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez créé une image de conteneur qui peut être déployée dans Azure Container Instances. Les étapes suivantes ont été effectuées :
 

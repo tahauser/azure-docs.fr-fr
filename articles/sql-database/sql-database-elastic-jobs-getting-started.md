@@ -461,7 +461,7 @@ Supprimez un déclencheur de tâches pour arrêter une tâche qui s'exécute sel
 
 Toutes les lignes de la table **Clients** , stockées dans des partitions différentes, remplissent la feuille Excel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez maintenant utiliser les fonctions de données Excel. Utilisez la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour connecter vos outils d’intégration BI et de données à la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Traitez la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### <a name="cost"></a>Coût

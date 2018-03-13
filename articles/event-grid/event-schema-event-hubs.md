@@ -80,7 +80,7 @@ L’objet de données comporte les propriétés suivantes :
 | firstEnqueueTime | chaîne | Première heure de la file d’attente. |
 | lastEnqueueTime | chaîne | Dernière heure de la file d’attente. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).

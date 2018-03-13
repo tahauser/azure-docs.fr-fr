@@ -254,7 +254,7 @@ Les charges de travail générées par le script de génération de charge sont 
     - [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL](sql-database-elastic-pool.md)
     - [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

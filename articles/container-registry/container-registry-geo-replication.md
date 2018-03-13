@@ -102,7 +102,7 @@ Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en 
 
 Avec la géoréplication, vous pouvez gérer vos centres de données régionaux comme un cloud global. Comme les images sont utilisées dans de nombreux services Azure, vous pouvez bénéficier d’un plan de gestion unique tout en conservant des extractions d’images locales à proximité du réseau, rapides et fiables.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez la série de didacticiels en trois parties relative à la [géoréplication dans Azure Container Registry](container-registry-tutorial-prepare-registry.md). Découvrez les étapes permettant de créer un registre géorépliqué, de générer un conteneur, puis de le déployer avec une seule commande `docker push` vers plusieurs instances régionales de Web App pour conteneurs.
 

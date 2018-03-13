@@ -121,5 +121,5 @@ Vous pouvez également ajuster le niveau tarifaire de la base de données en fon
 ## <a name="design-for-high-performance"></a>Conception pour de hautes performances
 La conception d’un package SSIS à exécuter sur Azure diffère de la conception d’un package pour une exécution locale. Au lieu de combiner plusieurs tâches indépendantes dans le même package, séparez-les en plusieurs packages pour une exécution plus efficace dans Azure-SSIS Integration Runtime. Créez une exécution pour chaque package, afin qu’aucun package ne doive attendre que l’exécution des autres soit terminée. Cette approche tire parti de l’évolutivité d’Azure-SSIS Integration Runtime et améliore le débit global.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur Azure-SSIS Integration Runtime. Consulter [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).

@@ -121,7 +121,7 @@ docker-compose down
 
 Une fois terminé, vous disposez de deux images conteneur contenant l’application Azure Vote.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
 

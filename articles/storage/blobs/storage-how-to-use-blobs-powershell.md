@@ -359,7 +359,7 @@ Supprimez toutes les ressources que vous avez créées. Vous pouvez pour cela su
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a présenté les bases de la gestion de stockage d’objets blob. Vous avez notamment appris à effectuer les tâches suivantes :
 

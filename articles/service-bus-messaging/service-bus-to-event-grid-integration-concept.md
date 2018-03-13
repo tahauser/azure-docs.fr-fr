@@ -165,7 +165,7 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 
 À ce stade, vous pouvez explorer les autres options d’installation ou [vérifier que les événements sont transmis](#test-that-events-are-flowing).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Exemples](service-bus-to-event-grid-integration-example.md) Service Bus et Event Grid.
 * Apprenez-en plus sur [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).

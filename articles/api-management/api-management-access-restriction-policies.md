@@ -516,7 +516,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Sections de la stratégie :** inbound  
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 

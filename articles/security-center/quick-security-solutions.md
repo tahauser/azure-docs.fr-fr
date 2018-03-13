@@ -91,7 +91,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 > La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris à connecter une solution Syslog Linux à Security Center à l’aide du format CEF. En connectant vos journaux CEF à Security Center, vous pouvez tirer parti des règles d’alerte de recherche et personnalisée et des informations riches de Threat Intelligence. Pour en savoir plus sur l’utilisation de Security Center, passez au didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité de vos ressources.
 
 > [!div class="nextstepaction"]

@@ -163,7 +163,7 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Télécharger des objets blob pour analyse](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Transférer le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [En savoir plus sur le journal d’activité](monitoring-overview-activity-logs.md)

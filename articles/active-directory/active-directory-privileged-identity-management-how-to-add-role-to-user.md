@@ -61,6 +61,6 @@ Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle :
 
 Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attributions de rôles, vous pouvez [démarrer une révision de l’accès pour le rôle](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

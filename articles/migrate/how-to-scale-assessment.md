@@ -197,7 +197,7 @@ La durée de la découverte varie selon le nombre de machines virtuelles découv
 2. Vérifiez que les machines virtuelles que vous souhaitez découvrir apparaissent dans le portail.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [créer un groupe](how-to-create-a-group.md) pour l'évaluation.
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

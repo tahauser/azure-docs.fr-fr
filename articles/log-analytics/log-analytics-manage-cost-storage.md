@@ -49,6 +49,6 @@ Si vous utilisez le plan *Gratuit* et que vous constatez que vous dépassez cons
 4. Dans la page Espace de travail, cliquez sur **Rétention** dans le volet gauche.
 5. Dans le volet de rétention de l’espace de travail, déplacez le curseur pour augmenter ou diminuer le nombre de jours, puis cliquez sur **Enregistrer**.  Si vous avez opté pour le niveau *Gratuit*, vous ne pouvez pas modifier la période de rétention de données et vous devez passer au niveau payant afin de contrôler ce paramètre.<br><br> ![Changer le paramètre de rétention de données de l’espace de travail](media/log-analytics-manage-cost/manage-cost-change-retention.png)
 
-## <a name="next-steps"></a>étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
 
 Pour déterminer la quantité de données collectée, les sources qui les envoient et les différents types de données envoyées pour faciliter la gestion de la consommation et des coûts, consultez [Analyser l’utilisation des données dans Log Analytics](log-analytics-usage.md).

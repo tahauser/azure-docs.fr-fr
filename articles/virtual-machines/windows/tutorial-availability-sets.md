@@ -122,7 +122,7 @@ Vous pouvez également utiliser Azure Advisor pour obtenir plus d’informations
 Connectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Tous les services** et saisissez **Advisor**. Le tableau de bord du conseiller affiche des recommandations personnalisées pour l’abonnement sélectionné. Pour plus d’informations, consultez [Bien démarrer avec Azure Advisor](../../advisor/advisor-get-started.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

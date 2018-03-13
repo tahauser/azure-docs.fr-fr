@@ -125,7 +125,7 @@ Set-AzureRmVMSqlServerExtension `
    -Location "EastUS"
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez installé une pile SQL&#92;IIS&#92;.NET avec Azure PowerShell. Vous avez appris à effectuer les actions suivantes :
 

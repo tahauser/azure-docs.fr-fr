@@ -138,6 +138,6 @@ Les algorithmes d’apprentissage par renforcement collectent les données au fu
 
 Et voilà ! Ce sont les 5 questions auxquelles la science des données peut répondre.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)

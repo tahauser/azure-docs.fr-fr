@@ -168,7 +168,7 @@ Notez également que la connexion est chiffrée et qu’un certificat émis par 
 
 ![Certificat Lets Encrypt](media/ingress/certificate.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez le logiciel mentionné dans ce document. 
 

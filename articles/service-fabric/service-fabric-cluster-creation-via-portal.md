@@ -210,7 +210,7 @@ La section **Surveillance des nœuds** du panneau du tableau de bord du cluster 
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connexion distante à une instance de jeu de mise à l’échelle de machine virtuelle ou à un nœud de cluster
 Chacune des valeurs NodeTypes que vous spécifiez dans votre cluster entraîne la configuration d’un groupe de machines virtuelles identiques. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À ce stade, vous avez un cluster sécurisé à l’aide de certificats pour l’authentification de la gestion. Ensuite, [connectez-vous à votre cluster](service-fabric-connect-to-secure-cluster.md) et découvrez comment [gérer les secrets d’application](service-fabric-application-secret-management.md).  Découvrez également les [options de support de Service Fabric](service-fabric-support.md).
 
 <!-- Links -->

@@ -246,7 +246,7 @@ Pour tester ce scénario avec l’un des utilisateurs partenaires, consultez la 
 > [!NOTE]
 > Les comptes Microsoft qui disposent d’un accès invité à votre locataire Azure AD, tels que les comptes Hotmail.com, Outlook.com ou correspondant à d’autres adresses e-mail personnelles, ne peuvent pas utiliser Azure AD SSPR. Les utilisateurs de ces comptes doivent réinitialiser leur mot de passe à l’aide des informations fournies dans l’article [Lorsque vous n’avez pas accès à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 

@@ -148,7 +148,7 @@ Placez les journaux à cet emplacement :
 C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus informations sur DSC PowerShell, reportez-vous au [centre de documentation PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 * Examinez le [modèle Resource Manager pour l’extension DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 * Pour obtenir plus de fonctionnalités gérables avec DSC PowerShell ainsi que plus de ressources DSC, parcourez la [galerie PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

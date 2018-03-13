@@ -196,7 +196,7 @@ Si des informations supplémentaires sont disponibles, elles s’affichent dans 
 ![Alerte d’accès inhabituel](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté les différents types d’alertes de sécurité dans Azure Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Gestion des incidents de sécurité dans Azure Security Center](security-center-incident.md)

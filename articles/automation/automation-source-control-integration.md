@@ -136,7 +136,7 @@ Pour vous déconnecter de votre compte GitHub, ouvrez la page Synchronisation du
 
   ![Bouton de déconnexion](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir plus d’informations sur le contrôle de code source, consultez les ressources suivantes :  
 
 * [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  

@@ -175,6 +175,6 @@ Procédez comme suit pour configurer l’Agent OMS pour Linux pour envoyer des r
 2. Vérifiez que la ligne commençant par `httpsport=` spécifie le port 1270. Par exemple : `httpsport=1270`
 3. Redémarrez le serveur OMI : `sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez [Résolution des problèmes de l’agent Linux](log-analytics-agent-linux-support.md) si vous rencontrez des problèmes lors de l’installation ou de gestion de l’agent.  

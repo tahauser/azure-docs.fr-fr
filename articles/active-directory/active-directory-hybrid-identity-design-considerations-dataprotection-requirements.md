@@ -80,7 +80,7 @@ Les règlements, les lois et les exigences de conformité aux réglementations v
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  [Déterminer les exigences de gestion de contenu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

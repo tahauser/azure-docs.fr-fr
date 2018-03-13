@@ -162,7 +162,7 @@ SQL Database prend en charge la génération d’applications avec Python, Java,
 - [Feedback](http://aka.ms/sqlfeedback) : signalez des bogues et demandez une fonctionnalité
 - [Reddit](https://www.reddit.com/r/SQLServer/) : échangez au sujet de SQL Server
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/sql-database/) pour obtenir un comparatif des coûts entre une base de données unique et des pools élastiques et accéder à des calculateurs.
 

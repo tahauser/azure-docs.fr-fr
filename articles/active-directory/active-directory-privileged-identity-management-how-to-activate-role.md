@@ -67,7 +67,7 @@ Au cas où vous n’auriez pas besoin de l’activation d’un rôle qui nécess
 
    ![Capture d’écran d’annulation de demande en attente][4]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez en savoir plus sur Azure AD Privileged Identity Management, les liens suivants contiennent d'autres informations.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

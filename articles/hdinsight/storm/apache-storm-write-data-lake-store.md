@@ -222,7 +222,7 @@ Les topologies Storm s’exécutent jusqu’à ce qu’elles soient arrêtées o
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à utiliser Storm pour écrire dans le stockage Azure et Azure Data Lake Store, découvrez d’autres [exemples Storm pour HDInsight](apache-storm-example-topology.md).
 

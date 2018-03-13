@@ -58,7 +58,7 @@ Les applications qui s’intègrent à Azure AD doivent être enregistrées avec
 |resourceAccess     |  Type de tableau       | Consultez l’exemple de valeur de la propriété requiredResourceAccess.        |   La liste des étendues d’autorisation OAuth2.0 et des rôles d’application requise par l’application à partir de la ressource spécifiée (contient les valeurs d’ID et de type des ressources spécifiées)        |
 |samlMetadataUrl|chaîne|http:<i></i>//MyRegisteredAppSAMLMetadata|URL vers les métadonnées SAML pour l’application.| 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Consultez la rubrique [Application et objets principal du service dans Azure AD][AAD-APP-OBJECTS] pour plus d’informations sur la relation existant entre les objets du principal du service et une application d’application.
 * Consultez le [glossaire du développeur Azure AD][AAD-DEVELOPER-GLOSSARY] pour connaître les définitions de certains des principaux concepts de développement Azure Active Directory (AD).
 

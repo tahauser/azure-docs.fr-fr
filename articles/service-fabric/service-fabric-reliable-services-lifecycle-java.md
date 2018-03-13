@@ -135,7 +135,7 @@ Le fait de gérer des exceptions issues de l’utilisation de `ReliableCollectio
 * S’il n’existe pas de limite de temps sur le retour de ces méthodes, vous perdez immédiatement la possibilité d’écrire. Par conséquent, vous ne pouvez pas effectuer de travail réel. Il est recommandé de procéder au renvoi aussi rapidement que possible dès la réception de la demande d’annulation. Si votre service ne répond pas à ces appels d’API dans un délai raisonnable, Service Fabric peut mettre fin à votre service. En général, cela se produit uniquement lors de mises à niveau d’application ou lorsqu’un service est en cours de suppression. Par défaut, ce délai d’attente est de 15 minutes.
 * Les échecs dans le chemin `onCloseAsync()` entraînent l’appel de `onAbort()`. Cet appel constitue une opportunité de dernière chance pour le service de nettoyer et de libérer les ressources demandées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start-java.md)
 * [Utilisation avancée de Reliable Services](service-fabric-reliable-services-advanced-usage.md)

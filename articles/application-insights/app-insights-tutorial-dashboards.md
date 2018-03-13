@@ -162,7 +162,7 @@ Azure Application Insights Analytics étant un service distinct, vous devez part
 5. Cliquez sur **Publier les modifications** pour valider les modifications apportées à votre tableau de bord qui comprend désormais une série de graphiques et de visualisations d’Application Insights.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous avez appris à créer des tableaux de bord personnalisés, jetez un coup d’œil au reste de la documentation d’Application Insights, notamment à une étude de cas.
 
 > [!div class="nextstepaction"]

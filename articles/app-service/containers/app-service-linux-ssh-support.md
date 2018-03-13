@@ -99,7 +99,7 @@ Le fichier Dockerfile utilise le [l’instruction `ENTRYPOINT`](https://docs.doc
     ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez poser des questions et signaler vos préoccupations sur le [forum Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
