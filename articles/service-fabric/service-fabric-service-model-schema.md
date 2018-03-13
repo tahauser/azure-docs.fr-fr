@@ -1927,10 +1927,10 @@ Spécifie les limites de ressources pour CodePackage.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -1956,10 +1956,10 @@ Spécifie les limites de ressources pour CodePackage.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -2553,10 +2553,10 @@ Extension de stratégie d’éviction pour le type de service.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -2656,10 +2656,10 @@ Extension de stratégie d’éviction pour le type de service.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 #### <a name="generatedid"></a>GeneratedId
@@ -2919,10 +2919,10 @@ Déclare un groupe en tant qu’entité de sécurité pouvant être référencé
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -4510,10 +4510,10 @@ Décrit un type de nœud.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -4751,10 +4751,10 @@ Paramètre d’application à utiliser dans ce manifeste. La valeur du paramètr
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 #### <a name="defaultvalue"></a>DefaultValue
@@ -4854,10 +4854,10 @@ Paramètre à substituer.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -5050,10 +5050,10 @@ Décrit une partition par nom.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 
@@ -5094,10 +5094,10 @@ Extension de stratégie de persistance pour le type de service.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -5410,10 +5410,10 @@ Nom du fichier exécutable.  Par exemple, « MySetup.bat » ou « MyServiceHost.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -5926,10 +5926,10 @@ Section dans le fichier settings.xml à substituer.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 ### <a name="content-element-details"></a>Détails de l’élément Content
@@ -5986,11 +5986,11 @@ Section nommée définie par l’utilisateur.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Paramètre à substituer.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -6170,10 +6170,10 @@ Déclare un service devant être créé automatiquement quand l’application es
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -6386,11 +6386,11 @@ Collection de services regroupés automatiquement afin d’être également dép
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Définit une relation d’affinité avec un autre service. Utile lors du fractionnement d’une application précédemment monolithique dans des microservices.  Un service a une dépendance locale envers un autre service, et les deux services doivent s’exécuter sur le même nœud afin de fonctionner.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -6656,10 +6656,10 @@ ServicePackage représente une unité avec version de déploiement et d’activa
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 
@@ -7485,10 +7485,10 @@ Décrit un ServiceType sans état.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -7523,10 +7523,10 @@ Groupe système auquel ajouter l’utilisateur.  Le groupe système doit être d
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -7780,10 +7780,10 @@ Déclare un utilisateur en tant qu’entité de sécurité pouvant être référ
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -8181,10 +8181,10 @@ Spécifie le volume à lier au conteneur.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -9134,11 +9134,11 @@ Décrit un cluster Microsoft Azure Service Fabric.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Certificat client de rôle d’utilisateur par défaut utilisé pour sécuriser la communication entre le serveur et le client.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 #### <a name="version"></a>Version
@@ -9285,10 +9285,10 @@ Décrit les substitutions de configuration d’un package de configuration parti
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 ### <a name="content-element-details"></a>Détails de l’élément Content
@@ -9429,10 +9429,10 @@ Spécifie des informations sur un certificat X509 qui doit être exposé à l’
 |default|false|
 |Type|xs:boolean|
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -10424,10 +10424,10 @@ Spécifie la collecte du contenu d’un dossier particulier sur le nœud local.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -10538,10 +10538,10 @@ Spécifie les informations sur un certificat X509 utilisé pour sécuriser un po
 |Nom|X509FindValue|
 |use|required|
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|facultatif|
 |Type|xs:string|
 
@@ -10596,10 +10596,10 @@ Spécifie les informations sur un certificat X509 utilisé pour sécuriser un po
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 #### <a name="port"></a>Port
@@ -10725,10 +10725,10 @@ Définit un point de terminaison pour le service. Des ports spécifiques peuvent
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 #### <a name="protocol"></a>Protocole
@@ -10949,10 +10949,10 @@ Variable d’environnement.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -11188,10 +11188,10 @@ Spécifie les informations de certificat.
 |default||
 |use|facultatif|
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|facultatif|
 |Type|xs:string|
 
@@ -11684,11 +11684,11 @@ Images de conteneur à déployer.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Images de conteneur à déployer.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -12056,10 +12056,10 @@ Ressource sur laquelle ce service doit être équilibré, par exemple mémoire o
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 #### <a name="defaultload"></a>DefaultLoad
@@ -13259,11 +13259,11 @@ Décrit les paramètres ETW pour les composants de ce manifeste de service.
 |Nom|ServiceTypeName|
 |use|required|
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Décrit les paramètres ETW pour les composants de ce manifeste de service.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 
 ### <a name="content-element-details"></a>Détails de l’élément Content
@@ -13773,10 +13773,10 @@ ServicePackage représente une unité avec version de déploiement et d’activa
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 |Type|xs:string|
 
@@ -15436,11 +15436,11 @@ Nom et valeur définis en tant qu’attributs.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Nom du paramètre à substituer.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 ##### <a name="xml-source"></a>Source XML
 ```xml
@@ -15742,11 +15742,11 @@ Groupe d’attributs qui inclut un nom et une version.
 ```
 ### <a name="attribute-details"></a>Détails d’attribut
 
-#### <a name="name"></a>NOM
+#### <a name="name"></a>Nom
 Nom de l’élément avec version.
 |Attribut|Valeur|
 |---|---|
-|Nom|NOM|
+|Nom|Nom|
 |use|required|
 ##### <a name="xml-source"></a>Source XML
 ```xml

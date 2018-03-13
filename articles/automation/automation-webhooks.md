@@ -115,7 +115,7 @@ En supposant que la requête aboutisse, la réponse webhook contient l'ID de tra
 
 Le client ne peut pas déterminer l'issue du travail du Runbook ou de son état d'achèvement à partir du webhook.  Il peut déterminer ces informations à l’aide de l’ID de travail avec une autre méthode telle que [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) ou [API d’Azure Automation](https://msdn.microsoft.com/library/azure/mt163826.aspx).
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 L'exemple suivant utilise Windows PowerShell pour démarrer un Runbook avec un webhook.  Notez que n'importe quel langage qui peut effectuer une requête HTTP peut utiliser un webhook ; Windows PowerShell est uniquement utilisé ici à titre d'exemple.
 
 Le Runbook s'attend à une liste de machines virtuelles au format JSON dans le corps de la requête. Nous allons également inclure des informations sur qui démarre le Runbook, ainsi que la date et l'heure de son démarrage dans l'en-tête de la requête.      
@@ -196,7 +196,7 @@ Prenons une ressource Azure, par exemple, une machine virtuelle. L’utilisation
 
 Quand cette règle d’alerte devient active et déclenche le runbook webhook, elle envoie le contexte de l’alerte au runbook. Le [contexte de l’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) contient des informations, notamment **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** et **Timestamp**, qui sont utilisées par le Runbook pour identifier la ressource sur laquelle il doit exécuter une action. Le contexte de l’alerte est incorporé dans le corps de l’objet **WebhookData** envoyé au runbook, et il est accessible avec la propriété **Webhook.RequestBody**
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Créez une machine virtuelle Azure dans votre abonnement, puis associez une [alerte pour surveiller la métrique du pourcentage UC](../monitoring-and-diagnostics/insights-receive-alert-notifications.md). Quand vous créez l’alerte, veillez à remplir le champ webhook par l’URL du webhook qui a été générée pendant la création de celui-ci.
 
 L’exemple de runbook suivant est déclenché quand la règle d’alerte devient active et collecte les paramètres de contexte de l’alerte qui servent au runbook pour identifier la ressource sur laquelle il devra exécuter une action.

@@ -45,7 +45,7 @@ Pertinence de l’ordre de publication :
 
 Lorsque vous appelez un runbook graphique ou PowerShell Workflow enfant à l’aide d’une exécution incorporée, vous utilisez simplement le nom du runbook.  Quand vous appelez un runbook enfant PowerShell, vous devez faire précéder son nom de *.\\* pour spécifier que le script se trouve dans le répertoire local. 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Dans l’exemple suivant, on appelle un Runbook enfant de test qui accepte trois paramètres : un objet complexe, un entier et une valeur booléenne. La sortie du Runbook enfant est affectée à une variable.  Dans ce cas, le runbook enfant est un runbook PowerShell Workflow
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
@@ -64,7 +64,7 @@ La tâche issue d’un Runbook enfant démarré avec une applet de commande est 
 
 Les paramètres d’un runbook enfant démarré avec une applet de commande sont fournis sous forme de table de hachage, comme décrit dans [Paramètres du runbook](automation-starting-a-runbook.md#runbook-parameters). Seuls les types de données simples peuvent être utilisés. Si le Runbook possède un paramètre avec un type de données complexe, il doit être appelé en ligne.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Dans l’exemple suivant, un Runbook enfant avec paramètres est démarré et exécuté avec le paramètre Start-AzureRmAutomationRunbook -wait. À l’issue de l’exécution du Runbook, sa sortie est collectée à partir du runbook enfant.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
@@ -83,7 +83,7 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 | Compte Automation |Le Runbook parent peut utiliser uniquement un Runbook enfant du même compte Automation. |Le Runbook parent peut utiliser un Runbook enfant de n’importe quel compte Automation du même abonnement Azure ou d’un autre abonnement si vous disposez de la connexion correspondante. |
 | Publication |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le Runbook enfant doit être publié avant le démarrage du Runbook parent. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 * [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 

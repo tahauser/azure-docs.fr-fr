@@ -87,7 +87,7 @@ Dans les deux cas, le champ de mot de passe contient le jeton, comme le décrit 
 
 Le protocole HTTPS implémente l’authentification en incluant un jeton valide dans l’en-tête de requête **Authorization**.
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 
 Nom d’utilisateur (DeviceId respecte la casse) : `iothubname.azure-devices.net/DeviceId`
 

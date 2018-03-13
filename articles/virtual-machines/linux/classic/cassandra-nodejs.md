@@ -307,7 +307,7 @@ Ce processus prend quelques secondes et l’image devrait être disponible dans 
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
-<tr><td>NOM</td><td>vnet-cass-west-us</td><td></td></tr>
+<tr><td>Nom</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Région</td><td>États-Unis de l’Ouest</td><td></td></tr>
 <tr><td>Serveurs DNS</td><td>Aucun</td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Espace d'adressage</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -318,7 +318,7 @@ Ce processus prend quelques secondes et l’image devrait être disponible dans 
 Ajoutez les sous-réseaux suivants :
 
 <table>
-<tr><th>NOM</th><th>Adresse IP de départ</th><th>CIDR</th><th>Remarques</th></tr>
+<tr><th>Nom</th><th>Adresse IP de départ</th><th>CIDR</th><th>Remarques</th></tr>
 <tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sous-réseau pour la batterie de serveurs</td></tr>
 <tr><td>données</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sous-réseau pour les nœuds de base de données</td></tr>
 </table>
@@ -466,7 +466,7 @@ Connectez-vous au portail Azure, puis créez un réseau virtuel avec les attribu
 
 <table>
 <tr><th>Nom de l'attribut    </th><th>Valeur    </th><th>Remarques</th></tr>
-<tr><td>NOM    </td><td>vnet-cass-east-us</td><td></td></tr>
+<tr><td>Nom    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Région    </td><td>Est des États-Unis</td><td></td></tr>
 <tr><td>Serveurs DNS        </td><td></td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Configurer un réseau VPN de point à site</td><td></td><td>        Ignorez cet attribut</td></tr>
@@ -479,7 +479,7 @@ Connectez-vous au portail Azure, puis créez un réseau virtuel avec les attribu
 Ajoutez les sous-réseaux suivants :
 
 <table>
-<tr><th>NOM    </th><th>Adresse IP de départ    </th><th>CIDR    </th><th>Remarques</th></tr>
+<tr><th>Nom    </th><th>Adresse IP de départ    </th><th>CIDR    </th><th>Remarques</th></tr>
 <tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Sous-réseau pour la batterie de serveurs</td></tr>
 <tr><td>données    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Sous-réseau pour les nœuds de base de données</td></tr>
 </table>

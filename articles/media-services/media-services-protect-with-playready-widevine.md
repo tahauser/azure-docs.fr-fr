@@ -161,7 +161,7 @@ Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azureweb
         <add key="Audience" value="urn:test"/>
 ```
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 L’exemple suivant illustre la fonctionnalité qui a été introduite dans le Kit de développement logiciel Media Services pour .NET version 3.5.2. (Plus précisément, elle inclut la possibilité de définir un modèle de licence Widevine et de demander une licence Widevine depuis Media Services.)
 
@@ -610,7 +610,7 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

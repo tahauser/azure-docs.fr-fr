@@ -55,7 +55,7 @@ Notez les points **importants** suivants sur le service lié HDInsight à la dem
 >
 > 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le service Data Factory crée automatiquement un cluster HDInsight **Linux** pour traiter l’activité requise. 
 
 ```json
@@ -254,7 +254,7 @@ Ce type de configuration est pris en charge pour les environnements de calcul su
 ## <a name="azure-hdinsight-linked-service"></a>Service lié Azure HDInsight
 Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cluster HDInsight avec Data Factory.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -305,7 +305,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 * Applet de commande [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l'utilisation de l'applet de commande, consultez la rubrique [Utilisation de PowerShell pour gérer un compte Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) pour créer un pool Azure Batch.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -348,7 +348,7 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 ## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
 Vous créez un service lié Azure Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning pour une fabrique de données.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -385,7 +385,7 @@ Vous créez un service lié Azure Machine Learning pour inscrire un point de ter
 ## <a name="azure-data-lake-analytics-linked-service"></a>Service lié Azure Data Lake Analytics
 Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure. L’activité U-SQL Analytique Data Lake dans le pipeline fait référence à ce service lié. 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {

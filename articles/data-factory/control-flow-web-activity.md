@@ -128,7 +128,7 @@ Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la c
 } 
 ```
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Dans cet exemple, l’activité web dans le pipeline appelle un point de terminaison REST. Elle transmet un service lié Azure SQL et un jeu de données Azure SQL au point de terminaison. Le point de terminaison REST utilise la chaîne de connexion Azure SQL pour se connecter au serveur Azure SQL et retourne le nom de l’instance du serveur SQL. 
 
 ### <a name="pipeline-definition"></a>Définition de pipeline

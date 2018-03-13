@@ -102,7 +102,7 @@ Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factor
 > [!IMPORTANT]
 > Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' et RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**. 
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 Dans l’exemple suivant, les paramètres d’entrée et de sortie de l’activité Hive sont déterminés à l’aide de la fonction `Text.Format` et de la variable système SliceStart. 
 
 ```json  

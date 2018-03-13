@@ -151,7 +151,7 @@ Les considérations suivantes s'appliquent :
             <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 L’exemple suivant illustre la possibilité d’utiliser Media Services pour distribuer votre contenu chiffré avec FairPlay. Cette fonctionnalité a été introduite dans le Kit de développement logiciel (SDK) Azure Media Services pour .NET version 3.6.0. 
 

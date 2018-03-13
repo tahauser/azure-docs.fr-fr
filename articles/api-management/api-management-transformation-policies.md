@@ -53,7 +53,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <json-to-xml apply="always | content-type-json" consider-accept-header="true | false"/>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -96,7 +96,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <xml-to-json kind="javascript-friendly | direct" apply="always | content-type-xml" consider-accept-header="true | false"/>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -140,7 +140,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <find-and-replace from="what to replace" to="replacement" />  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <find-and-replace from="notebook" to="laptop" />  
@@ -178,7 +178,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <redirect-content-urls />  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <redirect-content-urls />  
@@ -206,7 +206,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <set-backend-service base-url="base URL of the backend service" />  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -234,7 +234,7 @@ Lorsque la déclaration de stratégie [<choose\>](api-management-advanced-polici
   
 Pour effectuer davantage de transformations de la demande, il est possible d’utiliser d’autres [Stratégies de transformation](api-management-transformation-policies.md#TransformationPolicies). Par exemple, pour supprimer le paramètre de requête de la version maintenant que la demande est acheminée vers un service principal propre à la version, la stratégie [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) peut être utilisée afin de supprimer l’attribut de version désormais superflu.  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -458,7 +458,7 @@ OriginalUrl.
   
 ### <a name="examples"></a>Exemples  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
   
 ```xml  
 <set-header name="some header name" exists-action="override">  
@@ -513,7 +513,7 @@ OriginalUrl.
   
 ### <a name="examples"></a>Exemples  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
   
 ```xml  
   
@@ -578,7 +578,7 @@ OriginalUrl.
 <rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -663,7 +663,7 @@ OriginalUrl.
   </xsl-transform>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  

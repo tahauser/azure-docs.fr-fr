@@ -68,7 +68,7 @@ Pour déclencher une alerte sur un événement unique, définissez le nombre de 
 
 Dans certains cas, vous pouvez créer une alerte en l’absence d’événement.  Par exemple, un processus peut enregistrer des événements réguliers pour indiquer qu’il fonctionne correctement.  S’il ne consigne pas un de ces événements dans une fenêtre de temps spécifique, une alerte doit être créée.  Dans ce cas, vous devez définir le seuil sur une valeur **inférieure à 1**.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Imaginez que vous cherchiez à savoir à quel moment votre application web renvoie aux utilisateurs une réponse avec le code 500, autrement dit une erreur interne au serveur. Il conviendrait de créer une règle d’alerte paramétrée comme suit :  
 **Requête :** requests | where resultCode == "500"<br>
 **Fenêtre de temps :**  30 minutes<br>
@@ -100,7 +100,7 @@ Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet
 
 **Seuil** : le seuil des règles d’alerte Mesure métrique est défini par une valeur d’agrégation et un nombre de violations.  Si un point de données de la recherche dans les journaux dépasse cette valeur, elle est considérée comme une violation.  Si le nombre de violations pour un objet dans les résultats dépasse la valeur spécifiée, une alerte est créée pour cet objet.
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’utilisation du processeur d’un ordinateur dépasse 90 % à trois reprises en l’espace de 30 minutes.  Il conviendrait de créer une règle d’alerte paramétrée comme suit :  
 
 **Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
@@ -116,7 +116,7 @@ La requête créerait une valeur moyenne pour chaque ordinateur à intervalles d
 Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 dans la mesure où le seuil de 90 % a été dépassé 3 fois au cours de la fenêtre de temps.  Si le **déclencheur d’alerte** était remplacé par **Consécutif**, une alerte serait créée uniquement pour srv03, car il a dépassé le seuil sur 3 échantillons consécutifs.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Comprendre les [actions Webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md)
 * [Consulter une présentation d’Azure Alerts (préversion)](monitoring-overview-unified-alerts.md)
 * En savoir plus sur l’[utilisation d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md)
