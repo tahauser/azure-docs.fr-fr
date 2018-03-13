@@ -46,7 +46,7 @@ Twitter vous permet de récupérer les [données de chaque tweet](https://dev.tw
    | Champ | Valeur |
    |:--- |:--- |
    | NOM |MyHDInsightApp |
-   | DESCRIPTION |MyHDInsightApp |
+   | Description |MyHDInsightApp |
    | Website |http://www.myhdinsightapp.com |
 
 4. Cochez la case **Yes, I agree**, puis cliquez **Create your Twitter application**.

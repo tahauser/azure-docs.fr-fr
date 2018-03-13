@@ -209,7 +209,7 @@ Maintenant que le transfert sécurisé est obligatoire, vous recevez le message 
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans le troisième volet de la série, vous avez appris à sécuriser l’accès au compte de stockage, notamment :
 

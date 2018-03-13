@@ -73,7 +73,7 @@ Les sections suivantes offrent des informations détaillées sur les propriété
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié PostgreSQL.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Le type de propriété doit être défini sur : **OnPremisesPostgreSql** |OUI |
 | server |Nom du serveur PostgreSQL. |OUI |
@@ -89,7 +89,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données PostgreSQL) a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données PostgreSQL à laquelle le service lié fait référence. Le nom de la table respecte la casse. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
@@ -100,7 +100,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 
 Lorsque la source est de type **RelationalSource** (ce qui inclut PostgreSQL), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `"query": "select * from \"MySchema\".\"MyTable\""`. |Non (si **tableName** de **dataset** est spécifiée) |
 

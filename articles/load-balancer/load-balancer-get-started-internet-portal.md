@@ -105,7 +105,7 @@ Pour obtenir plus d’informations sur les composants de l’équilibreur de cha
 
 Pour supprimer un équilibreur de charge, sélectionnez l’équilibreur de charge que vous souhaitez supprimer. Dans le haut du panneau *Équilibreur de charge*, cliquez sur **Supprimer**. Puis sélectionnez **Oui** à l’invite.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)
 

@@ -66,6 +66,6 @@ Une fois qu’ils sont entièrement déployés et prêts, les utilisateurs peuve
 
 Pour la montée en charge des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés comme groupes de machines virtuelles identiques : par conséquent, vous devez déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 [Configurer des sources de déploiement](azure-stack-app-service-configure-deployment-sources.md)

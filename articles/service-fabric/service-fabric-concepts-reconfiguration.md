@@ -56,7 +56,7 @@ Les reconfigurations peuvent se *bloquer* pour diverses raisons. Voici quelques-
 
 Utilisez les rapports d’intégrité à partir des composants système, tels que System.FM, System.RA et System.RAP, pour diagnostiquer où le blocage d’une reconfiguration a eu lieu. La [page sur les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) décrit ces rapports.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
 
 - [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

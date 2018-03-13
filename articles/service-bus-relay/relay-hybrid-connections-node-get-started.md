@@ -76,7 +76,7 @@ Pour envoyer des messages à Relay, écrivez une application console Node.js.
 
 Vous avez créé une application de connexions hybrides complète avec Node.js : félicitations !
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)

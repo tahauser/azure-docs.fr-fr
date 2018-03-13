@@ -42,5 +42,5 @@ En tant qu’opérateur Azure Stack, vous pouvez créer une machine virtuelle de
     ![](media/azure-stack-provision-vm/image06.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Utilisation des portails administrateur et utilisateur dans Azure Stack](azure-stack-manage-portals.md)

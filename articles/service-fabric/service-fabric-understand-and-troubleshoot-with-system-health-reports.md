@@ -857,7 +857,7 @@ System.Hosting transmet un avertissement si les capacités de nœud ne sont pas 
 * **Propriété :** ResourceGovernance
 * **Étapes suivantes**: la meilleure façon de résoudre ce problème consiste à modifier le manifeste de cluster pour activer la détection automatique des ressources disponibles. Une autre méthode consiste à mettre à jour le manifeste de cluster en indiquant les capacités de nœud appropriées pour ces mesures.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

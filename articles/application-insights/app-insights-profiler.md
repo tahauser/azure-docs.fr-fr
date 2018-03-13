@@ -313,7 +313,7 @@ Bien que cette méthode soit relativement simple, plusieurs éléments sont à p
 
 * Les tâches web à déclenchement manuel peuvent de fait être déclenchées via Webhook. Vous pouvez obtenir cette URL en cliquant avec le bouton droit sur la tâche web dans le tableau de bord et en affichant les propriétés. Ou, dans la barre d’outils, vous pouvez sélectionner **Propriétés** après avoir sélectionné la tâche web dans le tableau. Cette approche offre un très grand nombre de possibilités. Vous pouvez ainsi déclencher Profiler à partir de votre pipeline d’intégration continue/de déploiement continu (comme VSTS) ou d’un outil tel que Microsoft Flow (https://flow.microsoft.com/en-us/). Votre choix dépend du niveau de complexité souhaité pour votre fichier *run.cmd* (qui peut également être un fichier *run.ps1*). Mais comme vous pouvez le constater, les possibilités sont nombreuses.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation d’Application Insights dans Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

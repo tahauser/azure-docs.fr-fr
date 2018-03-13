@@ -97,7 +97,7 @@ Vous êtes maintenant prêts à connecter l’Explorateur Stockage à un abonnem
 
     ![Liste des comptes de stockage, y compris les comptes d’abonnement Azure Stack][31]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Bien démarrer avec l’Explorateur Stockage (préversion)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md)
 

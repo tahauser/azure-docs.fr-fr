@@ -287,7 +287,7 @@ La version de l'API correspond à une version des opérations de l'API REST publ
 
 ![afficher les versions d’API](./media/resource-manager-supported-services/show-api-versions.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 * Pour afficher les opérations pour un fournisseur de ressources, consultez [API REST Azure](/rest/api/).

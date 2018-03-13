@@ -47,7 +47,7 @@ Cliquez sur **Vue d’ensemble** pour analyser et/ou annuler une opération en c
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage de bases de données Azure SQL Database via PowerShell, utilisez les applets de commande PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-| Applet de commande | DESCRIPTION |
+| Applet de commande | Description |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Crée une base de données |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtient une ou plusieurs bases de données|
@@ -63,7 +63,7 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage Azure SQL Database via Azure CLI, utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer les pools élastiques SQL, voir [Pools élastiques](sql-database-elastic-pool.md).
 
-| Applet de commande | DESCRIPTION |
+| Applet de commande | Description |
 | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crée la règle de pare-feu d’un serveur|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Répertorie les règles de pare-feu sur un serveur|
@@ -81,7 +81,7 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage Azure SQL Database via Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. 
 
-| Commande | DESCRIPTION |
+| Commande | Description |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crée une base de données. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifie une base de données SQL Azure. |
@@ -99,7 +99,7 @@ ALTER DATABASE <myDatabaseName>
 
 Pour définir ou modifier les niveaux de service, les niveaux de performances et la capacité de stockage Azure SQL Database via l’API REST, utilisez les requêtes d’API REST suivantes.
 
-| Commande | DESCRIPTION |
+| Commande | Description |
 | --- | --- |
 |[Bases de données : Create ou Update](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
 |[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|

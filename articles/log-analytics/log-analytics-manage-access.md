@@ -114,7 +114,7 @@ Les membres du rôle *Lecteur Log Analytics* peuvent effectuer les opérations s
 - Visualisation et recherche de toutes les données d’analyse 
 - Visualisation des paramètres d’analyse, notamment la configuration des diagnostics Azure sur toutes les ressources Azure
 
-| type    | Autorisation | DESCRIPTION |
+| type    | Autorisation | Description |
 | ------- | ---------- | ----------- |
 | Action | `*/read`   | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v2 |
@@ -136,7 +136,7 @@ Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérati
 > [!NOTE] 
 > La possibilité d’ajouter une extension de machine virtuelle à une machine virtuelle vous offre un contrôle total sur une machine virtuelle.
 
-| Autorisation | DESCRIPTION |
+| Autorisation | Description |
 | ---------- | ----------- |
 | `*/read`     | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
 | `Microsoft.Automation/automationAccounts/*` | Possibilité de créer et configurer les comptes Azure Automation, et notamment d’ajouter et modifier des runbooks |

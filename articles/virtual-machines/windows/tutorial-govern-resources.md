@@ -229,7 +229,7 @@ Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-A
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 

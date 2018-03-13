@@ -83,7 +83,7 @@ Si la propriété **Ack** est définie sur **full** et que vous ne recevez pas d
 
 Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des commentaires sous la forme de messages par le biais d’un point de terminaison accessible au service (**/messages/servicebound/feedback**). La sémantique de réception des commentaires est identique à celle des messages cloud-à-appareil, et présente le même [cycle de vie des messages][lnk-lifecycle]. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
 
-| Propriété     | DESCRIPTION |
+| Propriété     | Description |
 | ------------ | ----------- |
 | EnqueuedTime | Horodatage indiquant la date et l’heure de création du message. |
 | UserId       | `{iot hub name}` |
@@ -91,12 +91,12 @@ Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fo
 
 Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant des propriétés suivantes :
 
-| Propriété           | DESCRIPTION |
+| Propriété           | Description |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
 | OriginalMessageId  | **MessageId** du message cloud-à-appareil auquel se rapportent ces informations de commentaires. |
 | StatusCode         | Chaîne obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> « Succès » <br/> « Expiré » <br/> « DeliveryCountExceeded »  <br/> « Rejeté » <br/> « Vidé » |
-| DESCRIPTION        | Valeurs de chaîne pour **StatusCode**. |
+| Description        | Valeurs de chaîne pour **StatusCode**. |
 | deviceId           | **DeviceId** de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
 | DeviceGenerationId | **DeviceGenerationId** de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
 
@@ -125,7 +125,7 @@ L’exemple suivant montre le corps d’un message de commentaire.
 
 Chaque hub IoT expose les options de configuration suivantes pour la messagerie cloud-à-appareil :
 
-| Propriété                  | DESCRIPTION | Plage et valeur par défaut |
+| Propriété                  | Description | Plage et valeur par défaut |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Durée de vie par défaut pour les messages cloud-à-appareil. | Intervalle ISO_8601 jusqu’à 2D (minimum 1 minute). Par défaut : 1 heure. |
 | maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100. Par défaut : 10. |

@@ -304,7 +304,7 @@ Pour supprimer un équilibrage de charge, utilisez la commande suivante :
 azure network lb delete --resource-group nrprg --name nrplb
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)

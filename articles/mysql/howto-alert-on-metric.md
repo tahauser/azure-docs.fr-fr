@@ -45,10 +45,10 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
    ![Formulaire Ajouter une alerte Métrique](./media/howto-alert-on-metric/2-add-rule-form.png)
 
-   | Paramètre | DESCRIPTION  |
+   | Paramètre | Description  |
    |---------|---------|
    | NOM | Entrez un nom pour la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
-   | DESCRIPTION | Entrez une brève description de la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
+   | Description | Entrez une brève description de la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
    | Alerte sur | Choisissez **Métriques** pour ce type d’alerte. |
    | Abonnement | Ce champ est pré-rempli avec l’abonnement qui héberge votre Azure Database pour MySQL. |
    | Groupe de ressources | Ce champ est prérempli avec le groupe de ressources de votre Azure Database pour MySQL. |

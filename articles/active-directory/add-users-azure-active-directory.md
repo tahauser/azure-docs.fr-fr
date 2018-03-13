@@ -54,7 +54,7 @@ Cet article explique comment supprimer ou ajouter de nouveaux utilisateurs de vo
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez appris comment ajouter de nouveaux utilisateurs à Azure AD Premium. 
 
 Vous pouvez utiliser le lien suivant pour créer un nouvel utilisateur dans Azure AD à partir du portail Azure.

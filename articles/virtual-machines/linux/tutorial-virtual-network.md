@@ -291,7 +291,7 @@ La machine virtuelle principale est accessible seulement sur le port *22* et sur
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez créé et sécurisé des réseaux Azure concernant les machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 

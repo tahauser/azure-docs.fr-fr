@@ -102,6 +102,6 @@ Enfin, transmettez le paramètre `subnetId` défini par l’utilisateur (au lieu
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

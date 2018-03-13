@@ -140,6 +140,6 @@ Merci d’envoyer des commentaires via l’option de commentaires du portail.
 ![Image MapLink-1](./media/app-insights-app-map/13.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Portail Azure](https://portal.azure.com)

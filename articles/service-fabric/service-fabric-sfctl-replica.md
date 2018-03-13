@@ -25,7 +25,7 @@ Permet de gérer les réplicas qui font partie des partitions de service.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    deployed  | Permet d’obtenir les détails d’un réplica déployé sur un nœud Service Fabric.|
 |    deployed-list| Permet d’obtenir la liste des réplicas déployés sur un nœud Service Fabric.|
@@ -44,7 +44,7 @@ Permet d’obtenir les détails du réplica déployé sur un nœud Service Fabr
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --partition-id [Requis]| Identité de la partition.|
@@ -53,7 +53,7 @@ Permet d’obtenir les détails du réplica déployé sur un nœud Service Fabr
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -68,7 +68,7 @@ Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealth
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --replica-id [Requis]| Identificateur du réplica.|
@@ -77,7 +77,7 @@ Permet d’obtenir l’intégrité d’un réplica Service Fabric. EventsHealth
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                | Affiche ce message d’aide et quitte.|
@@ -92,7 +92,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --replica-id [Requis]| Identificateur du réplica.|
@@ -101,7 +101,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -117,7 +117,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --partition-id [Requis]| Identité de la partition.|
 | --continuation-token  | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
@@ -125,7 +125,7 @@ La réponse inclut l’ID, le rôle, l’état, l’intégrité, le nom du nœud
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -140,7 +140,7 @@ Cette API simule un échec de réplica Service Fabric en supprimant un réplica
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --partition-id [Requis]| Identité de la partition.|
@@ -150,7 +150,7 @@ Cette API simule un échec de réplica Service Fabric en supprimant un réplica
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -165,7 +165,7 @@ Redémarre un réplica de service d’un service persistant exécuté sur un nœ
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --partition-id [Requis]| Identité de la partition.|
@@ -174,7 +174,7 @@ Redémarre un réplica de service d’un service persistant exécuté sur un nœ
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|

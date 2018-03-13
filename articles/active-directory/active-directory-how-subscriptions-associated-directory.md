@@ -55,7 +55,7 @@ Tous les utilisateurs disposent d'un répertoire de base unique qui les authenti
 
 La modification du répertoire d’abonnement est une opération qui s’effectue au niveau du service. Elle n’affecte pas la propriété de facturation de l’abonnement, et l’administrateur de compte peut toujours changer l’administrateur du service dans le [Centre des comptes](https://account.azure.com/subscriptions). Si vous souhaitez supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la création d’un annuaire Azure AD gratuit, consultez [Obtention d’un client Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Pour en savoir plus sur le transfert de la propriété de facturation d’un abonnement Azure, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).

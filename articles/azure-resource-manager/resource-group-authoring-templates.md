@@ -37,7 +37,7 @@ Dans sa structure la plus simple, un modèle contient les éléments suivants :
 }
 ```
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | $schema |OUI |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle. Utilisez l’URL indiquée dans l’exemple précédent. |
 | contentVersion |OUI |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |

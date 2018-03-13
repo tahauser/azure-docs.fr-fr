@@ -55,7 +55,7 @@ L’activité Until fournit les mêmes fonctionnalités qu’une structure de bo
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité `Until`. | Chaîne | OUI
 Type | Doit être défini sur **Until**. | Chaîne | OUI

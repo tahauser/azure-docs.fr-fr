@@ -225,7 +225,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-http-redirect-cli/application-gateway-nginxtest.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

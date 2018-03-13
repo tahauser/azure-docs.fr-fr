@@ -119,6 +119,6 @@ Oui. Vous pouvez gérer vos mises à jour planifiées à l’aide des cmdlets de
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Quels niveaux tarifaires peuvent utiliser la fonctionnalité de planification des mises à jour ?
 La fonction **Planifier les mises à jour** n’est disponible que dans le niveau tarifaire Premium.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez plus de fonctionnalités de [niveau Premium du cache Redis Azure](cache-premium-tier-intro.md) .
 

@@ -70,7 +70,7 @@ La prise en main prend moins de 5 minutes.
 ## <a name="time-series-insights-explorer"></a>Explorateur Time Series Insights
 Ce diagramme illustre un exemple de données de série chronologique Time Series Insights affichées au moyen de l’Explorateur : ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  - [Découvrir l’Explorateur Time Series Insights dans un environnement de démonstration](./time-series-quickstart.md)
  - [Sélectionner votre environnement Time Series Insights](time-series-insights-environment-planning.md)
 

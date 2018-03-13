@@ -358,7 +358,7 @@ Vous pouvez constater que le champ **Version** indique le numéro de version du 
     * ONBOOT=yes
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois installé et inscrit, le serveur cible maître apparaît dans la section **Master Target** (Cible maître) de la page **Site Recovery Infrastructure** (Infrastructure Site Recovery), sous la vue d’ensemble du serveur de configuration.
 
 Vous pouvez maintenant procéder à la [reprotection](site-recovery-how-to-reprotect.md), puis à la restauration automatique.

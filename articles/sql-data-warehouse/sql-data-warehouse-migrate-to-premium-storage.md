@@ -110,7 +110,7 @@ Dans cet exemple, imaginez que votre entrepôt de données sur le stockage stand
 4. Supprimez « MyDW_BeforeMigration ». **Si vous n’effectuez pas cette opération, vous serez facturé pour les deux entrepôts de données.**
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le stockage Premium augmente le nombre de fichiers blob de base de données dans l’architecture sous-jacente de votre entrepôt de données. Pour optimiser les avantages de ce changement en termes de performances, recréez vos index columnstore clustérisés à l’aide du script suivant. Ce script force le déplacement de certaines de vos données vers les objets blob supplémentaires. Si vous ne faites rien, les données sont naturellement redistribuées au fil du temps, lorsque vous en chargez d’autres dans vos tables.
 
 **Configuration requise :**

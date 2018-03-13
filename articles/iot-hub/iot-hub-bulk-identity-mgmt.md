@@ -247,7 +247,7 @@ Si le fichier d’importation inclut les métadonnées de représentation, ces m
 
 Vous pouvez contrôler le processus d’importation par appareil en utilisant la propriété facultative **importMode** dans les données d’importation sérialisées pour chaque appareil. La propriété **importMode** propose les options suivantes :
 
-| importMode | DESCRIPTION |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag** . <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |
 | **create** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, une erreur est consignée dans le fichier journal. <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |

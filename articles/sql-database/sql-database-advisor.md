@@ -88,7 +88,7 @@ La recommandation « Résoudre les problèmes de schéma » s’affiche lorsque 
 | 2812 |Impossible de trouver la procédure stockée '*'. |
 | 8144 |La procédure ou la fonction * a trop d’arguments spécifiés. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor analyse en continu le niveau de performance de votre base de données et fournit des recommandations susceptibles d’améliorer ce niveau. 
 
 * Pour plus d’informations sur le paramétrage automatique des index de base de données et des plans d’exécution de requêtes, consultez l’article [Réglage automatique dans Azure SQL Database](sql-database-automatic-tuning.md).

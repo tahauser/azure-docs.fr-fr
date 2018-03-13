@@ -79,7 +79,7 @@ Le tableau suivant répertorie les informations de latence pour les événements
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les rapports d’activité dans le portail Azure, consultez :
 

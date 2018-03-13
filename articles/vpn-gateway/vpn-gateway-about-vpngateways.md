@@ -155,7 +155,7 @@ Pour plus d’informations sur les références de passerelle pour la passerelle
 
 Pour les questions fréquemment posées sur la passerelle VPN, consultez le [Forum aux questions sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Planifiez votre configuration de passerelle VPN. Consultez [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md).
 - Pour plus d’informations, consultez la [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).

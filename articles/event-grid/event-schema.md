@@ -77,7 +77,7 @@ Par exemple, voici le schéma publié pour un événement de stockage Blob Azure
 
 Tous les événements contiennent les mêmes données de niveau supérieur suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |

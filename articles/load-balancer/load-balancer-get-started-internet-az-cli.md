@@ -86,7 +86,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [créer une adresse IP publique dans une zone de disponibilité](../virtual-network/create-public-ip-availability-zone-cli.md).
 
 

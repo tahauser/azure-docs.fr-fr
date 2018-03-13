@@ -387,7 +387,7 @@ L’exemple suivant utilise la sérialisation Json avec Remoting V2.
             });
   ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Communication WCF avec Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Sécurisation des communications pour Reliable Services](service-fabric-reliable-services-secure-communication.md)

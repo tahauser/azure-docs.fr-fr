@@ -271,7 +271,7 @@ Dans le panneau Recherche dans les journaux du portail OMS, vous devez normaleme
 
 ![Panneau OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez configuré, examiné et géré les mises à jour pour une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 

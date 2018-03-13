@@ -100,7 +100,7 @@ Consultez les [détails sur Swagger](/connectors/fileconnector/).
 
 * Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site UserVoice concernant Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Se connecter à des données locales](../logic-apps/logic-apps-gateway-connection.md) 
 * [Analyser vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)

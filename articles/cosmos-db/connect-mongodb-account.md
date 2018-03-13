@@ -74,6 +74,6 @@ Par exemple, observez le compte figurant dans le panneau **Chaîne de connexion*
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser Studio 3T](mongodb-mongochef.md) avec une API Azure Cosmos DB pour le compte MongoDB.
 * Découvrez l’API Azure Cosmos DB pour le compte MongoDB en consultant les [exemples](mongodb-samples.md).

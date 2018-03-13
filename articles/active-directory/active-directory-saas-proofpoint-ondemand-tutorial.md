@@ -32,7 +32,7 @@ L’intégration de Proofpoint on Demand dans Azure AD vous offre les avantages
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Proofpoint on Demand, vous avez besoin des éléments suivants :
 

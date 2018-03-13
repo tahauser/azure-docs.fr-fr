@@ -83,7 +83,7 @@ Dans l’application logique, vous pouvez ajouter une action pour répertorier l
 ## <a name="create-the-connections"></a>Créer les connexions
 Ce connecteur prend en charge les connexions aux bases de données hébergées en local et dans le cloud à l’aide des propriétés de connexion ci-après. 
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Serveur |Requis. Accepte une valeur de chaîne qui représente une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
 | Base de données |Requis. Accepte une valeur de chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM). DB2 pour z/OS accepte une chaîne de 16 octets (la propriété de base de données correspond à un emplacement IBM DB2 pour z/OS). DB2 pour i5/OS accepte une chaîne de 18 octets (la propriété de base de données correspond à une base de données relationnelle IBM DB2 pour i). DB2 pour LUW accepte une chaîne de 8 octets. |

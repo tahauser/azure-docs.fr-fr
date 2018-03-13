@@ -45,7 +45,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    
     **Vue de votre appareil de stockage déballé**
    
-   | Étiquette | DESCRIPTION |
+   | Étiquette | Description |
    | --- | --- |
    |   1 |Carton d’emballage |
    |   2 |Polystyrène de protection inférieur |
@@ -107,7 +107,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
     **Fixation des glissières de rail interne sur les côtés du boîtier**
    
-    Étiquette | DESCRIPTION
+    Étiquette | Description
     ----- | -----------
     1     | M 3 x 4 vis à tête ronde
     2     | Glissières du châssis
@@ -121,7 +121,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    
     **Fixation des rails externes au rack**
    
-   | Étiquette | DESCRIPTION |
+   | Étiquette | Description |
    | --- | --- |
    |   1 |Vis de serrage |
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
@@ -147,7 +147,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    
     **Installation des capuchons d’embase**
    
-   | Étiquette | DESCRIPTION |
+   | Étiquette | Description |
    | --- | --- |
    |   1 |Vis de fixation du boîtier |
 
@@ -187,7 +187,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    
     **Dos de l’appareil avec ports de données**
    
-   | Étiquette | DESCRIPTION |
+   | Étiquette | Description |
    | --- | --- |
    |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
    |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
@@ -198,7 +198,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
     **Branchement des câbles réseau de votre appareil**
 
-   |Étiquette | DESCRIPTION |
+   |Étiquette | Description |
    |----- | ----------- |
    | A    | LAN avec accès à Internet |
    | B    | Contrôleur 0 |

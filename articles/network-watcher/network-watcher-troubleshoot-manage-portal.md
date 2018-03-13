@@ -60,7 +60,7 @@ Si plusieurs ressources sont sélectionnées, la résolution des problèmes s’
 
 Dans la section **Détails** de la fenêtre, l’onglet **État** affiche l’état de la dernière exécution de la résolution des problèmes sur la ressource sélectionnée. Les résultats du dernier diagnostic s’affichent xx minutes après la dernière exécution.
 
-|Propriété  |DESCRIPTION  |
+|Propriété  |Description  |
 |---------|---------|
 |Ressource     | Lien vers la ressource.        |
 |Chemin de stockage     |  Chemin d’accès du compte de stockage et du conteneur qui contiennent les journaux (si produits pendant l’exécution). Ce paramètre n’est pas conservé une fois que vous avez quitté le portail.        |

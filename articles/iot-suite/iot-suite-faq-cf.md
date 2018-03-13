@@ -208,7 +208,7 @@ Pour envoyer les données de télémétrie à Connected Factory à partir d’ap
 
 1. Redémarrez le service Connected Factory App Service.
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 

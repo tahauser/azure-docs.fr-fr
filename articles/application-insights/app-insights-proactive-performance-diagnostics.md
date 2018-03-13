@@ -178,7 +178,7 @@ Cliquez sur les liens pour ouvrir Metric Explorer et effectuez une recherche dan
 
 Modifiez l’intervalle de temps et les filtres pour explorer la télémétrie.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
 * [Profileur](app-insights-profiler.md) 

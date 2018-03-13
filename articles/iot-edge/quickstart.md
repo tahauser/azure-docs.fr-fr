@@ -129,7 +129,7 @@ Lorsque vous n’avez plus besoin de l’IoT Hub que vous avez créé, vous pouv
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à déployer un module IoT Edge sur un appareil IoT Edge. Essayez à présent de déployer différents types de services Azure sous forme de modules afin d'analyser les données à la périphérie. 
 

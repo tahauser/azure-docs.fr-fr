@@ -249,7 +249,7 @@ Automation crée deux types d’enregistrements dans le référentiel OMS : les 
 
 ### <a name="job-logs"></a>Journaux de tâches
 
-Propriété | DESCRIPTION|
+Propriété | Description|
 ----------|----------|
 Appelant |  Ce qui a initié l’opération.  Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
 Catégorie | Classification du type de données.  Pour Automation, la valeur est JobLogs.|
@@ -271,7 +271,7 @@ Temps | Date et heure d’exécution du travail du runbook.|
 
 ### <a name="job-streams"></a>Flux de tâches
 
-Propriété | DESCRIPTION|
+Propriété | Description|
 ----------|----------|
 Appelant |  Ce qui a initié l’opération.  Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
 Catégorie | Classification du type de données.  Pour Automation, la valeur est JobStreams.|
@@ -294,7 +294,7 @@ Quand vous effectuez une recherche de journal qui retourne des enregistrements d
 
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements de tâches collectés par cette solution. 
 
-Requête | DESCRIPTION|
+Requête | Description|
 ----------|----------|
 Rechercher les tâches du runbook ScheduledStartStop_Parent terminées avec succès | Catégorie de recherche == "JobLogs" &#124; où ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; où ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; trié par TimeGenerated desc|
 Rechercher les tâches du runbook SequencedStartStop_Parent terminées avec succès | Catégorie de recherche == "JobLogs" &#124; où ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; où ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; trié par TimeGenerated desc

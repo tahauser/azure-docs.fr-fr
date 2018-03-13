@@ -23,7 +23,7 @@ ms.lasthandoff: 02/09/2018
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Salesforce Sandbox et Azure AD permettant d’approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Salesforce Sandbox.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

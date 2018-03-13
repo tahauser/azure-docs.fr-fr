@@ -32,7 +32,7 @@ L’intégration de Cisco Webex avec Azure AD offre les avantages suivants :
 
 Pour plus d’informations sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Cisco Webex, vous avez besoin des éléments suivants :
 

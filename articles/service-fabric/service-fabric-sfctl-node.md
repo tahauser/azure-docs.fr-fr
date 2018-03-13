@@ -25,7 +25,7 @@ Permet de gérer les nœuds qui forment un cluster.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    disable       | Désactive un nœud de cluster Service Fabric avec l’intention de désactivation spécifiée.|
 |    enable        | Active un nœud de cluster Service Fabric actuellement désactivé.|
@@ -47,7 +47,7 @@ Désactive un nœud de cluster Service Fabric avec l’intention de désactivat
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --deactivation-intent | Décrit l’intention ou le motif de la désactivation du nœud. |
@@ -55,7 +55,7 @@ Désactive un nœud de cluster Service Fabric avec l’intention de désactivat
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -70,14 +70,14 @@ Active un nœud de cluster Service Fabric actuellement désactivé. Une fois ac
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -92,7 +92,7 @@ Permet d’obtenir l’intégrité d’un nœud Service Fabric. EventsHealthSta
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --events-health-state-filter| Permet de filtrer la collection d’objets HealthEvent retournés en fonction de l’état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont retournés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant toute valeur HealthState. La valeur est égale à 65535.|
@@ -100,7 +100,7 @@ Permet d’obtenir l’intégrité d’un nœud Service Fabric. EventsHealthSta
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                | Affiche ce message d’aide et quitte.|
@@ -115,14 +115,14 @@ Permet d’obtenir des informations sur un nœud spécifique du cluster Service 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -137,7 +137,7 @@ Permet d’obtenir la liste des nœuds du cluster Service Fabric. La réponse c
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse.      Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --node-status-filter| Permet de filtrer les nœuds en fonction de NodeStatus. Seuls les nœuds qui correspondent à la valeur de filtre spécifiée sont retournés. Les valeurs possibles sont les suivantes. Default : valeur par défaut.|
@@ -145,7 +145,7 @@ Permet d’obtenir la liste des nœuds du cluster Service Fabric. La réponse c
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -160,14 +160,14 @@ Permet de récupérer les informations sur le chargement d’un nœud Service Fa
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -182,7 +182,7 @@ Redémarre un nœud de cluster Service Fabric déjà démarré.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --create-fabric-dump  | Spécifiez True pour créer une image mémoire du processus du nœud Fabric. Cette valeur respecte la casse.  Valeur par défaut : False.|
@@ -191,7 +191,7 @@ Redémarre un nœud de cluster Service Fabric déjà démarré.
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -207,7 +207,7 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --node-instance-id [Requis]| ID d’instance du nœud cible. Il peut être déterminé via l’API GetNodeInfo.|
 | --node-name [Requis]| Nom du nœud.|
@@ -218,7 +218,7 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|

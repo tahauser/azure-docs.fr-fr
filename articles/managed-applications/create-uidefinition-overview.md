@@ -73,7 +73,7 @@ Pour définir le nom de ressource d’application managée, vous devez inclure u
 ## <a name="functions"></a>Functions
 Semblable aux fonctions de modèle dans Azure Resource Manager (à la fois en termes de syntaxe et de fonctionnalité), CreateUiDefinition propose des fonctions permettant de travailler avec les entrées et sorties des éléments, ainsi que des fonctionnalités telles que des logiques conditionnelles.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le fichier createUiDefinition.json proprement dit a un schéma simple. Sa profondeur réelle provient de tous les éléments et fonctions pris en charge. Ces éléments sont décrits plus en détail dans :
 
 - [Éléments](create-uidefinition-elements.md)

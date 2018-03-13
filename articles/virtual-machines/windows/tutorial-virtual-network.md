@@ -272,7 +272,7 @@ New-AzureRmVM `
 
 L’image utilisée inclut SQL Server, mais elle n’est pas utilisée dans ce didacticiel. Elle est présentée pour vous montrer comment configurer une machine virtuelle afin de gérer le trafic web, et comment configurer une machine virtuelle afin de traiter la gestion de la base de données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez créé et sécurisé des réseaux Azure concernant les machines virtuelles. 
 

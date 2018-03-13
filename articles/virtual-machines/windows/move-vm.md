@@ -60,6 +60,6 @@ Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" 
 
 Vous devrez confirmer que vous souhaitez déplacer les ressources spécifiées. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../../resource-group-move-resources.md).    
 

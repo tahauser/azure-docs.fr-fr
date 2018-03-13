@@ -31,7 +31,7 @@ Regardez la vidéo pour voir ce démarrage rapide en action et suivez les étape
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -102,7 +102,7 @@ Dans la boîte de dialogue **Configurer le plan App Service**, utilisez les para
 
 ![Créer un plan App Service](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Paramètre | Valeur suggérée | DESCRIPTION |
+| Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Plan App Service| myAppServicePlan | Nom du plan App Service. |
 | Lieu | Europe de l'Ouest | Centre de données dans lequel l’application web est hébergée. |

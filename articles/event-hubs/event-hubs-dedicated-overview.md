@@ -68,7 +68,7 @@ Ce service est destiné aux grands utilisateurs de télémétrie et est disponib
 
 Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. Pour commencer à utiliser cette référence SKU, [contactez le support de facturation](https://ms.portal.azure.com/#create/Microsoft.Support) ou votre représentant Microsoft.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Contactez votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité des Event Hubs Dedicated. Vous pouvez également en apprendre plus sur les niveaux tarifaires Event Hubs en consultant les liens suivants :
 

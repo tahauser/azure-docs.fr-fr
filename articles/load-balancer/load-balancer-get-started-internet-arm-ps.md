@@ -306,7 +306,7 @@ Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Vous pouvez utiliser le commutateur facultatif **-Force** pour éviter l’invite relative à la suppression.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-ps.md)
 

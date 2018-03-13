@@ -35,7 +35,7 @@ La partie 4 de ce didacticiel est basée sur la [partie 3](tutorial-develop-mo
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué les étapes de la [partie 3](tutorial-develop-mongodb-nodejs-part3.md) du didacticiel. 
 

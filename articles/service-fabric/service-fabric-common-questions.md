@@ -150,6 +150,6 @@ Nous avons l’intention de diffuser le code des frameworks Reliable Services et
 
 Pour l’instant, il n’est pas prévu de diffuser le code du runtime Service Fabric.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur les principaux concepts et les meilleures pratiques de Service Fabric](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

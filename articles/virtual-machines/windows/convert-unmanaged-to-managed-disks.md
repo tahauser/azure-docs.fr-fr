@@ -105,7 +105,7 @@ Si une erreur survient lors de la conversion, ou si une machine virtuelle est da
 Avant de lancer la conversion, assurez-vous que toutes les extensions de machine virtuelle sont dans l’état « Provisionnement réussi ». Sinon, la conversion échoue avec le code d’erreur 409.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Convertir des disques gérés standard en premium](convert-disk-storage.md)
 

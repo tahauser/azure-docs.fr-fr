@@ -179,7 +179,7 @@ Remarque importante : lorsque nous avons défini la source de données externe,
    ![query](media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

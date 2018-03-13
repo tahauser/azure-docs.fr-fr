@@ -55,7 +55,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés suivantes sont prises en charge pour le service lié Sybase :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **Sybase**. | OUI |
 | server | Nom du serveur Sybase. |OUI |
@@ -96,7 +96,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données à partir de Sybase, affectez la valeur **RelationalTable** à la propriété de type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | OUI |
 | TableName | Nom de la table dans la base de données Sybase. | Non (si « query » dans la source de l’activité est spécifié) |
@@ -125,7 +125,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données à partir de Sybase, définissez **RelationalSource** comme type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |

@@ -131,7 +131,7 @@ Pour désactiver le chiffrement de disque pour les machines virtuelles IaaS, sui
  > La désactivation du chiffrement de disque de système d’exploitation pour Linux n’est pas prise en charge. L’étape de déchiffrement est autorisée uniquement pour les lecteurs de données sur les machines virtuelles Linux.
 La désactivation du chiffrement des disques de données pour Linux n’est pas prise en charge si le lecteur de système d’exploitation est chiffré.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Voici les conditions requises pour activer Azure Disk Encryption sur les machines virtuelles IaaS Azure pour les scénarios pris en charge dans la section « Vue d’ensemble » :
 
 * Vous devez disposer d’un abonnement Azure actif valide pour créer des ressources dans Azure dans les régions prises en charge.
@@ -421,7 +421,7 @@ Vous pouvez activer le chiffrement de disque sur une nouvelle machine virtuelle 
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les nouvelles machines virtuelles dans un scénario Place de marche utilisant l’ID de client Azure AD :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | adminUsername | Nom de l’utilisateur administrateur de la machine virtuelle. |
 | adminPassword | Mot de passe de l’utilisateur administrateur de la machine virtuelle. |
@@ -456,7 +456,7 @@ Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffr
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour votre disque dur virtuel chiffré :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | newStorageAccountName | Nom du compte de stockage pour stocker le disque dur virtuel du système d’exploitation chiffré. Ce compte de stockage doit avoir été créé dans le même groupe de ressources et le même emplacement que la machine virtuelle. |
 | osVhdUri | URI du disque dur virtuel du système d’exploitation à partir du compte de stockage. |
@@ -513,7 +513,7 @@ Vous pouvez activer le chiffrement de disque sur des machines virtuelles IaaS Wi
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les machines virtuelles existantes ou en cours d’exécution qui utilisent un ID de client Azure AD :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | AADClientID | ID de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
@@ -563,7 +563,7 @@ Vous pouvez activer le chiffrement de disque sur une machine virtuelle IaaS Linu
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les machines virtuelles existantes ou en cours d’exécution qui utilisent un ID de client Azure AD :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | AADClientID | ID de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
@@ -682,7 +682,7 @@ Pour les machines virtuelles Linux, vous pouvez désactiver le chiffrement à l�
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour la désactivation du chiffrement sur une machine virtuelle IaaS en cours d’exécution :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | vmName | Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée.
 | volumeType | Type de volume sur lequel l’opération de déchiffrement est effectuée. Les valeurs valides sont _Système d’exploitation_, _Données_ et _Tous_. Vous ne pouvez pas désactiver le chiffrement sur un volume de démarrage/système d’exploitation d’une machine virtuelle IaaS Windows en cours d’exécution sans désactiver le chiffrement sur le volume _Données_. Notez également que la désactivation du chiffrement sur le lecteur du système d’exploitation n’est pas autorisée sur les machines virtuelles Linux. |

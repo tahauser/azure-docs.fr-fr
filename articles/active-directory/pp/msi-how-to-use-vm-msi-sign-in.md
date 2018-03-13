@@ -25,7 +25,7 @@ ms.lasthandoff: 02/03/2018
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 Cet article donne des exemples de scripts CLI permettant de se connecter à l’aide d’un principal de service MSI affecté à l’utilisateur ; il offre également de l’aide sur des sujets importants, comme la gestion des erreurs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

@@ -39,7 +39,7 @@ Les utilisateurs Azure Active Directory (Azure AD) B2B Collaboration sont ajout�
 
 ![rôle administrateur limité](./media/active-directory-b2b-add-guest-to-role/limited-admin-role.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

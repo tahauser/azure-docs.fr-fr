@@ -137,7 +137,7 @@ Si vous avez créé un groupe de ressources et un compte de stockage au début d
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet article sur les procédures vous a présenté des opérations Stockage Table Azure courantes réalisables avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes : 
 

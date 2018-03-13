@@ -25,7 +25,7 @@ Permet de créer, de supprimer et de gérer les déploiements Docker Compose.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    create| Permet de déployer une application Service Fabric à partir d’un fichier Compose.|
 |    list  | Permet d’obtenir la liste des déploiements compose créés dans le cluster Service Fabric.|
@@ -40,7 +40,7 @@ Permet de créer un déploiement compose Service Fabric.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --file-path [Requis]| Chemin d’accès au fichier Docker Compose cible.|
  |   --deployment-name [Requis]| Le nom du déploiement.|
@@ -51,7 +51,7 @@ Permet de créer un déploiement compose Service Fabric.
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -66,7 +66,7 @@ Permet d’obtenir l’état des déploiements compose créés ou qui sont en co
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse.      Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --max-results    | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées.      Ce paramètre définit la limite supérieure du nombre de résultats renvoyés.      Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est égal à zéro ou n’est pas spécifié, les requêtes paginées comprennent le nombre maximal de résultats pouvant tenir dans le message renvoyé.|
@@ -74,7 +74,7 @@ Permet d’obtenir l’état des déploiements compose créés ou qui sont en co
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -89,14 +89,14 @@ Permet de supprimer un déploiement compose Service Fabric existant.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --deployment-name [Requis]| Identité du déploiement. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ».|
 | --timeout -t            | Délai d’expiration du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -111,14 +111,14 @@ Renvoie l’état du déploiement compose créé ou en cours de création dans l
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --deployment-name [Requis]| Identité du déploiement. |
 | --timeout -t            | Délai d’expiration du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -132,7 +132,7 @@ Permet de commencer la mise à niveau d’un déploiement compose dans le cluste
 Permet de valider les paramètres de mise à niveau fournis et de commencer la mise à niveau du déploiement.
 
 ### <a name="arguments"></a>Arguments
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 |    --file-path        [Requis]| Chemin d’accès au fichier Docker Compose cible.|
 |    --deployment-name [Requis]| Le nom du déploiement.|
@@ -156,7 +156,7 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 |    --warning-as-error           | Les avertissements sont traités avec le même niveau de gravité que les erreurs.|
 
 ### <a name="global-arguments"></a>Arguments globaux
- |Argument|DESCRIPTION|
+ |Argument|Description|
 | --- | --- |
 |   --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h                    | Affiche ce message d’aide et quitte.|

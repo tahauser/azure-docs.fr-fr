@@ -62,7 +62,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SAP Business Warehouse (BW).
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 server | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | OUI
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI
@@ -85,7 +85,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Lorsque la source de l’activité de copie est de type **RelationalSource** (qui inclut SAP BW), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Requête MDX. | OUI |
 

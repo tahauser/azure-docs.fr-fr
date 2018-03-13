@@ -32,7 +32,7 @@ Un pipeline CI/CD ([intégration continue](https://www.visualstudio.com/learn/wh
 > * Une fois que votre code a réussi le test, effectuer automatiquement le déploiement sur Azure Stack. 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Certains composants sont nécessaires pour créer un pipeline CI/CD hybride, et leur préparation peut prendre un certain temps.  Si vous disposez déjà de certains de ces composants, vérifiez qu’ils répondent aux conditions requises avant de commencer.
 
 Cette rubrique suppose également que vous connaissez déjà Azure et Azure Stack. Si vous voulez en savoir plus avant de continuer, veillez à commencer par les rubriques suivantes :

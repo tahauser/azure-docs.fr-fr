@@ -58,6 +58,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_delete) | Supprime les nœuds répertoriés dans le pool spécifié.  |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).

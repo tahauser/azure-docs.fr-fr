@@ -93,7 +93,7 @@ Les variables dans l’exemple de code doivent être remplacées comme suit :
 
 Une fois que la bibliothèque ADAL a été modifiée avec ces paramètres, vos utilisateurs doivent pouvoir s’authentifier auprès des applications clientes natives même quand ils ne sont pas sur le réseau d’entreprise. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le flux d’application native, consultez [Application native vers API web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 

@@ -209,7 +209,7 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [Cmdlets de stockage pour PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
 * [Commandes de stockage pour CLI 2.0](/cli/azure/storage)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur le stockage d’objets blob](../blobs/storage-blobs-introduction.md)
 * [En savoir plus sur le stockage de fichiers](../storage-files-introduction.md)

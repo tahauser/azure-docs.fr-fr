@@ -295,7 +295,7 @@ Pour créer et gérer les pools élastiques SQL Database avec Azure PowerShell,
 > Pour obtenir des exemples de scripts PowerShell, consultez [Créer des pools élastiques et déplacer les bases de données entre les pools et en dehors d’un pool à l’aide de PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle un pool élastique SQL dans Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 >
 
-| Applet de commande | DESCRIPTION |
+| Applet de commande | Description |
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Crée un pool de bases de données élastique sur un serveur SQL logique.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtient les pools élastiques et leurs valeurs de propriété sur un serveur SQL logique.|
@@ -320,7 +320,7 @@ Pour créer et gérer un serveur des pools élastiques avec [Azure CLI](/cli/az
 > Pour obtenir des exemples de scripts Azure CLI , consultez [Utiliser l’interface CLI afin de déplacer une base de données SQL Azure dans un pool élastique SQL](scripts/sql-database-move-database-between-pools-cli.md) et [Utiliser Azure CLI pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
 >
 
-| Applet de commande | DESCRIPTION |
+| Applet de commande | Description |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Crée un pool élastique.|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Renvoie une liste de pools élastiques dans un serveur.|
@@ -337,7 +337,7 @@ Pour créer et déplacer des bases de données dans les pools élastiques exista
 > Vous ne pouvez pas créer, mettre à jour ou supprimer un pool élastique SQL Database à l’aide de Transact-SQL. Vous pouvez ajouter ou supprimer des bases de données à partir d’un pool élastique, et vous pouvez utiliser des vues de gestion dynamiques pour renvoyer des informations sur les pools élastiques existants.
 >
 
-| Commande | DESCRIPTION |
+| Commande | Description |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crée une base de données dans un pool existant ou en tant que base de données seule. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Déplace une base de données dans un pool élastique, en dehors de celui-ci ou entre des pools élastiques.|
@@ -349,7 +349,7 @@ Pour créer et déplacer des bases de données dans les pools élastiques exista
 
 Pour créer et gérer des pools élastiques SQL Database, utilisez ces demandes d’API REST.
 
-| Commande | DESCRIPTION |
+| Commande | Description |
 | --- | --- |
 |[Pools élastiques - Créer ou mettre à jour](/rest/api/sql/elasticpools/createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
 |[Pools élastiques - Supprimer](/rest/api/sql/elasticpools/delete)|Supprime le pool élastique.|

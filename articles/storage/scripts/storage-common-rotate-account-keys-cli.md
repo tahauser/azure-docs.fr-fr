@@ -52,7 +52,7 @@ Ce script utilise les commandes suivantes pour créer le compte de stockage, ré
 | [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Affiche les clés de l’accès au compte de stockage spécifié. |
 | [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Régénère la clé d’accès au compte de stockage principal ou secondaire. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure/overview).
 

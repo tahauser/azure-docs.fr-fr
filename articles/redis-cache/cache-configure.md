@@ -394,7 +394,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 > 
 > 
 
-| Paramètre | Valeur par défaut | DESCRIPTION |
+| Paramètre | Valeur par défaut | Description |
 | --- | --- | --- |
 | `databases` |16 |Le nombre de bases de données par défaut est 16, mais vous pouvez configurer un nombre différent selon le niveau tarifaire.<sup>1</sup> La base de données par défaut est DB 0. Vous pouvez en sélectionner une autre en fonction de la connexion en utilisant `connection.GetDatabase(dbid)` où `dbid` est un nombre compris entre `0` et `databases - 1`. |
 | `maxclients` |Dépend du niveau tarifaire<sup>2</sup> |Le nombre maximal de clients connectés autorisés en même temps. Une fois la limite atteinte, Redis ferme toutes les nouvelles connexions en envoyant une erreur « nombre maximal de clients atteint ». |

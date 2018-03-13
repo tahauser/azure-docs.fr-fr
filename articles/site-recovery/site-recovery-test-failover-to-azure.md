@@ -112,5 +112,5 @@ Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez exécuté une simulation de récupération d’urgence, découvrez les autres types de [basculement](site-recovery-failover.md).

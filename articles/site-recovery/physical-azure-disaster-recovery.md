@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 

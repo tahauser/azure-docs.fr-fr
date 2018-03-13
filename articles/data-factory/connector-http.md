@@ -51,7 +51,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié HTTP sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **FtpServer**. | OUI |
 | url | URL de base du serveur web | OUI |
@@ -63,7 +63,7 @@ Les propriétés prises en charge pour le service lié HTTP sont les suivantes 
 
 Définissez la valeur de la propriété « authenticationType » sur **De base**, **Digest** ou **Windows**, spécifiez les propriétés suivantes ainsi que les propriétés génériques décrites dans la section précédente :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
@@ -96,7 +96,7 @@ Définissez la valeur de la propriété « authenticationType » sur **De base
 
 Pour utiliser l’authentification ClientCertificate, définissez la valeur de la propriété « authenticationType » sur **ClientCertificate**, et spécifiez les propriétés suivantes, ainsi que les propriétés génériques décrites dans la section précédente :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | embeddedCertData | Données du certificat encodé en Base64. | Spécifiez soit la propriété `embeddedCertData`, soit la propriété `certThumbprint`. |
 | certThumbprint | Empreinte numérique du certificat installé sur le magasin de certificats de votre ordinateur exécutant le runtime d’intégration auto-hébergé. S’applique uniquement quand un type auto-hébergé du runtime d’intégration est spécifié dans connectVia. | Spécifiez soit la propriété `embeddedCertData`, soit la propriété `certThumbprint`. |
@@ -159,7 +159,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de HTTP, définissez la propriété type du jeu de données sur **HttpFile**. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **HttpFile** | OUI |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL spécifiée dans la définition du service lié est utilisée. | Non  |
@@ -216,7 +216,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de HTTP, définissez le type de source dans l’activité de copie sur **HttpSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source de l’activité de copie doit être définie sur **HttpSource** | OUI |
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse.<br/> Valeur par défaut : 00:01:40  | Non  |

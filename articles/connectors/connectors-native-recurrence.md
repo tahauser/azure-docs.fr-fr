@@ -200,7 +200,7 @@ Dans ce scénario, le moteur Logic Apps calcule les heures d’exécution en fon
 
 Par conséquent, pour ce scénario, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première heure d’exécution est la même.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Actions et déclencheurs de flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Connecteurs](../connectors/apis-list.md)

@@ -52,6 +52,6 @@ Les modifications apportées à l’offre ne sont pas immédiatement visibles pa
 >
 
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 [Création d’abonnements](azure-stack-subscribe-plan-provision-vm.md)      
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

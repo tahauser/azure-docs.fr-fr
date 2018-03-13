@@ -119,7 +119,7 @@ Pour en savoir plus sur la gestion des API, regardez la présentation suivante i
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Terminez le démarrage rapide suivant et commencez à utiliser la Gestion des API Azure :
 

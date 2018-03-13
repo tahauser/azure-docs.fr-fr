@@ -26,7 +26,7 @@ ms.lasthandoff: 01/04/2018
 
 Les clusters Interactive Query HDInsight incluent les notebooks Zeppelin que vous pouvez utiliser pour exécuter des requêtes Hive interactives. Dans cet article, vous allez apprendre à utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
 
 * **Cluster Interactive Query HDInsight**. Consultez [Créer un cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) pour créer un cluster HDInsight.  Vous devez sélectionner le type Interactive Query. 

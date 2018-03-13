@@ -42,7 +42,7 @@ Pour éviter toute suppression accidentelle, nous vous recommandons de définir 
 
 Les organisations peuvent également activer la [journalisation des diagnostics](data-lake-store-diagnostic-logs.md) pour leur compte Azure Data Lake Store afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations sur les auteurs potentiels d’une suppression ou d’une mise à jour de fichier.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 

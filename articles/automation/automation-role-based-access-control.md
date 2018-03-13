@@ -50,7 +50,7 @@ Les tableaux suivants décrivent les autorisations spécifiques à chaque rôle.
 
 Un propriétaire peut tout gérer, notamment l’accès. Le tableau suivant présente les autorisations accordées pour le rôle :
 
-|Actions|DESCRIPTION|
+|Actions|Description|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Créer et gérer les ressources de tous les types.|
 

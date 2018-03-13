@@ -33,7 +33,7 @@ ms.lasthandoff: 01/17/2018
 >
 >
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un fichier solution.
 
 ## <a name="overview"></a>Vue d’ensemble

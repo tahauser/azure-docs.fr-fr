@@ -186,6 +186,6 @@ Enfin, ajoutez une ressource `autoscaleSettings` pour configurer la mise à l’
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

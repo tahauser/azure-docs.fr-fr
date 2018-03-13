@@ -23,7 +23,7 @@ ms.lasthandoff: 02/01/2018
 
 Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Ce point de terminaison est actuellement uniquement exposé à l’aide du protocole [AMQP][lnk-amqp] sur le port 5671. Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
 
-| Propriété            | DESCRIPTION |
+| Propriété            | Description |
 | ------------------- | ----------- |
 | **Nombre de partitions** | Configurez cette propriété lors de la création pour définir le nombre de [partitions][lnk-event-hub-partitions] pour la réception d’événements appareil-à-cloud. |
 | **Durée de rétention**  | Cette propriété spécifie la durée en jours de conservation des messages par IoT Hub. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours. |

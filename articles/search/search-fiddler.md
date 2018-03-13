@@ -253,7 +253,7 @@ Pour en savoir plus sur cette API, consultez la section relative à [l’obtenti
 
 Dans Fiddler, cliquez sur l’onglet **Inspecteurs**, sur l’onglet **En-têtes**, puis sélectionnez le format JSON. Le nombre de documents et la taille de stockage (en Ko) doivent s'afficher.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les clients REST sont très utiles pour l’exploration ad hoc, mais vous connaissez le fonctionnement de l’API REST, donc vous pouvez avancer avec le code. Pour connaître les étapes suivantes, consultez les liens suivants :
 

@@ -103,6 +103,6 @@ Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action q
 
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/twitterconnector/). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

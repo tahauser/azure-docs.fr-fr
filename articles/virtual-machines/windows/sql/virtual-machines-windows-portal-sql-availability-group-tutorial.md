@@ -38,7 +38,7 @@ Ce didacticiel suppose que vous avez des notions de base sur les groupes de disp
 
 Le tableau suivant répertorie les conditions requises que vous devez remplir avant de commencer ce didacticiel :
 
-|  |Prérequis |DESCRIPTION |
+|  |Prérequis |Description |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Deux serveurs SQL Server | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partage de fichiers pour le témoin de cluster |  
@@ -376,7 +376,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**. Configurez le pool principal comme suit :
 
-   | Paramètre | DESCRIPTION | exemples
+   | Paramètre | Description | exemples
    | --- | --- |---
    | **Name** | Tapez un nom. | SQLLBBE
    | **Associé à** | Choisir dans la liste | Groupe à haute disponibilité
@@ -399,7 +399,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Configurez la sonde d’intégrité comme suit :
 
-   | Paramètre | DESCRIPTION | exemples
+   | Paramètre | Description | exemples
    | --- | --- |---
    | **Name** | Texte | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
@@ -414,7 +414,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 1. Cliquez sur l’équilibrage de charge, sur **Règles d’équilibrage de charge** et sur **+Ajouter**.
 
 1. Configurez les règles d’équilibrage de charge comme suit :
-   | Paramètre | DESCRIPTION | exemples
+   | Paramètre | Description | exemples
    | --- | --- |---
    | **Name** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |

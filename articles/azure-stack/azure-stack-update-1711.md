@@ -35,7 +35,7 @@ Le numéro de build de mise à jour d’Azure Stack 1711 est **171201.3**.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez installer la [mise à jour 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) d’Azure Stack avant d’appliquer cette mise à jour.
 

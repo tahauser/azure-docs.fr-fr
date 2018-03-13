@@ -157,5 +157,5 @@ Vous pouvez changer trois valeurs.
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Créer et installer Azure Machine Learning](quickstart-installation.md)

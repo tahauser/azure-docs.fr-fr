@@ -92,7 +92,7 @@ Ensuite, créez un événement unique en transformant une chaîne dans son encod
 
 ``` 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Recevoir des événements avec EventProcessorHost](event-hubs-java-get-started-receive-eph.md)

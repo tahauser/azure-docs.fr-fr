@@ -172,7 +172,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation technique approfondie](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
 - [Forum aux questions](active-directory-aadconnect-sso-faq.md) : obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.

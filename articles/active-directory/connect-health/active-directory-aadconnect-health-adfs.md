@@ -107,7 +107,7 @@ Ce graphique fournit les informations suivantes :
 
 Ce rapport fournit les informations suivantes :
 
-| Élément de rapport | DESCRIPTION |
+| Élément de rapport | Description |
 | --- | --- |
 | ID d'utilisateur |Affiche l’ID d’utilisateur qui a été utilisé. Cette valeur correspond à ce que l’utilisateur a tapé, ce qui n’est pas toujours l’ID d’utilisateur correct. |
 | Tentatives ayant échoué |Affiche le nombre total de tentatives ayant échoué pour cet ID d’utilisateur. Le tableau est trié par nombre décroissant de tentatives ayant échoué. |

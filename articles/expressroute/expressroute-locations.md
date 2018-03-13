@@ -268,7 +268,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australie |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 * Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 

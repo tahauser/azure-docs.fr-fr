@@ -180,7 +180,7 @@ Après obtention d’une réponse, le connecteur établit une connexion sortante
 Une partie du traitement de l’application peut se produire ici. Si vous avez configuré le proxy d’application pour traduire les en-têtes ou les URL de votre application, cette opération se produit si nécessaire au cours de cette étape.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure AD](application-proxy-network-topology-considerations.md)
 

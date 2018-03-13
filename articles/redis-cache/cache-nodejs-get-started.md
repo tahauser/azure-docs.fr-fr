@@ -34,7 +34,7 @@ Le Cache Redis Azure permet d'accéder à un cache Redis sécurisé et dédié, 
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Node.js. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Installez [node_redis](https://github.com/mranney/node_redis) :
 
     npm install redis

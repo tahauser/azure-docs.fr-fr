@@ -225,7 +225,7 @@ C:/> az account management-group udpate --group-name Contoso --parent-id "Contos
 
 ---
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Pour en savoir plus sur les groupes d’administration, consultez : 
 - [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md)
 - [Créer des groupes d’administration pour organiser les ressources Azure](management-groups-create.md)

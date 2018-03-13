@@ -37,7 +37,7 @@ Cet article décrit les éléments et types du schéma XML sur lesquels les mét
 Collection d’entrées AssetFile pour le travail d’encodage.  
 
 ### <a name="child-elements"></a>Éléments enfants
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un [élément AssetFile](media-services-output-metadata-schema.md) qui fait partie de la collection AssetFiles. |
 
@@ -45,14 +45,14 @@ Collection d’entrées AssetFile pour le travail d’encodage.
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Name**<br/><br/> Obligatoire |**xs:string** |Le nom du fichier multimédia. |
 | **Taille**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
 | **Durée**<br/><br/> Obligatoire |**xs:duration** |Durée de lecture du contenu. |
 
 ### <a name="child-elements"></a>Éléments enfants
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | **Sources** |Collection de fichiers multimédias d’entrée/source qui a été traitée afin de produire cet AssetFile. Pour plus d'informations, consultez la page [Élément source](media-services-output-metadata-schema.md). |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. Pour plus d’informations, consultez [élément VideoTracks](media-services-output-metadata-schema.md). |
@@ -64,7 +64,7 @@ Collection de fichiers multimédias d’entrée/source qui a été traitée afin
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Éléments enfants
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un fichier d’entrée/source utilisé lors de la génération de cette ressource. Pour plus d'informations, consultez la page [Élément source](media-services-output-metadata-schema.md). |
 
@@ -74,7 +74,7 @@ Un fichier d’entrée/source utilisé lors de la génération de cette ressourc
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Name**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
 
@@ -84,7 +84,7 @@ Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vid�
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Éléments enfants
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Une piste vidéo spécifique dans l’élément AssetFile parent. Pour plus d’informations, consultez [élément VideoTrack](media-services-output-metadata-schema.md#VideoTrack). |
 
@@ -94,7 +94,7 @@ Une piste vidéo spécifique dans l’élément AssetFile parent.
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Index de base zéro de cette piste vidéo. **Remarque :**  Cet **ID** ne correspond pas nécessairement au TrackID tel qu’utilisé dans un fichier MP4. |
 | **FourCC**<br/><br/> Obligatoire |**xs:string** |Code FourCC du codec vidéo. |
@@ -116,7 +116,7 @@ Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes audi
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Éléments enfants
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Une piste audio spécifique dans l’élément AssetFile parent. Pour plus d’informations, consultez [élément AudioTrack](media-services-output-metadata-schema.md). |
 
@@ -126,7 +126,7 @@ Une piste audio spécifique dans l’élément AssetFile parent.
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Index de base zéro de cette piste audio. **Remarque :**  Il ne s’agit pas nécessairement du trackid tel qu’utilisé dans un fichier MP4. |
 | **Codec** |**xs:string** |Chaîne du codec de piste audio. |
@@ -137,7 +137,7 @@ Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Bits par échantillon pour le type de format wFormatTag. |
 
 ### <a name="child-elements"></a>Éléments enfants
-| NOM | DESCRIPTION |
+| NOM | Description |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Paramètres de résultat de mesure du niveau sonore. Pour plus d’informations, consultez [élément LoudnessMeteringResultParameters](media-services-output-metadata-schema.md). |
 
@@ -147,7 +147,7 @@ Paramètres de résultat de mesure du niveau sonore.
 Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Version du kit de développement **Dolby** Professional Loudness Metering. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obligatoire |**xs:int** |DialogNormalization généré par DPLM, requis lorsque LoudnessMetering est défini |

@@ -45,7 +45,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié Zoho sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être **Zoho**. | OUI |
 | endpoint | Le point de terminaison du serveur Zoho (`crm.zoho.com/crm/private`). | OUI |
@@ -101,7 +101,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Zoho, définissez le type de source dans l’activité de copie sur **ZohoSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source d’activité de copie doit être **ZohoSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Accounts"`. | OUI |

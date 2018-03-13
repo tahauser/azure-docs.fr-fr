@@ -107,6 +107,6 @@ Le connecteur X12 Decode effectue les tâches suivantes :
 ## <a name="view-the-swagger"></a>Afficher le swagger
 Consultez les [détails sur Swagger](/connectors/x12/). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 
 

@@ -209,7 +209,7 @@ Le compte Service Bus à utiliser est déterminé dans l’ordre suivant :
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `ServiceBusTrigger`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur « serviceBusTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -448,7 +448,7 @@ Vous pouvez utiliser l’attribut `ServiceBusAccount` pour spécifier le compte 
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `ServiceBus`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur « serviceBus ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « out ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |

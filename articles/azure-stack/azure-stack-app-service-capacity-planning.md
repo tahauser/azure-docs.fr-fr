@@ -99,6 +99,6 @@ Dans les environnements de production, le rôle de serveur de fichiers fait face
 - Un cluster de serveur de fichiers
 - Un périphérique NAS (Network Attached Storage). Pour plus d’informations, consultez [Approvisionner un serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)

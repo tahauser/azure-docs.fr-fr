@@ -81,6 +81,6 @@ Quand vous ne souhaitez plus afficher cette annonce pour les utilisateurs du lab
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Si vous modifiez ou définissez une stratégie de lab, vous avez peut-être envie de publier une annonce pour en informer les utilisateurs. La page [Définir des stratégies et des planifications](devtest-lab-set-lab-policy.md) vous renseigne sur l’application de conventions et de restrictions sur votre abonnement à l’aide de stratégies personnalisées.
 * Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

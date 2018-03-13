@@ -36,7 +36,7 @@ Vos tâches auront accès à vos ressources Azure en créant une connexion à vo
 ## <a name="job-statuses"></a>États des tâches
 Le tableau suivant décrit les différents statuts possibles pour une tâche.
 
-| Statut | DESCRIPTION |
+| Statut | Description |
 |:--- |:--- |
 | Completed |La tâche s'est terminée avec succès. |
 | Échec |Pour des [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md), le Runbook n’a pas pu être compilé.  Pour des [Runbooks de script PowerShell](automation-runbook-types.md), le Runbook n'a pas pu démarrer ou la tâche a rencontré une exception. |

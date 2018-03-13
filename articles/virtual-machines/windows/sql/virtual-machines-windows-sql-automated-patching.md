@@ -59,7 +59,7 @@ Pour utiliser la mise à jour corrective automatisée, prenez en compte les cond
 ## <a name="settings"></a>Paramètres
 Le tableau suivant décrit les options qui peuvent être configurées pour une mise à jour corrective automatisée. Les étapes de la configuration varient selon que vous utilisez les commandes du portail Azure ou Azure Windows PowerShell.
 
-| Paramètre | Valeurs possibles | DESCRIPTION |
+| Paramètre | Valeurs possibles | Description |
 | --- | --- | --- |
 | **Mise à jour corrective automatisée** |Activer/Désactiver (désactivé) |Active ou désactive la mise à jour corrective automatisée pour une machine virtuelle Azure. |
 | **Planification de la maintenance** |Tous les jours, lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche |Planification du téléchargement et de l’installation des mises à jour Windows, SQL Server et Microsoft pour votre machine virtuelle. |

@@ -96,6 +96,6 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 
 Lorsque la création du cluster est terminée, vous pouvez utiliser les fichiers jar ajoutés via ce script à partir de Hive, sans avoir à utiliser l’instruction `ADD JAR` .
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations sur l’utilisation de Hive, consultez la rubrique [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)

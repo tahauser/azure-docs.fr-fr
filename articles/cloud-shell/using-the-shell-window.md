@@ -61,7 +61,7 @@ Lorsque vous quittez une session, veillez à fermer chaque fenêtre de session d
 ## <a name="exit-command"></a>Commande Quitter
 Cliquez sur `exit` pour mettre un terme à la session active. Ce comportement se produit par défaut au bout de 20 minutes en l’absence d’interaction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md)
 [Démarrage rapide de PowerShell dans Cloud Shell](quickstart-powershell.md)

@@ -43,6 +43,6 @@ Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 
 **Fournisseurs délégués** : vous pouvez accorder à d’autres personnes la capacité à créer des offres dans votre environnement. Par exemple, si vous êtes fournisseur de services, vous pouvez [déléguer](azure-stack-delegated-provider.md) cette capacité à vos revendeurs. Si vous êtes une organisation, vous pouvez déléguer à d’autres divisions/filiales.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les offres, les plans, les quotas et les abonnements](azure-stack-plan-offer-quota-overview.md)
 

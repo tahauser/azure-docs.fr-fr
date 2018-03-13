@@ -248,7 +248,7 @@ Pour pouvoir recréer entièrement les machines virtuelles après les avoir rest
 
    d. Créer une machine virtuelle avec [plusieurs adresses IP réservées](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous pouvez restaurer vos machines virtuelles, consultez l’article de résolution des problèmes pour en savoir plus sur les erreurs courantes relatives aux machines virtuelles. En outre, consultez l’article sur la gestion des tâches avec vos machines virtuelles.
 
 * [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)

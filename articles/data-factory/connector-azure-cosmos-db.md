@@ -51,7 +51,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis
 
 Les propriétés prises en charge pour le service lié Azure Cosmos DB sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **CosmosDb**. | OUI |
 | connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB. Notez que vous devez spécifier des informations de base de données dans la chaîne de connexion comme dans l’exemple ci-dessous. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
@@ -84,7 +84,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis/vers Azure Cosmos DB, définissez la propriété type du jeu de données sur **DocumentDbCollection**. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **DocumentDbCollection** |OUI |
 | collectionName |Nom de la collection de documents Cosmos DB. |OUI |
@@ -122,7 +122,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’Azure Cosmos DB, définissez le type de source dans l’activité de copie sur **DocumentDbCollectionSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **DocumentDbCollectionSource** |OUI |
 | query |Spécifiez la requête Cosmos DB pour lire les données.<br/><br/>Exemple : `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non  <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select <columns defined in structure> from mycollection` |
@@ -164,7 +164,7 @@ Pour copier des données d’Azure Cosmos DB, définissez le type de source dans
 
 Pour copier des données d’Azure Cosmos DB, définissez le type de récepteur dans l’activité de copie sur **DocumentDbCollectionSink**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DocumentDbCollectionSink**. |OUI |
 | nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, `Name.First` dans la structure du jeu de données de sortie génère la structure JSON suivante dans le document Cosmos DB :`"Name": {"First": "[value maps to this column from source]"}` lorsque le séparateur nestedSeparator est un point. |Non (la valeur par défaut est un point `.`) |

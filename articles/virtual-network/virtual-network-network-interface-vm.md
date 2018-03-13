@@ -121,7 +121,7 @@ Vous pouvez afficher les interfaces réseau actuellement attachées à une machi
 - Si une adresse IPv6 privée est affectée à une interface réseau, vous devez ajouter (attacher) cette interface à une machine virtuelle lors de la création de la machine virtuelle. Vous ne pouvez pas ajouter une interface réseau à laquelle une adresse IPv6 est affectée à une machine virtuelle après la création de celle-ci. Si vous ajoutez une interface réseau à laquelle une adresse IPv6 privée est affectée lorsque vous créez une machine virtuelle, vous pouvez seulement ajouter cette interface réseau à la machine virtuelle, quel que soit le nombre d’interfaces réseau pris en charge par la taille de machine virtuelle. Consultez la section sur la [gestion des adresses IP des interfaces réseau](virtual-network-network-interface-addresses.md) pour en savoir plus sur l’attribution d’adresses IP à des interfaces réseau.
 - Comme pour IPv6, vous ne pouvez pas attacher une interface réseau pour laquelle la mise en réseau accélérée est activée à une machine virtuelle après la création de celle-ci. En outre, pour tirer parti de la mise en réseau accélérée, vous devez également effectuer certaines actions dans le système d’exploitation de la machine virtuelle. Pour plus d’informations sur la mise en réseau accélérée et d’autres contraintes liées à son utilisation, pour les machines virtuelles [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux](create-vm-accelerated-networking-cli.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec plusieurs interfaces réseau ou adresses IP, lisez les articles suivants :
 
 ### <a name="commands"></a>Commandes

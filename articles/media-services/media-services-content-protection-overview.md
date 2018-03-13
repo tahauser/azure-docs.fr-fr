@@ -83,7 +83,7 @@ Les considérations suivantes s'appliquent :
   * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
   * **cbc** : pour le chiffrement de l’enveloppe AES
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les articles ci-dessous décrivent les étapes suivantes que vous pouvez exécuter pour mieux comprendre la protection du contenu :
 
 * [Protection avec le chiffrement du stockage](media-services-rest-storage-encryption.md)

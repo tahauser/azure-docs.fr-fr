@@ -25,7 +25,7 @@ ms.lasthandoff: 12/16/2017
 Les tableaux suivants présentent les valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gestion des charges de travail
-| Catégorie | DESCRIPTION | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |DWU max pour un SQL Data Warehouse unique | [Niveau de performance](performance-tiers.md) Optimisé pour l’élasticité : DW6000<br></br>[Niveau de performance](performance-tiers.md) Optimisé pour le calcul : DW30000c |
 | [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support][creating a support ticket] et en sélectionnant *Quota* en tant que type de demande.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
@@ -35,7 +35,7 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | [tempdb][Tempdb] |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To |
 
 ## <a name="database-objects"></a>Objets de base de données
-| Catégorie | DESCRIPTION | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | Base de données |Taille maximale |240 To compressés sur disque<br/><br/>Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). |
 | Table |Taille maximale |60 To compressés sur disque |
@@ -56,12 +56,12 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | Affichage |Colonnes par vue |1 024 |
 
 ## <a name="loads"></a>Charges
-| Catégorie | DESCRIPTION | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | Charges Polybase |60 Mo par ligne |1<br/><br/>Polybase charge uniquement les lignes de moins de 1 Mo et ne peuvent pas charger vers VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Requêtes
-| Catégorie | DESCRIPTION | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | Requête |Requêtes mises en file d’attente sur les tables utilisateur. |1 000 |
 | Requête |Requêtes simultanées sur les vues système. |100 |

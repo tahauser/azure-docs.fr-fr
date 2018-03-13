@@ -76,7 +76,7 @@ Vous pouvez supprimer le serveur à partir de votre abonnement à l’aide de la
 Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)   
 [Déployer un modèle à partir de SSDT](analysis-services-deploy.md)   
 [Créer un modèle dans le portail Azure](analysis-services-create-model-portal.md)

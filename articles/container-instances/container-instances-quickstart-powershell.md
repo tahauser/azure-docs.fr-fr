@@ -82,7 +82,7 @@ Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l�
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans le cadre de ce démarrage rapide, vous avez démarré un conteneur Windows prêt à l’emploi dans Azure Container Instances. Si vous voulez essayer de créer un conteneur par vous-même et de le déployer dans Azure Container Instances à l’aide d’Azure Container Registry, passez au didacticiel relatif à Azure Container Instances.
 

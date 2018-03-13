@@ -48,7 +48,7 @@ Les sections suivantes donnent des précisions sur les propriétés utilisées p
 
 Les propriétés suivantes sont prises en charge pour le service lié Concur :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Concur**. | OUI |
 | clientId | ID client d’application fourni par la gestion des applications Concur.  | OUI |
@@ -106,7 +106,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Concur, affectez la valeur **ConcurSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source de l’activité de copie doit être définie sur **ConcurSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Opportunities where Id = xxx "`. | OUI |

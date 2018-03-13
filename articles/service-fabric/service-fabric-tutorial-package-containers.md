@@ -365,7 +365,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
   </Resources>
  </ServiceManifest>
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, plusieurs conteneurs ont été mis en package dans une application Service Fabric à l’aide de Yeoman. Cette application a ensuite été déployée et exécutée sur un cluster Service Fabric. Les étapes suivantes ont été effectuées :
 

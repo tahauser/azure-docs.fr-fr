@@ -323,7 +323,7 @@ Azure Cosmos DB prend en charge la réplication automatique et native des couche
 
 Azure Cosmos DB prend en charge le partitionnement automatique côté serveur. Azure Cosmos DB ne prend pas en charge les commandes de partitionnement manuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [utiliser Studio 3P](mongodb-mongochef.md) avec une API pour la base de données MongoDB.
 - Découvrez comment [utiliser Robo 3T](mongodb-robomongo.md) avec une API pour la base de données MongoDB.

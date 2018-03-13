@@ -35,7 +35,7 @@ Cet article explique la différence entre les versions offertes aux administrate
 
 Le tableau suivant décrit les différences entre trois versions de l’authentification multifacteur :
 
-| Version | DESCRIPTION |
+| Version | Description |
 | --- | --- |
 | Authentification multifacteur pour Office 365 |Cette version fonctionne exclusivement avec les applications Office 365 et est gérée à partir du portail Office 365. Les administrateurs peuvent [sécuriser les ressources Office 365 avec la vérification en deux étapes](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Cette version est fournie dans le cadre d’un abonnement à Office 365. |
 | Authentification multifacteur pour administrateurs Azure AD | Les utilisateurs avec le rôle d’administrateur général dans les locataires Azure AD peuvent activer la vérification en deux étapes pour leurs comptes d’administrateurs généraux Azure AD sans coût supplémentaire.|

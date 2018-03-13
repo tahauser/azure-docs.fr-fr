@@ -29,7 +29,7 @@ Cet article vous explique comment utiliser la fonctionnalité de transformation 
  
 Cet article explique comment créer un runbook Azure Automation, puis l’utiliser pour lancer un travail de transformation de données. Pour en savoir plus sur l’initialisation de la transformation des données via le kit de développement logiciel (SDK) .NET, accédez à [Utilisez le SDK .NET SDK pour déclencher des travaux de transformation des données](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 

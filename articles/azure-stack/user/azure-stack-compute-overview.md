@@ -66,7 +66,7 @@ Azure Stack fournit une place de marché à utiliser avec différentes versions 
 Le tableau suivant présente différents moyens de rechercher les informations relatives à une image :
 
 
-|Méthode|DESCRIPTION|
+|Méthode|Description|
 |---------|---------|
 |Portail Azure Stack|Les valeurs sont spécifiées automatiquement pour vous lorsque vous sélectionnez une image à utiliser.|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -88,7 +88,7 @@ Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 Les ressources figurant dans le tableau suivant sont utilisées par la machine virtuelle et doivent exister ou être créées lors de sa création.
 
 
-|Ressource|Obligatoire|DESCRIPTION|
+|Ressource|Obligatoire|Description|
 |---------|---------|---------|
 |Groupe de ressources|OUI|La machine virtuelle doit être contenue dans un groupe de ressources.|
 |Compte de stockage|OUI|La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage.|
@@ -119,7 +119,7 @@ Les machines virtuelles peuvent être gérées à l’aide d’un portail sur na
 Le tableau suivant indique différents moyens d’obtenir des informations sur une machine virtuelle.
 
 
-|Méthode|DESCRIPTION|
+|Méthode|Description|
 |---------|---------|
 |Portail Azure Stack|Dans le menu Hub, cliquez sur Machines virtuelles, puis sélectionnez la machine virtuelle dans la liste. Sur la page de la machine virtuelle, vous pouvez consulter les informations de vue d’ensemble, fixer des valeurs et surveiller les métriques.|
 |Azure PowerShell|La gestion des machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations sur l’utilisation de PowerShell, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

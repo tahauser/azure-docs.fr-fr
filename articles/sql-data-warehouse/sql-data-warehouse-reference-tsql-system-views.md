@@ -231,7 +231,7 @@ SQL Data Warehouse et l’entrepôt PDW (Parallel Data Warehouse) d’Analytics 
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez la rubrique [Vue d’ensemble de référence de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

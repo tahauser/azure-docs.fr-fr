@@ -81,5 +81,5 @@ Les balises de glossaire comme les balises utilisateur peuvent non seulement fai
 ## <a name="summary"></a>Résumé
 Le glossaire métier d’Azure Data Catalog et le balisage géré qu’il autorise vous permettent d’identifier, de gérer et de découvrir les ressources de données de façon cohérente. Le glossaire métier permet de promouvoir l’apprentissage du vocabulaire métier par les employés. Le glossaire prend également en charge la capture de métadonnées explicites, ce qui simplifie la compréhension et la détection de ressource.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Documentation de l’API REST pour les opérations de glossaire métier](https://msdn.microsoft.com/library/mt708855.aspx)

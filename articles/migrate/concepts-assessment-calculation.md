@@ -142,6 +142,6 @@ Une fois les recommandations de dimensionnement terminées, Azure Migrate calcul
 Les coûts sont affichés dans la devise spécifiée dans les paramètres d’évaluation. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Créer une évaluation pour des machines virtuelles VMware locales](tutorial-assessment-vmware.md)

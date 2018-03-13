@@ -46,7 +46,7 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
    
     **Figure 1** Arrière de l’appareil principal avec les modules PCM et de contrôleur
    
-   | Étiquette | DESCRIPTION |
+   | Étiquette | Description |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -59,7 +59,7 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
    
     **Figure 2** Arrière du PCM avec les voyants LED de surveillance
    
-   | Étiquette | DESCRIPTION |
+   | Étiquette | Description |
    |:--- |:--- |
    | 1 |Panne d’alimentation secteur |
    | 2 |Panne de ventilateur |

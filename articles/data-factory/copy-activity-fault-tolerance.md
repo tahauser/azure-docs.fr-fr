@@ -73,7 +73,7 @@ L’exemple suivant fournit une définition JSON pour configurer la manière d�
 }
 ```
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Indique s’il faut ignorer ou non les lignes incompatibles durant la copie. | True<br/>False (valeur par défaut) | Non 
 redirectIncompatibleRowSettings | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non 

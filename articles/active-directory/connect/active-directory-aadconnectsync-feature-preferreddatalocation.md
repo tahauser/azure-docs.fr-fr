@@ -258,7 +258,7 @@ Il est maintenant temps de vérifier la configuration et de l’activer pour vos
 Si votre locataire a été marqué comme étant en mesure d’utiliser cette fonctionnalité, la boîte aux lettres est déplacée dans la bonne zone géographique. Vous pouvez le vérifier en examinant le nom du serveur où se trouve la boîte aux lettres.
 4. Pour vérifier l’efficacité de ce paramétrage sur de nombreuses boîtes aux lettres, utilisez le script disponible dans la [galerie Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ce script liste également les préfixes de serveur de tous les centres de données Office 365, ainsi que la zone géographique correspondante. Vous pouvez l’utiliser à titre de référence à l’étape précédente pour vérifier l’emplacement de la boîte aux lettres.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 **Découvrez en plus sur les fonctionnalités multigéographiques dans Office 365 :**
 

@@ -106,7 +106,7 @@ Créez une planification Power BI pour chaque jeu de données à l’aide de la 
 3. Cliquez sur le bouton **Power BI** en haut de la page pour ouvrir la boîte de dialogue **Power BI**.
 4. Renseignez les informations du tableau suivant et cliquez sur **Enregistrer**.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | NOM |Nom permettant d’identifier la planification dans la liste des planifications Power BI. |
 | Recherche enregistrée |Recherche de journal à exécuter.  Vous pouvez sélectionner la requête en cours ou sélectionner une recherche enregistrée dans la zone de liste déroulante. |

@@ -94,7 +94,7 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 }
 ```
 
-| Section | Nom de l'élément | DESCRIPTION |
+| Section | Nom de l'élément | Description |
 | --- | --- | --- |
 | Paramètre | ID | ID de ressource du paramètre de mise à l’échelle automatique. Les paramètres de mise à l’échelle automatique sont une ressource Azure Resource Manager. |
 | Paramètre | Nom | Nom du paramètre de mise à l'échelle automatique. |

@@ -37,7 +37,7 @@ Dans ce didacticiel, nous utilisons l’exemple de détection des fraudes en tem
 
 Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas précis, des appels passés en même temps dans différents pays. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Dans ce didacticiel, vous allez simuler des données d’appels téléphoniques à l’aide d’une application cliente générant un exemple de métadonnées d’appel téléphonique. Certains des enregistrements produits par l’application ressemblent à des appels frauduleux. 
 

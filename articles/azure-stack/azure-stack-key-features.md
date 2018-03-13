@@ -144,6 +144,6 @@ Les builds de développement offrent les avantages suivants :
 - Nouvelles fonctionnalités
 - Autres améliorations
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Prérequis pour le déploiement Azure Stack](azure-stack-deploy.md)
 

@@ -80,7 +80,7 @@ Lorsqu’un certificat expire, vous obtenez un avertissement vous demandant de t
 
 La gestion des certificats s’effectue actuellement via les pages d’applications individuelles. Vous devez donc gérer les certificats dans le contexte des applications pertinentes. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
 * [Activer l’accès conditionnel](application-proxy-enable-remote-access-sharepoint.md) à vos applications publiées.
 * [Ajout de votre propre nom de domaine à Azure AD](active-directory-domains-add-azure-portal.md)

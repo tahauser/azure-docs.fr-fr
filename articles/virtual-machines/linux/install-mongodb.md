@@ -208,7 +208,7 @@ az group deployment show \
     --output tsv
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ces exemples, vous vous connectez à l’instance MongoDB localement à partir de la machine virtuelle. Si vous souhaitez vous connecter à l’instance MongoDB à partir d’une autre machine virtuelle ou d’un autre réseau, vérifiez que les bonnes [règles de groupe de sécurité réseau sont créées](nsg-quickstart.md).
 
 Ces exemples montrent le déploiement de l’environnement MongoDB central à des fins de développement. Appliquez les options de configuration de sécurité requises pour votre environnement. Pour plus d’informations, voir les [documents relatifs à la sécurité de MongoDB](https://docs.mongodb.com/manual/security/).

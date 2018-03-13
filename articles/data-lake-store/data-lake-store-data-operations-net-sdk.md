@@ -32,7 +32,7 @@ Dans cet article, vous apprenez à réaliser des opérations de gestion du syst�
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations de gestion de compte sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

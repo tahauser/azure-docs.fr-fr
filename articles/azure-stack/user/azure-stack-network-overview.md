@@ -29,6 +29,6 @@ Azure Stack fournit un éventail de fonctionnalités de mise en réseau qui peuv
 - Outils de déploiement et de configuration : utilisez un portail web ou des outils de ligne de commande multiplateforme pour déployer et configurer les ressources réseau.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Considérations relatives à la mise en réseau Azure Stack](azure-stack-network-differences.md)
 

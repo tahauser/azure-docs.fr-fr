@@ -138,7 +138,7 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
 >[!NOTE]
 >Les modifications que vous apportez à l’application peuvent réinitialiser l’URL de page d’accueil. Si l’URL de votre page d’accueil est réinitialisée, répétez les étapes décrites dans cette section pour la rétablir.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Activer l’accès distant pour SharePoint avec le proxy d’application Azure AD](application-proxy-enable-remote-access-sharepoint.md)
 - [Activer le proxy d’application dans le portail Azure](active-directory-application-proxy-enable.md)

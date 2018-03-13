@@ -174,7 +174,7 @@ Remplissez le formulaire **Support** avec les contacts de support de votre entre
 
 Après avoir rempli toutes les sections, sélectionnez **Publish** (Publier) pour mettre votre offre à disposition des clients.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
 * Pour plus d’informations sur la publication d’une application gérée de catalogue de services, consultez l’article [Créer et publier une application gérée de catalogue de services](publish-service-catalog-app.md).

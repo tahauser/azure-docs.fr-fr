@@ -205,7 +205,7 @@ Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente 
 
 La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| Noms de domaine | Ports sortants | DESCRIPTION |
+| Noms de domaine | Ports sortants | Description |
 | ------------ | -------------- | ----------- |
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 

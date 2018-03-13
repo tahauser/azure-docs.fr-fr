@@ -122,7 +122,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |choose|Élément racine.|OUI|  
 |when|Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée.|OUI|  
@@ -130,7 +130,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|  
+|Attribut|Description|Obligatoire|  
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée.|OUI|  
   
@@ -234,13 +234,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |forward-request|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel au service principal.|Non |300 secondes|  
 |follow-redirects="true &#124; false"|Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.|Non |false|  
@@ -281,13 +281,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|    
 |limit-concurrency|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|--------------|  
 |key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|OUI|N/A|  
 |max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|OUI|N/A|  
@@ -331,13 +331,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|  
+|Attribut|Description|Obligatoire|  
 |---------------|-----------------|--------------|  
 |logger-id|ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.|OUI|  
 |partition-id|Spécifie l’index de la partition où les messages sont envoyés.|facultatif. Cet attribut peut ne pas être utilisé si `partition-key` est utilisé.|  
@@ -374,13 +374,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |mock-response|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|Spécifie le code d’état de réponse et permet de sélectionner l’exemple ou le schéma correspondant.|Non |200|  
 |content-type|Spécifie la valeur d’état de réponse `Content-Type` et permet de sélectionner l’exemple ou le schéma correspondant.|Non |Aucun|  
@@ -430,13 +430,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |retry|Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |condition|[Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).|OUI|N/A|  
 |count|Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.|OUI|N/A|  
@@ -485,7 +485,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |return-response|Élément racine.|OUI|  
 |set-header|Instruction de stratégie [set-header](api-management-transformation-policies.md#SetHTTPheader).|Non |  
@@ -494,7 +494,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|  
+|Attribut|Description|Obligatoire|  
 |---------------|-----------------|--------------|  
 |response-variable-name|Nom de la variable de contexte référencée à partir, par exemple, d’une stratégie [send-request](api-management-advanced-policies.md#SendRequest) en amont et contenant un objet `Response`.|facultatif.|  
   
@@ -551,7 +551,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|Élément racine.|OUI|  
 |url|URL de la demande.|Non si mode=copy ; sinon, oui.|  
@@ -561,7 +561,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|  
 |Nom|Spécifie le nom de l’en-tête à définir.|OUI|N/A|  
@@ -630,7 +630,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |send-request|Élément racine.|OUI|  
 |url|URL de la demande.|Non si mode=copy ; sinon, oui.|  
@@ -640,7 +640,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|  
 |response-variable-name="string"|En son absence, `context.Response` est utilisé.|Non |N/A|  
@@ -676,13 +676,13 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |proxy|Élément racine|OUI|  
 
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |url="chaîne"|URL du proxy sous la forme http://host:port.|OUI|N/A|  
 |username="chaîne"|Nom d’utilisateur à utiliser pour l’authentification auprès du proxy.|Non |N/A|  
@@ -736,7 +736,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|OUI|  
   
@@ -776,13 +776,13 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |set-status|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |code="integer"|Code d’état HTTP à renvoyer.|OUI|N/A|  
 |reason="string"|Description du motif pour lequel le code d’état est renvoyé.|OUI|N/A|  
@@ -811,13 +811,13 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |set-variable|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|  
+|Attribut|Description|Obligatoire|  
 |---------------|-----------------|--------------|  
 |Nom|Nom de la variable.|OUI|  
 |value|Valeur de la variable. Peut être une expression ou une valeur littérale.|OUI|  
@@ -878,13 +878,13 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |trace|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |source|Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message.|OUI|N/A|  
   
@@ -945,13 +945,13 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |wait|Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |for|Détermine si la stratégie `wait` attend la fin de toutes les stratégies enfants immédiates ou d’une seule. Les valeurs autorisées sont les suivantes :<br /><br /> -   `all` : attend la fin de toutes les stratégies enfants immédiates.<br />- any : attend la fin d’une stratégie enfant immédiate. Une fois la première stratégie enfant immédiate terminée, la stratégie `wait` se termine et l’exécution de toutes les autres stratégies enfants immédiates est arrêtée.|Non |tout|  
   

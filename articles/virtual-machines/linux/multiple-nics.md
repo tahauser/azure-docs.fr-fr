@@ -251,5 +251,5 @@ systemctl restart network
 Les règles de routage sont désormais correctement en place et vous pouvez vous connecter avec chaque interface selon les besoins.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vérifiez les [tailles des machines virtuelles Linux](sizes.md) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 

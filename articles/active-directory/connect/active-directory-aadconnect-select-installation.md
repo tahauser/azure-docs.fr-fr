@@ -71,5 +71,5 @@ Si vous utilisez actuellement Azure AD Sync, vous pouvez suivre les [mêmes éta
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrer depuis FIM2010 ou MIM2016
 Si vous utilisez actuellement Forefront Identity Manager 2010 ou Microsoft Identity Manager 2016 avec le connecteur Azure AD, votre seule option est une migration. Suivez les étapes décrites dans [Migration via une instance distincte](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). Dans les étapes, remplacez les mentions d’Azure AD Sync par FIM2010/MIM2016.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Selon l’option que vous avez choisie, utilisez la table des matières à gauche pour trouver votre article avec les étapes détaillées.

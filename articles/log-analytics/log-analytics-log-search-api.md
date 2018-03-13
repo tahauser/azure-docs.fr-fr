@@ -218,7 +218,7 @@ Méthodes de collection prises en charge : GET
 
 Le tableau suivant décrit les propriétés qui sont disponibles
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | ID |Identificateur unique. |
 | Etag |**Requis pour le correctif**. Mis à jour par le serveur à chaque écriture. La valeur doit être égale à la valeur actuelle stockée ou '*' pour mettre à jour. 409 retourné pour les valeurs anciennes ou non valides. |

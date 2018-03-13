@@ -68,7 +68,7 @@ Ce groupe de ressources contient toutes les ressources exigées par l’applicat
 
 Quand le consommateur supprime l’application managée, le groupe de ressources managé est également supprimé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir une introduction à la définition et au déploiement d’une application managée, consultez [Créer et déployer une application managée avec Azure CLI](managed-apps-quickstart-cli.md).
 * Pour plus d’informations sur la publication d’une application interne, consultez [Créer une application de catalogue de services](publish-service-catalog-app.md).

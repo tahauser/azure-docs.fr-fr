@@ -130,7 +130,7 @@ Le jeton de sécurité présente le format suivant :
 
 Voici les valeurs attendues :
 
-| Valeur | DESCRIPTION |
+| Valeur | Description |
 | --- | --- |
 | {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256. |
 | {resourceURI} |Préfixe URI (par segment) des points de terminaison qui sont accessibles avec ce jeton, en commençant par le nom d’hôte IoT Hub (sans protocole). Par exemple, `myHub.azure-devices.net/devices/device1` |

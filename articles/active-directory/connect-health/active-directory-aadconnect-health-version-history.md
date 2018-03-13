@@ -133,6 +133,6 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 * Tendances des demandes ayant échoué sur les serveurs AD FS regroupés par applications, types d’erreur, etc.
 * Déploiement d’agent plus simple à l’aide des informations d’identification d’administrateur général Azure AD.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](active-directory-aadconnect-health.md).
 

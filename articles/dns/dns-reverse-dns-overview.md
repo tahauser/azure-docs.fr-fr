@@ -106,7 +106,7 @@ Azure DNS peut être utilisé pour [héberger vos zones de recherche inversée e
 
 **Configurer l’enregistrement DNS inversé pour l’adresse IP attribuée à votre service Azure.** Azure vous permet de [configurer la recherche inversée pour les adresses IP allouées à votre service Azure](dns-reverse-dns-for-azure-services.md).  Cette recherche inversée est configurée par Azure comme un enregistrement PTR dans la zone ARPA correspondante.  Ces zones ARPA, qui correspondent à toutes les plages d’adresses IP utilisées par Azure, sont hébergées par Microsoft.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

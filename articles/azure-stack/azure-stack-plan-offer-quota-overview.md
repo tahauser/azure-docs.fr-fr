@@ -76,6 +76,6 @@ L’abonnement est la forme sous laquelle les utilisateurs accèdent aux offres.
 
 L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du Kit de développement Azure Stack. Il permet de gérer Azure Stack, de déployer d’autres fournisseurs de ressources et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Créer un plan](azure-stack-create-plan.md)

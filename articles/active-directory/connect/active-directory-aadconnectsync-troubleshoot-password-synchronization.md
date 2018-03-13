@@ -324,7 +324,7 @@ Vous pouvez résoudre facilement les problèmes liés à la synchronisation des 
 ### <a name="password-sync-log"></a>Journal de synchronisation de mot de passe
 La colonne Statut peut avoir les valeurs suivantes :
 
-| Statut | DESCRIPTION |
+| Statut | Description |
 | --- | --- |
 | Succès |Le mot de passe a été correctement synchronisé. |
 | FilteredByTarget |Le mot de passe est défini sur **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session**. Mot de passe n'a pas été synchronisé. |

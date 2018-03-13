@@ -60,7 +60,7 @@ Vous devez vous familiariser avec les fonctionnalités suivantes qui peuvent êt
 * [masquage des données](sql-database-dynamic-data-masking-get-started.md) permet de restreindre l’exposition des données sensibles.
 * [procédures stockées](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) , vous pouvez limiter le nombre d’actions susceptibles d’être exécutées sur la base de données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Sécurisation de SQL Database](sql-database-security-overview.md).
 - Pour en savoir plus sur les règles de pare-feu, consultez [Règles de pare-feu](sql-database-firewall-configure.md).

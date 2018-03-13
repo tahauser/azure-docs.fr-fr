@@ -47,14 +47,14 @@ Pour utiliser l’API Collecte de données HTTP, il vous suffit de créer une re
 | Type de contenu |application/json |
 
 ### <a name="request-uri-parameters"></a>Paramètres de l’URI de demande
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | CustomerID |Identificateur unique de l’espace de travail Log Analytics. |
 | Ressource |Nom de ressource de l’API : / api/logs. |
 | Version de l'API |Version de l’API à utiliser avec cette demande. Actuellement, il s’agit de 2016-04-01. |
 
 ### <a name="request-headers"></a>En-têtes de requête
-| En-tête | DESCRIPTION |
+| En-tête | Description |
 |:--- |:--- |
 | Authorization |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
 | Log-Type |Spécifiez le type d’enregistrement des données envoyées. Actuellement, le type de journal prend en charge uniquement des caractères alphabétiques. Il ne prend pas en charge les caractères numériques ou spéciaux. |
@@ -173,7 +173,7 @@ Le code d’état HTTP 200 signifie que la demande a été reçue et doit être 
 
 Ce tableau répertorie l’ensemble complet de codes d’état que le service peut retourner :
 
-| Code | Statut | Code d'erreur | DESCRIPTION |
+| Code | Statut | Code d'erreur | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |La demande a été acceptée. |
 | 400 |Demande incorrecte |InactiveCustomer |L’espace de travail a été fermé. |

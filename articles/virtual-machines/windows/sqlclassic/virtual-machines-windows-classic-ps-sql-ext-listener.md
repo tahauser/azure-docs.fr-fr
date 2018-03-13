@@ -130,6 +130,6 @@ Contrairement à l'exemple précédent, l'authentification SQL est nécessaire, 
 
 Si les réplicas Always On figurent dans des sous-réseaux distincts, les clients doivent spécifier **MultisubnetFailover=True** dans la chaîne de connexion. Cela entraîne des tentatives parallèles de connexion aux réplicas dans les différents sous-réseaux. Notez que ce scénario inclut un déploiement de groupe de disponibilité Always On dans plusieurs régions.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

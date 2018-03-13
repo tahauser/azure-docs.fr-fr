@@ -96,7 +96,7 @@ Dans SQL Database, la clé de chiffrement de base de données est protégée par
 
 Vous pouvez chiffrer votre base de données à l’aide du [portail Azure][Encryption with Portal] ou de [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la connexion à SQL Data Warehouse avec différents protocoles et voir des exemples, consultez [Se connecter à SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->

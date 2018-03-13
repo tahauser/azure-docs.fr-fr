@@ -37,7 +37,7 @@ Ce didacticiel décrit les tâches suivantes à l’aide de l’API Cassandra :
 > * Données de requête
 > * Vérification des contrats SLA
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Accédez au programme d’évaluation de l’API Cassandra Azure Cosmos DB. Si vous n’avez pas encore demandé l’accès, [inscrivez-vous maintenant](https://aka.ms/cosmosdb-cassandra-signup).
 

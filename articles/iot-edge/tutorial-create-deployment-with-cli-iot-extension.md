@@ -154,7 +154,7 @@ Affichez les modules sur votre appareil IoT Edge :
 
    ![Faire la liste des modules][6]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [utiliser un appareil IoT Edge en tant que passerelle](how-to-create-transparent-gateway.md).
 

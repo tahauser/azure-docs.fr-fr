@@ -94,6 +94,6 @@ Il existe d’autres expériences dans [Azure AI Gallery](https://gallery.cortan
 
 Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Menez votre première expérience de science des données avec Azure Machine Learning](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](what-is-machine-learning.md)

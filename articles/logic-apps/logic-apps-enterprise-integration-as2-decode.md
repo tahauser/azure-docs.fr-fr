@@ -89,6 +89,6 @@ Pour déployer une application logique totalement opérationnelle dans le cadre 
 ## <a name="view-the-swagger"></a>Afficher le swagger
 Consultez les [détails sur Swagger](/connectors/as2/). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
 

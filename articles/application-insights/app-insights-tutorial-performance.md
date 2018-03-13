@@ -128,7 +128,7 @@ Comme avec les données collectées pour les performances du serveur, Applicatio
     ![Smart Diagnostics](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris à identifier les exceptions d’exécution, passez à l’étape suivante du didacticiel pour apprendre à créer des alertes en réponse aux défaillances.
 
 > [!div class="nextstepaction"]

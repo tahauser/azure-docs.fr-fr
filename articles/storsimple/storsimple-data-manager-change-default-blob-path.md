@@ -24,7 +24,7 @@ ms.lasthandoff: 01/17/2018
 
 Lorsque le service StorSimple Data Manager transforme les données, par défaut il place les objets blob transformés dans un conteneur de stockage comme spécifié lors de la création du référentiel cible. À mesure que les objets blob arrivent à cet emplacement, vous voudrez déplacer ces objets blob vers un autre emplacement. Cet article décrit comment configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob par défaut, puis déplacer les objets blob vers un autre emplacement.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Assurez-vous que vous avez une définition de travail correctement configurée dans votre service StorSimple Data Manager.
 

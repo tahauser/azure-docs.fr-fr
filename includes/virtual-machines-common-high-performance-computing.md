@@ -177,7 +177,7 @@ Voici des exemples de clients ayant résolu des problèmes d’entreprise à l�
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les solutions Big Compute pour la [simulation d’ingénierie](https://simulation.azure.com/), le [rendu](https://simulation.azure.com/), les [banques et marchés financiers](https://finance.azure.com/) et la [génomique](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Pour les dernières annonces, consultez le [blog de l’équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

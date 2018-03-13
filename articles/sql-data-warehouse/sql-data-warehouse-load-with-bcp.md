@@ -173,7 +173,7 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour concevoir votre processus de chargement, consultez la [vue d’ensemble de chargement](sql-data-warehouse-design-elt-data-loading).  
 
 

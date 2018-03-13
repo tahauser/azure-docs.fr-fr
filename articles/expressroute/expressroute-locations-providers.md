@@ -179,7 +179,7 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 | **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **Amérique du Nord** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Amérique du Sud** |Avanade Inc. |
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 * Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 

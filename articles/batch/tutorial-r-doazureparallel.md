@@ -29,7 +29,7 @@ Ce didacticiel vous montre comment déployer un pool Batch et exécuter un trava
 > * Créer un pool Batch comme serveur principal parallèle pour votre session R
 > * Exécuter un exemple de simulation parallèle sur le pool
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Une distribution de [R](https://www.r-project.org/) installée, telle que [Microsoft R Open](https://mran.microsoft.com/open). Utilisez la version 3.3.1 ou ultérieure.
 

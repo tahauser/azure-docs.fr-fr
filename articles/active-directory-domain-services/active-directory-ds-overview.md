@@ -90,7 +90,7 @@ Avec les services de domaine Azure AD, vous pouvez bénéficier des avantages su
 * **Rentable** : avec les Services de domaine Azure AD, vous pouvez éviter les charges que représentent l’infrastructure et la gestion liées à la gestion de l’infrastructure d’identité associée aux applications orientées répertoire traditionnelles. Vous pouvez transférer ces applications vers les Services d’Infrastructure Azure et réaliser des économies substantielles sur les frais d’exploitation.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 ### <a name="learn-more-about-azure-ad-domain-services"></a>En savoir plus sur Azure AD Domain Services
 * [Caractéristiques](active-directory-ds-features.md)
 * [Scénarios de déploiement](active-directory-ds-scenarios.md)

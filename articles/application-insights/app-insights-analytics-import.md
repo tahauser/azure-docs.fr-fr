@@ -363,7 +363,7 @@ Utilisez ce code pour chaque blob.
    bool success = await client.RequestBlobIngestion(ingestionRequest);
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation du langage de requête Log Analytics](app-insights-analytics-tour.md)
 * Si vous utilisez Logstash, utilisez le [plug-in Logstash pour envoyer des données à Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

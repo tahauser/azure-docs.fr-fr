@@ -46,7 +46,7 @@ Le tableau [Tarification Service Bus](https://azure.microsoft.com/pricing/detail
 
 Les files d’attente et rubriques/abonnements sont facturés par « opération » et non par message. Une « opération » désigne un appel d’API sur un point de terminaison de service de file d’attente ou rubrique/d’abonnement. Cela inclut les opérations de gestion, d'envoi/réception et d'état de session.
 
-| Type d'opération | DESCRIPTION |
+| Type d'opération | Description |
 | --- | --- |
 | gestion |Création, lecture, mise à jour, suppression (CRUD) sur les files d’attente ou rubriques/abonnements. |
 | Messagerie |Envoyer et recevoir des messages avec files d’attente ou rubriques/abonnements. |

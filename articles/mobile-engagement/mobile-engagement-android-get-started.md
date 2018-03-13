@@ -156,7 +156,7 @@ La section suivante vous permet de configurer votre application pour la récepti
 
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Accédez au [Kit de développement logiciel (SDK) Android](mobile-engagement-android-sdk-overview.md) pour obtenir des informations détaillées sur l’intégration du kit de développement logiciel.
 
 <!-- Images. -->

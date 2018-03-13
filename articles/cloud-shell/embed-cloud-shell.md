@@ -54,6 +54,6 @@ Définissez une expérience Cloud Shell spécifique en augmentant votre URL.
 |Bash                       |shell.azure.com/bash       |
 |PowerShell                 |shell.azure.com/powershell |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md)<br>
 [Démarrage rapide de PowerShell dans Cloud Shell](quickstart-powershell.md)

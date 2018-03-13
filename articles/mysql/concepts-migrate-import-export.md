@@ -112,5 +112,5 @@ Vous pouvez utiliser l’onglet **Data Import** (Importation des données) pour 
 1. Choisissez le dossier du projet ou un fichier SQL autonome, sélectionnez le schéma dans lequel les données seront importées ou cliquez sur **New** (Nouveau) pour définir un nouveau schéma. 
 2. Cliquez sur **Start Import** (Démarrer l’importation) pour commencer le processus d’importation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour découvrir une autre approche de migration, consultez [Migrer une base de données MySQL à l’aide des images mémoire et de la restauration dans la base de données Azure pour MySQL](concepts-migrate-dump-restore.md). 

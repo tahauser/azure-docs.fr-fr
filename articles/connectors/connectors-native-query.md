@@ -54,7 +54,7 @@ Voici comment vous pouvez l’ajouter dans une application logique :
 ## <a name="query-action"></a>Action de requête
 Voici les détails de l’action que ce connecteur prend en charge. Le connecteur n’a qu’une seule action possible.
 
-| Action | DESCRIPTION |
+| Action | Description |
 | --- | --- |
 | Filtrer le tableau |Évalue une condition pour chaque élément d’un tableau et renvoie les résultats |
 
@@ -65,7 +65,7 @@ L’action de requête est créée avec une action possible. Les tableaux suivan
 Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante.
 Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | De* |from |Le tableau à filtrer |
 | Condition* |where |La condition à évaluer pour chaque élément |
@@ -75,7 +75,7 @@ Le symbole * désigne est un champ obligatoire.
 ### <a name="output-details"></a>Détails des résultats
 Vous trouverez ci-dessous les détails de sortie correspondant à la requête HTTP.
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | Tableau filtré |array |Tableau contenant un objet pour chaque résultat filtré |
 

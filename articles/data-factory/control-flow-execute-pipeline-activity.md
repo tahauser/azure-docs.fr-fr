@@ -62,7 +62,7 @@ L’activité d’exécution du pipeline permet à un pipeline Data Factory d’
 ```
 
 ## <a name="type-properties"></a>Propriétés type
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité d’exécution du pipeline. | Chaîne | OUI
 Type | Doit avoir la valeur : **ExecutePipeline**. | Chaîne | OUI

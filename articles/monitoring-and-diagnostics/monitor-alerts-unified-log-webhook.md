@@ -30,7 +30,7 @@ Les actions de webhook permettent d’appeler un processus externe par le biais 
 
 Les propriétés requises par les actions webhook sont décrites dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | URL du webhook |URL du webhook. |
 | Charge utile JSON personnalisée |Charge utile personnalisée à envoyer avec le webhook, lorsque vous choisissez cette option au moment de la création de l’alerte. Détails disponibles sur la page [Gérer les alertes à l’aide d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md) |
@@ -41,7 +41,7 @@ Les propriétés requises par les actions webhook sont décrites dans le tableau
 Les webhooks incluent une URL et une charge utile au format JSON qui correspond aux données envoyées au service externe.  Par défaut, la charge utile comprend les valeurs indiquées dans le tableau suivant : vous pouvez choisir de remplacer cette charge utile par des données personnalisées de votre choix.  Dans ce cas, vous pouvez reprendre les variables de chacun des paramètres indiquées dans le tableau pour inclure les valeurs correspondantes dans votre charge utile personnalisée.
 
 
-| Paramètre | Variable | DESCRIPTION |
+| Paramètre | Variable | Description |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nom de la règle d’alerte. |
 | Niveau de gravité |#severity |Gravité définie pour l’alerte de journal déclenchée. |

@@ -53,5 +53,5 @@ Les formules représentent un moyen dynamique de créer des machines virtuelles 
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 * [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [FAQ DevTest Labs](devtest-lab-faq.md)

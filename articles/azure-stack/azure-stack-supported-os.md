@@ -30,7 +30,7 @@ Azure Stack prend en charge les systèmes d’exploitation invités Windows qui 
 
 Au cours du déploiement, Azure Stack injecte une version appropriée de l’agent invité dans l’image.
 
-| Système d’exploitation | DESCRIPTION | Publisher | Type de système d’exploitation | Marketplace |
+| Système d’exploitation | Description | Publisher | Type de système d’exploitation | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Windows Server 2008 R2 SP1 | 64 bits | Microsoft | Windows | Centre de données |
 | Windows Server 2012 | 64 bits | Microsoft | Windows | Centre de données |
@@ -50,7 +50,7 @@ Les distributions Linux répertoriées ici incluent l’agent Windows Azure Linu
 >
 > [cloud-init](https://cloud-init.io/) est uniquement pris en charge avec les distributions Ubuntu sur Azure Stack.
 
-| Distribution | DESCRIPTION | Publisher | Marketplace |
+| Distribution | Description | Publisher | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Conteneur Linux |  64 bits | CoreOS | Stable |
 | CentOS-based 6.9 | 64 bits | Rogue Wave | OUI |

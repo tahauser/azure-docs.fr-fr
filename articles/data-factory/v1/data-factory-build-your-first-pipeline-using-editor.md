@@ -43,7 +43,7 @@ Le pipeline dans ce didacticiel comprend une activité : une activité Azure HDI
 > 
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Consultez la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et suivez les étapes de la section « Configuration requise ».
 
 Cet article ne fournit pas de vue d’ensemble conceptuelle du service Data Factory. Pour plus d’informations sur le service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).  
@@ -148,7 +148,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
     Le tableau suivant décrit les propriétés JSON utilisées dans l’extrait de code.
 
-   | Propriété | DESCRIPTION |
+   | Propriété | Description |
    |:--- |:--- |
    | clusterSize |Spécifie la taille du cluster HDInsight. |
    | timeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
@@ -209,7 +209,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     ```
     Le tableau suivant décrit les propriétés JSON utilisées dans l’extrait de code.
 
-   | Propriété | DESCRIPTION |
+   | Propriété | Description |
    |:--- |:--- |
    | Type |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
    | linkedServiceName |Fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
@@ -436,7 +436,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données pour traiter des 
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour savoir comment utiliser une activité de copie pour copier des données depuis un stockage d’objets blob vers une base de données SQL, voir [Didacticiel : Copie de données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Voir aussi
-| Rubrique | DESCRIPTION |
+| Rubrique | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Data Factory. |

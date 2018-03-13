@@ -63,7 +63,7 @@ Cette rubrique traite des causes possibles de ces erreurs et explique comment le
 | ---   | ---        |
 | Selon la taille de votre locataire, cette étape peut prendre de quelques minutes à 30 minutes. | Soyez patient. Si votre tableau de bord ne s’affiche pas à la place du message au bout d’une heure, soumettez un ticket de support. Pour plus d’informations, consultez [Comment obtenir une assistance pour Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour installer le pack de contenu Power BI pour Azure Active Directory Preview, cliquez [ici](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
 

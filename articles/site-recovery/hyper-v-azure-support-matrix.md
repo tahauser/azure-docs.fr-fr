@@ -177,5 +177,5 @@ Pour vous assurer que votre déploiement est compatible avec les paramètres de 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [préparer Azure](tutorial-prepare-azure.md) à la récupération d’urgence de machines virtuelles Hyper-V locales. 

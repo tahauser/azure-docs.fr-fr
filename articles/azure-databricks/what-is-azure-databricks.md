@@ -92,7 +92,7 @@ Databricks Azure s’intègre étroitement avec les bases de données et stores 
 ## <a name="integration-with-power-bi"></a>Intégration avec Power BI
 Grâce à une intégration étroite avec Power BI, Azure Databricks vous permet de découvrir et de partager de manière simple et rapide des insights importants. Vous pouvez aussi utiliser d’autres outils décisionnels, comme les logiciels de Tableau Software, via des points de terminaison de cluster JDBC/ODBC.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Démarrage rapide : Exécuter un travail Spark sur Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 * [Utiliser des clusters Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)

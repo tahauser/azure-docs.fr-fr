@@ -136,7 +136,7 @@ Vous devez avoir intégré la solution de mise à jour ou Change Tracking à une
 1. Sélectionnez **OK** pour démarrer le travail du runbook.
 1. Surveillez la progression et la présence d’erreurs depuis la page de travail du runbook.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

@@ -52,7 +52,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Les propriétés prises en charge pour le service lié Azure SQL Database sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur : **AzureSqlDatabase** | OUI |
 | connectionString |Spécifier les informations requises pour la connexion à l’instance de base de données SQL Azure pour la propriété connectionString. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
@@ -203,7 +203,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis/vers Azure SQL Database, définissez la propriété type du jeu de données sur **AzureSqlTable**. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **AzureSqlTable** | OUI |
 | TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. | OUI |
@@ -235,7 +235,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’Azure SQL Database, définissez **SqlSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | OUI |
 | SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. |Non  |
@@ -339,7 +339,7 @@ GO
 
 Pour copier des données vers Azure SQL Database, définissez **SqlSink** comme type de récepteur dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | OUI |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |

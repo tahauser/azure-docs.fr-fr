@@ -118,7 +118,7 @@ Si vous utilisez des paramètres personnalisés, vous devez créer le compte vou
 ### <a name="azure-ad-connect-sync-service-account"></a>Compte de service de synchronisation d'Azure AD Connect
 Le service de synchronisation peut s’exécuter sous des comptes différents. Il peut s’exécuter sous un **Compte de service virtuel** (VSA), un **Compte de service géré de groupe** (gMSA/sMSA), ou un compte d’utilisateur normal. Les options prises en charge ont été modifiées avec la version d’avril 2017 de Connect, lorsque vous effectuez une nouvelle installation. Si vous mettez à niveau depuis une version antérieure d’Azure AD Connect, ces options supplémentaires ne sont pas disponibles.
 
-| Type de compte | Option d’installation | DESCRIPTION |
+| Type de compte | Option d’installation | Description |
 | --- | --- | --- |
 | [Compte de service virtuel](#virtual-service-account) | Rapide et personnalisée, avril 2017 et versions ultérieures | Il s’agit de l’option utilisée pour toutes les installations rapides, à l’exception des installations sur un contrôleur de domaine. Pour l’installation personnalisée, il s’agit de l’option par défaut, sauf si une autre option est utilisée. |
 | [Compte de service géré de groupe](#group-managed-service-account) | Installation personnalisée, avril 2017 et versions ultérieures | Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un compte de service géré de groupe. |

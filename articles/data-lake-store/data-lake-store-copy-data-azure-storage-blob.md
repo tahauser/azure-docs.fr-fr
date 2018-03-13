@@ -53,7 +53,7 @@ L’outil AdlCopy utilise la syntaxe suivante.
 
 Les paramètres de la syntaxe sont décrits ci-après :
 
-| Option | DESCRIPTION |
+| Option | Description |
 | --- | --- |
 | Source |Spécifie l’emplacement de la source de données dans l’objet blob Azure Storage. La source peut être un conteneur d’objets blob, un objet blob ou un autre compte Data Lake Store. |
 | Dest |Spécifie la destination Data Lake Store vers laquelle effectuer la copie. |

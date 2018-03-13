@@ -256,7 +256,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
 
     Notez que l’itinéraire pour camion est affiché en bleu et l’itinéraire pour voiture est affiché en violet.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

@@ -147,7 +147,7 @@ La facturation pour une machine virtuelle spécifiée ne s’interrompt que si l
 ## <a name="questions"></a>Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Sauvegarde de machines virtuelles](backup-azure-arm-vms.md)
 * [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 * [Restauration des machines virtuelles](backup-azure-arm-restore-vms.md)

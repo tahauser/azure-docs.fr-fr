@@ -293,5 +293,5 @@ Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 pour cen
 En savoir plus sur [l’estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md). 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [l’estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md).

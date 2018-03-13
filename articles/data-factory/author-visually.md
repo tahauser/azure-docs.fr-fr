@@ -55,7 +55,7 @@ Le volet de configuration **Paramètres du référentiel** apparaît :
 
 Le volet affiche les paramètres du référentiel de code VSTS suivants :
 
-| Paramètre | DESCRIPTION | Valeur |
+| Paramètre | Description | Valeur |
 |:--- |:--- |:--- |
 | **Type de référentiel** | Le type de référentiel de code VSTS.<br/>**Remarque** : GitHub n’est actuellement pas pris en charge. | Git Visual Studio Team Services |
 | **Compte Visual Studio Team Services** | Le nouveau de votre compte VSTS. Vous pouvez rechercher le nom de votre compte VSTS à l’adresse `https://{account name}.visualstudio.com`. Vous pouvez vous [connecter à votre compte VSTS](https://www.visualstudio.com/team-services/git/) pour accéder à votre profil Visual Studio et visualiser vos référentiels et projets. | \<le nom de votre compte> |

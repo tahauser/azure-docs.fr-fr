@@ -38,7 +38,7 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une table de base de données et chiffrer des colonnes.
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte et un abonnement Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).

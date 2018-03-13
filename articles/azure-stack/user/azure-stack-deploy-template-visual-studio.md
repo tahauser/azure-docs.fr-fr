@@ -40,7 +40,7 @@ Utilisez Visual Studio pour déployer des modèles Azure Resource Manager dans l
 11. Dans la liste **Emplacement du groupe de ressources**, choisissez un emplacement, puis cliquez sur **Déployer**.
 12. Dans la boîte de dialogue **Modifier les paramètres**, saisissez les valeurs correspondant aux paramètres (qui varient selon le modèle), puis cliquez sur **Enregistrer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer des modèles avec la ligne de commande](azure-stack-deploy-template-command-line.md)
 
 [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)

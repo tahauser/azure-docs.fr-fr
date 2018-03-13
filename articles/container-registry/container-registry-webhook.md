@@ -33,7 +33,7 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 1. Dans la barre d’outils de webhook, sélectionnez **Ajouter**.
 1. Remplissez le formulaire *Créer un webhook* avec les informations suivantes :
 
-| Valeur | DESCRIPTION |
+| Valeur | Description |
 |---|---|
 | NOM | Nom que vous voulez donner au webhook. Il peut contenir uniquement des caractères minuscules et des chiffres, et doit comporter de 5 à 50 caractères. |
 | URI de service | URI auquel le webhook doit envoyer des notifications POST. |

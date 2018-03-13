@@ -130,7 +130,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 ### <a name="syntax-details"></a>Détails de la syntaxe
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type d’une activité de copie doit être définie sur **Copy** | OUI |
 | inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
@@ -170,7 +170,7 @@ Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détai
 
 Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans le résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive ; seuls les détails applicables à votre scénario de copie seront affichés. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nom de la propriété  | DESCRIPTION | Unité |
+| Nom de la propriété  | Description | Unité |
 |:--- |:--- |:--- |
 | dataRead | Taille des données lues à partir de la source | Valeur Int64 en **octets** |
 | dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en **octets** |

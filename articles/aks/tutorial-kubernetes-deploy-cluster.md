@@ -105,7 +105,7 @@ Créez l’attribution de rôle qui accorde l’accès approprié.
 az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, un cluster Kubernetes a été déployé dans ACS. Les étapes suivantes ont été effectuées :
 

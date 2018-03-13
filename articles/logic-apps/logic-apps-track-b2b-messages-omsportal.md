@@ -147,7 +147,7 @@ Pour chaque type de message, voici les formats de noms et descriptions de propri
 
 Voici les descriptions de propriété pour chaque message AS2.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord AS2 |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord AS2 |
@@ -178,7 +178,7 @@ Voici les formats de noms pour chaque dossier et fichier de message AS2 téléch
 
 Voici les descriptions de propriété pour chaque message X12.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord X12 |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord X12 |
@@ -211,7 +211,7 @@ Voici les formats de noms pour chaque dossier et fichier de message X12 téléch
 
 Voici les descriptions de propriété pour chaque message EDIFACT.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |

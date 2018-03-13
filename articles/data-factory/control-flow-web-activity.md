@@ -64,7 +64,7 @@ Une activité web peut être utilisée pour appeler un point de terminaison REST
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 Nom | Nom de l’activité web | Chaîne | OUI
 Type | Doit avoir la valeur **WebActivity**. | Chaîne | OUI

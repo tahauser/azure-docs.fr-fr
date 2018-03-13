@@ -84,7 +84,7 @@ Pour configurer un administrateur Azure AD, exécutez les commandes Azure PowerS
 
 Applets de commande utilisées pour configurer et gérer Azure AD admin :
 
-| Nom de l’applet de commande | DESCRIPTION |
+| Nom de l’applet de commande | Description |
 | --- | --- |
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Approvisionne un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. (À partir de l’abonnement actuel) |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Supprime un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. |
@@ -132,7 +132,7 @@ Vous pouvez également approvisionner un administrateur Azure Active Directory �
 
 ### <a name="cli"></a>Interface de ligne de commande  
 Vous pouvez également configurer un administrateur Azure AD en appelant les commandes CLI suivantes :
-| Commande | DESCRIPTION |
+| Commande | Description |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Approvisionne un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. (À partir de l’abonnement actuel) |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Supprime un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. |

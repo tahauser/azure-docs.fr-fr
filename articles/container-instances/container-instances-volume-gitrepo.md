@@ -27,7 +27,7 @@ Le volume *GitRepo* monte un répertoire et clone le référentiel Git spécifi�
 
 Lorsque vous montez un volume *GitRepo*, vous pouvez définir trois propriétés pour le configurer :
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | -------- | -------- | ----------- |
 | `repository` | OUI | URL complète incluant `http://` ou `https://` du référentiel Git à cloner.|
 | `directory` | Non  | Répertoire dans lequel le référentiel doit être cloné. Le chemin d’accès ne peut pas contenir ou commencer par « `..` ».  Si vous spécifiez « `.` », le référentiel est cloné dans le répertoire du volume. Autrement, le référentiel Git est cloné dans un sous-répertoire du nom spécifié à l’intérieur du répertoire de volume. |

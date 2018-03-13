@@ -132,7 +132,7 @@ Vous pouvez utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-ov
 
 Pour personnaliser les graphiques, suivez les instructions présentées dans la [vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Vous pouvez également créer des alertes basées sur ces mesures, comme décrit dans l’article [Créer des alertes dans Azure Monitor pour les services Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur le monitoring de la plateforme et des événements fournis par Service Fabric, consultez [Génération d’événements et de journaux au niveau plateforme](service-fabric-diagnostics-event-generation-infra.md)
 * Pour commencer à instrumenter vos applications, consultez [Génération d’événements et de journaux au niveau application](service-fabric-diagnostics-event-generation-app.md).

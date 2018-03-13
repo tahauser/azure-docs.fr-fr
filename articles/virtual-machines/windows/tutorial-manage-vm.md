@@ -165,7 +165,7 @@ Une taille de machine virtuelle détermine la quantité de ressources de calcul 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle
 
 Le tableau suivant classe les tailles en fonction des cas d’utilisation.  
-| type                     | Tailles courantes           |    DESCRIPTION       |
+| type                     | Tailles courantes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Usage général](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
 | [Optimisé pour le calcul](sizes-compute.md)   | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
@@ -217,7 +217,7 @@ Une machine virtuelle Azure peut présenter différents états d’alimentation.
 
 ### <a name="power-states"></a>États d’alimentation
 
-| État d’alimentation | DESCRIPTION
+| État d’alimentation | Description
 |----|----|
 | Démarrage en cours | Indique que la machine virtuelle est en cours de démarrage. |
 | Exécution | Indique que la machine virtuelle est en cours d’exécution. |

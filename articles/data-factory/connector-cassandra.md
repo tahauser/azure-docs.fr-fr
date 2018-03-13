@@ -53,7 +53,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié Cassandra sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type |La propriété type doit être définie sur **Cassandra** |OUI |
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |OUI |
@@ -93,7 +93,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de Cassandra, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **CassandraTable** | OUI |
 | espace de clé |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
@@ -127,7 +127,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Cassandra, définissez **Source** comme type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **CassandraSource** | OUI |
 | query |Utilise la requête personnalisée pour lire des données. |Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si « tableName » et « keyspace » sont spécifiés dans le jeu de données). |

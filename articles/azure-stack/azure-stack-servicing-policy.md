@@ -62,7 +62,7 @@ Le tableau suivant présente des exemples de versions de package de mise à jour
 | 1805 | 1804 | 1803 |
 | | | 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md)
 

@@ -152,7 +152,7 @@ Répertoriez les secrets installés :
 kubectl get secrets -n wordpress -o yaml
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En suivant cet article, vous avez déployé le Catalogue de services dans un cluster Azure Container Service (AKS). Vous avez utilisé Open Service Broker pour Azure pour déployer une installation WordPress qui utilise des services gérés par Azure, dans ce cas Azure Database pour MySQL.
 

@@ -23,7 +23,7 @@ ms.lasthandoff: 02/09/2018
 
 L’objectif de ce didacticiel est de vous montrer comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure Active Directory (Azure AD) vers Google Apps.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

@@ -33,5 +33,5 @@ ms.lasthandoff: 01/09/2018
 
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Vous pouvez également [créer une machine virtuelle personnalisée exécutant Linux](../../linux/classic/createportal-classic.md).

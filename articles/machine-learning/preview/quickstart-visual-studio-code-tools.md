@@ -77,6 +77,6 @@ L’affichage de liste des tâches s’ouvre et affiche toutes les exécutions a
 Avec l’affichage de liste des tâches toujours ouvert, cliquez sur la première exécution de la liste.
 Pour obtenir une présentation approfondie des résultats d’une tâche, cliquez sur l’**ID de tâche** supérieur pour afficher des informations détaillées. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Guide pratique pour configurer Azure Machine Learning afin qu’il fonctionne avec un IDE](./how-to-configure-your-IDE.md)

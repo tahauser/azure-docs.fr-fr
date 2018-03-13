@@ -25,7 +25,7 @@ MSAL gère la mise en cache et l’actualisation des jetons d’accès pour vous
 
 Ce guide utilise les packages NuGet suivants :
 
-|Bibliothèque|DESCRIPTION|
+|Bibliothèque|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Bibliothèque d’authentification Microsoft (MSAL)|
 

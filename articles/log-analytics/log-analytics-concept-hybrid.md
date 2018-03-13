@@ -46,7 +46,7 @@ Si vos stratégies de sécurité n’autorisent pas les ordinateurs sur votre r�
 > L’agent pour Windows prend uniquement en charge le protocole TLS versions 1.0 et 1.1.  
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les prérequis système minimaux sont remplis.
 
 ### <a name="windows-operating-system"></a>Système d’exploitation Windows
@@ -95,7 +95,7 @@ La valeur de configuration de proxy a la syntaxe suivante :
 > [!NOTE]
 > Si votre serveur proxy ne requiert pas d’authentification, l’agent Linux oblige en revanche à saisir un pseudo utilisateur/mot de passe. Il peut s’agir de n’importe quel nom d’utilisateur ou mot de passe.
 
-|Propriété| DESCRIPTION |
+|Propriété| Description |
 |--------|-------------|
 |Protocole | https |
 |user | Nom d’utilisateur facultatif pour l’authentification du proxy |
@@ -111,7 +111,7 @@ Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Installer et configurer l’agent 
 Pour connecter directement des ordinateurs locaux avec Log Analytics, différentes méthodes existent en fonction des besoins. Le tableau suivant décrit chacune d’entre elle, pour vous permettre d’identifier la plus adaptée à votre organisation.
 
-|Source | Méthode | DESCRIPTION|
+|Source | Méthode | Description|
 |-------|-------------|-------------|
 | Ordinateur Windows|- [Installation manuelle](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modèle Resource Manager avec Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Installez Microsoft Monitoring Agent en ligne de commande ou suivant une méthode automatisée, par exemple, Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou avec un modèle Azure Resource Manager si vous avez déployé Microsoft Azure Stack dans votre centre de données.| 
 |Ordinateur Linux| [Installation manuelle](log-analytics-quick-collect-linux-computer.md)|Installez l’agent pour Linux, qui appelle un script wrapper hébergé sur GitHub. | 

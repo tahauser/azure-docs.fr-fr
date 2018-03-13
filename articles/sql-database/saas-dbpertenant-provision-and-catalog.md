@@ -158,7 +158,7 @@ Voici les autres modèles d’approvisionnement non inclus dans ce tutoriel :
 **Approvisionnement automatique.** Dans le modèle d’approvisionnement automatique, un service d’approvisionnement approvisionne automatiquement les serveurs, pools et bases de données en fonction des besoins, notamment en pré-approvisionnant les bases de données dans des pools élastiques si besoin. Si les bases de données sont mises hors service et supprimées, les écarts dans les pools élastiques peuvent être remplis par le service d’approvisionnement. Un tel service peut être simple ou complexe (par exemple, la gestion de l’approvisionnement sur plusieurs zones géographiques) et peut configurer la géoréplication pour la récupération d’urgence. Avec le modèle d’approvisionnement automatique, une application cliente ou un script soumet une requête d’approvisionnement à une file d’attente pour traitement par le service d’approvisionnement et interroge ensuite le service pour déterminer l’achèvement de l’opération. Si le pré-approvisionnement est utilisé, les requêtes sont gérées rapidement grâce au service approvisionnant d’une base de données de remplacement en arrière-plan.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

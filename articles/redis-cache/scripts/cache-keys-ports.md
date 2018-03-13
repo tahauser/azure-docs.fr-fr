@@ -42,7 +42,7 @@ Ce script utilise les commandes suivantes pour récupérer le nom d’hôte, les
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Récupérer les clés d’accès pour une instance du Cache Redis Azure. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

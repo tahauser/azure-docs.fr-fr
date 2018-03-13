@@ -209,6 +209,6 @@ Les étapes générales de configuration de la réplication sont les suivantes :
 
 Pour activer la réplication sur HDInsight, appliquez une action de script sur votre cluster HDInsight source en cours d’exécution. Pour bénéficier d’une description de l’activation de la réplication dans votre cluster, ou pour tester la réplication sur des exemples de clusters créés dans des réseaux virtuels à l’aide de modèles de gestion des ressources Azure, consultez la section [Configurer la réplication HBase](apache-hbase-replication.md). Cet article comporte également des instructions relatives à l’activation de la réplication de métadonnées Phoenix.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer la réplication HBase](apache-hbase-replication.md)

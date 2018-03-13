@@ -100,7 +100,7 @@ Enfin, vous pouvez accéder à la console R Server sur le nœud périphérique e
 ## <a name="learn-about-pricing"></a>En savoir plus sur la tarification
 Les frais associés à un cluster HDInsight avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales. Pour plus d’informations sur la tarification de HDInsight, consultez la section [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de R Server avec des clusters HDInsight, consultez les rubriques suivantes :
 
 * [Prise en main de R Server sur HDInsight](r-server-get-started.md)

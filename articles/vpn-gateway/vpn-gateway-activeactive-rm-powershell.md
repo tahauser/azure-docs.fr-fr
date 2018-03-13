@@ -452,5 +452,5 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 
 Cette mise à jour peut prendre de 30 à 45 minutes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.

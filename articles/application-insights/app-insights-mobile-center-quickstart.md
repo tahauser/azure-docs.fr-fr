@@ -72,7 +72,7 @@ Dès que votre application envoie des événements personnalisés et que ces der
 
     Une boîte de configuration s’affiche. Utilisez le tableau ci-dessous pour remplir les champs d’entrée.
 
-    | Paramètres        |  Valeur           | DESCRIPTION  |
+    | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Une valeur globale unique, comme « myApp-iOS » | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application App Center | Type de l’application que vous analysez |

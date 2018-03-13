@@ -50,7 +50,7 @@ Chaque fois qu’une machine virtuelle dotée une adresse IP partagée activée 
 
 - **Utilisateurs Windows :** sélectionnez **Se connecter** sur le portail Azure pour télécharger un fichier RDP préconfiguré et accéder à la machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Configuration d’un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md)

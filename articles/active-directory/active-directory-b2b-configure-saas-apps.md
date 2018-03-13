@@ -101,7 +101,7 @@ Vous pouvez autoriser les utilisateurs à authentifier les utilisateurs invités
 
 À l’instar des invités Dropbox, les invités Box doivent utiliser leur invitation reçue de l’application Box.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les articles suivants sur Azure AD B2B Collaboration :
 

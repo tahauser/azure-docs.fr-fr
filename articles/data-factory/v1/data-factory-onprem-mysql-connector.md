@@ -67,7 +67,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié MySQL.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |Le type de propriété doit être défini sur : **OnPremisesMySql** |OUI |
 | server |Nom du serveur MySQL. |OUI |
@@ -83,7 +83,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données MySQL) a les propriétés suivantes.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données MySQL à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
@@ -94,7 +94,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Lorsque la source de l’activité de copie est de type **RelationalSource** (ce qui inclut MySQL), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non (si **tableName** de **dataset** est spécifiée) |
 

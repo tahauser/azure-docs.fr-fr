@@ -175,7 +175,7 @@ Vous trouverez un exemple complet sur la page [Exemple C#](#c-example).
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `SendGrid`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type**|| Obligatoire : doit être défini sur `sendGrid`.|
 |**direction**|| Obligatoire : doit être défini sur `out`.|

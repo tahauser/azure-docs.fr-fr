@@ -125,7 +125,7 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 + [Configurer des applications web dans Azure App Service](../app-service/web-sites-configure.md)
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)

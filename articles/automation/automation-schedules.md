@@ -31,7 +31,7 @@ Pour planifier le démarrage d'un Runbook dans Azure Automation à une heure sp�
 ## <a name="windows-powershell-cmdlets"></a>Applets de commande Windows PowerShell
 Les applets de commande du tableau suivant permettent de créer et de gérer les planifications avec Windows PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azure/overview).
 
-| Applets de commande | DESCRIPTION |
+| Applets de commande | Description |
 |:--- |:--- |
 | **Applets de commande Azure Resource Manager** | |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Récupère une planification. |

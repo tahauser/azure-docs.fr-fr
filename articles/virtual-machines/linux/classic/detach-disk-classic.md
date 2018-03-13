@@ -28,7 +28,7 @@ ms.lasthandoff: 01/19/2018
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-linux.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous trouverez plus d’informations sur l’utilisation de votre machine virtuelle Linux dans les articles suivants :
 
 * [Attacher un disque de données à une machine virtuelle Linux](attach-disk-classic.md)

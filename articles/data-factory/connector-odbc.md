@@ -52,7 +52,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié ODBC sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Odbc** | OUI |
 | connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `"DSN=<name of the DSN on IR machine>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).| OUI |
@@ -121,7 +121,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis/vers une banque de données ODBC, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | OUI |
 | TableName | Nom de la table dans le magasin de données ODBC. | Non pour la source (si « query » est spécifié dans la source de l’activité) ;<br/>Oui pour le récepteur |
@@ -152,7 +152,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’une banque de données compatible ODBC, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
@@ -193,7 +193,7 @@ Pour copier des données d’une banque de données compatible ODBC, définissez
 
 Pour copier des données vers une banque de données compatible ODBC, définissez le type de récepteur dans l’activité de copie sur **OdbcSink**. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **OdbcSink**. | OUI |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non  |

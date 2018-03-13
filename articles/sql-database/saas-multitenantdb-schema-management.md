@@ -44,7 +44,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données client.
 > * Créer un index sur une table dans toutes les bases de données de locataire.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - L’application de bases de données mutualisées Wingtip Tickets doit déjà être déployée :
     - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application mutualisée partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).

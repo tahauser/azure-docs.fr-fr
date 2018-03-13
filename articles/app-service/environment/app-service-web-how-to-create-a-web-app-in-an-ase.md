@@ -34,7 +34,7 @@ Ce didacticiel explique comment créer des applications web et des plans App Ser
 > 
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce didacticiel part du principe que vous avez créé un environnement App Service. Si ce n’est pas encore le cas, consultez [Créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Créer une application web

@@ -159,7 +159,7 @@ PARAMÈTRES
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 |  |  |
 | --- | --- |

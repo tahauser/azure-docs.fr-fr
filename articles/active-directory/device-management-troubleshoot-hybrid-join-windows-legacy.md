@@ -119,6 +119,6 @@ Vous pouvez également trouver les informations d’état dans le journal des é
 
   - Un utilisateur a atteint la limite d’appareils. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour toute question, consultez [FAQ sur la gestion des appareils](device-management-faq.md)  

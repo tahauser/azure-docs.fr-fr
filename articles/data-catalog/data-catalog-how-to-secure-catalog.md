@@ -54,6 +54,6 @@ Pour accorder à un utilisateur ou à un groupe l’accès à un catalogue de do
 - Les autorisations affectées aux groupes de sécurité sont additives. Imaginez par exemple qu’un utilisateur appartient à deux groupes. L’un des groupes a des autorisations d’annotation, tandis que l’autre n’en a pas. Dans ce cas de figure, l’utilisateur a des autorisations d’annotation. 
 - Les autorisations affectées explicitement à un utilisateur remplacent celles affectées aux groupes auxquels il appartient. Reprenons l’exemple précédent. Imaginez que vous avez explicitement ajouté l’utilisateur aux utilisateurs du catalogue et que vous n’affectez pas d’autorisation d’annotation. L’utilisateur ne pourra pas annoter les ressources de données même s’il est membre d’un groupe qui a des autorisations d’annotation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
 

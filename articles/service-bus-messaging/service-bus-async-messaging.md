@@ -130,7 +130,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes fondamentaux de la messagerie asynchrone dans Service Bus, approfondissez le sujet sur les [espaces de noms associés][paired namespaces].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception

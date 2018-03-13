@@ -65,7 +65,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Cassandra.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Le type de propriété doit être défini sur : **OnPremisesCassandra** |OUI |
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/><br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |OUI |
@@ -81,7 +81,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **CassandraTable** a les propriétés suivantes
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | espace de clé |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Oui (si la **requête** pour **CassandraSource** n’est pas définie). |
 | TableName |Nom de la table dans la base de données Cassandra. |Oui (si la **requête** pour **CassandraSource** n’est pas définie). |
@@ -93,7 +93,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 
 Lorsque la source est de type **CassandraSource**, les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si tableName et keyspace sur le jeu de données sont définis). |
 | Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. |UN, DEUX, TROIS, QUORUM, TOUT, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations. |Non. La valeur par défaut est UN. |

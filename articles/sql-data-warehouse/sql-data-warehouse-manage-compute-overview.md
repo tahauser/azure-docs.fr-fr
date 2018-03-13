@@ -118,5 +118,5 @@ Pour vérifier l’état de l’entrepôt de données, consultez les articles de
 La mise à l’échelle de l’entrepôt de données requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  La suspension et la reprise requièrent l’autorisation [Collaborateur de base de données SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), notamment Microsoft.Sql/servers/databases/action.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Un autre aspect de la gestion des ressources de calcul concerne l’allocation de ressources de calcul différentes pour des requêtes spécifiques. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).

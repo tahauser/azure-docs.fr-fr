@@ -99,7 +99,7 @@ Vous pouvez accéder à la page de configuration des emplacements nommés dans l
 **Limites** : vous pouvez définir un maximum de 60 emplacements nommés avec une plage d’adresses IP assignée à chacun d’eux. Si vous n’avez qu’un seul emplacement nommé configuré, vous pouvez définir jusqu’à 500 plages d’adresses IP pour celui-ci.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur :
 

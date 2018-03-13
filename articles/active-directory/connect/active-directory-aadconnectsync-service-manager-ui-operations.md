@@ -44,7 +44,7 @@ Lorsque vous sélectionnez une ligne, la partie inférieure est mise à jour pou
 
 Pour plus d’informations, consultez [Dépanner un objet qui bloque la synchronisation](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

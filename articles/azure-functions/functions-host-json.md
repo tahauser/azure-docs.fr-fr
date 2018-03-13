@@ -115,7 +115,7 @@ Spécifie le nombre d’appels de fonction agrégés lorsque vous [calculez des 
 }
 ```
 
-|Propriété |Default  | DESCRIPTION |
+|Propriété |Default  | Description |
 |---------|---------|---------| 
 |batchSize|1 000|Nombre maximal de requêtes à agréger.| 
 |flushTimeout|00:00:30|Période maximale d’agrégation.| 
@@ -137,7 +137,7 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](f
 }
 ```
 
-|Propriété  |Default | DESCRIPTION |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|false|Active ou désactive l’échantillonnage.| 
 |maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
@@ -184,7 +184,7 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 }
 ```
 
-|Propriété  |Default | DESCRIPTION |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |Activé|true|Indique si la fonctionnalité est activée. | 
 |healthCheckInterval|10 secondes|L’intervalle de temps entre les contrôles d’intégrité périodiques en arrière-plan. | 
@@ -227,7 +227,7 @@ Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-moni
 }
 ```
 
-|Propriété  |Default | DESCRIPTION |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |categoryFilter|n/a|Spécifie un filtrage par catégorie.| 
 |defaultLevel|Information|Pour toutes les catégories non spécifiées dans le tableau `categoryLevels`, envoie les journaux de ce niveau et des niveaux supérieurs à Application Insights.| 
@@ -261,7 +261,7 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 }
 ```
 
-|Propriété  |Default | DESCRIPTION |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Période pendant laquelle des verrous sont établis au niveau des fonctions. Les verrous se renouvellent automatiquement.| 
 |listenerLockPeriod|00:01:00|Période pendant laquelle des verrous sont établis au niveau des écouteurs.| 
@@ -282,7 +282,7 @@ Paramètres de configuration des journaux que vous créez à l’aide d’un obj
 }
 ```
 
-|Propriété  |Default | DESCRIPTION |
+|Propriété  |Default | Description |
 |---------|---------|---------| 
 |consoleLevel|info|Niveau de suivi pour la journalisation de la console. Options : `off`, `error`, `warning`, `info` et `verbose`.|
 |fileLoggingMode|debugOnly|Niveau de suivi pour la journalisation des fichiers. Options : `never`, `always`, `debugOnly`.| 

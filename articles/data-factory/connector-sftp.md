@@ -48,7 +48,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis
 
 Les propriétés prises en charge pour le service lié SFTP sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Sftp**. |OUI |
 | host | Nom ou adresse IP du serveur SFTP. |OUI |
@@ -62,7 +62,7 @@ Les propriétés prises en charge pour le service lié SFTP sont les suivantes 
 
 Pour utiliser l’authentification de base, définissez la propriété « authenticationType » sur **De base** et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
@@ -100,7 +100,7 @@ Pour utiliser l’authentification de base, définissez la propriété « authe
 
 Pour utiliser l’authentification par clé publique SSH, définissez la propriété « authenticationType » sur **De base** et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel le runtime d’intégration peut accéder. S’applique uniquement quand un type auto-hébergé du runtime d’intégration est spécifié dans « connectVia ». | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`.  |
@@ -177,7 +177,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de SFTP, affectez la valeur **FileShare** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **FileShare** |OUI |
 | folderPath | Chemin d'accès au dossier. Par exemple : dossier/sous-dossier / |OUI |
@@ -224,7 +224,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de SFTP, définissez **FileSystemSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
 | recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |

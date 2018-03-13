@@ -568,5 +568,5 @@ Si vous souhaitez connaître le volume de trafic qui transite via votre connexio
 
    ![Données entrantes et sortantes](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer des applications sur Azure et Azure Stack](azure-stack-solution-pipeline.md)

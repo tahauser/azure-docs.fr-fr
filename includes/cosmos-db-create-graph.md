@@ -6,7 +6,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
     ![Explorateur de données dans le portail Azure](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
-    Paramètre|Valeur suggérée|DESCRIPTION
+    Paramètre|Valeur suggérée|Description
     ---|---|---
     ID de base de données|sample-database|Entrez le nom *sample-database* pour la nouvelle base de données. Les noms de bases de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?`, ni d’espace de fin.
     ID de graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.

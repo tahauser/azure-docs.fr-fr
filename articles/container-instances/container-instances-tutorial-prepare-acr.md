@@ -174,7 +174,7 @@ Result
 v1
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez préparé un Azure Container Registry pour une utilisation avec Azure Container Instances, et envoyé l’image conteneur vers le registre. Les étapes suivantes ont été effectuées :
 

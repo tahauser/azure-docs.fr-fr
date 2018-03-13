@@ -76,7 +76,7 @@ Pour envoyer ou recevoir des messages, entrez le nom de l’espace de noms et le
  
 Notez que l’identité du service managé fonctionne uniquement à l’intérieur de l’environnement Azure et seulement dans le déploiement App Service dans lequel vous l’avez configurée. Notez également que les identités du service managé ne fonctionnent pas avec les emplacements de déploiement App Service pour l’instant.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 

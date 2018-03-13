@@ -59,7 +59,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 }
 ```
 ## <a name="syntax-details"></a>Détails de la syntaxe
-| Propriété            | DESCRIPTION                              | Obligatoire |
+| Propriété            | Description                              | Obligatoire |
 | ------------------- | ---------------------------------------- | -------- |
 | Nom                | Nom de l’activité                     | OUI      |
 | description         | Texte décrivant la raison motivant l’activité. | Non        |

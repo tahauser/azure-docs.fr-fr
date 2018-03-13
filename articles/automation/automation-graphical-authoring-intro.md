@@ -44,7 +44,7 @@ Vous pouvez utiliser les commandes en bas de la zone de dessin pour effectuer un
 ### <a name="library-control"></a>Contrôle Bibliothèque
 Le contrôle Bibliothèque est l'emplacement où vous sélectionnez les [activités](#activities) à ajouter à votre Runbook. Vous les ajoutez au canevas où vous les connectez à d'autres activités. Il comprend quatre sections décrites dans le tableau suivant :
 
-| Section | DESCRIPTION |
+| Section | Description |
 |:--- |:--- |
 | Applets de commande |Inclut toutes les applets de commande qui peuvent être utilisées dans votre Runbook. Les applets de commande sont organisées par module. Tous les modules que vous avez installés dans votre compte Automation sont disponibles. |
 | Runbooks |Inclut les Runbooks de votre compte Automation. Ces Runbooks peuvent être ajoutés au canevas pour être utilisés en tant que Runbooks enfants. Seuls les Runbooks du même type de base que le Runbook en cours de modification sont affichés. Dans le cas des Runbooks graphiques, seuls les Runbooks basés sur PowerShell sont indiqués ; pour les Runbooks de workflow PowerShell graphique, seuls les Runbooks basés sur un workflow PowerShell s’affichent. |
@@ -100,7 +100,7 @@ Dans l’exemple suivant, l’applet de commande Get-AzureRmVM contient trois je
 #### <a name="parameter-values"></a>Valeurs de paramètres
 Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une source de données pour déterminer la façon dont la valeur est spécifiée. Les sources de données disponibles pour un paramètre particulier dépendent des valeurs valides pour ce paramètre. Par exemple, Null n’est pas une option disponible pour un paramètre qui n'autorise pas les valeurs null.
 
-| source de données | DESCRIPTION |
+| source de données | Description |
 |:--- |:--- |
 | Valeur constante |Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
 | Sortie d'activité |Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité. |
@@ -128,7 +128,7 @@ La condition de nouvelle tentative est une expression PowerShell qui est évalu�
 
 La condition de nouvelle tentative peut utiliser une variable appelée $RetryData qui fournit un accès aux informations sur les nouvelles tentatives d’activité. Cette variable possède les propriétés indiquées dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | NumberOfAttempts |Nombre d’exécutions de l’activité. |
 | Sortie |Sortie de la dernière exécution de l’activité. |
@@ -170,7 +170,7 @@ Créez un lien entre deux activités en sélectionnant l'activité source, puis 
 
 Sélectionnez le lien pour configurer ses propriétés dans le panneau Configuration. Cela inclut le type du lien, qui est décrit dans le tableau suivant :
 
-| Type de lien | DESCRIPTION |
+| Type de lien | Description |
 |:--- |:--- |
 | Pipeline |L'activité de destination est exécutée une fois pour chaque sortie d'objet de l'activité source. L'activité de destination n'est pas exécutée si l'activité source ne génère aucune sortie. La sortie de l'activité source est disponible sous la forme d'un objet. |
 | Séquence |L'activité de destination s'exécute une seule fois. Elle reçoit un tableau d'objets de l'activité source. La sortie de l'activité source est disponible sous la forme d'un tableau d'objets. |
@@ -272,10 +272,10 @@ Cela ouvre le contrôle **Entrée et sortie** où vous pouvez modifier un param�
 
 Chaque paramètre d'entrée est défini par les propriétés figurant dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | NOM |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
-| DESCRIPTION |Description facultative du paramètre d'entrée. |
+| Description |Description facultative du paramètre d'entrée. |
 | type |Type de données attendu pour la valeur de paramètre. Le portail Azure fournit un contrôle approprié pour le type de données de chaque paramètre lorsque vous êtes invité à indiquer une entrée. |
 | Obligatoire |Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
 | Valeur par défaut |Spécifie quelle valeur est utilisée pour le paramètre si aucune n'est pas fournie. Cela peut être Null ou une valeur spécifique. |

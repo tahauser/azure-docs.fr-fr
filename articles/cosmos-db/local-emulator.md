@@ -481,7 +481,7 @@ De nombreux utilisateurs nous ont rapporté leur souhait de pouvoir ajouter des 
 
 * Activation du pipeline d’agrégation MongoDB par défaut.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez :
 

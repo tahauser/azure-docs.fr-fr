@@ -219,7 +219,7 @@ Quand vous avez terminé, suivez les étapes décrites dans la section précéde
 
 Vous pouvez également ajouter d’autres solutions ou apporter d’autres modifications à votre espace de travail OMS à l’aide de PowerShell. Pour en savoir plus, consultez [Gérer Log Analytics à l’aide de PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Déployez l’agent OMS](service-fabric-diagnostics-oms-agent.md) sur vos nœuds pour collecter les compteurs de performances, ainsi que les statistiques et les journaux Docker de vos conteneurs.
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
 * [Utiliser le Concepteur de vues pour créer des vues personnalisées dans Log Analytics](../log-analytics/log-analytics-view-designer.md)

@@ -125,7 +125,7 @@ mkdir test
 echo "hello world" > test/blob.txt
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Page d’accueil de blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
 * [Signalement des problèmes de blobfuse](https://github.com/Azure/azure-storage-fuse/issues) 

@@ -967,7 +967,7 @@ Pour la propriété « AzureStorageUseV1MD5 » :
 
 Les algorithmes compatibles FIPS sont désactivés par défaut sur Windows. Vous pouvez modifier ce paramètre de stratégie sur votre ordinateur. Dans la fenêtre Exécuter (Windows+R), tapez secpol.msc pour ouvrir la fenêtre **Stratégie de sécurité locale**. Dans la fenêtre **Paramètres de sécurité**, sélectionnez **Paramètres de sécurité** > **Stratégies locales** > **Options de sécurité**. Recherchez la stratégie **Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature**. Double-cliquez sur la stratégie pour montrer la valeur affichée dans la colonne **Paramètre de sécurité**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressources suivantes :
 

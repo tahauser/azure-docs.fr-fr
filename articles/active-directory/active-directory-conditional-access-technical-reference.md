@@ -213,7 +213,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
     - elle remplace l’option **Applications mobiles et clients de bureau** pour la [condition d’applications clientes](#supported-mobile-apps-and-desktop-clients) lorsque cette option est sélectionnée.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Vous trouverez une vue d’ensemble de l’accès conditionnel sur la page [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel dans votre environnement, consultez les [Pratiques recommandées d’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).

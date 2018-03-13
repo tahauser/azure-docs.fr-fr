@@ -67,7 +67,7 @@ Arrêtez la réplication comme suit :
 
    ![Désactiver la réplication](media/azure-to-azure-quickstart/disable2-replication.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez répliqué une seule machine virtuelle vers une région secondaire.
 

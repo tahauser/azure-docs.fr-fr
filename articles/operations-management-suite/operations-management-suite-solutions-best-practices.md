@@ -48,7 +48,7 @@ Cet article décrit les bonnes pratiques pour la [création d’un fichier de so
 - Configurez la solution pour qu’elle fasse [référence](operations-management-suite-solutions-solution-file.md#solution-resource) aux règles d’alerte de façon à ce que les utilisateurs puissent modifier leur configuration.  Ils souhaiteront peut-être apporter des modifications telles que la modification de la liste des destinataires, la modification du seuil de l’alerte ou la désactivation de la règle d’alerte. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Passez en revue le processus de base de [conception et de création d’une solution de gestion](operations-management-suite-solutions-creating.md).
 * Découvrez comment [créer un fichier solution](operations-management-suite-solutions-solution-file.md).
 * [Ajoutez des alertes et des recherches enregistrées](operations-management-suite-solutions-resources-searches-alerts.md) à votre solution de gestion.

@@ -118,5 +118,5 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 -   Fuseau horaire et heure ou période à laquelle l’erreur s’est produite
 -   Traces Fiddler
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)

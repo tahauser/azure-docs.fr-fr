@@ -157,7 +157,7 @@ Imaginez que vous avez accidentellement supprimé une table de base de données 
    
 3. Cliquez sur **OK** pour restaurer le serveur [à un point dans le temps](./howto-restore-server-portal.md) avant la suppression de la table. La restauration d’un serveur crée une copie du serveur à partir du point dans le temps que vous spécifiez. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ce didacticiel vous montre comment utiliser le portail Azure pour :
 
 > [!div class="checklist"]

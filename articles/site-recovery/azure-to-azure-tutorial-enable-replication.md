@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Configurer un accès sortant pour les machines virtuelles
 > * Activer la réplication pour une machine virtuelle
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 

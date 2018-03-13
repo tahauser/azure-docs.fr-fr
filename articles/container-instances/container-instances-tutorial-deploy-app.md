@@ -102,7 +102,7 @@ Si vous n’avez plus besoin des ressources que vous avez créées dans cette s�
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez terminé le processus de déploiement de vos conteneurs sur Azure Container Instances. Les étapes suivantes ont été effectuées :
 

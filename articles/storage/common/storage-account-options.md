@@ -351,7 +351,7 @@ GPv2 est généralement supérieur à GPv1 en ce qui concerne les transactions e
 
 Les comptes de stockage GPv2 sont très similaires aux comptes de stockage GPv1 et héritent de toutes les fonctionnalités clés de Azure Storage, notamment de niveaux élevés de durabilité, disponibilité, évolutivité, performances et sécurité. Hormis les fonctionnalités et restrictions spécifiques aux comptes de stockage d’objets blob et aux niveaux de stockage correspondants évoqués plus haut, il n’existe aucune différence lors d’une mise à niveau vers un compte de stockage d’objets blob ou GPv2.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="evaluate-blob-storage-accounts"></a>Évaluer des comptes de stockage d’objets blob
 

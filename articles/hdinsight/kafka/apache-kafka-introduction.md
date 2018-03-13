@@ -90,7 +90,7 @@ Chaque répartiteur Kafka utilise des disques gérés Azure. Le nombre de disque
 > [!IMPORTANT]
 > Kafka n’a pas connaissance du matériel sous-jacent (rack) dans le centre de données Azure. Pour vous assurer que les partitions sont correctement équilibrées sur le matériel sous-jacent, consultez le document [Configurer la haute disponibilité des données (Kafka)](apache-kafka-high-availability.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 

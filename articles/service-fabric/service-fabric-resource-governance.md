@@ -207,6 +207,6 @@ Ces ressources peuvent être combinées avec le processeur et la mémoire. Voici
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur Cluster Resource Manager, consultez [Présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md).
 * Pour en savoir plus sur le modèle d’application, les packages de service, les packages de code et leur mappage avec les réplicas, consultez [Modéliser une application dans Service Fabric](service-fabric-application-model.md).

@@ -419,7 +419,7 @@ R. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez l
 Pour plus d’informations, accédez à [Utilisation de la commande interactive de résolution des problèmes pour la gestion multivoie](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Liste des commandes utiles
-| Tapez  | Commande | DESCRIPTION |
+| Tapez  | Commande | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Démarrer le service iSCSI |
 | &nbsp; |`service iscsid stop` |Arrêter le service iSCSI |

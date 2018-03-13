@@ -192,6 +192,6 @@ Nous prenons en charge Azure Pack et le système Cloud Platform, ainsi que les d
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Prenez-vous en charge les déploiements uniques de serveurs VMM et Azure Pack ?
 Oui, vous pouvez répliquer des machines virtuelles Hyper-V vers Azure, ou entre des sites du fournisseur de service.  Notez que si vous répliquez entre des sites du fournisseur de services, l’intégration de runbooks Azure n’est pas disponible.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Lisez la [Vue d’ensemble de Microsoft Azure Site Recovery](site-recovery-overview.md)
 * En savoir plus sur l’ [architecture de Site Recovery](site-recovery-components.md)  

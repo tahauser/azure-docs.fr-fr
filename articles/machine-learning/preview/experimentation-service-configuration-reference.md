@@ -210,5 +210,5 @@ Suite à cette substitution, l’exemple de code suivant lit la source de donné
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [configuration du service d’expérimentation](experimentation-service-configuration.md).

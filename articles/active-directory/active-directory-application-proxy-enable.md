@@ -102,7 +102,7 @@ Sur votre serveur, vérifiez la liste des services actifs pour le connecteur et 
 Pour plus d’informations sur les connecteurs et leur mise à jour, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous voici prêt à [publier des applications avec le proxy d’application](application-proxy-publish-azure-portal.md).
 
 Si vous disposez d’applications figurant sur des réseaux distincts ou à différents emplacements, utilisez des groupes de connecteurs pour organiser les différents connecteurs en unités logiques. Apprenez-en davantage sur [l’utilisation de connecteurs de proxy d’application](active-directory-application-proxy-connectors-azure-portal.md).

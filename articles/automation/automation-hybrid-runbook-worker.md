@@ -171,5 +171,5 @@ Le Runbook Worker hybride dépend de l’agent Microsoft Monitoring Agent pour c
 
 Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur écrits dans les journaux des évènements **Application et journal des services\Microsoft SMA\gestionnaire des opérations** et **Application et journal des services\gestionnaire des opérations** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème lors de l’exécution d’opérations normales. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez [exécuter des runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre comment configurer vos runbooks afin d’automatiser les processus dans votre centre de données local ou un autre environnement cloud.

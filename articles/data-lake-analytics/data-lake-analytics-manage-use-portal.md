@@ -248,7 +248,7 @@ Chaque compte contient une stratégie par défaut. La stratégie par défaut s�
 * [Post de blog Stratégies au niveau du compte](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
 * [Post de blog Stratégies au niveau du travail](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)

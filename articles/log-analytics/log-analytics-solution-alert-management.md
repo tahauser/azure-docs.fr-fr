@@ -47,7 +47,7 @@ Pour plus d’informations sur la façon dont ces packs d’administration de so
 ### <a name="agents"></a>Agents
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Support | DESCRIPTION |
+| Source connectée | Support | Description |
 |:--- |:--- |:--- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
@@ -65,7 +65,7 @@ Quand vous ajoutez la solution Alert Management à votre espace de travail Log A
 
 Cliquez sur la vignette **Gestion des alertes** pour ouvrir le tableau de bord **Gestion des alertes**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant.  Chaque colonne répertorie les 10 premières alertes (classées par nombre d’alertes) correspondant aux critères de cette colonne pour l’étendue et l’intervalle de temps spécifiés.  Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, cliquez sur **Afficher tout** en bas de la colonne ou cliquez sur l’en-tête de colonne.
 
-| Colonne | DESCRIPTION |
+| Colonne | Description |
 |:--- |:--- |
 | Alertes critiques |Toutes les alertes ayant le niveau de gravité Critique, regroupées selon le nom de l’alerte.  Cliquez sur un nom d’alerte pour exécuter une recherche dans les journaux retournant tous les enregistrements pour cette alerte. |
 | Alertes d'avertissement |Toutes les alertes ayant le niveau de gravité Avertissement, regroupées selon le nom de l’alerte.  Cliquez sur un nom d’alerte pour exécuter une recherche dans les journaux retournant tous les enregistrements pour cette alerte. |
@@ -82,7 +82,7 @@ La solution de gestion des alertes analyse tous les enregistrements de type **Al
 
 Cette solution importe également les alertes de System Center Operations Manager et crée pour chacune d’entre elles un enregistrement correspondant avec comme propriétés Type et SourceSystem les valeurs **Alert** et **OpsManager**, respectivement.  Les propriétés de ces enregistrements sont décrites dans le tableau suivant :  
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | type |*Alert* |
 | SourceSystem |*OpsManager* |
@@ -108,7 +108,7 @@ Cette solution importe également les alertes de System Center Operations Manage
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 Le tableau suivant fournit des exemples de recherches dans les journaux pour les enregistrements d’alerte collectés par cette solution : 
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |:--- |:--- |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Alertes critiques déclenchées au cours des dernières 24 heures |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
@@ -122,7 +122,7 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 >[!NOTE]
 > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous :
 >
->| Requête | DESCRIPTION |
+>| Requête | Description |
 |:---|:---|
 | Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
 | Alerte &#124; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |

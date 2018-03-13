@@ -55,7 +55,7 @@ Pour vérifier la connectivité et la latence vers un point de terminaison dista
 
 ![Consulter les résultats de la connectivité d’un site web][2]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en consultant [Create an alert triggered packet capture (Créer une capture de paquets déclenchée par alerte)](network-watcher-alert-triggered-packet-capture.md)
 

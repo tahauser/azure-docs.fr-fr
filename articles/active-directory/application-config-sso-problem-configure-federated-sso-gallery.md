@@ -107,5 +107,5 @@ Azure AD ne fournit pas d’URL permettant d’obtenir les métadonnées. Les m�
 
 Pour savoir comment personnaliser les revendications d’attribut SAML envoyées à votre application, consultez [Claims mapping in Azure Active Directory (public preview)](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mappage de revendications dans Azure Active Directory [préversion]) pour plus d’informations.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

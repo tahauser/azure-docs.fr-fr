@@ -38,7 +38,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Démarrer une exécution de pipeline.
 > * Surveiller l’exécution du pipeline.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

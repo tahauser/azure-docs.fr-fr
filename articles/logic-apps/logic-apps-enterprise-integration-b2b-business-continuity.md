@@ -243,7 +243,7 @@ La continuité des activités pour les documents qui utilisent le protocole AS2 
 
 En fonction de l’intervalle de temps, l’état d’exécution incrémentiel est dupliqué de la région primaire à la région secondaire. Lors d’un sinistre, lorsque la région primaire n’est pas disponible, dirigez le trafic vers la région secondaire pour la continuité des activités. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Surveiller les messages B2B](logic-apps-monitor-b2b-message.md)
 

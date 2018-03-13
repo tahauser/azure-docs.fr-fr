@@ -81,7 +81,7 @@ La fabrique de données prend en charge les valeurs de type .NET conformes CLS 
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement, le format, etc. des données dans le magasin de données. La section typeProperties pour le jeu de données de type **AzureBlob** a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | folderPath |Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Exemple : monconteneurblob\mondossierblob\ |OUI |
 | fileName |Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque **fileName** n'est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré aura ce format dans l'exemple suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non  |
@@ -127,13 +127,13 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 **BlobSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True (valeur par défaut), False |Non  |
 
 **BlobSink** prend en charge les propriétés suivantes dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | copyBehavior |Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. |<b>PreserveHierarchy</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/><b>FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Le nom des fichiers cibles est généré automatiquement. <br/><br/><b>MergeFiles</b> : fusionne tous les fichiers du dossier source dans un même fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. |Non  |
 
@@ -173,7 +173,7 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Procédure pas à pas : utiliser l’Assistant Copie pour copier des données vers/depuis le Stockage Blob
 Examinons comment copier rapidement des données vers/depuis un stockage Blob Azure. Dans cette procédure pas à pas, les banques de données source et de destination sont du type stockage Blob Azure. Le pipeline de cette procédure pas à pas copie des données entre les dossiers d’un même conteneur d’objets blob. Cette procédure pas à pas est volontairement simple pour vous montrer les paramètres ou les propriétés lorsque vous utilisez le Stockage Blob en tant que source ou récepteur. 
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
 2. Créez un conteneur d’objets blob nommé **adfblobconnector** dans le compte de stockage. 
 4. Créez un dossier nommé **input** dans le conteneur **adfblobconnector**.

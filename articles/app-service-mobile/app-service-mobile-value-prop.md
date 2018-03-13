@@ -77,7 +77,7 @@ Les fonctionnalités suivantes de la plate-forme sont utiles aux sites de produc
 
   Apprenez-en davantage sur les [environnements App Service].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour prendre en main Mobile Apps dans Azure App Service, terminez le didacticiel de [prise en main]. Le didacticiel explique les principes fondamentaux de la production d’un back end mobile et d’un client de votre choix. Il explique également comment intégrer l’authentification, la synchronisation hors connexion et les notifications push. Vous pouvez effectuer le didacticiel plusieurs fois, une fois pour chaque application cliente.
 

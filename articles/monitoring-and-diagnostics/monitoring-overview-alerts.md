@@ -41,7 +41,7 @@ Azure utilise les termes suivants pour décrire les alertes et leurs fonctions :
 Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur l’utilisation de ces services, [consultez cet article](./monitoring-overview.md). Voici le détail des types d’alertes disponibles dans Azure :
 
 
-| de diffusion en continu | Type d’alerte | Services pris en charge | DESCRIPTION |
+| de diffusion en continu | Type d’alerte | Services pris en charge | Description |
 |---|---|---|---|
 | Azure Monitor | [Alertes de métriques](./insights-alerts-portal.md) | [Métriques prises en charge d’Azure Monitor](./monitoring-supported-metrics.md) | Réception d’une notification lorsqu’une métrique de plateforme répond à une condition définie (par exemple, si le pourcentage d’UC d’une machine virtuelle est supérieur à 90 depuis cinq minutes). |
 |Azure Monitor | [Alertes de métriques quasiment en temps réel (préversion)](./monitoring-near-real-time-metric-alerts.md)| [Ressources prises en charge d’Azure Monitor](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Recevez une notification plus rapidement que les métriques alertes quand une ou plusieurs métriques au niveau de la plateforme répondent aux conditions spécifiées (par exemple, le pourcentage d’utilisation de l’unité centrale sur une machine virtuelle est supérieur à 90 et l’entrée réseau est supérieure à 500 Mo durant les 5 dernières minutes). |

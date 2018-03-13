@@ -135,6 +135,6 @@ Les références suivantes fournissent des exemples d’autres cas d’usage de 
 * [Maintenance prédictive avec PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 * [Apprentissage approfondi pour la maintenance prédictive](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Machine Learning Workbench inclut d’autres exemples de scénarios qui illustrent des fonctionnalités supplémentaires du produit. 

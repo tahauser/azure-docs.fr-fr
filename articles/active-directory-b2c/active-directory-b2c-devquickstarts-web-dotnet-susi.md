@@ -30,7 +30,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Inscrire votre application web auprès de votre répertoire Azure AD B2C
 > * Créer une stratégie d’inscription/de connexion d’utilisateur, de modification du profil et de réinitialisation du mot de passe pour votre application web
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/en-us/).
 - Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.

@@ -39,7 +39,7 @@ Dans une stratégie personnalisée, une définition de contenu définit l’URI 
 
 La section `ContentDefinitions` contient une série d’éléments XML `ContentDefinition`. L’attribut d’ID de l’élément `ContentDefinition` spécifie le type des page qui se rapporte à la définition de contenu. Autrement dit, l’élément définit le contexte que va appliquer un modèle HTML5/CSS personnalisé. Le tableau suivant décrit l’ensemble d’ID de définition de contenu reconnus par le moteur d’infrastructure d’expérience d’identité et les types de page associés.
 
-| ID de définition du contenu | Modèle HTML5 par défaut| DESCRIPTION | 
+| ID de définition du contenu | Modèle HTML5 par défaut| Description | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Page d’erreur**. Cette page s’affiche lorsqu’une exception ou une erreur est rencontrée. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Page de sélection du fournisseur d’identité**. Cette page répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent faire leur choix au moment de la connexion. Il s’agit généralement de fournisseurs d’identité d’entreprise, de fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux. |

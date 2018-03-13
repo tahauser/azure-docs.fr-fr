@@ -206,7 +206,7 @@ Dans le conteneur **thumbnails**, sur le Portail Azure, sélectionnez l’image 
 
 CDN peut être activé pour mettre en cache du contenu à partir de votre compte de stockage Azure. Même si cette procédure n’est pas décrite dans ce didacticiel, vous pouvez consulter la page [Intégrer un compte de stockage Azure à Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md) pour savoir comment activer le CDN avec votre compte de stockage Azure.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans la première partie de la série, vous avez appris à configurer une application web qui interagit avec le stockage, et notamment à :
 

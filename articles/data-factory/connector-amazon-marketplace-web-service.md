@@ -45,7 +45,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié au service web Amazon Marketplace sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur : **AmazonMWS** | OUI |
 | endpoint | Le point de terminaison du serveur Amazon MWS, (autrement dit, mws.amazonservices.com)  | OUI |
@@ -113,7 +113,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données du service web Amazon Marketplace, définissez **AmazonMWSSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **AmazonMWSSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | OUI |

@@ -208,7 +208,7 @@ L’authentification multifacteur est disponible par défaut pour les administra
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déterminer les exigences de protection des données](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

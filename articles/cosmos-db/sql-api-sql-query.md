@@ -926,7 +926,7 @@ Vous pouvez également effectuer des agrégations en appliquant des filtres simu
 
 Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans l’API SQL. `SUM` et `AVG` s’appliquent à des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des booléens et des valeurs Null. 
 
-| Usage | DESCRIPTION |
+| Usage | Description |
 |-------|-------------|
 | COUNT | Renvoie le nombre d’éléments que contient l’expression. |
 | SUM   | Renvoie la somme de toutes les valeurs de l’expression. |
@@ -1404,7 +1404,7 @@ Si vous utilisez actuellement une fonction définie par l’utilisateur pour laq
 Chaque fonction mathématique effectue un calcul, basé sur les valeurs d’entrée fournies comme arguments, et renvoie une valeur numérique. Ce tableau répertorie les fonctions mathématiques intégrées qui sont prises en charge.
 
 
-| Usage | DESCRIPTION |
+| Usage | Description |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [[ABS (num_expr)](#bk_abs) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
 | [CEILING (num_expr)](#bk_ceiling) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
@@ -1498,7 +1498,7 @@ Avec ces fonctions, vous pouvez désormais exécuter des requêtes similaires à
 ### <a name="string-functions"></a>Fonctions de chaîne
 Les fonctions scalaires suivantes effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur de type chaîne, une valeur numérique ou une valeur booléenne. Voici un tableau des fonctions de chaîne intégrées :
 
-| Usage | DESCRIPTION |
+| Usage | Description |
 | --- | --- |
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retourne le nombre de caractères de l’expression de chaîne spécifiée. |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne. |
@@ -1568,7 +1568,7 @@ Les fonctions de chaîne peuvent également être utilisées dans la clause WHE
 ### <a name="array-functions"></a>Fonctions de tableau
 Les fonctions scalaires suivantes effectuent une opération sur une valeur d’entrée de tableau et retournent une valeur numérique, une valeur booléenne ou une valeur de tableau. Voici un tableau des fonctions de tableau intégrées :
 
-| Usage | DESCRIPTION |
+| Usage | Description |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Retourne le nombre d’éléments de l’expression de tableau spécifiée. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Retourne un tableau qui est le résultat de la concaténation d’au moins deux valeurs de tableau. |

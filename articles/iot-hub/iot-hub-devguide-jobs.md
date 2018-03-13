@@ -101,7 +101,7 @@ Le paramètre continuationToken est fourni dans la réponse.
 ## <a name="jobs-properties"></a>Propriétés des travaux
 La liste suivante montre les propriétés et les descriptions correspondantes qui peuvent être utilisées lors de la vérification de travaux ou de résultats de travaux.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | **jobId** |L’application a fourni un ID pour le travail. |
 | **startTime** |L’application a fourni l’heure de début (ISO-8601) pour le travail. |

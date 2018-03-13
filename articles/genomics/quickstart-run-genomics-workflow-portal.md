@@ -173,5 +173,5 @@ msgen list -f c:\temp\config.txt
 Une fois le workflow terminé, vous avez accès aux fichiers de sortie dans votre compte Stockage Azure, dans le conteneur de sortie configuré. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez chargé un exemple de données d’entrée dans Stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur les autres types de fichiers d’entrée pouvant être utilisés avec le service Microsoft Genomics, consultez les pages suivantes : [paired FASTQ (Paires de fichiers FASTQ)](quickstart-input-pair-FASTQ.md) | [BAM (Business Activity Monitoring)](quickstart-input-BAM.md) | [Multiple FASTQ or BAM (Fichiers BAM ou FASTQ multiples)](quickstart-input-multiple.md) 

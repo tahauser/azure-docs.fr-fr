@@ -140,7 +140,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gérer le basculement de base de données à l’aide de Transact-SQL
 
-| Commande | DESCRIPTION |
+| Commande | Description |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilise l’argument ADD SECONDARY ON SERVER afin de créer une base de données secondaire pour une base de données existante puis lance la réplication des données |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Utilise l’argument FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS pour basculer d’une base de données secondaire à une base de données principale afin de lancer le basculement |
@@ -153,7 +153,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gérer le basculement de base de données à l’aide de PowerShell
 
-| Applet de commande | DESCRIPTION |
+| Applet de commande | Description |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtient une ou plusieurs bases de données. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crée une base de données secondaire pour une base de données existante puis lance la réplication des données. |
@@ -172,7 +172,7 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gérer le basculement de base de données à l’aide de l’API REST
-| API | DESCRIPTION |
+| API | Description |
 | --- | --- |
 | [.Créer ou mettre à jour la base de données (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
 | [Créer ou mettre à jour l’état de la base de données](/rest/api/sql/Databases/CreateOrUpdate) |Retourne l’état durant une opération de création. |

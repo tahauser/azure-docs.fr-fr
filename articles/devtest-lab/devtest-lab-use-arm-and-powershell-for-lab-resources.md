@@ -46,6 +46,6 @@ Il existe de nombreuses autres tâches courantes que vous pouvez automatiser à 
 * [Ajouter un utilisateur externe à un laboratoire à l’aide de PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Créer un rôle personnalisé de laboratoire à l’aide de PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment créer un [référentiel Git privé](devtest-lab-add-artifact-repo.md) dans lequel stocker vos modèles ou scripts personnalisés.
 * Explorez les [modèles Azure Resource Manager de la galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).

@@ -83,7 +83,7 @@ Lors de la conception d'applications pour la mise à l'échelle, des composants 
 
 Un compte de stockage peut contenir un nombre quelconque de files d’attente, et une file d’attente peut contenir un nombre quelconque de messages, jusqu'à la limite de capacité du compte de stockage. La taille maximale des messages individuels est de 64 Ko.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Stockage Azure : Différences et considérations](azure-stack-acs-differences.md)
 
 * Pour en savoir plus sur le stockage Azure, consultez [Présentation du stockage Microsoft Azure](../../storage/common/storage-introduction.md)

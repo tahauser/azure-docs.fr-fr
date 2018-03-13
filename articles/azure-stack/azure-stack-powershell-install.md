@@ -133,7 +133,7 @@ Dans un scénario déconnecté, vous devez tout d’abord télécharger les modu
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Télécharger les outils Azure Stack à partir de GitHub](azure-stack-powershell-download.md)
 * [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](user/azure-stack-powershell-configure-user.md)  

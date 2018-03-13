@@ -44,37 +44,37 @@ Par exemple, lorsque des utilisateurs accèdent à www.office.com, la page de co
 
 ### <a name="banner-logo"></a>Logo de bannière 
 
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Le logo de bannière s’affiche sur les pages de connexion et du volet d’accès.<br>Sur la page de connexion, le logo s’affiche une fois le nom d’utilisateur saisi. | JPG ou PNG transparent<br>Hauteur max. : 36 px<br>Largeur max. : 245 px | Utilisez le logo de votre organisation ici.<br>Utilisez une image transparente. Ne partez pas du principe que l’arrière-plan est blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon le logo s’affichera disproportionnellement petit.
 
 ### <a name="username-hint"></a>Indication sur le nom d’utilisateur   
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Cette option permet de personnaliser le texte d’information dans le champ du nom d’utilisateur. | Texte Unicode, jusqu’à 64 caractères<br>Texte brut uniquement | Nous vous recommandons de ne pas définir cette option si vous prévoyez que des utilisateurs invités en dehors de votre organisation se connectent à votre application.
             
 ### <a name="sign-in-page-text"></a>Texte de la page de connexion   
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Cela apparaît en bas du formulaire de connexion et peut être utilisé pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. | Texte Unicode, jusqu’à 256 caractères<br>Texte brut uniquement (aucun lien ni balise HTML)    
 
 ### <a name="sign-in-page-image"></a>Image de la page de connexion  
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Cette option s’affiche dans l’arrière-plan de la page de connexion. L’image est ancrée au centre de l’espace visible, mise à l’échelle et rognée pour remplir la fenêtre du navigateur.    <br>Sur les écrans étroits tels que les téléphones mobiles, l’image n’est pas affichée.<br>Un masque noir avec une opacité de 0,55 sera appliqué sur cette image lors du chargement de la page. | JPG ou PNG<br>Dimensions de l’image : 1 920 x 1 080 px<br>Taille de fichier : &lt; 300 Ko | <br>Utilisez des images lorsqu’il n’y a pas de focalisation forte sur l’objet. Le formulaire de connexion opaque apparaît au centre de cette image et peut couvrir une partie de l’image en fonction de la taille de la fenêtre du navigateur.<br>Conservez la taille du fichier aussi réduite que possible pour garantir des temps de chargement rapides. 
 
 ### <a name="sign-in-page-background-color"></a>Couleur d’arrière-plan de la page de connexion
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Cette couleur est utilisée à la place de l’image d’arrière-plan sur les connexions à faible bande passante. | Couleur RVB en hexadécimal (par exemple #FFFFFF) | Nous vous suggérons d’utiliser la couleur principale du logo de bannière ou la couleur de votre organisation.
 
 ### <a name="square-logo-image"></a>Logo carré
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 Cette image s’affiche durant la configuration des nouveaux PC Windows 10 Entreprise. Elle fournit aux employés le contexte, durant la configuration de leur nouveau PC de travail. L’image s’affiche pour les clients utilisant [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) pour le déploiement de leurs appareils de travail, et sur les pages de saisie du mot de passe pour les autres utilisateurs Windows 10. | PNG (format préféré) ou JPG transparent<br>Dimensions de l’image : 240 x 240 px<br>Taille de fichier : &lt; 10 Ko | Utilisez le logo de votre organisation ici.<br> Utilisez une image transparente.<br>Ne partez pas du principe que l’arrière-plan est blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon le logo s’affichera disproportionnellement petit.
 
 ### <a name="show-option-to-remain-signed-in"></a>Afficher l’option permettant de rester connecté
-DESCRIPTION | Contraintes | Recommandations
+Description | Contraintes | Recommandations
 ------- | ------- | ----------
 La connexion Azure AD permet à l’utilisateur de rester connecté lorsqu’il ferme et ouvre à nouveau son navigateur. Ce paramètre masque cette option.<br>Définissez cet élément sur **Non** pour que vos utilisateurs ne voient pas cette option. | &nbsp; | Cela n’a pas d’effet sur la durée de vie de session.<br>Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent du choix des utilisateurs de rester connecté. Si vous définissez cette option sur **Non**, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
 

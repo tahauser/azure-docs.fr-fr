@@ -139,7 +139,7 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | NOM |OUI |Nom de votre profil de journal. |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
@@ -168,7 +168,7 @@ La propriété `name` doit être le nom de votre profil de journal.
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | Nom |OUI |Nom de votre profil de journal. |
 | storageId |Non  |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |

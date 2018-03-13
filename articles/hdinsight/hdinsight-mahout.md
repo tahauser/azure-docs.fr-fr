@@ -210,7 +210,7 @@ Les tâches Mahout qui utilisent les classes suivantes renvoient divers messages
 
 Pour exécuter des tâches utilisant ces classes, connectez-vous au cluster HDInsight en utilisant le SSH et exécutez les tâches à partir de la ligne de commande. Pour obtenir un exemple d’utilisation de SSH pour exécuter des tâches Mahout, consultez [Génération de recommandations de films en utilisant Mahout et HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façons d’utiliser les données dans HDInsight :
 

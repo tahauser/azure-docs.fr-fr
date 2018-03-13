@@ -29,7 +29,7 @@ Vous pouvez comparer les webhooks à d'autres méthodes de démarrage d'un Runbo
 ## <a name="details-of-a-webhook"></a>Détails d'un webhook
 Le tableau suivant décrit les propriétés que vous devez configurer pour un webhook.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | NOM |Vous pouvez attribuer le nom de votre choix à un webhook, car il n'apparaît pas au client.  Il est uniquement utilisé pour que vous puissiez identifier le Runbook dans Azure Automation. <br>  À titre de meilleure pratique, nommez le webhook d'après le client qui l'utilise. |
 | URL |L'URL du webhook est l'adresse unique qu'un client appelle avec une méthode HTTP POST pour démarrer le Runbook lié au webhook.  Elle est générée automatiquement lorsque vous créez le webhook.  Vous ne pouvez pas spécifier d'URL personnalisée. <br> <br>  L'URL contient un jeton de sécurité qui permet que le Runbook soit appelé par un système tiers sans authentification supplémentaire. Pour cette raison, elle doit être traitée comme un mot de passe.  Pour des raisons de sécurité, vous pouvez uniquement afficher l’URL dans le portail Azure au moment de la création du webhook. Notez l'URL dans un emplacement sécurisé en vue d'une utilisation ultérieure. |
@@ -45,7 +45,7 @@ Lorsqu'un client démarre un Runbook à l'aide d'un webhook, il ne peut pas remp
 
 L'objet **$WebhookData** possède les propriétés suivantes :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | WebhookName |Nom du webhook. |
 | RequestHeader |Table de hachage contenant les en-têtes de la requête POST entrante. |
@@ -102,7 +102,7 @@ Pour utiliser un webhook après sa création, votre application cliente doit ém
 
 Le client reçoit l'un des codes de réponse suivants à la requête POST.  
 
-| Code | Texte | DESCRIPTION |
+| Code | Texte | Description |
 |:--- |:--- |:--- |
 | 202 |Acceptée |La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
 | 400 |Demande incorrecte |La demande a été refusée pour l'une des raisons suivantes. <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l’URL n’est pas valide.</li>  </ul> |

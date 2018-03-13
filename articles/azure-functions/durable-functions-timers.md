@@ -95,7 +95,7 @@ Ce mécanisme ne termine pas réellement l’exécution des fonctions d’activi
 
 Pour obtenir un exemple plus détaillé d’implémentation de délais d’expiration dans les fonctions de l’orchestrateur, consultez la procédure pas à pas [Interaction humaine et délais d’expiration - Vérification par téléphone](durable-functions-phone-verification.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Déclenchement et gestion d’événements externes](durable-functions-external-events.md)

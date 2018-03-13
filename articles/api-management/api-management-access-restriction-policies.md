@@ -55,14 +55,14 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |check-header|Élément racine.|OUI|  
 |value|Valeur autorisée de l’en-tête HTTP. Lorsque plusieurs éléments de valeurs sont spécifiés, la vérification est considérée comme réussie si l’une des valeurs correspond.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.|OUI|N/A|  
 |failed-check-httpcode|Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.|OUI|N/A|  
@@ -110,7 +110,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-limit|Élément racine.|OUI|  
 |api|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres.|Non |  
@@ -118,7 +118,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |Nom|Nom de l’API à laquelle la limite de débit s’applique.|OUI|N/A|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|OUI|N/A|  
@@ -169,13 +169,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-limit|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|OUI|N/A|  
 |counter-key|Clé à utiliser pour la stratégie de limite de débit.|OUI|N/A|  
@@ -212,7 +212,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |ip-filter|Élément racine.|OUI|  
 |address|Spécifie une adresse IP unique à filtrer.|Au moins un élément `address` ou `address-range` est requis.|  
@@ -220,7 +220,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Plage d'adresses IP pour lesquelles autoriser ou refuser l'accès.|Obligatoire lorsque l’élément `address-range` est utilisé.|N/A|  
 |ip-filter action="allow &#124; forbid"|Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées.|OUI|N/A|  
@@ -265,7 +265,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |quota|Élément racine.|OUI|  
 |api|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota aux API au sein du produit. Les quotas au niveau du produit et de l’API s’appliquent indépendamment les uns des autres.|Non |  
@@ -273,7 +273,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |Nom|Nom de l’API ou de l’opération à laquelle s’applique le quota.|OUI|N/A|  
 |bandwidth|Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
@@ -326,13 +326,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |quota|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
@@ -483,7 +483,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Élément|DESCRIPTION|Obligatoire|  
+|Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
 |validate-jwt|Élément racine.|OUI|  
 |audiences|Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.|Non |  
@@ -495,7 +495,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|Intervalle de temps. Permet de spécifier l’écart maximal de durée estimée entre les horloges système de l’émetteur du jeton et l’instance de gestion des API.|Non |0 seconde|  
 |failed-validation-error-message|Message d’erreur à renvoyer dans le corps de la réponse HTTP si le JWT n’est pas validé. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.|Non |Le message d’erreur par défaut dépend du problème de validation, par exemple « JWT absent ».|  

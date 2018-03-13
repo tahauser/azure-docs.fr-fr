@@ -80,7 +80,7 @@ Pour plus d’informations sur la réinitialisation de mot de passe dans Azure A
   >Si vous êtes administrateur Azure AD, vous souhaiterez peut-être utiliser [Windows Hello](https://www.microsoft.com/windows/windows-hello) pour éviter que vos utilisateurs créent des mots de passe classiques.
   >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
 * [Principes de base de la gestion des identités Azure](fundamentals-identity.md)

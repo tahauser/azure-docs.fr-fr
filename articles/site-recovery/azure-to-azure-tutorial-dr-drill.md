@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment exécuter une simulation de récupération d�
 > * Vérifier les prérequis
 > * Exécuter un test de basculement pour une seule machine virtuelle
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Avant que vous n’exécutiez un test de basculement, nous vous recommandons de vérifier les propriétés de la machine virtuelle pour vérifier que tout fonctionne comme prévu.  Accédez aux propriétés de la machine virtuelle dans les **éléments répliqués**. Le panneau **Bases** affiche des informations sur les paramètres et l’état des machines.
 - Pour le test de basculement, nous vous recommandons d’utiliser un réseau de machines virtuelles Azure distinct du réseau par défaut qui était configuré quand vous avez activé la réplication.

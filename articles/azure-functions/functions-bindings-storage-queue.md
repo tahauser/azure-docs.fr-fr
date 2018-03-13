@@ -211,7 +211,7 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `QueueTrigger`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a| Cette propriété doit être définie sur `queueTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -236,7 +236,7 @@ Dans JavaScript, utilisez `context.bindings.<name>` pour accéder à la charge u
 
 Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonnées](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les valeurs ont la même sémantique que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Propriété|type|DESCRIPTION|
+|Propriété|type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Charge utile de file d’attente (s’il s’agit d’une chaîne valide). Si la charge utile du message de file d’attente est une chaîne, `QueueTrigger` a la même valeur que la variable nommée par la propriété `name` dans *function.json*.|
 |`DequeueCount`|`int`|Nombre de fois que ce message a été enlevé de la file d’attente.|
@@ -445,7 +445,7 @@ Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de 
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Queue`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `queue`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Cette propriété doit être définie sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |

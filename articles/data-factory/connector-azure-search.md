@@ -44,7 +44,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Les propriétés prises en charge pour le service lié Recherche Azure sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **AzureSearch** | OUI |
 | URL | URL du service Recherche Azure. | OUI |
@@ -82,7 +82,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données vers Recherche Azure, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **AzureSearchIndex** | OUI |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
@@ -113,7 +113,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données vers Recherche Azure, définissez **AzureSearchIndexSink** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **AzureSearchIndexSink** | OUI |
 | writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Valeurs autorisées : **Merge** (par défaut) et **Upload**. | Non  |

@@ -71,7 +71,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 6. Lorsque vous créez un compte Cosmos DB, utilisez les paramètres du **nouveau compte** comme indiqué dans la table.
 
-    | Paramètre      | Valeur suggérée  | DESCRIPTION                                |
+    | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Identifiant** | Nom de base de données | ID unique de la base de données Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Cette rubrique utilise l’API de base de données de document.  |
@@ -107,7 +107,7 @@ Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez la collec
  
     ![Définir la collection taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
  
-    | Paramètre|Valeur suggérée|DESCRIPTION |
+    | Paramètre|Valeur suggérée|Description |
     | ---|---|--- |
     | **ID de base de données** | Tâches |Nom de votre nouvelle base de données. Ce nom doit correspondre au nom défini dans votre liaison de fonction. |
     | **ID de la collection** | Éléments | Nom de la nouvelle collection. Ce nom doit correspondre au nom défini dans votre liaison de fonction.  |

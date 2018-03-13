@@ -65,7 +65,7 @@ Sélectionnez **Oui** pour créer une copie de la règle. La règle clonée est 
 
 Sur cette règle clonée, effectuez les modifications nécessaires de la portée, de la jointure et des transformations.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)

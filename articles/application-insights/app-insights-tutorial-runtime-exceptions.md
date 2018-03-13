@@ -113,7 +113,7 @@ Si vous connectez Application Insights à un système de suivi tel que Visual St
 
     ![Nouvel élément de travail](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous avez appris à identifier les exceptions runtime, passez au didacticiel suivant pour apprendre à identifier et à diagnostiquer les problèmes de performances.
 
 > [!div class="nextstepaction"]

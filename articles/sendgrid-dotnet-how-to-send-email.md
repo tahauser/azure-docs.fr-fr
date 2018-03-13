@@ -249,7 +249,7 @@ Les exemples suivants montrent les filtres de pied de page et de suivi des clics
 ## <a name="how-to-use-additional-sendgrid-services"></a>Utilisation de services SendGrid supplémentaires
 SendGrid offre plusieurs API et webhooks que vous pouvez utiliser pour tirer profit de fonctionnalités supplémentaires dans votre application Azure. Pour plus d’informations, consultez la [documentation de référence sur l’API SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
 * Référentiel de la bibliothèque C\# de SendGrid : [sendgrid-csharp][sendgrid-csharp]

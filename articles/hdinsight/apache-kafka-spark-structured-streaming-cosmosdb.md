@@ -153,7 +153,7 @@ Une fois que les fichiers ont été chargés, sélectionnez l’entrée __Stream
 
 Dans la page d’accueil du bloc-notes Jupyter, sélectionnez l’entrée __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__. Suivez les étapes dans le bloc-notes pour transmettre en continu des données à partir de Kafka dans Azure Cosmos DB à l’aide de Spark Structured Streaming.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à utiliser Spark Structured Streaming, consultez les documents suivants pour en savoir plus sur l’utilisation de Spark, Kafka et Azure Cosmos DB :
 

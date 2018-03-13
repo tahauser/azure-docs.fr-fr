@@ -46,7 +46,7 @@ Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et aj
   
 4.  Sélectionnez l’une des autorisations suivantes :  
   
-    |Autorisation|DESCRIPTION|  
+    |Autorisation|Description|  
     |----------------|-----------------|  
     |**Aucun**|Les membres ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
     |**Lire**|Les membres peuvent interroger des données (selon les filtres de lignes) mais ne peuvent pas modifier le schéma de modèle.|  
@@ -73,7 +73,7 @@ Pour ajouter des rôles et des utilisateurs à une base de données du modèle d
 2. Dans **Créer un rôle**, entrez un nom de rôle et une description.
 
 3. Sélectionnez une autorisation.
-   |Autorisation|DESCRIPTION|  
+   |Autorisation|Description|  
    |----------------|-----------------|  
    |**Contrôle total (administrateur)**|Les membres peuvent modifier le schéma de modèle, le processus et interroger toutes les données.| 
    |**Base de données de processus**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Ils ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
@@ -121,7 +121,7 @@ Dans cet exemple, un utilisateur externe B2B et un groupe sont ajoutés au rôle
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Pour ajouter des rôles et des utilisateurs à l’aide de Powershell
 Le module [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fournit des applets de commande de gestion de bases de données spécifiques à chaque tâche, ainsi que l’applet de commande Invoke-ASCmd à usage général, qui accepte un script ou une requête utilisant le langage de script de modèle tabulaire (TMSL). Les applets de commande suivantes sont utilisées pour la gestion des utilisateurs et des rôles de bases de données.
   
-|Applet de commande|DESCRIPTION|
+|Applet de commande|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Ajoute un membre à un rôle de base de données.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Supprime un membre d’un rôle de base de données.|   

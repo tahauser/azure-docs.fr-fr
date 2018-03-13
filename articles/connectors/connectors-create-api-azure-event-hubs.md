@@ -112,6 +112,6 @@ Pour en savoir plus sur les déclencheurs et les actions définies par le fichie
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [tous les autres connecteurs pour Azure Logic apps](../connectors/apis-list.md)

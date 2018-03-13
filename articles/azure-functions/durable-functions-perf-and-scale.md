@@ -73,7 +73,7 @@ Les fonctions d’orchestrateur sont exécutées sur un seul thread. Cela est in
 
 Les fonctions d’activité ont les mêmes comportements que les fonctions normales déclenchées par une file d’attente. Cela signifie qu’elles peuvent, en toute sécurité, effectuer des opérations d’E/S ou des opérations gourmandes en ressources de processeur et utiliser plusieurs threads. Étant donné que les déclencheurs d’activité sont sans état, ils peuvent librement être mis à l’échelle sur un nombre illimité de machines virtuelles.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Installer l’extension Fonctions durables et des exemples](durable-functions-install.md)

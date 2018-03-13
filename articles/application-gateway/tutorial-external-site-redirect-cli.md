@@ -134,7 +134,7 @@ Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouv
 
 Le site *bing.com* devrait s’afficher dans votre navigateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

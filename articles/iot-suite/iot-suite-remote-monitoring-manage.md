@@ -98,7 +98,7 @@ Pour apporter une modification, ajoutez un nom pour le travail, mettez à jour l
 
 Pour suivre l’état du travail sur la page **Maintenance**, sélectionnez **Travaux**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

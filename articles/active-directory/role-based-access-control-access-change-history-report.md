@@ -29,7 +29,7 @@ Pour créer un rapport d’historique des modifications d’accès dans PowerShe
 
 Lorsque vous appelez cette commande, vous pouvez spécifier quelle propriété des affectations répertorier, y compris les suivantes :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | **Action** |Si l’accès a été autorisé ou interdit |
 | **Appelant** |Le propriétaire responsable de la modification d’accès |

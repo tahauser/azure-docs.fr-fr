@@ -33,7 +33,7 @@ Lorsque vous créez une connexion, vous devez spécifier un *type de connexion*.
 
 Les applets de commande du tableau suivant permettent de créer et de gérer les connexions Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azure/overview) , utilisable dans les Runbooks Automation et les configurations DSC.
 
-|Applet de commande|DESCRIPTION|
+|Applet de commande|Description|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Récupère une connexion. Inclut une table de hachage avec les valeurs des champs de la connexion.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crée une connexion.|
@@ -44,7 +44,7 @@ Les applets de commande du tableau suivant permettent de créer et de gérer les
 
 Les activités du tableau suivant sont utilisées pour accéder aux connexions dans un Runbook ou dans une configuration DSC.
 
-|Activités|DESCRIPTION|
+|Activités|Description|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtient une connexion à utiliser. Renvoie une table de hachage avec les propriétés de la connexion.|
 
@@ -55,7 +55,7 @@ Les activités du tableau suivant sont utilisées pour accéder aux connexions d
 ## <a name="python2-functions"></a>Fonctions Python2 
 La fonction dans le tableau suivant est utilisée pour accéder aux connexions dans un runbook Python2. 
 
-| Fonction | DESCRIPTION | 
+| Fonction | Description | 
 |:---|:---| 
 | automationassets.get_automation_connection | Récupère une connexion. Renvoie un dictionnaire avec les propriétés de la connexion. | 
 

@@ -129,7 +129,7 @@ Lorsque votre application logique s’exécute, les destinataires que vous avez 
 
 ![Message électronique de l’application logique](./media/automate-with-logic-apps/flow9.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez la création de [requêtes Analytics](app-insights-analytics-using.md).
 - Découvrez plus en détail les [applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).

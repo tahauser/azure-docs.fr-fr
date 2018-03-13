@@ -349,7 +349,7 @@ order by percentile_approx(delay, 0.5)
 
 ![Graphique des retards médians Spark](./media/spark-connector/median-delays-graph.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous ne l’avez pas encore fait, téléchargez le connecteur Spark-Azure Cosmos DB à partir du dépôt GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) et explorez les ressources supplémentaires dans le dépôt :
 

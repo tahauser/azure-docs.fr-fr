@@ -61,7 +61,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis
 
 Les propriétés suivantes sont prises en charge pour le service lié Salesforce :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type |La propriété de type doit être définie sur **Salesforce**. |OUI |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non  |
@@ -139,7 +139,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis et vers Salesforce, définissez la propriété de type du jeu de données sur **SalesforceObject**. Les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **SalesforceObject**.  | OUI |
 | objectApiName | Nom d’objet Salesforce duquel extraire des données. | Non pour Source, Oui pour Récepteur |
@@ -170,7 +170,7 @@ Pour copier des données depuis et vers Salesforce, définissez la propriété d
 >[!NOTE]
 >Pour permettre la compatibilité descendante : lorsque vous copiez des données à partir de Salesforce, si vous utilisez le jeu de données du type « RelationalTable » précédent, il continuera de fonctionner. Toutefois, il vous est proposé de passer au nouveau type « SalesforceObject ».
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **RelationalTable**. | OUI |
 | TableName | Nom de la table dans Salesforce. | Non (si « query » est spécifié dans la source de l’activité) |
@@ -183,7 +183,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données à partir de Salesforce, définissez le type de source sur **SalesforceSource** dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource**. | OUI |
 | query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple `select * from MyTable__c`. | Non (si « tableName » est spécifié dans le jeu de données) |
@@ -233,7 +233,7 @@ Pour copier des données à partir de Salesforce, définissez le type de source 
 
 Pour copier des données vers Salesforce, définissez le type de récepteur sur **SalesforceSink** dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceSink**. | OUI |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>Les valeurs autorisées sont **Insert** et **Upsert**. | Non (la valeur par défaut est un point Insert) |

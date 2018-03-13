@@ -66,7 +66,7 @@ Tout [rôle RBAC intégré](../active-directory/role-based-access-control-what-i
 - **Lecteur** peut consulter les ressources Azure existantes. 
 
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Pour en savoir plus sur les groupes d’administration, consultez : 
 - [Créer des groupes d’administration pour organiser les ressources Azure](management-groups-create.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](management-groups-manage.md)

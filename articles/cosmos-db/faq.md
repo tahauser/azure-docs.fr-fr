@@ -186,7 +186,7 @@ Pour plus d’informations, voir [Connecter une application MongoDB à Azure Cos
 En plus des codes d’erreur MongoDB habituels, l’API MongoDB a ses propres codes d’erreur :
 
 
-| Error               | Code  | DESCRIPTION  | Solution  |
+| Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Le nombre total d’unités de requête consommées ayant dépassé le taux d’unités de requête approvisionné pour la collection, il a été limité. | Envisagez de mettre à l’échelle le débit de la collection via le portail Azure ou de faire une nouvelle tentative. |
 | ExceededMemoryLimit | 16501 | En tant que service mutualisé, l’opération a dépassé les unités de mémoire du client. | Réduisez l’étendue de l’opération en fixant un critère de requête plus restrictif, ou contactez le support technique via le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Exemple : &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection(’users’).aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |

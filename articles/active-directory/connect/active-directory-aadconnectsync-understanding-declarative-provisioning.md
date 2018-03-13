@@ -50,7 +50,7 @@ La portée de cette image doit être lue comme (department = IT AND country = De
 
 Le module Scope prend en charge les opérations suivantes.
 
-| Opération | DESCRIPTION |
+| Opération | Description |
 | --- | --- |
 | EQUAL, NOTEQUAL |Comparaison de chaînes qui évalue si la valeur est égale à la valeur de l’attribut. Pour les attributs à valeurs multiples, consultez ISIN et ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Comparaison de chaînes qui évalue si la valeur est inférieure à la valeur de l’attribut. |

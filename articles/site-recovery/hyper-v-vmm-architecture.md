@@ -54,7 +54,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 
 Suivre [le didacticiel](hyper-v-vmm-disaster-recovery.md) montrant comment activer la réplication Hyper-V entre des clouds VMM.

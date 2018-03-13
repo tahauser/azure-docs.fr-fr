@@ -263,7 +263,7 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Utilisez [l’interface CLI Service Fabric](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) pour déployer d’autres applications sur votre cluster. 
 * [Mettez à niveau votre cluster Service Fabric](service-fabric-cluster-upgrade.md).

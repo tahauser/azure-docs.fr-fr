@@ -468,5 +468,5 @@ Vous pouvez ensuite établir une connexion SSH à votre machine virtuelle :
 ssh azureuser@<publicIps>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez créé une infrastructure de base dans Azure à l’aide de Terraform. Pour des scénarios plus complexes, y compris des exemples utilisant des équilibreurs de charge et des groupes de machines virtuelles identiques, consultez les nombreux [exemples Terraform pour Azure](https://github.com/hashicorp/terraform/tree/master/examples). Pour obtenir une liste actualisée et complète des fournisseurs Azure pris en charge, consultez la [documentation Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).

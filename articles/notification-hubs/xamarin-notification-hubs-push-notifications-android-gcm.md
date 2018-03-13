@@ -33,7 +33,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant les Notifica
 
 Le code complet de ce didacticiel est disponible sur GitHub [ici][GitHub].
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce didacticiel requiert les éléments suivants :
 
 * [Visual Studio avec Xamarin] pour Windows ou [Visual Studio pour Mac] sur OS X.

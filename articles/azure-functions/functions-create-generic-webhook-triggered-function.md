@@ -28,7 +28,7 @@ Azure Functions vous permet d’exécuter votre code dans un environnement sans 
 
 ![Fonction déclenchée par un webhook générique dans le portail Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour suivre ce didacticiel :
 
@@ -72,7 +72,7 @@ Créez ensuite un point de terminaison webhook dans une alerte de journal d’ac
 
     ![Créer une alerte de journal d’activité](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-    | Paramètre      |  Valeur suggérée   | DESCRIPTION                              |
+    | Paramètre      |  Valeur suggérée   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de l’alerte de journal d’activité** | resource-group-create-alert | Nom de l’alerte de journal d’activité. |
     | **Abonnement** | Votre abonnement | L’abonnement que vous utilisez pour ce didacticiel. | 

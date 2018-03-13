@@ -122,7 +122,7 @@ L’ensemble du processus de prétraitement/notation des 10 000 images prend m
 
 Suivez [ce didacticiel](../spark/apache-spark-microsoft-cognitive-toolkit.md) pour implémenter cette solution de bout en bout : configurez un cluster HDInsight Spark, installez Cognitive Toolkit et exécutez le Notebook Jupyter qui note 10 000 images CIFAR.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Hive et Azure Machine Learning
 

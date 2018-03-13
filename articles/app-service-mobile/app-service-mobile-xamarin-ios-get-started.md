@@ -69,7 +69,7 @@ Suivez les étapes suivantes pour configurer le projet de serveur de sorte qu’
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [Ajout de l'authentification à votre application ](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Ajouter des notifications Push à votre application](app-service-mobile-xamarin-ios-get-started-push.md)

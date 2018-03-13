@@ -48,7 +48,7 @@ Les concentrateurs d’événements incluent les éléments clés suivants :
 
 Pour obtenir des détails techniques sur ces fonctionnalités et d’autres fonctionnalités encore des concentrateurs d’événements, consultez la [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](event-hubs-features.md). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 

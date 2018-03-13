@@ -55,7 +55,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié Oracle sont les suivantes.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Oracle**. | OUI |
 | connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | OUI |
@@ -88,7 +88,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis et vers Oracle, affectez la valeur **OracleTable** à la propriété type du jeu de données. Les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **OracleTable**. | OUI |
 | TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | OUI |
@@ -120,7 +120,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’Oracle, définissez le type de source dans l’activité de copie sur **OracleSource**. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **OracleSource**. | OUI |
 | oracleReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non  |
@@ -163,7 +163,7 @@ Si vous ne spécifiez pas « oracleReaderQuery », les colonnes définies dans
 
 Pour copier des données vers Oracle, définissez **OracleSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **OracleSink**. | OUI |
 | writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |

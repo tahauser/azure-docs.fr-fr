@@ -139,7 +139,7 @@ Utilisez **Filtre** pour ajuster ou choisir les informations qui apparaissent da
 3. Cliquez sur **Réinitialiser** pour réinitialiser la liste des attributs dans le panneau **Événements**. Après avoir ajouté ou supprimé des attributs de la liste, utilisez **Réinitialiser** pour afficher la nouvelle liste des attributs de l’événement.
 4. Cliquez sur **Mettre à jour** pour mettre à jour les données des attributs de l’événement. Le tableau suivant fournit des informations sur chaque attribut.
 
-| Nom de la colonne | DESCRIPTION |
+| Nom de la colonne | Description |
 | --- | --- |
 | Opération |Nom de l’opération |
 | Level |Le niveau de l’opération, dont les valeurs peuvent être : information, avertissement, erreur ou critique |

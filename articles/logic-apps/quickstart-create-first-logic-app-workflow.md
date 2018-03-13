@@ -46,7 +46,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Spécifier les détails de l’application logique](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Name** | MyFirstLogicApp | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
@@ -71,7 +71,7 @@ Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-ap
 
    ![Définir un déclencheur avec le flux RSS, la fréquence et l’intervalle](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Paramètre | Valeur | DESCRIPTION | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **URL du flux RSS** | ```http://feeds.reuters.com/reuters/topNews``` | Lien du flux RSS que vous souhaitez surveiller. | 
    | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
@@ -143,7 +143,7 @@ Ajoutez une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) qu
 
       ![Ajouter du contenu pour le corps de l’e-mail](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Paramètre | DESCRIPTION | 
+      | Paramètre | Description | 
       | ----- | ----------- | 
       | **Titre du flux** | Titre de l’élément. | 
       | **Flux publié le** | Date et heure de publication de l’élément. | 

@@ -124,7 +124,7 @@ Les applications qui peuvent être migrées et publiées sur des services cloud 
 | WCF | WCF Workflow Service Application |
 | Workflow | WCF Workflow Service Application |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)
 - [Configuration des informations d’authentification nommées](vs-azure-tools-setting-up-named-authentication-credentials.md).

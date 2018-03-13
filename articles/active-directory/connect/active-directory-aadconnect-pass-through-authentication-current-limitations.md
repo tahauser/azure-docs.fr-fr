@@ -54,7 +54,7 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 >[!NOTE]
 L’activation de la synchronisation de hachage de mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure sur site. Ce basculement de l’authentification directe vers la synchronisation de hachage de mot de passe Active Directory n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
 - [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne l'authentification directe.

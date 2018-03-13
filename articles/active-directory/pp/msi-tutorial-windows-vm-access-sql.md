@@ -31,7 +31,7 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 > * Accorder à votre machine virtuelle l’accès à un serveur Azure SQL
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger un serveur Azure SQL
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

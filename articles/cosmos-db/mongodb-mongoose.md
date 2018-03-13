@@ -304,7 +304,7 @@ Comme vous pouvez le constater, il est très simple d’utiliser des discriminat
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les opérations MongoDB, les opérateurs, les étapes, les commandes et les options prises en charge par l’API MongoDB Azure Cosmos DB, consultez [Prise en charge de l’API MongoDB pour la syntaxe et les fonctionnalités de MongoDB](mongodb-feature-support.md).
 

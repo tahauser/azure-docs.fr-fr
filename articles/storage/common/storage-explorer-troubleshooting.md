@@ -189,7 +189,7 @@ Pour les distributions Linux autres que Ubuntu 16.04, vous devez peut-être ins
 
 En fonction de votre distribution, vous devez peut-être installer d’autres packages. Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage contiennent des étapes propres à certaines distributions.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si aucune des solutions ne convient, soumettez votre problème au moyen de l’outil de commentaires avec votre e-mail, en indiquant le maximum de détails sur le problème afin que nous puissions vous contacter pour le résoudre.
 

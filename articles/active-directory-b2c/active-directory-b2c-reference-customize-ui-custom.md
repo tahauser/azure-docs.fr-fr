@@ -141,7 +141,7 @@ Le compte de stockage doit désormais héberger un conteneur d’objets blob nom
 
 Le tableau ci-après décrit l’objectif des pages HTML5 précédentes.
 
-| Modèle HTML5 | DESCRIPTION |
+| Modèle HTML5 | Description |
 |----------------|-------------|
 | *phonefactor.html* | Cette page peut être utilisée comme modèle pour une page d’authentification multi-facteur. |
 | *resetpassword.html* | Cette page peut être utilisée comme modèle pour une page de mot de passe oublié. |
@@ -157,7 +157,7 @@ Les modèles HTML5/CSS personnalisés à utiliser dans votre parcours utilisateu
 
 Le tableau ci-après décrit l’ensemble d’ID de définition de contenu reconnus par le moteur d’expérience d’identité Azure AD B2C et le type des pages qui leur sont associées.
 
-| ID de définition du contenu | DESCRIPTION |
+| ID de définition du contenu | Description |
 |-----------------------|-------------|
 | *api.error* | **Page d’erreur**. Cette page s’affiche lorsqu’une exception ou une erreur est rencontrée. |
 | *api.idpselections* | **Page de sélection du fournisseur d’identité**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de la connexion. Il s’agit de fournisseurs d’identité d’entreprise, d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux (basés sur une adresse e-mail ou un nom d’utilisateur). |

@@ -168,7 +168,7 @@ Dans l’initialiseur de l’application web, par exemple Global.asax.cs :
 
 Tous les nouveaux TelemetryClients ajoutent automatiquement la valeur de propriété que vous spécifiez. Les événements de télémétrie individuels peuvent remplacer les valeurs par défaut.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
    - [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
    - [Entonnoirs](usage-funnels.md)
    - [Rétention](app-insights-usage-retention.md)

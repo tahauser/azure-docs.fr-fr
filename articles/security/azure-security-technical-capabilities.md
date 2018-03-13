@@ -510,7 +510,7 @@ Resource Manager offre plusieurs avantages :
 > [!Note]
 > Resource Manager propose une nouvelle façon de déployer et de gérer vos solutions. Si vous avez utilisé un modèle de déploiement antérieur et souhaitez obtenir des informations sur les modifications, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la sécurité :
 

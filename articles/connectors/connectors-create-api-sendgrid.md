@@ -29,7 +29,7 @@ Vous pouvez commencer par créer une application logique. Pour cela, consultez [
 ## <a name="create-a-connection-to-sendgrid"></a>Créer une connexion à SendGrid
 Pour créer des applications logiques avec SendGrid, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes : 
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | ApiKey |OUI |Fournir votre clé d’API SendGrid |
 

@@ -52,7 +52,7 @@ Le déclencheur de périodicité a les propriétés suivantes qui peuvent être 
 Cette action retarde l’exécution pour un intervalle de temps donné.
 Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Count* |count |Le nombre d’unités à retarder |
 | Unit* |unité |L’unité de temps : `Second`, `Minute`, `Hour` ou `Day` |
@@ -63,7 +63,7 @@ Le symbole * désigne est un champ obligatoire.
 Cette action retarde l’exécution jusqu’à une date/heure spécifique.
 Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Year* |timestamp |L’année jusqu’à laquelle le retard doit être défini (GMT) |
 | Month* |timestamp |Le mois jusqu’auquel le retard doit être défini (GMT) |

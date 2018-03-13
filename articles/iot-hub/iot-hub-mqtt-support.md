@@ -209,7 +209,7 @@ Le corps de la réponse contient la section properties du jumeau d’appareil. L
 
 Les codes d’état possibles sont :
 
-|Statut | DESCRIPTION |
+|Statut | Description |
 | ----- | ----------- |
 | 200 | Succès |
 | 429 | Trop de demandes (limité), selon la [Limitation IoT Hub][lnk-quotas] |
@@ -238,7 +238,7 @@ Le corps du message de requête contient un document JSON qui contient de nouvel
 
 Les codes d’état possibles sont :
 
-|Statut | DESCRIPTION |
+|Statut | Description |
 | ----- | ----------- |
 | 200 | Succès |
 | 400 | Demande incorrecte. JSON incorrect |

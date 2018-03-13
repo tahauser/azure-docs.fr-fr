@@ -380,7 +380,7 @@ Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Déc
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cette deuxième partie de la série de trois didacticiels, vous avez appris à utiliser les services Azure Machine Learning pour effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Utiliser Azure Machine Learning Workbench.

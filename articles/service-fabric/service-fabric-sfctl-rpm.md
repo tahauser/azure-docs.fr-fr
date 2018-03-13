@@ -24,7 +24,7 @@ ms.lasthandoff: 02/27/2018
 Interroge et envoie des commandes vers le service gestionnaire de réparation.
 
 ## <a name="commands"></a>Commandes
-|Commande|DESCRIPTION|
+|Commande|Description|
 | --- | --- |
 |    approve-force| Force l’approbation de la tâche de réparation donnée.|
 |    delete       | Supprime une tâche de réparation terminée.|
@@ -36,13 +36,13 @@ Supprime une tâche de réparation terminée.
 Cette API prend en charge la plateforme Service Fabric ; elle n’est pas censée être utilisée directement à partir de votre code. 
 
 ### <a name="arguments"></a>Arguments
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 |    --task-id [Requis]| ID de la tâche de réparation terminée à supprimer.|
 |    --version           | Numéro de version actuelle de la tâche de réparation. Si autre que zéro, la demande aboutit uniquement si cette valeur correspond à la version actuelle réelle de la tâche de réparation. Si égale à zéro, aucune vérification de version n’est effectuée.|
 
 ### <a name="global-arguments"></a>Arguments globaux
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 |    --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h           | Affiche ce message d’aide et quitte.|
@@ -57,14 +57,14 @@ Permet d’obtenir une liste de tâches de réparation correspondant aux filtres
 Cette API prend en charge la plateforme Service Fabric ; elle n’est pas censée être utilisée directement à partir de votre code. 
 
 ### <a name="arguments"></a>Arguments
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 |    --executor-filter| Nom de l’Exécuteur de réparations dont les tâches revendiquées doivent être incluses dans la liste.|
 |    --state-filter   | OR au niveau du bit des valeurs suivantes, qui spécifie les états de tâches qu’il convient d’inclure dans la liste des résultats. - 1 : créé - 2 : revendiqué - 4 : préparation - 8 : approuvé - 16 : exécution - 32 : restauration - 64 : terminé.|
 |    --task-id-filter | Préfixe d’ID de tâche de réparation à mettre en correspondance.|
 
 ### <a name="global-arguments"></a>Arguments globaux
-|Argument|DESCRIPTION|
+|Argument|Description|
 | --- | --- |
 |    --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h        | Affiche ce message d’aide et quitte.|

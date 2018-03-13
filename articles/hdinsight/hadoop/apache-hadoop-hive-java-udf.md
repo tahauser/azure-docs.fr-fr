@@ -243,7 +243,7 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
         | android  |
         +----------+--+
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir les autres façons de travailler avec Hive, consultez [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md).
 

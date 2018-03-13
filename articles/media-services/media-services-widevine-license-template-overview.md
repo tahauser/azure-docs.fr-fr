@@ -58,7 +58,7 @@ Une demande de licence Widevine se présente sous forme de message JSON.
     }
 
 ## <a name="json-message"></a>Message JSON
-| NOM | Valeur | DESCRIPTION |
+| NOM | Valeur | Description |
 | --- | --- | --- |
 | payload |Chaîne codée en Base64 |La demande de licence envoyée par un client. |
 | content_id |Chaîne codée en Base64 |Identificateur utilisé afin de dériver l’ID de clé et la clé de contenu pour chaque content_key_specs.track_type. |
@@ -76,7 +76,7 @@ S’il existe une stratégie préexistante, il est inutile de spécifier des val
 
 Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, quelle que soit l’option use_policy_overrides_exclusively. 
 
-| NOM | Valeur | DESCRIPTION |
+| NOM | Valeur | Description |
 | --- | --- | --- |
 | content_key_specs. track_type |chaîne |Un nom de type de piste. Si la valeur content_key_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. |
 | content_key_specs  <br/> security_level |uint32 |Définit la configuration requise de robustesse du client pour la lecture. <br/> - Chiffrement whitebox logiciel requis. <br/> - Chiffrement logiciel et décodeur masqué requis. <br/> - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d’exécution approuvé soutenu par le matériel. <br/> - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d’exécution approuvé soutenu par le matériel.  <br/> - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d’exécution approuvé soutenu par le matériel. |
@@ -85,7 +85,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | content_key_specs.key_id |Chaîne binaire codée en Base64, 16 octets |Identificateur unique pour la clé. |
 
 ## <a name="policy-overrides"></a>Remplacements de stratégies
-| NOM | Valeur | DESCRIPTION |
+| NOM | Valeur | Description |
 | --- | --- | --- |
 | policy_overrides. can_play |Booléen, true ou false |Indique que la lecture du contenu est autorisée. La valeur par défaut est false. |
 | policy_overrides. can_persist |Booléen, true ou false |Indique que la licence peut être rendue persistante dans le stockage non volatile pour une utilisation hors connexion. La valeur par défaut est false. |
@@ -100,7 +100,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | policy_overrides. renew_with_usage |Booléen, true ou false |Indique que la licence est envoyée pour renouvellement quand l’utilisation commence. Ce champ est utilisé uniquement si can_renew a la valeur true. |
 
 ## <a name="session-initialization"></a>Initialisation de la session
-| NOM | Valeur | DESCRIPTION |
+| NOM | Valeur | Description |
 | --- | --- | --- |
 | provider_session_token |Chaîne codée en Base64 |Ce jeton de session est repassé dans la licence et existe dans les renouvellements suivants. Le jeton de session n’est pas persistant au-delà des sessions. |
 | provider_client_token |Chaîne codée en Base64 |Jeton client à renvoyer dans la réponse de la licence. Si la demande de licence contient un jeton client, cette valeur est ignorée. Le jeton client persiste au-delà des sessions de la licence. |

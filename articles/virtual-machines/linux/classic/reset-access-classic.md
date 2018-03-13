@@ -190,7 +190,7 @@ Pour réparer les disques qui ne se montent pas ou dont la configuration de mont
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Si vous souhaitez utiliser des applets de commande Azure PowerShell ou des modèles Azure Resource Manager pour réinitialiser le mot de passe ou la clé SSH, corrigez la configuration SSH et vérifiez la cohérence des disques, consultez la [documentation de l’extension VMAccess sur GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * Vous pouvez également utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le mot de passe ou la clé SSH d’une machine virtuelle Linux déployée dans le modèle de déploiement Classic. Vous ne pouvez pas utiliser actuellement le portail dans ce but pour une machine virtuelle Linux déployée dans le modèle de déploiement Resource Manager.
 * Consultez la page [À propos des extensions et des fonctionnalités des machines virtuelles](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations sur l’utilisation des extensions de machine virtuelle pour les machines virtuelles Azure.

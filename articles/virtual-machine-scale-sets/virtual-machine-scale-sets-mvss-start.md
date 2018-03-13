@@ -208,6 +208,6 @@ Toutefois, l’identificateur du réseau virtuel n’est pas suffisant. Indiquez
 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

@@ -156,7 +156,7 @@ Lorsque vous interrogez le service Batch avec une opération `list`, vous pouvez
 
 Le tableau suivant décrit les clauses OData prises en charge par le service Batch :
 
-| Clause | DESCRIPTION |
+| Clause | Description |
 |---|---|
 | `--select-clause [select-clause]` | Retourne un sous-ensemble de propriétés pour chaque entité. |
 | `--filter-clause [filter-clause]` | Retourne uniquement les entités qui correspondent à l’expression OData spécifiée. |

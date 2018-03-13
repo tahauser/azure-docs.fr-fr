@@ -48,7 +48,7 @@ Les principaux composants de l’infrastructure de la messagerie Service Bus son
 
 Comme pour l’infrastructure WCF Relay, la fonctionnalité de messagerie répartie est destinée aux programmeurs WCF et .NET Framework, ainsi que via REST.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 

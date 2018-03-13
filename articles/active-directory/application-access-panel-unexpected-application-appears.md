@@ -150,5 +150,5 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

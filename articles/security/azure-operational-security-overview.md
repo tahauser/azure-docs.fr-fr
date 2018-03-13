@@ -154,7 +154,7 @@ Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivan
 -   [L’infrastructure en tant que code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) est une pratique qui permet l’automatisation et la validation de la création et de la destruction des réseaux et des machines virtuelles pour permettre de proposer des plateformes d’hébergement d’applications stables et sûres.
 -   L’architecture de [microservices](https://www.visualstudio.com/learn/what-are-microservices/) est utilisée pour isoler des exemples d’utilisation métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la solution de sécurité et d’audit d’OMS, consultez les articles suivants :
 
 - [Operations Management Suite | Security &amp; Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance).

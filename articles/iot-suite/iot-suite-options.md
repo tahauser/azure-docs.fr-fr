@@ -59,7 +59,7 @@ Le choix du produit à utiliser pour créer votre solution IoT est finalement d�
 * Le type de solution que vous souhaitez créer
 * Les compétences de votre organisation pour créer et maintenir la solution à long terme.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les étapes suggérées en fonction du produit et de l’approche choisis, sont :
 

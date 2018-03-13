@@ -134,7 +134,7 @@ Si ce workflow n’est pas possible, s’appuyer sur le [chiffrement du service 
 
 **R :** vous pouvez poser vos questions ou envoyer vos commentaires sur le [forum d’Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a fourni les réponses aux questions les plus courantes concernant Azure Disk Encryption. Pour plus d’informations sur ce service et ses fonctionnalités, consultez les articles suivants :
 
 - [Appliquer le chiffrement de disque dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

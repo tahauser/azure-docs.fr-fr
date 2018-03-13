@@ -45,7 +45,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 > [!NOTE] 
 > Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop). 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Lisez l’article [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises**.
 * Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer la dernière version d’Azure PowerShell sur votre ordinateur. Dans ce didacticiel, vous utilisez PowerShell pour déployer des entités Data Factory. 
 * (Facultatif) Consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager.
@@ -53,7 +53,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 ## <a name="in-this-tutorial"></a>Dans ce didacticiel
 Dans ce didacticiel, vous créez une fabrique de données avec les entités Data Factory suivantes :
 
-| Entité | DESCRIPTION |
+| Entité | Description |
 | --- | --- |
 | Service lié Azure Storage |Lie votre compte Stockage Azure à la fabrique de données. Stockage Azure est le magasin de données source et la base de données SQL Azure est le magasin de données récepteur de l’activité de copie dans le didacticiel. Il spécifie le compte de stockage contenant les données d’entrée pour l’activité de copie. |
 | Service lié pour base de données SQL Azure |Lie votre base de données SQL Azure à la fabrique de données. Il spécifie la base de données SQL Azure qui conserve les données de sortie de l’activité de copie. |

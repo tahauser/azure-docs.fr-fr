@@ -26,7 +26,7 @@ Les exemples présentés dans cet article utilisent l’interface de ligne de co
 
 Lorsque vous créez un conteneur dans Azure Container Instances, vous pouvez spécifier l’un des trois paramètres de stratégie de redémarrage disponibles.
 
-| Stratégie de redémarrage   | DESCRIPTION |
+| Stratégie de redémarrage   | Description |
 | ---------------- | :---------- |
 | `Always` | Les conteneurs du groupe de conteneurs sont toujours redémarrés. Il s’agit du paramètre appliqué **par défaut** lorsqu’aucune stratégie de redémarrage n’est spécifiée au moment de la création du conteneur. |
 | `Never` | Les conteneurs du groupe de conteneurs ne sont jamais redémarrés. Les conteneurs sont exécutés au maximum une fois. |

@@ -30,7 +30,7 @@ Un groupe de sécurité réseau (NSG) contient une liste de règles de sécurit�
 ## <a name="nsg-resource"></a>Ressource du groupe de sécurité réseau
 Les NSG contiennent les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Contraintes | Considérations |
+| Propriété | Description | Contraintes | Considérations |
 | --- | --- | --- | --- |
 | NOM |Nom du groupe de sécurité réseau |Doit être unique dans la région.<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union.<br/>Doit commencer par une lettre ou un chiffre.<br/>Doit se terminer par une lettre, un chiffre ou un trait de soulignement.<br/>Ne doit pas dépasser 80 caractères. |Étant donné que vous devrez peut-être créer plusieurs NSG, assurez-vous que vous disposez d’une convention d’affectation de noms qui facilite l’identification de la fonction de vos NSG. |
 | Région |[Région](https://azure.microsoft.com/regions) Azure dans laquelle le NSG est créé. |Les NSG ne peuvent être associés qu’à des ressources figurant dans la même région qu’eux. |Pour plus d’informations sur le nombre de NSG dont vous pouvez disposer par région, consultez l’article relatif aux [limites Azure](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
@@ -44,7 +44,7 @@ Les NSG contiennent les propriétés suivantes :
 ### <a name="nsg-rules"></a>règles de groupe de sécurité réseau
 Les règles de groupe de sécurité réseau contiennent les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Contraintes | Considérations |
+| Propriété | Description | Contraintes | Considérations |
 | --- | --- | --- | --- |
 | **Name** |Nom de la règle. |Doit être unique dans la région.<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union.<br/>Doit commencer par une lettre ou un chiffre.<br/>Doit se terminer par une lettre, un chiffre ou un trait de soulignement.<br/>Ne doit pas dépasser 80 caractères. |Un NSG pouvant contenir plusieurs règles, veillez à respecter une convention d’affectation de noms qui vous permet d’identifier la fonction de votre règle |
 | **Protocole** |Protocole à faire correspondre à la règle. |TCP, UDP ou * |L’utilisation de la valeur * en guise de protocole inclut ICMP (trafic est-ouest uniquement), ainsi qu’UDP et TCP, et peut réduire le nombre de règles dont vous avez besoin.<br/>Dans le même temps, l’utilisation de la valeur * peut constituer une approche trop large. Il est donc recommandé de ne l’utiliser qu’en cas de réelle nécessité. |

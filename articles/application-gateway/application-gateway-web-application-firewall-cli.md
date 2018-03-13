@@ -175,7 +175,7 @@ az network public-ip show \
 
 ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-web-application-firewall-cli/application-gateway-nginxtest.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

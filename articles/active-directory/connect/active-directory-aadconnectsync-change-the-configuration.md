@@ -261,7 +261,7 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
     | Attribut | Valeur | Détails |
     | --- | --- | --- |
     | NOM | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AD – User UserType*. |
-    | DESCRIPTION | *Fournissez une description* |  |
+    | Description | *Fournissez une description* |  |
     | Système connecté | *Sélectionnez le connecteur AD local* |  |
     | Type d’objet système connecté | **Utilisateur** |  |
     | Type d’objet Metaverse | **Person** |  |
@@ -303,7 +303,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
     | Attribut | Valeur | Détails |
     | ----- | ------ | --- |
     | NOM | *Donnez-lui un nom* | Par exemple, *Entrant à partir d’AAD – User UserType*. |
-    | DESCRIPTION | *Fournissez une description* ||
+    | Description | *Fournissez une description* ||
     | Système connecté | *Sélectionnez le connecteur AAD* ||
     | Type d’objet système connecté | **Utilisateur** ||
     | Type d’objet Metaverse | **Person** ||

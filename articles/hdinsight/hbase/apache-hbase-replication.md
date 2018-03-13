@@ -182,7 +182,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 
 Arguments requis :
 
-|NOM|DESCRIPTION|
+|NOM|Description|
 |----|-----------|
 |-s, --src-cluster | Spécifie le nom DNS du cluster HBase source. Par exemple : -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Spécifie le nom DNS du cluster HBase de destination (réplica). Par exemple : -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ Arguments requis :
 
 Arguments facultatifs :
 
-|NOM|DESCRIPTION|
+|NOM|Description|
 |----|-----------|
 |-su, --src-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase source. La valeur par défaut est **admin**. |
 |-du, --dst-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase de destination. La valeur par défaut est **admin**. |

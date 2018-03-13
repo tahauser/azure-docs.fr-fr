@@ -99,7 +99,7 @@ Les noms des métriques présentent différents types de paquets et les octets/p
 - **Nom de balise des paquets transférés (par exemple, Paquets entrants transférés DDoS) :** nombre de paquets transférés par le système DDoS vers l’adresse IP virtuelle de destination (trafic qui n’a pas été filtré).
 - **Nom de balise du nombre de paquets (par exemple, Paquets entrants DDoS) :** nombre total de paquets ayant atteint le système de nettoyage, représentant la somme des paquets supprimés et transférés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur les journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Analyser les journaux du stockage Azure avec Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

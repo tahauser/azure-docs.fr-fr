@@ -42,5 +42,5 @@ Si votre charge de travail atteint les limites maximales des unités de calcul o
 
 Si votre charge de travail atteint les limites maximales du nombre de connexions, des erreurs explicites sont déclenchées. Pour plus d’informations sur les limites des ressources, consultez [Limitations dans Azure Database pour MySQL](concepts-limits.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les niveaux tarifaires, consultez [Niveaux tarifaires d’Azure Database pour MySQL](./concepts-service-tiers.md).

@@ -128,7 +128,7 @@ Advisor permet de télécharger un résumé de vos recommandations.  Vous pouvez
 
 L’option de téléchargement conserve les filtres que vous avez appliqués au tableau de bord Advisor.  Si vous sélectionnez l’option de téléchargement alors qu’une catégorie de recommandations ou une recommandation spécifique est affichée, le résumé téléchargé inclut uniquement les informations de cette catégorie ou de cette recommandation. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller Azure](advisor-overview.md)

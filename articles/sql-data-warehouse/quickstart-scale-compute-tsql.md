@@ -44,7 +44,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Voici un exemple : **mynewserver-20171113.database.windows.net**. |

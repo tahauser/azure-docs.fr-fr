@@ -140,7 +140,7 @@ Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entrepri
 
 Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et ports de sortie suivants :
 
-| Noms de domaine | Ports | DESCRIPTION |
+| Noms de domaine | Ports | Description |
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
 | *.core.windows.net |443 |Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)|
@@ -360,7 +360,7 @@ Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel 
 
 Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :  
 
-Propriété de surveillance | DESCRIPTION
+Propriété de surveillance | Description
 :------------------ | :---------- 
 NOM | Nom de la passerelle logique et nœuds associés à la passerelle. Le nœud est un ordinateur Windows local sur lequel la passerelle est installée. Pour plus d’informations sur la multitude de nœuds (jusqu’à quatre) dans une seule passerelle logique, consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md).    
 Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 

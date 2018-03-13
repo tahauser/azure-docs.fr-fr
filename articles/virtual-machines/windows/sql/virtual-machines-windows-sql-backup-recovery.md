@@ -81,7 +81,7 @@ Pour la sauvegarde et la restauration de SQL Server dans SQL Server 2008 R2, voi
 
 Pour la sauvegarde et la restauration de SQL Server dans SQL Server 2008, voir [Sauvegarde et restauration de bases de données dans SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous planifiez le déploiement de SQL Server dans une machine virtuelle Azure, des conseils de configuration sont disponibles dans le didacticiel suivant : [Configuration d’une machine virtuelle SQL Server sur Azure avec Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
 
 Même si la sauvegarde et la restauration permettent de migrer vos données, il existe des chemins de migration de données potentiellement plus simples vers SQL Server sur une machine virtuelle Azure. Pour une description complète des options de migration et des recommandations connexes, voir [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-windows-migrate-sql.md).

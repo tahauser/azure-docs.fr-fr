@@ -30,7 +30,7 @@ Dans ce didacticiel, vous créer le rendu d’une scène 3ds Max avec Batch à l
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 La scène 3ds Max pour ce didacticiel se trouve sur [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), ainsi qu’un exemple de script Batch et les fichiers de configuration JSON. La scène 3ds Max est issue des [exemples de fichiers Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Les exemples de fichier Autodesk 3ds Max sont disponibles sous licence Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
 

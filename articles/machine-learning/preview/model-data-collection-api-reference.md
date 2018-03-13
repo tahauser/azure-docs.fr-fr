@@ -53,14 +53,14 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 La classe et les paramètres sont décrits ci-après :
 
 ### <a name="class"></a>Classe
-| NOM | DESCRIPTION |
+| NOM | Description |
 |--------------------|--------------------|
 | ModelDataCollector | Classe de l’espace de noms azureml.datacollector. Une instance de cette classe est utilisée pour collecter des données de modèle. Un fichier de score peut contenir plusieurs ModelDataCollector. Chaque instance doit être utilisée pour collecter des données dans un seul emplacement discret dans le fichier de score pour garantir la cohérence du schéma des données collectées (autrement dit, les entrées et les prédictions)|
 
 
 ### <a name="parameters"></a>parameters
 
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 |-------------|------------|-------------------------|
 | model_name | chaîne | Nom du modèle pour lequel des données sont collectées |
 | identificateur | chaîne | Emplacement dans le code qui identifie ces données ( « RawInput » ou « Prediction ») |
@@ -83,14 +83,14 @@ Vous pouvez collecter les données de modèle à l’aide d’une instance du Mo
 La méthode et les paramètres sont décrits ci-après :
 
 ### <a name="method"></a>Méthode
-| NOM | DESCRIPTION |
+| NOM | Description |
 |--------------------|--------------------|
 | collect | Utilisée pour collecter les données pour une entrée ou une prédiction de modèle|
 
 
 ### <a name="parameters"></a>parameters
 
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 |-------------|------------|-------------------------|
 | input_data | plusieurs types | Données à collecter (types pris en charge : list, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Pour les types dataframe, si un en-tête est fourni avec des noms de caractéristiques, ces informations sont incluses dans la destination des données (sans avoir à passer explicitement ces noms de caractéristiques au constructeur ModelDataCollector) |
 | user_correlation_id | chaîne | ID de corrélation facultatif, qui peut être fourni par l’utilisateur pour mettre en corrélation cette prédiction |

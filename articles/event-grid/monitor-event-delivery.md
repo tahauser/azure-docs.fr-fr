@@ -63,7 +63,7 @@ Afficher les métriques de la rubrique d’événement personnalisée.
 
 ![Afficher les métriques d’événement](./media/monitor-event-delivery/custom-topic-metrics.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la remise d’événements et sur les nouvelles tentatives, consultez [Remise et nouvelle tentative de remise de messages avec Azure Grid](delivery-and-retry.md).
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).

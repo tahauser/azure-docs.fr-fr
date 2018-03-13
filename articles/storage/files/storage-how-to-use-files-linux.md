@@ -125,7 +125,7 @@ Utilisateurs de Linux, nous attendons votre avis !
 
 Azure Files pour le groupe d’utilisateurs Linux propose un forum qui vous permet de partager vos commentaires quand vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un e-mail aux [utilisateurs Linux d’Azure Files](mailto:azurefileslinuxusers@microsoft.com) pour rejoindre le groupe d’utilisateurs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files.
 * [Présentation d’Azure Files](storage-files-introduction.md)
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)

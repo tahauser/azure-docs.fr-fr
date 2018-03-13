@@ -48,7 +48,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    Une boîte de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée.
 
-    | Paramètres        | Valeur           | DESCRIPTION  |
+    | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application web Java | Type de l’application que vous analysez |

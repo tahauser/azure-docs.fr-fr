@@ -70,5 +70,5 @@ Le widget Clipper est disponible dans les 18 langues suivantes :
 - Suédois
 - Turc
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour bien démarrer avec Azure Media Clipper et découvrir comment déployer le widget, lisez l’article de [prise en main](media-services-azure-media-clipper-getting-started.md).

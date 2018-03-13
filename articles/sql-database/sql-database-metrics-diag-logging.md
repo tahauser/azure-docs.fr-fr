@@ -271,7 +271,7 @@ Découvrez comment [télécharger les journaux de métriques et de diagnostics �
 
 ### <a name="query-store-runtime-statistics"></a>Statistiques d’exécution du magasin des requêtes
 
-|Propriété|DESCRIPTION|
+|Propriété|Description|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
@@ -322,7 +322,7 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 
 ### <a name="query-store-wait-statistics"></a>Statistiques d’attente du magasin des requêtes
 
-|Propriété|DESCRIPTION|
+|Propriété|Description|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
@@ -360,7 +360,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 
 ### <a name="errors-dataset"></a>Jeu de données d’erreurs
 
-|Propriété|DESCRIPTION|
+|Propriété|Description|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
@@ -389,7 +389,7 @@ En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.c
 
 ### <a name="database-wait-statistics-dataset"></a>Jeu de données de statistiques d’attente de base de données
 
-|Propriété|DESCRIPTION|
+|Propriété|Description|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
@@ -418,7 +418,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 
 ### <a name="time-outs-dataset"></a>Jeu de données d’expirations
 
-|Propriété|DESCRIPTION|
+|Propriété|Description|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
@@ -441,7 +441,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 
 ### <a name="blockings-dataset"></a>Jeu de données de blocages
 
-|Propriété|DESCRIPTION|
+|Propriété|Description|
 |---|---|
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|

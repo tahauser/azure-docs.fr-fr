@@ -113,7 +113,7 @@ La page de présentation de votre serveur s’ouvre, affiche le nom de serveur c
 2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils pour ajouter l’adresse IP de l’ordinateur que vous utilisez, puis cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle.
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>Gérer les règles de pare-feu à l’aide de Transact-SQL
-| Vue de catalogue ou procédure stockée | Level | DESCRIPTION |
+| Vue de catalogue ou procédure stockée | Level | Description |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serveur |Affiche les règles de pare-feu au niveau du serveur actuelles |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Serveur |Crée ou met à jour les règles de pare-feu au niveau du serveur |
@@ -143,7 +143,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>Gérer les règles de pare-feu à l’aide d’Azure PowerShell
-| Applet de commande | Level | DESCRIPTION |
+| Applet de commande | Level | Description |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Serveur |Retourne les règles de pare-feu au niveau du serveur actuelles |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Serveur |Crée une règle de pare-feu au niveau du serveur |
@@ -164,7 +164,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 >
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gérer les règles de pare-feu à l’aide d’Azure CLI
-| Applet de commande | Level | DESCRIPTION |
+| Applet de commande | Level | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Serveur|Crée la règle de pare-feu d’un serveur|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Serveur|Répertorie les règles de pare-feu sur un serveur|
@@ -184,7 +184,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 >
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Gérer les règles de pare-feu à l’aide de l’API REST
-| API | Level | DESCRIPTION |
+| API | Level | Description |
 | --- | --- | --- |
 | [Répertorier les règles de pare-feu](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |Serveur |Affiche les règles de pare-feu au niveau du serveur actuelles |
 | [Créer ou mettre à jour une règle de pare-feu](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |Serveur |Crée ou met à jour les règles de pare-feu au niveau du serveur |

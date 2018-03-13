@@ -45,7 +45,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Les propriétés prises en charge pour le service lié Google BigQuery sont les suivantes.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **GoogleBigQuery**. | OUI |
 | project | L’ID du projet BigQuery par défaut sur lequel exécuter la requête.  | OUI |
@@ -57,7 +57,7 @@ Les propriétés prises en charge pour le service lié Google BigQuery sont les 
 
 Définissez la valeur de la propriété « authenticationType » sur **UserAuthentication** et spécifiez les propriétés suivantes ainsi que les propriétés génériques décrites dans la section précédente :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | clientId | ID de l’application utilisée pour générer le jeton d’actualisation. | Non  |
 | clientSecret | Secret de l’application utilisée pour générer le jeton d’actualisation. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
@@ -93,7 +93,7 @@ Définissez la valeur de la propriété « authenticationType » sur **UserAut
 
 Définissez la valeur de la propriété « authenticationType » sur **ServiceAuthentication** et spécifiez les propriétés suivantes ainsi que les propriétés génériques décrites dans la section précédente. Ce type d’authentification ne peut être utilisé que sur un runtime d’intégration auto-hébergé.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | email | ID d’e-mail du compte de service utilisé pour ServiceAuthentication. Il ne peut être utilisé que sur un runtime d’intégration auto-hébergé.  | Non  |
 | keyFilePath | Chemin complet du fichier de clé .p12 utilisé pour authentifier l’adresse e-mail du compte de service. | Non  |
@@ -151,7 +151,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données à partir de Google BigQuery, définissez le type de source sur **GoogleBigQuerySource** dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | OUI |

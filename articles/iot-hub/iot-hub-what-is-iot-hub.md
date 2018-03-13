@@ -122,7 +122,7 @@ L’industrie mobile utilise le schéma de communication assistée par service a
 
 IoT Hub est pris en charge sur le chemin d’accès d’homologation publique ExpressRoute.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour commencer à écrire du code et à exécuter certains exemples, consultez le didacticiel [Prise en main d’IoT Hub][lnk-get-started].
 

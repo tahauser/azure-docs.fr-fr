@@ -137,7 +137,7 @@ Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entrepri
 
 Au niveau du **pare-feu d’entreprise**, vous devez configurer les domaines et ports de sortie suivants :
 
-Noms de domaine | Ports | DESCRIPTION
+Noms de domaine | Ports | Description
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443, 80 | Utilisé pour la communication avec le serveur principal du service Déplacement des données
 *.core.windows.net | 443 | Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)

@@ -101,7 +101,7 @@ Vous pouvez activer la majoration automatique durant le déploiement d’un mod�
 
 Pour accéder au modèle complet, consultez le modèle [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) (Créer un espace de noms Event Hubs et activer la majoration) sur GitHub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 

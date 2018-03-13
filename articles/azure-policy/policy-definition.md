@@ -222,7 +222,7 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Cache/Redis**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | Définissez si le port du serveur Redis non-ssl (6379) est activé. |
 | Microsoft.Cache/Redis/shardCount | Définissez le nombre de partitions à créer sur un cache de cluster Premium.  |
@@ -232,13 +232,13 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Cdn/profiles**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | Définissez le nom du niveau tarifaire. |
 
 **Microsoft.Compute/disks**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
 | Microsoft.Compute/imagePublisher | Définissez le serveur de publication de l’image de plateforme ou de l’image de Place de marché utilisé pour créer la machine virtuelle. |
@@ -248,7 +248,7 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Définissez l’identificateur de l’image utilisée pour créer la machine virtuelle. |
 | Microsoft.Compute/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
@@ -266,7 +266,7 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | Définissez le nom du serveur de publication de l’extension. |
 | Microsoft.Compute/virtualMachines/extensions/type | Définissez le type d’extension. |
@@ -274,7 +274,7 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Définissez l’identificateur de l’image utilisée pour créer la machine virtuelle. |
 | Microsoft.Compute/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
@@ -290,26 +290,26 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | Définissez la taille de la passerelle. |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | Définissez le type de cette passerelle de réseau virtuel. |
 | Microsoft.Network/virtualNetworkGateways/sku.name | Définissez la référence SKU de la passerelle. |
 
 **Microsoft.Sql/servers**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | Définissez la version du serveur. |
 
 **Microsoft.Sql/databases**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | Définissez la modification de la base de données. |
 | Microsoft.Sql/servers/databases/elasticPoolName | Définissez le nom du pool élastique dans lequel se trouve la base de données. |
@@ -318,14 +318,14 @@ Les alias de propriété permettent d’accéder aux propriétés spécifiques d
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Définissez la valeur DTU partagée totale pour le pool élastique de la base de données. |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Définissez la modification du pool élastique. |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | DESCRIPTION |
+| Alias | Description |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | Définissez le niveau d’accès utilisé pour la facturation. |
 | Microsoft.Storage/storageAccounts/accountType | Définissez le nom de la référence SKU. |

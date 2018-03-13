@@ -103,7 +103,7 @@ Une fois que la restauration automatique est terminée et que vous avez initié 
 > [!NOTE]
 > Après le démarrage d’une machine virtuelle locale, il faut un certain temps à l’agent pour se réinscrire auprès du serveur de configuration (jusqu’à 15 minutes). Pendant ce temps, la reprotection échoue et renvoie un message d’erreur indiquant que l’agent n’est pas installé. Patientez quelques minutes et essayez de relancer la reprotection.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois le travail de reprotection terminé, la machine virtuelle est répliquée vers Azure et vous pouvez effectuer un [basculement](site-recovery-failover.md) pour déplacer à nouveau vos machines virtuelles vers Azure.
 

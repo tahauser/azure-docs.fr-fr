@@ -27,7 +27,7 @@ Si vous souhaitez effectuer une mise à niveau à partir de DirSync, consultez p
 
 Il existe plusieurs stratégies que vous pouvez utiliser pour mettre à niveau Azure AD Connect.
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 | --- | --- |
 | [Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) |Pour les clients avec une installation rapide, il s’agit de la méthode la plus simple. |
 | [Mise à niveau sur place](#in-place-upgrade) |Si vous avez un seul serveur, vous pouvez mettre à niveau l’installation sur place sur le même serveur. |

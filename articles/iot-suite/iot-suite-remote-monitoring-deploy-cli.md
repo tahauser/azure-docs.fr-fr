@@ -22,7 +22,7 @@ ms.lasthandoff: 02/01/2018
 
 Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web depuis azureiotsuite.com ; pour en savoir plus sur cette option, consultez [Déployer la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour déployer la solution préconfigurée de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -52,7 +52,7 @@ Suivez les instructions à l’écran pour effectuer le processus de connexion.
 
 Quand vous déployez la solution préconfigurée, vous disposez de plusieurs options pour configurer le processus de déploiement :
 
-| Option | Valeurs | DESCRIPTION |
+| Option | Valeurs | Description |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Utilisez un déploiement _basic_ à des fins de test et de démonstration ; il déploie tous les microservices sur une seule machine virtuelle. Utilisez un déploiement _standard_ à des fins de production ; il déploie les microservices sur plusieurs machines virtuelles. Un déploiement _local_ configure un conteneur Docker pour exécuter les microservices sur votre ordinateur local, et il utilise des services Azure tels que Stockage et Cosmos DB dans le cloud. |
 | Runtime | `dotnet`, `java` | Sélectionne l’implémentation de langage des microservices. |

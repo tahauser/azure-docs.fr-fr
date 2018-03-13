@@ -52,7 +52,7 @@ Pour suivre ce didacticiel :
 
     ![Configurer la liaison de sortie Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-    | Paramètre      | Valeur suggérée  | DESCRIPTION                                |
+    | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nom du paramètre de document** | taskDocument | Nom qui fait référence à l’objet Cosmos DB dans le code. |
     | **Nom de la base de données** | taskDatabase | Nom de la base de données pour l’enregistrement des documents. |
@@ -65,7 +65,7 @@ Pour suivre ce didacticiel :
 
     ![Configurer la connexion au document Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-    | Paramètre      | Valeur suggérée  | DESCRIPTION                                |
+    | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Identifiant** | Nom de base de données | ID unique de la base de données Azure Cosmos DB  |
     | **API** | SQL | Sélectionnez l’API SQL. À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Graph. |

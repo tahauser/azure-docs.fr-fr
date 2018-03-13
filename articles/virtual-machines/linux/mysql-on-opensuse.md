@@ -148,7 +148,7 @@ quit
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur MySQL, consultez la [Documentation MySQL](http://dev.mysql.com/doc/index-topic.html).
 
 

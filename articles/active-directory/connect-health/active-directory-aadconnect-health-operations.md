@@ -155,7 +155,7 @@ Vous pouvez supprimer un utilisateur ou un groupe ajouté au contrôle d’accè
 
 [//]: # (End of RBAC section)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Installation de l’agent Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)

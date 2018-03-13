@@ -31,7 +31,7 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problèmes actuellement connus
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
 
-| Problème | DESCRIPTION |
+| Problème | Description |
 | --- | --- |
 | Plusieurs en-têtes HTTP courants ne sont pas fournis dans l’API REST. |Si vous développez des applications Media Services à l’aide de l’API REST, vous constaterez que certains champs d’en-tête HTTP courants (notamment CLIENT-REQUEST-ID, REQUEST-ID et RETURN-CLIENT-REQUEST-ID) ne sont pas pris en charge. Les en-têtes seront ajoutés dans une prochaine mise à jour. |
 | L’encodage par pourcentage n’est pas autorisé. |Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de streaming (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !* ’();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier. |

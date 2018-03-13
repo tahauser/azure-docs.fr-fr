@@ -28,7 +28,7 @@ Cet article vous indique comment configurer la récupération d’urgence vers u
 > * Créer une stratégie de réplication
 > * Activer la réplication pour une machine virtuelle
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce scénario :
 

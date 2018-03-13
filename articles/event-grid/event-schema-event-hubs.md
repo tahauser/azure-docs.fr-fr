@@ -55,7 +55,7 @@ Cet exemple d’événement montre le schéma d’un événement de hubs d’év
 
 Un événement contient les données générales suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
@@ -68,7 +68,7 @@ Un événement contient les données générales suivantes :
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | DESCRIPTION |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | fileUrl | chaîne | Chemin du fichier de capture. |
 | fileType | chaîne | Type du fichier de capture. |

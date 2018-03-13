@@ -61,7 +61,7 @@ Pendant la phase de réduction des risques et de contrôle des dommages, il est 
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Définir les options de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## <a name="see-also"></a>Voir aussi

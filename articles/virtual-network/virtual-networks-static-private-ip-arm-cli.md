@@ -268,7 +268,7 @@ Pour modifier la carte réseau de la machine virtuelle utilisée dans les comman
     > [!NOTE]
     > Si la machine virtuelle présente une taille permettant la prise en charge de plusieurs cartes réseau, exécutez la commande **azure network nic delete** afin de supprimer l’ancienne carte réseau.
    
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .
 * En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md) .
 * Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).

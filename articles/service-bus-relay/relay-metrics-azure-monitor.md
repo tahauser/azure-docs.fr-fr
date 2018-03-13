@@ -55,7 +55,7 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
-| Nom de métrique | DESCRIPTION |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 | ListenerConnections-Success (préversion) | Nombre de connexions réussies de l’écouteur vers Azure Relay au cours d’une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |ListenerConnections-ClientError (préversion)|Nombre d’erreurs du client sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
@@ -72,7 +72,7 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 ## <a name="memory-usage-metrics"></a>Mesures d’utilisation de la mémoire
 
-| Nom de métrique | DESCRIPTION |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
 |BytesTransferred (préversion)|Nombre d’octets transférés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 
@@ -80,7 +80,7 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 Azure Relay prend en charge les dimensions suivantes pour les mesures dans Azure Monitor. L’ajout de dimensions à vos métriques est facultatif. Si vous n’ajoutez pas de dimensions, les métriques sont spécifiées au niveau de l’espace de noms. 
 
-|Nom de la dimension|DESCRIPTION|
+|Nom de la dimension|Description|
 | ------------------- | ----------------- |
 |EntityName| Azure Relay prend en charge les entités de messagerie sous l’espace de noms.|
 

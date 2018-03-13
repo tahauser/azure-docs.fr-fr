@@ -47,7 +47,7 @@ Lorsque vous exécutez une requête sur Azure Cosmos DB, le kit SDK exécute les
 
 Les kits SDK offrent diverses options pour l’exécution de requêtes. Par exemple, dans .NET ces options sont disponibles dans la classe `FeedOptions`. Le tableau suivant décrit ces options ainsi que leur impact sur la durée d’exécution de la requête. 
 
-| Option | DESCRIPTION |
+| Option | Description |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | Doit être définie sur true pour une requête qui exige son exécution sur plusieurs partitions. Il s’agit d’un indicateur explicite pour vous permettre de faire des compromis de performance conscients au moment du développement. |
 | `EnableScanInQuery` | Doit être définie sur true si vous avez refusé l’indexation, mais souhaitez quand même exécuter la requête via une analyse. Uniquement applicable si l’indexation pour le chemin du filtre demandé est désactivé. | 
@@ -133,7 +133,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 Les en-têtes de réponse de la clé retournés par la requête comprennent les éléments suivants :
 
-| Option | DESCRIPTION |
+| Option | Description |
 | ------ | ----------- |
 | `x-ms-item-count` | Le nombre d’éléments retournés dans la réponse. Cela dépend du `x-ms-max-item-count` fourni, du nombre d’éléments qui peuvent être contenus dans la taille maximale de la charge utile de la réponse, du débit approvisionné et de la durée d’exécution de la requête. |  
 | `x-ms-continuation:` | Le jeton de continuation pour reprendre l’exécution de la requête, si des résultats supplémentaires sont disponibles. | 
@@ -244,7 +244,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Métrique | Unité | DESCRIPTION | 
+| Métrique | Unité | Description | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | millisecondes | Durée d’exécution de la requête | 
 | `queryCompileTimeInMs` | millisecondes | Durée de compilation de la requête  | 
@@ -266,7 +266,7 @@ Les kits SDK client peuvent effectuer plusieurs opérations de requête en inter
 
 Voici quelques exemples de requête, et la façon d’interpréter certains mesures retournées à partir de l’exécution des requêtes : 
 
-| Requête | Exemples de mesures | DESCRIPTION | 
+| Requête | Exemples de mesures | Description | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Le nombre de documents récupérés est 100 + 1 pour correspondre à la clause TOP. Le temps de la requête est essentiellement consacré à `WriteOutputTime` et `DocumentLoadTime` puisqu’il s’agit d’une analyse. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount est désormais plus élevé (500 + 1 pour correspondre à la clause TOP). | 

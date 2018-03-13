@@ -46,7 +46,7 @@ Le tableau de cet article résume les différences entre Azure Data Lake Store e
 | Disponibilité régionale |Voir [ici](https://azure.microsoft.com/regions/#services) |Disponible dans toutes les régions Azure |
 | Prix |Consultez la page [Tarification](https://azure.microsoft.com/pricing/details/data-lake-store/) |Consultez la page [Tarification](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 * [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 * [Prise en main de Data Lake Store](data-lake-store-get-started-portal.md)
 

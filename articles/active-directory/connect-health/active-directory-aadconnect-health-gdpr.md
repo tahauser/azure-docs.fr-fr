@@ -65,7 +65,7 @@ Regardez [comment supprimer une instance de service d’Azure AD Connect Health]
 Si vous souhaitez réactiver la surveillance dans Azure AD Connect Health pour un service surveillé ayant été supprimé, vous devez désinstaller puis [réinstaller Health Agent](active-directory-aadconnect-health-agent-install.md) sur tous les serveurs.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect et RGPD](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
 * [Opérations Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

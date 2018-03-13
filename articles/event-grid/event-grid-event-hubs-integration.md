@@ -64,7 +64,7 @@ Event Grid distribue des données d’événement pour les abonnés. L’exemple
 ]
 ```
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin de :
 

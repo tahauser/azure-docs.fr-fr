@@ -1,4 +1,4 @@
----
+﻿---
 title: "Transférer des données de travaux Azure Automation à OMS Log Analytics | Microsoft Docs"
 description: "Cet article montre comment envoyer des données d’état de travaux et des flux de travaux de runbook à Microsoft Operations Management Suite Log Analytics afin de renforcer la visibilité et la simplicité de gestion."
 services: automation
@@ -87,7 +87,7 @@ Dans la sortie, assurez-vous que :
 Les diagnostics d’Azure Automation créent deux types d’enregistrements dans Log Analytics, sous la balise **AzureDiagnostics**. Les requêtes suivantes utilisent le langage de requête mis à niveau pour Log Analytics. Pour plus d’informations sur les requêtes courantes entre le langage de requête hérité et le nouveau langage de requête Azure Log Analytics, consultez la page [Aide-mémoire du passage du langage de requête hérité au nouveau langage de requête Azure Log Analytics](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language).
 
 ### <a name="job-logs"></a>Journaux de travail
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | TimeGenerated |Date et heure d’exécution du travail du runbook. |
 | RunbookName_s |Nom du runbook. |
@@ -109,7 +109,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 
 
 ### <a name="job-streams"></a>Flux de travail
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | TimeGenerated |Date et heure d’exécution du travail du runbook. |
 | RunbookName_s |Nom du runbook. |

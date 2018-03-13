@@ -176,7 +176,7 @@ Vous êtes maintenant prêt à exécuter les applications.
    > 
    > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à envoyer et recevoir des messages cloud-à-appareil. 
 
 Pour voir des exemples de solutions de bout en bout qui utilisent IoT Hub, consultez [Azure IoT Suite].

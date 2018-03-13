@@ -86,7 +86,7 @@ Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez a
 
 Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu **Outils de développement**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

@@ -40,7 +40,7 @@ Les URL requises doivent également être ouvertes dans le serveur proxy. La li
 
 Parmi ces URL, le tableau suivant indique celles qui représentent le strict minimum pour pouvoir se connecter à Azure AD. Cette liste n’inclut pas de fonctionnalités facultatives, comme la réécriture du mot de passe ou Azure AD Connect Health. Elle est documentée ici pour faciliter le dépannage de la configuration initiale.
 
-| URL | Port | DESCRIPTION |
+| URL | Port | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.verisign.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |

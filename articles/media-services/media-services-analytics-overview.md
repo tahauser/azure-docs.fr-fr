@@ -136,7 +136,7 @@ Consultez [l’Annonce concernant Media Services Analytics](https://azure.micros
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

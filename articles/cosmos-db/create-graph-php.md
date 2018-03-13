@@ -53,7 +53,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
 2. Dans la page **Ajouter un graphique**, entrez les paramètres relatifs au nouveau graphique.
 
-    Paramètre|Valeur suggérée|DESCRIPTION
+    Paramètre|Valeur suggérée|Description
     ---|---|---
     ID de base de données|sample-database|Entrez le nom *sample-database* pour la nouvelle base de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
     ID du graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.

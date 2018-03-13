@@ -47,7 +47,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de compte. La fabrique de données dispose ainsi d’un accès global au stockage. Les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureStorage**. |OUI |
 | connectionString | Spécifiez les informations requises pour la connexion au stockage pour la propriété connectionString. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
@@ -90,7 +90,7 @@ Une signature d'accès partagé fournit un accès délégué aux ressources de v
 
 Pour utiliser l’authentification par signature d’accès partagé de service, les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **AzureStorage**. |OUI |
 | sasUri | Spécifiez l’URI de signature d’accès partagé des ressources de stockage, telles qu’un objet blob, un conteneur ou une table. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
@@ -129,7 +129,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données vers et depuis Table Azure, définissez la propriété de type du jeu de données sur **AzureTable** . Les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du jeu de données doit être définie sur **AzureTable**. |OUI |
 | TableName |Le nom de la table dans l’instance de base de données de stockage Table à laquelle le service lié fait référence. |OUI |
@@ -170,7 +170,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Table Azure, définissez **AzureTableSource** comme type de source dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSource**. |OUI |
 | AzureTableSourceQuery |Utilisez la requête de Table Azure personnalisée pour lire les données. Consultez les exemples dans la section suivante. |Non  |
@@ -196,7 +196,7 @@ Si vous utilisez le paramètre de pipeline, effectuez un cast de la valeur datet
 
 Pour copier des données vers la Table Azure, définissez le type de récepteur sur **AzureTableSink** dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type du récepteur d’activité de copie doit être définie sur **AzureTableSink**. |OUI |
 | azureTableDefaultPartitionKeyValue |La valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Non  |

@@ -134,6 +134,6 @@ Lorsque le code a été exécuté avec succès, le nouveau point de terminaison 
 * Nouvel apprentissage périodique d’un modèle avec de nouvelles données.
 * Distribution d’un modèle auprès des clients dans le but de leur permettre d’effectuer à nouveau l’apprentissage du modèle avec leurs propres données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Résolution des problèmes de reformation d’un service web Azure Machine Learning classique](troubleshooting-retraining-models.md)
 

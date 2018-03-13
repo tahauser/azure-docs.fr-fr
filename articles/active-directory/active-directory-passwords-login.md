@@ -116,7 +116,7 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le 
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
 * [Comment faire pour déployer la fonction SSPR ?](active-directory-passwords-best-practices.md)

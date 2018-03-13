@@ -303,7 +303,7 @@ Pour supprimer toutes les ressources créées dans cet article, procédez comme 
 
 La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Vérifiez toujours le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources du groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Gestion des zones DNS](dns-operations-dnszones.md)
 

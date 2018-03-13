@@ -127,7 +127,7 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
     ## Delete a directory
     adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Opérations de gestion des comptes sur  Data Lake Store à l’aide de Python](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>Voir aussi

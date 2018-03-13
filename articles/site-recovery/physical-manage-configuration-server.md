@@ -105,7 +105,7 @@ Exécutez le fichier d’installation de la manière suivante :
 
 ### <a name="parameters"></a>parameters
 
-|Nom du paramètre| type | DESCRIPTION| Valeurs|
+|Nom du paramètre| type | Description| Valeurs|
 |-|-|-|-|
 | /ServerMode|Obligatoire|Spécifie si les serveurs de configuration et de processus doivent être installés ou si seul le serveur de processus doit être installé|CS<br>PS|
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|

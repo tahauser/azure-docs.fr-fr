@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ![Produit ajouté](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
@@ -48,11 +48,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     Quand vous ajoutez un produit, vous devez fournir les informations suivantes : 
 
-    |NOM|DESCRIPTION|
+    |NOM|Description|
     |---|---|
     |Nom complet|Le nom qui doit apparaître dans le **portail des développeurs**.|
     |NOM|Nom descriptif du produit.|
-    |DESCRIPTION|Le champ **Description** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles.|
+    |Description|Le champ **Description** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles.|
     |État|Appuyez sur **Publié** si vous souhaitez publier le produit. Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .|
     |Nécessite une approbation|Cochez **Demander une approbation d'abonnement** si vous souhaitez qu'un administrateur révise et accepte ou refuse les tentatives d'abonnement à ce produit. Si la case n’est pas cochée, les tentatives d’abonnement sont automatiquement approuvées. |
     |Limite du nombre d’abonnements|Pour limiter le nombre de plusieurs abonnements simultanés, entrez la limite d’abonnements. |

@@ -55,7 +55,7 @@ Les exemples de commandes suivants montrent comment définir les propriétés d'
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour découvrir comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md) 
 * Pour découvrir comment ajouter un Runbook qui a déjà été développé par la Communauté ou une autre source, ou pour créer votre propre Runbook, consultez [Création ou importation d’un runbook](automation-creating-importing-runbook.md) 
 

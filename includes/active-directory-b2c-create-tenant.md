@@ -12,7 +12,7 @@ Cliquez sur **Créer un nouveau client Azure Active Directory B2C**. Les paramè
 
 ![Azure AD B2C crée un client avec l’exemple de texte dans les champs disponibles](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
-| Paramètre      | Exemple de valeur  | DESCRIPTION                                        |
+| Paramètre      | Exemple de valeur  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nom de l’organisation** | Contoso | Nom de l'organisation | 
 | **Nom de domaine initial** |  ContosoB2CTenant | Nom de domaine pour le client B2C. Par défaut, le nom de domaine initial inclut .onmicrosoft.com. Si vous créez un locataire de test, choisissez un nom hors production tel que ContosoB2CTesting. |

@@ -29,7 +29,7 @@ Les applications qui s’intègrent à Azure AD doivent être enregistrées avec
 
 >[!div class="mx-tdBreakAll"]
 >[!div class="mx-tdCol2BreakAll"]
-|Clé  |Type de valeur |Exemple de valeur  |DESCRIPTION  |
+|Clé  |Type de valeur |Exemple de valeur  |Description  |
 |---------|---------|---------|---------|
 |appID     |  Chaîne d’identificateur       |""|  Identificateur unique de l’application qui est affectée à une application par Azure AD.|
 |appRoles     |    Type de tableau     |[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]|Collection de rôles qu’une application peut déclarer. Ces rôles peuvent être assignés aux utilisateurs, groupes ou principaux du service.|

@@ -212,6 +212,6 @@ file.Close()
 os.Remove(fileName)
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et Stockage Blob Azure avec Go. Pour plus d’informations sur le kit de développement logiciel Azure Storage Blob, affichez le [Code Source](https://github.com/Azure/azure-storage-blob-go/) et la [référence de l’API](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob).

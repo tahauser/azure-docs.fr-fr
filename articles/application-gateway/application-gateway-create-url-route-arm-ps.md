@@ -360,7 +360,7 @@ Modifiez l’URL : http://<addresse-ip>:8080/video/test.html. Voici ce qui appar
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à effectuer les opérations suivantes :
 

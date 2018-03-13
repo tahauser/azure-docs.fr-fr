@@ -35,7 +35,7 @@ Un destinataire de SMS, configuré dans le cadre d’un groupe d’actions, reç
 * Le nom court du groupe d’actions auquel cette alerte a été envoyée
 - Titre de l’alerte
 
-| REPLY | DESCRIPTION |
+| REPLY | Description |
 | ----- | ----------- |
 | DISABLE <Action Group Short name> | Désactive les futurs SMS en provenance du groupe d’actions |
 | ENABLE <Action Group Short name> | Réactive les SMS en provenance du groupe d’actions |

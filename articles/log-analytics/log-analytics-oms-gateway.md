@@ -48,7 +48,7 @@ Le diagramme suivant illustre le flux de données entre un groupe d’administra
 
 ![diagramme de communication entre Operations Manager et Log Analytics](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Lorsque vous configurez un ordinateur pour qu’il s’exécute sur la passerelle OMS, cet ordinateur doit disposer des éléments suivants :
 

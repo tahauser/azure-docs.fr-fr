@@ -211,7 +211,7 @@ Seuls les appareils StorSimple exécutant Update 5.0 et des versions ultérieur
 | Activer et désactiver des contrôleurs d’appareils                                                                                              | Oui            |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le [processus de déploiement StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * En savoir plus sur la [gestion de votre compte de stockage StorSimple](storsimple-8000-manage-storage-accounts.md).
 * En savoir plus sur [l’utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).

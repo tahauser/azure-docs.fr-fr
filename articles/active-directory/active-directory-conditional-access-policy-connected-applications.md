@@ -73,7 +73,7 @@ Si vous avez une empreinte Active Directory (AD) locale, vous pouvez envisager d
 ![Applications cloud](./media/active-directory-conditional-access-policy-connected-applications/25.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Avant de configurer une stratégie d’accès conditionnel basé sur les appareils dans votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).
 

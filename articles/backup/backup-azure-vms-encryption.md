@@ -37,7 +37,7 @@ Cet article présente les étapes pour sauvegarder et restaurer des machines vir
    | **Machines virtuelles non gérées**  | OUI | OUI  |
    | **Machines virtuelles gérées**  | OUI | OUI  |
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * La machine virtuelle a été chiffrée à l’aide d’[Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 
 * Un coffre Recovery Services a été créé et la réplication du stockage a été définie en suivant les étapes de la rubrique [Préparation de l’environnement pour la sauvegarde](backup-azure-arm-vms-prepare.md).

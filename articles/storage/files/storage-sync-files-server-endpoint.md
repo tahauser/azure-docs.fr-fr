@@ -69,6 +69,6 @@ Pour supprimer le point de terminaison de serveur
 
     ![Suppression d’un point de terminaison de serveur d’un groupe de synchronisation](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Inscrire/désinscrire un serveur de la synchronisation de fichiers Azure (préversion)](storage-sync-files-server-registration.md)
 - [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)

@@ -325,7 +325,7 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)

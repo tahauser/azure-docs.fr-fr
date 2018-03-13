@@ -68,7 +68,7 @@ Il est possible de supprimer ou vider définitivement un coffre Key Vault en ex
 
 sauf si l’abonnement Azure a été marqué comme *impossible à supprimer*. Dans ce cas, seul le service peut alors effectuer la suppression, dans le cadre d’un processus planifié. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les deux guides ci-après présentent les principaux scénarios d’usage de la suppression réversible.
 

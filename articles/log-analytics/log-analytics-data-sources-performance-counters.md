@@ -32,7 +32,7 @@ Quand vous procédez à la configuration initiale des compteurs de performances 
 
 Pour les compteurs de performances Windows, vous pouvez choisir une instance spécifique de chaque compteur de performances. Pour les compteurs de performances Linux, l’instance de chaque compteur choisi s’applique à tous les compteurs enfants du compteur parent. Le tableau suivant montre les instances courantes disponibles pour les compteurs de performances Linux et Windows.
 
-| Nom de l’instance | DESCRIPTION |
+| Nom de l’instance | Description |
 | --- | --- |
 | \_Total |Total de toutes les instances |
 | \* |Toutes les instances |
@@ -80,7 +80,7 @@ Chaque objet, ou catégorie, de mesures de performances à collecter doit être 
 
 Les paramètres de cet élément sont décrits dans le tableau suivant.
 
-| parameters | DESCRIPTION |
+| parameters | Description |
 |:--|:--|
 | object\_name | Nom de l’objet pour la collecte. |
 | instance\_regex |  *Expression régulière* qui définit les instances à collecter. La valeur `.*` spécifie toutes les instances. Pour ne collecter les mesures de processeur que de l’instance \_Total, vous pouvez spécifier `_Total`. Pour uniquement collecter les mesures de processus des instances crond ou sshd, vous pouvez indiquer : `(crond\|sshd)`. |
@@ -187,7 +187,7 @@ Log Analytics collecte tous les compteurs de performances spécifiés selon l’
 ## <a name="performance-record-properties"></a>Propriétés des enregistrements de performances
 Les enregistrements de performances sont de type **Perf** et leurs propriétés sont décrites dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Ordinateur |Ordinateur sur lequel l’événement a été collecté. |
 | CounterName |Nom du compteur de performances. |
@@ -206,7 +206,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 ## <a name="log-searches-with-performance-records"></a>Recherches de journal avec des enregistrements de performances
 Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements de performances.
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |:--- |:--- |
 | Perf |Toutes les données de performances |
 | Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |

@@ -66,5 +66,5 @@ Les [plans](azure-stack-key-features.md) regroupent un ou plusieurs services. En
 
     ![](media/azure-stack-create-plan/image12.png)
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 [Créer une offre](azure-stack-create-offer.md)

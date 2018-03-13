@@ -136,5 +136,5 @@ Pour configurer pgAdmin 4 de façon à établir une connexion sécurisée via SS
 
 ![Capture d’écran de pgAdmin - connexion - conditions du mode SSL](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Passez en revue les différentes options de connectivité d’application de la page [Bibliothèques de connexions d’Azure Database pour PostgreSQL](concepts-connection-libraries.md).

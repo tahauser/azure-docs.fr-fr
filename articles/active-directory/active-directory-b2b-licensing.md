@@ -69,7 +69,7 @@ Un utilisateur invité B2B est invité à partir d’une organisation partenaire
 
       * Le conglomérat n’utilise pas Azure AD ou ne dispose pas des licences adéquates : dans ce cas, suivez la formule 1 à 5 présentée précédemment dans ce document.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

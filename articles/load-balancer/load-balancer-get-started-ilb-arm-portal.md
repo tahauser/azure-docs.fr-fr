@@ -98,7 +98,7 @@ Configurez un pool d’adresses principal, ainsi qu’une sonde avant de configu
 11. Sous **Adresse IP flottante (retour serveur direct)**, cliquez sur **Désactivé** ou **Activé**.
 12. Cliquez sur **OK**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 

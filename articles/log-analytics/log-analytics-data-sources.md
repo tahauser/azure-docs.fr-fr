@@ -31,7 +31,7 @@ Les sources de données sont différentes des [solutions de gestion](log-analyti
 ## <a name="summary-of-data-sources"></a>Résumé des sources de données
 Les sources de données actuellement disponibles dans Log Analytics sont répertoriées dans le tableau suivant.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.
 
-| source de données | Type d'événement | DESCRIPTION |
+| source de données | Type d'événement | Description |
 |:--- |:--- |:--- |
 | [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Fichiers texte sur les agents Windows ou Linux, qui contiennent des informations des journal. |
 | [Journaux d’événements Windows](log-analytics-data-sources-windows-events.md) |Événement |Événements collectés à partir du journal des événements d’ordinateurs Windows. |

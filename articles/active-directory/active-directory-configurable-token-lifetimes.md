@@ -363,7 +363,7 @@ Permet de créer une stratégie.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
@@ -380,7 +380,7 @@ Permet d’obtenir toutes les stratégies d’Azure AD ou une stratégie spéci
 Get-AzureADPolicy
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> [Facultatif] |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
@@ -393,7 +393,7 @@ Permet d’obtenir toutes les applications et tous les principaux de service li�
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
@@ -406,7 +406,7 @@ Met à jour une stratégie existante.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
@@ -424,7 +424,7 @@ Supprime la stratégie spécifiée.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. | `-Id <ObjectId of Policy>` |
 
@@ -440,7 +440,7 @@ Lie la stratégie spécifiée à une application.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
@@ -454,7 +454,7 @@ Permet d’obtenir la stratégie affectée à une application.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
@@ -467,7 +467,7 @@ Supprime une stratégie d’une application.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |
@@ -484,7 +484,7 @@ Lie la stratégie spécifiée à un principal de service.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
@@ -498,7 +498,7 @@ Permet d’obtenir une stratégie liée au principal de service spécifié.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
@@ -511,7 +511,7 @@ Supprime la stratégie du principal de service spécifié.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| parameters | DESCRIPTION | exemples |
+| parameters | Description | exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |

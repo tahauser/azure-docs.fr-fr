@@ -73,6 +73,6 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 
   * **version actuelle :** il n’existe plus aucun upcast automatique des valeurs de chaîne avec des informations de date/heure/fuseau horaire en type DateTime. Les informations relatives au fuseau horaire sont donc conservées. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Guide de dépannage pour Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
 * [Panneau Resource Health de Stream Analytics](stream-analytics-resource-health.md)

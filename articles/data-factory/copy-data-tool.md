@@ -104,7 +104,7 @@ Une opération de copie unique ne permet le déplacement des données à d’une
 ![Options de planification](./media/copy-data-tool/scheduling-options.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez ces didacticiels qui utilisent l’outil Copier des données :
 
 - [Démarrage rapide : créer une fabrique de données à l’aide de l’outil Copier des données](quickstart-create-data-factory-copy-data-tool.md)

@@ -178,5 +178,5 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 Après une courte période, les utilisateurs que vous avez sélectionnés sont en mesure de lancer ces applications dans le panneau d’accès.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)

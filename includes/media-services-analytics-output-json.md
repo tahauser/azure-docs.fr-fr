@@ -4,7 +4,7 @@ Le fichier JSON de sortie contient les éléments suivants :
 
 ### <a name="root-json-elements"></a>Éléments JSON racine
 
-| Élément | DESCRIPTION |
+| Élément | Description |
 | --- | --- |
 | version |Cela vaut pour la version de l’API vidéo. |
 | échelle de temps |« Cycles » par seconde de la vidéo. |
@@ -15,7 +15,7 @@ Le fichier JSON de sortie contient les éléments suivants :
 
 ### <a name="fragments-json-elements"></a>Fragments d’éléments JSON
 
-|Élément|DESCRIPTION|
+|Élément|Description|
 |---|---|
 | start |L’heure de début du premier événement en « cycles ». |
 | duration |La durée du fragment en « cycles ». |

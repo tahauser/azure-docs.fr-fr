@@ -302,7 +302,7 @@ La requête suivante renvoie toutes les familles dont le nombre d’enfants est 
 
 Aucun résultat n’est renvoyé car aucune n’a plus de 2 enfants. Cette requête ne permet d’obtenir un résultat que lorsque le paramètre est 2, auquel cas l’ensemble du document est renvoyé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

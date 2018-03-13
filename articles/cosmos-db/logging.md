@@ -431,7 +431,7 @@ Les données de diagnostic stockées dans le stockage Azure et Log Analytics sui
 
 Le tableau suivant décrit le contenu de chaque entrée de journal.
 
-| Propriété ou champ du stockage Azure | Propriété de Log Analytics | DESCRIPTION |
+| Propriété ou champ du stockage Azure | Propriété de Log Analytics | Description |
 | --- | --- | --- |
 | time | TimeGenerated | Date et heure (UTC) de l’opération. |
 | ResourceId | Ressource | Le compte Azure Cosmos DB pour lequel les journaux sont activés.|

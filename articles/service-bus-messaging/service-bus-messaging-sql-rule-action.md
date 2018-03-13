@@ -219,7 +219,7 @@ La fonction `property(name)` renvoie la valeur de la propriété référencée p
 - L’action réussit s’il est fait référence à des propriétés d’utilisateur inexistantes.
 - Une propriété d’utilisateur inexistante est évaluée comme « Inconnue » en interne, suivant la même sémantique que [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) lors de l’évaluation des opérateurs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

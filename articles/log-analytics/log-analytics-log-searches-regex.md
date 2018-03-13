@@ -57,7 +57,7 @@ En effet, seule la première partie du nom correspond à l’expression réguli�
 ## <a name="characters"></a>Caractères
 Cette section décrit les méthodes vous permettant de spécifier différents caractères.
 
-| Caractère | DESCRIPTION | exemples | Exemples de correspondances |
+| Caractère | Description | exemples | Exemples de correspondances |
 |:--|:--|:--|:--|
 | a | Une seule occurrence du caractère. | Computer=RegEx("srv01.contoso.com") | srv01.contoso.com |
 | . | N’importe quel caractère unique. | Computer=RegEx("srv...contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
@@ -75,7 +75,7 @@ Cette section décrit les méthodes vous permettant de spécifier différents ca
 ## <a name="multiple-occurences-of-character"></a>Plusieurs occurrences d’un caractère
 Cette section décrit les méthodes vous permettant de spécifier plusieurs occurrences d’un caractère spécifique.
 
-| Caractère | DESCRIPTION | exemples | Exemples de correspondances |
+| Caractère | Description | exemples | Exemples de correspondances |
 |:--|:--|:--|:--|
 | a{n} |  *n* occurrences du caractère. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
 | a{n,} |  Au moins *n* occurrences du caractère. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
@@ -85,7 +85,7 @@ Cette section décrit les méthodes vous permettant de spécifier plusieurs occu
 ## <a name="logical-expressions"></a>Expressions logiques
 Cette section décrit les méthodes vous permettant de spécifier une sélection parmi plusieurs valeurs.
 
-| Caractère | DESCRIPTION | exemples | Exemples de correspondances |
+| Caractère | Description | exemples | Exemples de correspondances |
 |:--|:--|:--|:--|
 | &#124; | OR logique.  Renvoie un résultat en cas de correspondance avec l’une des expressions. | Type=Alert AlertSeverity=RegEx("Avertissement&#124;Erreur") | Avertissement<br>Error |
 | & | AND logique.  Renvoie un résultat en cas de correspondance avec les deux expressions. | EventData=regex("(sécurité.\*&.\*réussi.\*)") | Audit de sécurité réussi |
@@ -94,7 +94,7 @@ Cette section décrit les méthodes vous permettant de spécifier une sélection
 ## <a name="literals"></a>Littéraux
 Cette section décrit la méthode vous permettant de convertir des caractères spéciaux en caractères littéraux.  Ceci inclut les caractères qui fournissent des fonctionnalités aux expressions régulières telles que ?-\*^\[\]{}\(\)+\|.&.
 
-| Caractère | DESCRIPTION | exemples | Exemples de correspondances |
+| Caractère | Description | exemples | Exemples de correspondances |
 |:--|:--|:--|:--|
 | \\ | Convertit un caractère spécial en littéral. | Status_CF=\\[Erreur\\]@<br>Status_CF=Erreur\\-@ | [Erreur]Fichier introuvable.<br>Erreur-Fichier introuvable. |
 

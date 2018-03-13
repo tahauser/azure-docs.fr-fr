@@ -28,7 +28,7 @@ Les autres tâches incluent la configuration d’actions automatisées, l’exé
 ### <a name="list-of-metrics"></a>Liste des métriques
 Ces métriques sont disponibles pour Azure Database pour MySQL :
 
-|Métrique|Nom d’affichage de la métrique|Unité|DESCRIPTION|
+|Métrique|Nom d’affichage de la métrique|Unité|Description|
 |---|---|---|---|---|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Pourcentage d’UC en cours d’utilisation.|
 |compute_limit|Limite d’unités de calcul|Count|Nombre maximal d’unités de calcul de ce serveur.|

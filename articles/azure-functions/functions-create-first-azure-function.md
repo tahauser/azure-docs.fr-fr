@@ -79,7 +79,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez créé une Function App avec une simple fonction déclenchée via HTTP.  
 

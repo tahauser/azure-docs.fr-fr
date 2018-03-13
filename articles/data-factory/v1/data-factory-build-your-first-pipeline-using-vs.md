@@ -59,7 +59,7 @@ Voici les étapes à effectuer dans le cadre de cette procédure pas à pas :
 4. Créez une fabrique de données nommée **DataFactoryUsingVS**. Déployez la fabrique de données et toutes les entités Data Factory (services liés, tables et pipeline).
 5. Après la publication, utilisez les panneaux du portail Azure et l’application de surveillance et gestion pour surveiller le pipeline. 
   
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes **préalables** . Vous pouvez également sélectionner l’option **Vue d’ensemble et étapes préalables requises** de la liste déroulante figurant en haut de la page pour basculer vers l’article correspondant. Une fois les étapes préalables suivies, revenez à cet article en sélectionnant l’option **Visual Studio** dans la liste déroulante.
 2. Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.  
 3. Les composants suivants doivent être installés sur votre ordinateur :
@@ -119,7 +119,7 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
 
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-    Propriété | DESCRIPTION
+    Propriété | Description
     -------- | ----------- 
     ClusterSize | Spécifie la taille du cluster HDInsight Hadoop.
     TimeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
@@ -168,7 +168,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-    Propriété | DESCRIPTION |
+    Propriété | Description |
     -------- | ----------- |
     Type |La propriété de type est définie sur **AzureBlob**, car les données se trouvent dans le Stockage Blob Azure.
     linkedServiceName | Fait référence au service AzureStorageLinkedService1 que vous avez créé précédemment.
@@ -562,7 +562,7 @@ Vous pouvez chaîner deux activités (une après l’autre) en configurant le je
 
 
 ## <a name="see-also"></a>Voir aussi
-| Rubrique | DESCRIPTION |
+| Rubrique | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données pour votre scénario ou votre entreprise. |
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |

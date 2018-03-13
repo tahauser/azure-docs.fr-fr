@@ -41,5 +41,5 @@ Pour contourner ce problème, vous avez deux possibilités :
 
 2. **Réduire la quantité de données de configuration stockées** : toutes les données saisies dans la section [informations d’identification d’administrateur](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) de l’onglet Approvisionnement sont stockées au même endroit que le certificat SAML. S’il n’est pas possible de réduire la longueur de toutes ces données, certains champs de configuration facultatifs tels que **E-mail de notification** peuvent être supprimés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Configurer l’approvisionnement et l’annulation de l’approvisionnement pour les applications SaaS](active-directory-saas-app-provisioning.md)

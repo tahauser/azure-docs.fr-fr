@@ -127,7 +127,7 @@ Les ressources suivantes ont été évoquées dans cet article.
 * [Client Aspera](http://downloads.asperasoft.com/en/downloads/2)
 * [Guide client](http://downloads.asperasoft.com/en/documentation/2)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez désormais [copier des objets blob d’un compte de stockage dans un compte AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 

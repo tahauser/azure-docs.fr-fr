@@ -75,7 +75,7 @@ Azure SQL Database identifie des recommandations**CREATE INDEX**, **DROP INDEX**
 
 Vous pouvez activer ou désactiver les options de réglage automatique par base de données ou vous pouvez les configurer sur le serveur logique et les appliquer sur chaque base de données qui hérite des paramètres du serveur. La méthode recommandée consiste à configurer les options de réglage automatique sur le serveur et à hériter des paramètres sur les bases de données. Cette méthode simplifie la gestion des options de réglage automatique sur un grand nombre de bases de données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour activer le réglage automatique dans Azure SQL Database afin de gérer votre charge de travail, consultez [Activer le réglage automatique](sql-database-automatic-tuning-enable.md).
 - Pour consulter et appliquer manuellement des recommandations de réglage d’automatique, consultez [Rechercher et appliquer des recommandations en matière de performances](sql-database-advisor-portal.md).

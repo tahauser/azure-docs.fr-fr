@@ -68,7 +68,7 @@ Comprendre la fréquence à laquelle chaque client utilise le service fournit un
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 

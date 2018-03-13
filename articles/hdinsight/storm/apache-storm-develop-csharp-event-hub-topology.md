@@ -112,7 +112,7 @@ topologyBuilder.SetJavaBolt(
 
 Vous pouvez télécharger une version complète du projet créé dans ce didacticiel à partir de [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Toutefois, vous devrez tout de même fournir des paramètres de configuration en suivant les étapes de ce didacticiel.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 * Un cluster [Apache Storm sur HDInsight version 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
 

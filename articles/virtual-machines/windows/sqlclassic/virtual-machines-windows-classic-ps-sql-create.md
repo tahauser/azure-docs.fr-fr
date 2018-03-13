@@ -195,7 +195,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Une fois que vous vous êtes connecté à la machine à l’aide du Bureau à distance, configurez SQL Server en vous basant sur les instructions de la [procédure de configuration de la connectivité SQL Server dans une machine virtuelle Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous trouverez des instructions supplémentaires sur l’approvisionnement des machines virtuelles avec PowerShell dans la [documentation sur les machines virtuelles](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

@@ -69,7 +69,7 @@ Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Cha
 
 Les chaînes JSON du journal d’archivage incluent les éléments listés dans le tableau suivant :
 
-NOM | DESCRIPTION
+NOM | Description
 ------- | -------
 TaskName | Description de la tâche en échec.
 ActivityId | ID interne, utilisé à des fins de suivi.
@@ -107,7 +107,7 @@ Le code suivant est un exemple de chaîne JSON de journal d’archivage :
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-NOM | DESCRIPTION
+NOM | Description
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi.
 EventName | Nom d’opération.  

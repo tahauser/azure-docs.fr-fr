@@ -37,7 +37,7 @@ Pour plus d’informations sur l’encodage et le décodage des messages envoyé
 
 Le tableau suivant répertorie l’ensemble des propriétés système dans les messages IoT Hub.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | MessageId |Identificateur correspondant au message défini par l’utilisateur utilisé pour les modèles demande-réponse. Format : une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Numéro de séquence |Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |

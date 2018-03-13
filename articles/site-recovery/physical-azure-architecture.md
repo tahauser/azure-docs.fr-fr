@@ -76,6 +76,6 @@ Après avoir configuré la réplication et exécuté une simulation de récupér
 ![Restauration automatique](./media/physical-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Suivez [ce didacticiel](physical-azure-disaster-recovery.md) pour savoir comment activer la réplication d’un serveur physique vers Azure.

@@ -76,7 +76,7 @@ Calculating upgrade... Done
 
 Vous pouvez également constater que `httpd` a été installé en exécutant `yum history` et passer en revue le référencement de sortie `httpd`. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des exemples cloud-init supplémentaires de modifications de configuration, consultez les rubriques suivantes :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)

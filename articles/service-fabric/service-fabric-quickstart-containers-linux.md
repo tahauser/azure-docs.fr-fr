@@ -141,7 +141,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
 ./uninstall.sh
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 > [!div class="checklist"]
 > * Déployer une application de conteneur Linux vers Azure

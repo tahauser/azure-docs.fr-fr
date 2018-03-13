@@ -85,5 +85,5 @@ Outre l’analyse de l’objet, la tâche de résolution des problèmes génère
 
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch8.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

@@ -71,7 +71,7 @@ Après avoir établi la liste des machines virtuelles à profiler, vous pouvez e
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nom du paramètre | DESCRIPTION |
+| Nom du paramètre | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | Le nom de domaine complet ou l’adresse IP du serveur vCenter/de l’hôte vSphere ESXi dont les machines virtuelles doivent être profilées.|
@@ -148,7 +148,7 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nom du paramètre | DESCRIPTION |
+|Nom du paramètre | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  Le nom de domaine complet ou l’adresse IP du serveur vCenter/vSphere (utilisez le même nom ou la même adresse IP que ceux utilisés lors du profilage) sur lequel se trouvent les machines virtuelles profilées dont le rapport doit être généré. Notez que si vous avez utilisé un serveur vCenter au moment du profilage, vous ne pouvez pas utiliser un serveur vSphere pour la génération de rapport, et inversement.|
@@ -258,7 +258,7 @@ Ouvrez une console de ligne de commande et accédez au dossier de l’outil de p
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nom du paramètre | DESCRIPTION |
+|Nom du paramètre | Description |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|

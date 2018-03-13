@@ -41,7 +41,7 @@ Assurez-vous que la fonctionnalité d’authentification directe est toujours **
 
 Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l’un des messages d’erreur suivants peut s’afficher sur l’écran de connexion Azure AD : 
 
-|Error|DESCRIPTION|Résolution :
+|Error|Description|Résolution :
 | --- | --- | ---
 |AADSTS80001|Impossible de se connecter à Active Directory|Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory.  
 |AADSTS8002|Délai d’attente dépassé lors de la connexion à Active Directory|Vérifiez qu’Active Directory est disponible et répond aux demandes des agents.

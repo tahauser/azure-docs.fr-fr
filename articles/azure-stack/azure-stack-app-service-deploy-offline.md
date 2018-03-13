@@ -199,7 +199,7 @@ Vous *devez* disposer d’un abonnement locataire pour créer des applications q
 
 3. Si vous avez également déployé un fournisseur de ressources SQL Server, vous pouvez déployer un site web DNN à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, sélectionnez une base de données sur l’ordinateur exécutant SQL Server connecté à votre fournisseur de ressources.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également tester d’autres [services PaaS](azure-stack-tools-paas-services.md).
 

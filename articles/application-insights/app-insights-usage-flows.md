@@ -92,7 +92,7 @@ Utilisez les options **Split by** (Fractionner par) dans le menu **Edit** (Édit
 1. Choisissez l’événement que vous voulez décomposer le menu **Événement**.
 2. Choisissez une dimension dans le menu **Dimension**. Par exemple, si vous disposez d’un événement appelé « Button Clicked », essayez une propriété personnalisée appelée « Button Name ».
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de l’utilisation](app-insights-usage-overview.md)
 * [Utilisateurs, Sessions et Événements](app-insights-usage-segmentation.md)

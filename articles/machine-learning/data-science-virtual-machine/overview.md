@@ -149,7 +149,7 @@ De nombreux outils de science des données et d’apprentissage approfondi popul
 * Dans l’invite de commandes, entrez dsvm-plus-info.
 * Pour un ordinateur de bureau graphique, téléchargez le client X2Go pour votre plateforme cliente [ici](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) et suivez les instructions dans le document de la machine virtuelle Science des données Linux [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 ### <a name="for-the-windows-data-science-vm"></a>Pour la machine virtuelle Science des données Windows
 * Pour plus d’informations sur l’exécution des outils spécifiques disponibles sur la version Windows, consultez [Approvisionnement d’une machine virtuelle pour la science des données](provision-vm.md) et
 * Pour plus d’informations sur l’exécution de diverses tâches nécessaires à votre projet de science des données sur la machine virtuelle Windows, consultez [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](vm-do-ten-things.md).

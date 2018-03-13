@@ -49,7 +49,7 @@ Ce tutoriel vous guide tout au long de l’utilisation du Portail Azure pour ajo
 
    Le panneau du laboratoire affiche l’état de la création de la machine virtuelle, tout d’abord sous la forme **Création en cours**, puis sous la forme **En cours d’exécution** après le démarrage de la machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Une fois la machine virtuelle créée, vous pouvez vous y connecter en sélectionnant **Connexion** dans le panneau de la machine virtuelle.
 * Pour plus d’informations sur l’ajout des machines virtuelles suivantes à votre laboratoire, consultez [Ajouter une machine virtuelle à un laboratoire](devtest-lab-add-vm.md).
 * Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

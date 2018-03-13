@@ -108,6 +108,6 @@ Pour afficher les résultats détaillés du Runbook, cliquez sur la mosaïque **
 
 N’oubliez pas de supprimer le cmdlet **Get-AzureVM** lorsque vous réutilisez le code de vos runbooks.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).

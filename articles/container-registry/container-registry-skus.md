@@ -18,7 +18,7 @@ ms.lasthandoff: 12/18/2017
 
 Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, appelés références (SKU). Ces références SKU offrent une tarification prévisible et plusieurs options pour l’alignement en fonction de la capacité et des modèles d’utilisation de votre registre Docker privé dans Azure.
 
-| SKU | Adresses IP gérées | DESCRIPTION |
+| SKU | Adresses IP gérées | Description |
 | --- | :-------: | ----------- |
 | **De base** | OUI | Point d’entrée au coût optimisé pour les développeurs apprenant Azure Container Registry. Les registres De base ont les mêmes fonctionnalités de programmation que les registres Standard et Premium (intégration de l’authentification Azure Active Directory, suppression d’image et webhooks). Toutefois, il existe des contraintes de taille et d’utilisation. |
 | **Standard** | OUI | Les registres standard offrent les mêmes fonctionnalités que la version De base, avec des limites de stockage et un débit d’image accrus. Les registres Standard devraient satisfaire les besoins de la plupart des scénarios de production. |

@@ -91,7 +91,7 @@ Une fois la machine virtuelle configurée, cloud-init est exécuté dans l’ens
 
 Pour plus d’informations sur la journalisation de cloud-init, consultez la [documentation cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des exemples cloud-init de modifications de configuration, consultez les documents suivants :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)

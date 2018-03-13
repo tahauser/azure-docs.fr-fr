@@ -38,7 +38,7 @@ OneDrive/SharePoint Online possède un gestionnaire d’invitation distinct. La 
 
 ![Paramètre OneDrive/SharePoint Online de partage externe](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

@@ -53,7 +53,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié PostgreSQL sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **PostgreSql** | OUI |
 | server | Nom du serveur PostgreSQL. |OUI |
@@ -93,7 +93,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de PostgreSQL, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | OUI |
 | TableName | Nom de la table dans la base de données PostgreSQL. | Non (si « query » dans la source de l’activité est spécifié) |
@@ -123,7 +123,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de PostgreSQL, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Non (si « tableName » est spécifié dans dataset) |

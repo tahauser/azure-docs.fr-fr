@@ -592,7 +592,7 @@ Voici un autre exemple :
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les recherches de journal, consultez les ressources suivantes :
 
 * Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.

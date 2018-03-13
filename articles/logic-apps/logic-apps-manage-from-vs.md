@@ -83,7 +83,7 @@ Pour afficher l’historique des exécutions d’une instance et voir les résul
 
 ![Exécution des résultats de l’historique, des entrées et des sorties](./media/logic-apps-manage-from-vs/history.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créez votre première application logique](quickstart-create-first-logic-app-workflow.md)
 * [Concevoir, créer et déployer des applications logiques dans Visual Studio](logic-apps-deploy-from-vs.md)

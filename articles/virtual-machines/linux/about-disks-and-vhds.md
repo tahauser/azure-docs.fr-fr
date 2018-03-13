@@ -53,7 +53,7 @@ Vous pouvez ajouter un disque de données à une machine virtuelle à tout momen
 ## <a name="troubleshooting"></a>Résolution de problèmes
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Attacher un disque](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
 * [Créez un instantané](snapshot-copy-managed-disk.md).
 * [Convertissez en disques gérés](convert-unmanaged-to-managed-disks.md).

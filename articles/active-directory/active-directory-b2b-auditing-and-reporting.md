@@ -33,7 +33,7 @@ Vous pouvez explorer chacun de ces événements pour en obtenir les détails. Ex
 
 Vous pouvez également exporter ces journaux à partir d’Azure AD et utiliser l’outil de création de rapports de votre choix afin d’obtenir des rapports personnalisés.
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

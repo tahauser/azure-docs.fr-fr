@@ -293,7 +293,7 @@ Pour la récupération d’urgence régionale, vous devez sauvegarder vos disque
 
 Pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde, utilisez Sauvegarde Azure. Vous pouvez utiliser la sauvegarde avec des disques gérés et non gérés. Pour plus d’informations, consultez [Sauvegarde Azure de machines virtuelles avec des disques non gérés](../articles/backup/backup-azure-vms-first-look-arm.md) et [Sauvegarde Azure de machines virtuelles avec des disques gérés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage Premium, voir les articles suivants.
 
 ### <a name="design-and-implement-with-premium-storage"></a>Conception et implémentation avec le stockage Premium

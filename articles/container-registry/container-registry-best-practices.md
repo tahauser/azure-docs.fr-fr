@@ -91,7 +91,7 @@ Pour supprimer un référentiel à partir d’un registre dans le portail Azure,
 
 De la même manière, vous pouvez également supprimer les balises d’un référentiel. Accédez au référentiel, faites un clic droit sur la balise que vous souhaitez supprimer sous **BALISES**, puis sélectionnez **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Azure Container Registry est disponible en plusieurs niveaux, appelés références SKU, qui fournissent chacun des fonctionnalités différentes. Pour plus d’informations sur les références SKU disponibles, consultez [Références (SKU) Azure Container Registry](container-registry-skus.md).
 

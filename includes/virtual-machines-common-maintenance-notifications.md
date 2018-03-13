@@ -15,7 +15,7 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
    **Maintenance** : affiche l’état de maintenance de la machine virtuelle. Les valeurs potentielles sont les suivantes :
       
-      | Valeur | DESCRIPTION |
+      | Valeur | Description |
       |-------|-------------|
       | Démarrer maintenant | La machine virtuelle étant dans la fenêtre de maintenance libre-service, vous pouvez lancer la maintenance vous-même. Consultez la procédure ci-dessous pour démarrer la maintenance sur votre machine virtuelle. | 
       | Planifiée | Une maintenance est planifiée sur la machine virtuelle, mais aucune option de lancement ne vous est proposée. Pour déterminer la fenêtre de maintenance, sélectionnez la fenêtre Planifiée automatiquement dans cet affichage ou cliquez sur la machine virtuelle. | 

@@ -170,5 +170,5 @@ Pour définir le mode **d’authentification unique** d’une application, proc�
 
 7.  Une fois l’application chargée, cliquez sur **Approvisionnement** dans le menu de navigation de gauche de l’application.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

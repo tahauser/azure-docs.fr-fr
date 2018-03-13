@@ -45,7 +45,7 @@ Les fichiers et les états de l’interpréteur de commandes sont conservés dan
 L’interface de ligne de commande Azure 2.0 est disponible dans le Cloud Shell et constitue un outil idéal pour tester les configurations et vérifier votre travail après l’exécution d’une opération `terraform apply` ou `terraform destroy`.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Créer un petit cluster de machines virtuelles à l’aide du registre de modules](terraform-create-vm-cluster-module.md)
 [Créer un petit cluster de machines virtuelles à l’aide du langage HCL personnalisé](terraform-create-vm-cluster-with-infrastructure.md)

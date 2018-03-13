@@ -67,7 +67,7 @@ Quand vous avez terminé l’ajout ou la modification des enregistrements DNS au
 ## <a name="enable-traffic-manager"></a>Activation de Traffic Manager
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

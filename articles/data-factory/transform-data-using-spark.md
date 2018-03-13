@@ -65,7 +65,7 @@ Voici l’exemple de définition JSON d’une activité Spark :
 
 Le tableau suivant décrit les propriétés JSON utilisées dans la définition JSON :
 
-| Propriété              | DESCRIPTION                              | Obligatoire |
+| Propriété              | Description                              | Obligatoire |
 | --------------------- | ---------------------------------------- | -------- |
 | Nom                  | Nom de l'activité dans le pipeline.    | OUI      |
 | description           | Texte décrivant l’activité.  | Non        |
@@ -85,7 +85,7 @@ Les travaux Spark sont plus extensibles que les travaux Pig/Hive. Pour les trava
 
 Créez la structure de dossiers suivante dans le stockage Blob Azure référencé par le service lié HDInsight. Ensuite, téléchargez les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, téléchargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob Azure :     
 
-| path                  | DESCRIPTION                              | Obligatoire | type   |
+| path                  | Description                              | Obligatoire | type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (racine)            | Chemin d’accès racine du travail Spark dans le service lié de stockage | OUI      | Dossier |
 | &lt;défini par l’utilisateur &gt; | Chemin d’accès pointant vers le fichier d’entrée du travail Spark | OUI      | Fichier   |

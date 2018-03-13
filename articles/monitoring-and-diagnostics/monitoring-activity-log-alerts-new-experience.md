@@ -153,7 +153,7 @@ Procédez comme suit :
 4.  Vous pouvez désactiver, activer ou supprimer un profil. Sélectionnez l’option souhaitée en haut de la fenêtre, après avoir sélectionné la règle en suivant les instructions de l’étape 2.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Archiver des alertes de journal d’activité](monitoring-archive-activity-log.md)
 - [Transmettre des journaux d’activité à Event Hubs](monitoring-stream-activity-logs-event-hubs.md)

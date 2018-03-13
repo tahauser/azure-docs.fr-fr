@@ -167,7 +167,7 @@ Le tableau suivant répertorie les tests de validation exécutés par Test-Azure
 | Événements critiques d’unité d’échelle Azure Stack (au cours des 8 dernières heures)                                                                             |
 | Résumé des disques physiques des services de stockage Azure Stack                                                                               |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
  - Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, voir [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md).
  - Pour plus d’informations sur la résolution des problèmes, voir [Résolution des problèmes de Microsoft Azure Stack](azure-stack-troubleshooting.md).

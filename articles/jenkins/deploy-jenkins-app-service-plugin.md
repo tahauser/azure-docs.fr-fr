@@ -227,7 +227,7 @@ Pour la valeur **URL de Registre Docker**, entrez l’URL à l’aide du format 
 
 3. Accédez à http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Remplacez &lt;x> et &lt;y> par n’importe quels chiffres pour obtenir la somme de x + y.
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé le plug-in Jenkins Azure App Service pour effectuer le déploiement sur Azure.
 

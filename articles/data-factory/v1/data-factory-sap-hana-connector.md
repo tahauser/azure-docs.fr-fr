@@ -58,7 +58,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié SAP HANA.
 
-Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | chaîne | OUI
 authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | OUI 
@@ -80,7 +80,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Lorsque la source de l’activité de copie est de type **RelationalSource** (qui inclut SAP HANA), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Requête SQL. | OUI |
 

@@ -132,5 +132,5 @@ Dans l’image ci-dessous, vous pouvez voir clairement la cause première des as
  
 ![Tableau de bord des topologies](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

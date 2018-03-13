@@ -53,7 +53,7 @@ Ce modèle autorise également un modèle *hybride* dans lequel vous pouvez opti
 
 Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 #### <a name="conceptual-descriptions"></a>Descriptions conceptuelles
 

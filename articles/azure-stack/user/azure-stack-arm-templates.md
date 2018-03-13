@@ -70,7 +70,7 @@ Déployez une machine virtuelle Windows comprenant un réseau virtuel (avec DNS)
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez la cmdlet PowerShell `Stop-AzureRmResourceGroupDeployment`.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Déployer des modèles avec le portail](azure-stack-deploy-template-portal.md)
 
 [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)

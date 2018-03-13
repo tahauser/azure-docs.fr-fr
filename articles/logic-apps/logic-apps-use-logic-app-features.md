@@ -143,7 +143,7 @@ Pour démarrer un workflow, les services peuvent appeler un point de terminaison
 <!-- Shared links -->
 [portail Azure]: https://portal.azure.com
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Instructions switch](../logic-apps/logic-apps-switch-case.md) 
 * [Boucles, étendues et décomposition](../logic-apps/logic-apps-loops-and-scopes.md)

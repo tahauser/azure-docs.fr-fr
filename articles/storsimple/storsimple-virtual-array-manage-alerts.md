@@ -164,7 +164,7 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 |:--- |:--- |:--- |
 | Le mot de passe pour <*nom de l’appareil*> expirera dans <*nombre*> jours. |Avertissement de mot de passe. |Votre mot de passe expire dans <nombre> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
 

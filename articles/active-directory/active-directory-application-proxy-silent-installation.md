@@ -126,7 +126,7 @@ Deux méthodes permettent d’inscrire le connecteur :
 
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 * [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 * [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)

@@ -174,7 +174,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md).
 

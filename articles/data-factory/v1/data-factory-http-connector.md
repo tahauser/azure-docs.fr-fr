@@ -48,7 +48,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit une description des éléments JSON spécifiques du service lié HTTP.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type | La propriété type doit être définie sur : `Http`. | OUI |
 | url | URL de base du serveur web | OUI |
@@ -63,7 +63,7 @@ Pour plus d’informations sur la définition des informations d’identificatio
 
 Définissez `authenticationType` sur `Basic`, `Digest` ou `Windows` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur HTTP présentées ci-dessus :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | username | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
@@ -91,7 +91,7 @@ Définissez `authenticationType` sur `Basic`, `Digest` ou `Windows` et spécifie
 
 Pour utiliser l’authentification de base, définissez `authenticationType` sur `ClientCertificate` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur HTTP présentées ci-dessus :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | embeddedCertData | Contenu codé en Base64 des données binaires du fichier Personal Information Exchange (PFX). | Spécifiez soit la propriété `embeddedCertData`, soit la propriété `certThumbprint`. |
 | certThumbprint | Empreinte du certificat qui a été installé dans le magasin de certificats de votre ordinateur de passerelle. S’applique uniquement pour la copie de données à partir d’une source HTTP locale. | Spécifiez soit la propriété `embeddedCertData`, soit la propriété `certThumbprint`. |
@@ -150,7 +150,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **Http** présente les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | Spécifie le type du jeu de données. Cette propriété doit être définie sur `Http`. | OUI |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser [les variables système et les fonctions de Data Factory](data-factory-functions-variables.md), par exemple "relativeUrl": "$$Text.Format(’/my/report?month={0:yyyy}-{0:MM}&fmt=csv’, SliceStart)". | Non  |
@@ -210,7 +210,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Actuellement, quand la source de l’activité de copie est de type **HttpSource**, les propriétés suivantes sont prises en charge.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non. Valeur par défaut : 00:01:40 |
 

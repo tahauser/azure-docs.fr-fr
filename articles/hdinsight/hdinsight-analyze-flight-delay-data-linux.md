@@ -29,7 +29,7 @@ Découvrez comment analyser les données sur les retards de vol avec Hive sur HD
 > [!IMPORTANT]
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur Azure HDInsight version 3.4 ou ultérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster HDInsight**. Consultez la rubrique [Bien démarrer avec Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) pour savoir comment créer un cluster HDInsight basé sur Linux.
 

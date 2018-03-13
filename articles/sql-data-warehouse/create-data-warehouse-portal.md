@@ -49,7 +49,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
 
-    | Paramètre | Valeur suggérée | DESCRIPTION | 
+    | Paramètre | Valeur suggérée | Description | 
     | ------- | --------------- | ----------- | 
     | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). Notez qu’un entrepôt de données est un type de base de données.| 
     | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -61,7 +61,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | DESCRIPTION | 
+    | Paramètre | Valeur suggérée | Description | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -140,7 +140,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION | 
+   | Paramètre       | Valeur suggérée | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Voici un exemple : **mynewserver-20171113.database.windows.net**. |

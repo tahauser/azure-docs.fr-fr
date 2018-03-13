@@ -67,7 +67,7 @@ Comprendre comment chaque client utilise le service pour explorer les options de
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 

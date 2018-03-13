@@ -122,7 +122,7 @@ Comme pour les demandes de lecture, vous pouvez réduire le niveau de cohérence
 
 Azure Cosmos DB implémente actuellement MongoDB version 3.4, qui a deux paramètres de cohérence, forte et éventuelle. Azure Cosmos DB utilisant plusieurs API, les paramètres de cohérence sont applicables au niveau du compte, et l’application de la cohérence est contrôlée par chaque API.  Jusqu’à MongoDB 3.6, il n’y avait aucun concept de cohérence de session. Ainsi, si vous configurez un compte d’API MongoDB pour utiliser la cohérence de session, la cohérence est rétrogradée à éventuelle lorsque vous utilisez des API MongoDB. Si vous avez besoin d’une garantie de lecture de votre propre écriture pour un compte d’API MongoDB, le niveau de cohérence par défaut pour le compte doit être défini sur obsolescence forte ou limitée.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents compromis, nous vous recommandons les ressources suivantes :
 
 * Doug Terry. La cohérence des données répliquées expliquée par le baseball (vidéo).   

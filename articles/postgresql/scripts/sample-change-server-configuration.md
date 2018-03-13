@@ -44,7 +44,7 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) | Affiche la configuration d’un serveur Azure Database pour PostgreSQL. |
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour PostgreSQL](../sample-scripts-azure-cli.md)
 - Pour plus d’informations sur les paramètres de serveur, consultez la page [Guide pratique pour configurer les paramètres de serveur sur le Portail Azure](../howto-configure-server-parameters-using-portal.md).

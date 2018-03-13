@@ -47,7 +47,7 @@ Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-d
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
 | Emplacements |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez afficher une liste de toutes les régions [en consultant cette page](https://azure.microsoft.com/en-us/regions) ou en utilisant [l’API REST de gestion Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
@@ -59,7 +59,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | Nom |OUI |Nom de votre profil de journal. |
 | storageId |Non  |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
@@ -141,7 +141,7 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 ```
 
 
-| Nom de l'élément | DESCRIPTION |
+| Nom de l'élément | Description |
 | --- | --- |
 | time |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | ResourceId |ID de ressource de la ressource affectée. |

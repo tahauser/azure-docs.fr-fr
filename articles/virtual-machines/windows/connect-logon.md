@@ -42,6 +42,6 @@ Si vous essayez de vous connecter à une machine virtuelle Windows à partir d�
 ## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
 [!INCLUDE [virtual-machines-log-on-win-server](../../../includes/virtual-machines-log-on-win-server.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En cas de problème de connexion, consultez [Résolution des problèmes de connexion Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 

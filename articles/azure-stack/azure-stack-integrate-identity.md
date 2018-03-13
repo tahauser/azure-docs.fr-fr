@@ -63,7 +63,7 @@ Requirements:
 Les informations suivantes sont requises en tant qu’entrées pour les paramètres d’automation :
 
 
-|Paramètre|DESCRIPTION|exemples|
+|Paramètre|Description|exemples|
 |---------|---------|---------|
 |CustomADGlobalCatalog|Nom de domaine complet de la forêt Active Directory cible<br>que vous souhaitez intégrer dans|Contoso.com|
 |CustomADAdminCredentials|Un utilisateur avec autorisation de lecture LDAP|YOURDOMAIN\graphservice|
@@ -115,7 +115,7 @@ Le service Graph d’Azure Stack utilise les protocoles et ports suivants pour c
 
 Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
 
-|Paramètre|DESCRIPTION|exemples|
+|Paramètre|Description|exemples|
 |---------|---------|---------|
 |CustomAdfsName|Nom du fournisseur de revendications.<cr>Il apparaît sous cette forme sur la page d’accueil AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Lien Métadonnées de fédération|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -154,7 +154,7 @@ Utilisez cette méthode si l’une des conditions suivantes est remplie :
 Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
 
 
-|Paramètre|DESCRIPTION|exemples|
+|Paramètre|Description|exemples|
 |---------|---------|---------|
 |CustomAdfsName|Nom du fournisseur de revendications. Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
 |CustomADFSFederationMetadataFile|Fichier de métadonnées de fédération|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|

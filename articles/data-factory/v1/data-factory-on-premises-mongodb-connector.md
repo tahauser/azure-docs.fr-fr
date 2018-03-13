@@ -65,7 +65,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 La table suivante fournit une description des éléments JSON spécifiques au service lié **OnPremisesMongoDB** .
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Le type de propriété doit être défini sur **OnPremisesMongoDb** |OUI |
 | server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
@@ -83,7 +83,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **MongoDbCollection** a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | collectionName |Nom de la collection dans la base de données MongoDB. |Oui |
 
@@ -94,7 +94,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Lorsque la source est de type **MongoDbSource** , les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL-92. Par exemple : select * from MyTable. |Non (si **collectionName** du **jeu de données** est spécifié) |
 

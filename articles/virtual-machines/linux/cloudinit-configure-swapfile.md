@@ -87,7 +87,7 @@ Filename                Type        Size    Used    Priority
 > [!NOTE] 
 > Si vous disposez d’une image Azure existante qui a un fichier d’échange configuré et que vous souhaitez modifier la configuration du fichier d’échange pour de nouvelles images, vous devez supprimer le fichier d’échange existant. Veuillez consulter « Customize Images to provision by cloud-init» (Personnaliser des images à approvisionner par cloud-init) pour plus d’informations.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des exemples cloud-init supplémentaires de modifications de configuration, consultez les rubriques suivantes :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)

@@ -140,7 +140,7 @@ Pour cette procédure pas à pas détaillée, nous créons la configuration requ
     //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ajouter un disque à une machine virtuelle Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

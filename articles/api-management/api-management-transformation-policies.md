@@ -69,13 +69,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |json-to-xml|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|OUI|N/A|  
 |consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|  
@@ -112,13 +112,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |xml-to-json|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|OUI|N/A|  
 |apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|OUI|N/A|  
@@ -148,13 +148,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |find-and-replace|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |from|Chaîne à rechercher.|OUI|N/A|  
 |to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|OUI|N/A|  
@@ -186,7 +186,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |redirect-content-urls|Élément racine.|OUI|  
   
@@ -250,13 +250,13 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-backend-service|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |base-url|Nouvelle URL de base du service principal.|Non |N/A|  
 |id de principal|Identificateur du serveur principal pour l’acheminement.|Non |N/A|  
@@ -386,13 +386,13 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|OUI|  
 
 ### <a name="properties"></a>properties  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non |liquid|  
 
@@ -481,14 +481,14 @@ OriginalUrl.
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-header|Élément racine.|OUI|  
 |value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|OUI|  
   
 ### <a name="properties"></a>properties  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|  
 |Nom|Spécifie le nom de l'en-tête à définir.|OUI|N/A|  
@@ -541,14 +541,14 @@ OriginalUrl.
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |set-query-parameter|Élément racine.|OUI|  
 |value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|OUI|  
   
 ### <a name="properties"></a>properties  
   
-|NOM|DESCRIPTION|Obligatoire|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|  
 |Nom|Spécifie le nom du paramètre de requête à définir.|OUI|N/A|  
@@ -620,13 +620,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |rewrite-uri|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Attribut|DESCRIPTION|Obligatoire|Default|  
+|Attribut|Description|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|OUI|N/A|  
 |copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non |true|  
@@ -689,7 +689,7 @@ OriginalUrl.
   
 ### <a name="elements"></a>Éléments  
   
-|NOM|DESCRIPTION|Obligatoire|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |xsl-transform|Élément racine.|OUI|  
 |paramètre|Permet de définir des variables utilisées dans la transformation|Non |  

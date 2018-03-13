@@ -53,7 +53,7 @@ Vous devez avoir déjà publié et testé votre application avec le proxy d’ap
 
 Accédez à l’URL externe que vous avez configurée pour l’accès à distance à votre application. Connectez-vous avec vos informations d’identification associées à cette application (ou celles d’un compte de test pour lequel vous avez configuré un accès). Une fois que vous êtes connecté, vous devez pouvoir quitter l’application et revenir sans entrer à nouveau vos informations d’identification. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les autres façons d’implémenter l’[authentification unique avec le proxy d’application](application-proxy-sso-overview.md)
 - En savoir plus sur les [considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD](application-proxy-security-considerations.md)

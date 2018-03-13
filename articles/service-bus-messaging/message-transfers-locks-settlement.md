@@ -121,7 +121,7 @@ Si une opération **Complete** échoue, ce qui arrive généralement à la fin d
 
 Le mécanisme standard permettant d’identifier les remises de messages dupliqués consiste à vérifier l’ID du message (message-id). Cet identificateur doit être défini par l’expéditeur à une valeur unique, éventuellement en lien avec un identificateur du processus initial. Un planificateur de travaux préfère généralement définir l’ID du message sur l’identificateur du travail qu’il essaie d’assigner à un processus Worker avec le processus Worker donné. De cette façon, le processus Worker ignore la deuxième occurrence de l’assignation du travail si ce travail est déjà fait.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

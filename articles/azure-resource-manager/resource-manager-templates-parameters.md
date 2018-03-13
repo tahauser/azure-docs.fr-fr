@@ -82,7 +82,7 @@ L’exemple précédent a seulement illustré quelques-unes des propriétés que
 }
 ```
 
-| Nom de l'élément | Obligatoire | DESCRIPTION |
+| Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | nom_paramètre |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
 | Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
@@ -259,7 +259,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 Ces exemples de modèles montrent quelques scénarios d’utilisation de paramètres. Déployez-les pour tester la façon dont les paramètres sont gérés dans différents cas de figure.
 
-|Modèle  |DESCRIPTION  |
+|Modèle  |Description  |
 |---------|---------|
 |[Paramètres avec fonctions pour les valeurs par défaut](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Montre comment utiliser les fonctions de modèle durant la définition des valeurs par défaut des paramètres. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |
 |[Objet de paramètre](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Montre comment utiliser un objet pour un paramètre. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de paramètres. |

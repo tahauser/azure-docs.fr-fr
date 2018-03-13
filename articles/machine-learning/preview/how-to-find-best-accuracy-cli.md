@@ -68,5 +68,5 @@ $find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' 
 az ml history list --query $find_runs_query
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la journalisation, consultez l’article [Guide pratique pour utiliser l’historique des exécutions et les métriques de modèles dans Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    

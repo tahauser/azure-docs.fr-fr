@@ -207,7 +207,7 @@ Même si les modules d’intégration sont généralement des modules PowerShell
    <br>
 6. Le module doit être entièrement contenu dans un package pouvant faire l’objet d’une copie Xcopy. Étant donné que les modules Azure Automation sont distribués aux bacs à sable (sandbox) lorsque les Runbooks doivent s’exécuter, ceux-ci doivent fonctionner indépendamment de l’hôte sur lequel ils s’exécutent. Cela signifie que vous devez être en mesure de compresser le package du module, le déplacer vers un autre hôte comportant une version identique ou plus récente de PowerShell, et le faire fonctionner normalement lorsqu’il est importé dans l’environnement PowerShell de cet hôte. Pour ce faire, le module ne doit pas dépendre de fichiers se trouvant à l’extérieur du dossier du module (le dossier compressé lors de l’importation dans Azure Automation), ni de seulement un jeu de paramètres unique du Registre sur un hôte, comme celui défini lors de l’installation d’un produit. Si cette meilleure pratique n’est pas respectée, le module ne sera pas utilisable dans Azure Automation.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module (Écriture d’un module Windows PowerShell)](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)

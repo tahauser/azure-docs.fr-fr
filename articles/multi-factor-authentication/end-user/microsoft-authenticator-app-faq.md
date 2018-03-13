@@ -100,7 +100,7 @@ Vous n’êtes pas obligé de déverrouiller votre appareil pour approuver les r
 
 L’icône de cadenas indique que l’appareil est inscrit dans Azure AD et enregistré sur le compte. L’inscription de l’appareil pour iOS a lieu lors de l’inscription de Microsoft Intune.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="contact-us"></a>Nous contacter
 Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) pour publier votre question et obtenir de l’aide de la part de la communauté ou laissez un commentaire sur cette page.

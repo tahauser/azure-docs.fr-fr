@@ -30,7 +30,7 @@ Dans cet article, vous apprendrez comment :
 > * Tester l’API dans le portail Azure
 > * Tester l’API dans le portail des développeurs
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Assurez-vous que votre abonnement contient une application logique. Pour plus d’informations, consultez [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).

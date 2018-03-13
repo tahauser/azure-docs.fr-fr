@@ -451,7 +451,7 @@ Avant d’exécuter l’application dans le cloud, vous devez vous assurer que *
 
     ![][38]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Azure Relay, consultez les ressources suivantes :  
 

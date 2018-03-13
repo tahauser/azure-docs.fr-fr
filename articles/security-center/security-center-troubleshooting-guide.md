@@ -66,7 +66,7 @@ Il existe deux scénarios d’installation qui peuvent produire des résultats d
 ## <a name="monitoring-agent-health-issues"></a>Problèmes d’intégrité de l’agent de surveillance
 **L’état de surveillance** définit la raison pour laquelle Security Center ne peut pas surveiller correctement les machines virtuelles et ordinateurs initialisées pour l’approvisionnement automatique. Le tableau suivant présente les valeurs, descriptions et étapes de résolution de **l’état de surveillance**.
 
-| État de surveillance | DESCRIPTION | Étapes de résolution |
+| État de surveillance | Description | Étapes de résolution |
 |---|---|---|
 | Installation de l’agent en attente | L’installation de Microsoft Monitoring Agent est toujours en cours d’exécution.  Cette installation peut prendre plusieurs heures. | Attendez que l’installation automatique soit terminée. |
 | État d’alimentation hors tension | La machine virtuelle est arrêtée.  Microsoft Monitoring Agent ne peut être installé que sur une machine virtuelle en cours d’exécution. | Redémarrez la machine virtuelle. |

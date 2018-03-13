@@ -113,7 +113,7 @@ Si l’un des éléments suivants correspond aux besoins de votre service d’ap
 * Votre application doit conserver l’historique des modifications pour ses unités d’état.
 * Vous souhaitez développer ou utiliser des fournisseurs d’état personnalisé développés par une tierce partie.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Utilisation avancée de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Modèle de programmation Reliable Actors](service-fabric-reliable-actors-introduction.md)

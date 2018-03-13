@@ -29,7 +29,7 @@ Ce démarrage rapide vous montre comment :
 - Connecter une solution de sécurité à Security Center à l’aide des journaux CEF
 - Valider la connexion avec la solution de sécurité
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/free/).
 
 Pour effectuer ce démarrage rapide, vous devez utiliser le niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.

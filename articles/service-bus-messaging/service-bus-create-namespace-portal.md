@@ -33,7 +33,7 @@ Un espace de noms est un conteneur d’étendue pour tous les composants de mess
 
 Félicitations ! Vous venez de créer un espace de noms de messagerie Service Bus.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les [exemples GitHub][github-samples], qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Service Bus.
 

@@ -86,7 +86,7 @@ Vous devez vous connecter à la base de données SQL pour mettre à jour les inf
 2. Sélectionnez **Lors du dernier arrêt** > cliquez sur **Démarrer**. Notez que l’option « Lors du dernier arrêt » s’affiche uniquement si vous avez précédemment exécuté le travail et généré une sortie. Le travail redémarre en fonction de l’heure de la dernière valeur de sortie.
    ![Démarrer le travail](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)

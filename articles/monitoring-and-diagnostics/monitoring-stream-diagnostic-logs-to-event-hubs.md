@@ -161,7 +161,7 @@ Voici des exemples de données de sortie provenant d’Event Hubs :
 }
 ```
 
-| Nom de l’élément | DESCRIPTION |
+| Nom de l’élément | Description |
 | --- | --- |
 | records |Un tableau regroupant tous les événements de journal de cette charge utile. |
 | time |L’heure à laquelle l’événement s’est produit. |

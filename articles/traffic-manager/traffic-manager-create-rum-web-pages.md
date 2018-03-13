@@ -69,7 +69,7 @@ Une fois que vous avez obtenu la clé de mesures des utilisateurs réels, l’é
 4. La prochaine fois que cette page est affichée dans un navigateur web, le code JavaScript référencé est téléchargé et le script exécute les opérations de mesure et de création de rapports.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [mesures des utilisateurs réels](traffic-manager-rum-overview.md).
 - En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-overview.md)
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager

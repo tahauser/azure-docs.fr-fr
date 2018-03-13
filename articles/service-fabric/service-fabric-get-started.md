@@ -77,7 +77,7 @@ Service Fabric utilise des scripts Windows PowerShell pour créer un cluster de 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez fini de configurer votre environnement de développement, commencez à créer et à exécuter des applications.
 
 * [Créer votre première application Service Fabric dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

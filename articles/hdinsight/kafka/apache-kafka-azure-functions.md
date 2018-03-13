@@ -251,7 +251,7 @@ Pour afficher les informations consignées par la fonction pendant l’exécutio
 
 Pour vérifier que les données sont arrivées dans la rubrique Kafka, utilisez les informations dans la section _Produire et utiliser des enregistrements_ du document [Créer un cluster Kafka](apache-kafka-get-started.md#produce-and-consume-records). L’élément `kafka-console-consumer` lit les données de la rubrique et affiche une liste des messages qui y sont stockés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 

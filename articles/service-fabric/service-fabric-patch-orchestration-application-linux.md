@@ -56,7 +56,7 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > [!NOTE]
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de la mise à jour pour chaque nœud.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Vérifier que vos machines virtuelles Azure exécutent Ubuntu 16.04
 Au moment de la rédaction de ce document, Ubuntu 16.04 (`Xenial Xerus`) est la seule version prise en charge.

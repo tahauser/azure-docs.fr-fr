@@ -37,7 +37,7 @@ Cet article traite uniquement des différents rôles qui existent aujourd’hui.
 > Les définitions de rôle Azure sont en constante évolution. Cet article est actualisé aussi régulièrement que possible, mais vous pouvez toujours trouver les dernières définitions de rôles dans Azure PowerShell. Utilisez l’applet de commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour afficher la liste de tous les rôles actuels. Vous pouvez explorer de manière plus approfondie un rôle déterminé en utilisant `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` selon le cas. [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) permet d’afficher la liste des opérations de fournisseurs de ressources Azure spécifiques.
 
 
-| Nom de rôle | DESCRIPTION |
+| Nom de rôle | Description |
 | --- | --- |
 | [Collaborateur du service Gestion des API](#api-management-service-contributor) |Peut gérer le service Gestion des API et les API |
 | [Rôle d’opérateur du service Gestion des API](#api-management-service-operator-role) | Peut gérer le service Gestion des API, mais pas les API proprement dites |

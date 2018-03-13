@@ -194,7 +194,7 @@ La liste suivante explique cette activité en détail :
      >Un échec ne signifie pas qu’un utilisateur ne peut pas réinitialiser son propre mot de passe. Cela signifie que processus d’inscription n’est pas terminé. Si son compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe. Pour plus d’informations, consultez [Que se passe-t-il lorsqu’un utilisateur s’inscrit ?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
      >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).

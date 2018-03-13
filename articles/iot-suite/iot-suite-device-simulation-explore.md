@@ -96,7 +96,7 @@ Lorsque vous sélectionnez le type de modèle d’appareil personnalisé, vous p
 
 Les capteurs personnalisés possèdent les propriétés suivantes :
 
-| Champ | DESCRIPTION |
+| Champ | Description |
 | ----- | ----------- |
 | Nom du capteur | Nom convivial pour le capteur, par exemple **température** ou **vitesse**. |
 | Comportement | Les comportements permettent de faire varier les données de télémétrie d’un message à l’autre, afin de simuler des données réelles. **Incrément** augmente la valeur d’une unité à chaque message envoyé, en commençant par la valeur minimale. Une fois que la valeur maximale est atteinte, la propriété repart de la valeur minimale. **Décrément** se comporte de la même façon que **Incrément** mais dans le sens inverse. Le comportement **Aléatoire** génère une valeur aléatoire comprise entre la valeur minimale et la valeur maximale. |

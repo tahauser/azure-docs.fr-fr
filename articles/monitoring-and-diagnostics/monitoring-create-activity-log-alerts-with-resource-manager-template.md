@@ -104,7 +104,7 @@ Visitez notre [galerie Azure Quickstart](https://azure.microsoft.com/resources/t
 
 > Vous pouvez également créer des règles d’alerte de journal d’activité à l’aide de l’expérience utilisateur améliorée dans Surveiller > [Alertes (préversion)](monitoring-overview-unified-alerts.md). Pour plus d’informations sur la façon de les créer, voir [cet article](monitoring-activity-log-alerts-new-experience.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [alertes](monitoring-overview-alerts.md).
 - En savoir plus sur le guide pratique pour ajouter [des groupes d’actions à l’aide d’un modèle Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
 - En savoir plus sur le guide pratique pour [créer une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).

@@ -355,7 +355,7 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Empaqueter une application](service-fabric-package-apps.md)
 
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)

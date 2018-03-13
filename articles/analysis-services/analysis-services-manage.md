@@ -64,7 +64,7 @@ Dans Azure Analysis Services, il existe deux types d’utilisateur : les adminis
 ## <a name="troubleshooting-connection-problems"></a>Résolution des problèmes de connexion
 Si vous rencontrez des problèmes lors d’une connexion à l’aide de SSMS, vous devrez peut-être effacer le cache de connexion. Rien n’est mis en cache sur le disque. Pour effacer le cache, fermez et redémarrez le processus de connexion. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous n’avez pas déjà déployé un modèle tabulaire sur votre nouveau serveur, c’est le moment de le faire. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](analysis-services-deploy.md).
 
 Si vous avez déployé un modèle sur votre serveur, vous êtes prêt à vous connecter à celui-ci à l’aide d’un client ou d’un navigateur. Pour en savoir plus, voir [Obtenir les données du serveur Azure Analysis Services](analysis-services-connect.md).

@@ -41,7 +41,7 @@ La solution Azure SQL Analytics n’utilise pas d’agent pour établir la con
 
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Support | DESCRIPTION |
+| Source connectée | Support | Description |
 | --- | --- | --- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
@@ -49,7 +49,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données du compte de stockage. |
 | [Azure Diagnostics](log-analytics-azure-storage.md) | OUI | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’en avez pas, créez-en un [gratuitement](https://azure.microsoft.com/free/).
 - Un espace de travail Log Analytics. Vous pouvez utiliser un élément existant, ou en [créez un nouveau](log-analytics-quick-create-workspace.md) avant de commencer à utiliser cette solution.
@@ -107,7 +107,7 @@ En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’u
 
 Chaque perspective fournit des récapitulatifs sur l’abonnement, le serveur, le pool de bases de données élastique et la base de données. En outre, sur la droite, chaque perspective présente une vision spécifique au rapport. Pour approfondir davantage, sélectionnez l’abonnement, le serveur, le pool ou la base de données dans la liste.
 
-| Perspective | DESCRIPTION |
+| Perspective | Description |
 | --- | --- |
 | Ressource par type | Perspective comptabilisant toutes les ressources surveillées. Ce zoom fournit un récapitulatif des métriques de DTU et Go. |
 | Insights | Permet une exploration hiérarchique dans Intelligent Insights. Apprenez-en davantage sur l’intelligence artificielle intégrée. |

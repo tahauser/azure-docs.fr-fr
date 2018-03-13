@@ -35,7 +35,7 @@ Voici les seuils de limitation de la fréquence :
 - Un numéro de téléphone ou une adresse de messagerie peut faire partie de groupes d’actions sur plusieurs abonnements. La limitation de la fréquence s’applique à tous les abonnements, dès lors que le seuil est atteint, même si les messages sont envoyés à partir de plusieurs abonnements.
 - Lorsqu’une adresse e-mail fait l’objet d’une restriction, une notification supplémentaire est envoyée à ce sujet. Cette notification indique la fin de la restriction.
 
-## <a name="next-steps"></a>étapes suivantes ##
+## <a name="next-steps"></a>Étapes suivantes ##
 * En savoir plus sur le [comportement des alertes SMS](monitoring-sms-alert-behavior.md).
 * Obtenir une [vue d’ensemble des alertes du journal d’activité](monitoring-overview-alerts.md) et découvrir comment recevoir des alertes.  
 * Découvrir comment [configurer des alertes lorsqu’une notification d’intégrité de service est publiée](monitoring-activity-log-alerts-on-service-notifications.md).

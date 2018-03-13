@@ -171,6 +171,6 @@ Une fois que vous accédez à Windows PowerShell pour StorSimple ou au portail A
 > [!NOTE]
 > Les câbles SAS qui sont utilisés pour connecter le boîtier EBOD au boîtier principal ne doivent pas être retirés tant que le système n'a pas été arrêté.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Contactez le support Microsoft](storsimple-8000-contact-microsoft-support.md) si vous rencontrez des problèmes lors de l'activation ou l'arrêt d'un appareil StorSimple.
 

@@ -33,7 +33,7 @@ Pour plus d’informations sur le Concepteur de vues, consultez :
 
 Les types de vignettes du Concepteur de vues disponibles sont décrites dans le tableau suivant :
 
-| Type de vue | DESCRIPTION |
+| Type de vue | Description |
 |:--- |:--- |
 | [Liste de requêtes](#list-of-queries-part) |Affiche une liste des requêtes de recherche dans le journal. Vous pouvez sélectionner chaque requête pour afficher ses résultats. |
 | [Nombre et liste](#number-amp-list-part) |L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenus à partir d’une requête de recherche dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
@@ -52,7 +52,7 @@ La liste des parties de requêtes affiche une liste de requêtes de recherche da
 
 ![Liste de vues de requêtes](media/log-analytics-view-designer/view-list-queries.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Intitulé |Texte affiché en haut de la vue. |
@@ -68,7 +68,7 @@ L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenu
 
 ![Liste de vues de requêtes](media/log-analytics-view-designer/view-number-list.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vue. |
@@ -96,7 +96,7 @@ L’en-tête affiche deux valeurs indiquant le nombre d’enregistrements obtenu
 
 ![Deux nombres et affichage de liste](media/log-analytics-view-designer/view-two-numbers-list.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vue. |
@@ -125,7 +125,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 
 ![Vue Anneau et liste](media/log-analytics-view-designer/view-donut-list.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vignette. |
@@ -165,7 +165,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 
 ![Vue Deux chronologies et liste](media/log-analytics-view-designer/view-two-timelines-list.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vignette. |
@@ -195,7 +195,7 @@ L’en-tête affiche un texte statique et un lien facultatif. La liste affiche u
 
 ![Vue Informations](media/log-analytics-view-designer/view-information.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vignette. |
@@ -216,7 +216,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 
 ![Vue Graphique en courbes, légende et liste](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vignette. |
@@ -255,7 +255,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 
 ![Vue Graphique en courbes et liste](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vignette. |
@@ -290,7 +290,7 @@ La pile de graphique en courbes affiche trois graphiques en courbes distincts av
 
 ![Pile de graphiques en courbes](media/log-analytics-view-designer/view-stack-line-charts.png)
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte affiché en haut de la vignette. |
@@ -324,7 +324,7 @@ Un graphique Sparkline est un petit graphique en courbes qui illustre la valeur 
 
 Le tableau suivant décrit les paramètres pour les graphiques Sparkline :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | Activer les graphiques Sparkline |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. |
 | Opération |Si les graphiques Sparklines sont activés, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique Sparkline.<ul><li>Last Sample : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Sum : somme des valeurs de la série sur l’intervalle de temps.</li><li>Summary : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
@@ -338,7 +338,7 @@ Chaque ensemble de seuils a un seuil avec la valeur **par défaut**. Il s’agit
 
 Le tableau suivant décrit les paramètres pour les seuils :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 |:--- |:--- |
 | Activer les seuils |Sélectionnez ce lien pour afficher une icône de couleur à gauche de chaque valeur. L’icône indique l’intégrité de la valeur par rapport aux seuils spécifiés. |
 | Nom |Nom de la valeur de seuil. |

@@ -241,6 +241,6 @@ Pour affecter le rôle à un utilisateur, utilisez :
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Event Grid, consultez [Event Grid](overview.md)

@@ -163,7 +163,7 @@ Les groupes de sécurité d’application sont disponibles dans la version prél
   Si Azure vous permet d’envoyer des courriers électroniques via le port 25, Microsoft ne peut vous garantir que les fournisseurs de messagerie électronique accepteront le message entrant en provenance de votre machine virtuelle. Si un fournisseur spécifique rejette les messages en provenance de votre machine virtuelle, vous devez vous arranger directement avec le fournisseur pour résoudre tout problème de livraison de messages ou de filtrage de spam, ou bien utiliser un service de relais SMTP authentifié. 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Suivre le didacticiel [Créer un groupe de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md)
 * Suivre le didacticiel [Créer un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md)

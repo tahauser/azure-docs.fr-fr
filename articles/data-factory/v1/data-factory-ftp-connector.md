@@ -64,7 +64,7 @@ Les sections suivantes fournissent des informations sur les propriétés JSON u
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant décrit les éléments JSON spécifiques pour un service FTP lié.
 
-| Propriété | DESCRIPTION | Obligatoire | Default |
+| Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
 | Type |Définissez ceci sur FtpServer. |OUI |&nbsp; |
 | host |Spécifiez le nom ou l’adresse IP du serveur FTP. |OUI |&nbsp; |
@@ -151,7 +151,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 La section **typeProperties** est différente pour chaque type de jeu de données. Elle fournit des informations spécifiques au type de jeu de données. La section **typeProperties** pour un jeu de données de type **FileShare** a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | folderPath |Sous-chemin d’accès au dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples.<br/><br/>Vous pouvez également combiner cette propriété avec **partitionBy** pour que les chemins d’accès soient basés sur les dates et heures de début et de fin de la tranche. |OUI |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque **fileName** n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : <br/><br/>Data<Guid>.txt (exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non  |
@@ -202,7 +202,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Dans une activité de copie, quand la source est de type **FileSystemSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True, False (par défaut) |Non  |
 

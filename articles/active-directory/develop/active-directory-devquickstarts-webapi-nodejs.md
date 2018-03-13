@@ -65,7 +65,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) de la commande `create` comprennent les éléments suivants :
 
-| Argument  | DESCRIPTION |
+| Argument  | Description |
 |---------|---------|
 |`display-name` | Le nom convivial de l’inscription |
 |`homepage` | L’URL à laquelle les utilisateurs peuvent se connecter et utiliser votre application |
@@ -73,7 +73,7 @@ Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) de la 
 
 Avant de vous connecter à Azure Active Directory, vous avez besoin des informations suivantes :
 
-| NOM  | DESCRIPTION | Nom de la variable dans le fichier config |
+| NOM  | Description | Nom de la variable dans le fichier config |
 | ------------- | ------------- | ------------- |
 | Nom du locataire  | [Nom de locataire](active-directory-howto-tenant.md) que vous souhaitez utiliser pour l’authentification | `tenantName`  |
 | ID client  | « ID de client » est un terme OAuth qui correspond à _l’ID d’application_ AAD. |  `clientID`  |

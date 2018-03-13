@@ -132,5 +132,5 @@ Vous pouvez éventuellement obtenir un interpréteur de commandes root avec `sud
 ## <a name="known-issues"></a>Problèmes connus
 L’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) version 2.2.2 présente un problème [connu] (https://github.com/Azure/WALinuxAgent/pull/517) qui provoque l’échec de l’approvisionnement pour la machine virtuelle FreeBSD sur Azure. Le correctif a été capturé par l’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) 2.2.3 et versions ultérieures. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Accédez à [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) pour créer une machine virtuelle FreeBSD.

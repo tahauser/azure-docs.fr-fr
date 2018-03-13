@@ -25,7 +25,7 @@ La plupart des Runbooks Azure Automation présentent une certaine forme de sorti
 
 Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le portail Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
 
-| Stream | DESCRIPTION | Publié | Test |
+| Stream | Description | Publié | Test |
 |:--- |:--- |:--- |:--- |
 | Sortie |Objets destinés à être consommés par d’autres Runbooks. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Avertissement |Message d’avertissement destiné à l’utilisateur. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |

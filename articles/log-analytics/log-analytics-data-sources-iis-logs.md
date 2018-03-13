@@ -41,7 +41,7 @@ Log Analytics collecte les entrées du journal IIS de chaque source connectée t
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
 Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriétés sont décrites dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Ordinateur |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
 | cIP |Adresse IP du client. |
@@ -68,7 +68,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 ## <a name="log-searches-with-iis-logs"></a>Recherches de journaux avec les journaux IIS
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements de journaux IIS.
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |:--- |:--- |
 | W3CIISLog |Tous les enregistrements de journaux IIS. |
 | W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |

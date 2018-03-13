@@ -62,7 +62,7 @@ Les étapes permettant d’activer Log Analytics pour HDInsight sont les mêmes 
 
     Vous pouvez également entrer `*` pour rechercher tous les types consignés. Actuellement, les fichiers journaux suivants sont disponibles pour les requêtes :
 
-    | Type de journal | DESCRIPTION |
+    | Type de journal | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |

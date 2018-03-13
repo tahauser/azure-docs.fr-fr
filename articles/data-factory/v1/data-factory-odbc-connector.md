@@ -64,7 +64,7 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié ODBC.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Le type de propriété doit être défini sur : **OnPremisesOdbc** |OUI |
 | connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. <br/><br/>Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le système DSN (Data Source Name) que vous avez configuré sur l’ordinateur passerelle avec `"DSN=<name of the DSN>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié comme il convient). |OUI |
@@ -137,7 +137,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **RelationalTable** (qui inclut le jeu de données ODBC) présente les propriétés suivantes
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | TableName |Nom de la table dans le magasin de données ODBC. |OUI |
 
@@ -148,7 +148,7 @@ En revanche, les propriétés disponibles dans la section **typeProperties** de 
 
 Dans l’activité de copie, quand la source est de type **RelationalSource** (ce qui inclut ODBC), les propriétés suivantes sont disponibles dans la section typeProperties :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |OUI |
 

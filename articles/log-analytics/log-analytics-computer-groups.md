@@ -27,7 +27,7 @@ Les groupes d’ordinateurs dans Log Analytics vous permettent d’étendre des 
 ## <a name="creating-a-computer-group"></a>Création d’un groupe d’ordinateurs
 Vous pouvez créer un groupe d’ordinateurs dans Log Analytics en utilisant l’une des méthodes répertoriées dans le tableau suivant.  Des détails sur chaque méthode sont fournis dans les sections ci-dessous. 
 
-| Méthode | DESCRIPTION |
+| Méthode | Description |
 |:--- |:--- |
 | Recherche dans les journaux |Créer une recherche dans les journaux qui retourne une liste d’ordinateurs. |
 | API Recherche de journal |Utiliser l’API Recherche de journal pour créer par programme un groupe d’ordinateurs basé sur les résultats d’une recherche de journal. |
@@ -44,7 +44,7 @@ Vous pouvez utiliser une requête pour un groupe d’ordinateurs, mais elle doit
 
 Le tableau suivant décrit les propriétés qui définissent un groupe d’ordinateurs.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:---|:---|
 | Nom d’affichage   | Nom de la recherche à afficher dans le portail. |
 | Catégorie       | Catégorie pour organiser les recherches dans le portail. |
@@ -147,7 +147,7 @@ La requête suivante retourne les enregistrements UpdateSummary pour les seuls o
 ## <a name="computer-group-records"></a>Enregistrements de groupe d’ordinateurs
 Un enregistrement est créé dans l’espace de travail Log Analytics pour chaque appartenance à un groupe d’ordinateur créée à partir d’Active Directory ou de WSUS.  Ces enregistrements sont de type **ComputerGroup** et ont les propriétés décrites dans le tableau suivant.  Des enregistrements ne sont pas créés pour des groupes d’ordinateurs basés sur des recherches de journal.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | type |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |

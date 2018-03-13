@@ -37,7 +37,7 @@ Vous créez un service lié **Analytique Azure Data Lake** pour lier un service 
 
 Le tableau suivant décrit les propriétés génériques utilisées dans la définition JSON. 
 
-| Propriété                 | DESCRIPTION                              | Obligatoire                                 |
+| Propriété                 | Description                              | Obligatoire                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | OUI                                      |
 | **accountName**          | Nom du compte du service Analytique Azure Data Lake.  | OUI                                      |
@@ -56,7 +56,7 @@ Accordez l’autorisation de principal de service à Azure Data Lake Analytics �
 
 Utilisez l’authentification par principal de service en spécifiant les propriétés suivantes :
 
-| Propriété                | DESCRIPTION                              | Obligatoire |
+| Propriété                | Description                              | Obligatoire |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Spécifiez l’ID client de l’application.     | OUI      |
 | **servicePrincipalKey** | Spécifiez la clé de l’application.           | OUI      |
@@ -120,7 +120,7 @@ L'extrait de code JSON suivant définit un pipeline avec une activité U-SQL Dat
 
 Le tableau suivant indique les noms et les descriptions des propriétés qui sont spécifiques à cette activité. 
 
-| Propriété            | DESCRIPTION                              | Obligatoire |
+| Propriété            | Description                              | Obligatoire |
 | :------------------ | :--------------------------------------- | :------- |
 | Nom                | Nom de l’activité dans le pipeline     | OUI      |
 | description         | Texte décrivant l’activité.  | Non        |

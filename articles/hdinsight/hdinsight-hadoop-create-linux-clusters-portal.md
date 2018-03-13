@@ -79,7 +79,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 
     ![Création d’un nouveau cluster dans le portail Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Création d’un nouveau cluster dans le portail Azure")
 
-    | Stockage                                      | DESCRIPTION |
+    | Stockage                                      | Description |
     |----------------------------------------------|-------------|
     | **Objets blob de stockage Azure comme stockage par défaut**   | <ul><li>Pour **Type de stockage principal**, sélectionnez **Stockage Azure**. Ensuite, pour **Méthode de sélection**, vous pouvez choisir **Mes abonnements** si vous souhaitez spécifier un compte de stockage qui fait partie de votre abonnement Azure, puis sélectionner le compte de stockage. Sinon, cliquez sur **Clé d’accès** et fournissez les informations du compte de stockage que vous souhaitez choisir en dehors de votre abonnement Azure.</li><li>Pour **Conteneur par défaut**, vous pouvez choisir d’utiliser le nom de conteneur par défaut suggéré par le portail ou spécifier le vôtre.</li><li>Si vous utilisez WASB comme stockage par défaut, vous pouvez éventuellement cliquer sur **Comptes de stockage supplémentaires** pour spécifier les comptes de stockage supplémentaires à associer au cluster. Pour **Clés de stockage Azure**, cliquez sur **Ajouter une clé de stockage**, puis fournissez un compte de stockage à partir de vos abonnements Azure ou d’autres abonnements (en fournissant la clé d’accès du compte de stockage).</li><li>Si vous utilisez WASB comme stockage par défaut, vous pouvez éventuellement cliquer sur **Accès Data Lake Store** pour spécifier Azure Data Lake Store comme stockage supplémentaire. Pour plus d’informations, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
     | **Azure Data Lake Store en tant que stockage par défaut** | Pour **Type de stockage principal**, sélectionnez **Data Lake Store**, puis consultez l’article [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) pour plus d’instructions. |
@@ -110,7 +110,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 
     ![Niveaux tarifaires du nœud](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "Spécifier le nombre de nœuds de cluster")
 
-    | Option | DESCRIPTION |
+    | Option | Description |
     |--------|-------------|
     | **Actions de script** | Utilisez cette option si vous voulez utiliser un script personnalisé pour personnaliser un cluster au moment de sa création. Pour plus d’informations sur les actions de script, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md). |
     | **Réseau virtuel** | Sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel. Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md). |

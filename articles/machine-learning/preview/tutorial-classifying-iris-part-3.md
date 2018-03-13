@@ -334,7 +334,7 @@ Pour tester le service web **irisapp** exécuté, utilisez un enregistrement JSO
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cette troisième partie de la série de didacticiel à trois parties, vous avez appris à utiliser Machine Learning pour effectuer les tâches suivantes :
 > [!div class="checklist"]
 > * Rechercher le fichier de modèle.

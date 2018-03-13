@@ -32,7 +32,7 @@ Cet article vous montre également comment définir des points d’arrêt pour l
 >
 >
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Les outils suivants doivent être installés.
 
 * [Dernière version de Visual Studio](https://www.visualstudio.com/downloads/)

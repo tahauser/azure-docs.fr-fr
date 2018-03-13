@@ -123,7 +123,7 @@ Une fois l’alerte créée, elle apparaît dans la section Alertes du panneau S
 * la supprimer
 * la désactiver ou l’activer si vous voulez arrêter temporairement ou reprendre la réception de notifications pour l’alerte.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Obtenir une [vue d’ensemble des alertes](monitoring-overview-alerts.md).
 - En savoir plus sur la [limitation du débit des notifications](monitoring-alerts-rate-limiting.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](monitoring-activity-log-alerts-webhook.md).

@@ -241,5 +241,5 @@ Vous pouvez utiliser le modèle suivant pour déployer un groupe identique qui u
 </a>
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir d’autres exemples d’utilisation des mises à niveau automatiques du système d’exploitation avec des groupes identiques, consultez le [dépôt GitHub des fonctionnalités en préversion](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

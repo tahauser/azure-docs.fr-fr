@@ -71,7 +71,7 @@ Pour en savoir plus sur les fonctions de Data Catalog, voir :
 * [Configuration du glossaire métier](data-catalog-how-to-business-glossary.md)
 * [Forum Aux Questions](data-catalog-frequently-asked-questions.md)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour prendre en main Data Catalog, accédez à :
 * [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
 * [Prise en main d’Azure Data Catalog](data-catalog-get-started.md)

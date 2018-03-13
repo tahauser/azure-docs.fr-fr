@@ -38,7 +38,7 @@ Les réseaux logiques représentent une abstraction de l’infrastructure résea
 
 Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IPv4 associées à prendre en compte dans le cadre de la planification :
 
-| Réseau logique | DESCRIPTION | Taille | 
+| Réseau logique | Description | Taille | 
 | -------- | ------------- | ------------ | 
 | Adresse IP virtuelle publique | Les adresses IP publiques pour un petit ensemble de services Azure Stack, avec le reste utilisé par les machines virtuelles du client. L’infrastructure de Azure Stack utilise 32 adresses à partir de ce réseau. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 

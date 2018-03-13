@@ -51,7 +51,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
     ![Champs à renseigner pour créer une nouvelle capacité](media/create-capacity/azure-portal-create-power-bi-embedded.png)
 
-    |Paramètre |DESCRIPTION |
+    |Paramètre |Description |
     |---------|---------|
     |**Nom de la ressource**|Nom destiné à identifier la capacité. Le nom de la ressource est affiché dans le portail d’administration Power BI et dans le portail Azure.|
     |**Abonnement**|L’abonnement dans lequel vous souhaitez créer la capacité.|

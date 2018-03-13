@@ -37,7 +37,7 @@ Le script va créer l’application web en utilisant le nom que vous avez spéci
 
 Enregistrez ces valeurs. Vous en aurez besoin lorsque vous créez une connexion avec le connecteur de gestion des services informatiques.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
  Windows Management Framework 5.0 ou version ultérieure.
 Par défaut, Windows 10 a la version 5.1. Vous pouvez télécharger l’infrastructure [ici](https://www.microsoft.com/download/details.aspx?id=53347) :

@@ -164,7 +164,7 @@ Quand vous n’avez plus besoin d’un groupe de ressources, utilisez la command
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez déployé un réseau virtuel par défaut avec un sous-réseau. Pour découvrir comment créer un réseau virtuel personnalisé avec plusieurs sous-réseaux, passez au didacticiel couvrant la création d’un réseau virtuel personnalisé.
 

@@ -140,7 +140,7 @@ Interrogez les appareils, à l’exception de ceux qui ont une balise role = tem
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à utiliser iothub-explorer avec diverses options de gestion.
 

@@ -54,7 +54,7 @@ Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
     ![Créer une instance de Load Balancer Standard redondante dans une zone à l’aide du portail Azure](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [créer une adresse IP publique dans une zone de disponibilité](../virtual-network/create-public-ip-availability-zone-portal.md).
 
 

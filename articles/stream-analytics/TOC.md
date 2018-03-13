@@ -43,7 +43,7 @@
 ### [Exécuter des travaux sur IoT Edge](stream-analytics-edge.md) 
 ### [Exécuter une instance UDA JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Échange à fréquence élevée](stream-analytics-high-frequency-trading.md)
-### [Fonctions Azure Rum](stream-analytics-with-azure-functions.md)
+### [Exécuter Azure Functions](stream-analytics-with-azure-functions.md)
 
 ## Surveiller
 
@@ -77,7 +77,7 @@
 
 ## Intégration à Machine Learning
 ### [Analyse d’opinions avec les modèles ML](stream-analytics-machine-learning-integration-tutorial.md)
-### [Détection d’anomalies](stream-analytics-machine-learning-anomaly-detection.md)
+### [Détection des anomalies](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Utiliser les API REST](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
 

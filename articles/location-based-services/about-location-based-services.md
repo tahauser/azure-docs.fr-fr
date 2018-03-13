@@ -82,7 +82,7 @@ L’objectif de Microsoft est de proposer du choix en termes d’offres de servi
 
 Inscrivez-vous pour obtenir un [compte Azure Location Based Services dès aujourd’hui](http://aka.ms/azurelbsportal).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous disposez maintenant d’une vue d’ensemble d’Azure Location Based Services (préversion). L’étape suivante consiste à tester un exemple d’application utilisant Location Based Services, et à créer un scénario de bout en bout dans votre application web.
 

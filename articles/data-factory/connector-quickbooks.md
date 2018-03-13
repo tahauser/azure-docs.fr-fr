@@ -47,7 +47,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié QuickBooks sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être **QuickBooks**. | OUI |
 | endpoint | Le point de terminaison du serveur QuickBooks. (À savoir, quickbooks.api.intuit.com.)  | OUI |
@@ -109,7 +109,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de QuickBooks, définissez le type de source **DynamicsSource** dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source de l’activité de copie doit être **QuickBooksSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Bill" WHERE Id = '123'"`. | OUI |

@@ -37,7 +37,7 @@ La vidéo suivante offre une présentation pas à pas de la solution de surveill
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -78,7 +78,7 @@ Le tableau suivant récapitule les types d’appareils provisionnés :
 
 Les opérateurs chez Contoso connaissent les seuils qui déterminent si un appareil fonctionne correctement. Par exemple, un refroidisseur ne fonctionne pas correctement si la pression qu’il indique est supérieure à 250 PSI. Le tableau suivant présente les règles de seuil que Contoso définit pour chaque type d’appareil :
 
-| Nom de la règle | DESCRIPTION | Seuil | Niveau de gravité | Appareils concernés |
+| Nom de la règle | Description | Seuil | Niveau de gravité | Appareils concernés |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Pression de refroidissement trop élevée | Émet une alerte si les refroidisseurs atteignent des niveaux de pression supérieurs à la normale   |P>250 psi       | Critique | Refroidisseurs            |
 | Température des appareils de prototypage trop élevée  | Émet une alerte si les appareils de prototypage atteignent des niveaux de température supérieurs à la normale  |T > 80&deg; F |Critique | Appareils de prototypage |

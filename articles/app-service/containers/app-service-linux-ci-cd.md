@@ -83,7 +83,7 @@ Pour l’URL du webhook, vous devez fournir l’URL obtenue à l’**étape 3**.
 
 Lorsque l’image est mise à jour, l’application web est mise à jour automatiquement avec la nouvelle image.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est-ce qu’Azure App Service sur Linux ?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)

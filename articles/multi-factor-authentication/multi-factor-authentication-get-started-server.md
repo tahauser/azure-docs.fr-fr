@@ -50,7 +50,7 @@ Lorsqu’un serveur Azure MFA maître est hors connexion, les serveurs subordon
 
 Assurez-vous que le serveur que vous utilisez pour l’authentification multifacteur Azure répond aux exigences suivantes :
 
-| Configuration requise du serveur Azure Multi-Factor Authentication | DESCRIPTION |
+| Configuration requise du serveur Azure Multi-Factor Authentication | Description |
 |:--- |:--- |
 | Matériel |<li>200 Mo d’espace disque</li><li>Processeur compatible x32 ou x64</li><li>1 Go de RAM ou plus</li> |
 | Logiciel |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, toutes les éditions</li><li>Windows 8, toutes les éditions</li><li>Windows 7, toutes les éditions</li><li>Windows Vista, toutes les éditions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou version ultérieure si vous installez le kit de développement logiciel du portail de l’utilisateur ou du service web</li> |

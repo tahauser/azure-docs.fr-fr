@@ -366,7 +366,7 @@ Pour valider la connectivité à Kafka, procédez comme suit pour créer et exé
 
     * Si vous avez __activé la résolution de noms via un serveur DNS personnalisé__, remplacez les entrées `kafka_broker` avec le nom de domaine complet des nœuds de travail.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, consultez le document [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight-extend-hadoop-virtual-network.md).
 

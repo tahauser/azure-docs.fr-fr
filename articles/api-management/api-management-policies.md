@@ -76,7 +76,7 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)

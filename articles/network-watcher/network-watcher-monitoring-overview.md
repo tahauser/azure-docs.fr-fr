@@ -114,7 +114,7 @@ Le panneau de résolution des problèmes, une expérience dans le portail, est p
 
 L’intégrité d’une ressource réseau est fournie régulièrement. Ces ressources incluent la passerelle VPN et le tunnel VPN. L’intégrité des ressources est accessible sur le portail Azure. Pour en savoir plus sur l’intégrité des ressources, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir découvert Network Watcher, vous pouvez apprendre à :
 

@@ -37,6 +37,6 @@ Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collabo
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour l’utilisateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 

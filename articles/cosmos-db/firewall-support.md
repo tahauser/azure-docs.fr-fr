@@ -96,6 +96,6 @@ En activant une stratégie de contrôle d’accès IP pour votre compte de base 
 ### <a name="sdk--rest-api"></a>Kit de développement logiciel (SDK) et API REST
 Pour des raisons de sécurité, l’accès via le Kit de développement logiciel (SDK) ou l’API REST à partir d’ordinateurs ne figurant pas dans la liste autorisée renverra une réponse générique 404 Introuvable, ainsi que des détails supplémentaires. Consultez la liste des adresses IP autorisées qui est configurée pour votre compte de base de données Azure Cosmos DB, afin de vérifier que la configuration de la stratégie appropriée est appliquée à votre compte de base de données Azure Cosmos DB.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous trouverez des conseils sur les performances relatives au réseau sur la page [Conseils relatifs aux performances](performance-tips.md).
 

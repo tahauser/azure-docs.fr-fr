@@ -331,7 +331,7 @@ Assistance du niveau système pour Service Fabric, qui communique avec le runtim
   }
   ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Création de votre première application Java Service Fabric sur Linux à l’aide d’Eclipse](service-fabric-get-started-eclipse.md)
 * [Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md)

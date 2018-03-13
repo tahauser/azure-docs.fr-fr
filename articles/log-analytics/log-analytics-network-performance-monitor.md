@@ -245,5 +245,5 @@ Toutes les données présentées sous forme graphique dans le tableau de bord NP
 
 **Rejoignez notre cohorte**  : nous sommes toujours ravis d’accueillir de nouveaux clients dans notre cohorte. Dans ce cadre, vous pouvez accéder en avant-première aux nouvelles fonctionnalités et nous aider à améliorer Network Performance Monitor. Si vous souhaitez y participer, répondez à cette  [enquête rapide](https://aka.ms/npmcohort). 
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 - En savoir plus sur [Analyseur de performances](log-analytics-network-performance-monitor-performance-monitor.md), [Moniteur de points de terminaison de service](log-analytics-network-performance-monitor-performance-monitor.md) et [Moniteur ExpressRoute](log-analytics-network-performance-monitor-expressroute.md). 

@@ -47,7 +47,7 @@ Par exemple, si vous avez poussé l’image Nginx, comme indiqué dans [Envoyer 
 
 ![Affichage de référentiels dans le portail](./media/container-registry-repositories/container-registry-repositories.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous connaissez les principes fondamentaux de l’affichage et de l’utilisation des référentiels dans le portail, essayez d’utiliser Azure Container Registry avec un cluster [Azure Container Service](../aks/tutorial-kubernetes-prepare-app.md).
 

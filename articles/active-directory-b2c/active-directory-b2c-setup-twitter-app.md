@@ -42,6 +42,6 @@ Pour utiliser Twitter en tant que fournisseur d’identité dans Azure Active Di
 6. Cliquez sur **Set up this identity provider** (Configurer ce fournisseur d’identité) et entrez la **clé du client** Twitter pour **l’ID du client** et le **secret du client** Twitter pour le **secret du client**.
 7. Cliquez sur **OK**, puis sur **Create** (Créer) pour enregistrer votre configuration Twitter.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Créez ou modifiez une [stratégie intégrée](active-directory-b2c-reference-policies.md) et ajoutez Twitter comme fournisseur d’identité.

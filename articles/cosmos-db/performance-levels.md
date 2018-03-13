@@ -174,7 +174,7 @@ Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.document
 
 Les clients Contrat Entreprise bénéficieront d’une protection en matière de tarification jusqu’à la fin de leur contrat actuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la tarification et la gestion des données avec Azure Cosmos DB, explorez les ressources suivantes :
 
 1.  [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](sql-api-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.

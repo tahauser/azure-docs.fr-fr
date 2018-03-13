@@ -167,7 +167,7 @@ Dans cette section, vous exécutez le projet WinApp Xamarin pour les appareils W
     >
     >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Ajout de l’authentification à votre application](app-service-mobile-xamarin-forms-get-started-users.md)  
   Apprenez à authentifier les utilisateurs de votre application avec un fournisseur d’identité.

@@ -53,6 +53,6 @@ Vous pouvez également redémarrer une machine virtuelle en cours d’exécution
 
 ![Redémarrage de la machine virtuelle via les points de suspension](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Une fois le redémarrage effectué, vous pouvez vous reconnecter à la machine virtuelle en sélectionnant **Se connecter** dans son volet de gestion.
 * Explorez la [Galerie de modèles de démarrage rapide d’Azure Resource Manager DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

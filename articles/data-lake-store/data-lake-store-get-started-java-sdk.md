@@ -209,7 +209,7 @@ L’extrait de code suivant permet de supprimer les fichiers et dossiers spécif
 1. Pour une exécution au sein d’un environnement IDE, recherchez et appuyez sur le bouton **Run** (Exécuter). Pour une exécution depuis Maven, utilisez [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 2. Pour produire un fichier jar autonome que vous pouvez exécuter à partir de la ligne de commande, créez le fichier jar en incluant toutes les dépendances à l’aide du [plug-in assembly Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Le fichier pom.xml dans l’[exemple de code source sur github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contient un exemple.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Explorer JavaDoc pour le SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 

@@ -125,7 +125,7 @@ Comme indiqué dans le diagramme suivant, la différence architecturale dans une
 ![architecture-hsp-partagé](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Scénario de service géré avec plusieurs vCenter**
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Découvrez plus en détails](site-recovery-role-based-linked-access-control.md) le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery.
 
 [Gérer une architecture mutualisée avec CSP](site-recovery-manage-multi-tenancy-with-csp.md)

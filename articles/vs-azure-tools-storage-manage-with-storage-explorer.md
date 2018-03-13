@@ -26,7 +26,7 @@ L’Explorateur de stockage Azure (version préliminaire) est une application au
 
 ![Explorateur de stockage Microsoft Azure (version préliminaire)][0]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
 
 > [!NOTE]

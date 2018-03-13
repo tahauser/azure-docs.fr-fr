@@ -30,6 +30,6 @@ MSAL gère la mise en cache et l’actualisation des jetons d’accès pour vous
 
 Ce guide utilise les bibliothèques suivantes :
 
-|Bibliothèque|DESCRIPTION|
+|Bibliothèque|Description|
 |---|---|
 |[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Bibliothèque d’authentification Microsoft (MSAL)|

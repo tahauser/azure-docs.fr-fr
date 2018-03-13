@@ -98,7 +98,7 @@ Cliquez sur **Ajouter** dans le volet Itinéraires et attribuez un nom à l’it
 
    Vous devriez voir les messages envoyés par votre appareil à votre IoT Hub consignés dans le conteneur d’objets blob.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous venez de créer votre compte de stockage Azure et d’acheminer les messages à partir de IoT Hub vers un conteneur d’objets blob de ce compte de stockage.
 

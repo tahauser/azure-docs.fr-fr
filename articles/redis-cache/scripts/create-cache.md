@@ -43,7 +43,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources et
 | [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Créez une instance de Cache Redis. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

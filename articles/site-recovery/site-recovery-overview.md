@@ -63,6 +63,6 @@ Site Recovery peut gérer la réplication pour :
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [prise en charge de la charge de travail](site-recovery-workload.md).
 * Prise en main de [la réplication d’une machine virtuelle Azure entre des régions](azure-to-azure-quickstart.md). 

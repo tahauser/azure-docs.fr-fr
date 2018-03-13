@@ -267,7 +267,7 @@ Pour maximiser le débit, procédez comme suit :
 * Désactivez l’accès au magasin par lot. Cette opération augmente la cadence à laquelle les messages peuvent être écrits dans la rubrique.
 * Définissez le nombre de lectures anticipées à 20 fois la vitesse de réception prévue en secondes. Cela réduit le nombre de transmissions de protocole client Service Bus.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’optimisation des performances Service Bus, consultez [Entités de messagerie partitionnées][Partitioned messaging entities].
 

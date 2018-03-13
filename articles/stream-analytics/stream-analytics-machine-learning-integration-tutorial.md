@@ -41,7 +41,7 @@ La figure suivante illustre cette configuration. Comme nous l’avons indiqué, 
 
 ![Vue d’ensemble de l’intégration de Machine Learning dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un abonnement Azure actif.

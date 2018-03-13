@@ -127,7 +127,7 @@ Oui. Azure AD B2B Collaboration prend en charge les listes autorisées et refu
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Quelles licences faut-il avoir pour utiliser Azure AD B2B ?
 Pour plus d’informations sur les licences dont votre organisation a besoin pour utiliser Azure AD B2B, consultez la page [Aide sur les licences Azure Active Directory B2B Collaboration](active-directory-b2b-licensing.md).
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 

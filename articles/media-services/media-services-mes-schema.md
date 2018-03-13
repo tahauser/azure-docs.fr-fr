@@ -27,13 +27,13 @@ Cet article décrit certains des éléments et types du schéma XML sur lequel [
 Définit une valeur prédéfinie d’encodage.  
 
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Encodage** |[Encodage](media-services-mes-schema.md#Encoding) |Élément racine, indique que les sources d’entrée doivent être encodées. |
 | **Sorties** |[Sorties](media-services-mes-schema.md#Output) |Collection de fichiers de sortie souhaités. |
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Version**<br/><br/> Nécessaire |**xs: decimal** |La version de présélection. Les restrictions suivantes s’appliquent : xs:fractionDigits value="1"  et xs:minInclusive value="1" Par exemple, **version="1.0"**. |
 
@@ -41,7 +41,7 @@ Définit une valeur prédéfinie d’encodage.
 Contient une séquence des éléments suivants :  
 
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Paramètres d’encodage vidéo H.264. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |Paramètres d’encodage audio AAC. |
@@ -51,7 +51,7 @@ Contient une séquence des éléments suivants :
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Actuellement, seul l’encodage en une étape est pris en charge. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Détermine l’espacement fixe entre les images IDR en secondes. Également appelé durée GOP. Consultez **SceneChangeDetection** pour savoir si l’encodeur peut s’écarter de cette valeur. |
@@ -61,7 +61,7 @@ Contient une séquence des éléments suivants :
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Collection de couches vidéo de sortie. |
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | Lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome. Pour ce faire, utilisez Condition="InsertBlackIfNoVideoBottomLayerOnly" (pour insérer une vidéo uniquement avec le débit le plus bas) ou Condition="InsertBlackIfNoVideo" (pour insérer une vidéo à tous les débits binaires de sortie). Pour plus d’informations, consultez [cet](media-services-advanced-encoding-with-mes.md#no_video) article.|
 
@@ -70,7 +70,7 @@ Contient une séquence des éléments suivants :
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de l’audio (sans contenu vidéo), le composant de sortie regroupe des fichiers qui contiennent uniquement des données audio. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser l’attribut **InsertBlackIfNoVideo** H264Video pour forcer l’encodeur à ajouter une piste vidéo à la sortie. Pour plus d’informations, consultez [cet](media-services-advanced-encoding-with-mes.md#no_video) article.
               
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Collection de couches H264. |
 
@@ -81,7 +81,7 @@ Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de
 > 
 
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Profil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |Peut être l’une des valeurs **xs:string** suivantes : **Auto**, **Ligne de base**, **Principal**, **Élevé**. |
 | **Niveau**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
@@ -103,17 +103,17 @@ Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de
  Pour plus d’informations sur AAC, consultez [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Profil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Il doit s’agir de l’une des valeurs suivantes : **AACLC**, **HEAACV1** ou **HEAACV2**. |
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Condition** |**xs: string** |Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».<br/><br/> Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux. |
 
 ### <a name="groups"></a>Groupes
-| Référence | DESCRIPTION |
+| Référence | Description |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Consultez la description de [AudioGroup](media-services-mes-schema.md#AudioGroup) pour connaître le nombre approprié de canaux, le taux d’échantillonnage et le taux de bits qui peuvent être configurés pour chaque profil. |
 
@@ -121,7 +121,7 @@ Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de
 Pour plus d’informations sur les valeurs qui sont valides pour chaque profil, consultez le tableau « Détails des codecs audio ».  
 
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Canaux**<br/><br/> minOccurs="0" |**xs: int** |Le nombre de canaux audio encodés. Les valeurs suivantes sont valides : 1, 2, 5, 6 et 8.<br/><br/> Par défaut  : 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |Le taux d’échantillonnage audio, spécifié en Hz. |
@@ -137,19 +137,19 @@ Codec audio|Détails
 
 ## <a name="Clip"></a> Séquence
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Spécifie l’heure de début d’une présentation. La valeur de StartTime doit correspondre aux horodatages absolus de la vidéo d'entrée. Par exemple, si la première image de la vidéo d'entrée a un horodatage de 12:00:10.000, la valeur de StartTime doit être égale ou supérieure à 12:00:10.000. |
 | **Durée** |**xs:duration** |Spécifie la durée d’une présentation (par exemple, apparition d’une superposition sur la vidéo). |
 
 ## <a name="Output"></a> Sortie
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **FileName** |**xs:string** |Le nom du fichier de sortie.<br/><br/> Vous pouvez utiliser les macros décrites dans le tableau suivant pour générer les noms de fichier de sortie. Par exemple : <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
-| Macro | DESCRIPTION |
+| Macro | Description |
 | --- | --- |
 | **{Basename}** |Si vous effectuez l’encodage de VoD, {Basename} est composé des 32 premiers caractères de la propriété AssetFile.Name du fichier principal de la ressource d’entrée.<br/><br/> Si la ressource d’entrée est une archive en direct, {Basename} est dérivé des attributs trackName dans le manifeste du serveur. Si vous envoyez un travail de sous-clip avec TopBitrate, comme dans : « <VideoStream\>TopBitrate</VideoStream\> », et que le fichier de sortie contient de la vidéo, {Basename} est composé des 32 premiers caractères du trackName de la couche vidéo avec le débit le plus élevé.<br/><br/> Si vous envoyez plutôt un travail de sous-clip avec tous les débits d’entrée, comme dans : « <VideoStream\>*</VideoStream\> », et que le fichier de sortie contient de la vidéo, {Basename} est composé des 32 premiers caractères du trackName de la couche vidéo correspondante. |
 | **{Codec}** |Correspond à « H264 » pour la vidéo et « AAC » pour l’audio. |
@@ -162,7 +162,7 @@ Codec audio|Détails
 
 ## <a name="Video"></a> Vidéo (le type complexe hérite de Codec)
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Start** |**xs:string** | |
 | **Étape** |**xs:string** | |
@@ -186,7 +186,7 @@ Vous pouvez aussi utiliser l’indicateur **PreserveResolutionAfterRotation** et
 
 ## <a name="FormatGroup"></a> FormatGroup (groupe)
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -194,74 +194,74 @@ Vous pouvez aussi utiliser l’indicateur **PreserveResolutionAfterRotation** et
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Élément
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Largeur**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Hauteur**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Élément
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Largeur**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Hauteur**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Élément
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Largeur**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Hauteur**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Qualité**<br/><br/> minOccurs="0" |**xs:int** |Valeurs valides : 1 (moins bonne) - 100 (meilleure) |
 
 ### <a name="attributes"></a>Attributs
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (le type complexe hérite de Video)
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Couches PNG |
 
 ## <a name="JpgImage"></a> JpgImage (le type complexe hérite de Video)
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Couches PNG |
 
 ## <a name="PngImage"></a> PngImage (le type complexe hérite de Video)
 ### <a name="elements"></a>Éléments
-| NOM | type | DESCRIPTION |
+| NOM | type | Description |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Couches PNG |
 
