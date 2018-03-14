@@ -1,4 +1,4 @@
----
+﻿---
 title: Principal de service de cluster Azure Kubernetes
 description: "Créer et gérer un principal de service Azure Active Directory pour un cluster Kubernetes dans AKS"
 services: container-service
