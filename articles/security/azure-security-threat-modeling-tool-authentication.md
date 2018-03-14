@@ -268,7 +268,7 @@ ms.lasthandoff: 01/24/2018
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **Étapes** | Le programme ne parvient pas à activer l’authentification lors de la connexion aux files d’attente MSMQ, un pirate peut envoyer anonymement des messages à la file d’attente pour traitement. Si l’authentification n’est pas utilisée pour se connecter à une file d’attente MSMQ pour remettre un message à un autre programme, un pirate pourrait envoyer un message malveillant anonyme.|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous indique à WCF de désactiver l’authentification lors de la connexion à une file d’attente MSMQ pour la remise du message.
 ```
 <bindings>
@@ -283,7 +283,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 ```
 Configurez MSMQ pour exiger l’authentification de certificat ou de domaine Windows à tout moment pour les messages entrants ou sortants.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous indique à WCF d’activer l’authentification de certificat lors de la connexion à une file d’attente MSMQ. Le client est authentifié à l’aide de certificats X.509. Le certificat client doit être présent dans le magasin de certificats du serveur.
 ```
 <bindings>
@@ -308,7 +308,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | L’absence d’authentification signifie que tout le monde peut accéder à ce service. Un service qui n’authentifie pas ses clients autorise l’accès à tous les utilisateurs. Configurez l’application pour une authentification en fonction des informations d’identification du client. Cela est possible en définissant le clientCredentialType du message sur Windows ou Certificat. |
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 ```
 <message clientCredentialType=""Certificate""/>
 ```
@@ -324,7 +324,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | L’absence d’authentification signifie que tout le monde peut accéder à ce service. Un service qui n’authentifie pas ses clients autorise tous les utilisateurs à accéder à ses fonctionnalités. Configurez l’application pour une authentification en fonction des informations d’identification du client. Cela est possible en définissant le clientCredentialType du transport sur Windows ou Certificat. |
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 ```
 <transport clientCredentialType=""Certificate""/>
 ```
@@ -373,7 +373,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Informations de référence**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) (Authentification moderne avec Azure Active Directory pour les applications web) |
 | **Étapes** | <p>La propriété TokenReplayCache permet aux développeurs de définir un cache de relecture de jetons, un magasin qui peut être utilisé pour enregistrer les jetons afin de vérifier qu’aucun jeton ne peut être utilisé plusieurs fois.</p><p>Il s’agit d’une mesure contre une attaque courante, l’attaque judicieusement appelée relecture de jetons : un pirate interceptant le jeton envoyé à la connexion peut tenter de l’envoyer à nouveau à l’application (le « relire ») pour établir une nouvelle session. Par exemple, dans le flux d’octroi de code d’OIDC, après une authentification utilisateur réussie, une demande vers le point de terminaison « /signin-oidc » de la partie de confiance est réalisée avec les paramètres « id_token », « code » et « état ».</p><p>La partie de confiance valide cette demande et établit une nouvelle session. Si un adversaire capture cette demande et la relit, il peut réussir à établir une session et tromper l’utilisateur. La présence de la valeur à usage unique dans OpenID Connect peut limiter mais pas complètement éliminer les circonstances dans lesquelles l’attaque peut être mise en œuvre correctement. Pour protéger leurs applications, les développeurs peuvent fournir une implémentation de ITokenReplayCache et assigner une instance à TokenReplayCache.</p>|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 ```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
@@ -383,7 +383,7 @@ bool TryFind(string securityToken);
 }
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Voici un exemple d’implémentation de l’interface ITokenReplayCache. (Veuillez personnaliser et mettre en œuvre votre infrastructure de mise en cache spécifique au projet)
 ```csharp
 public class TokenReplayCache : ITokenReplayCache
@@ -456,7 +456,7 @@ Notez que pour tester l’efficacité de cette configuration, vous devez vous co
 | **Informations de référence**              | N/A, [Mise en route d’Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Mise en route d’Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Contrôler l’accès à IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [référentiel Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **Étapes** | <ul><li>**Générique :** authentifiez l’appareil à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Utilisez Azure AD, OAuth.</li><li>**C# :** par défaut, la méthode de création Create crée une instance DeviceClient qui utilise le protocole AMQP pour communiquer avec IoT Hub. Pour utiliser le protocole HTTPS, remplacez la méthode Create afin de pouvoir spécifier le protocole. Si vous utilisez le protocole HTTPS, vous devez également ajouter le package NuGet `Microsoft.AspNet.WebApi.Client` à votre projet de manière à inclure l’espace de noms `System.Net.Http.Formatting`.</li></ul>|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 ```csharp
 static DeviceClient deviceClient;
 
@@ -471,7 +471,7 @@ deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegist
 await deviceClient.SendEventAsync(message);
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 **Node.JS : authentification**
 #### <a name="symmetric-key"></a>Clé symétrique
 * Créez un IoT Hub sur Azure.

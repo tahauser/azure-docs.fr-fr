@@ -24,7 +24,7 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob à la fois comme magasins de données **source** et **récepteur**. Si vous ne possédez pas de compte de stockage Azure, consultez [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour en créer un. 
 * Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. Vous pouvez utiliser des outils tels que l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie.
 
@@ -65,7 +65,7 @@ Ce script utilise les commandes suivantes :
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
 

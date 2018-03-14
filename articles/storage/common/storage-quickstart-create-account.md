@@ -22,7 +22,7 @@ Un compte de stockage Azure fournit un espace de noms unique dans le cloud pour 
 Pour démarrer avec le stockage Azure, vous devez d’abord créer un compte de stockage. Vous pouvez créer un compte de stockage Azure avec le [portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Ce démarrage rapide montre comment utiliser chacune de ces options pour créer votre compte de stockage. 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -256,7 +256,7 @@ az group delete --name myResourceGroup
 
 ---
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un compte de stockage standard à usage général. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au démarrage rapide du stockage Blob.
 

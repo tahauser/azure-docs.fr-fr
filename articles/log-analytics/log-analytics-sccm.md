@@ -23,7 +23,7 @@ ms.lasthandoff: 02/13/2018
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connexion de Configuration Manager à Log Analytics
 Vous pouvez connecter System Center Configuration Manager à Log Analytics dans OMS pour synchroniser les données de regroupement d’appareils. Cela rend les données de votre hiérarchie Configuration Manager disponibles dans OMS.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Log Analytics prend en charge la branche actuelle de System Center Configuration Manager, version 1606 et supérieure.  
 
@@ -132,5 +132,5 @@ Une fois les regroupements importés, vous pouvez voir combien d’ordinateurs a
 
 Lorsque vous cliquez sur l’un deux, la fenêtre Recherche s’ouvre, affichant tous les groupes importés ou tous les ordinateurs appartenant à chaque groupe. Dans [Recherche de journal](log-analytics-log-searches.md), vous pouvez démarrer une analyse approfondie des données Configuration Manager.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez [Recherche de journal](log-analytics-log-searches.md) pour afficher des informations détaillées sur vos données Configuration Manager.

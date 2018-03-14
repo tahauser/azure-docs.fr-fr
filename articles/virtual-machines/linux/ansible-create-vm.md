@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2018
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer vos machines virtuelles dans Azure comme vous le feriez pour toute autre ressource. Cet article vous explique comment créer une machine virtuelle de base avec Ansible. Vous pouvez également découvrir comment [créer un environnement de machine virtuelle complète avec Ansible](ansible-create-complete-vm.md).
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour gérer des ressources Azure avec Ansible, vous avez besoin des éléments suivants :
 
 - Ansible et les modules du SDK Azure Python installés sur votre système hôte.
@@ -102,5 +102,5 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Cet exemple crée une machine virtuelle dans un groupe de ressources existant avec un réseau virtuel déjà déployé. Pour obtenir un exemple plus détaillé de la façon d’utiliser Ansible pour créer des ressources de support, comme un réseau virtuel et des règles de groupe de sécurité réseau, consultez [Créer un environnement de machine virtuelle complète avec Ansible](ansible-create-complete-vm.md).

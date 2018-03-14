@@ -23,7 +23,7 @@ Pour pouvoir accéder aux points de terminaison Azure Stack (`portal`, `adminpor
 Vous devez fournir certaines informations importantes relatives à DNS quand vous déployez Azure Stack.
 
 
-|Champ  |DESCRIPTION  |exemples|
+|Champ  |Description  |exemples|
 |---------|---------|---------|
 |Région|Emplacement géographique de votre déploiement d’Azure Stack.|`east`|
 |Nom du domaine externe|Nom de la zone à utiliser pour votre déploiement d’Azure Stack.|`cloud.fabrikam.com`|
@@ -137,6 +137,6 @@ Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifi
 
 La plupart des bureaux d’enregistrement DNS requièrent que vous fournissiez au minimum deux serveurs DNS pour effectuer la délégation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Intégration du pare-feu](azure-stack-firewall.md)

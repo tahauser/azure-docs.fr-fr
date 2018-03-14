@@ -82,7 +82,7 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
 
 
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Vous pouvez utiliser l’activité MapReduce de HDInsight pour exécuter un fichier jar MapReduce dans un cluster HDInsight. Dans l'exemple suivant de définition JSON d'un pipeline, l'activité HDInsight est configurée pour exécuter un fichier JAR Mahout.
 
 ```json   

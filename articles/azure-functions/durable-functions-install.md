@@ -32,7 +32,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 
 Actuellement, Visual Studio fournit la meilleure expérience de développement d’applications qui utilisent l’extension Fonctions durables.  Vos fonctions peuvent être exécutées en local, et peuvent également être publiées dans Azure. Vous pouvez commencer par un projet vide, ou par un ensemble d’exemples de fonctions.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 * Installez la [dernière version de Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 ou plus). Incluez la charge de travail de **développement Azure** dans vos options d’installation.
 
@@ -58,7 +58,7 @@ Suivez les instructions permettant de commencer par l’exemple, mais procédez 
 
 Visual Studio Code fournit une expérience de développement local qui couvre toutes les principales plates-formes : Windows, macOS et Linux.  Vos fonctions peuvent être exécutées en local, et peuvent également être publiées dans Azure. Vous pouvez commencer par un projet vide, ou par un ensemble d’exemples de fonctions.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 * Installer la [dernière version de Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -175,7 +175,7 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
 
 Félicitations ! Votre première fonction durable est maintenant opérationnelle dans le portail Azure !
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Exécuter l’exemple de chaînage de fonction](durable-functions-sequence.md)

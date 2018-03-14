@@ -28,7 +28,7 @@ Apprenez à utiliser Azure Functions pour créer une fonction [sans serveur](htt
 
 ![Créer une Function App dans le Portail Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -87,7 +87,7 @@ Vous disposez maintenant d’une fonction qui s’exécute toutes les heures.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez créé une fonction qui s’exécute selon une planification.
 

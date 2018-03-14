@@ -82,7 +82,7 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 
 Cet exemple vérifie la connectivité à une machine virtuelle de destination sur le port 80.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -198,7 +198,7 @@ La réponse suivante est tirée de l’exemple précédent.  Dans cette réponse
 
 Cet exemple vérifie la connectivité entre une machine virtuelle et un point de terminaison distant.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -294,7 +294,7 @@ Dans l’exemple suivant, `connectionStatus` est **Inaccessible**. Dans les info
 
 L’exemple suivant vérifie la connectivité à un site Web.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -381,7 +381,7 @@ Dans la réponse suivante, vous pouvez constater que `connectionStatus` apparaî
 
 L’exemple suivant vérifie la connectivité entre une machine virtuelle et un compte de stockage blob.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -464,7 +464,7 @@ Voici un exemple de réponse tiré de l’exécution de l’appel d’API préc�
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en consultant [Create an alert triggered packet capture (Créer une capture de paquets déclenchée par alerte)](network-watcher-alert-triggered-packet-capture.md).
 

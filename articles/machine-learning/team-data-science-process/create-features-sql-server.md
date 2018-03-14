@@ -32,7 +32,7 @@ Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonction
 > 
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).

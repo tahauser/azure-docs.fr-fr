@@ -71,7 +71,7 @@ Dans la définition de déclencheur suivante, l’heure planifiée du déclenche
 }
 ```
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Voici un exemple de définition de jeu de données (qui utilise un paramètre nommé `date`) :
 
@@ -174,5 +174,5 @@ Définition du pipeline :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir une description complète de la création d’une fabrique de données avec un pipeline, consultez [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 

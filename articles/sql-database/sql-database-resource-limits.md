@@ -89,7 +89,7 @@ Si toutes les DTU d’un pool élastique sont utilisées, chaque base de donnée
 
 Le tableau suivant décrit les propriétés des bases de données mises en pool.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | Nombre maximal d’eDTU par base de données |Nombre maximal d’eDTU pouvant être utilisées par une des bases de données du pool en fonction du nombre d’eDTU utilisées par les autres bases de données du pool. Le nombre maximal d’eDTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Définissez un nombre maximal d’eDTU par base de données suffisamment élevé pour gérer les pics d’utilisation des bases de données. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. Par exemple, supposons que le pic d’utilisation par base de données est de 20 eDTU et que seules 20 % des 100 bases de données du pool connaissent simultanément un pic d’utilisation. Si le nombre maximal d’eDTU par base de données est défini sur 20 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d’eDTU par pool sur 400. |
 | Nombre minimal d’eDTU par base de données |Nombre minimal d’eDTU garanti pour chaque base de données du pool. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Le nombre minimal d’eDTU par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen d’eDTU utilisées par base de données. Le produit du nombre de bases de données du pool et du nombre minimal d’eDTU par base de données ne peut pas dépasser le nombre d’eDTU par pool. Par exemple, si un pool comporte 20 bases de données et que le nombre minimal d’eDTU par base de données est défini sur 10 eDTU, le nombre d’eDTU par pool doit être d’au moins 200 eDTU. |
@@ -152,7 +152,7 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 - Augmenter le niveau de performance ou le niveau de service du pool élastique ou de la base de données. Consultez [Base de données unique : modifier la taille de stockage](#single-database-change-storage-size), [Base de données unique : modifier les DTU](#single-database-change-dtus), [Pool élastique : modifier la taille du stockage](#elastic-pool-change-storage-size) et [Pool élastique : modifier les eDTU](#elastic-pool-change-edtus).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-service-tiers.md).
 - Pour plus d’informations sur les bases de données uniques, consultez [Ressources d’une base de données unique](sql-database-resource-limits.md).

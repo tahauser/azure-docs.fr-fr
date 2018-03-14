@@ -43,7 +43,7 @@ Vous apprendrez à :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -373,7 +373,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez appris à effectuer les opérations suivantes :
 

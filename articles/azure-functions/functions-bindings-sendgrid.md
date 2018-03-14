@@ -24,7 +24,7 @@ Cet article explique comment envoyer des e-mails avec des liaisons [SendGrid](ht
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Consultez l’exemple propre à un langage particulier :
 

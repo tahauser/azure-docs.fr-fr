@@ -57,7 +57,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
 Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et quelques autres cadres de formation approfondis. Une image [CentOS](linux-dsvm-intro.md) est également disponible. Nous vous proposons également une [édition Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la machine virtuelle de science des données, bien que certains outils sont disponibles uniquement sur l’édition Windows Server 2016.  Sinon, cet article s’applique également à l’édition Windows Server 2012.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](http://azure.com/free).

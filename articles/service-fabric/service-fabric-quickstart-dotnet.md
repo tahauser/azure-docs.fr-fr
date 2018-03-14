@@ -38,7 +38,7 @@ Cette application vous permet d’apprendre à :
 > * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 > * Effectuer une mise à niveau propagée d’application
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer ce démarrage rapide :
 1. [Installez Visual Studio 2017](https://www.visualstudio.com/) avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 2. [Installez Git](https://git-scm.com/)
@@ -216,7 +216,7 @@ Pour mettre à niveau l'application, procédez comme suit :
 
 10. Pendant l’exécution de la mise à niveau, vous pouvez continuer à utiliser l’application. Étant donné que vous avez deux instances du service en cours d’exécution dans le cluster, certaines de vos demandes peuvent obtenir une version mise à niveau de l’application, et d’autres utilisateurs l’ancienne version.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
 > [!div class="checklist"]

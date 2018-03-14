@@ -34,7 +34,7 @@ Autres articles associés :
 * [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
 
 ## <a name="install-hdinsight-applications"></a>Install custom HDInsight applications
@@ -126,7 +126,7 @@ Vous pouvez utiliser Azure PowerShell pour supprimer le cluster ou le groupe de 
 ### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
 Vous pouvez utiliser l’interface de ligne de commande Azure pour supprimer le cluster ou le groupe de ressources. Consultez la section [Supprimer des clusters à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md#delete-clusters).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment développer des applications Resource Manager pour le déploiement d’applications HDInsight.
 * [Install custom HDInsight applications](hdinsight-apps-install-applications.md)(Installer des applications HDInsight personnalisées) : découvrez comment installer une application HDInsight sur vos clusters.
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md)(Publier des applications HDInsight) : découvrez comment publier vos applications HDInsight personnalisées sur Azure Marketplace.

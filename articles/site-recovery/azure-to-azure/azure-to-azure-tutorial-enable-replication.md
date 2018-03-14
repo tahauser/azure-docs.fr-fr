@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Configurer un accès sortant pour les machines virtuelles
 > * Activer la réplication pour une machine virtuelle
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -162,7 +162,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 3. Dans **Paramètres** > **Éléments répliqués**, vous pouvez afficher l’état des machines virtuelles et la progression de la réplication initiale. Cliquez sur la machine virtuelle pour explorer ses paramètres.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configuré la récupération d’urgence pour une machine virtuelle Azure. L’étape suivante consiste à tester votre configuration.
 

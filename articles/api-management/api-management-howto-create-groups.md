@@ -34,7 +34,7 @@ Ce guide explique comment les administrateurs de l'instance Gestion des API peuv
 
 En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx) de l’API REST de gestion des API.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 

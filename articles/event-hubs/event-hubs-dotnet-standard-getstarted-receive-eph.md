@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Ce didacticiel explique comment écrire une application console .NET Core qui reçoit des messages d’un Event Hub à l’aide de la bibliothèque de **l’hôte du processeur d’événements**. Vous pouvez exécuter la solution [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) telle quelle, en remplaçant les chaînes par vos valeurs de compte de stockage et de concentrateur d’événements. Ou vous pouvez suivre les étapes de ce didacticiel pour créer les vôtres.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017, mais Visual Studio 2015 est également pris en charge.
 * [Outils Visual Studio 2015 ou 2017 .NET Core](http://www.microsoft.com/net/core).
@@ -214,7 +214,7 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
 
 Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)

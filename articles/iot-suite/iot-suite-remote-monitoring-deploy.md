@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déploiement de la solution préconfigurée
 > * Connexion à la solution préconfigurée
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
@@ -80,7 +80,7 @@ Lorsque le processus d’approvisionnement est terminé, vous pouvez vous connec
 
 1. Le tableau de bord des solutions de surveillance à distance s’affiche dans votre navigateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

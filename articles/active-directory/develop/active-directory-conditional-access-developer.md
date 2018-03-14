@@ -73,7 +73,7 @@ Les développeurs peuvent prendre ce défi et l’ajouter à une nouvelle demand
 
 ## <a name="scenarios"></a>Scénarios
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 L’accès conditionnel Azure AD est une fonctionnalité inclue dans [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Pour en savoir plus sur les conditions requises de licence, consultez le [Rapport d’utilisation sans licence](../active-directory-conditional-access-unlicensed-usage-report.md).  Les développeurs peuvent joindre le [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), qui inclut un abonnement gratuit à la Suite de mobilité d’entreprise y compris Azure AD Premium.
 

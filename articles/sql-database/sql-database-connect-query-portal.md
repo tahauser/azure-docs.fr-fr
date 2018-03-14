@@ -27,7 +27,7 @@ ms.lasthandoff: 02/24/2018
 
 L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
 
@@ -164,6 +164,6 @@ Il y a quelques éléments à connaître lorsque vous travaillez avec l’édite
 6. Appuyer sur la touche F5 actualise la page de l’éditeur de requête et entraîne la perte de la requête en cours de traitement. Utilisez le bouton Exécuter dans la barre d’outils pour exécuter des requêtes.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour obtenir des informations sur le Transact-SQL pris en charge dans les bases de données SQL Azure, consultez [Différences de Transact-SQL dans la base de données SQL](sql-database-transact-sql-information.md).

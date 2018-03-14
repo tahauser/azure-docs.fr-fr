@@ -81,7 +81,7 @@ Les messages seront envoyés à la file d’attente de lettres mortes de transfe
 
 Pour récupérer ces messages de lettres mortes, vous pouvez créer un récepteur à l’aide de la méthode utilitaire [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath).
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 L’extrait de code suivant crée un destinataire de message. Dans la boucle de réception de la file d’attente principale, le code récupère le message avec [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), qui demande au service broker de retourner immédiatement les messages disponibles ou de ne retourner aucun résultat. Si le code reçoit un message, il l’abandonne immédiatement, ce qui incrémente le `DeliveryCount`. Une fois que le système déplace le message vers la file d’attente de lettres mortes, la file d’attente principale est vide et la boucle se ferme, car [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) retourne **null**.
 
@@ -102,7 +102,7 @@ while(true)
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les files d’attente de lettres mortes Service Bus, consultez les articles suivants :
 

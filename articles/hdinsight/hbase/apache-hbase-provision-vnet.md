@@ -31,7 +31,7 @@ Avec l’intégration du réseau virtuel, les clusters HBase peuvent être dépl
 * Amélioration des performances en évitant à votre trafic de transiter par plusieurs passerelles et équilibrages de charge.
 * Capacité de traitement des informations critiques de façon plus sécurisée sans exposer de points de terminaison publics.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -243,7 +243,7 @@ Pour utiliser ces informations dans une application Java, vous pouvez suivre la 
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à créer un cluster HBase. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Prise en main de HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)

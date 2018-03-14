@@ -26,7 +26,7 @@ ms.lasthandoff: 02/24/2018
 Azure HDInsight inclut une option R Server à intégrer dans votre cluster HDInsight. Cette option permet aux scripts R d’utiliser Spark et MapReduce afin d’exécuter des calculs distribués. Dans cet article, vous allez découvrir comment créer un R Server sur le cluster HDInsight. Vous apprendrez également à exécuter un script R qui illustre l’utilisation de Spark pour effectuer des calculs R distribués.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations, consultez l’article [Obtenir une version d’évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Client Secure Shell (SSH)** : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -790,7 +790,7 @@ Une fois que tous les nœuds Worker désactivés ont été configurés pour s’
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, consultez [Exigences de contrôle d’accès](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant, vous devrez savoir comment créer un cluster HDInsight qui inclut R Server. Vous avez également appris les principes de base de l’utilisation de la console R à partir d’une session SSH. Les rubriques suivantes expliquent les autres méthodes de gestion et l’utilisation de R Server sur HDInsight :
 

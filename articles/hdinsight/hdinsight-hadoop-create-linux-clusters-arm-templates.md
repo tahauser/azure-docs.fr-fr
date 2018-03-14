@@ -27,7 +27,7 @@ ms.lasthandoff: 02/23/2018
 
 Vous trouverez dans cet article différentes façons de créer des clusters Azure HDInsight à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Pour découvrir d’autres outils et fonctions de création de clusters, cliquez sur le sélecteur d’onglets situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Pour suivre les instructions de cet article, il vous faut :
@@ -82,7 +82,7 @@ Pour une introduction à l’utilisation de Visual Studio avec les groupes de r
 
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * Pour obtenir plus de modèles associés à HDInsight, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).

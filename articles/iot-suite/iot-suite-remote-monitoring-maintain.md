@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Utiliser la page **Maintenance** pour examiner l’alarme
 > * Appeler une méthode d’appareil pour résoudre le problème
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -84,7 +84,7 @@ Pour afficher les détails d’un travail ou d’un appel de méthode en particu
 
 ![Affichage des détails d’une tâche](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 

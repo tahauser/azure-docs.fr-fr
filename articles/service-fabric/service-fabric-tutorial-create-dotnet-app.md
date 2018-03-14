@@ -40,7 +40,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) versions 15.5 ou ultérieures avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
@@ -629,7 +629,7 @@ Pour examiner ce qui se produit dans le code, procédez comme suit :
 Pour arrêter la session de débogage, appuyez sur **Maj+F5**.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette partie du didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

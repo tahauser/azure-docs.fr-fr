@@ -29,7 +29,7 @@ Découvrez certains scénarios d’utilisation de base d’Azure Log Analytics p
 * [Rechercher des messages de journal spécifiques](#search-for-specific-log-messages)
 * [Créer des alertes d’événement](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Vous devez avoir configuré un cluster HDInsight pour utiliser Azure Log Analytics. Pour obtenir des instructions, consultez [Utiliser Azure Log Analytics avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 

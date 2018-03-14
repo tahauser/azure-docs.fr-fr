@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 
 Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez l’article [Présentation d’Azure Data Lake Store](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -122,7 +122,7 @@ Pour supprimer un compte Azure Data Lake Store, cliquez sur **Supprimer**dans le
 
 ![Supprimer un compte Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Supprimer un compte Data Lake")
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

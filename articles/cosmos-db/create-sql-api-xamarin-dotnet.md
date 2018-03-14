@@ -29,7 +29,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et déployer une application web incluant une liste de tâches basée sur l’[API .NET SQL](sql-api-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) et le moteur d’autorisation Azure Cosmos DB. L’application web avec liste de tâches implémente un modèle de données par utilisateur qui permet aux utilisateurs de se connecter via l’authentification Facebook et de gérer leurs propres tâches.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 
@@ -124,7 +124,7 @@ Si vous ne pensez pas utiliser à nouveau cette application, supprimez toutes le
 1. À partir du menu de gauche dans le portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous venez de créer. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer une collection à l’aide de l’Explorateur de données, et à concevoir et déployer une application Xamarin. Vous pouvez maintenant importer des données supplémentaires à votre compte Cosmos DB. 
 

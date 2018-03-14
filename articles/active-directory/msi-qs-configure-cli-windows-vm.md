@@ -27,7 +27,7 @@ L’identité du service administré fournit des services Azure avec une identit
 
 Dans cet article, vous allez apprendre à activer et à supprimer l’identité du service administré d’une machine virtuelle Azure à l’aide de l’interface de ligne de commande Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

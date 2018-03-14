@@ -27,7 +27,7 @@ Apprenez à utiliser Spark sur HDInsight pour analyser les données de télémé
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) est un service d’analyse qui surveille vos applications web. Vous pouvez exporter les données de télémétrie générées par Application Insights vers Stockage Azure. Une fois les données dans Stockage Azure, vous pouvez utiliser HDInsight pour les analyser.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Une application configurée pour utiliser Application Insights.
 
@@ -365,7 +365,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         ...
         +---------+
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour d’autres d’exemples d’utilisation de Spark avec des données et des services dans Azure, consultez les documents suivants :
 

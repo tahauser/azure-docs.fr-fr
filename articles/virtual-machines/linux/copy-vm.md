@@ -27,7 +27,7 @@ Cet article vous explique comment créer une copie de votre machine virtuelle Az
 
 Vous pouvez également [charger et créer une machine virtuelle à partir d’un disque dur virtuel](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 
 -   Installer [Azure CLI 2.0](/cli/azure/install-az-cli2)
@@ -135,6 +135,6 @@ az vm create --resource-group myResourceGroup \
     --attach-os-disk myCopiedDisk
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour découvrir comment utiliser l’interface Azure CLI pour gérer votre nouvelle machine virtuelle, consultez la page [Commande de l’interface de ligne de commande Azure en mode Azure Resource Manager](../azure-cli-arm-commands.md).

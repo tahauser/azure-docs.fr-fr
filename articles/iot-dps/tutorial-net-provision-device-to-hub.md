@@ -27,7 +27,7 @@ Dans le didacticiel précédent, vous avez appris à configurer un appareil pour
 > * Démarrer l’appareil
 > * Vérifier que l’appareil est enregistré
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, assurez-vous de configurer votre appareil et son *module de sécurité matériel* comme indiqué dans le didacticiel [Configurer un appareil à approvisionner à l’aide du service IoT Hub Device Provisioning](./tutorial-set-up-device.md).
 
@@ -241,7 +241,7 @@ Une fois que votre appareil démarre, les actions suivantes doivent se produire.
 
     ![Connexion réussie au hub dans le portail](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

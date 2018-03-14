@@ -20,7 +20,7 @@ ms.lasthandoff: 02/28/2018
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -264,6 +264,6 @@ else:
   print("Done.")
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./concepts-migrate-import-export.md)

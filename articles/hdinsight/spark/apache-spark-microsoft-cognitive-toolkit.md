@@ -29,7 +29,7 @@ Dans cet article, vous suivez les étapes ci-dessous.
 
 2. Charger un bloc-notes Jupyter sur le cluster Spark pour voir comment appliquer un modèle entraîné de formation approfondie Microsoft Cognitive Toolkit aux fichiers d’un compte de Stockage Blob Azure avec [l’API Spark Python (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Voir [Créez votre compte Azure gratuit](https://azure.microsoft.com/free).
 

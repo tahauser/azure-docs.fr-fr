@@ -67,7 +67,7 @@ Syntaxe :
 > Le paramètre TYPE doit être défini sur **RDBMS**. 
 >
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 L’exemple suivant illustre l’utilisation de l’instruction CREATE pour les sources de données externes. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
@@ -96,7 +96,7 @@ Syntaxe :
       [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
     CREATE EXTERNAL TABLE [dbo].[customer]( 
         [c_id] int NOT NULL, 
         [c_firstname] nvarchar(256) NULL, 

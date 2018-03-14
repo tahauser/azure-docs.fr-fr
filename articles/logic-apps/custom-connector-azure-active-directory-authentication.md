@@ -26,7 +26,7 @@ Pour sécuriser les appels entre votre API Web et votre connecteur personnalisé
 
 Ce didacticiel prend l’API Azure Resource Manager comme exemple. Azure Resource Manager permet de gérer les composants d’une solution créée dans Azure, par exemple des bases de données, des machines virtuelles et des applications web. Un connecteur personnalisé pour Azure Resource Manager peut être utile pour pouvoir gérer les ressources Azure à partir des workflows. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez commencer avec un [compte Azure gratuit](https://azure.microsoft.com/free/). Sinon, souscrivez un [abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -82,7 +82,7 @@ La première application Azure AD effectue une authentification lorsque le conne
 
    ![URL de réponse](./media/custom-connector-azure-active-directory-authentication/add-reply-url1.png)
 
-   | Paramètre | Valeur suggérée | DESCRIPTION | 
+   | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **URL de réponse** | Pour votre propre API, entrez cette URL : </br>`https://{your-web-app-root-URL}/.auth/login/aad/callback` | | 
    | **Autorisations déléguées** | {non nécessaire} | | 
@@ -151,7 +151,7 @@ Votre deuxième application Azure AD sécurise l’inscription de votre connecte
 
    Sinon, pour les autres options :
 
-   | Option | Valeur suggérée | DESCRIPTION | 
+   | Option | Valeur suggérée | Description | 
    | ------ | --------------- | ----------- | 
    | **Autorisations déléguées** | | Sélectionnez les autorisations d’accès délégué à votre API Web | 
    |||| 
@@ -233,7 +233,7 @@ Ouvrez le fichier OpenAPI de votre application API Web afin d’ajouter l’obje
 ```
 Vous pouvez maintenant créer et inscrire votre connecteur personnalisé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Inscrire votre connecteur](../logic-apps/logic-apps-custom-connector-register.md)
 * [FAQ sur les connecteurs personnalisés](../logic-apps/custom-connector-faq.md)

@@ -36,7 +36,7 @@ Pour créer votre projet, consultez la vidéo [Create Spark Applications with th
 > Vous pouvez utiliser ce plug-in pour créer des applications et les envoyer à un cluster HDInsight Spark sur Linux uniquement.
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 - Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir du [site web Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).

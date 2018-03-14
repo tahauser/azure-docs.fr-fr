@@ -31,7 +31,7 @@ L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integ
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Appeler un package SSIS à l’aide de l’activité de procédure stockée dans la version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
  
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Si vous n’avez pas déjà provisionné de runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions indiquées dans ce [didacticiel](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>Créer et tester un runbook Azure Automation
@@ -379,7 +379,7 @@ Le pipeline fonctionnant comme prévu, vous pouvez créer un déclencheur pour l
 
     ![Exécutions de déclencheur](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants de la documentation relative à SSIS : 
 
 - [Déployer, exécuter et surveiller un package SSIS sur Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

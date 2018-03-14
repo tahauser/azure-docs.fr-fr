@@ -28,7 +28,7 @@ Dans ce premier volet, vous apprenez à :
 > * Définir la chaîne de connexion
 > * Exécuter l’application console
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
  
@@ -236,7 +236,7 @@ def response_callback(response):
 
 ---
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans la première partie de la série, vous avez appris à rendre une application hautement disponible avec des comptes de stockage RA-GRS, en effectuant les opérations suivantes :
 

@@ -34,7 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Appeler des méthodes d’appareil à partir de la solution
 > * Reconfigurer un appareil
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
@@ -98,7 +98,7 @@ Pour apporter une modification, ajoutez un nom pour le travail, mettez à jour l
 
 Pour suivre l’état du travail sur la page **Maintenance**, sélectionnez **Travaux**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment effectuer les opérations suivantes :
 

@@ -37,7 +37,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 >
 > Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez la section [Activité de copie dans Azure Data Factory version 1](v1/data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Azure Data Lake Store : si vous n’avez pas de compte Data Lake Store, suivez les instructions de l’article [Créer un compte Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#create-an-azure-data-lake-store-account).
@@ -132,7 +132,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Vérification de la sortie de Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Lisez l’article suivant pour en savoir plus sur la prise en charge d’Azure Data Lake Store : 
 

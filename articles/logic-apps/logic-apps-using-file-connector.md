@@ -24,7 +24,7 @@ ms.lasthandoff: 01/19/2018
 
 Pour gérer les données et accéder en toute sécurité aux ressources locales, vos applications logiques peuvent utiliser la passerelle de données locale. Cet article vous explique comment vous connecter à un système de fichiers local par l’intermédiaire de cet exemple de scénario simple : copie d’un fichier chargé dans Dropbox vers un partage de fichiers, puis envoi d’un e-mail.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Téléchargez la toute dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127).
 
@@ -48,7 +48,7 @@ Pour gérer les données et accéder en toute sécurité aux ressources locales,
 
    ![Configurer la connexion](media/logic-apps-using-file-connector/create-file.png)
 
-   | Paramètre | DESCRIPTION |
+   | Paramètre | Description |
    | ------- | ----------- |
    | **Dossier racine** | Spécifiez le dossier racine de votre système de fichiers. Vous pouvez spécifier un dossier local situé sur la machine où est installée la passerelle de données locale ; il peut également s’agir d’un partage réseau auquel la machine a accès. <p>**Conseil :** Le dossier racine est le dossier parent principal, qui est utilisé pour les chemins d’accès relatifs de toutes les actions liées aux fichiers. | 
    | **Type d’authentification** | Type d’authentification utilisé par votre système de fichiers. | 
@@ -100,7 +100,7 @@ Consultez les [détails sur Swagger](/connectors/fileconnector/).
 
 * Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site UserVoice concernant Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Se connecter à des données locales](../logic-apps/logic-apps-gateway-connection.md) 
 * [Analyser vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)

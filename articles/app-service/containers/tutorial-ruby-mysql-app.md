@@ -36,7 +36,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -540,7 +540,7 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

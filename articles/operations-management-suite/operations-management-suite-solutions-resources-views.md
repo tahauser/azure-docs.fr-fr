@@ -104,7 +104,7 @@ Toutes les ressources Log Analytics définies dans un modèle Resource Manager o
 ## <a name="add-the-view-details"></a>Ajout des détails de la vue
 La ressource de la vue dans le fichier exporté contient deux éléments dans l’élément **properties** nommés **Dashboard** et **OverviewTile** qui contiennent la configuration détaillée de la vue.  Copiez ces deux éléments et leur contenu dans l’élément **properties** de la ressource de vue dans votre fichier solution.
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Par exemple, l’exemple suivant montre un fichier solution simple avec une vue.  Des points de suspension (...) sont affichés à la place du contenu des éléments **Dashboard** et **OverviewTile** pour des raisons d’espace.
 
     {

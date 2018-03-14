@@ -84,7 +84,7 @@ Lorsque l’extension NPS pour Azure est intégrée au serveur NPS, un flux d’
 
 8. L’utilisateur a accès au port virtuel sur le serveur VPN et établit un tunnel VPN chiffré.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cette section détaille les prérequis à respecter avant de pouvoir intégrer MFA à la passerelle des services Bureau à distance. Avant de commencer, les éléments suivants doivent être en place :
 
 * Infrastructure VPN
@@ -453,7 +453,7 @@ Pour résoudre des problèmes supplémentaires, vous pouvez utiliser un analyseu
 
 Pour plus d’informations, consultez [Intégrer votre infrastructure NPS existante à Azure Multi-Factor Authentication](multi-factor-authentication-nps-extension.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Se procurer Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
 
 [Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](multi-factor-authentication-get-started-server-rdg.md)

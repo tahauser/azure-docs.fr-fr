@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
 ms.openlocfilehash: bd2f03f47cebec52aecb84ef2e97a745ede670ff
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Utilisation d’une identité du service administré (MSI) de machine virtuelle Azure avec les kits de développement logiciel Azure 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 Cet article fournit une liste d’exemples de kits de développement logiciel, qui illustrent l’utilisation de la prise en charge du MSI par leurs kits de développement logiciel Azure respectifs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

@@ -124,7 +124,7 @@ Les colonnes AA à AE qui sont générées fournissent des informations pour cha
 
 ![Colonnes de sortie AA à AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Exemple : pour les six machines virtuelles avec les valeurs indiquées dans le tableau, l’outil calcule et affecte la meilleure correspondance de machine virtuelle Azure, ainsi que les exigences de stockage Azure.
 
 ![Affectations de Workload Qualification (Qualification de la charge de travail)](./media/site-recovery-capacity-planner/workload-qualification-3.png)
@@ -151,5 +151,5 @@ Une fois toutes les informations entrées, sélectionnez **Submit data to the pl
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Apprenez à exécuter](site-recovery-capacity-planning-for-hyper-v-replication.md) l’outil de planification de la capacité.

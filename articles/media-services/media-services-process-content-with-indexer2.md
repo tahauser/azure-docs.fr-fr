@@ -121,7 +121,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
 using System;

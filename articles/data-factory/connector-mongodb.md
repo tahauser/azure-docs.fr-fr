@@ -39,7 +39,7 @@ Plus précisément, ce connecteur MongoDB prend en charge :
 - MongoDB **versions 2.4, 2.6, 3.0 et 3.2**.
 - Copie de données en utilisant une authentification **De base** ou **Anonyme**.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis/vers une base de données MongoDB qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MongoDB intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données vers/depuis MongoDB.
 
@@ -53,7 +53,7 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié MongoDB sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type |La propriété type doit être définie sur **MongoDb** |OUI |
 | server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
@@ -96,7 +96,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis MongoDB, affectez la valeur **MongoDbCollection** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **MongoDbCollection** | OUI |
 | collectionName |Nom de la collection dans la base de données MongoDB. |OUI |
@@ -127,7 +127,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de MongoDB, définissez le type de source dans l’activité de copie sur **MongoDbSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **MongoDbSource** | OUI |
 | query |Utiliser la requête SQL-92 personnalisée pour lire les données. Par exemple : select * from MyTable. |Non (si « collectionName » est spécifié dans le jeu de données) |
@@ -202,7 +202,7 @@ Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à
 
 Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d’accéder aux données dénormalisées. Vous pouvez accéder au contenu des tableaux MongoDB en interrogeant et en joignant les tables virtuelles.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 Par exemple, « ExampleTable » est ici une table MongoDB qui dispose d’une colonne avec un tableau d’objets dans chaque cellule (Factures) et d’une colonne avec un tableau de types scalaires (Évaluations).
 
@@ -242,5 +242,5 @@ Les tables suivantes montrent les tables virtuelles qui représentent les tablea
 | 2222 |1 |2 |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

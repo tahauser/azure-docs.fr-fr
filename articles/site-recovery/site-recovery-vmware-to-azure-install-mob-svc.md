@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
 ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installation du service Mobilité (VMware ou serveur physique vers Azure)
 Le service Mobilité Azure Site Recovery capture les écritures de données sur un ordinateur, puis les transfère au serveur de processus. Déployez le service Mobilité sur chaque ordinateur (machine virtuelle VMware ou serveur physique) que vous souhaitez répliquer vers Azure. Vous pouvez déployer le service Mobilité pour les serveurs que vous souhaitez protéger à l’aide des méthodes suivantes :
@@ -29,7 +29,7 @@ Le service Mobilité Azure Site Recovery capture les écritures de données sur 
 >[!IMPORTANT]
 > À compter de la version 9.7.0.0, sur les machines virtuelles Windows, le programme d’installation du service Mobilité installe également [l’agent de machine virtuelle Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) le plus récent. Lorsqu’un ordinateur bascule vers Azure, l’ordinateur répond aux conditions requises d’installation de l’agent pour l’utilisation de n’importe quelle extension de machine virtuelle.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Effectuez ces étapes préalables avant d’installer manuellement le service Mobilité sur votre serveur :
 1. Connectez-vous à votre serveur de configuration, puis ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
 2. Indiquez le dossier bin, puis créez un fichier de phrase secrète.
@@ -84,7 +84,7 @@ Vous pouvez effectuer une installation Push du service Mobilité à l’aide de 
 > [!NOTE]
 Une fois le service Mobilité installé, dans le portail Azure, sélectionnez **+Répliquer** pour commencer à protéger ces machines virtuelles.
 
-## <a name="update-mobility-service"></a>Mettre à jour le service Mobilité
+## <a name="update-mobility-service"></a>Mettre à jour le service Mobilité.
 
 > [!WARNING]
 > Vérifiez que le serveur de configuration, les serveurs de processus de scale-out et les serveurs cibles maîtres qui font partie de votre déploiement sont mis à jour avant que vous ne mettiez à jour le service Mobilité sur les serveurs protégés.
@@ -103,10 +103,10 @@ La tâche Mettre à jour le service Mobilité est alors démarrée pour chacune 
 > [!NOTE]
 > [Découvrez-en plus](site-recovery-vmware-to-azure-manage-configuration-server.md) sur la mise à jour du mot de passe du compte utilisé pour installer le service Mobilité.
 
-## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Désinstallation du service Mobilité sur un ordinateur Windows Server
+## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Désinstallation d’un service Mobilité sur un ordinateur Windows Server
 Utilisez une des méthodes suivantes pour désinstaller le service Mobilité sur un ordinateur Windows Server.
 
-### <a name="uninstall-by-using-the-gui"></a>Désinstallation à l’aide de l’interface graphique utilisateur
+### <a name="uninstall-by-using-the-gui"></a>Désinstallation à l’aide de l’interface utilisateur graphique
 1. Dans le panneau de configuration, sélectionnez **Programmes**.
 2. Sélectionnez **Service Mobilité/Serveur cible maître Microsoft Azure Site Recovery**, puis sélectionnez **Désinstaller**.
 

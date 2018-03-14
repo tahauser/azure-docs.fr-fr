@@ -30,7 +30,7 @@ ms.lasthandoff: 02/01/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installez Ruby 2.4.1 ou version ultérieure</a>
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
@@ -167,7 +167,7 @@ http://<app name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Build a Ruby and MySQL web app in Azure App Service on Linux](tutorial-ruby-mysql-app.md) (Créer une application web Ruby et MySQL dans Azure App Service sur Linux)

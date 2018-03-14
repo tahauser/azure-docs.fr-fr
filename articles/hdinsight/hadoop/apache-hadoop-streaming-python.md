@@ -27,7 +27,7 @@ ms.lasthandoff: 01/18/2018
 
 Découvrez comment utiliser Python dans des opérations MapReduce de diffusion en continu. Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Les étapes décrites dans ce document implémentent les composants de mappage et de réduction dans Python.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop Linux sur HDInsight
 
@@ -201,7 +201,7 @@ Utilisez le script PowerShell suivant pour charger les fichiers, exécuter la t�
 
     Cette commande affiche une liste des mots et le nombre de fois où ils apparaissent.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez découvert comment utiliser des travaux de diffusion en continu MapReduce avec HDInsight, cliquez sur les liens suivants pour explorer d’autres façons d’utiliser Azure HDInsight.
 

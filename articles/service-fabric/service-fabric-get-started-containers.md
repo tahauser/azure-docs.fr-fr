@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2018
 
 L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric.  Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/).  Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Un ordinateur de développement exécutant :
 * Visual Studio 2015 ou Visual Studio 2017.
 * [Outils et SDK Service Fabric](service-fabric-get-started.md).
@@ -580,7 +580,7 @@ Pour aider à diagnostiquer les échecs de démarrage du conteneur, Service Fabr
 Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à conserver en cas d’échec. Si une valeur négative est spécifiée, tous les conteneurs en échec sont conservés. Quand l’attribut **ContainersRetentionCount** n’est pas spécifié, aucun conteneur n’est conservé. L’attribut **ContainersRetentionCount** prend également en charge les paramètres de l’application. Les utilisateurs peuvent ainsi spécifier des valeurs différentes pour les clusters de test et de production. Il est recommandé d’utiliser des contraintes de placement pour cibler le service de conteneur sur un nœud particulier lors de l’utilisation de cette fonctionnalité pour empêcher le service de conteneur de se déplacer vers d’autres nœuds. Tous les conteneurs conservés à l’aide de cette fonctionnalité doivent être supprimés manuellement.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur l’exécution des [conteneurs sur Service Fabric](service-fabric-containers-overview.md).
 * Consultez le didacticiel [Déployer une application .NET dans un conteneur vers Azure Service Fabric](service-fabric-host-app-in-a-container.md).
 * En savoir plus sur le [cycle de vie des applications](service-fabric-application-lifecycle.md) Service Fabric.

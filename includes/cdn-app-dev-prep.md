@@ -1,4 +1,4 @@
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches de préparation pour permettre à ce code d’interagir avec Azure Resource Manager. Ce travail de préparation implique les opérations suivantes :
 
 * Créez un groupe de ressources destiné à héberger le profil CDN créé dans ce didacticiel.

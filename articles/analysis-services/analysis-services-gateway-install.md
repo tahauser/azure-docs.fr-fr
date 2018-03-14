@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 **Configuration minimale requise :**
 
 * .NET Framework 4.5
@@ -117,6 +117,6 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations de dépannage, veillez à consulter la page [Passerelle de données locale](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Gérer Analysis Services](analysis-services-manage.md)   
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)

@@ -32,7 +32,7 @@ Une bonne solution de récupération d’urgence prend en charge la modélisatio
 
 Cet article explique comment protéger une application web qui s’appuie sur Internet Information Services (IIS) à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Il décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux vers Azure, il indique également comment effectuer un test de récupération d’urgence et basculer l’application vers Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
@@ -164,5 +164,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Approfondissez vos connaissances sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

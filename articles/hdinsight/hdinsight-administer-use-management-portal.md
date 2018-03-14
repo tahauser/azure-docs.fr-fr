@@ -32,7 +32,7 @@ Les informations mentionnées dans cet article s’appliquent uniquement aux clu
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -365,7 +365,7 @@ Sur la capture d’écran précédente, le numéro de la version d’Hadoop est 
     cd %sqoop_home%
     cd %hcatalog_home%
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du portail et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
 
 * [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md)

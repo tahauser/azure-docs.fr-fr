@@ -38,7 +38,7 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 >
 >
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
@@ -110,7 +110,7 @@ Pour configurer des alertes :
 
     ![Configurer une alerte](./media/api-management-azure-monitor/set-up-alert.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

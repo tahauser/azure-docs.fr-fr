@@ -50,7 +50,7 @@ Ces instructions d’installation et un [exemple de configuration téléchargeab
 
 La configuration téléchargeable est seulement un exemple. Modifiez-la selon vos besoins.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.

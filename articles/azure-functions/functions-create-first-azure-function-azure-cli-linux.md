@@ -25,7 +25,7 @@ Cette rubrique de démarrage rapide vous guide tout au long de votre utilisation
 
 Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 

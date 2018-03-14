@@ -52,7 +52,7 @@ Lors de la création d’une tâche de vidéo miniature avec **Azure Media Video
 
 Actuellement, vous pouvez modifier les paramètres suivants :
 
-| Paramètre | DESCRIPTION |
+| Paramètre | Description |
 | --- | --- |
 | outputAudio |Spécifie si la vidéo obtenue contient, ou non, des données audio. <br/>Les valeurs autorisées sont : True ou False. La valeur par défaut est True. |
 | fadeInFadeOut |Spécifie si des transitions en fondu sont, ou non, utilisées entre les différentes miniatures du film.  <br/>Les valeurs autorisées sont : True ou False.  La valeur par défaut est True. |
@@ -102,7 +102,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
     using System;

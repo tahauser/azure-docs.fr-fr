@@ -30,7 +30,7 @@ Découvrez comment utiliser le pilote JDBC dans une application Java pour soumet
 
 Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop sur HDInsight. Les clusters basés tant sur Linux que sur Windows fonctionnent.
 
@@ -192,7 +192,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 3. Redémarrez SQuirreL. L'erreur ne devrait plus apparaître lors de la connexion à Hive sur HDInsight.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens suivants pour découvrir d’autres façons d’utiliser Azure HDInsight.
 

@@ -29,7 +29,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Ce guide de démarrage rapide crée une base de données de documents à l’aide des outils du portail Azure pour Azure Cosmos DB. Ce guide vous indique également comment créer rapidement une application console Java au moyen de [l’API Java SQL](sql-api-sdk-java.md). Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Après avoir suivi ce guide de démarrage rapide, vous saurez comment créer et modifier des ressources de base de données de documents dans l’interface utilisateur ou par programme, selon la méthode que vous préférez.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -250,7 +250,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, une base de données de documents et une collection à l’aide de l’Explorateur de données, puis à exécuter une application pour effectuer la même opération par programme. Vous pouvez maintenant importer des données supplémentaires dans votre collection Azure Cosmos DB. 
 

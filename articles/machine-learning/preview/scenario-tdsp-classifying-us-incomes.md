@@ -48,7 +48,7 @@ Consultez [Cycle de vie du processus TDSP (Team Data Science Process)](https://g
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 ### <a name="required-subscription-hardware-software"></a>Obligatoire : abonnement, matériel, logiciels
 1. Un [abonnement](https://azure.microsoft.com) Azure. Vous pouvez également obtenir un [abonnement gratuit](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) pour exécuter cet exemple.
 2. Une [machine virtuelle de science des données (DSVM) Azure Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm) (taille de la machine virtuelle : [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), avec 4 processeurs virtuels et 14 Go de RAM). Bien que testé sur une machine virtuelle de science des données Azure, cet exemple devrait fonctionner sur n’importe quelle machine Windows 10.

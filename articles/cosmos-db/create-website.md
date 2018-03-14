@@ -33,7 +33,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 > [!TIP]
 > Ce didacticiel ne suppose pas d’être familiarisé avec les modèles Azure Resource Manager ou JSON, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
 > 
@@ -122,7 +122,7 @@ Nous allons maintenant déployer notre deuxième modèle.  Ce modèle vous montr
 
 <a name="NextSteps"></a>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
 * Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](http://azure.com/docdb).

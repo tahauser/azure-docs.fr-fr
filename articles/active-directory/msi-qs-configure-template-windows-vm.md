@@ -27,7 +27,7 @@ L’identité du service administré (MSI) fournit des services Azure avec une i
 
 Dans cet article, vous apprenez à activer et supprimer l’identité du service administré pour une machine virtuelle Azure, à l’aide d’un modèle de déploiement Azure Resource Manager.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

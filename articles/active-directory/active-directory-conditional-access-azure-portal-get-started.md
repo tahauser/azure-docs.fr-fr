@@ -33,7 +33,7 @@ Cette rubrique fournit des instructions pour tester un accès conditionnel en fo
 De nombreuses organisations veulent limiter l’utilisation de l’authentification multifacteur aux tentatives d’accès aux applications, qui n’émanent pas de l’intranet de l’entreprise. Azure Active Directory vous permet d’atteindre cet objectif facilement grâce à une stratégie d’accès conditionnel basée sur l’emplacement. Cette rubrique fournit des instructions détaillées pour configurer une stratégie de ce type. Celle-ci utilise des [adresses IP approuvées](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) pour faire la distinction entre les tentatives d’accès provenant de l’intranet de l’entreprise et celles provenant de tous les autres emplacements.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans cette rubrique suppose que vous connaissiez les concepts abordés dans [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
@@ -156,7 +156,7 @@ Pour tester votre stratégie, vous devez accéder à votre application à partir
 L’authentification multifacteur ne doit être requise que si la tentative de connexion émane d’un appareil qui ne figure pas parmi les adresses IP approuvées que vous avez configurées. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

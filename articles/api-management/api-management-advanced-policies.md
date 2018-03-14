@@ -101,7 +101,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </policies>  
 ```  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
  Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.  
   
 ```xml  
@@ -155,7 +155,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="examples"></a>Exemples  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
  La stratégie au niveau de l’API suivante transfère toutes les demandes au service principal avec un délai d’expiration de 60 secondes.  
   
 ```xml  
@@ -174,7 +174,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
  Cette stratégie au niveau de l’opération utilise l’élément `base` pour hériter de la stratégie backend de l’étendue au niveau de l’API parente.  
   
 ```xml  
@@ -193,7 +193,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
  Cette stratégie au niveau de l’opération transfère explicitement toutes les demandes au service principal avec un délai d’expiration de 120 secondes et n’hérite pas de la stratégie principale au niveau de l’API parente.  
   
 ```xml  
@@ -213,7 +213,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
  Cette stratégie au niveau de l’opération ne transmet pas de demandes au service principal.  
   
 ```xml  
@@ -264,7 +264,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="examples"></a>Exemples  
   
-#### <a name="example"></a>exemples  
+#### <a name="example"></a>Exemple  
  L’exemple suivant montre comment limiter le nombre de requêtes transmises à un serveur principal en fonction de la valeur d’une variable contextuelle.
  
 ```xml  
@@ -314,7 +314,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Toute chaîne peut être utilisée comme valeur à consigner dans Event Hubs. Dans cet exemple, la date et l’heure, le nom de service de déploiement, l’ID de la demande, l’adresse IP et le nom de l’opération de tous les appels inbound sont consignés dans l’Enregistreur d’événements Event Hubs avec l’ID `contoso-logger`.  
   
 ```xml  
@@ -411,7 +411,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Dans l’exemple suivant, le transfert de la demande est retenté jusqu’à dix fois suivant un algorithme de nouvelles tentatives exponentiel. Étant donné que `first-fast-retry` a la valeur false, toutes les nouvelles tentatives sont soumises à l’algorithme de nouvelles tentatives exponentiel.  
   
 ```xml  
@@ -471,7 +471,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <return-response>  
@@ -520,7 +520,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Cet exemple de stratégie montre un exemple d’utilisation de la stratégie `send-one-way-request` pour envoyer un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -590,7 +590,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Cet exemple montre un moyen de vérifier un jeton de référence avec un serveur d’autorisation. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -666,7 +666,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
 Notez l’utilisation de [propriétés](api-management-howto-properties.md) en tant que valeurs du nom d’utilisateur et du mot de passe pour éviter de stocker des informations sensibles dans le document de stratégie.  
   
 ```xml  
@@ -705,7 +705,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exemple d’envoi d’un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -757,7 +757,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisation n’est pas valide. Pour plus d’informations, consultez la page [Utiliser des services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -908,7 +908,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Dans l’exemple suivant, deux stratégies `choose` sont les stratégies enfants immédiates de la stratégie `wait`. Ces deux stratégies `choose` s’exécutent en parallèle. Chaque stratégie `choose` essaie de récupérer une valeur en cache. En cas d’échec de cache, un service principal est appelé pour fournir la valeur. Dans cet exemple, la stratégie `wait` ne se termine pas tant que toutes ses stratégies enfants immédiates ne sont pas terminées, car l’attribut `for` a la valeur `all`.   Dans cet exemple, les variables de contexte (`execute-branch-one`, `value-one`, `execute-branch-two` et `value-two`) sont déclarées hors de l’étendue de cet exemple de stratégie.  
   
 ```xml  

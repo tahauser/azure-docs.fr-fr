@@ -38,7 +38,7 @@ Dans ce didacticiel, vous effectuez les tâches suivantes à l’aide des [ bibl
 > * Rechercher l’index
 > * Afficher la configuration de l’indexeur dans le portail
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free/). 
 
@@ -281,7 +281,7 @@ Si vous ne prévoyez pas de continuer à utiliser ces services, utilisez les ét
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer le groupe de ressources**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations et pour connaître les tâches spécifiques aux autres sources de données pris en charge, consultez les articles suivants :
 

@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment activer une identité MSI (Managed Service Id
 > * Autoriser votre machine virtuelle à accéder aux clés d’accès de stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer les clés d’accès de stockage à partir du Gestionnaire des ressources  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -227,7 +227,7 @@ Réponse :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](../active-directory/msi-overview.md).
 - Pour savoir comment suivre ce didacticiel en utilisant des informations d’identification de stockage SAP, consultez [Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux pour accéder au stockage Azure à l’aide d’informations d’identification SAP](msi-tutorial-linux-vm-access-storage-sas.md).

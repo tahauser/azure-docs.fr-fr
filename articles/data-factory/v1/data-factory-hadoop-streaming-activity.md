@@ -112,7 +112,7 @@ Notez les points suivants :
 > 
 > 
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Le pipeline dans cette procédure pas à pas exécute le programme de diffusion en continu Map/Reduce de calcul du nombre de mots sur votre cluster Azure HDInsight. 
 
 ### <a name="linked-services"></a>Services liés

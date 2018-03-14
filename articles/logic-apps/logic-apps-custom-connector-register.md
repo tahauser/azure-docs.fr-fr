@@ -24,7 +24,7 @@ ms.lasthandoff: 02/26/2018
 
 Une fois que vous avez créé votre API REST, configuré l’authentification et récupéré votre fichier de définition OpenAPI ou une collection Postman, vous pouvez inscrire votre connecteur. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour inscrire votre connecteur personnalisé, vous aurez besoin de ces éléments :
 
@@ -81,7 +81,7 @@ Maintenant, spécifiez le fichier OpenAPI ou la collection Postman permettant de
 
       ![Fournissez le fichier OpenAPI de votre API](./media/logic-apps-custom-connector-register/provide-openapi-file.png)
 
-      | Option | Format |DESCRIPTION | 
+      | Option | Format |Description | 
       | ------ | ------ | ----------- | 
       | **Charger un fichier OpenAPI** | *fichier-JSON-OpenAPI (Swagger)* | Accédez à l’emplacement de votre fichier OpenAPI et sélectionnez-le. | 
       | **Utiliser une URL OpenAPI** | http://*chemin-d-acces-au-fichier-JSON-Swagger* | Indiquez l’URL du fichier OpenAPI de votre API. | 
@@ -94,7 +94,7 @@ Maintenant, spécifiez le fichier OpenAPI ou la collection Postman permettant de
 
       ![Détails du connecteur](./media/logic-apps-custom-connector-register/add-connector-details.png)
 
-      | Paramètre ou option | Format | DESCRIPTION | 
+      | Paramètre ou option | Format | Description | 
       | ----------------- | ------ | ----------- | 
       | **Icône Charger** | *fichier-PNG-ou-JPG-inférieur-à-1-Mo* | Icône qui représente votre connecteur. <p>Couleur : de préférence un logo blanc sur un arrière-plan de couleur. <p>Dimensions : un logo d’environ 160 pixels à l’intérieur d’un carré de 230 pixels. | 
       | **Couleur d’arrière-plan de l’icône** | *code-hexadécimal-couleur-marque-icône* | <p>Couleur derrière l’icône, qui correspond à la couleur d’arrière-plan du fichier d’icône. <p>Format : hexadécimal. Par exemple, #007ee5 représente la couleur bleue. | 
@@ -128,7 +128,7 @@ Maintenant, spécifiez le fichier OpenAPI ou la collection Postman permettant de
      Par exemple, si vous avez au préalable [configuré l’authentification Azure AD dans ce didacticiel](../logic-apps/custom-connector-azure-active-directory-authentication.md), vous avez créé des applications Azure AD permettant de sécuriser votre API Web et votre connecteur. 
      Vous pouvez donc à présent indiquer la clé client et l’ID d’application que vous avez enregistrés auparavant :
     
-     | Paramètre | Valeur suggérée | DESCRIPTION | 
+     | Paramètre | Valeur suggérée | Description | 
      | ------- | --------------- | ----------- | 
      | **Type d’authentification** | OAuth 2.0 | | 
      | **Fournisseur d’identité** | Azure Active Directory | | 
@@ -160,7 +160,7 @@ Maintenant, spécifiez le fichier OpenAPI ou la collection Postman permettant de
 
 2. Sous **Général**, indiquez ou modifiez les informations suivantes pour l’action :
    
-   | Paramètre | Valeur suggérée | DESCRIPTION | 
+   | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **Résumé** | *nom-opération* | Titre de cette action. | 
    | **Description** | *description-opération* | Description de cette action. <p>**Conseil** : Vérifiez que votre description se termine par un point. |
@@ -200,7 +200,7 @@ Maintenant, spécifiez le fichier OpenAPI ou la collection Postman permettant de
 
 2. Sous **Général**, indiquez ou modifiez les informations suivantes pour le déclencheur :
 
-   | Paramètre | Valeur suggérée | DESCRIPTION | 
+   | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **Résumé** | *nom-opération* | Titre de ce déclencheur. | 
    | **Description** | *description-opération* | Description de ce déclencheur. <p>**Conseil** : Vérifiez que votre description se termine par un point. | 
@@ -286,7 +286,7 @@ Pour partager votre connecteur avec des utilisateurs externes à l’extérieur 
 
 * Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Facultatif : Certifier un connecteur](../logic-apps/custom-connector-submit-certification.md)
 * [FAQ sur les connecteurs personnalisés](../logic-apps/custom-connector-faq.md)

@@ -36,7 +36,7 @@ Les opérations de mise à niveau et de réinitialisation des machines virtuelle
 
 Un exemple de fichier de traitement complet de chiffrement de disque de données d’un groupe identique Linux est disponible [ici](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat).  Cet exemple crée un groupe de ressources, un groupe identique Linux, monte un disque de données de 5 Go et chiffre le groupe de machines virtuelles identiques.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Installez les dernières versions [d’Azure Powershell](https://github.com/Azure/azure-powershell/releases) ou [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), qui contiennent les commandes de chiffrement.
 
 La préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques nécessite que vous inscriviez automatiquement votre abonnement via les commandes PowerShell suivantes : 

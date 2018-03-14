@@ -45,7 +45,7 @@ L’exécution du processus de migration dans son intégralité peut nécessiter
 ## <a name="plan-the-migration-to-premium-storage"></a>Planification de la migration vers Premium Storage
 Cette section vous permet de vous assurer que vous êtes prêt à suivre les étapes de migration de cet article et vous permet de prendre la bonne décision sur les types de machines virtuelles et de disques.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 * Vous aurez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez souscrire un abonnement pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/) d’un mois ou visiter [Tarification Azure](https://azure.microsoft.com/pricing/) pour plus d’options.
 * Pour exécuter les applets de commande PowerShell, vous avez besoin du module Microsoft Azure PowerShell. Consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour des instructions sur l’installation et le point d’installation.
 * Lorsque vous prévoyez d’utiliser des machines virtuelles Azure exécutées sur Premium Storage, vous devez utiliser les machines virtuelles compatibles Premium Storage. Vous pouvez utiliser des disques de Stockage Standard et Premium avec les machines virtuelles compatibles avec Premium Storage. Les disques de stockage Premium seront bientôt disponibles avec plusieurs types de machines virtuelles. Pour plus d’informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles des machines virtuelles](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Tailles des services cloud](../../cloud-services/cloud-services-sizes-specs.md).
@@ -94,7 +94,7 @@ La section suivante fournit des instructions pour la préparation des disques du
 * [Scénario 1 : « Migration des machines virtuelles Azure existantes vers Azure Premium Storage. »](#scenario1)
 * [Scénario 2 : « Migration de machines virtuelles depuis d’autres plateformes vers Azure Premium Storage ».](#scenario2)
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 Pour préparer les disques durs virtuels pour la migration, vous devez :
 
 * Un abonnement Azure, un compte de stockage et un conteneur dans ce compte de stockage sur lequel vous pouvez copier votre disque dur virtuel. Notez que le compte de stockage de destination peut être un compte de stockage Standard ou Premium selon vos besoins.
@@ -755,7 +755,7 @@ Pour optimiser l’application pour de meilleures performances de disque, report
 ### <a name="application-migrations"></a>Migrations des applications
 Les bases de données et autres applications complexes peuvent nécessiter des étapes spéciales, telles que définies par le fournisseur de l’application pour la migration. Reportez-vous à la documentation correspondante de l’application. Par exemple, la migration des bases de données se fait généralement via des étapes de sauvegarde et de restauration.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
 
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)

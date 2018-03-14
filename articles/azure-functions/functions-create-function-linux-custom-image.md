@@ -37,7 +37,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Linux.  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -214,7 +214,7 @@ Vous pouvez désormais tester vos fonctions qui s’exécutent sur Linux dans Az
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

@@ -237,7 +237,7 @@ Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-
 
 Un script PowerShell peut également créer des règles de réseau virtuel avec l’applet de commande essentielle **New-AzureRmSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-#### <a name="prerequisites"></a>configuration requise
+#### <a name="prerequisites"></a>Prérequis
 
 Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* de point de terminaison de service de réseau virtuel particulier approprié pour Azure SQL Database.
 
@@ -293,7 +293,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 
 La fonctionnalité de règle de réseau virtuel pour Azure SQL Database est disponible depuis fin septembre 2017.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel, puis une règle de réseau virtuel pour Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 

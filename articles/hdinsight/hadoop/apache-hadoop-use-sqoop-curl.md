@@ -111,7 +111,7 @@ Comme illustré dans ce document, vous pouvez utiliser une demande HTTP brute po
 
 Pour plus d’informations sur l’interface REST utilisée dans cet article, consultez le document <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API guide</a> (Guide de l’API REST Sqoop).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des informations générales sur Hive avec HDInsight :
 
 * [Utilisation de Sqoop avec Hadoop dans HDInsight](hdinsight-use-sqoop.md)

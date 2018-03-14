@@ -20,7 +20,7 @@ ms.lasthandoff: 02/28/2018
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation du langage Go pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant du code écrit dans le langage [Go](https://golang.org/) (golang). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de Go, mais que vous ne connaissez pas la base de données Azure pour PostgreSQL.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer une base de données - Portail](quickstart-create-server-database-portal.md)
 - [Créer une base de données - Interface de ligne de commande Azure](quickstart-create-server-database-azure-cli.md)
@@ -333,6 +333,6 @@ func main() {
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)

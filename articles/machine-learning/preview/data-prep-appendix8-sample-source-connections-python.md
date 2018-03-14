@@ -23,7 +23,7 @@ Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Pyt
 
 ## <a name="load-data-from-dataworld"></a>Charger des données à partir de data.world
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 #### <a name="register-yourself-at-dataworld"></a>Vous inscrire auprès de data.world
 Vous avez besoin d’un jeton d’API du site web data.world.

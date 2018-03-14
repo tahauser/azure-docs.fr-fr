@@ -37,7 +37,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 > * Effectuer le basculement de votre service sans aucun impact sur la disponibilité
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer ce démarrage rapide :
 1. [Installez le SDK Service Fabric et l’interface CLI Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installez Git](https://git-scm.com/)
@@ -189,7 +189,7 @@ Pour illustrer le basculement du service, il est possible de simuler un redémar
 
     ![Succès du redémarrage du nœud dans Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
 > [!div class="checklist"]

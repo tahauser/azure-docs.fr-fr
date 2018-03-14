@@ -22,7 +22,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Préparer un disque dur virtuel Debian pour Azure
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cette section suppose que vous avez déjà installé un système d’exploitation Debian Linux à l’aide d’un fichier .iso téléchargé à partir du [site web Debian](https://www.debian.org/distrib/) sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Hyper-V n’est qu’un exemple parmi d’autres. Pour obtenir des instructions sur l’utilisation de Hyper-V, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Notes d'installation
@@ -92,6 +92,6 @@ Il existe plusieurs outils permettant de créer des disques durs virtuels Debian
         # logout
 4. Cliquez sur **Action** -> Arrêter dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous êtes maintenant prêt à utiliser votre disque dur virtuel Debian pour créer des machines virtuelles dans Azure. S’il s’agit de votre premier téléchargement du fichier .vhd dans Azure, consultez [Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0](upload-vhd.md#option-1-upload-a-vhd).
 

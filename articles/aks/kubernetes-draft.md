@@ -21,7 +21,7 @@ Draft est un outil open source qui facilite l'empaquetage et l’exécuter du co
 
 Ce document détaille l'utilisation de Draft avec un cluster Kubernetes sur AKS.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, consultez le [guide de démarrage rapide d’ACS][aks-quickstart].
 
@@ -276,7 +276,7 @@ Output:
 Hello World, I'm Java - Draft Rocks!
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l'utilisation de Draft, consultez la documentation Draft sur GitHub.
 

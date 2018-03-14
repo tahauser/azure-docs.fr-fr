@@ -33,7 +33,7 @@ Ce didacticiel suppose que vous possédez déjà un abonnement Azure. Si vous n�
 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de machines virtuelles Azure dans une région Azure à partir de laquelle vous souhaitez migrer. En outre, il existe un certain nombre de paramètres que vous devez vérifier avant de commencer.
 
@@ -129,7 +129,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez migré une machine virtuelle Azure vers une autre région. Vous pouvez maintenant configurer la récupération d’urgence pour la machine virtuelle migrée.
 

@@ -36,7 +36,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Planifier un déploiement de mises à jour
 > * Afficher les résultats d’un déploiement
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

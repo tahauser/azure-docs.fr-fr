@@ -19,7 +19,7 @@ ms.lasthandoff: 02/24/2018
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser Node.js pour charger, télécharger et répertorier des objets blob de blocs dans un conteneur Stockage Blob Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -186,7 +186,7 @@ console.log('6. Deleting block Blob\n');
         fs.unlinkSync(DOWNLOADED_FILE_PATH);
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et Stockage Blob Azure avec Node.js. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
 

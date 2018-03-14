@@ -26,7 +26,7 @@ Ce didacticiel montre comment utiliser votre compte Azure Location Based Service
 > * Configurer votre requête Route Service
 > * Afficher les itinéraires priorisés par mode de déplacement
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Services](./tutorial-search-location.md#createaccount) et [d’obtenir une clé de votre compte](./tutorial-search-location.md#getkey). Vous pouvez également consulter l’utilisation des API Map Control et Search Service comme indiqué dans le didacticiel [Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services](./tutorial-search-location.md). Vous pouvez également découvrir l’utilisation de base des API Route Service comme indiqué dans le didacticiel [Obtenir l’itinéraire vers un point d’intérêt à l’aide d’Azure Location Based Services](./tutorial-route-location.md).
 
@@ -256,7 +256,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
 
     Notez que l’itinéraire pour camion est affiché en bleu et l’itinéraire pour voiture est affiché en violet.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

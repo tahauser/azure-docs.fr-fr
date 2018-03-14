@@ -31,7 +31,7 @@ Quand vous avez inscrit votre contrat ou compte Azure, un compte avec l’autori
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
@@ -79,7 +79,7 @@ Pour visionner un didacticiel vidéo sur la création d’une hiérarchie d’en
 
 Si vous êtes un utilisateur Azure Enterprise Agreement, regardez un didacticiel vidéo sur l’association des comptes et des abonnements à des entités à l’adresse [Connexion à Azure Resource Manager avec la gestion des coûts Azure de Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

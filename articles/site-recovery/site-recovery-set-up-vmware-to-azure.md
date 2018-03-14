@@ -23,7 +23,7 @@ ms.lasthandoff: 03/07/2018
 
 Cet article décrit la procédure de configuration de votre environnement local source de manière à répliquer les machines virtuelles exécutées sur VMware dans Azure. Il comprend des étapes pour la sélection de votre scénario de réplication, la configuration d’un ordinateur local en tant que le serveur de configuration Site Recovery et la détection automatique des machines virtuelles locales. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà effectué les opérations suivantes :
 - [Configurer les ressources](tutorial-prepare-azure.md) dans le [portail Azure](http://portal.azure.com).
@@ -67,5 +67,5 @@ Sélectionnez **+vCenter** pour connecter un serveur VMware vCenter ou un ordina
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Configurez votre environnement cible](./site-recovery-prepare-target-vmware-to-azure.md) dans Azure.

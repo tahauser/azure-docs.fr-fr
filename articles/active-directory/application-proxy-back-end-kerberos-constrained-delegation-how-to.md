@@ -38,7 +38,7 @@ Cet article repose sur les hypothèses suivantes :
 
 -   L’application concernée est publiée dans un client Azure pour lequel la pré-authentification est activée. Les utilisateurs doivent s’authentifier sur Azure par le biais de l’authentification basée sur les formulaires. Les scénarios d’authentification cliente complète ne sont pas couverts par cet article. Ils seront ajoutés ultérieurement.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le proxy d’application Azure peut être déployé sur de nombreux types d’environnement ou d’infrastructure. Les architectures varient naturellement d’une organisation à l’autre. Les causes les plus courantes de problèmes liés à KCD ne portent pas sur les environnements eux-mêmes, mais plutôt sur de simples erreurs de configuration ou des négligences d’ordre général.
 
@@ -178,5 +178,5 @@ Si vous ne progressez toujours pas dans la résolution de votre problème, adres
 
 -   Authentification à deux tronçons : couramment utilisée dans les scénarios où une application est hiérarchisée, avec un serveur principal et un serveur frontal requérant tous deux une authentification comme les services SQL Reporting.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Configurer la délégation Kerberos contrainte (KCD) sur un domaine géré](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)

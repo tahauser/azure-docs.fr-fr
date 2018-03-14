@@ -34,7 +34,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation d’HDInsigh
 4. Créer une application Scala dans IntelliJ IDEA, puis la configurer pour le débogage à distance.
 5. Exécuter et déboguer l’application.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * **Un abonnement Azure**. Pour plus d’informations, consultez [Get a free trial of Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Obtenir un essai gratuit d’Azure).
 * **Un cluster Apache Spark dans HDInsight**. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **SDK Oracle Java**. Vous pouvez l’installer à partir du [site web Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).

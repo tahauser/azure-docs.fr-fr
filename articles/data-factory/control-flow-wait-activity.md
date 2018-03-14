@@ -46,7 +46,7 @@ Nom | Nom de l’activité `Wait`. | Chaîne | OUI
 Type | Doit être défini sur **Wait**. | Chaîne | OUI
 waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier  | OUI
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 > [!NOTE]
 > Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline Data Factory en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).

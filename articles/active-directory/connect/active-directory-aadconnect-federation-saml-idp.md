@@ -74,7 +74,7 @@ Les liaisons représentent les paramètres des communications relatives au trans
 ## <a name="required-attributes"></a>Attributs requis
 Cette table présente les exigences des attributs spécifiques dans le message SAML 2.0.
  
-|Attribut|DESCRIPTION|
+|Attribut|Description|
 | ----- | ----- |
 |NameID|La valeur de cette assertion doit être la même que ImmutableID de l’utilisateur Azure AD. Elle peut avoir jusqu'à 64 caractères alphanumériques. Tous les caractères HTML non sécurisés doivent être encodés, par exemple un caractère « + » est affiché comme «.2B ».|
 |IDPEmail|Le Nom principal utilisateur (UPN) est répertorié dans la réponse SAML sous la forme d’un élément portant le nom IDPEmail. Il s’agit du UserPrincipalName (UPN) de l’utilisateur dans Azure AD/Office 365. L’UPN est au format de l’adresse de messagerie. Valeur UPN dans Windows Office 365 (Azure Active Directory).|

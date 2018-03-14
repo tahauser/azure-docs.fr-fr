@@ -15,10 +15,10 @@ ms.workload:
 ms.date: 02/22/2018
 ms.author: nisoneji
 ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -33,7 +33,7 @@ Cet article fournit la marche à suivre pour installer un serveur cible maître 
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Pour choisir l’hôte sur lequel déployer le serveur cible maître, déterminez si la restauration automatique s’effectuera sur une machine virtuelle locale existante ou sur une nouvelle machine virtuelle. 
     * Dans le cas d’une machine virtuelle existante, l’hôte du serveur cible maître doit avoir accès aux magasins de données de celle-ci.
@@ -358,7 +358,7 @@ Vous pouvez constater que le champ **Version** indique le numéro de version du 
     * ONBOOT=yes
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois installé et inscrit, le serveur cible maître apparaît dans la section **Master Target** (Cible maître) de la page **Site Recovery Infrastructure** (Infrastructure Site Recovery), sous la vue d’ensemble du serveur de configuration.
 
 Vous pouvez maintenant procéder à la [reprotection](site-recovery-how-to-reprotect.md), puis à la restauration automatique.

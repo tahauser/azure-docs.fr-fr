@@ -41,7 +41,7 @@ Découvrez comment utiliser la résolution des problèmes associés aux connexio
 
 Cet exemple vérifie la connexion à une machine virtuelle de destination sur le port 80. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $rgName = "ContosoRG"
@@ -136,7 +136,7 @@ Hops             : [
 
 Cet exemple vérifie la connectivité entre une machine virtuelle et un point de terminaison distant. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $rgName = "ContosoRG"
@@ -200,7 +200,7 @@ Hops             : [
 
 L’exemple suivant vérifie la connectivité à un site web. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $rgName = "ContosoRG"
@@ -253,7 +253,7 @@ Hops             : [
 
 L’exemple suivant vérifie la connectivité entre une machine virtuelle et un compte de stockage Blob. Cet exemple suppose que vous avez activé Network Watcher dans la région dont dépend la machine virtuelle source.  
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $rgName = "ContosoRG"
@@ -302,7 +302,7 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Recherchez si certains types de trafic sont autorisés au sein ou en dehors de votre machine virtuelle en consultant [Check IP flow verify (Vérifier les flux IP)](network-watcher-check-ip-flow-verify-portal.md).
 
