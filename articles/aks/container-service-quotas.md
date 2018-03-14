@@ -1,4 +1,4 @@
----
+﻿---
 title: "Disponibilité des régions et quotas pour Azure Container Services (AKS)"
 description: "La disponibilité des régions et les quotas par défaut de Azure Container Services (AKS)."
 services: container-service

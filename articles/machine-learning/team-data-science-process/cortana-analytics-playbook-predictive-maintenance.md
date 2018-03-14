@@ -1,4 +1,4 @@
----
+﻿---
 title: "Maintenance prédictive dans l’industrie aérospatiale avec Azure - Modèle de solution Cortana Intelligence | Microsoft Docs"
 description: "Modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport."
 services: cortana-analytics
