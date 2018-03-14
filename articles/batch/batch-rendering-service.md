@@ -28,7 +28,7 @@ Le service Batch Rendering prend actuellement en charge les applications suivant
 •   Autodesk Maya I/O 2017 Update 4 (version 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (version 20.1.0.238) •   Autodesk Arnold pour Maya (version 5.0.1.1) •   Autodesk Arnold pour 3ds Max (version 1.0.836) •   Chaos Group V-Ray pour Maya (version 3.52.03) •   Chaos Group V-Ray pour 3ds Max (version 3.60.02)
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser le service Batch Rendering, vous avez besoin des éléments suivants :
 
@@ -258,6 +258,6 @@ Pour télécharger des sorties, modifiez le champ **Sorties** pour définir le r
 
 Vous pouvez fermer Maya sans interrompre le processus de téléchargement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur Batch, consultez [Exécuter des charges de travail intrinsèquement parallèles avec Batch](batch-technical-overview.md).

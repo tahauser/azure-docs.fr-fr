@@ -24,7 +24,7 @@ ms.lasthandoff: 03/02/2018
 
 Découvrez comment déployer votre première application Azure Service Fabric pour .NET sur Windows en quelques minutes. Une fois l’opération terminée, vous obtenez un cluster local fonctionnant avec une application Reliable Services.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Ce processus inclut l’installation du Kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
 
@@ -136,7 +136,7 @@ Supprimez le cluster en effectuant un clic droit sur l’application de **Gestio
 
 Si vous choisissez cette option, Visual Studio redéploiera le cluster la prochaine fois que vous exécuterez l’application. Optez pour cette option si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur les services [Reliable Services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 

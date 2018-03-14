@@ -23,7 +23,7 @@ L’**historique des exécutions** offre un moyen de suivre les sorties de vos e
 Les **métriques de modèles** peuvent être enregistrées à partir de n’importe quel point de vos scripts, pour suivre toutes les valeurs les plus importantes dans vos expérimentations de science des données.
 Cet article décrit comment tirer parti de ces fonctionnalités pour augmenter la vitesse et la qualité de votre expérimentation de la science des données.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous devez :
 * [Créer et installer Azure Machine Learning](quickstart-installation.md)
 - [Créer un projet](quickstart-installation.md)

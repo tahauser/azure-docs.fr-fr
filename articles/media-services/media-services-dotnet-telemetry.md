@@ -74,7 +74,7 @@ Pour plus d’informations sur l’utilisation de la télémétrie, consultez [c
         <add key="StorageAccountName" value="storage_name" />
     ```
  
-## <a name="example"></a>exemples  
+## <a name="example"></a>Exemple  
     
 L’exemple suivant montre comment activer la télémétrie pour le compte AMS spécifié et comment interroger les métriques à l’aide du SDK .NET Azure Media Services.  
 
@@ -225,7 +225,7 @@ namespace AMSMetrics
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

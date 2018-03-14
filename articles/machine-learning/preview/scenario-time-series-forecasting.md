@@ -52,7 +52,7 @@ Ce scénario se concentre sur la prévision de la demande d’énergie où l’o
 
 Ce scénario décrit en détail la construction d’une solution de prévision de la demande d’énergie Machine Learning. La solution est formée sur un jeu de données public issu de [New York Independent System Operator (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), qui exploite le réseau électrique de l’état de New York. Le jeu de données comprend des données horaires de la demande d’énergie pour New York City sur une période de 5 ans. Un jeu de données supplémentaire contenant des conditions météorologiques horaires pour New York City au cours de la même période a été extrait de [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 - Une copie [d’Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](./quickstart-installation.md) pour installer le programme et créer un espace de travail.

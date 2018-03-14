@@ -26,7 +26,7 @@ Ce didacticiel montre comment utiliser votre compte Azure Location Based Service
 > * Obtenir les coordonnées d’une adresse
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Services](./tutorial-search-location.md#createaccount) et [d’obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey). Vous pouvez également apprendre à utiliser les API Map Control et Search Service en consultant le didacticiel [Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services](./tutorial-search-location.md).
 
@@ -193,7 +193,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
     ![Azure Map Control et Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

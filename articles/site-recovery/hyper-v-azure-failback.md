@@ -18,7 +18,7 @@ ms.lasthandoff: 02/22/2018
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Hyper-V protégées par Site Recovery.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 1. Vérifiez que vous avez lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
 1. Assurez-vous que le serveur VMM ou le serveur d’hôte Hyper-V du site principal est connecté à Azure.
 2. Vous devez avoir effectué une **validation** sur la machine virtuelle.

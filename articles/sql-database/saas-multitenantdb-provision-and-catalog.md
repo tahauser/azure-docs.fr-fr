@@ -127,7 +127,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Provisionner un groupe de locataires dans des bases de données à la fois multilocataires et à locataire unique
 > * Inscrire un mappage base de données/locataire dans un catalogue
 
-#### <a name="prerequisites"></a>configuration requise
+#### <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -272,7 +272,7 @@ Ce type de service automatique peut être simple ou complexe. Par exemple, le sy
 - [Déboguer les scripts dans l’ISE Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

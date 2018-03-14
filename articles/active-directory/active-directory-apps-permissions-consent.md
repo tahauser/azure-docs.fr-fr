@@ -101,7 +101,7 @@ Dans le portail Azure, sélectionnez **Les utilisateurs peuvent inscrire des app
 >- Les utilisateurs ne peuvent pas apporter de modifications aux applications dont ils sont propriétaires.
 
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Par exemple, prenons l’application « FabrikamMail pour Office 365 » à laquelle vous avez remarqué que les utilisateurs de votre client se connectent. « FabrikamMail » est une application de lecture de courriers pour Android, publiée par « Fabrikam, Inc. ». Elle correspond à la définition « Applications multi-locataires développées par d’autres personnes, pour lesquelles Contoso peut donner son consentement ».
 

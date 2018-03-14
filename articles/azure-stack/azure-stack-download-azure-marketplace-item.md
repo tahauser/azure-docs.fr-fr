@@ -55,7 +55,7 @@ Quand vous décidez du contenu à inclure dans votre Place de marché Azure Stac
 
 Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne peut pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Vous pouvez cependant pouvez utiliser l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 Avant de pouvoir utiliser l’outil de syndication de la Place de marché, vérifiez que vous avez bien [inscrit Azure Stack auprès de votre abonnement Azure](azure-stack-register.md).  
 
 À partir de l’ordinateur connecté à Internet, procédez de la manière suivante pour télécharger les éléments de la Place de marché dont vous avez besoin :
@@ -153,6 +153,6 @@ Avant de pouvoir utiliser l’outil de syndication de la Place de marché, véri
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)

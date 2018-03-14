@@ -65,7 +65,7 @@ Quand un utilisateur se sert du portail Azure Stack pour effectuer une action qu
 
 Dans l’environnement du Kit de développement, Windows Azure Pack et Azure Stack ont des fournisseurs d’identité indépendants. Les utilisateurs qui accèdent à ces deux environnements à partir du portail Azure Stack doivent avoir le même nom d’utilisateur principal (UPN) dans les deux fournisseurs d’identité. Par exemple, le compte *azurestackadmin@azurestack.local* doit également exister dans le service STS pour Windows Azure Pack. Là où les services AD FS ne sont pas configurés pour prendre en charge les relations d’approbation sortante, vous allez établir une approbation des composants Windows Azure Pack (API locataire) sur l’instance Azure Stack des services AD FS.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="download-the-windows-azure-pack-connector"></a>Télécharger le connecteur Windows Azure Pack
 Dans le [Centre de téléchargement Microsoft](https://aka.ms/wapconnectorazurestackdlc), téléchargez le fichier .exe et extrayez-le sur votre ordinateur local. Ensuite, copiez le contenu sur un ordinateur pouvant accéder à votre environnement Windows Azure Pack.
@@ -93,7 +93,7 @@ Avant de configurer le connecteur Windows Azure Pack, vous devez activer le mode
 Pour activer le mode multicloud, vous devez exécuter le script Add-AzurePackConnector.ps1 après le déploiement d’Azure Stack. Le tableau suivant décrit les paramètres du script.
 
 
-|  Paramètre | DESCRIPTION | exemples |   
+|  Paramètre | Description | Exemple |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | URI des connecteurs Windows Azure Pack. Ces URI doivent correspondre aux portails du locataire Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Par défaut, la valeur du port est 40005.) |  
 | AzureStackCloudName | Étiquette représentant le cloud Azure Stack local.| "AzureStack" |
@@ -179,7 +179,7 @@ Pour cette préversion, utilisez le connecteur Windows Azure Pack uniquement dan
 
     f. Pour terminer la configuration de ces trois services, exécutez le script **Configure-WapConnector.ps1** pour mettre à jour les paramètres du fichier Web.config.
 
-    |  Paramètre | DESCRIPTION | exemples |   
+    |  Paramètre | Description | Exemple |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Nom de domaine complet du portail du locataire Windows Azure Pack | tenant.contoso.com | 
     | TenantAPIFQDN | Nom de domaine complet de l’API locataire Windows Azure Pack | tenantapi.contoso.com  |
@@ -214,7 +214,7 @@ Pour cette préversion, utilisez le connecteur Windows Azure Pack uniquement dan
     f.  Répétez l’étape 2 sur n’importe quelle autre machine virtuelle exécutant l’API locataire.
 3. À partir d’**une seule** des machines virtuelles d’API locataire, exécutez le script Configure-TrustAzureStack.ps1 pour ajouter une relation d’approbation entre l’API locataire et l’instance AD FS sur Azure Stack. Vous devez utiliser un compte disposant d’un accès sysadmin à la base de données Microsoft.MgmtSvc.Store. Le script a les paramètres suivants :
 
-    | Paramètre | DESCRIPTION | exemples |
+    | Paramètre | Description | Exemple |
     | --------- | ------------| ------- |
    | SqlServer | Nom du serveur SQL qui contient la base de données Microsoft.MgmtSvc.Store. Ce paramètre est obligatoire. | SQLServer | 
    | DataFile | Fichier de sortie généré précédemment lors de la configuration du mode multicloud Azure Stack. Ce paramètre est obligatoire. | AzurePack-06-27-15-50.txt | 
@@ -230,7 +230,7 @@ Pour cette préversion, utilisez le connecteur Windows Azure Pack uniquement dan
        -DataFile "C:\temp\wapconnector\AzurePackConnectorOutput.txt"
   ```
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 L’exemple suivant montre un déploiement complet du connecteur Windows Azure Pack sur une configuration Azure Stack à nœud unique et deux installations de Windows Azure Pack Express. (Chaque installation Express se trouve sur un seul ordinateur, avec les exemples de noms *wapcomputer1* et *wapcomputer2*.)
 
 ```powershell
@@ -277,5 +277,5 @@ cd C:\temp\WAPConnector\Setup\Scripts
 4. Pour plus d’informations sur les problèmes connus, consultez [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Utilisation des portails administrateur et utilisateur dans Azure Stack](azure-stack-manage-portals.md)

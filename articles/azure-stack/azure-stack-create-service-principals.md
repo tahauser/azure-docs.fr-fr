@@ -83,7 +83,7 @@ Requirements:
 Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
 
 
-|Paramètre|DESCRIPTION|exemples|
+|Paramètre|Description|exemples|
 |---------|---------|---------|
 |NOM|Nom du compte SPN|MyAPP|
 |ClientCertificates|Tableau d’objets de certificat|Certificat X509|
@@ -160,7 +160,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 Maintenant que vous avez créé un principal de service et que vous lui avez attribué un rôle, vous pouvez commencer à l’utiliser au sein de votre application pour accéder aux ressources Azure Stack.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Ajouter des utilisateurs pour ADFS](azure-stack-add-users-adfs.md)
 [Gérer les autorisations des utilisateurs](azure-stack-manage-permissions.md)

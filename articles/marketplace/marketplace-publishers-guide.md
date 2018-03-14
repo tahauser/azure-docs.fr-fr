@@ -405,7 +405,7 @@ Dans cette section, nous expliquons comment devenir éditeur dans la Place de ma
 ### <a name="process-overview"></a>Vue d’ensemble du processus
 
 
-|Procédure d’inscription à la Place de marché  |Temps  |DESCRIPTION  |
+|Procédure d’inscription à la Place de marché  |Temps  |Description  |
 |---------|---------|---------|
 |Créer un ID Microsoft     |   15 min      |   Les partenaires doivent avoir un ID Microsoft pour pouvoir être identifiés. Cet ID Microsoft est utilisé pour accéder au Portail Cloud Partner.       |
 |Formulaire de candidature pour la Place de marché     |  1 à 3 jours       |  Les partenaires doivent renvoyer le formulaire de candidature pour démarrer le processus d’approbation de la Place de marché. Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande.       |
@@ -457,13 +457,13 @@ Pour plus d’informations sur l’utilisation du Portail Cloud Partner, accéde
 Voici la liste des options de support pour la Place de marché Microsoft Azure :
 
 **Questions d’ordre général sur la Place de marché Microsoft Azure :**
-|Canal de support |DESCRIPTION |
+|Canal de support |Description |
 |---------|---------|
 |E-mail : cloudmarketplace@microsoft.com     |  Liste de distribution pour le support concernant l’intégration à la Place de marché. Utilisé pour les demandes d’intégration, et pour la mise en place de sessions de découverte et d’architecture des solutions pour des partenaires.        |
 
 **Support concernant la publication sur la Place de marché Microsoft Azure :**
 
-|Canal de support  |DESCRIPTION  |
+|Canal de support  |Description  |
 |---------|---------|
 |E-mail : 
 azurecertified@microsoft.com |   Fournit un support pour la publication des applications de partenaires sur la Place de marché. Heures de bureau dans le fuseau horaire Pacifique.      |
@@ -474,14 +474,14 @@ Amp-testdrive@microsoft.com |   Fournit l’accès aux versions d’évaluation.
 
 **Support concernant le portail Place de marché Microsoft Azure :**
 
-|Canal de support  |DESCRIPTION  |
+|Canal de support  |Description  |
 |---------|---------|
 |E-mail du [Support](https://go.microsoft.com/fwlink/?linkid=844975)    |   Support concernant le portail de publication de la Place de marché. Support 24 h/24, 7 jours/7.        |
 
 **Support technique**
 
 
-|Canal de support  |DESCRIPTION  |
+|Canal de support  |Description  |
 |---------|---------|
 |Slack : [Rejoindre la Place de marché sur Slack](https://join.marketplace.azure.com)    |   Environnement Slack fournissant un support pour les problèmes techniques des partenaires. Plus de 350 partenaires utilisent actuellement cet environnement.        |
 |Forums MSDN : [Place de marché](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum Microsoft Developer Network.         |
@@ -490,7 +490,7 @@ Amp-testdrive@microsoft.com |   Fournit l’accès aux versions d’évaluation.
 
 **Ressources marketing**
 
-|Canal de support  |DESCRIPTION  |
+|Canal de support  |Description  |
 |---------|---------|
 |E-mail : cosell@microsoft.com    |  Fournit un support pour le processus d’intégration et toute question relative au programme de covente. Fuseau horaire du Pacifique.        |
 |E-mail : gtm@microsoft.com    |  Fournit un support pour les avantages de commercialisation et toute question relative au programme. Heures de bureau dans le fuseau horaire Pacifique.        |

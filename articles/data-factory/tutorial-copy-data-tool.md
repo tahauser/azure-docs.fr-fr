@@ -37,7 +37,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : utilisez le stockage d’objets blob en tant que magasin de données _sources_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -204,7 +204,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     ![Vérifier la sortie SQL](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Le pipeline dans cet exemple copie des données d’un stockage d’objets blob vers une base de données SQL. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

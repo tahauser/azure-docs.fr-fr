@@ -28,7 +28,7 @@ L’exemple de workflow inclut les étapes suivantes :
 > * Cette image est envoyée à Azure Container Registry (ACR).
 > * L’application en cours d’exécution dans le cluster AKS est mise à jour avec la nouvelle image conteneur.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants.
 

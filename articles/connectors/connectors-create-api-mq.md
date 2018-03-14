@@ -33,7 +33,7 @@ Le connecteur MQ inclut les actions suivantes. Il n’y a aucun déclencheur.
 -   Recevoir un lot de messages et supprimer les messages du serveur IBM MQ
 -   Envoyer un message unique au serveur IBM MQ 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous utilisez un serveur MQ local, [installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur un serveur au sein de votre réseau. Si le serveur MQ est disponible publiquement ou dans Azure, la passerelle de données n’est pas utilisée ou nécessaire.
 
@@ -122,5 +122,5 @@ S’il n’existe aucun message dans la file d’attente lorsque vous effectuez 
 
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/mq/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

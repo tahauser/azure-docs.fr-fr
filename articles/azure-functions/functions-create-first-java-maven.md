@@ -31,7 +31,7 @@ Ce démarrage rapide vous guide dans la création d’un projet de fonction [san
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour développer une application de fonction avec Java, les éléments suivants doivent être installés :
 
 -  La version la plus récente de [.NET Core](https://www.microsoft.com/net/core).
@@ -178,7 +178,7 @@ curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/h
 Hello AzureFunctions!
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez créé une application de fonction Java avec un déclencheur HTTP simple et vous l’avez déployée sur Azure Functions.
 

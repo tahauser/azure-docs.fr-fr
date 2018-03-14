@@ -25,7 +25,7 @@ ms.lasthandoff: 02/24/2018
 
 Dans ce didacticiel, vous utilisez le bloc-notes Jupyter disponible avec les clusters HDInsight Spark pour exécuter un travail qui lit les données à partir d’un compte Data Lake Store.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure Data Lake Store. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -136,7 +136,7 @@ Si vous avez créé un cluster HDInsight avec Data Lake Store en tant que stock
 8. Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer une application Scala autonome à exécuter sur le cluster Apache Spark](apache-spark-create-standalone-application.md)
 * [Utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de créer des applications Spark pour un cluster Linux HDInsight Spark](apache-spark-intellij-tool-plugin.md)

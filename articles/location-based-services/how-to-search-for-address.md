@@ -17,7 +17,7 @@ ms.lasthandoff: 01/24/2018
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 Search Service est un ensemble d’API RESTful destinées aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de lieux, de points d’intérêt, de listes d’entreprises et autres informations d’ordre géographique. Search Service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude retournées par les API Search Service peuvent être utilisées comme paramètres dans d’autres services Azure Location Based Services, tels que les API Route et Traffic Flow.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Installer [l’application Postman](https://www.getpostman.com/apps).
 
 * Disposer d’un compte et d’une clé Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [Guide pratique pour gérer votre compte et vos clés Azure Location Based Services](how-to-manage-account-keys.md). 
@@ -214,5 +214,5 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     
 4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Explorez la documentation de l’API [Search Service d’Azure Location Based Services](https://docs.microsoft.com/rest/api/location-based-services/search). 

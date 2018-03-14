@@ -29,7 +29,7 @@ Commencez par créer une application logique. Pour cela, consultez [Créer une a
 ## <a name="create-a-connection-to-wunderlist"></a>Créer une connexion à Wunderlist
 Pour créer des applications logiques avec Wunderlist, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | par jeton |OUI |Fournir des informations d’identification Wunderlist |
 

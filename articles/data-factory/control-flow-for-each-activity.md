@@ -237,7 +237,7 @@ Il est possible d’itérer sur plusieurs activités (par exemple : des activit
 }
 
 ```
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 **Scénario :**  itérer sur un pipeline interne au sein d’une activité ForEach avec l’activité d’exécution du pipeline. Le pipeline interne copie avec des définitions de schéma paramétrées.
 
 #### <a name="master-pipeline-definition"></a>Définition du pipeline principal

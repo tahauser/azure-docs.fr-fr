@@ -34,7 +34,7 @@ Azure Disk Encryption est pris en charge :
 
 Les opérations de mise à niveau et de réinitialisation des machines virtuelles d’un groupe identique ne sont pas prises en charge dans la préversion actuelle. L’utilisation de la préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques est uniquement recommandée dans les environnements de test. Dans la préversion, n’activez pas le chiffrement de disque dans les environnements de production dans lesquels vous devez mettre à niveau une image de système d’exploitation dans un groupe identique chiffré.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Installez les dernières versions [d’Azure Powershell](https://github.com/Azure/azure-powershell/releases) qui contiennent les commandes de chiffrement.
 
 La préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques nécessite que vous inscriviez automatiquement votre abonnement via les commandes PowerShell suivantes : 

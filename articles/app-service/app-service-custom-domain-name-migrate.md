@@ -29,7 +29,7 @@ Lorsque vous migrez un site actif et son nom de domaine DNS vers App Service, ce
 
 Si vous ne vous inquiétez pas des temps d’arrêt durant la résolution DNS, voir [Mapper un nom DNS personnalisé existant vers Azure Web Apps](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cette procédure :
 
@@ -122,7 +122,7 @@ Enregistrez vos paramètres.
 
 Les requêtes DNS doivent commencer à trouver votre application App Service immédiatement après la propagation DNS.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment lier un certificat SSL personnalisé à App Service.
 

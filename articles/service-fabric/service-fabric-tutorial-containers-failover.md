@@ -30,7 +30,7 @@ Ce didacticiel est le troisième de la série. Dans ce didacticiel, vous découv
 > * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric  
 > * Mettre à l’échelle les conteneurs web frontaux dans une application
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 À partir de la [Partie 2](service-fabric-tutorial-package-containers.md), l’application s’exécute dans un cluster Service Fabric actif.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Basculer un conteneur dans un cluster
@@ -68,7 +68,7 @@ Vous constatez désormais que le service possède deux instances. Dans l’arbor
 
 Par cette tâche de gestion simple, nous avons doublé les ressources disponibles pour permettre à notre service frontal de traiter la charge utilisateur. Il est important de comprendre que vous n’avez pas besoin de plusieurs instances d’un service pour que celui-ci s’exécute de manière fiable. En cas de défaillance d’un service, Service Fabric veille à ce qu'une nouvelle instance du service s’exécute dans le cluster.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a présenté le basculement d’un conteneur ainsi que la mise à l’échelle d’une application. Les étapes suivantes ont été effectuées :
 

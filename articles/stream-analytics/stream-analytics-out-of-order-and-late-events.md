@@ -74,7 +74,7 @@ Quand Stream Analytics réorganise les événements reçus dans la fenêtre de t
 ### <a name="early-events"></a>Événements précoces
 Lors du traitement selon l’heure de l’application, les événements dont l’heure de l’application est en avance de plus de 5 minutes sur leur heure d’arrivée sont supprimés ou ajustés en fonction de l’option de configuration sélectionnée.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 * Tolérance d’arrivée tardive = 10 minutes<br/>
 * Tolérance de désordre = 3 minutes<br/>
@@ -135,7 +135,7 @@ Azure Stream Analytics implémente cette fonctionnalité à l’aide de la claus
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour une assistance supplémentaire, essayez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main de Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)

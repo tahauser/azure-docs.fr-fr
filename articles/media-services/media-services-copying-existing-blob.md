@@ -39,7 +39,7 @@ L’article présente deux exemples de code :
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copier des blob entre deux comptes AMS  
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Deux comptes Media Services. Consultez l’article [Création d’un compte Media Services](media-services-portal-create-account.md).
 
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copier des objets blob d’un compte de stockage dans un compte AMS 
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 - Un compte de stockage à partir duquel vous souhaitez copier des blobs.
 - Un compte AMS dans lequel vous souhaitez copier des blobs.
@@ -372,7 +372,7 @@ namespace CopyExistingBlobsIntoAsset
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
 

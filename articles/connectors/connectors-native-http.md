@@ -93,14 +93,14 @@ Une action est une opération effectuée par le flux de travail défini dans une
 ## <a name="http-trigger"></a>Déclencheur HTTP
 Voici les détails du déclencheur que ce connecteur prend en charge. Le connecteur HTTP possède un déclencheur.
 
-| Déclencheur | DESCRIPTION |
+| Déclencheur | Description |
 | --- | --- |
 | HTTP |Exécute un appel HTTP et renvoie le contenu de la réponse. |
 
 ## <a name="http-action"></a>Action HTTP
 Voici les détails de l’action que ce connecteur prend en charge. Le connecteur HTTP n’a qu’une seule action possible.
 
-| Action | DESCRIPTION |
+| Action | Description |
 | --- | --- |
 | HTTP |Exécute un appel HTTP et renvoie le contenu de la réponse. |
 
@@ -111,7 +111,7 @@ Les tableaux suivants décrivent les champs de saisie obligatoires et facultatif
 Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante.
 Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | DESCRIPTION |
+| Nom complet | Nom de la propriété | Description |
 | --- | --- | --- |
 | Method (Méthode)* |statique |Verbe HTTP à utiliser |
 | URI* |URI |URI de la requête HTTP |
@@ -124,7 +124,7 @@ Le symbole * désigne est un champ obligatoire.
 #### <a name="output-details"></a>Détails des résultats
 Vous trouverez ci-dessous les détails de sortie correspondant à la requête HTTP.
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | headers |objet |En-têtes de réponse |
 | body |objet |Objet Réponse |
@@ -142,7 +142,7 @@ La fonctionnalité Logic Apps vous permet d’utiliser différents types d’aut
 L’objet d’authentification suivant est obligatoire pour l’authentification de base.
 Le symbole * désigne est un champ obligatoire.
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | Entrez* |Type |Type d’authentification (doit être `Basic` dans le cas d’une authentification de base) |
 | Nom d’utilisateur* |username |Nom d’utilisateur utilisé pour l’authentification |
@@ -166,7 +166,7 @@ Par exemple :
 
 L’objet d’authentification suivant est requis pour l’authentification du certificat client. Le symbole * désigne est un champ obligatoire.
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | Entrez* |Type |Type d’authentification (doit être `ClientCertificate` pour les certificats client SSL) |
 | PFX* |pfx |Contenu codé en Base64 du fichier Personal Information Exchange (PFX) |
@@ -189,7 +189,7 @@ Par exemple :
 #### <a name="azure-ad-oauth-authentication"></a>Authentification OAuth Azure AD
 L’objet d’authentification suivant est obligatoire pour l’authentification OAuth Azure AD. Le symbole * désigne est un champ obligatoire.
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | Entrez* |Type |Type d’authentification (doit être `ActiveDirectoryOAuth` dans le cas d’une authentification OAuth Azure AD) |
 | Locataire* |locataire |L’identifiant de locataire pour le locataire Azure AD |
@@ -214,6 +214,6 @@ Par exemple :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

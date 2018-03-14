@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer la solution de simulation d’appareil
 > * Se connecter à la solution de simulation d’appareil
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
@@ -74,7 +74,7 @@ Lorsque le processus d’approvisionnement est terminé, vous pouvez vous connec
 
 1. Le tableau de bord des solutions de simulation d’appareil s’affiche dans votre navigateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

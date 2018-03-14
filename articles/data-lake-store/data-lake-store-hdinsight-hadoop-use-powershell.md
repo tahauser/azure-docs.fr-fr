@@ -49,7 +49,7 @@ Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide d
 * Créer un cluster HDInsight avec authentification à Data Lake Store
 * Lancer une tâche de test sur le cluster
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

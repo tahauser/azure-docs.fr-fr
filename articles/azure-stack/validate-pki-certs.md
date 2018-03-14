@@ -40,7 +40,7 @@ L’outil de vérification de certificat (Certchecker) effectue les vérificatio
 > [!IMPORTANT]
 > Le fichier PFX du certificat PKI et le mot de passe doivent être considérés comme des informations sensibles.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Votre système doit respecter la configuration requise suivante pour permettre la validation des certificats PKI pour le déploiement Azure Stack :
 - CertChecker (dans PartnerToolKit sous \utils\certchecker)
 - Certificats SSL exportés conformément aux [instructions de préparation](prepare-pki-certs.md)
@@ -176,5 +176,5 @@ Comme dernière étape, tous les certificats que vous avez préparés doivent ê
 <sup>*</sup> Les certificats signalés par un astérisque * sont nécessaires uniquement lorsqu’AD FS est utilisé en tant que magasin d’identités.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Intégration des identités au centre de données](azure-stack-integrate-identity.md)

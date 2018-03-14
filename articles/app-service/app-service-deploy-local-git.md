@@ -24,7 +24,7 @@ ms.lasthandoff: 01/25/2018
 
 Ce didacticiel vous montre comment déployer votre application vers [Azure Web Apps](app-service-web-overview.md) depuis un référentiel Git sur votre ordinateur local. App Service prend en charge cette approche avec l’option de déploiement **Git local** dans le [portail Azure].
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

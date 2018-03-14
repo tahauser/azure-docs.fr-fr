@@ -7,7 +7,7 @@ ms.service: search
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+caps.latest.revision: 
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
@@ -34,7 +34,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 >[!NOTE]
 > Le processus de récupération des identificateurs de principal n’est pas abordé dans ce document. Obtenez-le auprès de votre fournisseur de services d’identité.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 

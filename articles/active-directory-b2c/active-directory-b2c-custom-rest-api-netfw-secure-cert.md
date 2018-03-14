@@ -33,7 +33,7 @@ Cet article explique comment :
 * Télécharger le certificat sur les clés de stratégie de Azure AD B2C
 * Configurer votre stratégie personnalisée pour utiliser le certificat client
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Suivre les étapes dans l’article [Intégrer les échanges de revendications de l’API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtenir un certificat valide (fichier .pfx avec une clé privée).
 

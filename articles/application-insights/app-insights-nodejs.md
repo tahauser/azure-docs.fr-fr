@@ -35,7 +35,7 @@ Vous pouvez utiliser l’API TelemetryClient pour instrumenter et surveiller man
 
 Terminez les tâches suivantes pour configurer la surveillance d’une application ou d’un service.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure ou [obtenez-en un gratuitement][azure-free-offer]. Si votre organisation possède déjà un abonnement Azure, un administrateur peut suivre [ces instructions][add-aad-user] pour vous y ajouter.
 
@@ -208,7 +208,7 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Navigation et tableaux de bord dans le portail Application Insights](app-insights-dashboards.md)
 * [Écrire des requêtes Analytics via vos données de télémétrie](app-insights-analytics-tour.md)

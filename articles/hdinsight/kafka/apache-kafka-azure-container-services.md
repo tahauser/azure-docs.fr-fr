@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure Container Service (AKS) avec Kafka sur un clus
 > [!NOTE]
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Container Service de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple client Kafka pour montrer que la configuration fonctionne.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Abonnement Azure
@@ -224,7 +224,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
     > [!WARNING]
     > Vous pouvez recevoir plusieurs copies d’un message. Ce problème se produit généralement lorsque vous actualisez votre navigateur une fois connecté, ou lorsque vous ouvrez plusieurs connexions de navigateur à l’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 

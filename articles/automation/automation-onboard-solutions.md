@@ -32,7 +32,7 @@ Dans ce didacticiel, vous découvrez comment intégrer automatiquement à Azure 
 > * Importer le runbook d’intégration
 > * Démarrer le runbook
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -136,7 +136,7 @@ Vous devez avoir intégré la solution de mise à jour ou Change Tracking à une
 1. Sélectionnez **OK** pour démarrer le travail du runbook.
 1. Surveillez la progression et la présence d’erreurs depuis la page de travail du runbook.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

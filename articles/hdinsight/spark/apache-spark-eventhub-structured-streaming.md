@@ -29,7 +29,7 @@ Dans cet article, vous apprenez à traiter les données de télémétrie en temp
 1. Compiler et exécuter sur votre station de travail locale un exemple d’application de producteur d’événements qui génère des événements à envoyer à Event Hubs.
 2. Utilisez [l’interpréteur de commandes Spark](apache-spark-shell.md) pour définir et exécuter une application de flux structuré Spark simple.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 

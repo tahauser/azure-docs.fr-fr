@@ -125,7 +125,7 @@ Les exemples précédents ont automatiquement mis à l’échelle un groupe iden
 Pour voir comment vos règles de mise à l’échelle automatique sont appliquées, sélectionnez **Historique des exécutions** en haut de la fenêtre **Mise à l’échelle**. Le graphe et la liste des événements indiquent les déclenchements des règles de mise à l’échelle automatique ainsi que les augmentations ou diminutions du nombre d’instances de machines virtuelles dans votre groupe identique.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à utiliser des règles de mise à l’échelle automatique pour mettre à l’échelle horizontalement, et augmenter ou diminuer le *nombre* d’instances de machine virtuelle dans votre groupe identique. Vous pouvez également mettre à l’échelle verticalement pour augmenter ou diminuer la *taille* d’instance de machine virtuelle. Pour plus d’informations, voir [Mise à l’échelle verticale avec des groupes de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Pour plus d’informations sur la gestion de vos instances de machine virtuelle, voir [Gérer les groupes de machines virtuelles identiques avec Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

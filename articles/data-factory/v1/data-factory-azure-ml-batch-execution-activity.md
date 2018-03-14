@@ -135,7 +135,7 @@ Dans ce scénario, le service web Azure Machine Learning effectue des prédictio
 >
 >
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Cet exemple utilise Azure Storage pour stocker les données d'entrée et de sortie.
 
 Nous vous recommandons de suivre le didacticiel [Créer votre premier pipeline avec Data Factory][adf-build-1st-pipeline] avant de consulter cet exemple. Utilisez Data Factory Editor pour créer des artefacts Data Factory (services liés, jeux de données, pipeline) dans cet exemple.   
@@ -354,7 +354,7 @@ Quand vous utilisez le module lecteur dans une expérience Azure Machine Learnin
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Pipeline avec l’activité AzureMLBatchExecution avec les paramètres de service web
 
 ```JSON

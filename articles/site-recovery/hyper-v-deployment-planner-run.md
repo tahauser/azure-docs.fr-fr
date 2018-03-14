@@ -35,7 +35,7 @@ Le tableau suivant contient une liste des paramètres obligatoires et facultatif
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
-| Nom du paramètre | DESCRIPTION |
+| Nom du paramètre | Description |
 |---|---|
 | -Operation | GetVMList |
 | -User | Le nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
@@ -84,7 +84,7 @@ Le tableau suivant dresse la liste des paramètres obligatoires et facultatifs d
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| Nom du paramètre | DESCRIPTION |
+| Nom du paramètre | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -User | Le nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
@@ -165,7 +165,7 @@ Le tableau suivant contient une liste des paramètres obligatoires et facultatif
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| Nom du paramètre | DESCRIPTION |
+| Nom du paramètre | Description |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | Le fichier qui contient la liste des machines virtuelles profilées pour lesquelles le rapport va être généré. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -272,7 +272,7 @@ Ouvrez une console de ligne de commande et accédez au dossier pour le planifica
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- Nom du paramètre | DESCRIPTION |
+ Nom du paramètre | Description |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|Le type de virtualisation (VMware ou Hyper-V).|
@@ -282,7 +282,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine.|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -305,5 +305,5 @@ Pour la réplication, définissez la bande passante recommandée pour atteindre 
 3. Vérifiez les caractéristiques de stockage local pour déterminer si vous pouvez améliorer le matériel (par exemple, passer d’un disque dur à un disque SSD).
 
     
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Analyser le rapport généré](hyper-v-deployment-planner-analyze-report.md)

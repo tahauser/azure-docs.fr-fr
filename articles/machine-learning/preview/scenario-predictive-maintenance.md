@@ -36,7 +36,7 @@ Ce scénario s’appuie sur le [manuel de maintenance prédictive](https://docs.
 
 Le problème métier pour ces données simulées consiste à prédire les problèmes causés par les échecs de composants. La question qui se pose est donc la suivante : « *Quelle est la probabilité qu’une machine tombe en panne en raison d’un échec de composant* ? » Ce problème est représenté sous la forme d’un problème de classification multiclasse (plusieurs composants par machine). Un algorithme d’apprentissage automatique est utilisé pour créer le modèle prédictif. L’apprentissage du modèle est effectué à partir de données d’historique collectées sur des machines. Dans ce scénario, l’utilisateur suit différentes étapes d’implémentation du modèle dans l’environnement Machine Learning Workbench.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie installée [d’Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Pour installer le programme et créer un espace de travail, consultez le [guide de démarrage rapide relatif à l’installation](./quickstart-installation.md).
@@ -135,6 +135,6 @@ Les références suivantes fournissent des exemples d’autres cas d’usage de 
 * [Maintenance prédictive avec PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 * [Apprentissage approfondi pour la maintenance prédictive](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Machine Learning Workbench inclut d’autres exemples de scénarios qui illustrent des fonctionnalités supplémentaires du produit. 

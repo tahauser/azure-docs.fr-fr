@@ -44,7 +44,7 @@ L’hypothèse principale pour ce paramètre est la dégradation progressive du 
 
 Ce scénario crée un réseau avec mémoire à court et long termes pour prédire la durée de vie restante des moteurs d’avion à l’aide de valeurs des capteurs passées. Le scénario utilise la bibliothèque [Keras](https://keras.io/) avec l’infrastructure d’apprentissage profond [Tensorflow](https://www.tensorflow.org/) comme moteur de calcul. Le scénario effectue l’apprentissage du LSTM avec un ensemble de moteurs et teste le réseau sur un ensemble de moteurs invisible.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 - Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 - Azure Machine Learning Workbench avec un espace de travail.
 - Pour l’opérationnalisation du modèle : Azure Machine Learning Operationalization avec un environnement de déploiement local configuré et un [compte Gestion des modèles Azure Machine Learning](model-management-overview.md).
@@ -153,6 +153,6 @@ Les références suivantes fournissent des exemples d’autres cas d’usage de 
 * [Maintenance prédictive avec PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 * [Scénarios réels de maintenance prédictive](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Machine Learning Workbench inclut d’autres exemples de scénarios qui illustrent des fonctionnalités supplémentaires du produit. 

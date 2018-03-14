@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 
 Le nouveau niveau tarifaire **PremiumV2** offre des processeurs plus rapides, un stockage SSD et le double de ratio mémoire-cœur des niveaux tarifaires précédents. Avec cet avantage de performances, vous pouvez économiser de l’argent en exécutant vos applications sur moins d’instances. Dans cet article, vous allez apprendre à créer une application dans le niveau **PremiumV2** ou à monter en puissance une application en la passant au niveau **PremiumV2**.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour monter en puissance une application web en la passant au niveau **PremiumV2**, vous devez avoir une application web dans Azure App Service qui s’exécute dans un niveau tarifaire inférieur à **PremiumV2**.
 

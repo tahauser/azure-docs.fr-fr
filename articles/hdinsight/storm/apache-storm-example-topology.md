@@ -26,7 +26,7 @@ ms.lasthandoff: 02/22/2018
 
 Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apache Storm dans HDInsight. Ces exemples couvrent une multitude de sujets, depuis la création de topologies de base en C# et Java jusqu’à l’utilisation de services Azure comme Event Hubs, Cosmos DB, SQL Database, HBase sur HDInsight et le stockage Azure. Certains exemples montrent également comment utiliser des technologies non Azure, ou même non Microsoft, telles que SignalR et Socket.IO.
 
-| DESCRIPTION | Illustre le | Langage/structure |
+| Description | Illustre le | Langage/structure |
 |:--- |:--- |:--- |
 | [Écrire dans Azure Data Lake Store à partir d’Apache Storm](apache-storm-write-data-lake-store.md) |Écrire dans Azure Data Lake Store |Java |
 | [Source de spout et bolt Event Hub](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Source de spout et bolt Event Hub |Java |

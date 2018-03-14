@@ -45,7 +45,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </check-header>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">  
@@ -94,7 +94,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </rate-limit>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -149,7 +149,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de l’appelant.  
   
 ```xml  
@@ -201,7 +201,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </ip-filter>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <ip-filter action="allow | forbid">  
@@ -249,7 +249,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 </quota>  
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
   
 ```xml  
 <policies>  
@@ -307,7 +307,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ```  
   
-### <a name="example"></a>exemples  
+### <a name="example"></a>Exemple  
  Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelant.  
   
 ```xml  

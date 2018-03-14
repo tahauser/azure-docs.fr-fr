@@ -18,7 +18,7 @@ ms.lasthandoff: 02/24/2018
 
 Découvrez comment créer et supprimer des applications qui s’exécutent dans un cluster Azure Service Fabric.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Installez Service Fabric CLI. Sélectionnez ensuite votre cluster Service Fabric. Pour plus d’informations, consultez [Prise en main de Service Fabric CLI](service-fabric-cli.md).
 
@@ -164,7 +164,7 @@ Lorsqu’une mise à niveau de l’application est en cours, l’état peut êtr
 
 Enfin, si une mise à niveau est en cours et doit être annulée, vous pouvez utiliser la commande `sfctl application upgrade-rollback` pour restaurer la mise à niveau.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Concepts de base Service Fabric CLI](service-fabric-cli.md)
 * [Prise en main de Service Fabric sur Linux](service-fabric-get-started-linux.md)

@@ -24,7 +24,7 @@ ms.lasthandoff: 02/27/2018
 
 Ce document explique comment configurer une infrastructure Linux Service Fabric locale sur des machines de développement Windows. La configuration d'un cluster Linux local est utile pour tester rapidement les applications ciblées pour les clusters Linux mais développées sur une machine Windows.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Les clusters Service Fabric basés sur Linux ne s'exécutent pas nativement sous Windows. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM
@@ -81,7 +81,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     > [!NOTE]
     > Le plug-in Eclipse n’est actuellement pas pris en charge sous Windows. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Prise en main d'[Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Consulter d’autres [exemples Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

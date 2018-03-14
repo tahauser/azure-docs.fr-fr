@@ -28,7 +28,7 @@ Cet article explique comment envoyer des SMS avec des liaisons [Twilio](https://
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Consultez l’exemple propre à un langage particulier :
 

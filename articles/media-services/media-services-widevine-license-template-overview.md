@@ -159,7 +159,7 @@ Les classes suivantes sont les définitions de ces types :
         HDCP_V2 = 2
     }
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 L’exemple suivant montre comment utiliser les API .NET pour configurer une licence Widevine simple :
 
     private static string ConfigureWidevineLicenseTemplate()

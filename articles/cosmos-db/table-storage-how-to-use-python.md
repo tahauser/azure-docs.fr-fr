@@ -37,7 +37,7 @@ Ce didacticiel montre comment utiliser la [Kit de développement logiciel (SDK) 
 
 Pendant que vous étudiez les scénarios de ce didacticiel, vous pouvez vous référer à la [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://azure.github.io/azure-cosmosdb-python/).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Vous aurez besoin des éléments suivants pour suivre ce didacticiel :
 
@@ -230,7 +230,7 @@ Si vous n’avez plus besoin une table ou une des entités qui s’y trouvent, a
 table_service.delete_table('tasktable')
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [FAQ - Développer avec l’API Table](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://azure.github.io/azure-cosmosdb-python/)

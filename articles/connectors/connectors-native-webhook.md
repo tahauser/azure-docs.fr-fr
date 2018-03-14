@@ -79,7 +79,7 @@ Voici plus de détails sur les déclencheurs et les actions que webhook prend en
 
 ## <a name="webhook-triggers"></a>Déclencheurs Webhook
 
-| Action | DESCRIPTION |
+| Action | Description |
 | --- | --- |
 | HTTP Webhook |Permet d’abonner une URL de rappel à un service qui peut appeler l’URL pour déclencher l’application logique lorsque nécessaire. |
 
@@ -90,7 +90,7 @@ Voici plus de détails sur les déclencheurs et les actions que webhook prend en
 Permet d’abonner une URL de rappel à un service qui peut appeler l’URL pour déclencher l’application logique lorsque nécessaire.
 Une * signifie que le champ est obligatoire.
 
-| Nom d’affichage | Nom de la propriété | DESCRIPTION |
+| Nom d’affichage | Nom de la propriété | Description |
 | --- | --- | --- |
 | Méthode d’abonnement* |method |Méthode HTTP à utiliser pour la demande d’abonnement |
 | URI d’abonnement* |URI |URI HTTP à utiliser pour la demande d’abonnement |
@@ -107,7 +107,7 @@ Une * signifie que le champ est obligatoire.
 
 Requête Webhook
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | headers |objet |En-têtes de requête Webhook |
 | body |objet |Objet de la requête Webhook |
@@ -115,7 +115,7 @@ Requête Webhook
 
 ## <a name="webhook-actions"></a>Actions de webhook
 
-| Action | DESCRIPTION |
+| Action | Description |
 | --- | --- |
 | HTTP Webhook |Permet d’abonner une URL de rappel à un service qui peut appeler l’URL redémarrer une étape du flux de travail lorsque nécessaire. |
 
@@ -126,7 +126,7 @@ Requête Webhook
 Permet d’abonner une URL de rappel à un service qui peut appeler l’URL redémarrer une étape du flux de travail lorsque nécessaire.
 Une * signifie que le champ est obligatoire.
 
-| Nom d’affichage | Nom de la propriété | DESCRIPTION |
+| Nom d’affichage | Nom de la propriété | Description |
 | --- | --- | --- |
 | Méthode d’abonnement* |method |Méthode HTTP à utiliser pour la demande d’abonnement |
 | URI d’abonnement* |URI |URI HTTP à utiliser pour la demande d’abonnement |
@@ -143,13 +143,13 @@ Une * signifie que le champ est obligatoire.
 
 Requête Webhook
 
-| Nom de la propriété | Type de données | DESCRIPTION |
+| Nom de la propriété | Type de données | Description |
 | --- | --- | --- |
 | headers |objet |En-têtes de requête Webhook |
 | body |objet |Objet de la requête Webhook |
 | Code d’état |int |Code d’état de la requête Webhook |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Rechercher d’autres connecteurs](apis-list.md)

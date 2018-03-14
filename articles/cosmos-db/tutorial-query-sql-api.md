@@ -72,7 +72,7 @@ Vous pouvez exécuter des requêtes à l’aide de l’Explorateur de données d
 Pour plus d’informations sur les requêtes SQL, consultez :
 * [Requête SQL et syntaxe SQL](sql-api-sql-query.md)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Lancez le [démarrage rapide de 5 minutes](create-mongodb-nodejs.md) ou le [didacticiel destiné aux développeurs](tutorial-develop-mongodb.md) pour créer un compte et une collection.
 
@@ -137,7 +137,7 @@ La requête suivante renvoie tous les noms donnés des enfants de la famille don
     ]
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez :
 

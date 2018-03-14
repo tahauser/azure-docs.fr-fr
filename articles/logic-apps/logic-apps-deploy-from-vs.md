@@ -31,7 +31,7 @@ Pour vous familiariser avec Azure Logic Apps, consultez la rubrique [Créez votr
 
 Pour installer et configurer les outils Visual Studio pour Azure Logic Apps, suivez ces étapes.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) ou Visual Studio 2015
 * [Dernier kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou supérieur)

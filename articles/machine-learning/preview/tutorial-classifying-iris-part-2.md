@@ -36,7 +36,7 @@ Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Terminez la première partie de cette série de didacticiels. Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Azure Machine Learning et installer l’application Azure Machine Learning Workbench avant de commencer les étapes de ce didacticiel.
 
 Vous pouvez essayer d’exécuter des scripts dans un conteneur Docker local (facultatif). Pour ce faire, un moteur Docker (l’édition Community est suffisante) doit être installé et démarré en local sur votre machine Windows ou Mac OS. Pour plus d’informations sur l’installation de Docker, consultez les [Instructions d’installation de Docker](https://docs.docker.com/engine/installation/).
@@ -380,7 +380,7 @@ Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Déc
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette deuxième partie de la série de trois didacticiels, vous avez appris à utiliser les services Azure Machine Learning pour effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Utiliser Azure Machine Learning Workbench.

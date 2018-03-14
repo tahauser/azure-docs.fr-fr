@@ -94,7 +94,7 @@ Notez les points *clés* suivants sur le service lié HDInsight à la demande :
 >
 > 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Data Factory crée automatiquement un cluster HDInsight *basé sur Linux* lorsqu’il traite une tranche de données. 
 
 ```json
@@ -239,7 +239,7 @@ Ce type de configuration est pris en charge pour les environnements de calcul su
 ## <a name="azure-hdinsight-linked-service"></a>Service lié Azure HDInsight
 Vous pouvez créer un service lié HDInsight pour inscrire votre propre cluster HDInsight avec Data Factory.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -274,7 +274,7 @@ Si vous ne savez pas utiliser le service Batch :
 * En savoir plus sur l’applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Utilisez cette applet de commande pour créer un compte Batch. Vous pouvez également créer un compte Batch à l’aide du [portail Azure](../../batch/batch-account-create-portal.md). Pour obtenir des instructions détaillées sur l’utilisation de l’applet de commande, consultez [Utilisation de PowerShell pour gérer un compte Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * En savoir plus sur l’applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Utilisez cette applet de commande pour créer un pool Batch.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -316,7 +316,7 @@ Une autre option consiste à fournir le point de terminaison **batchUri**. Par e
 ## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
 Vous pouvez créer un service lié Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning à une fabrique de données.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```json
 {

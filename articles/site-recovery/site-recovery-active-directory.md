@@ -23,7 +23,7 @@ Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une 
 
 Cet article explique comment créer une solution de récupération d’urgence pour Active Directory. Il inclut les conditions préalables et les instructions de basculement. Avant de commencer, vous devez vous familiariser avec Active Directory et Site Recovery.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
 * Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.
@@ -209,5 +209,5 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
     `dnscmd /config contoso.com /allowupdate 1`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur la [protection des charges de travail d’entreprise avec Azure Site Recovery](site-recovery-workload.md).

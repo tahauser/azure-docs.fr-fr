@@ -37,7 +37,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 >
 > Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Activité de copie dans Azure Data Factory version 1](v1/data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Azure SQL Data Warehouse : l’entrepôt de données conserve les données copiées à partir de la base de données SQL. Si vous n’avez pas d’entrepôt de données Azure SQL Data Warehouse, consultez les instructions dans [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
@@ -132,7 +132,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Détails du suivi de l'exécution des activités](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Lisez l’article suivant pour en savoir plus sur la prise en charge d’Azure SQL Data Warehouse : 
 

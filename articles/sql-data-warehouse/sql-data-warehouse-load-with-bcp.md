@@ -41,7 +41,7 @@ Ce didacticiel :
 > 
 > 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Base de données SQL Data Warehouse
@@ -173,7 +173,7 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour concevoir votre processus de chargement, consultez la [vue d’ensemble de chargement](sql-data-warehouse-design-elt-data-loading).  
 
 
