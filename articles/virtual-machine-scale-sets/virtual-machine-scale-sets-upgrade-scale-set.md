@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 Cet article explique comment modifier un groupe identique existant. Cela comprend notamment la configuration du groupe identique, la modification de la configuration des applications exécutées dans le groupe identique, la gestion de la disponibilité.
@@ -255,7 +255,7 @@ Vous pouvez également utiliser les [SDK Azure](https://azure.microsoft.com/down
 > Les clusters Service Fabric peuvent uniquement utiliser le mode Automatique, et la mise à jour est gérée différemment. Pour plus d’informations sur les mises à jour Service Fabric, consultez la [documentation Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Il existe une méthode de modification des propriétés globales de groupe identique qui ne respecte pas la stratégie de mise à niveau. Il s’agit des modifications apportées au profil de système d’exploitation du groupe identique (par exemple, le nom d’utilisateur ou le mot de passe de l’administrateur). Ces modifications s’appliquent uniquement aux machines virtuelles qui ont été créées après la modification du modèle du groupe identique. Pour mettre à jour les machines virtuelles existantes, vous devez effectuer un réimageage pour chacune d’elles. Vous pouvez effectuer ce réimageage via :
+> Il existe une méthode de modification des propriétés globales de groupe identique qui ne respecte pas la stratégie de mise à niveau. Il s’agit des modifications apportées au profil de système d’exploitation du groupe identique (par exemple, le nom d’utilisateur ou le mot de passe de l’administrateur). Ces propriétés ne peuvent être modifiées que dans l’API 2017-12-01 ou versions ultérieures. Ces modifications s’appliquent uniquement aux machines virtuelles qui ont été créées après la modification du modèle du groupe identique. Pour mettre à jour les machines virtuelles existantes, vous devez effectuer un réimageage pour chacune d’elles. Vous pouvez effectuer ce réimageage via :
 
 Une API REST : `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (pour plus d’informations, consultez la [documentation de l’API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

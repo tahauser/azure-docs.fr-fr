@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 979fcebd60d62c714a1c521013cf391ebf18a73c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Java Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
+> * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -36,6 +37,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les opérations synchrones. Pour la prise en charge asynchrone, utilisez le [Kit de développement (SDK) Java asynchrone de l’API SQL](sql-api-sdk-async-java.md). 
 
 <table>
 
@@ -167,7 +170,7 @@ ms.lasthandoff: 12/18/2017
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Kit SDK GA
 
-## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
+## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.

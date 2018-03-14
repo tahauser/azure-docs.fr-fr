@@ -170,5 +170,5 @@ Le tableau ci-après décrit l’ensemble d’ID de définition de contenu recon
 | *api.selfasserted.profileupdate* | **Page de mise à jour de profil**. Cette page contient un formulaire dont l’utilisateur peut se servir pour mettre à jour son profil. Cette page est semblable à la page d’inscription à un compte local précédente, à l’exception des champs de saisie de mot de passe. |
 | *api.signuporsignin* | **Page de connexion ou d’inscription unifiée**.  Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité d’entreprise, de réseaux sociaux, tels que Facebook ou Google+, ou de comptes locaux.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Understanding the custom policies of the Azure AD B2C Custom Policy starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md) (Comprendre les stratégies personnalisées du pack de démarrage AD B2C Custom Policy)

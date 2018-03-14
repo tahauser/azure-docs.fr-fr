@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ Si un lot est créé en tant que gestionnaire de contexte par le biais de la mé
 Notez que les entités sont chiffrées, car elles sont insérées dans le lot à l’aide de la stratégie de chiffrement du lot (les entités ne sont pas chiffrées au moment de la validation du traitement par lots à l’aide de la stratégie de chiffrement tableservice).
 
 ### <a name="queries"></a>Requêtes
+> [!NOTE]
+> Comme les entités sont chiffrées, vous ne pouvez pas exécuter des requêtes qui filtrent sur une propriété chiffrée.  Si vous essayez, les résultats seront incorrects, car le service essaiera de comparer les données chiffrées aux données non chiffrées.
+> 
+>
 Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (\_ClientEncryptionMetadata1 et \_ClientEncryptionMetadata2) aux colonnes sélectionnées.
 
 > [!IMPORTANT]
@@ -238,6 +242,6 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="encryption-and-performance"></a>Chiffrement et performances
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et chargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Télécharger la [bibliothèque cliente Azure Storage pour le package Java PyPi](https://pypi.python.org/pypi/azure-storage)
 * Télécharger la [bibliothèque cliente Azure Storage pour le code source Python à partir de GitHub](https://github.com/Azure/azure-storage-python)

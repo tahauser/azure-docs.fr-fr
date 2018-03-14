@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6c47d1f9776f9e45711d8139661255dcd44c2a1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services : Résolution des problèmes de la configuration du protocole LDAP sécurisé
 
@@ -51,6 +51,16 @@ Lorsque le protocole LDAP sécurisé est activé, nous recommandons de créer de
 > [!TIP]
 > Le port 636 n’est pas la seule règle nécessaire au bon fonctionnement d’Azure AD Domain Services. Pour en savoir plus, consultez les articles traitant des [recommandations en matière de mise en réseau](active-directory-ds-networking.md) ou de la [résolution des problèmes de configuration liés au groupe de sécurité réseau](active-directory-ds-troubleshoot-nsg.md).
 >
+
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502 : expiration du certificat LDAP sécurisé
+
+**Message d'alerte :**
+
+*Le certificat LDAP sécurisé pour le domaine managé va expirer le XX.*
+
+**Correction :**
+
+Créez un certificat LDAP sécurisé en suivant les étapes décrites dans l’article [Configurer le protocole LDAPS](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="contact-us"></a>Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](active-directory-ds-contact-us.md).

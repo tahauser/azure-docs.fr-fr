@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Ajout de notifications Push à votre application Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous ajoutez des notifications Push à tous les projets qui
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Pour iOS, vous avez besoin d’une [appartenance au programme pour développeurs Apple](https://developer.apple.com/programs/ios/) et d’un appareil iOS physique. Les [notifications Push ne sont pas prises en charge par le simulateur iOS](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>Configurer un hub de notification
@@ -152,6 +152,7 @@ Une fois le serveur principal configuré avec FCM, vous pouvez ajouter des codes
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ Une fois le serveur principal configuré avec FCM, vous pouvez ajouter des codes
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ Vous êtes maintenant prêt à tester les notifications Push dans l’applicatio
 ### <a name="test-push-notifications-in-your-android-app"></a>Tester les notifications Push dans votre application Android
 Les deux premières étapes sont requises uniquement lorsque vous testez sur un émulateur.
 
-1. Assurez-vous de procéder au déploiement ou au débogage sur un appareil virtuel sur lequel les API Google sont définies comme cible, comme indiqué ci-dessous dans le Gestionnaire d’appareil virtuel Android.
+1. Assurez-vous que vous déployez ou déboguez sur un périphérique ou un émulateur configuré avec Google Play Services. Cela peut être vérifié en contrôlant que les applications **Play** sont installées sur le périphérique ou l’émulateur.
 2. Ajoutez un compte Google à l’appareil Android en cliquant sur **Applications** > **Paramètres** > **Ajouter un compte**. Puis suivez les invites pour ajouter un compte Google existant sur l’appareil ou pour en créer un nouveau.
 3. Dans Visual Studio ou Xamarin Studio, cliquez avec le bouton droit sur le projet **Droid**, puis cliquez sur **Définir comme projet de démarrage**.
 4. Cliquez sur **Exécuter** pour générer le projet et lancer l’application sur votre appareil ou émulateur Android.
@@ -347,7 +348,7 @@ Cette section s’applique à l’exécution des projets Xamarin.Forms WinApp et
 3. Dans l’application, tapez un nom pour un nouvel élément todoitem, puis cliquez sur l’icône de signe plus (**+**) pour l’ajouter.
 4. Vérifiez qu’une notification est reçue lorsque l’élément est ajouté.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Apprenez-en plus sur les notifications Push :
 
 * [Envoi de notifications Push à partir d’Azure Mobile Apps](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Vue d’ensemble de l’offre de services dans Azure Stack
 
@@ -43,6 +43,6 @@ Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 
 **Fournisseurs délégués** : vous pouvez accorder à d’autres personnes la capacité à créer des offres dans votre environnement. Par exemple, si vous êtes fournisseur de services, vous pouvez [déléguer](azure-stack-delegated-provider.md) cette capacité à vos revendeurs. Si vous êtes une organisation, vous pouvez déléguer à d’autres divisions/filiales.
 
-## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur les offres, les plans, les quotas et les abonnements](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>étapes suivantes
+[Créer une offre dans Azure Stack](azure-stack-create-offer.md)
 

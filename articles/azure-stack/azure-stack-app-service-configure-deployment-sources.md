@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 App Service sur Azure Stack prend en charge le déploiement à la demande à partir de plusieurs fournisseurs de contrôle de code source. Cette fonctionnalité permet aux développeurs d’applications d’effectuer un déploiement directement à partir de leurs référentiels de contrôle de code source. Si les utilisateurs veulent configurer App Service pour se connecter à leurs référentiels, les opérateurs doivent d’abord configurer l’intégration entre App Service sur Azure Stack et le fournisseur de contrôle de code source.  
 
-Les fournisseurs de contrôle de code source pris en charge, en plus du Git local, sont les suivants :
+En plus du Git local, les fournisseurs de contrôle de code source suivants sont pris en charge :
 
 * GitHub
 * BitBucket
@@ -94,7 +94,8 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 2. Sous **Mes applications**, cliquez sur **Ajouter une application**.
 ![Applications OneDrive][10]
 3. Entrez un **nom** pour la nouvelle inscription d’application, entrez **App Service sur Azure Stack**, puis cliquez sur **Créer une application**.
-4. L’écran suivant répertorie les propriétés de votre nouvelle application. Récupérez l’**ID de l’application**. ![Propriétés de l’application OneDrive][11]
+4. L’écran suivant répertorie les propriétés de votre nouvelle application. Récupérez l’**ID de l’application**.
+![Propriétés de l’application OneDrive][11]
 5. Sous **Secrets de l’application**, cliquez sur **Générer un nouveau mot de passe**. Prenez note du **Nouveau mot de passe généré**. Il s’agit de votre secret d’application qui n’est pas récupérable après avoir cliqué sur **OK** à ce stade.
 6. Sous **Plateformes**, cliquez sur **Ajouter une plateforme** et sélectionnez **Web**.
 7. Entrez **l’URI de redirection**.  Dans un déploiement Azure Stack par défaut, l’URI de redirection est au format https://portal.local.azurestack.external/tokenauthorize, si l’exécution a lieu dans un autre domaine, remplacez votre domaine pour azurestack.local. ![Application OneDrive - Ajouter une plateforme Web][12]
@@ -152,6 +153,6 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), le [déploiement Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), et la [synchronisation de dossiers de cloud](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

@@ -1,5 +1,5 @@
 ---
-title: "Optimisation du téléchargement de fichiers volumineux via Azure Content Delivery Network"
+title: "Optimisation via Azure CDN de téléchargement de fichiers volumineux"
 description: "Optimisation des téléchargements de fichiers volumineux expliquée en profondeur"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimisation du téléchargement de fichiers volumineux via Azure Content Delivery Network
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimisation via Azure CDN de téléchargement de fichiers volumineux
 
 Les tailles des fichiers distribués sur Internet ne cessent de croître en raison du perfectionnement des fonctionnalités, de l’amélioration des graphismes et de l’enrichissement des contenus multimédias. Cette croissance résulte de divers facteurs : pénétration de la large bande, augmentation de la capacité des périphériques de stockage bon marché, prolifération des vidéos haute définition et objets connectés à Internet (IoT). Un mécanisme de distribution rapide et efficace des fichiers volumineux est essentiel pour garantir au consommateur une expérience fluide et agréable.
 
@@ -70,7 +70,7 @@ L’optimisation des fichiers volumineux utilise des temps d’expiration de mis
 |    | Livraison web générale | Optimisation des fichiers volumineux 
 --- | --- | --- 
 Mise en cache : positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
-Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | Aucune | 1 seconde 
+Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde 
 
 ### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine
 

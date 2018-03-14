@@ -15,17 +15,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: 488206e81e483fa2006d774cd4e7d60f7017d9cb
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Guide pratique pour distribuer globalement des lectures à l’aide de la préférence de lecture avec l’API MongoDB d’Azure Cosmos DB 
 
 Cet article explique comment distribuer globalement des opérations de lecture à l’aide des paramètres de [préférence de lecture MongoDB](https://docs.mongodb.com/manual/core/read-preference/) avec l’API MongoDB d’Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>configuration requise 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -35,18 +35,20 @@ Consultez ce [Guide de démarrage rapide](tutorial-global-distribution-mongodb.m
 
 Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `cd`.  
 
-Exécutez les commandes suivantes pour cloner l’exemple de dépôt. Selon la plateforme qui vous intéresse, utilisez l’un des dépôts suivants :
+Exécutez les commandes suivantes pour cloner l’exemple de référentiel. Selon la plateforme qui vous intéresse, utilisez l’un des dépôts suivants :
 
 1. [Exemple d’application .NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [Exemple d’application NodeJS]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Exemple d’application Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Exemple d’application Mongoose](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference)
+4. [Exemple d’application Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [Exemple d’application SpringBoot](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
 
 ```bash
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Exécuter l'application
+## <a name="run-the-application"></a>Exécution de l'application
 
 En fonction de la plateforme utilisée, installez les packages nécessaires et démarrez l’application. Pour installer les dépendances, suivez les instructions du fichier LISEZMOI inclus dans le dépôt d’exemple d’application. Par exemple, dans l’exemple d’application NodeJS, utilisez les commandes suivantes pour installer les packages nécessaires et démarrer l’application.
 
@@ -150,7 +152,7 @@ Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez t
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
 * [Guide pratique pour configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB](tutorial-global-distribution-mongodb.md)

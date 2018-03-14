@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 47a4f6a56c1e5a47f70bb6d6ba2dd980346653ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 543d0ec5d0c94b793b1e825d44356039b366908a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -42,10 +42,10 @@ Les sections suivantes donnent des précisions sur les propriétés utilisées p
 
 Les propriétés suivantes sont prises en charge pour le service lié HBase :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **HBase**. | OUI |
-| host | Adresse IP ou nom d’hôte du serveur HBase (c’est-à-dire 192.168.222.160).  | OUI |
+| host | Adresse IP ou nom d’hôte du serveur HBase (Par exemple, 192.168.222.160, [clustername].azurehdinsight.net)  | OUI |
 | port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090.  | Non  |
 | httpPath | URL partielle correspondant au serveur HBase (c’est-à-dire /gateway/sandbox/hbase/version).  | Non  |
 | authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Valeurs autorisées : **Anonymous**, **Basic**. | OUI |
@@ -57,7 +57,7 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
-**Exemple :**
+**Exemple HDInsights HBase :**
 
 ```json
 {
@@ -65,9 +65,36 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
     "properties": {
         "type": "HBase",
         "typeProperties": {
-            "host" : "<host>",
+            "host" : "<cluster name>.azurehdinsight.net",
+            "port" : "443",
+            "httpPath" : "<e.g. hbaserest>",
+            "authenticationType" : "Basic",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "enableSsl" : true
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemple HBase générique :**
+
+```json
+{
+    "name": "HBaseLinkedService",
+    "properties": {
+        "type": "HBase",
+        "typeProperties": {
+            "host" : "<host e.g. 192.168.222.160>",
             "port" : "<port>",
-            "httpPath" : "/gateway/sandbox/hbase/version",
+            "httpPath" : "<e.g. /gateway/sandbox/hbase/version>",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
@@ -116,7 +143,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de HBase, affectez la valeur **HBaseSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source de l’activité de copie doit être définie sur **HBaseSource**. | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
@@ -153,5 +180,5 @@ Pour copier des données de HBase, affectez la valeur **HBaseSource** au type so
 ]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

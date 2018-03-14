@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
 ## <a name="introduction"></a>Introduction
 Une fois votre coffre de clés (Key Vault) créé, vous pouvez commencer à l’utiliser pour stocker vos clés et secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais les demanderont au coffre de clés en cas de besoin. Cela vous permet de mettre à jour les clés et les secrets sans affecter le comportement de votre application, et de disposer ainsi de toute une multitude de possibilités de gestion des clés et secrets.
+
+>[!IMPORTANT]
+> Les exemples de cet article sont fournis à titre d’illustration uniquement. Ils ne sont pas conçus pour être utilisés pour la production. 
 
 Cet article présente un exemple d’utilisation d’Azure Key Vault pour stocker un secret, dans notre exemple une clé de compte de stockage Azure à laquelle une application accède. Il vous propose également une démonstration d’implémentation d’une rotation planifiée de cette clé de compte de stockage. Pour finir, il vous présente, par le biais d’une démonstration, comment contrôler les journaux d’audit du coffre de clés et déclencher des alertes en cas de requêtes inattendues.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scénarios, exemples, didacticiels et procédures pas à pas courants relatifs à Azure Logic Apps
 
@@ -63,14 +63,15 @@ Pour les systèmes et services pour lesquels aucun connecteur n’a été publi�
 * [Répondre aux événements et actions externes à l’aide de webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Appeler, déclencher ou imbriquer des flux de travail avec des réponses synchrones aux requêtes HTTP](../logic-apps/logic-apps-http-endpoint.md)
 * [Didacticiel expliquant comment créer un tableau de bord social reposant sur l’intelligence artificielle en quelques minutes avec Logic Apps et Power BI](http://aka.ms/logicappsdemo)
-* [Didacticiel expliquant comment répondre aux webhooks SMS Twilio et envoyer une réponse textuelle](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Vidéo présentant comment répondre aux Webhooks SMS Twilio et envoyer une réponse textuelle](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Fonctionnalités de flux de contrôle, de gestion des erreurs et de journalisation
 
 Les applications logiques incluent de puissantes fonctionnalités de flux de contrôle avancé, notamment des conditions, des commutateurs, des boucles et des étendues. Pour garantir la résilience de vos solutions, vous pouvez également implémenter la gestion des erreurs et des exceptions dans vos flux de travail. Pour la notification et les journaux de diagnostic relatifs à l’état d’exécution des flux de travail, Azure Logic Apps fournit également la surveillance et des alertes.
 
-* [Traiter les éléments dans des tableaux et collections avec des boucles et des lots dans les applications logiques](../logic-apps/logic-apps-loops-and-scopes.md)
-* [Effectuer différentes actions avec les instructions switch](../logic-apps/logic-apps-switch-case.md)
+* Exécuter des actions différentes en fonction [d’instructions conditionnelles](../logic-apps/logic-apps-control-flow-conditional-statement.md) et [d’instructions switch](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Répéter les étapes ou traiter les éléments dans des tableaux et collections avec des boucles](../logic-apps/logic-apps-control-flow-loops.md)
+* [Regrouper des actions avec des étendues](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Gestion des erreurs de création et des exceptions dans un flux de travail](../logic-apps/logic-apps-exception-handling.md)
 * [Cas d’utilisation : comment un prestataire de soins de santé utilise la gestion des exceptions d’application logique pour les flux de travail HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Activer la surveillance, la journalisation et les alertes pour les applications logiques existantes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -98,15 +99,22 @@ Les applications logiques offrent également une intégration avec de nombreux s
 
 * [Créer un tableau de bord social en temps réel avec Azure Serverless](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Appeler Azure Functions à partir d’applications logiques](../logic-apps/logic-apps-azure-functions.md)
-* [Scénario : Déclencher des applications logiques avec Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Didacticiel : Déclencher des applications logiques avec Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Didacticiel : Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Create a function that integrates with Azure Logic Apps and Microsoft Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md) (Didacticiel : Créer une fonction qui s’intègre à Azure Logic Apps et à Microsoft Cognitive Services pour analyser le sentiment lié à la publication Twitter)
+* [Didacticiel : Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog : Appeler des points de terminaison SOAP à partir d’applications logiques](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Scénarios de bout en bout
 
-* [Livre blanc : Gestion de cas de bout en bout d’intégration d’entreprise avec des services Azure, tels que des applications logiques](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Whitepaper: End-to-end case management integration with Azure services, such as Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps) (Livre blanc : Intégration de la gestion des dossiers de bout en bout aux services Azure, tels que Logic Apps)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="customer-stories"></a>Témoignages client
 
-* [Créer des définitions de flux de travail avec le langage de définition de flux de travail](../logic-apps/logic-apps-author-definitions.md)
+Découvrez comment Azure Logic Apps, ainsi que d’autres services Azure et produits Microsoft, ont aidé [ces sociétés](https://aka.ms/logic-apps-customer-stories) à améliorer leur flexibilité et à se concentrer sur leurs activités principales en simplifiant, organisant, automatisant et orchestrant des processus complexes.
+
+## <a name="next-steps"></a>étapes suivantes
+
+* [Créer à partir des définitions d’application logique avec JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Gérer les erreurs et les exceptions dans Azure Logic Apps](../logic-apps/logic-apps-exception-handling.md)
-* [Envoyer vos questions, commentaires ou suggestions concernant les améliorations que nous pourrions apporter à Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)
+* [Submit your comments, questions, feedback, or suggestions for improving Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps) (Envoyer vos questions, commentaires ou suggestions pour améliorer Azure Logic Apps)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -48,7 +48,7 @@ Les modèles en mémoire et DirectQuery qui se connectent aux sources de donnée
 
 ## <a name="on-premises-data-sources"></a>Sources de données locales
 
-La connexion aux sources de données locales requiert une passerelle locale. Lorsque vous utilisez une passerelle, vérifiez que des fournisseurs 64 bits sont installés.
+La connexion aux sources de données locales et au serveur Azure AS requiert une passerelle locale. Lorsque vous utilisez une passerelle, des fournisseurs 64 bits sont requis.
 
 ### <a name="in-memory-and-directquery"></a>En mémoire et DirectQuery
 
@@ -60,31 +60,26 @@ La connexion aux sources de données locales requiert une passerelle locale. Lor
 | Teradata |Fournisseur OLE DB pour Teradata, Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET | |
 | | | |
 
-\* Modèles Tabular 1400 uniquement.
-
 ### <a name="in-memory-only"></a>En mémoire uniquement
-
-> [!IMPORTANT]
-> Le test des fournisseurs pour les sources de données suivantes est en cours. 
 
 |Source de données  |  
 |---------|---------|
 |Base de données Access     |  
 |Active Directory*     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |Système de plateforme d’analyse     |  
 |Dynamics CRM*     |  
-|Classeur Excel     | 
+|Classeur Excel     |  
 |Exchange*     |  
 |Dossier*     | 
 |Document JSON*     |  
 |Lignes issues d’un fichier binaire*     | 
 |MySQL Database     | 
-|Flux OData*     | 
+|Flux OData*     |  
 |Requête ODBC     | 
-|OLE DB     |  
+|OLE DB     |   
 |Base de données PostgreSQL*    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |Base de données Sybase     |  
@@ -117,7 +112,7 @@ Pour les sources de données cloud :
 
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Passerelle locale](analysis-services-gateway.md)   
 [Gérer votre serveur](analysis-services-manage.md)   
 

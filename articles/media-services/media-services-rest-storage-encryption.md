@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Chiffrer votre contenu avec le chiffrement de stockage
 
@@ -29,7 +29,7 @@ Cet article donne une vue d'ensemble du chiffrement de stockage AMS et vous mont
 * Créez une clé de contenu.
 * Créez une ressource. Définissez AssetCreationOption sur StorageEncryption lors de la création de la ressource.
   
-     Les ressources chiffrées doivent être associées à des clés de contenu.
+     Les ressources chiffrées sont associées à des clés de contenu.
 * Liez la clé de contenu à la ressource.  
 * Définissez les paramètres liés au chiffrement sur les entités AssetFile.
 
@@ -44,60 +44,62 @@ Lors de l’accès aux entités dans Media Services, vous devez définir les val
 Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="storage-encryption-overview"></a>Vue d’ensemble du chiffrement du stockage
-Le chiffrement de stockage AMS applique le mode de chiffrement **AES-CTR** à la totalité du fichier.  Le mode AES-CTR est un chiffrement par blocs qui permet de chiffrer des données de longueur arbitraire sans avoir besoin de remplissage. Il fonctionne en chiffrant un bloc de compteur avec l'algorithme AES, puis en appliquant l’opération XOR à la sortie d’AES avec les données à chiffrer ou déchiffrer.  Le bloc de compteur utilisé est construit en copiant la valeur InitializationVector sur les octets 0 à 7 de la valeur du compteur et les octets 8 à 15 de la valeur du compteur ont la valeur zéro. Dans le bloc de compteur de 16 octets, les octets 8 à 15 (c’est-à-dire les octets les moins significatifs) sont utilisés comme simple entier non signé de 64 bits, incrémenté de un pour chacun des blocs suivants de données traitées, et conservé dans l’ordre des octets du réseau. Si cet entier atteint la valeur maximale (0xFFFFFFFFFFFFFFFF), son incrémentation réinitialise le compteur de blocs à zéro (octets 8 à 15) sans affecter les autres 64 bits du compteur (c’est-à-dire les octets 0 à 7).   Pour maintenir la sécurité du mode de chiffrement AES-CTR, la valeur InitializationVector pour un identificateur de clé donné pour chaque clé de contenu doit être unique pour chaque fichier et les fichiers doivent avoir une longueur inférieure à 2^64 blocs.  Cela permet de faire en sorte qu'aucune valeur de compteur ne soit jamais réutilisée avec une clé donnée. Pour plus d'informations sur le mode CTR, consultez [cette page wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (l'article wiki utilise le terme « Nonce » au lieu de « InitializationVector »).
+Le chiffrement de stockage AMS applique le mode de chiffrement **AES-CTR** à la totalité du fichier.  Le mode AES-CTR est un chiffrement par blocs qui permet de chiffrer des données de longueur arbitraire sans avoir besoin de remplissage. Il fonctionne en chiffrant un bloc de compteur avec l'algorithme AES, puis en appliquant l’opération XOR à la sortie d’AES avec les données à chiffrer ou déchiffrer.  Le bloc de compteur utilisé est construit en copiant la valeur InitializationVector sur les octets 0 à 7 de la valeur du compteur et les octets 8 à 15 de la valeur du compteur ont la valeur zéro. Dans le bloc de compteur de 16 octets, les octets 8 à 15 (c’est-à-dire les octets les moins significatifs) sont utilisés comme simple entier non signé de 64 bits, incrémenté de un pour chacun des blocs suivants de données traitées, et conservé dans l’ordre des octets du réseau. Si cet entier atteint la valeur maximale (0xFFFFFFFFFFFFFFFF), son incrémentation réinitialise le compteur de blocs à zéro (octets 8 à 15) sans affecter les autres 64 bits du compteur (c’est-à-dire les octets 0 à 7).   Pour maintenir la sécurité du mode de chiffrement AES-CTR, la valeur InitializationVector pour un identificateur de clé donné pour chaque clé de contenu doit être unique pour chaque fichier et les fichiers doivent avoir une longueur inférieure à 2^64 blocs.  Cette valeur unique permet de faire en sorte qu’aucune valeur de compteur ne soit jamais réutilisée avec une clé donnée. Pour plus d'informations sur le mode CTR, consultez [cette page wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (l'article wiki utilise le terme « Nonce » au lieu de « InitializationVector »).
 
 Utilisez le **chiffrement du stockage** pour chiffrer votre contenu localement à l’aide du chiffrement AES 256 bits, puis chargez-le vers Azure Storage où il est stocké au repos sous forme chiffrée. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 
 Pour fournir un élément multimédia avec chiffrement de stockage, vous devez configurer la stratégie de remise de l'élément multimédia afin que Media Services sache comment vous souhaitez remettre votre contenu. Pour que votre élément multimédia puisse être diffusé en continu, le serveur de diffusion supprime le chiffrement de stockage et diffuse votre contenu à l'aide de la stratégie de remise spécifiée (par exemple AES, chiffrement commun ou aucun chiffrement).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Créer des ContentKeys utilisées pour le chiffrement
-Les ressources chiffrées doivent être associées à une clé de chiffrement du stockage. Vous devez créer la clé de contenu à utiliser pour le chiffrement avant de créer les fichiers de ressources. Cet article décrit la création d’une clé de contenu.
+Les ressources chiffrées sont associées à des clés de chiffrement du stockage. Créez la clé de contenu à utiliser pour le chiffrement avant de créer les fichiers de ressources. Cet article décrit la création d’une clé de contenu.
 
 Voici les étapes générales pour la génération de clés de contenu que vous associez à des ressources devant être chiffrées. 
 
 1. Pour le chiffrement du stockage, générez de façon aléatoire une clé AES de 32 octets. 
    
-    Il s’agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
+    La clé AES de 32 octets est la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
 2. Appelez les méthodes [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
 3. Chiffrez votre clé de contenu avec la clé publique du certificat X.509. 
    
    Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement.  Vous trouverez un exemple .NET dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Créez une valeur de somme de contrôle calculée à l'aide de l'identificateur de clé et de la clé de contenu. L’exemple .NET suivant calcule la somme de contrôle à l’aide de la partie GUID de l’identificateur de clé et de la clé de contenu en clair.
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. Créez la clé de contenu avec les valeurs **EncryptedContentKey** (convertie en chaîne codée en Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** et **Checksum** que vous avez obtenues lors des étapes précédentes.
+5. Créez la clé de contenu avec les valeurs **EncryptedContentKey** (convertie en chaîne codée en Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** et **Checksum** que vous avez obtenues lors des étapes précédentes.
 
     Pour le chiffrement du stockage, les propriétés suivantes doivent être incluses dans le corps de la demande.
 
-    Propriété du corps de la demande    | Description
+    Propriété du corps de la demande    | DESCRIPTION
     ---|---
-    Id | ID de ContentKey que nous générons nous-mêmes en utilisant le format suivant : « nb:kid:UUID:<NEW GUID> ».
-    ContentKeyType | Il s’agit du type de clé de contenu en tant qu’entier pour cette clé de contenu. Nous transmettons la valeur 1 pour le chiffrement du stockage.
+    ID | L’ID de ContentKey est généré en utilisant le format suivant : « nb:kid:UUID:<NEW GUID> ».
+    ContentKeyType | Le type de clé de contenu est un entier qui définit la clé. La valeur est 1 pour le format de chiffrement du stockage.
     EncryptedContentKey | Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une requête HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey. À titre d’exemple, consultez le code .NET suivant : la méthode **EncryptSymmetricKeyData** définie [ici](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu.
     ProtectionKeyType | Il s’agit du type de chiffrement de la clé de protection qui a été utilisé pour chiffrer la clé de contenu. Cette valeur est StorageEncryption(1) dans notre exemple.
@@ -172,11 +174,11 @@ Réponse :
 ### <a name="create-the-content-key"></a>Créez la clé de contenu
 Après avoir récupéré le certificat X.509 et utilisé sa clé publique pour chiffrer votre clé de contenu, créez une entité **ContentKey** et définissez ses valeurs de propriété en conséquence.
 
-Une des valeurs que vous devez définir lors de la création d’une clé de contenu est son type. Dans le cas du chiffrement de stockage, la valeur est « 1 ». 
+Une des valeurs que vous devez définir lors de la création d’une clé de contenu est son type. Lorsque vous utilisez le chiffrement de stockage, la valeur doit être définie à « 1 ». 
 
-L’exemple suivant montre comment créer une **ContentKey** avec un **ContentKeyType** défini pour le chiffrement du stockage (« 1 ») et le **ProtectionKeyType** défini sur « 0 » pour indiquer que l’ID de la clé de protection est l’empreinte numérique du certificat X.509.  
+L’exemple suivant montre comment créer une **ContentKey** avec un **ContentKeyType** défini pour le chiffrement du stockage (« 1 ») et le **ProtectionKeyType** avec la valeur « 0 » pour indiquer que l’ID de la clé de protection est l’empreinte numérique du certificat X.509.  
 
-Demande
+Requête
 
     POST https://media.windows.net/api/ContentKeys HTTP/1.1
     Content-Type: application/json
@@ -242,7 +244,7 @@ L’exemple suivant montre comment créer une ressource.
 
 **Réponse HTTP**
 
-Si l’opération réussit, l’élément suivant est retourné :
+Si l’opération réussit, la réponse suivante est retournée :
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -294,7 +296,7 @@ Réponse :
 ## <a name="create-an-assetfile"></a>Création d’un AssetFile
 L’entité [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) représente un fichier audio ou vidéo stocké dans un conteneur d’objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
 
-Notez que l’instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
+L'instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
 Après avoir téléchargé le fichier multimédia numérique dans un conteneur d’objets blob, vous utilisez la requête HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (non illustré dans cet article). 
 

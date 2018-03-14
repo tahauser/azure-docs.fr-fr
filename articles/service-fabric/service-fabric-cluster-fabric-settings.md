@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -31,7 +31,7 @@ Ce document vous explique comment personnaliser les différents paramètres et l
 Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.
 
 1. Accédez à https://resources.azure.com.
-2. Accédez à votre abonnement en développant **Abonnements** -> **Groupes de ressources** -> **Microsoft.ServiceFabric** -> **\<Nom de votre cluster>**.
+2. Accédez à votre abonnement en développant **subscriptions** -> **\<Votre abonnement >** -> **resourceGroups** -> **\<Votre groupe de ressources >** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Nom de votre cluster >**
 3. Dans l’angle supérieur droit, sélectionnez **Lecture/écriture**.
 4. Sélectionnez **Modifier**, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément :
 
@@ -385,6 +385,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |CommonName2Ntlmx509StoreLocation|chaîne, valeur par défaut : L"LocalMachine"| statique|Emplacement du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
 |CommonName2Ntlmx509StoreName|chaîne, valeur par défaut : L"MY"|statique| Nom du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
 |CommonName2Ntlmx509CommonName|chaîne, valeur par défaut : L""|statique|Nom commun du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
+|GenerateV1CommonNameAccount| Valeur booléenne, valeur par défaut : TRUE|statique|Spécifie s’il faut générer un compte avec l’algorithme de génération V1 de nom d’utilisateur. Depuis Service Fabric version 6.1, un compte avec la génération v2 est toujours créé. Le compte V1 est nécessaire pour les mises à niveau à partir de/vers des versions qui ne prennent pas en charge la génération V2 (avant 6.1).|
 
 ### <a name="section-name-imagestoreservice"></a>Nom de la section : ImageStoreService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -796,7 +797,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ResolveOption|chaîne, valeur par défaut : L"unspecified"|statique|Détermine la façon dont le nom de domaine complet est résolu.  Les valeurs valides sont "unspecified/ipv4/ipv6". |
 |ConnectionOpenTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60)|statique|Spécifiez la durée en secondes. Délai d’expiration pour la configuration de la connexion côté entrant et acceptant (y compris la négociation de sécurité en mode sécurisé) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Lisez les articles suivants pour plus d’informations sur la gestion des clusters :
 
 [Ajouter, restaurer, supprimer des certificats de votre cluster Azure ](service-fabric-cluster-security-update-certs-azure.md) 

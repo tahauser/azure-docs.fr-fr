@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault avec Java pour le Stockage Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -99,6 +99,10 @@ Le chiffrement des données d’une table fonctionne de la manière suivante :
 Dans les opérations de traitement par lots, la même clé de chiffrement de clés (KEK) est utilisée pour toutes les lignes d’une même opération, car la bibliothèque cliente n’accepte qu’un seul objet d’options (et par conséquent, une seule stratégie/clé de chiffrement de clés) par opération de traitement par lots. Toutefois, la bibliothèque cliente génère en interne un nouveau vecteur d’initialisation (IV) aléatoire et une clé de chiffrement de contenu (CEK) aléatoire par ligne dans le lot. Les utilisateurs peuvent également choisir de chiffrer différentes propriétés pour chaque opération dans le lot en définissant ce comportement dans le programme de résolution de chiffrement.
 
 ### <a name="queries"></a>Requêtes
+> [!NOTE]
+> Comme les entités sont chiffrées, vous ne pouvez pas exécuter des requêtes qui filtrent sur une propriété chiffrée.  Si vous essayez, les résultats seront incorrects, car le service essaiera de comparer les données chiffrées aux données non chiffrées.
+> 
+>
 Pour effectuer des opérations de requête, vous devez spécifier un programme de résolution de clé capable de résoudre toutes les clés dans le jeu de résultats. Si une entité contenue dans le résultat de la requête ne peut pas être résolue par rapport à un fournisseur, la bibliothèque cliente génère une erreur. Pour toute requête effectuant des projections côté serveur, la bibliothèque cliente ajoute par défaut les propriétés de métadonnées de chiffrement spéciales (_ClientEncryptionMetadata1 et _ClientEncryptionMetadata2) aux colonnes sélectionnées.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
@@ -247,7 +251,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ## <a name="encryption-and-performance"></a>Chiffrement et performances
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et téléchargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Télécharger la [bibliothèque cliente Azure Storage pour le package Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Télécharger la [bibliothèque cliente Azure Storage pour le code source Java à partir de GitHub](https://github.com/Azure/azure-storage-java)   
 * Télécharger la bibliothèque Maven d’Azure Key Vault pour le package Maven Java :

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gestion de bases de données dans Azure SQL Data Warehouse
 SQL Data Warehouse automatise de nombreux aspects de la gestion de vos bases de données. Par exemple, pour mettre les performances à l’échelle, vous n’avez qu’à ajuster le niveau de ressources de calcul en fonction de vos besoins et ne payer que pour ces ressources. SQL Data Warehouse effectue ensuite tout le travail de montée en charge et de réduction.
@@ -34,25 +34,25 @@ Cette présentation couvre ces aspects de la gestion de SQL Data Warehouse.
 * Meilleures pratiques pour les performances
 * Surveillance des requêtes
 * Sécurité
-* Sauvegarde et restauration
+* Sauvegarder et restaurer des données
 
 ## <a name="management-tools"></a>Outils de gestion
 Vous pouvez utiliser divers outils pour gérer des bases de données dans SQL Data Warehouse. Au cours de vos travaux de gestion de bases de données, vous développerez des préférences quant aux outils pour chaque type de tâche que vous devez effectuer.
 
 ### <a name="azure-portal"></a>Portail Azure
-Le [portail Azure][Azure portal] est un portail basé sur le Web dans lequel vous pouvez créer, mettre à jour et supprimer des bases de données et surveiller des ressources de base de données. Cet outil est très utile si vous n’êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre de bases de données Data Warehouse, ou si vous devez effectuer rapidement une action.
+Le [portail Azure][Azure portal] est un portail basé sur le Web dans lequel vous pouvez créer, mettre à jour et supprimer des bases de données et surveiller des ressources de base de données. Cet outil est très utile si vous n’êtes pas familiarisé avec Microsoft Azure, si vous gérez un petit nombre d’entrepôts de données, ou si vous devez effectuer rapidement une action.
 
 Pour la prise en main du portail Azure, consultez la rubrique [Créer un entrepôt de données SQL (portail Azure)][Create a SQL Data Warehouse (Azure portal)].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools dans Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) dans Visual Studio vous permet de vous connecter à vos bases de données, de les gérer et de les développer. Si vous êtes un développeur d’applications familiarisé avec Visual Studio ou d’autres environnements de développement intégré (IDE), essayez la fonction SSDT de Visual Studio.
 
-SSDT comprend la solution Explorateur d’objets SQL Server qui vous permet de visualiser, de connecter et d’exécuter des scripts dans des bases de données SQL Data Warehouse. Pour vous connecter rapidement à SQL Data Warehouse, il vous suffit de cliquer sur le bouton **Ouvrir dans Visual Studio** de la barre de commandes lorsque vous affichez les détails de la base de données dans le portail Azure.  
+SSDT comprend l’Explorateur d’objets SQL Server qui vous permet de visualiser, de connecter et d’exécuter des scripts dans des bases de données SQL Data Warehouse. Pour vous connecter rapidement à SQL Data Warehouse, il vous suffit de cliquer sur le bouton **Ouvrir dans Visual Studio** de la barre de commandes lorsque vous affichez les détails de la base de données dans le portail Azure.  
 
 Pour prendre SSDT en main dans Visual Studio, consultez [Interroger Azure SQL Data Warehouse avec Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
 ### <a name="command-line-tools"></a>Outils de ligne de commande
-Les outils de ligne de commande sont la solution idéale pour l’automatisation de vos charges de travail.  PowerShell et sqlcmd sont également deux manières intéressantes d’automatiser vos processus.  Nous vous recommandons d’utiliser ces outils pour gérer un grand nombre de serveurs logiques et pour déployer des modifications de ressources au sein d’un environnement de production, dans la mesure où les tâches requises peuvent alors être incluses dans un script, puis automatisées.
+Les outils en ligne de commande sont la solution idéale pour l’automatisation de vos charges de travail.  PowerShell et sqlcmd sont également deux manières intéressantes d’automatiser vos processus.  Nous vous recommandons d’utiliser ces outils pour gérer un grand nombre de serveurs logiques et pour déployer des modifications de ressources au sein d’un environnement de production, dans la mesure où les tâches requises peuvent alors être incluses dans un script, puis automatisées.
 
 ### <a name="dynamic-management-views"></a>Vues de gestion dynamique (DMV)
 Les vues de gestion dynamique sont indispensables pour la gestion du SQL Data Warehouse. Presque toutes les informations figurant dans le portail sont basées sur les vues de gestion dynamique. Pour afficher une liste des vues de gestion dynamique SQL Data Warehouse, consultez les [Vues système SQL Data Warehouse][SQL Data Warehouse system views].
@@ -84,10 +84,10 @@ Pour maintenir la sécurisation du système, vous devez être vigilent et vous p
 
 Pour en savoir plus sur la gestion de la sécurité, consultez la [vue d’ensemble de la sécurité][Security overview].
 
-## <a name="backup-and-restore"></a>Sauvegarde et restauration
+## <a name="back-up-and-restore"></a>Sauvegarder et restaurer des données
 Le stockage de sauvegardes fiables de vos données est un élément essentiel de toute base de données de production. SQL Data Warehouse permet de sécuriser vos données en sauvegardant automatiquement vos bases de données actives à intervalles réguliers. Ces sauvegardes vous permettent d’effectuer une récupération à partir des scénarios où vous avez endommagé vos données ou accidentellement supprimé vos données ou votre base de données.  Pour en savoir plus sur la planification de la sauvegarde de données, la stratégie de rétention et la restauration d’une base de données, consultez [Restore from snapshot (Restaurer à partir d’un instantané)][Restore from snapshot].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [Vue d’ensemble du développement][Development overview].
 
 <!--Image references-->
@@ -100,10 +100,10 @@ La mise en œuvre de principes de conception de base de données adaptés facili
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Mise à l’échelle des performances]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Mise à l’échelle des performances]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

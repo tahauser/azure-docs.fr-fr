@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure Stack. Vous pouvez les utiliser pour déployer et gérer un groupe de machines virtuelles identiques. Dans la mesure où toutes les machines virtuelles sont configurées de la même façon, les groupes identiques ne requièrent pas d’approvisionnement préalable des machines virtuelles. Il est plus simple de créer des services à grande échelle qui ciblent le Big Compute, le Big Data et les charges de travail en conteneurs.
 
-Cette rubrique vous guide tout au long du processus de mise à disposition des groupes identiques dans la Marketplace Azure Stack. Lorsque vous aurez suivi cette procédure, vos utilisateurs pourront ajouter des groupes de machines virtuelles identiques à leurs abonnements.
+Cet article vous guide tout au long du processus de mise à disposition des groupes identiques dans la marketplace Azure Stack. Lorsque vous aurez suivi cette procédure, vos utilisateurs pourront ajouter des groupes de machines virtuelles identiques à leurs abonnements.
 
 Les groupes de machines virtuelles identiques sur Azure Stack suivent le même principe que sur Azure. Pour plus d’informations, consultez les vidéos suivantes :
 * [Mark Russinovich parle des groupes identiques Azure](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -32,7 +32,7 @@ Les groupes de machines virtuelles identiques sur Azure Stack suivent le même p
 
 Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compatibles avec la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique avec le portail Azure Stack, les modèles Resource Manager ou PowerShell.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * **PowerShell et outils**
 
    Installer et configurez PowerShell pour Azure Stack et les outils Azure Stack. Consultez la page [Devenir opérationnel avec PowerShell dans Azure Stack](azure-stack-powershell-configure-quickstart.md).
@@ -81,9 +81,9 @@ Pour supprimer un élément de la galerie du groupe de machines virtuelles ident
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> L’élément de la galerie n’est pas forcément supprimé immédiatement de la marketplace. Vous devrez peut-être pour cela actualiser le portail plusieurs fois.
+> L’élément de la galerie n’est pas forcément supprimé immédiatement de la marketplace. Pour que l’élément apparaisse comme étant supprimé de la marketplace, vous devrez peut-être actualiser le portail plusieurs fois.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Forum aux questions sur Azure Stack](azure-stack-faq.md)
 

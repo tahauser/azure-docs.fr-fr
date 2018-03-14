@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -32,7 +32,7 @@ Cet article explique comment utiliser des liaisons Stockage Blob Azure dans Azur
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Les [comptes de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts) ne sont pas pris en charge. Les déclencheurs et les liaisons de stockage blob nécessitent un compte de stockage à usage général. 
+> Les [comptes de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts) ne sont pas pris en charge pour les déclencheurs d’objet blob. Les déclencheurs de stockage d’objets blob nécessitent un compte de stockage à usage général. Pour les liaisons d’entrée et de sortie, vous pouvez utiliser des comptes de stockage d’objets blob uniquement.
 
 ## <a name="trigger"></a>Déclencheur
 
@@ -208,7 +208,7 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `BlobTrigger`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `blobTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. Les exceptions sont notées à la section [utilisation](#trigger---usage). |
@@ -283,7 +283,7 @@ Si l’objet blob est nommé *{20140101}-soundfile.mp3*, la valeur de la variabl
 
 Le déclencheur d’objet blob fournit plusieurs propriétés de métadonnées. Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ces valeurs ont la même sémantique que le type [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Propriété  |type  |DESCRIPTION  |
+|Propriété  |type  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Chemin de l’objet blob déclencheur.|
 |`Uri`|`System.Uri`|URI de l’objet blob pour l’emplacement principal.|
@@ -507,7 +507,7 @@ Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de 
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Blob`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `blob`. |
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Les exceptions sont notées à la section [utilisation](#input---usage). |
@@ -718,7 +718,7 @@ Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de 
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Blob`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `blob`. |
 |**direction** | n/a | Cette propriété doit être définie sur `out` pour une liaison de type sortie. Les exceptions sont notées à la section [utilisation](#output---usage). |
@@ -762,7 +762,7 @@ Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.b
 | Objet blob, Table, File d’attente |  [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Objet blob, Table, File d’attente |  [Résolution des problèmes](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Accéder à un guide de démarrage rapide qui utilise un déclencheur de stockage d’objets blob](functions-create-storage-blob-triggered-function.md)

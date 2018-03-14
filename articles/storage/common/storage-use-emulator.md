@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -43,6 +43,14 @@ L'émulateur de stockage se connecte à SQL Server ou LocalDB par l'intermédiai
 Il existe quelques différences de fonctionnalités entre l’émulateur de stockage et les services de stockage Azure. Pour plus d’informations sur ces différences, consultez la section [Différences entre l’émulateur de stockage et le Stockage Azure](#differences-between-the-storage-emulator-and-azure-storage) plus loin dans cet article.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Démarrer et initialiser l’émulateur de stockage
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Exécuter l’émulateur de stockage Azure dans Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Utiliser le kit de développement logiciel (SDK)
+
 Pour démarrer l’émulateur de stockage Azure :
 1. Sélectionnez le bouton **Démarrer** ou appuyez sur la touche **Windows**.
 1. Commencez à taper `Azure Storage Emulator`.
@@ -168,7 +176,7 @@ Les points de terminaison de service de l’émulateur de stockage sont :
 ### <a name="options"></a>Options
 Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
-| Option | Description | Commande | Arguments |
+| Option | DESCRIPTION | Commande | Arguments |
 | --- | --- | --- | --- |
 | **Start** |Permet de démarrer l’émulateur de stockage. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
 | **Stop** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator.exe stop` | |
@@ -260,7 +268,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 * L’interface graphique de l’émulateur de stockage est remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
 * La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Évaluez l’émulateur de stockage open source [Azurite](https://github.com/arafato/azurite) multiplateforme et géré par la communauté. 
 * L’article [Exemples de stockage Azure avec .NET](../storage-samples-dotnet.md) contient des liens vers plusieurs exemples de code que vous pouvez utiliser lorsque vous développez votre application.

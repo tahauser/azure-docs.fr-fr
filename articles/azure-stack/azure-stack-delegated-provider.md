@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 
@@ -58,7 +58,7 @@ Les sections suivantes expliquent comment établir un fournisseur délégué, d�
 
 ## <a name="set-up-roles"></a>Configurer les rôles
 
-Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azure AD supplémentaires en plus de votre compte d’opérateur Azure Stack. Si vous n’en avez pas, créez les deux comptes. Les comptes peuvent appartenir à n’importe quel utilisateur Azure AD. Nous les appelons le fournisseur délégué et l’utilisateur.
+Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azure AD supplémentaires en plus de votre compte d’opérateur Azure Stack. Si vous n’avez pas ces deux comptes, créez-les. Les comptes peuvent appartenir à n’importe quel utilisateur de Azure AD et désignent le fournisseur délégué l’utilisateur.
 
 | **Rôle** | **Droits d’organisation** |
 | --- | --- |
@@ -71,9 +71,9 @@ Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azur
 2. Créez l’offre qui permet aux utilisateurs de devenir des fournisseurs délégués :
    
    a.  [Créer un plan](azure-stack-create-plan.md).
-       Ce plan doit inclure uniquement le service d’abonnements. Dans cet article, nous utilisons un plan appelé **PlanForDelegation**.
+       Ce plan doit inclure uniquement le service d’abonnements. Cet article utilise un plan appelé **PlanForDelegation**.
    
-   b.  [Créer une offre](azure-stack-create-offer.md) basée sur ce plan. Dans cet article, nous utilisons une offre appelée **OfferToDP**.
+   b.  [Créer une offre](azure-stack-create-offer.md) basée sur ce plan. Cet article utilise une offre appelée **OfferToDP**.
    
    c.  Une fois la création de l’offre terminée, ajoutez le fournisseur délégué en tant qu’abonné à cette offre. Pour cela, sélectionnez **Abonnements** > **Ajouter** > **Nouvel abonnement client**.
    
@@ -88,7 +88,7 @@ Pour voir un fournisseur délégué au travail, vous avez besoin de comptes Azur
 
 Vous avez désormais établi votre fournisseur délégué. L’étape suivante consiste à créer le plan et l’offre que vous allez déléguer et que vos clients utiliseront. Il est recommandé de définir cette offre telle que vous souhaitez que les clients la voient, car le fournisseur délégué ne sera pas en mesure d’en modifier les plans et les quotas.
 
-1. En tant qu’opérateur Azure Stack, [créez un plan](azure-stack-create-plan.md) et [une offre](azure-stack-create-offer.md) basée sur celui-ci. Dans cet article, nous utilisons une offre appelée **DelegatedOffer**.
+1. En tant qu’opérateur Azure Stack, [créez un plan](azure-stack-create-plan.md) et [une offre](azure-stack-create-offer.md) basée sur celui-ci. Cet article utilise une offre appelée **DelegatedOffer**.
    
    > [!NOTE]
    > Cette offre ne doit pas nécessairement être publique. Si vous le voulez, vous pouvez la rendre publique. Mais dans la plupart des cas, vous souhaitez que seuls les fournisseurs délégués puissent y accéder. Une fois que vous déléguez une offre privée comme décrit dans les étapes suivantes, le fournisseur délégué y a accès.
@@ -104,14 +104,14 @@ Vous avez désormais établi votre fournisseur délégué. L’étape suivante c
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Le fournisseur délégué personnalise l’offre
 
-Connectez-vous au portail utilisateur en tant que fournisseur délégué. Puis créez une offre en utilisant l’offre déléguée comme modèle.
+Connectez-vous au portail utilisateur en tant que fournisseur délégué et créez une offre en utilisant l’offre déléguée comme modèle.
 
 1. Sélectionnez **Nouveaux** > **Offres + Plans clients** > **Offre**.
 
     ![Créer une offre](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Attribuez un nom à l’offre. Ici, nous avons choisi le nom **ResellerOffer**. Sélectionnez l’offre déléguée sur laquelle baser cette offre, puis cliquez sur **Créer**.
+1. Attribuez un nom à l’offre. Cet article utilise **ResellerOffer**. Sélectionnez l’offre déléguée sur laquelle baser cette offre, puis cliquez sur **Créer**.
    
    ![Attribuer un nom](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué. Puis c
 
 2. Le fournisseur délégué expose ces offres via l’URL de son propre portail. Ces offres sont visibles uniquement via le portail délégué. Pour rechercher et modifier cette URL :
    
-    a.  Sélectionnez **Parcourir** > **Plus de services** >  **Abonnements**. Sélectionnez ensuite l’abonnement du fournisseur délégué. Dans notre cas, **DPSubscription** > **Propriétés**.
+    a.  Sélectionnez **Parcourir** > **Plus de services** > **Abonnements**. Sélectionnez ensuite l’abonnement du fournisseur délégué. Par exemple, **DPSubscription** > **Propriétés**.
    
     b.  Copiez l’URL du portail vers un autre emplacement, comme le Bloc-notes.
    
@@ -134,7 +134,7 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué. Puis c
 1. Dans une nouvelle fenêtre de navigateur, accédez à l’URL du portail délégué que vous avez enregistrée à l’étape précédente. Connectez-vous au portail en tant qu’utilisateur. 
    
    >[!NOTE]
-   > Utilisez le portail délégué pour cette étape. Sinon, les offres déléguées ne s’affichent pas.
+   >Les offres déléguées ne sont pas visibles, à moins d’utiliser le portail délégué. 
 
 2. Dans le tableau de bord, sélectionnez **Prendre un abonnement**. Vous verrez que seules les offres déléguées créées par le fournisseur délégué sont présentées à l’utilisateur :
 
@@ -150,6 +150,6 @@ La délégation à plusieurs niveaux permet au fournisseur délégué de délég
 
 Pour créer plusieurs niveaux de délégation de l’offre, le fournisseur délégué délègue à son tour l’offre au fournisseur suivant. Le processus pour le fournisseur délégué est similaire à celui pour l’opérateur Azure Stack (consultez [L’opérateur Azure Stack crée l’offre déléguée](#cloud-operator-creates-the-delegated-offer)).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
 
