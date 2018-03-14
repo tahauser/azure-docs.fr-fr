@@ -95,7 +95,7 @@ Pour supprimer l’agent :
 2. Ouvrez **Programmes et fonctionnalités**.
 3. Dans **Programmes et fonctionnalités**, sélectionnez **Microsoft Monitoring Agent**, puis cliquez sur **Désinstaller**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez approvisionné Microsoft Monitoring Agent sur un ordinateur Windows. Pour en savoir plus sur Security Center, enchaînez avec le didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité des ressources.
 
 > [!div class="nextstepaction"]

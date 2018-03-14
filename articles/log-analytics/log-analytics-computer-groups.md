@@ -159,6 +159,6 @@ Un enregistrement est créé dans l’espace de travail Log Analytics pour chaqu
 | ManagementGroupName |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 | TimeGenerated |Date et heure de création ou de mise à jour du groupe d’ordinateurs. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 

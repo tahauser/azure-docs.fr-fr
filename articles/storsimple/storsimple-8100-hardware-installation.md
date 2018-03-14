@@ -245,6 +245,6 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 Votre appareil est désormais branché à l’alimentation, au réseau et au port série. L’étape suivante consiste à configurer le logiciel et à déployer votre appareil.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

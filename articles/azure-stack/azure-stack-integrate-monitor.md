@@ -519,6 +519,6 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 Pour plus d’informations sur la surveillance de l’intégrité intégrée, consultez [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Intégration de la sécurité](azure-stack-integrate-security.md)

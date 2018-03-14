@@ -214,6 +214,6 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 **R :** si vous avez cliqué pour mettre à jour plusieurs instances dans un groupe à haute disponibilité de manière successive et rapide, Azure mettra ces demandes en file d’attente et commencera à mettre à jour les machines virtuelles uniquement, dans un domaine de mise à jour (UD) à la fois. Toutefois, dans la mesure où il peut y avoir une pause entre les domaines de mise à jour, la mise à jour peut sembler prendre plus de temps. Si la file d’attente de mise à jour prend plus de 60 minutes, certaines instances afficheront l’état **ignoré**, même si elles ont correctement été mises à jour. Pour éviter cet état incorrect, mettez à jour vos groupes à haute disponibilité en cliquant uniquement sur l’instance au sein d’un groupe, et attendez que la mise à jour sur cette machine virtuelle soit terminée avant de cliquer sur la machine virtuelle suivante dans un autre domaine de mise à jour.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment vous pouvez vous inscrire aux événements de maintenance à partir de la machine virtuelle à l’aide de [Événements planifiés](scheduled-events.md).

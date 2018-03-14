@@ -66,5 +66,5 @@ La commande `az postgres server restore` est synchrone. Une fois le serveur rest
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Bibliothèques de connexions pour Azure Database pour PostgreSQL](concepts-connection-libraries.md)

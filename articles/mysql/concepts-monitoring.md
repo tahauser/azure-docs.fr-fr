@@ -42,6 +42,6 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |connections_failed|Total de connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour des instructions étape par étape, consultez [Configurer des alertes](howto-alert-on-metric.md). 
 - Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

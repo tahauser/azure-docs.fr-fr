@@ -134,7 +134,7 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à créer un cluster HDInsight Linux à l’aide d’un modèle Resource Manager et à effectuer des requêtes Hive de base.
 
 Pour en savoir plus sur l’analyse des données avec HDInsight, consultez les articles suivants :

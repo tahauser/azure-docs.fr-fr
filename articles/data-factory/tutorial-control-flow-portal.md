@@ -328,7 +328,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
 
     ![Erreur d’exécution d’activité](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

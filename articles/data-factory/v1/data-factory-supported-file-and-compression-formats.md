@@ -505,7 +505,7 @@ Lorsque vous spécifiez la propriété `compression` dans un jeu de données JS
 * Lire les données compressées au format GZIP à partir d’un objet blob Azure, les décompresser, les compresser en utilisant le format BZIP2 et écrire les données résultantes dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objet blob Azure d’entrée avec le paramètre `compression` `type` défini sur GZIP et le jeu de données de sortie avec le paramètre `compression` `type` défini sur BZIP2.   
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants pour connaître les magasins de données basés sur un fichier qui sont pris en charge par Azure Data Factory :
 
 - [Stockage Blob Azure](data-factory-azure-blob-connector.md)

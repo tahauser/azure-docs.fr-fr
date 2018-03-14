@@ -245,6 +245,6 @@ Ce didacticiel utilise des ressources et effectue des actions qui peuvent entra�
 
 * Pour supprimer définitivement votre application logique, choisissez **Vue d’ensemble** dans le menu de l’application logique. Dans la barre d’outils, choisissez **Supprimer**. Confirmez que vous souhaitez supprimer votre application logique, puis choisissez **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer et acheminer des événements personnalisés avec Event Grid](../event-grid/custom-event-quickstart.md)

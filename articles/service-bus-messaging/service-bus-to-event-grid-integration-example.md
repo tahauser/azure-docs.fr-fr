@@ -188,7 +188,7 @@ Enregistrez l’application logique et envoyez un message à votre rubrique Serv
 
 ![18][]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en plus sur [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Apprenez-en plus sur [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).

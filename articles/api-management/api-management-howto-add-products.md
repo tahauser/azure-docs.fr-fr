@@ -82,7 +82,7 @@ Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l
 3. Cliquez sur **+API**.
 4. Choisissez une API et cliquez sur **Créer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

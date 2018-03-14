@@ -68,7 +68,7 @@ Vous constatez désormais que le service possède deux instances. Dans l’arbor
 
 Par cette tâche de gestion simple, nous avons doublé les ressources disponibles pour permettre à notre service frontal de traiter la charge utilisateur. Il est important de comprendre que vous n’avez pas besoin de plusieurs instances d’un service pour que celui-ci s’exécute de manière fiable. En cas de défaillance d’un service, Service Fabric veille à ce qu'une nouvelle instance du service s’exécute dans le cluster.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a présenté le basculement d’un conteneur ainsi que la mise à l’échelle d’une application. Les étapes suivantes ont été effectuées :
 

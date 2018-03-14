@@ -119,7 +119,7 @@ Vous pouvez facilement créer et enregistrer des rapports axés sur des services
 Si vous avez besoin de fournir des données de capture instantanée à d’autres équipes, vous pouvez exporter un rapport au format PDF ou CSV.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

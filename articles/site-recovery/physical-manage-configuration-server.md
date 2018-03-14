@@ -309,7 +309,7 @@ Pour les déploiements de serveurs de configuration effectués avant mai 2016, l
 ## <a name="common-issues"></a>Problèmes courants
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les tutoriels pour en savoir plus sur la configuration de la reprise après sinistre de [serveurs physiques](tutorial-physical-to-azure.md) sur Azure.
 

@@ -236,7 +236,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]

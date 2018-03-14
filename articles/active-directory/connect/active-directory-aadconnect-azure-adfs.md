@@ -356,7 +356,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 * [Réseaux virtuels Azure](https://aka.ms/Azure/VNet)
 * [Liens AD FS et Web Application Proxy](https://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 * [Configuration et gestion de vos services AD FS avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

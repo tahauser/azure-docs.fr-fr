@@ -72,7 +72,7 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |E/S par seconde de 8 Ko max.|500 E/S par seconde|1 000 E/S par seconde|  
 |Throughput|Jusqu’à 60 Mo/s par disque|Jusqu’à 60 Mo/s par partage de fichiers|  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Lors des décisions concernant le stockage et l’accès de vos données, vous devez également prendre en considération les coûts impliqués. Pour plus d’informations, consultez [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
   

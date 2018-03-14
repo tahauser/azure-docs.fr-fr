@@ -615,7 +615,7 @@ Pour utiliser SSMS afin d’accéder aux données texte en clair, vous pouvez aj
     ![Nouvelle application de console](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé une base de données utilisant le chiffrement intégral, vous pouvez effectuer les opérations suivantes :
 
 * [Faire pivoter et nettoyer vos clés](https://msdn.microsoft.com/library/mt607048.aspx).

@@ -170,7 +170,7 @@ L’envoi de vos données de diffusion en continu et d’état des travaux Autom
 
 Log Analytics offre une plus grande visibilité opérationnelle sur vos travaux Automation et peut permettre de traiter les incidents plus rapidement.  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour savoir comment construire différentes requêtes de recherche et consulter les journaux de travaux Automation avec Log Analytics, consultez la page [Recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur de runbooks, consultez la page [Sortie et messages de runbooks](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et autres détails techniques, voir [Suivi d’une tâche de runbook](automation-runbook-execution.md).

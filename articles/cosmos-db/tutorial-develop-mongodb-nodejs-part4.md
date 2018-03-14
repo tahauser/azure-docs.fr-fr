@@ -74,7 +74,7 @@ Après avoir créé le compte Azure Cosmos DB :
 
     ![Nouveau compte Azure Cosmos DB dans le portail Azure](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cette partie du didacticiel, vous avez :
 

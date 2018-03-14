@@ -146,5 +146,5 @@ L’extrait de code suivant supprime le compte Data Lake Store que vous avez c
 * [Opérations du système de fichiers sur Data Lake Store à l’aide de Python](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Store .NET SDK Reference (Informations de référence sur le Kit de développement logiciel (SDK) .NET Azure Data Lake Store)](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)

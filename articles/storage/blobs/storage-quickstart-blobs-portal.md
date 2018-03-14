@@ -78,7 +78,7 @@ Pour supprimer le conteneur :
 
     ![Capture d’écran montrant comment supprimer un conteneur du portail Azure](media/storage-quickstart-blobs-portal/delete-container.png)   
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et Stockage Blob Azure avec .NET. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
 

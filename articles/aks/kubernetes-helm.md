@@ -160,7 +160,7 @@ NAME            REVISION    UPDATED                     STATUS      CHART       
 bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingress-0.8.7 default
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la gestion des graphiques Kubernetes, consultez la documentation de Helm.
 

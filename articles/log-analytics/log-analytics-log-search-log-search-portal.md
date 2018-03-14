@@ -160,7 +160,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Graphique en courbes](media/log-analytics-log-search-log-search-portal/log-search-portal-14.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur le langage de requête Log Analytics, consultez [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079) (Bien démarrer avec le portail Analytics).
 - Suivez un didacticiel à l’aide du [portail Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587) pour exécuter les mêmes requêtes et accéder aux mêmes données que le portail Recherche dans les journaux.

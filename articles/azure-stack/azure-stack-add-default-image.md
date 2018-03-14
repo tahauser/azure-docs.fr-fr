@@ -153,6 +153,6 @@ Crée et charge un nouveau Server 2016 Core et/ou une image complète et crée u
 |CUUri |Non  | https://yourupdateserver/winservupdate2016 | Choisit la mise à jour cumulative de Windows Server 2016 à exécuter à partir d’un URI spécifique. |
 |CUPath |Non  | C:\winservupdate2016 | Choisit la mise à jour cumulative de Windows Server 2016 à exécuter à partir d’un chemin d’accès local. Ce paramètre est utile si vous avez déployé l’instance Azure Stack dans un environnement déconnecté.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

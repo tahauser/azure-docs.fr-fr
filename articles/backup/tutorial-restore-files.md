@@ -198,7 +198,7 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez connecté un point de récupération à une machine virtuelle et restauré des fichiers pour un serveur web. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

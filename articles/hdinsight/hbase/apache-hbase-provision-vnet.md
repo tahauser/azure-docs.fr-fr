@@ -243,7 +243,7 @@ Pour utiliser ces informations dans une application Java, vous pouvez suivre la 
 >
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à créer un cluster HBase. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Prise en main de HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)

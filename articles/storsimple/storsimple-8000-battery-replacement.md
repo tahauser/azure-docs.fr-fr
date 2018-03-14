@@ -105,6 +105,6 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 > [!IMPORTANT]
 > Jetez la batterie en panne en respectant les réglementations nationales et locales applicables.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-8000-hardware-component-replacement.md).
 

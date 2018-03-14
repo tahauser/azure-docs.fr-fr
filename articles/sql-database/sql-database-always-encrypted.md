@@ -503,7 +503,7 @@ Pour utiliser SSMS afin d’accéder aux données texte en clair, vous pouvez aj
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé une base de données utilisant le chiffrement intégral, vous pouvez effectuer les opérations suivantes :
 
 * Exécuter cet exemple à partir d'un autre ordinateur. Il n’aura pas accès aux clés de chiffrement, ne pourra donc pas accéder aux données texte en clair, et ne s’exécutera pas correctement.

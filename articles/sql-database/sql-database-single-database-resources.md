@@ -113,7 +113,7 @@ Pour définir ou modifier les niveaux de service, les niveaux de performances et
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur les niveaux de service, les niveaux de performance et les quantités de stockage, consultez [Niveaux de service](sql-database-service-tiers.md).
 - Pour en savoir plus sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).

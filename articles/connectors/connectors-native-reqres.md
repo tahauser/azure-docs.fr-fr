@@ -108,6 +108,6 @@ Les éléments suivants sont des champs d’entrée pour l’action Réponse HTT
 | headers |headers |Un objet JSON de tout en-tête de réponse à inclure |
 | body |body |Le corps de texte de la réponse |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

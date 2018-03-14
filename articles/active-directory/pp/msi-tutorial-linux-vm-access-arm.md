@@ -188,7 +188,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
     } 
     ```
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 

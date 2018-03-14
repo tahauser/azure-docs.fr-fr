@@ -235,7 +235,7 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Configuration de l’envoi de diagnostics Azure à Application Insights](app-insights-azure-diagnostics.md)
 * [Automatiser la création des ressources Application Insights](app-insights-powershell.md)
 * [Automatiser les diagnostics Azure](app-insights-powershell-azure-diagnostics.md)

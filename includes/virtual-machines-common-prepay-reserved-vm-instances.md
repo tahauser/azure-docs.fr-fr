@@ -30,7 +30,7 @@ Vous pouvez acheter des instances de machines virtuelles réservées sur le [por
 
     ![Capture d’écran avant de soumettre l’achat de la réservation](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous pouvez mettre à jour l’étendue de la réservation par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API. 
 
 Pour savoir comment gérer une réservation, consultez [Gérer Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).

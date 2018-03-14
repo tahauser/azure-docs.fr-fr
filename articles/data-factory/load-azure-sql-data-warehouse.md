@@ -132,7 +132,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Détails du suivi de l'exécution des activités](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Lisez l’article suivant pour en savoir plus sur la prise en charge d’Azure SQL Data Warehouse : 
 

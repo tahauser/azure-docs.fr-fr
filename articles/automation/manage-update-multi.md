@@ -180,7 +180,7 @@ Pour voir le flux des tâches du runbook qui gère le déploiement des mises à 
 
 Pour afficher les informations détaillées sur les erreurs du déploiement, sélectionnez **Erreurs**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la gestion des mises à jour (y compris les journaux, la sortie et les erreurs), consultez [Solution de gestion des mises à jour dans OMS](../operations-management-suite/oms-solution-update-management.md).
 

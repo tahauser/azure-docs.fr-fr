@@ -156,6 +156,6 @@ Les journaux sont stockés localement sur chaque Worker hybride à l’emplaceme
 
 Si vos Runbooks ne se terminent pas correctement et que le résumé du travail affiche l’état **Interrompu**, consultez l’article de dépannage [Runbook Worker hybride : un travail de Runbook se termine avec l’état suspendu](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md).  
 * Pour comprendre les différentes procédures pour utiliser des Runbooks PowerShell et Workflow PowerShell dans Azure Automation à l’aide de l’éditeur de texte, consultez [Modifier des Runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)

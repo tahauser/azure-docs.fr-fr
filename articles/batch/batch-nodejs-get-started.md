@@ -357,7 +357,7 @@ Le code permet d’ajouter plusieurs tâches au pool. Chaque tâche est exécut�
 
 Le portail contient des vues détaillées sur les états des tâches et du travail. Vous pouvez également utiliser la liste et récupérer des fonctions dans le Kit de développement logiciel (SDK) Node Azure. Des détails sont indiqués dans le [lien](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) de la documentation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez l’article [Présentation des fonctionnalités de présentation d’Azure Batch](batch-api-basics.md) , que nous vous recommandons si vous ne connaissez pas le service.
 - Consultez la [référence Node.js Batch](/javascript/api/overview/azure/batch) pour explorer l’API Batch.

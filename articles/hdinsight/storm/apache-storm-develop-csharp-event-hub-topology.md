@@ -225,7 +225,7 @@ Pour arrêter les topologies, sélectionnez chaque topologie dans la **Visionneu
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez découvert comment utiliser le spout et le bolt du concentrateur d’événements Java à partir d’une topologie C# pour utiliser des données dans le concentrateur d’événements Azure. Pour en savoir plus sur la création de topologies C#, consultez les documents suivants :
 
