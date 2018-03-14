@@ -72,7 +72,7 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 
 Pour plus d’informations sur la façon d’affecter un utilisateur à un rôle d’application, consultez la documentation de [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) à l’aide de PowerShell.
 
@@ -110,7 +110,7 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Voir tous mes groupes](active-directory-groups-view-azure-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](active-directory-coreapps-disable-app-azure-portal.md)

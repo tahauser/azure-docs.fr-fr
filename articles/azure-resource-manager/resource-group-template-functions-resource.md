@@ -93,7 +93,7 @@ Pour déterminer les types de ressources qui ont une opération de liste, utilis
 
 Spécifiez la ressource en utilisant la [fonction resourceId](#resourceid) ou le format `{providerNamespace}/{resourceType}/{resourceName}`.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) suivant montre comment retourner les clés primaires et secondaires à partir d’un compte de stockage dans la section outputs.
 
@@ -170,7 +170,7 @@ Chaque type pris en charge est renvoyé au format suivant :
 
 Le classement du tableau des valeurs renvoyées n’est pas garanti.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) suivant montre comment utiliser la fonction provider :
 
@@ -298,7 +298,7 @@ Utilisez `'Full'` quand vous avez besoin de valeurs de ressource qui ne font pas
 
 Pour voir l’exemple complet du modèle précédent, consultez [Windows et le coffre de clés](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Un exemple similaire est disponible pour [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) suivant déploie, puis référence une ressource.
 
@@ -479,7 +479,7 @@ Une utilisation courante de la fonction resourceGroup consiste à créer des res
 ]
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) suivant retourne les propriétés du groupe de ressources.
 
@@ -620,7 +620,7 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 }
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) suivant retourne l’ID de ressource pour un compte de stockage appartenant au groupe de ressources :
 
@@ -691,7 +691,7 @@ La fonction retourne les informations au format suivant :
 }
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) suivant montre la fonction subscription qui est appelée dans la section outputs. 
 

@@ -86,7 +86,7 @@ L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md)
 | Chemin d'accès du script |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non  |
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Prenons un exemple d'analyse de journaux de jeux où vous souhaitez identifier le temps passé par les utilisateurs à jouer à des jeux créés par votre entreprise. 
 
 Le journal suivant est un exemple de journal de jeu séparé par des virgules (`,`) et contenant les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.

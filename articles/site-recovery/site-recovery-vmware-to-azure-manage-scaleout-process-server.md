@@ -24,7 +24,7 @@ ms.lasthandoff: 03/07/2018
 
 Un serveur de traitement de montée en puissance parallèle fait office de coordinateur pour le transfert de données entre les services Site Recovery et votre infrastructure locale. Cet article explique comment installer, configurer et gérer un serveur de traitement de montée en puissance parallèle.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Vous trouverez ci-dessous la configuration recommandée pour le matériel, le logiciel et le réseau nécessaire pour configurer un serveur de traitement de montée en puissance parallèle.
 
 > [!NOTE]

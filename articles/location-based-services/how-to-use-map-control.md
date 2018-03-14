@@ -18,7 +18,7 @@ ms.lasthandoff: 01/24/2018
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Guide pratique pour utiliser la bibliothèque Map Control dans Azure Location Based Services
 La bibliothèque Javascript côté client Map Control vous permet d’effectuer le rendu de cartes et des fonctionnalités Azure Location Based Services intégrées dans votre application web ou mobile. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Un compte et une clé Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [Guide pratique pour gérer votre compte et vos clés Azure Location Based Services](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Créer une nouvelle carte dans une page web à l’aide de l’API Map Control

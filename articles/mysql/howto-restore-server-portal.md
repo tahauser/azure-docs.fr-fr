@@ -20,7 +20,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour MySQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -76,6 +76,6 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 >[!Note]
 >Notez que le serveur créé par la restauration à un point dans le temps a les mêmes nom de connexion administrateur de serveur et mot de passe qui étaient valides pour le serveur existant au point dans le temps choisi. Vous pouvez modifier le mot de passe sur la page **Vue d’ensemble** du nouveau serveur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
 - En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

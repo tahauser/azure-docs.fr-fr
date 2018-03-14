@@ -34,7 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déclencher un observateur
 > * Inspecter la sortie
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -142,7 +142,7 @@ Message is Process new file...
 Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

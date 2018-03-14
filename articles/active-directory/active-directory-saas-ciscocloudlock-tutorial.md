@@ -32,7 +32,7 @@ L’intégration de Cisco Cloudlock avec Azure AD offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Cisco Cloudlock, vous avez besoin des éléments suivants :
 

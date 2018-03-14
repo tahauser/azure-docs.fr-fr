@@ -124,7 +124,7 @@ Pour plus d’informations sur les déploiements IoT Edge, consultez [cette page
 IoT Edge offre un moyen de router les messages entre les modules et entre les modules et IoT Hub de façon déclarative. La syntaxe complète est décrite [ici](https://docs.microsoft.com/azure/iot-edge/module-composition).
 Les noms des entrées et sorties créés dans la tâche ASA peuvent être utilisés en tant que points de terminaison pour le routage.  
 
-###### <a name="example"></a>exemples
+###### <a name="example"></a>Exemple
 ```
 {
 "routes": {                                              
@@ -210,7 +210,7 @@ Pour plus d’informations, consultez la [documentation Docker pour Windows](htt
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Plus d’informations sur Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Didacticiel pour ASA sur IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

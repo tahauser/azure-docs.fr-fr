@@ -34,7 +34,7 @@ Le basculement et la restauration automatique comportent trois étapes :
 3. Après le basculement planifié, vous pouvez, si vous le souhaitez, effectuer de nouveau une réplication du site primaire sur le site secondaire.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Veillez à effectuer un [test de récupération d’urgence](hyper-v-vmm-test-failover.md) pour vérifier que tout fonctionne comme prévu.
 - Pour effectuer la restauration automatique, vérifiez que les serveurs VMM principal et secondaire sont connectés à Site Recovery.
@@ -88,5 +88,5 @@ Démarrez la réplication du site secondaire sur le site principal et effectuez 
 > [!NOTE]
 > La réplication inverse réplique seulement les modifications qui se sont produites depuis que la machine virtuelle de réplica a été arrêtée, et seules les modifications d’ordre différentiel sont envoyées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Passez en revue l’étape](hyper-v-vmm-disaster-recovery.md) sur la réplication des machines virtuelles Hyper-V vers un site secondaire.

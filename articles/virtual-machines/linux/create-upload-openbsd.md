@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2018
 Cet article montre comment créer et charger un disque dur virtuel (VHD) contenant le système d’exploitation OpenBSD. Après l’avoir chargé, vous pouvez l’utiliser comme image personnelle pour créer une machine virtuelle (VM) dans Azure via Azure CLI.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article part du principe que vous disposez des éléments suivants :
 
 * **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez en créer un en quelques minutes. Si vous disposez d’un abonnement MSDN, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, découvrez comment [créer un compte d'essai gratuit](https://azure.microsoft.com/pricing/free-trial/).  
@@ -173,7 +173,7 @@ ssh azureuser@<ip address>
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur la prise en charge de Hyper-V sur OpenBSD6.1, voir [OpenBSD 6.1](https://www.openbsd.org/61.html) et [hyperv.4](http://man.openbsd.org/hyperv.4).
 
 Pour savoir comment créer une machine virtuelle à partir d’un disque géré, voir [az disk](/cli/azure/disk). 

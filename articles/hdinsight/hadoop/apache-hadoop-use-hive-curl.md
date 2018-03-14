@@ -28,7 +28,7 @@ ms.lasthandoff: 02/28/2018
 
 Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hive avec Hadoop sur un cluster Azure HDInsight.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 

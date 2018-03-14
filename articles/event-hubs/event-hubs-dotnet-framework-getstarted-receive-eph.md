@@ -30,7 +30,7 @@ Ce didacticiel explique comment écrire une application console .NET Framework q
 
 [L’hôte du processeur d’événements][EventProcessorHost] est une classe .NET qui simplifie la réception d’événements provenant de concentrateurs d’événements grâce à la gestion des points de contrôle permanents et des réceptions en parallèle de ces concentrateurs d’événements. [L’hôte du processeur d’événements][Event Processor Host] vous permet de répartir des événements sur plusieurs récepteurs, même lorsqu’ils sont hébergés dans des nœuds différents. Cet exemple illustre l’utilisation de [l’hôte du processeur d’événements][EventProcessorHost] pour un récepteur unique. L’exemple de [traitement d’événement mis à l’échelle][Scale out Event Processing with Event Hubs] illustre l’utilisation de [l’hôte du processeur d’événements][EventProcessorHost] pour plusieurs récepteurs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -163,7 +163,7 @@ Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Pour en savoir plus, consultez les liens suivants :
 

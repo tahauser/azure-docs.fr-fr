@@ -27,7 +27,7 @@ Bien que le [Portail Azure](https://portal.azure.com/) vous offre un excellent m
 
 Avant de pouvoir accéder à vos applications logiques et les gérer dans Visual Studio, installez et configurez ces outils Visual Studio pour Azure Logic Apps. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * [Visual Studio 2015 ou Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Dernier kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou supérieur)
@@ -83,7 +83,7 @@ Pour afficher l’historique des exécutions d’une instance et voir les résul
 
 ![Exécution des résultats de l’historique, des entrées et des sorties](./media/logic-apps-manage-from-vs/history.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créez votre première application logique](quickstart-create-first-logic-app-workflow.md)
 * [Concevoir, créer et déployer des applications logiques dans Visual Studio](logic-apps-deploy-from-vs.md)

@@ -42,7 +42,7 @@ Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une 
 >
 >
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Mac, Linux ou Windows pour communiquer avec Azure. Ces étapes supposent que vous utilisez un client Linux.
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
 * **Disponibilité de taille de machine virtuelle** : les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/) .
@@ -375,7 +375,7 @@ Sur un cluster opérationnel à deux nœuds, vous devez voir une sortie comme c
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Déploiement et exécution de vos applications MPI Linux sur votre cluster Linux.
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 * Essayez un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) pour créer un cluster Intel Lustre en utilisant une image HPC basée sur CentOS. Pour plus d’informations, consultez [Déploiement d’Intel Cloud Edition pour Lustre sur Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).

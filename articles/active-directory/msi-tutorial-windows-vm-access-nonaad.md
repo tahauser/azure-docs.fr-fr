@@ -33,7 +33,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault 
 > * Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

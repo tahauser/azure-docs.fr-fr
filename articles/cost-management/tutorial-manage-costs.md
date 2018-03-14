@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
@@ -119,7 +119,7 @@ Vous pouvez facilement créer et enregistrer des rapports axés sur des services
 Si vous avez besoin de fournir des données de capture instantanée à d’autres équipes, vous pouvez exporter un rapport au format PDF ou CSV.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

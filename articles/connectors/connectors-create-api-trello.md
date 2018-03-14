@@ -29,7 +29,7 @@ Commencez par créer une application logique. Pour cela, consultez [Créer une a
 ## <a name="create-a-connection-to-trello"></a>Créer une connexion à Trello
 Pour créer des applications logiques avec Trello, créez d’abord une **connexion**, puis entrez les détails pour les propriétés suivantes :
 
-| Propriété | Obligatoire | DESCRIPTION |
+| Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | par jeton |OUI |Fournit les informations d’identification Trello |
 

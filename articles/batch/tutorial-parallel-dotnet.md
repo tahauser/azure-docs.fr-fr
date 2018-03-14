@@ -34,7 +34,7 @@ Dans ce didacticiel, vous convertissez des fichiers de multimédia MP4 en parall
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 ou une version plus récente). 
 
@@ -308,7 +308,7 @@ Après avoir exécuté les tâches, l’application supprime automatiquement le 
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Batch et le compte de stockage. Pour ce faire, dans le portail Azure, sélectionnez le groupe de ressources pour le compte Batch, puis cliquez sur **Supprimer le groupe de ressources**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

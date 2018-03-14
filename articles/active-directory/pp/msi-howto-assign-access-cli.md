@@ -26,7 +26,7 @@ ms.lasthandoff: 02/03/2018
 
 Une fois que vous avez créé une identité MSI affectée par l’utilisateur, vous pouvez lui accorder un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet exemple montre comment accorder à l’identité MSI affectée par l’utilisateur l’accès à un compte de stockage Azure à l’aide d’Azure CLI.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -96,7 +96,7 @@ Dans l’exemple suivant, l’accès à un compte de stockage est accordé à un
    }
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](msi-overview.md).
 - Pour activer une identité MSI affectée par l’utilisateur sur une machine virtuelle Azure, consultez [Configurer une identité MSI (Managed Service Identity) affectée par l’utilisateur pour une machine virtuelle, à l’aide d’Azure CLI](msi-qs-configure-cli-windows-vm.md).

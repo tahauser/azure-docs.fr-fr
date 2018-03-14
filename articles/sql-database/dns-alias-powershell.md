@@ -46,7 +46,7 @@ Pour connecter un serveur Azure SQL Database en particulier, un client tel que S
 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter le script PowerShell de démonstration proposé dans cet article, les prérequis suivants s’appliquent :
 
@@ -166,7 +166,7 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 >> 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous trouverez une explication complète de la fonctionnalité d’alias DNS pour SQL Database dans la section [Alias DNS pour Azure SQL Database][dns-alias-overview-37v].
 

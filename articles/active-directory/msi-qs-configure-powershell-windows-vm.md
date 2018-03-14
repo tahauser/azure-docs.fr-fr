@@ -27,7 +27,7 @@ L’identité du service administré fournit des services Azure avec une identit
 
 Dans cet article, vous apprenez à activer et à supprimer la MSI pour une machine virtuelle Azure à l’aide de PowerShell.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

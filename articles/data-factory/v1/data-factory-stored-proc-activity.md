@@ -3,7 +3,7 @@ title: "Activité de procédure stockée SQL Server"
 description: "Découvrez comment utiliser l'activité de procédure stockée SQL Server pour appeler une procédure stockée dans une base de données SQL Azure ou un entrepôt Azure SQL Data Warehouse à partir d'un pipeline Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f6da8c18c1ac8fbcea217f41c34d50a86b001b11
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/23/2018
 > [!NOTE]
 > Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory](../transform-data-using-stored-procedure.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Vous utilisez des activités de transformation dans un [pipeline](data-factory-create-pipelines.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge dans Data Factory.
 
 Vous pouvez utiliser l’activité de procédure stockée pour appeler une procédure stockée dans l’une des banques de données suivantes dans votre entreprise ou sur une machine virtuelle Azure : 
@@ -309,7 +309,7 @@ Voici le format JSON pour la définition d’une activité de procédure stocké
 
 Le tableau suivant décrit ces paramètres JSON :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Nom | Nom de l’activité |OUI |
 | description |Texte décrivant la raison motivant l’activité. |Non  |

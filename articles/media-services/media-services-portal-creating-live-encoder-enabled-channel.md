@@ -70,7 +70,7 @@ Dans ce didacticiel, le portail Azure est utilisé pour effectuer les tâches su
 5. Lire votre contenu.
 6. Nettoyage.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. 

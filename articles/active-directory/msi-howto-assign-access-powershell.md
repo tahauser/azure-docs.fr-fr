@@ -25,7 +25,7 @@ ms.lasthandoff: 03/07/2018
 
 Une fois que vous avez configuré une ressource Azure avec une identité du service administré, vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet exemple montre comment accorder à l’identité du service administré d’une machine virtuelle Azure l’accès à un compte de stockage Azure, à l’aide de PowerShell.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

@@ -33,7 +33,7 @@ Dans cet article, vous allez découvrir comment utiliser les outils Visual Studi
 
 Cette rubrique inclut [une vidéo](#watch-the-video) qui présente les mêmes étapes de base.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
@@ -95,7 +95,7 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez utilisé Visual Studio pour créer et publier une application de fonction C# à l’aide d’une fonction HTTP déclenchée simple. 
 

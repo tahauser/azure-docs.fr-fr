@@ -42,7 +42,7 @@ Cet article part du principe que vous disposez des ressources suivantes :
 
 Cet exemple vérifie la connectivité à une machine virtuelle de destination sur le port 80.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
@@ -123,7 +123,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 Cet exemple vérifie la connectivité entre une machine virtuelle et un point de terminaison distant.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
@@ -181,7 +181,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 L’exemple suivant vérifie la connectivité à un site Web.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
@@ -227,7 +227,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 L’exemple suivant vérifie la connectivité entre une machine virtuelle et un compte de stockage blob.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
@@ -268,7 +268,7 @@ Le code json suivant est un exemple de réponse tiré de l’exécution de la cm
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en consultant [Create an alert triggered packet capture (Créer une capture de paquets déclenchée par alerte)](network-watcher-alert-triggered-packet-capture.md)
 

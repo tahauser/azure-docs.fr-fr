@@ -15,16 +15,16 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: nisoneji
 ms.openlocfilehash: 50dccf6196b7affd3d21087f851b929d0e850f6d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure sur l’environnement VMware local. Suivez les instructions qu’il contient pour restaurer vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure en suivant le didacticiel [Basculement dans Site Recovery](site-recovery-failover.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 - Vérifiez que vous avez lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
 
 > [!WARNING]
@@ -103,7 +103,7 @@ Une fois que la restauration automatique est terminée et que vous avez initié 
 > [!NOTE]
 > Après le démarrage d’une machine virtuelle locale, il faut un certain temps à l’agent pour se réinscrire auprès du serveur de configuration (jusqu’à 15 minutes). Pendant ce temps, la reprotection échoue et renvoie un message d’erreur indiquant que l’agent n’est pas installé. Patientez quelques minutes et essayez de relancer la reprotection.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Une fois le travail de reprotection terminé, la machine virtuelle est répliquée vers Azure et vous pouvez effectuer un [basculement](site-recovery-failover.md) pour déplacer à nouveau vos machines virtuelles vers Azure.
 

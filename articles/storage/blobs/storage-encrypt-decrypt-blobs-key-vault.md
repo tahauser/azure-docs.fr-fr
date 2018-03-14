@@ -24,7 +24,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 
 Pour plus d’informations générales sur le chiffrement côté client du Stockage Azure, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure Storage
@@ -221,7 +221,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 Vous avez terminé. Vous n’avez plus qu’à l’utiliser !
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’utilisation du Stockage Microsoft Azure avec C#, consultez [Bibliothèque cliente Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Pour plus d’informations sur l’API REST Blob, consultez [API REST du service BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).

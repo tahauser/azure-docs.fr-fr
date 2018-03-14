@@ -40,7 +40,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 > * [Créer et exécuter une application Service Fabric avec des conteneurs](service-fabric-tutorial-package-containers.md)
 > * [Gestion du basculement et de la mise à l’échelle dans Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Configuration de l’environnement de développement Linux pour Service Fabric. Suivez les instructions [ici](service-fabric-get-started-linux.md) pour configurer votre environnement Linux. 
 - Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -204,7 +204,7 @@ azure-vote-front
 
 Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, l’image est déployée d’ACR vers un cluster Service Fabric.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, une application a été extraite de GitHub et des images conteneurs ont été créées et transmises à un registre. Les étapes suivantes ont été effectuées :
 

@@ -32,7 +32,7 @@ Après avoir suivi les étapes décrites dans ce document, vous pourrez déploye
 > [!NOTE]
 > Une version complète des exemples de topologies Storm créés dans ce document est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * [Kit de développeur Java (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 

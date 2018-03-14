@@ -25,7 +25,7 @@ ms.lasthandoff: 02/28/2018
 
 Cet article explique comment mapper deux instances de réseau virtuel Azure dans différentes régions Azure entre elles. Le mappage réseau garantit que, quand une machine virtuelle répliquée est créée dans la région Azure cible, elle est aussi créée sur le réseau virtuel qui est mappé au réseau virtuel de la machine virtuelle source.  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de mapper des réseaux, vérifiez que vous avez créé des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible.
 
 ## <a name="map-virtual-networks"></a>Mappage des réseaux virtuels
@@ -97,6 +97,6 @@ Si les sous-réseaux source et cible ont un espace d’adressage différent, l�
 
 Pour modifier l’adresse IP cible sur chacune des interfaces réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Vérifiez [Aide à la mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).

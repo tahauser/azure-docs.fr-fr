@@ -217,7 +217,7 @@ Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger-
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `EventHubTrigger`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Cette propriété doit être définie sur `eventHubTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -390,7 +390,7 @@ Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-exa
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `EventHub`.
 
-|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur eventHub. |
 |**direction** | n/a | Doit être défini sur « out ». Ce paramètre est défini automatiquement lorsque vous créez la liaison dans le portail Azure. |
@@ -412,7 +412,7 @@ Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.b
 |---|---|
 | Event Hub | [Guide des opérations](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

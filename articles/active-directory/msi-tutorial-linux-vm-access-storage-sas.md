@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
 ms.openlocfilehash: d612e71b7a765a2243be54964a56f5be7bfdc09b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Utiliser une MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -33,7 +33,7 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 > * Autoriser votre machine virtuelle à accéder à la SAP d’un compte stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -254,7 +254,7 @@ Réponse :
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](../active-directory/msi-overview.md).
 - Pour savoir comment suivre ce didacticiel en utilisant une clé de compte de stockage, voir [Utiliser une MSI de machine virtuelle Linux pour accéder à Stockage Azure](msi-tutorial-linux-vm-access-storage.md).

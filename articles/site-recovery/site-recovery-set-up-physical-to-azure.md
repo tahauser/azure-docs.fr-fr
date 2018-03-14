@@ -27,7 +27,7 @@ ms.lasthandoff: 03/07/2018
 
 Cet article décrit comment configurer votre environnement local pour lancer la réplication des serveurs physiques exécutant Windows ou Linux dans Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà des éléments suivants :
 1. Un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
@@ -78,6 +78,6 @@ Le tableau suivant présente la configuration minimale requise pour le matériel
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 L’étape suivante consiste en la [configuration de votre environnement cible](./site-recovery-prepare-target-physical-to-azure.md) dans Azure.

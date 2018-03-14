@@ -55,7 +55,7 @@ Voici quelques facteurs qui contribuent à l’attrition des clients dans le sec
 
 Dans cette solution, nous allons utiliser un exemple concret de création d’un modèle prédictif de l’attrition des clients pour les entreprises de télécommunications.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles)
 

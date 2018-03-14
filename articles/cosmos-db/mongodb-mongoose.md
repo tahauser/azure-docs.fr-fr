@@ -26,7 +26,7 @@ Ce didacticiel montre comment utiliser l’[infrastructure Mongoose](http://mong
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -304,7 +304,7 @@ Comme vous pouvez le constater, il est très simple d’utiliser des discriminat
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les opérations MongoDB, les opérateurs, les étapes, les commandes et les options prises en charge par l’API MongoDB Azure Cosmos DB, consultez [Prise en charge de l’API MongoDB pour la syntaxe et les fonctionnalités de MongoDB](mongodb-feature-support.md).
 

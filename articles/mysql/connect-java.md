@@ -22,7 +22,7 @@ Ce guide de démarrage rapide vous explique comment vous connecter à une base d
 
 La page [Exemples de connecteur MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html) comporte plusieurs autres exemples et exemples de code.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 1. Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
    - [Créer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
    - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -393,7 +393,7 @@ public class DeleteTable {
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 La page [Exemples de connecteur MySQL/J](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html) comporte plusieurs autres exemples et exemples de code.
 
 > [!div class="nextstepaction"]

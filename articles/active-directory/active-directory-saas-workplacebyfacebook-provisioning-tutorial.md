@@ -23,7 +23,7 @@ ms.lasthandoff: 01/29/2018
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Workplace by Facebook et Azure AD pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Workplace by Facebook.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Workplace by Facebook, vous avez besoin des éléments suivants :
 

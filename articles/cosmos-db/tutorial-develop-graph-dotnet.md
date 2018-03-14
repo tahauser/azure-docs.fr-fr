@@ -40,7 +40,7 @@ Vous pouvez utiliser Azure Cosmos DB pour créer, mettre à jour et interroger l
 
 Gremlin est un langage de programmation fonctionnel qui prend en charge les opérations d’écriture (DML) et les opérations de requête et de traversée. Nous abordons quelques exemples dans cet article pour vous permettre de prendre en main Gremlin. Consultez [Requêtes Gremlin](gremlin-support.md) pour une description détaillée des fonctionnalités de Gremlin disponibles dans Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/). 
@@ -270,7 +270,7 @@ Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez le
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez :
 

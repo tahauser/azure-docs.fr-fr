@@ -49,7 +49,7 @@ Le processus de base utilisé pour la diffusion en continu dans ce document est 
 
 Pour plus d’informations sur la diffusion en continu, consultez [Diffusion en continu Hadoop (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5. Dans le cadre de ce document, Visual Studio 2017 a été utilisé.
 
@@ -238,7 +238,7 @@ Ce script vous invite à entrer le nom et le mot de passe du compte de connexion
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’utilisation de MapReduce avec HDInsight, consultez [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md).
 

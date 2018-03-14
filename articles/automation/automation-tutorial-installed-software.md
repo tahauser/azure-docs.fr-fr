@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Afficher les logiciels installés
 > * Rechercher les journaux d’inventaire des logiciels installés
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -107,7 +107,7 @@ ConfigurationData
 | render table
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a appris à afficher l’inventaire des logiciels et notamment comment :
 

@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 
 Découvrez comment créer un cluster Apache Spark sur Azure HDInsight et comment exécuter des requêtes Spark SQL sur des tables Apache Hive. Pour en savoir plus sur le service Spark sur HDInsight, consultez [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Voir [Créez votre compte Azure gratuit](https://azure.microsoft.com/free).
 
@@ -134,7 +134,7 @@ Pour obtenir un exemple de lecture de données à partir d’un fichier csv au l
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 
 Dans cet article, vous avez appris à créer un cluster HDInsight Spark et à exécuter une requête Spark SQL de base. Passer à l’article suivant pour apprendre à utiliser un cluster HDInsight Spark pour exécuter des requêtes interactives sur des données test.
 

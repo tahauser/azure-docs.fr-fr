@@ -43,7 +43,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * Mettre à niveau le runtime d’un cluster
 > * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).

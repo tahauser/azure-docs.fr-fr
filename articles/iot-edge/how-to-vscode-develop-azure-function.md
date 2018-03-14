@@ -19,7 +19,7 @@ ms.lasthandoff: 01/24/2018
 
 Cet article fournit des instructions détaillées sur l’utilisation de [Visual Studio Code](https://code.visualstudio.com/) comme principal outil de développement et de déploiement de vos fonctions Azure Functions sur IoT Edge. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ces didacticiels partent du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows ou Linux comme machine de développement. Votre appareil IoT Edge peut être un autre appareil physique, ou vous pouvez simuler votre appareil IoT Edge sur votre machine de développement.
 
 Assurez-vous d’avoir suivi les didacticiels suivants avant de démarrer ce guide.
@@ -200,7 +200,7 @@ Les étapes suivantes montrent vous comment créer un module IoT Edge basé sur 
     ![Surveiller les messages](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez créé une fonction Azure Function sur IoT Edge et l’avez déployée sur un appareil IoT Edge dans VS Code. Vous pouvez consulter les didacticiels suivants pour en savoir plus sur les autres scénarios pouvant survenir lors du développement d’Azure IoT Edge dans Visual Studio Code.
 

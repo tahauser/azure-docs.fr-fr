@@ -69,7 +69,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>exemples 
+#### <a name="example"></a>Exemple 
 
 ```csharp
 using System;
@@ -206,7 +206,7 @@ namespace MediaEncoderStandardSample
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
 

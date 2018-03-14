@@ -25,7 +25,7 @@ Cet article décrit comment appeler un package SSIS à partir d’un pipeline Az
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data factory, qui est généralement disponible. Si vous utilisez la version 2 du service Data Factory, qui est en préversion publique, consultez [Appeler un package SSIS à l’aide de l’activité de procédure stockée dans la version 2](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="azure-sql-database"></a>Base de données SQL Azure 
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion privée).
@@ -321,6 +321,6 @@ Lors de cette étape, vous allez créer un pipeline avec une activité de procé
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’activité de procédure stockée, consultez l’article [Activité de procédure stockée](data-factory-stored-proc-activity.md).
 

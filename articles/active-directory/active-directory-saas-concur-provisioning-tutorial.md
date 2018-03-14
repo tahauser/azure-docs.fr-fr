@@ -23,7 +23,7 @@ ms.lasthandoff: 01/29/2018
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Concur et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Concur.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

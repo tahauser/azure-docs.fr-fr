@@ -29,7 +29,7 @@ Découvrez comment utiliser HDInsight Tools pour IntelliJ pour développer des a
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) est un environnement de développement Java intégré (IDE) pour développer des logiciels. Après avoir développé et testé vos applications sur Hortonworks Sandbox, vous pouvez les déplacer vers [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -153,7 +153,7 @@ Pour envoyer un projet à un émulateur :
 
 3. Sélectionnez **Envoyer**. Les journaux d’envoi de travaux sont affichés dans la fenêtre d’outil d’envoi Spark.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez comment [utiliser HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de créer des applications Spark pour un cluster Linux HDInsight Spark](../spark/apache-spark-intellij-tool-plugin.md).
 

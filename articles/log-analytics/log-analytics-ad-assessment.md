@@ -39,7 +39,7 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 ![image du tableau de bord AD Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.5.2 ou ultérieure) sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.
@@ -184,5 +184,5 @@ Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut 
 
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées d’AD Health Check.

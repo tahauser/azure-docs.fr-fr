@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 Operations Management Suite (OMS) fournit des fonctionnalités de surveillance, d’alerte et de correction des alertes sur le ressources cloud et locales. L’extension de machine virtuelle de l’agent OMS pour Windows est publiée et prise en charge par Microsoft. L’extension installe l’agent OMS sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail OMS existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle OMS pour Windows.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 

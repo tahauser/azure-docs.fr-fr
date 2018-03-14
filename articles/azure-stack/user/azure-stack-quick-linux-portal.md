@@ -23,7 +23,7 @@ ms.lasthandoff: 02/22/2018
 
 Vous pouvez créer des machines virtuelles Azure Stack dans le portail Azure Stack. Cette méthode fournit une interface utilisateur basée sur le navigateur permettant de créer et de configurer une machine virtuelle et toutes les ressources associées. Ce guide de démarrage rapide montre comment créer rapidement une machine virtuelle Linux et y installer un serveur web.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Une image Linux dans la Place de Marché Azure Stack**
 
@@ -138,7 +138,7 @@ Ouvrez un navigateur web et accédez à ```http://<public IP address>```.
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources à partir de la page de la machine virtuelle, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Linux simple ainsi qu’une règle de groupe de sécurité réseau, et installé un serveur web. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
 

@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment utiliser le portail Azure pour :
 > * Mettre à jour des données
 > * Restaurer des données
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
@@ -200,7 +200,7 @@ Imaginez que vous avez supprimé cette table par erreur. La récupération dans 
    - **Niveau tarifaire** : vous ne pouvez pas modifier cette valeur lors de la restauration d’un serveur. Elle est identique à celle du serveur source. 
 3.  Cliquez sur **OK** pour [restaurer le serveur à un point dans le temps](./howto-restore-server-portal.md) antérieur à la suppression de la table. La restauration d’un serveur à un autre point dans le temps crée un serveur en double par rapport au serveur d’origine en date du point dans le temps que vous spécifiez, à condition qu’il se trouve dans la période de rétention de votre [niveau tarifaire](./concepts-pricing-tiers.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ce didacticiel vous montre comment utiliser le portail Azure et d’autres utilitaires pour :
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour PostgreSQL

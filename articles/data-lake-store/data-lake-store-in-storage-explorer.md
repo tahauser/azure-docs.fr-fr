@@ -28,7 +28,7 @@ ms.lasthandoff: 02/09/2018
 
 L’un des autres avantages est que les utilisateurs n’ont pas besoin de posséder une autorisation d’abonnement pour gérer les données ADLS. Dans l’Explorateur Stockage, les utilisateurs peuvent attacher le chemin d’accès ADLS au nœud « Local et attaché» tant que d’autres utilisateurs leur accordent l’autorisation.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer les étapes indiquées dans cet article, vous avez besoin des éléments requis suivants :
 
 *   Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial).
@@ -181,7 +181,7 @@ Les éléments suivants indiquent comment gérer les ressources au sein d’un c
         ![lien ciblé dans l’explorateur de fichiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Consultez les [dernières notes de publication et vidéos de l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com).
 * Découvrez comment [gérer Azure Cosmos DB dans l’Explorateur Stockage Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
 * Pour en savoir plus sur l’Explorateur Stockage, voir [Prise en main de l’Explorateur Stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).

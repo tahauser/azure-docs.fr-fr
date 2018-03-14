@@ -27,7 +27,7 @@ ms.lasthandoff: 02/03/2018
 
 Ce didacticiel montre comment écrire une application console .NET Core qui envoie un jeu de messages à un concentrateur d’événements. Vous pouvez exécuter la solution [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), en remplaçant les chaînes `EhConnectionString` et `EhEntityPath` par vos valeurs de concentrateur d’événements. Ou vous pouvez suivre les étapes de ce didacticiel pour créer les vôtres.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio 2015 ou 2017](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2017, mais Visual Studio 2015 est également pris en charge.
 * [Outils Visual Studio 2015 ou 2017 .NET Core](http://www.microsoft.com/net/core).
@@ -197,7 +197,7 @@ Ajoutez le package NuGet de bibliothèque standard .NET [`Microsoft.Azure.EventH
 
 Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Recevoir des événements d’Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)

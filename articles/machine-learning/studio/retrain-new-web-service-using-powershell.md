@@ -23,7 +23,7 @@ ms.lasthandoff: 02/09/2018
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reformer un nouveau service web basé sur Resource Manager à l’aide des applets de commande PowerShell de gestion Machine Learning
 Quand vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé.  
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Vous devez configurer une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]

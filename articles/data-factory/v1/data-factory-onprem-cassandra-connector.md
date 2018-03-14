@@ -36,7 +36,7 @@ Vous pouvez copier et coller les données d’un magasin de données Cassandra 
 ## <a name="supported-versions"></a>Versions prises en charge
 Le connecteur Cassandra prend en charge les versions suivantes de Cassandra : 2.x.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour que le service Azure Data Factory puisse se connecter à la base de données Cassandra locale, vous devez installer une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur, afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un composant qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle, un pipeline de données, pour déplacer des données.
 
 Vous devez utiliser la passerelle pour vous connecter à une base de données Cassandra, même si elle est hébergée dans le cloud, par exemple sur une machine virtuelle IaaS Azure. Vous pouvez installer la passerelle sur la même machine virtuelle que le magasin de données ou sur une autre machine virtuelle, tant que la passerelle peut se connecter à la base de données.  
@@ -295,7 +295,7 @@ Les tables virtuelles font référence aux données présentées dans la table r
 
 Vous pouvez utiliser l’[Assistant de copie](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) afin d’afficher de manière intuitive la liste des tables dans la base de données Cassandra, y compris les tables virtuelles, et de prévisualiser les données qui s’y trouvent. Vous pouvez également construire une requête dans l’Assistant de copie et valider pour voir le résultat.
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Par exemple, « ExampleTable » ci-après est une table de base de données Cassandra qui contient une colonne clé primaire entière nommée « pk_int », une colonne de texte nommée « value », une colonne de liste, une colonne de mappage et une colonne de jeu (nommée « StringSet »).
 
 | pk_int | Valeur | Énumérer | Mappage | StringSet |

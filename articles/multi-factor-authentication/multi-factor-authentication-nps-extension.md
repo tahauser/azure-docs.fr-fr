@@ -46,7 +46,7 @@ Vous pouvez créer autant de serveurs NPS compatibles avec Azure MFA que vous le
 
 Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent connaître les nouveaux serveurs NPS compatibles avec Azure MFA.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 L’extension NPS est conçue pour fonctionner avec votre infrastructure existante. Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
 
@@ -243,7 +243,7 @@ Vérifiez qu’AD Connect est en cours d’exécution et que l’utilisateur se 
 Vérifiez que https://adnotifications.windowsazure.com est accessible à partir du serveur exécutant l’extension NPS.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Configurez d’autres ID de connexion, ou créez une liste d’exceptions pour les adresses IP qui ne nécessitent pas de vérification en deux étapes dans [Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur](nps-extension-advanced-configuration.md)
 

@@ -68,7 +68,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
 * Un compte de stockage Azure standard pour stocker les journaux de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -211,7 +211,7 @@ Site Recovery crée une instance de machine virtuelle dont le type est identique
 * [Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour des scénarios propres à la migration de machines virtuelles, consultez les ressources suivantes :
 

@@ -64,7 +64,7 @@ Les sections suivantes fournissent des informations sur les propriétés JSON u
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Un service lié lie un magasin de données à une fabrique de données. Vous créez un service lié de type **HDFS** pour lier un système HDFS local à votre fabrique de données. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié HDFS.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur **Hdfs** |OUI |
 | Url |URL vers le système HDFS |OUI |
@@ -117,7 +117,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties du jeu de données de type **FileShare** (comprenant le jeu de données HDFS) présente les propriétés suivantes
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | folderPath |Chemin d'accès au dossier. Exemple : `myfolder`<br/><br/>Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour dossier\sous-dossier, spécifiez dossier\\\\sous-dossier et pour d:\dossier d’exemple, spécifiez d:\\\\dossier d’exemple.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |OUI |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>Data<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non  |
@@ -168,7 +168,7 @@ Pour une activité de copie, quand la source est de type **FileSystemSource** , 
 
 **FileSystemSource** prend en charge les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. |True, False (par défaut) |Non  |
 

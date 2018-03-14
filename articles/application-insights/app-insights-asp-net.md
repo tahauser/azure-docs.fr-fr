@@ -25,7 +25,7 @@ Cette procédure configure votre application web ASP.NET pour l’envoi de donn�
 
 L’installation se fait en seulement quelques clics dans Visual Studio. Vous avez la possibilité d’éviter des frais en limitant le volume de données de télémétrie. Cela vous permet de tester et de déboguer, ou de surveiller un site avec peu d’utilisateurs. Si vous décidez plus tard de vous lancer et de surveiller votre site de production, il sera facile d’augmenter la limite.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour Application Insights à votre site web ASP.NET, vous devez :
 
 - Installez [Visual Studio 2017 pour Windows](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
@@ -131,7 +131,7 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéressent :
 

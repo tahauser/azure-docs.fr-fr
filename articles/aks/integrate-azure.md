@@ -18,7 +18,7 @@ ms.lasthandoff: 02/27/2018
 
 Avec le [Catalogue de services Kubernetes][kubernetes-service-catalog], Open Service Broker pour Azure (OSBA) permet aux développeurs d’utiliser des services gérés par Azure dans Kubernetes. Ce guide se concentre sur le déploiement du Catalogue de services Kubernetes, d’Open Service Broker pour Azure (OSBA) et d’applications qui utilisent des services gérés par Azure à l’aide de Kubernetes.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Abonnement Azure
 
 * Azure CLI 2.0 : vous pouvez [l’installer localement][azure-cli-install] ou l’utiliser dans [Azure Cloud Shell][azure-cloud-shell].
@@ -152,7 +152,7 @@ Répertoriez les secrets installés :
 kubectl get secrets -n wordpress -o yaml
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En suivant cet article, vous avez déployé le Catalogue de services dans un cluster Azure Container Service (AKS). Vous avez utilisé Open Service Broker pour Azure pour déployer une installation WordPress qui utilise des services gérés par Azure, dans ce cas Azure Database pour MySQL.
 

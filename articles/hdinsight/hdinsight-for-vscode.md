@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code (VSCode) pour créer et envoyer des travaux Hive de traitement par lots, des requêtes Hive interactives et des scripts pySpark. Vous pouvez installer Azure HDInsight Tools sur les plateformes prises en charge par VS Code. Il s’agit des instances Windows, Linux et macOS. Renseignez-vous sur les prérequis pour les différentes plateformes.
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
 
@@ -293,7 +293,7 @@ HDInsight pour VS Code prend en charge les fonctionnalités suivantes :
 
     ![coloration syntaxique dans HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 ### <a name="demo"></a>Démonstration
 * HDInsight pour VS Code : [vidéo](https://go.microsoft.com/fwlink/?linkid=858706)

@@ -37,7 +37,7 @@ Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide :
 
@@ -165,7 +165,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Node.js avec MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

@@ -30,7 +30,7 @@ Cet article contient un didacticiel qui explique comment créer des recherches d
 
 Pour créer des recherches dans le portail Advanced Analytics plutôt que dans le portail Recherche dans les journaux, consultez [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Bien démarrer avec le portail Analytics).  Les deux portails utilisent le même langage de requête pour accéder aux mêmes données dans l’espace de travail Log Analytics.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce didacticiel part du principe que vous disposez déjà d’un espace de travail Log Analytics avec au moins une source connectée qui génère des données pour les requêtes à analyser.  
 
 - Si vous n’avez pas d’espace de travail, vous pouvez en créer un gratuitement à l’aide de la procédure décrite dans [Prise en main d’un espace de travail Log Analytics](log-analytics-get-started.md).
@@ -160,7 +160,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Graphique en courbes](media/log-analytics-log-search-log-search-portal/log-search-portal-14.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour en savoir plus sur le langage de requête Log Analytics, consultez [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079) (Bien démarrer avec le portail Analytics).
 - Suivez un didacticiel à l’aide du [portail Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587) pour exécuter les mêmes requêtes et accéder aux mêmes données que le portail Recherche dans les journaux.

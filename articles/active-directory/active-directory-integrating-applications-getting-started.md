@@ -56,7 +56,7 @@ Avant de vous lancer dans l’intégration des applications avec Azure AD, il es
 
 Vous n’avez peut-être pas les réponses à toutes ces questions à l’avance mais ce n’est pas grave.  Ce guide peut vous aider à répondre à certaines de ces questions et à prendre des décisions en connaissance de cause.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 * Un abonnement Azure et un répertoire Azure Active Directory.  Si vous ne disposez pas d’un abonnement Azure, vous pouvez essayer Azure gratuitement pendant 30 jours. [Faites un essai.](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Intégration des applications avec Azure AD

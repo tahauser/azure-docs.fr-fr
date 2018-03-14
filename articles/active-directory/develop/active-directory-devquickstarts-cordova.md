@@ -43,7 +43,7 @@ Pour apporter ces améliorations, vous devez :
 3. ajouter du code pour utiliser le jeton pour l’interrogation de l’API Graph et afficher les résultats ;
 4. créer le projet de déploiement Cordova avec toutes les plateformes à cibler, ajouter le plug-in Cordova ADAL, puis tester la solution dans des émulateurs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un client Azure AD où vous avez un compte disposant de droits de développement d’application.
@@ -285,7 +285,7 @@ Les étapes concrètes pour l’exécution de l’application varient selon la p
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Vous pouvez maintenant passer à des scénarios plus avancés (et plus intéressants). Par exemple : [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

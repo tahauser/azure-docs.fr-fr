@@ -161,7 +161,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 
 <table>
 <tr>
-    <th align="left">Statut</th><th align="left">État secondaire</th><th align="left">DESCRIPTION</th>
+    <th align="left">Statut</th><th align="left">État secondaire</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure d’exécution de la fenêtre d’activité n’est pas encore venue.</td>

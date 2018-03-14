@@ -27,7 +27,7 @@ ms.lasthandoff: 01/22/2018
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d'installation CentOS**
@@ -330,6 +330,6 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 14. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous êtes maintenant prêt à utiliser votre disque dur virtuel CentOS Linux pour créer des machines virtuelles dans Azure. S’il s’agit de votre premier téléchargement du fichier .vhd dans Azure, consultez [Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0](upload-vhd.md#option-1-upload-a-vhd).
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Maintenance prédictive dans l’industrie aérospatiale avec Azure - Modèle de solution Cortana Intelligence | Microsoft Docs"
 description: "Modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport."
 services: cortana-analytics
@@ -49,6 +49,7 @@ Avec l’avènement des applications Internet des Objets (IoT), la maintenance p
 Les problèmes d’entreprise entrant dans le cadre de la maintenance prédictive vont des risques opérationnels élevés dus à des défaillances inattendues aux connaissances limitées des causes initiales des problèmes dans les environnements d’entreprise complexes. Pour la plupart de ces problèmes, on peut se poser les questions suivantes :
 
 * Quelle est la probabilité qu’un équipement subisse une défaillance dans un avenir proche ?
+  
 * Quelle est la durée de vie restante de l’équipement ?
 * Quelles sont les causes des défaillances et quelles actions de maintenance faut-il effectuer pour résoudre ces problèmes ?
 

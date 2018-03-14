@@ -31,7 +31,7 @@ Découvrez comment créer une topologie Apache Storm qui utilise des composants 
 
 Le code de ce projet est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Python 2.7 ou ultérieure
 
@@ -149,7 +149,7 @@ Pour arrêter la topologie, appuyez sur __Ctrl+C__.
 > * le bouton **Tuer** dans l’interface utilisateur Storm.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les documents suivants pour découvrir d’autres façons de travailler avec HDInsight :
 

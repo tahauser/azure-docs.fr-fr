@@ -39,7 +39,7 @@ Plus précisément, ce connecteur de système de fichiers prend en charge ce qui
 - Copie de fichiers en utilisant une authentification **Windows**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis/vers un système de fichiers qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
 
@@ -53,7 +53,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Les propriétés prises en charge pour le service lié de système de fichiers sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **FileServer**. | OUI |
 | host | Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \" » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. | OUI |
@@ -97,7 +97,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis/vers le système de fichiers, affectez la valeur **FileShare** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **FileShare** |OUI |
 | folderPath | Chemin d'accès au dossier. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. |OUI |
@@ -143,7 +143,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données du système de fichiers, définissez **FileSystemSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
 | recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
@@ -184,7 +184,7 @@ Pour copier des données du système de fichiers, définissez **FileSystemSource
 
 Pour copier des données vers le système de fichiers, définissez le type de récepteur dans l’activité de copie sur **FileSystemSink**. Les propriétés prises en charge dans la section **sink** (récepteur) sont les suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du récepteur d’activité de copie doit être définie sur **FileSystemSink** |OUI |
 | copyBehavior | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Le nom des fichiers cibles est généré automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement. | Non  |

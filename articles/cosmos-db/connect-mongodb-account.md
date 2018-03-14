@@ -29,7 +29,7 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 - [Méthode du démarrage rapide](#QuickstartConnection), à utiliser avec les pilotes .NET, Node.js, MongoDB Shell, Java et Python.
 - [Méthode de la chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) dès maintenant. 
 - Un compte Azure Cosmos DB. Pour des instructions, voir [Développer une application web API MongoDB avec .NET et le portail Azure](create-mongodb-dotnet.md).
@@ -74,6 +74,6 @@ Par exemple, observez le compte figurant dans le panneau **Chaîne de connexion*
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez comment [utiliser Studio 3T](mongodb-mongochef.md) avec une API Azure Cosmos DB pour le compte MongoDB.
 * Découvrez l’API Azure Cosmos DB pour le compte MongoDB en consultant les [exemples](mongodb-samples.md).

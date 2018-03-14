@@ -58,7 +58,7 @@ La liste qui suit est classée selon la probabilité que la modification affecte
 
 `IndexAction` ne contient plus de constructeurs publics et ses propriétés sont immuables. Vous devez utiliser les nouvelles méthodes statiques pour la création d’actions à des fins différentes : `Delete`, `Merge`, `MergeOrUpload` et `Upload`. `IndexAction.Create` a été supprimé. Si vous avez utilisé la surcharge qui accepte uniquement un document, veillez à utiliser `Upload` à la place.
 
-##### <a name="example"></a>exemples
+##### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
@@ -77,7 +77,7 @@ Si vous le souhaitez, vous pouvez encore le simplifier en le ramenant à ce qui 
 #### <a name="indexbatchexception-changes"></a>Modifications IndexBatchException
 La propriété `IndexBatchException.IndexResponse` a été renommée `IndexingResults`, et son type est désormais `IList<IndexingResult>`.
 
-##### <a name="example"></a>exemples
+##### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     catch (IndexBatchException e)
@@ -157,7 +157,7 @@ Dans `IndexesOperationsExtensions`:
 #### <a name="scoringparameters-changes"></a>Modifications ScoringParameters
 Une nouvelle classe nommée `ScoringParameter` a été ajoutée à la dernière version du Kit de développement logiciel (SDK) pour faciliter la fourniture de paramètres de profils de score dans une requête de recherche. Précédemment, la propriété `ScoringProfiles` de la classe `SearchParameters` était de type `IList<string>`. À présent, elle est de type `IList<ScoringParameter>`.
 
-##### <a name="example"></a>exemples
+##### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     var sp = new SearchParameters();
@@ -187,7 +187,7 @@ En raison des modifications de signature décrites dans [Modifications des méth
 
 Pour résumer, les classes dérivées de `OperationResponse`qui servaient uniquement à encapsuler un objet de modèle ont été supprimées. Les classes restantes ont vu leur suffixe passer de `Response` à `Result`.
 
-##### <a name="example"></a>exemples
+##### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     IndexerGetStatusResponse statusResponse = null;
@@ -302,7 +302,7 @@ Dans les versions antérieures du Kit de développement logiciel (SDK), vous pou
 > 
 > 
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 Si vous avez un code qui ressemble à ce qui suit :
 
     client.SetClientRequestId(Guid.NewGuid());

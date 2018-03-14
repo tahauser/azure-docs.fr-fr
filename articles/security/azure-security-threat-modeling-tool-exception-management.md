@@ -38,7 +38,7 @@ ms.lasthandoff: 01/24/2018
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | Des services Windows Communication Framework (WCF) peuvent être configurés pour exposer des informations de débogage. Les informations de débogage ne doivent pas être utilisées dans les environnements de production. La balise `<serviceDebug>` définit si la fonctionnalité d’informations de débogage est activée pour un service WCF. Si l’attribut includeExceptionDetailInFaults est défini sur true, les informations sur les exceptions de l’application sont renvoyées aux clients. Les personnes malveillantes peuvent exploiter les informations supplémentaires qu’elles obtiennent de la sortie de débogage pour lancer des attaques ciblées sur l’infrastructure, la base de données ou d’autres ressources utilisées par l’application. |
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Le fichier de configuration suivant inclut la balise `<serviceDebug>` : 
 ```
 <configuration> 
@@ -73,7 +73,7 @@ Désactivez les informations de débogage dans le service. Ceci peut être effec
 | **Informations de référence**              | [Gestion des exceptions dans l’API web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Validation de modèle dans l’API web ASP.NET](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Étapes** | Par défaut, la plupart des exceptions non interceptées dans l’API web ASP.NET sont converties en réponse HTTP avec le code d’état`500, Internal Server Error`|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour contrôler le code d’état renvoyé par l’API, `HttpResponseException` peut être utilisé comme indiqué ci-dessous : 
 ```csharp
 public Product GetProduct(int id)
@@ -87,7 +87,7 @@ public Product GetProduct(int id)
 }
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour contrôler davantage la réponse d’exception, la classe `HttpResponseMessage` peut être utilisée comme indiqué ci-dessous : 
 ```csharp
 public Product GetProduct(int id)
@@ -107,7 +107,7 @@ public Product GetProduct(int id)
 ```
 Pour intercepter les exceptions non prises en charge qui ne sont pas du type `HttpResponseException`, des filtres d’exception peuvent être utilisés. Les filtres d’exception implémentent l’interface `System.Web.Http.Filters.IExceptionFilter`. La méthode la plus simple pour écrire un filtre d’exception consiste à le dériver de la classe `System.Web.Http.Filters.ExceptionFilterAttribute` et à remplacer la méthode OnException. 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Voici un filtre qui convertit des `NotImplementedException` exceptions en code d’état HTTP `501, Not Implemented` : 
 ```csharp
 namespace ProductStore.Filters
@@ -135,7 +135,7 @@ Plusieurs méthodes pour enregistrer un filtre d’exception d’API web sont po
 - Par contrôleur
 - Globalement
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour appliquer le filtre à une action spécifique, ajoutez le filtre en tant qu’attribut à l’action : 
 ```csharp
 public class ProductsController : ApiController
@@ -147,7 +147,7 @@ public class ProductsController : ApiController
     }
 }
 ```
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour appliquer le filtre à toutes les actions sur un `controller`, ajoutez le filtre en tant qu’attribut à la classe `controller` : 
 
 ```csharp
@@ -158,14 +158,14 @@ public class ProductsController : ApiController
 }
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour appliquer le filtre globalement à tous les contrôleurs d’API web, ajoutez une instance du filtre à la collection `GlobalConfiguration.Configuration.Filters`. Les filtres d’exception de cette collection s’appliquent à n’importe quelle action de contrôleur d’API web. 
 ```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour valider un modèle, l’état du modèle peut être transmis à la méthode CreateErrorResponse comme indiqué ci-dessous : 
 ```csharp
 public HttpResponseMessage PostProduct(Product item)
@@ -224,7 +224,7 @@ Vérifiez les liens dans la section Références pour plus d’informations sur 
 | **Informations de référence**              | [Échec en toute sécurité](https://www.owasp.org/index.php/Fail_securely) |
 | **Étapes** | L’application doit échouer en toute sécurité. Toute méthode renvoyant une valeur booléenne, en fonction de la décision prise, doit comporter un bloc d’exception créé avec soin. Il existe un grand nombre d’erreurs logiques dues à des problèmes de sécurité lorsque le bloc d’exception n’est pas écrit correctement.|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 ```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {

@@ -40,21 +40,21 @@ ms.lasthandoff: 01/24/2018
 | **Informations de référence**              | [Sécurité XSLT](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [Propriété XsltSettings.EnableScript](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
 | **Étapes** | XSLT prend en charge les scripts dans les feuilles de style à l’aide de l’élément `<msxml:script>`. Cela permet d’utiliser des fonctions personnalisées dans une transformation XSLT. Le script est exécuté dans le cadre du processus exécutant la transformation. Le script XSLT doit être désactivé dans les environnements non approuvés afin d’empêcher l’exécution de code non approuvé. *Si vous utilisez .NET :* les scripts XSLT sont désactivés par défaut. Cependant, vous devez vous assurer qu’ils n’ont pas été explicitement activés par le biais de la propriété `XsltSettings.EnableScript`.|
 
-### <a name="example"></a>exemples 
+### <a name="example"></a>Exemple 
 
 ```csharp
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Si vous utilisez MSXML 6.0 : les scripts XSLT sont désactivés par défaut. Cependant, vous devez vous assurer qu’ils n’ont pas été explicitement activés par le biais de la propriété d’objet DOM XML AllowXsltScript. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Si vous utilisez MSXML 5 ou une version antérieure, les scripts XSLT sont activés par défaut et vous devez les désactiver explicitement. Définissez la propriété de l’objet XML DOM AllowXsltScript sur false. 
 
 ```csharp
@@ -72,7 +72,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Informations de référence**              | [IE8 Security Part V - Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
 | **Étapes** | <p>Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP `X-Content-Type-Options:nosniff`. Pour satisfaire cette exigence, vous pouvez définir l’en-tête requis page par page uniquement pour les pages susceptibles de comporter du contenu contrôlable par l’utilisateur, ou vous pouvez définir un en-tête global pour toutes les pages de l’application.</p><p>Chaque type de fichier provenant d’un serveur web est associé à un [type MIME](http://en.wikipedia.org/wiki/Mime_type) (également appelé *type de contenu*) qui décrit la nature du contenu (image, texte, application, etc.)</p><p>L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. La prise en charge de cet en-tête a été ajoutée dans Internet Explorer 8 (IE8).</p><p>Seuls les utilisateurs d’Internet Explorer 8 (IE8) bénéficient de l’en-tête X-Content-Type-Options. À l’heure actuelle, les versions antérieures d’Internet Explorer ne prennent pas en charge l’en-tête X-Content-Type-Options</p><p>Internet Explorer 8 (et les versions ultérieures) constitue le seul navigateur majeur permettant d’implémenter une fonctionnalité de refus de la détection MIME. Si d’autres navigateurs majeurs (Firefox, Safari, Chrome) implémentent des fonctionnalités similaires, cette recommandation sera mise à jour afin d’inclure également la syntaxe de ces navigateurs</p>|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour activer l’en-tête requis sur toutes les pages de l’application, vous pouvez effectuer l’une des opérations suivantes : 
 
 * Ajoutez l’en-tête dans le fichier web.config si l’application est hébergée par Internet Information Services (IIS) 7 
@@ -141,7 +141,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | **Informations de référence**              | [XML Entity Expansion (Extension d’entité XML)](http://capec.mitre.org/data/definitions/197.html), [Attaques par déni de service XML et moyens de défense](http://msdn.microsoft.com/magazine/ee335713.aspx), [Vue d’ensemble de la sécurité MSXML](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [Meilleures pratiques pour la sécurisation du Code MSXML](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [Référence de protocole NSXMLParserDelegate](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [Résolution des ressources externes](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
 | **Étapes**| <p>Bien qu’elle soit peu utilisée, une fonctionnalité XML permet à l’analyseur XML d’étendre des entités de macro avec des valeurs définies dans le document lui-même ou à partir de sources externes. Par exemple, le document peut définir une entité « nomentreprise » avec la valeur « Microsoft ». Ainsi, chaque fois que le texte « &companyname; » apparaît dans le document, il est automatiquement remplacé par le texte « Microsoft ». Autre solution : le document peut définir une entité « StockMSFT » qui fait référence à un service web externe permettant d’extraire la valeur actuelle du stock Microsoft.</p><p>Ainsi, à chaque fois que « &MSFTStock; » apparaît dans le document, il est automatiquement remplacé par le prix actuel du stock. Cependant, cette fonctionnalité peut être utilisée abusivement afin de générer un déni de service (DoS). Une personne malveillante peut imbriquer plusieurs entités pour créer une bombe XML à extension exponentielle, qui consomme toute la mémoire disponible sur le système. </p><p>Elle peut également créer une référence externe qui diffuse en continu une quantité infinie de données ou bloque simplement le thread. Par conséquent, toutes les équipes doivent entièrement désactiver la résolution d’entité XML interne et/ou externe si leur application ne l’utilise pas, ou limiter manuellement la quantité de mémoire et de temps que l’application peut utiliser pour la résolution d’entité si cette fonctionnalité est indispensable. Si la résolution d’entité n’est pas requise par votre application, désactivez-la. </p>|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour le code .NET Framework, vous pouvez utiliser les méthodes suivantes :
 
 ```csharp
@@ -159,7 +159,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 La valeur par défaut de `ProhibitDtd` dans `XmlReaderSettings` est true, mais elle est false dans `XmlTextReader`. Si vous utilisez XmlReaderSettings, vous n’êtes pas obligé de définir explicitement ProhibitDtd sur true, mais ce paramétrage est recommandé pour des raisons de sécurité. La classe XmlDocument autorise également la résolution d’entité par défaut. 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Pour désactiver la résolution d’entité relative à XmlDocument, utilisez la surcharge `XmlDocument.Load(XmlReader)` de la méthode Load et définissez les propriétés concernées dans l’argument XmlReader, comme illustré dans le code suivant : 
 
 ```csharp
@@ -170,7 +170,7 @@ XmlDocument doc = new XmlDocument();
 doc.Load(reader);
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 S’il est impossible de désactiver la résolution d’entité pour votre application, définissez la propriété XmlReaderSettings.MaxCharactersFromEntities sur une valeur raisonnable en fonction des besoins de votre application. Cela limitera l’impact des attaques DoS potentielles d’extension exponentielle. Le code suivant propose un exemple d’approche : 
 
 ```csharp
@@ -180,7 +180,7 @@ settings.MaxCharactersFromEntities = 1000;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Si vous devez résoudre les entités incorporées, mais pas les entités externes, définissez la propriété XmlReaderSettings.XmlResolver sur null. Par exemple :  
 
 ```csharp
@@ -214,7 +214,7 @@ Dans MSXML6, la valeur ProhibitDTD est définie sur true (ce qui désactive le t
 | **Informations de référence**              | [Unrestricted File Upload (Chargement de fichiers sans restriction)](https://www.owasp.org/index.php/Unrestricted_File_Upload), [File Signature Table (Table de signatures de fichier)](http://www.garykessler.net/library/file_sigs.html) |
 | **Étapes** | <p>Les fichiers téléchargés constituent un risque significatif pour les applications.</p><p>La première étape de nombreuses attaques consiste à obtenir un code permettant d’attaquer le système. Il suffit ensuite que l’attaque trouve un moyen d’exécuter le code. Un téléchargement de fichier permet aux personnes malveillantes d’accomplir la première étape. Les conséquences d’un téléchargement de fichier sans restriction peuvent varier, de la prise de contrôle totale du système à la surcharge d’un système de fichiers ou d’une base de données, en passant par le transfert d’attaques vers les systèmes back-end ou la simple dégradation.</p><p>Tout dépend de ce que l’application fait du fichier téléchargé, et surtout de l’emplacement de stockage du fichier. Il manque la validation des téléchargements de fichiers côté serveur. Le suivi des contrôles de sécurité doit être implémenté pour la fonctionnalité de téléchargement de fichiers :</p><ul><li>Vérification de l’extension du fichier (seul un ensemble valide de types de fichiers autorisés doit être accepté)</li><li>Taille maximale du fichier</li><li>Le fichier ne doit pas être téléchargé sur webroot : l’emplacement choisi doit être un répertoire présent sur un lecteur autre que le lecteur système</li><li>La convention d’affectation de noms doit être suivie : par exemple, le nom du fichier téléchargé doit avoir un caractère aléatoire afin d’éviter l’écrasement du fichier</li><li>Les fichiers doivent être analysés par un antivirus avant d’être écrits sur le disque</li><li>Assurez-vous que le nom de fichier et toute autre métadonnée (par exemple, chemin d’accès) ne comporte pas de caractère nuisible</li><li>La signature de format de fichier doit être vérifiée afin que les utilisateurs ne puissent pas télécharger de fichier déguisé (par exemple, téléchargement d’un fichier exe en remplaçant l’extension par .txt)</li></ul>| 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Concernant la validation de la signature de format de fichier, reportez-vous à la classe ci-dessous pour plus d’informations : 
 
 ```csharp
@@ -330,7 +330,7 @@ Concernant la validation de la signature de format de fichier, reportez-vous à 
 | **Informations de référence**              | N/A  |
 | **Étapes** | <p>Si vous utilisez la collection Parameters, SQL traite l’entrée comme une valeur littérale et non comme du code exécutable. La collection Parameters peut être utilisée pour appliquer des contraintes de type et de longueur sur les données d’entrée. Les valeurs situées en dehors de la plage déclenchent une exception. En l’absence de paramètres SQL de type sécurisé, des personnes malveillantes peuvent exécuter des attaques par injection, incorporées dans les entrées non filtrées.</p><p>Utilisez des paramètres de type sécurisé lors de la création de requêtes SQL afin d’éviter des attaques par injection de code SQL susceptibles de se produire avec des entrées non filtrées. Vous pouvez utiliser des paramètres de type sécurisé avec des procédures stockées et des instructions SQL dynamiques. Les paramètres sont traités comme des valeurs littérales par la base de données, et non comme du code exécutable. Le type et la longueur sont également vérifiés pour les paramètres.</p>|
 
-### <a name="example"></a>exemples 
+### <a name="example"></a>Exemple 
 Le code suivant montre comment utiliser les paramètres de type sécurisé avec SqlParameterCollection lors de l’appel d’une procédure stockée. 
 
 ```csharp
@@ -371,7 +371,7 @@ Dans l’exemple de code précédent, la valeur d’entrée ne peut pas être su
 | **Informations de référence**              | [How to prevent Cross-site scripting in ASP.NET (Comment éviter les scripts intersites dans ASP.NET)](http://msdn.microsoft.com/library/ms998274.aspx), [Cross-site Scripting (Scripts intersites)](http://cwe.mitre.org/data/definitions/79.html), [XSS (Cross Site Scripting) Prevention Cheat Sheet (Aide-mémoire sur la prévention des scripts intersites)](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
 | **Étapes** | Les scripts intersites (XSS, Cross Site Scripting) sont un vecteur d’attaque pour les services en ligne ou toute application/tout composant qui utilise des entrées tirées du web. Les vulnérabilités XSS permettent à une personne malveillante d’exécuter un script sur l’ordinateur d’un autre utilisateur par le biais d’une application web vulnérable. Les scripts malveillants peuvent servir à dérober des cookies ou à manipuler un ordinateur cible par le biais de JavaScript. Pour empêcher les scripts intersites, il faut procéder à la validation des entrées utilisateur, en s’assurant que la forme et l’encodage sont corrects avant le rendu sur une page web. La validation des entrées et l’encodage des sorties peuvent se faire au moyen de Web Protection Library. Pour le code géré (C\#, VB.net, etc.), utilisez une ou plusieurs méthodes d’encodage appropriées, tirées de Web Protection (Anti-XSS) Library, en fonction du contexte dans lequel les entrées utilisateur se manifestent :| 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 
 ```csharp
 * Encoder.HtmlEncode 
@@ -418,7 +418,7 @@ Dans l’exemple de code précédent, la valeur d’entrée ne peut pas être su
 | **Informations de référence**              | N/A  |
 | **Étapes** | De nombreuses fonctions JavaScript ne procèdent pas à l’encodage par défaut. L’attribution d’entrées non approuvées à des éléments DOM par le biais de ces fonctions risque d’entraîner l’exécution de scripts intersites (XSS).| 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Voici quelques exemples non sécurisés : 
 
 ```
@@ -462,7 +462,7 @@ N’utilisez pas `innerHtml`. Utilisez plutôt `innerText`. De même, au lieu de
 | **Informations de référence**              | [Propriété DefaultRegexMatchTimeout](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Étapes** | Pour empêcher les attaques par déni de service contre les expressions régulières incorrectes, qui suscitent de nombreux retours sur trace, définissez le délai d’attente global par défaut. Si le temps de traitement excède la limite supérieure définie, une exception d’expiration est générée. Si rien n’est configuré, le délai d’attente est infini.| 
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Par exemple, la configuration suivante génère une exception RegexMatchTimeoutException, si le traitement prend plus de 5 secondes : 
 
 ```csharp
@@ -480,7 +480,7 @@ Par exemple, la configuration suivante génère une exception RegexMatchTimeoutE
 | **Informations de référence**              | N/A  |
 | Étape | ASP.Net WebPages (Razor) procède à un encodage HTML automatique. Toutes les chaînes imprimées par des pépites, ou nuggets, de code (blocs @) sont automatiquement encodées au format HTML. Toutefois, lorsque la méthode `HtmlHelper.Raw` est appelée, elle renvoie un balisage qui n’est pas encodé au format HTML. Si la méthode d’assistance `Html.Raw()` est utilisée, elle ignore la protection par encodage automatique fournie par Razor.|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Voici un exemple non sécurisé : 
 
 ```csharp
@@ -505,7 +505,7 @@ N’utilisez pas `Html.Raw()` sauf si vous devez afficher le balisage. Cette mé
 | **Informations de référence**              | N/A  |
 | **Étapes** | <p>Une attaque par injection de code SQL exploite les vulnérabilités de la validation des entrées afin d’exécuter des commandes arbitraires dans la base de données. Cela peut se produire lorsque votre application utilise des entrées pour créer des instructions SQL dynamiques afin d’accéder à la base de données. Cela peut également se produire si votre code utilise des procédures stockées contenant des chaînes transmises qui comportent des entrées utilisateur brutes. Grâce aux attaques par injection de code SQL, une personne malveillante peut exécuter des commandes arbitraires dans la base de données. Toutes les instructions SQL (y compris les instructions SQL des procédures stockées) doivent être paramétrables. Les instructions SQL paramétrables acceptent les caractères ayant une signification particulière pour SQL (par exemple, les guillemets simples) sans problème, car ils sont fortement typés. |
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Voici un exemple de procédure stockée dynamique non sécurisée : 
 
 ```csharp
@@ -533,7 +533,7 @@ AS
  END
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Voici la même procédure stockée, implémentée de façon sécurisée : 
 ```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
@@ -565,7 +565,7 @@ AS
 | **Informations de référence**              | [Model Validation in ASP.NET Web API (Validation du modèle dans l’API Web ASP.NET)](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Étapes** | Lorsqu’un client envoie des données vers une API Web, les données doivent être validées avant tout traitement. Pour les API Web ASP.NET qui acceptent les modèles en tant qu’entrée, utilisez des annotations de données sur les modèles afin de définir des règles de validation sur les propriétés du modèle.|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Le code suivant illustre le même cas : 
 
 ```csharp
@@ -586,7 +586,7 @@ namespace MyApi.Models
 }
 ```
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Dans la méthode d’action des contrôleurs d’API, la validité du modèle doit être vérifiée explicitement comme indiqué ci-dessous : 
 
 ```csharp
@@ -633,7 +633,7 @@ namespace MyApi.Controllers
 | **Informations de référence**              | N/A  |
 | **Étapes** | <p>Si vous utilisez la collection Parameters, SQL traite l’entrée comme une valeur littérale et non comme du code exécutable. La collection Parameters peut être utilisée pour appliquer des contraintes de type et de longueur sur les données d’entrée. Les valeurs situées en dehors de la plage déclenchent une exception. En l’absence de paramètres SQL de type sécurisé, des personnes malveillantes peuvent exécuter des attaques par injection, incorporées dans les entrées non filtrées.</p><p>Utilisez des paramètres de type sécurisé lors de la création de requêtes SQL afin d’éviter des attaques par injection de code SQL susceptibles de se produire avec des entrées non filtrées. Vous pouvez utiliser des paramètres de type sécurisé avec des procédures stockées et des instructions SQL dynamiques. Les paramètres sont traités comme des valeurs littérales par la base de données, et non comme du code exécutable. Le type et la longueur sont également vérifiés pour les paramètres.</p>|
 
-### <a name="example"></a>exemples
+### <a name="example"></a>Exemple
 Le code suivant montre comment utiliser les paramètres de type sécurisé avec SqlParameterCollection lors de l’appel d’une procédure stockée. 
 
 ```csharp

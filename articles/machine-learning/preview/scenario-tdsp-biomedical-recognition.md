@@ -90,7 +90,7 @@ Le lien vers le dépôt GitHub public du scénario réel qui contient le code et
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>configuration requise 
+## <a name="prerequisites"></a>Prérequis 
 
 * Un abonnement [Azure](https://azure.microsoft.com/free/)
 * Azure Machine Learning Workbench. Consultez le [guide d’installation](quickstart-installation.md). Actuellement, Azure Machine Learning Workbench peut uniquement être installé sur les systèmes d’exploitation suivants : 

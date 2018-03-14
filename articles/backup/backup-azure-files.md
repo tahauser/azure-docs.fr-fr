@@ -28,7 +28,7 @@ Dans ce guide, vous apprendrez comment :
 > * Arrêter la protection sur des fichiers Azure
 > * Supprimer vos données de sauvegarde
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est présent dans l’un des [types de compte de stockage pris en charge](troubleshoot-azure-files.md#preview-boundaries). Après avoir vérifié ce point, vous pouvez protéger vos partages de fichiers.
 
 ## <a name="configuring-azure-file-shares-backup"></a>Configuration de la sauvegarde des partages de fichiers Azure

@@ -19,7 +19,7 @@ ms.lasthandoff: 02/24/2018
 
 Dans ce guide de démarrage rapide, vous apprenez à utiliser le langage de programmation Go pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide : 
 * Installer [Go 1.8 ou une version ultérieure](https://golang.org/dl/)
@@ -212,6 +212,6 @@ file.Close()
 os.Remove(fileName)
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
  
 Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et Stockage Blob Azure avec Go. Pour plus d’informations sur le kit de développement logiciel Azure Storage Blob, affichez le [Code Source](https://github.com/Azure/azure-storage-blob-go/) et la [référence de l’API](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob).

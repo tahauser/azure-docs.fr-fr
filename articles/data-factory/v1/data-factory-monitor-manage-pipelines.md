@@ -86,7 +86,7 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 
 <table>
 <tr>
-    <th align="left">État</th><th align="left">Sous-état</th><th align="left">DESCRIPTION</th>
+    <th align="left">État</th><th align="left">Sous-état</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure n’est pas venue pour l’exécution de la tranche.</td>

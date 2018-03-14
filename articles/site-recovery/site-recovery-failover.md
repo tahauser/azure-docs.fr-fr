@@ -23,7 +23,7 @@ ms.lasthandoff: 02/14/2018
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 1. Avant de procéder à un basculement, effectuez un [test de basculement](site-recovery-test-failover-to-azure.md) pour vous vérifier que tout fonctionne comme prévu.
 1. Avant le basculement, [préparez le réseau](site-recovery-network-design.md) au niveau de l’emplacement cible.  
 
@@ -123,7 +123,7 @@ Pour conserver la lettre de lecteur sur les machines virtuelles après basculeme
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!WARNING]
 > Une fois le basculement des machines virtuelles effectué et le centre de données local disponible, vous devez [**à nouveau protéger**](site-recovery-how-to-reprotect.md) les machines virtuelles VMware dans le centre de données local.

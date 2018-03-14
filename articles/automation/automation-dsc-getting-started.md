@@ -25,7 +25,7 @@ Cette rubrique explique comment effectuer les tâches les plus courantes avec Az
 
 Cet article fournit des instructions détaillées sur l’utilisation d’Azure Automation DSC. Si vous souhaitez obtenir un exemple d’environnement qui est déjà configuré sans suivre les étapes décrites dans cet article, vous pouvez utiliser le modèle Resource Manager suivant : ce modèle configure un environnement Azure Automation DSC complet, comprenant une machine virtuelle Azure gérée par Azure Automation DSC.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour exécuter les exemples de cet article, vous devez disposer des éléments suivants :
 
 * Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).

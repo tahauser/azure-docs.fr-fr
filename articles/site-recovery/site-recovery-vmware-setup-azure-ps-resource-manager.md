@@ -30,7 +30,7 @@ Lors de la restauration automatique, il est recommandé de déployer le serveur 
 > [!NOTE]
 > Consultez cet article si vous avez utilisé **Resource Manager** comme modèle de déploiement pour les machines virtuelles lors du basculement. Si vous avez utilisé le modèle de déploiement **Classic**, suivez les étapes de la rubrique [Guide pratique pour installer et configurer un serveur de processus de restauration automatique (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 

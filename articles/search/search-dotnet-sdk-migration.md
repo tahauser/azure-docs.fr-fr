@@ -68,7 +68,7 @@ Il n’y a qu’un petit nombre de modifications dans la version 3 qui soient su
 ### <a name="indexesgetclient-return-type"></a>Type de retour Indexes.GetClient
 La méthode `Indexes.GetClient` a un nouveau type de retour. Auparavant, elle renvoyait `SearchIndexClient`, mais elle a été remplacée par `ISearchIndexClient` dans la version 2.0-preview et cette modification a été répercutée dans la version 3. L’objectif est de prendre en charge les clients qui souhaitent simuler la méthode `GetClient` pour les tests unitaires en retournant une implémentation fictive de `ISearchIndexClient`.
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp
@@ -84,7 +84,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>Les éléments AnalyzerName et DataType, entre autres, ne sont plus implicitement convertibles en chaînes
 Il existe de nombreux types dans le SDK .NET Azure Search qui dérivent de `ExtensibleEnum`. Précédemment, ces types étaient tous implicitement convertibles en type `string`. Toutefois, un bogue a été découvert dans l'implémentation `Object.Equals` de ces classes et la résolution de ce bogue a nécessité la désactivation de cette conversion implicite. Une conversion explicite vers `string` reste autorisée.
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
 ```csharp

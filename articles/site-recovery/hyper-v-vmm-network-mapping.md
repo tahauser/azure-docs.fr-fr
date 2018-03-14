@@ -49,7 +49,7 @@ Le mappage réseau fonctionne de la façon détaillée ici.
 - Lorsque vous sélectionnez un réseau de machines virtuelles cible dans le cadre du mappage réseau dans Site Recovery, les clouds VMM sources qui utilisent le réseau de machines virtuelles source sont affichés, ainsi que les réseaux de machines virtuelles cibles disponibles sur les clouds cibles qui sont utilisés pour la protection.
 - Si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, la machine virtuelle de réplication est connectée à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Voici un exemple permettant d’illustrer ce processus. Prenons l’exemple d’une entreprise ayant ouvert deux bureaux, l’un à New York et l’autre à Chicago.
 
@@ -120,7 +120,7 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [En savoir plus sur](hyper-v-vmm-networking.md) l’adressage IP après le basculement sur un site VMM secondaire.
 - [En savoir plus](concepts-on-premises-to-azure-networking.md) sur l’adressage IP après le basculement vers Azure

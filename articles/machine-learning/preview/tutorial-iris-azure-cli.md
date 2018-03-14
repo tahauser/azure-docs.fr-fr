@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interfac
 > * Promouvoir et inscrire un modèle formé
 > * Déployer un service web pour évaluer de nouvelles données
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un accès à un abonnement Azure et des autorisations adéquates pour créer des ressources dans cet abonnement. 
   

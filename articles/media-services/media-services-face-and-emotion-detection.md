@@ -74,7 +74,7 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 ```
 
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
-| Nom de l’attribut | DESCRIPTION |
+| Nom de l’attribut | Description |
 | --- | --- |
 | Mode |Fast : traitement rapide, mais moins précis (par défaut).|
 
@@ -149,7 +149,7 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 
 
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
-| Nom de l’attribut | DESCRIPTION |
+| Nom de l’attribut | Description |
 | --- | --- |
 | Mode |Faces : détection faciale uniquement.<br/>PerFaceEmotion : retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
 | AggregateEmotionWindowMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes. |
@@ -343,7 +343,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
 using System;

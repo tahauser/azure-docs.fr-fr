@@ -79,7 +79,7 @@ Lors de l’attribution d’une liaison, vous pouvez créer une connexion d’AP
 
 1. Configurez la connexion pour utiliser la table cible. Ces paramètres varient selon les fournisseurs SaaS. Des exemples figurent dans la section suivante.
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Cet exemple se connecte à une table nommée « Contact » qui comporte les colonnes ID, LastName et FirstName. Le code répertorie les entités Contact dans la table et journalise les noms et les prénoms.
 

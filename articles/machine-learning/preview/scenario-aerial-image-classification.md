@@ -53,7 +53,7 @@ Ces instructions pas à pas vous guident d’abord dans les étapes de création
 
 Les instructions suivantes vous guident pendant le processus de configuration de l’environnement d’exécution pour cet exemple.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 - Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles)
     - Vous allez créer un cluster HDInsight Spark contenant 40 nœuds de travail (sur un total de 168 cœurs). Vérifiez que votre compte a assez de cœurs disponibles en consultant l’onglet « Utilisation + quotas » de votre abonnement dans le portail Azure.
        - Si vous n’avez pas assez de cœurs disponibles, modifiez le modèle de cluster HDInsight pour réduire le nombre de workers provisionnés. Pour obtenir les instructions correspondantes, consultez la section « Créer le cluster HDInsight Spark ».
@@ -418,7 +418,7 @@ Une fois l’exemple terminé, nous vous recommandons de supprimer toutes les re
 
 Azure Machine Learning Workbench permet aux scientifiques des données de déployer facilement leur code sur des cibles de calcul distantes. Dans cet exemple, le code de formation MMLSpark local a été déployé pour une exécution à distance sur un cluster HDInsight et un script local a lancé un travail de formation sur un cluster GPU Azure Batch AI. La fonctionnalité d’historique des exécutions d’Azure Machine Learning Workbench nous a permis de faire le suivi des performances de plusieurs modèles et d’identifier le modèle le plus exact. Grâce aux notebooks Jupyter de Workbench, nous avons pu visualiser les prédictions de nos modèles dans un environnement graphique interactif.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour approfondir cet exemple :
 - Dans la fonctionnalité d’historique des exécutions d’Azure Machine Learning Workbench, cliquez sur le symbole d’engrenage pour sélectionner les graphes et les métriques à afficher.
 - Examinez les instructions qui appellent `run_logger` dans les exemples de scripts. Veillez à bien comprendre comment chaque métrique est enregistrée.

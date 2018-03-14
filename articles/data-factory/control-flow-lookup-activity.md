@@ -60,7 +60,7 @@ Le nombre maximum de lignes retournées par l’activité de recherche est de **
 ```
 
 ## <a name="type-properties"></a>Propriétés type
-NOM | DESCRIPTION | type | Requis ?
+NOM | Description | type | Requis ?
 ---- | ----------- | ---- | --------
 dataset | Fournit la référence de jeu de données pour la recherche. Actuellement, les types de jeu de données pris en charge sont :<ul><li>`AzureBlobDataset` pour le [stockage Blob Azure](connector-azure-blob-storage.md#dataset-properties) en tant que source</li><li>`FileShareDataset` pour le [système de fichiers](connector-file-system.md#dataset-properties) en tant que source</li><li>`AzureSqlTableDataset` pour [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) ou [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) en tant que source</li><li>`SqlServerTable` pour [SQL Server](connector-sql-server.md#dataset-properties) en tant que source</li><li>`AzureTableDataset` pour le [stockage Table Azure](connector-azure-table-storage.md#dataset-properties) en tant que source</li> | Paire clé/valeur | OUI
 source | Contient des propriétés source spécifiques au jeu de données, identiques à la source de l’activité de copie. Pour plus d’informations, consulter la section « Propriétés de l’activité de copie » dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
@@ -100,7 +100,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
     } 
     ```
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Dans cet exemple, l’activité de copie copie les données d’une table SQL de votre instance Azure SQL Database vers le stockage Blob Azure. Le nom de la table SQL est stocké dans un fichier JSON dans le stockage Blob. L’activité de recherche recherche le nom de la table lors de l’exécution. Cette approche vous permet de modifier JSON de manière dynamique sans avoir à redéployer les pipelines ou les jeux de données. 
 
 Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).
@@ -299,7 +299,7 @@ Cette instance Azure SQL Database contient les données à copier dans le stocka
 ]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

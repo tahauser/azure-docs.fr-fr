@@ -28,7 +28,7 @@ Un pool Azure Batch comporte des paramètres qui servent à autoriser les nœuds
 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Authentification**. Pour utiliser un réseau virtuel Azure, l’API du client Batch doit utiliser l’authentification Azure Active Directory (AD). La prise en charge d’Azure Batch pour Azure AD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md). 
 
@@ -67,7 +67,7 @@ Lorsque vous ajoutez un itinéraire défini par l’utilisateur, définissez l�
 
 ![Itinéraire défini par l’utilisateur](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
 - Pour plus d’informations sur la création d’un itinéraire défini par l’utilisateur, consultez [Créer un itinéraire défini par l’utilisateur - portail Azure](../virtual-network/create-user-defined-route-portal.md).

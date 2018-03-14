@@ -20,7 +20,7 @@ ms.lasthandoff: 02/28/2018
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de .NET (C#) pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application C#. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Les étapes de cet article supposent que vous connaissez le développement avec C#, mais que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer une base de données - Portail](quickstart-create-server-database-portal.md)
 - [Créer une base de données - CLI](quickstart-create-server-database-azure-cli.md)
@@ -312,6 +312,6 @@ namespace Driver
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)

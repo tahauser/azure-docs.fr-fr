@@ -30,7 +30,7 @@ ms.lasthandoff: 12/20/2017
 
 Ce document présente les plateformes et options de déploiement prises en charge pour l’extension de machine virtuelle Agent Network Watcher pour Windows.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 

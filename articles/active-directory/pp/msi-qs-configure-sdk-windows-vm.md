@@ -28,7 +28,7 @@ Managed Service Identity fournit aux services Azure une identité administrée d
 
 Dans cet article, vous allez découvrir comment activer et supprimer une identité MSI affectée par l’utilisateur pour une machine virtuelle Azure à l’aide d’un SDK Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -41,7 +41,7 @@ Azure prend en charge plusieurs plates-formes de programmation via une série de
 | Python | [Créer une machine virtuelle avec le paramètre MSI activé](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Créer une machine virtuelle Azure avec une MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour découvrir comment configurer une identité MSI affectée par l’utilisateur sur une machine virtuelle Azure, consultez les articles connexes sous « Configurer MSI pour une machine virtuelle Azure ».
 

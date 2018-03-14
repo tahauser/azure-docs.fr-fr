@@ -35,7 +35,7 @@ Ce tutoriel présente les [connexions hybrides Azure Relay](relay-what-is-it.md#
 3. Écrire une application de console de serveur pour recevoir des messages.
 4. Écrire une application de console de client pour envoyer des messages.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 1. [Node.js](https://nodejs.org/en/).
 2. Un abonnement Azure.
@@ -76,7 +76,7 @@ Pour envoyer des messages à Relay, écrivez une application console Node.js.
 
 Vous avez créé une application de connexions hybrides complète avec Node.js : félicitations !
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)

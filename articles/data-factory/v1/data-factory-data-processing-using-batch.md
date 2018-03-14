@@ -86,7 +86,7 @@ La solution exemple est volontairement simple. Elle vous montre comment utiliser
 
 **Temps** : si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle entre 1 et 2 heures.
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
 #### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 

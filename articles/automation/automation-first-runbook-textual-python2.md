@@ -31,7 +31,7 @@ ms.lasthandoff: 01/29/2018
 
 Ce didacticiel vous guide dans la création d’un [Runbook Python](automation-runbook-types.md#python-runbooks) dans Azure Automation. Vous partez d’un runbook simple, que vous testez et publiez. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -204,7 +204,7 @@ Entrez le nom du groupe de ressources comme valeur du premier paramètre, et le 
 
 Cliquez sur **OK** pour démarrer le Runbook. Le Runbook s’exécute et démarre la machine virtuelle que vous avez spécifiée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)

@@ -35,7 +35,7 @@ Azure Automation DSC (Configuration de l’état souhaité) vous permet de spéc
 > * Attribuer une configuration de nœud à un nœud géré
 > * Vérifier l’état de conformité d’un nœud géré
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -158,7 +158,7 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour savoir comment intégrer des nœuds devant être gérés avec Azure Automation DSC, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).
 * Pour apprendre à utiliser le portail Azure et vous servir d’Automation DSC, consultez [Bien démarrer avec Azure Automation DSC](automation-dsc-getting-started.md).

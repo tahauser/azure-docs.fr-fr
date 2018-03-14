@@ -20,7 +20,7 @@ ms.lasthandoff: 02/28/2018
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de Ruby pour vous connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL via une application [Ruby](https://www.ruby-lang.org) et le gem [mysql2](https://rubygems.org/gems/mysql2), à partir de plateformes Windows, Ubuntu Linux et Mac. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique suppose que vous connaissez les bases du développement à l’aide de Ruby, et que vous ne savez pas utiliser la base de données Azure pour MySQL.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Création d’un serveur Azure Database pour MySQL à l’aide de la CLI Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -223,6 +223,6 @@ ensure
 end
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./concepts-migrate-import-export.md)

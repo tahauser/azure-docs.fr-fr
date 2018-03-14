@@ -23,7 +23,7 @@ ms.lasthandoff: 02/23/2018
 
 Découvrez comment utiliser Azure Data Lake Store pour capturer les données reçues par Azure Event Hubs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 

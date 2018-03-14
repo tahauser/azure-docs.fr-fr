@@ -36,7 +36,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -231,7 +231,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
     ![Onglet Modifier](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Le pipeline dans cet exemple copie des données depuis une base de données SQL Server locale vers un stockage Blob. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

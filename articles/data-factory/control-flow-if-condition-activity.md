@@ -76,7 +76,7 @@ expression | Expression qui doit retourner true ou false | OUI
 ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | OUI
 ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | OUI
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 
 
 > [!NOTE]

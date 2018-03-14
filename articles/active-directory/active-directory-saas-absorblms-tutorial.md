@@ -32,7 +32,7 @@ L’intégration d’Absorb LMS avec Azure AD vous offre les avantages suivant
 
 Pour plus d’informations sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Absorb LMS, vous avez besoin des éléments suivants :
 

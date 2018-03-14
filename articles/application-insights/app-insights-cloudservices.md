@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
 [Les applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillées par [Application Insights][start] pour la disponibilité, les performances, les défaillances et l’utilisation en combinant les données des kits de développement logiciel (SDK) d’Application Insights avec les données [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
-![exemples](./media/app-insights-cloudservices/sample.png)
+![Exemple](./media/app-insights-cloudservices/sample.png)
 
 ## <a name="before-you-start"></a>Avant de commencer
 Vous devez disposer des éléments suivants :
@@ -36,7 +36,7 @@ Vous devez disposer des éléments suivants :
 ## <a name="quick-start"></a>Démarrage rapide
 Le moyen le plus simple et le plus rapide pour surveiller votre service cloud avec Application Insights consiste à choisir cette option quand vous publiez votre service dans Azure.
 
-![exemples](./media/app-insights-cloudservices/azure-cloud-application-insights.png)
+![Exemple](./media/app-insights-cloudservices/azure-cloud-application-insights.png)
 
 Cette option instrumente votre application au moment de l’exécution, ce qui vous donne toute la télémétrie dont vous avez besoin pour surveiller les demandes, les exceptions et les dépendances dans votre rôle web, ainsi que les compteurs de performances de vos rôles de travail. Les traces de diagnostics générées par votre application sont également envoyées à Application Insights.
 
@@ -225,7 +225,7 @@ Si votre système utilise d’autres services Azure tels que Stream Analytics, i
 
 Si vous avez une application mobile cliente, insérez du code pour envoyer des événements personnalisés quand des opérations utilisateur clés se produisent, et créez un [pont HockeyApp](app-insights-hockeyapp-bridge-app.md). Créez des requêtes dans [Analytics](app-insights-analytics.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 [L'exemple](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exception « méthode introuvable » lors de l’exécution dans Services cloud Azure
@@ -235,7 +235,7 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Configuration de l’envoi de diagnostics Azure à Application Insights](app-insights-azure-diagnostics.md)
 * [Automatiser la création des ressources Application Insights](app-insights-powershell.md)
 * [Automatiser les diagnostics Azure](app-insights-powershell-azure-diagnostics.md)

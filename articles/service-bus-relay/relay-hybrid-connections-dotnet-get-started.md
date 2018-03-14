@@ -33,7 +33,7 @@ Les connexions hybrides requièrent un composant client et un composant serveur.
 3. Écrire une application de console (écouteur) de serveur pour recevoir des messages.
 4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -71,7 +71,7 @@ Dans Visual Studio, écrivez une application console C# pour envoyer des message
 
 Vous avez créé une application de connexions hybrides complète : félicitations !
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)

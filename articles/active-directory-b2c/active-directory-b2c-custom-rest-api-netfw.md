@@ -53,7 +53,7 @@ Vue d’ensemble :
 * Renvoyer un numéro de fidélité 
 * Ajouter le numéro de fidélité à un jeton web JSON (JWT)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
@@ -382,6 +382,6 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 * Une fois que vous avez [pris en main les stratégies personnalisées](active-directory-b2c-get-started-custom.md), nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw) sont à votre disposition pour référence.
 * Vous pouvez télécharger le code complet dans [Exemple de solution Visual Studio pour référence](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
     
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Azure Active Directory B2C : Sécuriser vos services RESTful à l’aide de l’authentification HTTP de base)
 * [Sécuriser votre API RESTful avec des certificats clients](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

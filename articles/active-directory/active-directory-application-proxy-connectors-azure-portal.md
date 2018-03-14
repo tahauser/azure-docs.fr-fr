@@ -32,7 +32,7 @@ Toutes les applications sont affectées à un groupe de connecteurs. Si vous ne 
 >[!TIP] 
 >Si vous avez un grand déploiement de proxy d’application, n’affectez aucune application au groupe de connecteurs par défaut. Ainsi, les nouveaux connecteurs ne reçoivent pas de trafic live tant que vous ne les affectez pas à un groupe de connecteurs actif. Cette configuration vous permet également de passer des connecteurs en mode inactif en les réintégrant au groupe par défaut, pour que vous puissiez en effectuer la maintenance sans impacter vos utilisateurs.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Pour regrouper vos connecteurs, vous devez vous assurer que vous avez [installé plusieurs connecteurs](active-directory-application-proxy-enable.md). Lorsque vous installez un nouveau connecteur, il est automatiquement ajouté au groupe de connecteurs **par défaut**.
 
 ## <a name="create-connector-groups"></a>Créer des groupes de connecteurs
@@ -123,7 +123,7 @@ Dans l’exemple ci-dessous, l’entreprise a deux centres de données, A et B, 
 
 ![AzureAD Aucun groupe de connecteurs](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
 * [Activer l’authentification unique](application-proxy-sso-overview.md)

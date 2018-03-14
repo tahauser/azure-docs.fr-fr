@@ -134,7 +134,7 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
   }
 }
 ```
-| Paramètre      | DESCRIPTION                            |
+| Paramètre      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Lorsque la valeur est définie sur **true**, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est **false**. |
 | **Valeurs** | Collection de paramètres d’application utilisés lors de l’exécution locale. **AzureWebJobsStorage** et **AzureWebJobsDashboard** en sont des exemples. Pour obtenir leur liste complète, consultez les [informations de référence sur les paramètres application](functions-app-settings.md).  |
@@ -179,7 +179,7 @@ func new
 ``` 
 `func new` prend en charge les arguments facultatifs suivants :
 
-| Argument     | DESCRIPTION                            |
+| Argument     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--language -l`** | Langage de programmation du modèle, tel que C#, F# ou JavaScript. |
 | **`--template -t`** | Nom du modèle. |
@@ -207,7 +207,7 @@ func host start
 
 `func host start` prend en charge les options suivantes :
 
-| Option     | DESCRIPTION                            |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | Port local à écouter. Valeur par défaut : 7071. |
 | **`--debug <type>`** | Les options sont `VSCode` et `VS`. |
@@ -306,7 +306,7 @@ Vous pouvez également appeler une fonction directement à l’aide de `func run
 
 `func run` prend en charge les options suivantes :
 
-| Option     | DESCRIPTION                            |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Contenu inclus. |
 | **`--debug -d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
@@ -334,7 +334,7 @@ func azure functionapp publish <FunctionAppName>
 
 Vous pouvez utiliser les options suivantes :
 
-| Option     | DESCRIPTION                            |
+| Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà.|
 | **`--overwrite-settings -y`** | Doit être utilisé avec `-i`. Remplace les paramètres d’application dans Azure par la valeur locale s’ils sont différents. Par défaut, l’accord de l’utilisateur est sollicité.|
@@ -352,7 +352,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Azure Functions Core Tools est [disponible en open source et hébergé sur GitHub](https://github.com/azure/azure-functions-cli).  
 Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problème GitHub](https://github.com/azure/azure-functions-cli/issues). 

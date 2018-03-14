@@ -28,7 +28,7 @@ Managed Service Identity fournit aux services Azure une identité administrée d
 
 Dans cet article, vous allez découvrir comment activer et supprimer une identité du service administré affectée par l’utilisateur pour une machine virtuelle Azure, à l’aide d’un modèle de déploiement Azure Resource Manager.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

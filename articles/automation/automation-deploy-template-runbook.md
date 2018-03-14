@@ -27,7 +27,7 @@ Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez 
 
 Dans cette rubrique, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -237,7 +237,7 @@ Get-AzureRmStorageAccount
 
 Et voilà ! Maintenant, vous pouvez utiliser Azure Automation, Stockage Azure et des modèles Resource Manager pour déployer toutes vos ressources Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur les modèles Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 * Pour démarrer avec Stockage Azure, consultez [Introduction à Azure Storage](../storage/common/storage-introduction.md).

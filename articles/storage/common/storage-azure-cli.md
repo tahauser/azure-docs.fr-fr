@@ -30,7 +30,7 @@ Les exemples dans le guide partent du principe que vous utilisez le shell Bash s
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il suppose également que vous êtes en mesure de satisfaire les exigences de création de compte spécifiées ci-dessous pour Azure et le service Stockage.
 
 ### <a name="accounts"></a>Comptes
@@ -510,7 +510,7 @@ Exemple de sortie
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Voici quelques ressources supplémentaires pour en savoir plus sur l’utilisation d’Azure CLI 2.0.
 
 * [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
