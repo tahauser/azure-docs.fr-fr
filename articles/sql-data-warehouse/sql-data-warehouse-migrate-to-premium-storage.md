@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrer votre entrepôt de données vers un stockage Premium
 Azure SQL Data Warehouse propose depuis peu le [stockage Premium pour améliorer la prévisibilité des performances][premium storage for greater performance predictability]. Nous sommes maintenant prêts à migrer des entrepôts de données situés sur le stockage standard vers le stockage Premium. Vous pouvez utiliser la migration automatique ou, si vous préférez contrôler le déclenchement de la migration (ce qui implique un temps d’inactivité), effectuer la migration vous-même.
@@ -110,7 +110,7 @@ Dans cet exemple, imaginez que votre entrepôt de données sur le stockage stand
 4. Supprimez « MyDW_BeforeMigration ». **Si vous n’effectuez pas cette opération, vous serez facturé pour les deux entrepôts de données.**
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Le stockage Premium augmente le nombre de fichiers blob de base de données dans l’architecture sous-jacente de votre entrepôt de données. Pour optimiser les avantages de ce changement en termes de performances, recréez vos index columnstore clustérisés à l’aide du script suivant. Ce script force le déplacement de certaines de vos données vers les objets blob supplémentaires. Si vous ne faites rien, les données sont naturellement redistribuées au fil du temps, lorsque vous en chargez d’autres dans vos tables.
 
 **Configuration requise :**
@@ -173,7 +173,7 @@ Si vous rencontrez des problèmes avec votre entrepôt de données, [créez un t
 [Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[scale compute power]: quickstart-scale-compute-portal.md
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->

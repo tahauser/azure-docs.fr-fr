@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
 ms.openlocfilehash: 532dd399d2d5fcbab616744dd02f4a95078cbb1b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Prise en charge de l’architecture multilocataire dans Azure Site Recovery pour répliquer des machines virtuelles VMware sur Azure via CSP
 
@@ -125,7 +125,7 @@ Comme indiqué dans le diagramme suivant, la différence architecturale dans une
 ![architecture-hsp-partagé](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Scénario de service géré avec plusieurs vCenter**
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Découvrez plus en détails](site-recovery-role-based-linked-access-control.md) le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery.
 
 [Gérer une architecture mutualisée avec CSP](site-recovery-manage-multi-tenancy-with-csp.md)

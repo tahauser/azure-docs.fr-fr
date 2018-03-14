@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Serveur de publication OPC pour Azure IoT Edge
 
@@ -44,7 +44,7 @@ Comme cette application utilise la pile de référence OPC UA d’OPC Foundation
 
 Le code source du serveur de publication OPC se trouve dans le dépôt GitHub du [Serveur de publication OPC pour Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour générer l’application, vous avez besoin du kit [.NET Core SDK 1.1](https://docs.microsoft.com/dotnet/core/sdk) correspondant à votre système d’exploitation.
 
@@ -382,7 +382,7 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Utilisation de montages de liaisons (système de fichiers partagé)
 
-Dans certains scénarios, vous souhaitez lire des informations de configuration à partir de, ou écrire des fichiers journaux vers, des emplacements sur l’hôte au lieu d’utiliser le système de fichiers du conteneur. Pour configurer ce comportement, utilisez l’option `-v` de `docker run` en mode de montage de liaison. Par exemple :
+Dans certains scénarios, vous souhaitez lire des informations de configuration à partir de, ou écrire des fichiers journaux vers, des emplacements sur l’hôte au lieu d’utiliser le système de fichiers du conteneur. Pour configurer ce comportement, utilisez l’option `-v` de `docker run` en mode de montage de liaison. Par exemple : 
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs
@@ -468,6 +468,6 @@ Vous pouvez maintenant démarrer le débogage en exécutant la commande suivante
 DebugAdapterHost.Launch /LaunchJson:"<path-to-the-launch.json-file-you-saved>"
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Comme étape suivante, nous vous suggérons de découvrir comment [Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée](iot-suite-connected-factory-gateway-deployment.md).

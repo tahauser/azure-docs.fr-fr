@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fd8f89bc842b33576dc0f85ab606dfe3628480ed
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
 > [!div class="op_single_selector"]
@@ -32,13 +32,14 @@ Cette rubrique montre comment gérer les entités Azure Media Services avec .NET
 >[!NOTE]
 > À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Par exemple, le 1er avril 2017, tout enregistrement de travail dans votre compte antérieur au 31 décembre 2016 sera automatiquement supprimé. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit dans cette rubrique.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obtenir une référence pointant vers un élément multimédia
 L’obtention d’une référence pointant vers un élément multimédia existant dans Media Services est une tâche fréquente. L’exemple de code suivant montre comment vous pouvez obtenir une référence pointant vers un élément multimédia à partir de la collection Assets sur l’objet de contexte du serveur, en fonction d’un ID d’élément multimédia. L’exemple de code suivant utilise une requête Linq pour obtenir une référence pointant vers un objet IAsset existant.
 
+```csharp
     static IAsset GetAsset(string assetId)
     {
         // Use a LINQ Select query to get an asset.
@@ -51,10 +52,12 @@ L’obtention d’une référence pointant vers un élément multimédia existan
 
         return asset;
     }
+```
 
 ## <a name="list-all-assets"></a>Répertorier tous les éléments multimédias
 Lorsque le nombre d’éléments multimédias de votre stockage augmente, il est utile de les répertorier. L’exemple de code suivant montre comment parcourir la collection Assets sur l’objet de contexte du serveur. Pour chaque élément multimédia, l’exemple de code écrit également certaines de ses valeurs de propriétés vers la console. Par exemple, chaque élément multimédia peut contenir plusieurs fichiers multimédias. L’exemple de code écrit tous les fichiers associés à chaque élément multimédia.
 
+```csharp
     static void ListAssets()
     {
         string waitMessage = "Building the list. This may take a few "
@@ -90,6 +93,7 @@ Lorsque le nombre d’éléments multimédias de votre stockage augmente, il est
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="get-a-job-reference"></a>Obtenir une référence pointant vers un travail
 
@@ -97,6 +101,7 @@ Lorsque vous utilisez des tâches de traitement dans le code de Media Services, 
 
 Il est possible que vous deviez obtenir une référence pointant vers un travail lors du démarrage d’un travail d’encodage à long terme et vérifier l’état du travail sur un thread. Dans ce cas, lorsque la méthode est retournée à partir d’un thread, vous devez récupérer une référence actualisée pointant vers le travail.
 
+```csharp
     static IJob GetJob(string jobId)
     {
         // Use a Linq select query to get an updated 
@@ -110,12 +115,14 @@ Il est possible que vous deviez obtenir une référence pointant vers un travail
 
         return job;
     }
+```
 
 ## <a name="list-jobs-and-assets"></a>Répertorier les travaux et les éléments multimédias
 Une tâche associée importante consiste à répertorier les éléments multimédias avec leur travail associé dans Media Services. L’exemple de code suivant montre comment répertorier chaque objet IJob, puis afficher les propriétés de chaque travail, toutes les tâches associées, ainsi que tous les éléments multimédias d’entrée et de sortie. Cet exemple de code peut être utilise pour bien d’autres tâches. Par exemple, si vous souhaitez répertorier les éléments multimédias de sortie à partir d’un ou plusieurs travaux d’encodage que vous avez exécutés précédemment, ce code montre comment accéder aux éléments multimédias de sortie. Lorsque vous avez une référence pointant vers un élément multimédia de sortie, vous pouvez alors livrer le contenu à d’autres utilisateurs ou applications en le téléchargeant ou en fournissant des URL. 
 
 Pour plus d’informations sur les options pour la livraison des éléments multimédias, consultez la page [Livraison d’éléments multimédias à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     // List all jobs on the server, and for each job, also list 
     // all tasks, all input assets, all output assets.
 
@@ -190,12 +197,14 @@ Pour plus d’informations sur les options pour la livraison des éléments mult
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="list-all-access-policies"></a>Répertorier toutes les stratégies d’accès
 Dans Media Services, vous pouvez définir une stratégie d’accès sur un élément multimédia ou ses fichiers. Une stratégie d’accès définit les autorisations pour un fichier ou un élément multimédia (le type d’accès et la durée). Dans votre code Media Services, vous définissez généralement une stratégie d’accès en créant un objet IAccessPolicy et en l’associant à un élément multimédia existant. Ensuite, vous créez un objet ILocator, qui vous permet de livrer un accès direct aux éléments multimédias dans les Media Services. Le projet Visual Studio qui accompagne cette documentation contient plusieurs exemples de code qui montrent comment créer et attribuer des localisateurs et les stratégies d’accès aux éléments multimédias.
 
 L’exemple de code suivant montre comment répertorier toutes les stratégies d’accès sur le serveur et quel type d’autorisations leur est associé. Une autre méthode d’affichage des stratégies d’accès consiste à répertorier tous les objets ILocator sur le serveur, puis répertorier les stratégies d’accès associées à chaque localisateur à l’aide de leur propriété AccessPolicy.
 
+```csharp
     static void ListAllPolicies()
     {
         foreach (IAccessPolicy policy in _context.AccessPolicies)
@@ -208,6 +217,7 @@ L’exemple de code suivant montre comment répertorier toutes les stratégies d
 
         }
     }
+```
     
 ## <a name="limit-access-policies"></a>Limiter les stratégies d’accès 
 
@@ -216,6 +226,7 @@ L’exemple de code suivant montre comment répertorier toutes les stratégies d
 
 Par exemple, vous pouvez créer un ensemble générique de stratégies avec le code suivant qui ne s’exécute qu’une seule fois dans votre application. Vous pouvez enregistrer les ID dans un fichier journal pour une utilisation ultérieure :
 
+```csharp
     double year = 365.25;
     double week = 7;
     IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
@@ -225,9 +236,11 @@ Par exemple, vous pouvez créer un ensemble générique de stratégies avec le c
     Console.WriteLine("One year policy ID is: " + policyYear.Id);
     Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+```
 
 Ensuite, vous pouvez utiliser les ID existants dans votre code comme suit :
 
+```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
 
 
@@ -247,6 +260,7 @@ Ensuite, vous pouvez utiliser les ID existants dans votre code comme suit :
         policy1Year,
         DateTime.UtcNow.AddMinutes(-5));
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
+```
 
 ## <a name="list-all-locators"></a>Répertorier tous les localisateurs
 Un localisateur est une URL qui fournit un chemin d’accès direct pour accéder à un élément multimédia, ainsi que les autorisations pour accéder à l’élément multimédia, comme défini par la stratégie d’accès associée au localisateur. Chaque élément multimédia peut avoir une collection d’objets ILocator associée à sa propriété Locators. Le contexte de serveur possède également une collection Locators contenant tous les localisateurs.
@@ -255,6 +269,7 @@ L’exemple de code suivant répertorie tous les localisateurs sur le serveur. I
 
 Notez qu’un chemin d’accès de localisateur vers un élément multimédia est simplement une URL de base pointant vers l’élément multimédia. Pour créer un chemin d’accès direct vers les fichiers individuels auxquels peut accéder un utilisateur ou une application, votre code doit ajouter le chemin d’accès de fichier spécifique au chemin d’accès du localisateur. Pour plus d’informations sur la procédure à suivre, consultez [Livraison d’éléments multimédias à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     static void ListAllLocators()
     {
         foreach (ILocator locator in _context.Locators)
@@ -272,12 +287,14 @@ Notez qu’un chemin d’accès de localisateur vers un élément multimédia es
             Console.WriteLine("");
         }
     }
+```
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Énumérer les grandes collections d'entités
 Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser Skip et Take lors de l'énumération de grandes collections d'entités. 
 
 La fonction suivante effectue une itération sur toutes les tâches dans le compte Media Services fourni. Media Services renvoie 1 000 tâches dans Collection de tâches. La fonction utilise Skip et Take pour s'assurer que toutes les tâches sont énumérées (au cas où vous avez plus de 1 000 tâches dans votre compte).
 
+```csharp
     static void ProcessJobs()
     {
         try
@@ -313,10 +330,12 @@ La fonction suivante effectue une itération sur toutes les tâches dans le comp
             Console.WriteLine(ex.Message);
         }
     }
+```
 
 ## <a name="delete-an-asset"></a>Supprimer un élément multimédia
 L’exemple suivant montre la suppression d’un élément multimédia.
 
+```csharp
     static void DeleteAsset( IAsset asset)
     {
         // delete the asset
@@ -327,12 +346,14 @@ L’exemple suivant montre la suppression d’un élément multimédia.
             Console.WriteLine("Deleted the Asset");
 
     }
+```
 
 ## <a name="delete-a-job"></a>Supprimer un travail
 Pour supprimer un travail, vous devez vérifier l’état associé, comme indiqué dans la propriété State. Les travaux terminés ou annulés peuvent être supprimés, tandis que pour les travaux dans d’autres états, par exemple en file d’attente, planifiés ou en cours de traitement, il faut d’abord procéder à une annulation, puis supprimer le travail.
 
 L’exemple de code suivant montre une méthode de suppression de travail qui vérifie l’état des travaux, puis supprime ceux terminés ou annulés. Ce code est basé sur la section précédente de cette rubrique pour obtenir une référence pointant vers un travail : Obtenir une référence pointant vers un travail.
 
+```csharp
     static void DeleteJob(string jobId)
     {
         bool jobDeleted = false;
@@ -377,11 +398,13 @@ L’exemple de code suivant montre une méthode de suppression de travail qui v�
 
         }
     }
+```
 
 
 ## <a name="delete-an-access-policy"></a>Supprimer une stratégie d’accès
 L’exemple de code suivant montre comment obtenir une référence pointant vers une stratégie d’accès en fonction d’un ID de stratégie, puis comment supprimer cette stratégie.
 
+```csharp
     static void DeleteAccessPolicy(string existingPolicyId)
     {
         // To delete a specific access policy, get a reference to the policy.  
@@ -395,7 +418,7 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
         policy.Delete();
 
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
