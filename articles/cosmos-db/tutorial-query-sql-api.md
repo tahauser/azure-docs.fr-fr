@@ -137,7 +137,7 @@ La requête suivante renvoie tous les noms donnés des enfants de la famille don
     ]
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez :
 

@@ -129,6 +129,6 @@ Le tableau suivant indique différents moyens d’obtenir des informations sur u
 
 Vous pouvez utiliser le bouton **Se connecter** dans le portail Azure Stack pour vous connecter à votre machine virtuelle.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
 

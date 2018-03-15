@@ -84,7 +84,7 @@ Nous recommandons généralement d’utiliser JSON et Apache Avro comme formats 
 
 Les variantes d’API .NET Standard et Java acceptent uniquement les tableaux d’octets, ce qui signifie que l’application doit gérer le contrôle de sérialisation des objets. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

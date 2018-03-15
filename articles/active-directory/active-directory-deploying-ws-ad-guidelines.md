@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
@@ -258,7 +258,7 @@ La section suivante décrit les scénarios courants de déploiement et met l’a
 ![Déploiement AD DS dans le cloud seulement](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figure 1**
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 SharePoint est déployé sur une machine virtuelle Azure et l’application n’a pas de dépendances sur les ressources du réseau d’entreprise. L’application nécessite Windows Server AD DS, mais ne nécessite *pas* le Windows Server AD DS d’entreprise. Aucune approbation Kerberos ou fédérée n’est requise, puisque les utilisateurs sont configurés automatiquement via l’application dans le domaine Windows Server AD DS qui est également hébergé dans le cloud sur des machines virtuelles Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Considérations sur le scénario et comment les domaines technologiques s’appliquent au scénario
@@ -278,7 +278,7 @@ SharePoint est déployé sur une machine virtuelle Azure et l’application n’
 ![Fédération avec connectivité intersite](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figure 2**
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 Une application prenant en charge les revendications qui a été correctement déployée en local et utilisée par les utilisateurs d’entreprise doit devenir directement accessible à partir d’Internet. L’application fait office de serveur web frontal pour une base de données SQL dans laquelle les données sont stockées. Les serveurs SQL utilisés par l’application sont également disponibles sur le réseau d’entreprise. Deux STS Windows Server AD FS et un équilibreur de charge ont été déployés en local pour fournir un accès aux utilisateurs d’entreprise. L’application doit désormais être accessible directement depuis Internet par des partenaires commerciaux à l’aide de leurs propres identités d’entreprise et par les utilisateurs d’entreprise existants.
 
 Dans le but de simplifier et de répondre aux besoins de déploiement et de configuration de cette nouvelle exigence, deux autres serveurs web frontaux et deux serveurs de proxy Windows Server AD FS sont installés sur les machines virtuelles Azure. Les quatre machines virtuelles seront exposées directement à Internet et bénéficieront d’une connectivité au réseau local à l’aide de la fonctionnalité VPN site à site du réseau virtuel Azure.
@@ -302,7 +302,7 @@ Pour plus d’informations, consultez le [Guide de déploiement d’AD DS](https
 ![Déploiement AD DS dans différents locaux](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figure 3**
 
-#### <a name="description"></a>DESCRIPTION
+#### <a name="description"></a>Description
 Une application compatible LDAP est déployée sur une machine virtuelle Azure. Elle prend en charge l’authentification Windows intégrée et utilise Windows Server AD DS comme référentiel pour les données de profil utilisateur et de configuration. L’objectif est que l’application tire parti du Windows Server AD DS d’entreprise existant et fournisse une authentification unique. L’application ne prend pas en charge les revendications. Les utilisateurs doivent également accéder à l’application directement à partir d’Internet. Pour optimiser les performances et les coûts, les deux contrôleurs de domaine supplémentaires, qui font partie du domaine d’entreprise, sont déployés avec l’application dans Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Considérations sur le scénario et comment les domaines technologiques s’appliquent au scénario

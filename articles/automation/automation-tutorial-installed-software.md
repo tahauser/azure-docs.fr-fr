@@ -107,7 +107,7 @@ ConfigurationData
 | render table
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ce didacticiel vous a appris à afficher l’inventaire des logiciels et notamment comment :
 

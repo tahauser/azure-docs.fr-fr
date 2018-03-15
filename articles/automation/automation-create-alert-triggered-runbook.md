@@ -224,7 +224,7 @@ Pour créer une alerte classique :
 1. Dans la page **Configurer un runbook** page, sélectionnez **Utilisateur** pour **Source du runbook**. Choisissez votre compte Automation et sélectionnez le runbook **Stop-AzureVmInResponsetoVMAlert**. Sélectionnez **OK**.
 1. Pour enregistrer la règle d’alerte, sélectionnez **OK**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur le démarrage d’un runbook Automation avec un Webhook, consultez [Démarrer un runbook depuis un Webhook](automation-webhooks.md).
 * Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).

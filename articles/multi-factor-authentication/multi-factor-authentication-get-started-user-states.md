@@ -120,7 +120,7 @@ _L’accès conditionnel_ est une fonctionnalité payante d’Azure Active Direc
 
 Les autres options de la stratégie d’accès conditionnel permettent de spécifier précisément à quel moment la vérification en deux étapes est requise. Par exemple, vous pouvez créer la stratégie suivante : lorsque des fournisseurs tentent d’accéder à notre application d’approvisionnement sur des réseaux non approuvés et des appareils non joints à un domaine, exiger la vérification en deux étapes. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir des conseils : [Meilleures pratiques en matière d’accès conditionnel](../active-directory/active-directory-conditional-access-best-practices.md).
 

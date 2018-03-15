@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -30,7 +30,7 @@ La troisième partie d’une règle est la fonctionnalité. Une fonctionnalité 
 Ces fonctionnalités sont conçues pour contrôler l’accès au contenu.
 
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Deny Access (403)](#deny-access-403) | Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
 [Token Auth](#token-auth) | Détermine si l’authentification basée sur les jetons est appliquée à une requête.
@@ -43,7 +43,7 @@ Nom | Objectif
 
 Ces fonctionnalités sont conçues pour personnaliser la mise en cache du contenu.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Bandwidth Parameters](#bandwidth-parameters) | Détermine si les paramètres de limitation de bande passante (par exemple, ec_rate et ec_prebuf) sont actifs.
 [Bandwidth Throttling](#bandwidth-throttling) | Limite la bande passante pour la réponse fournie par nos serveurs Edge.
@@ -52,7 +52,7 @@ Nom | Objectif
 [Cache-Key Query String](#cache-key-query-string) | Détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête.
 [Cache-Key Rewrite](#cache-key-rewrite) | Réécrit la clé de cache associée à une requête.
 [Complete Cache Fill](#complete-cache-fill) | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un serveur Edge.
-[Compress File Types](#compress-file-types) | Définit les formats de fichier à compresser sur le serveur.
+[Compress File Types](#compress-file-types) | Définit les formats de fichier des fichiers qui sont compressés sur le serveur.
 [Default Internal Max-Age](#default-internal-max-age) | Détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le serveur Edge et le serveur d’origine.
 [Expires Header Treatment](#expires-header-treatment) | Contrôle la génération des en-têtes `Expires` par un serveur Edge quand la fonctionnalité External Max-Age est active.
 [External Max-Age](#external-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le serveur Edge.
@@ -73,7 +73,7 @@ Nom | Objectif
 
 Cette fonctionnalité est conçue pour fournir des informations supplémentaires à l’intérieur d’une règle.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Commentaire](#comment) | Permet d’ajouter une remarque dans une règle.
  
@@ -81,7 +81,7 @@ Nom | Objectif
 
 Ces fonctionnalités sont conçues pour ajouter, modifier ou supprimer des en-têtes de la demande ou réponse.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Age Response Header](#age-response-header) | Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 [Debug Cache Response Headers](#debug-cache-response-headers) | Détermine si une réponse peut inclure l’en-tête de réponse X-EC-Debug qui fournit des informations sur la stratégie de cache de la ressource demandée.
@@ -94,7 +94,7 @@ Nom | Objectif
 
 Ces fonctionnalités sont conçues pour personnaliser les données stockées dans les fichiers journaux bruts.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Custom Log Field 1](#custom-log-field-1) | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut.
 [Log Query String](#log-query-string) | Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’accès.
@@ -148,7 +148,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Ces fonctionnalités sont conçues pour contrôler la manière dont le CDN communique avec un serveur d’origine.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) | Définit le nombre maximal de requêtes pour une connexion toujours active avant sa fermeture.
 [Proxy Special Headers](#proxy-special-headers) | Définit l’ensemble des en-têtes de requête propres à CDN à transmettre depuis un serveur Edge vers un serveur d’origine.
@@ -158,7 +158,7 @@ Nom | Objectif
 
 Il s’agit de fonctionnalités avancées destinées aux utilisateurs expérimentés.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) | Détermine l’ensemble de méthodes HTTP supplémentaires pouvant être mises en cache sur le réseau.
 [Cacheable Request Body Size](#cacheable-request-body-size) | Définit le seuil permettant de déterminer si une réponse POST peut être mise en cache.
@@ -169,7 +169,7 @@ Nom | Objectif
 
 Ces fonctionnalités permettent de rediriger ou de réécrire une requête vers une URL différente.
 
-Nom | Objectif
+NOM | Objectif
 -----|--------
 [Follow Redirects](#follow-redirects) | Détermine si les requêtes peuvent être redirigées vers le nom d’hôte défini dans l’en-tête Location retourné par un serveur d’origine du client.
 [URL Redirect](#url-redirect) | Redirige les requêtes via l’en-tête Location.
@@ -184,7 +184,7 @@ Nom | Objectif
 **Objectif** : détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 Valeur|Résultat
 --|--
-Activé | L’en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
+activé | L’en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 Désactivé | L’en-tête de réponse Age est exclu de la réponse envoyée au demandeur.
 
 **Comportement par défaut :** Désactivé.
@@ -201,8 +201,8 @@ Les paramètres de limitation de bande passante déterminent si le taux de trans
 
 Valeur|Résultat
 --|--
-Activé|Permet aux serveurs Edge d’honorer les requêtes de limitation de bande passante.
-Désactivé|Force les serveurs Edge à ignorer les paramètres de limitation de bande passante. Le contenu demandé sera pris en charge normalement (c’est-à-dire, sans limitation de bande passante).
+activé|Permet aux serveurs Edge d’honorer les requêtes de limitation de bande passante.
+Désactivé|Force les serveurs Edge à ignorer les paramètres de limitation de bande passante. Le contenu demandé est pris en charge normalement (c’est-à-dire, sans limitation de bande passante).
 
 **Comportement par défaut :** Activé.
  
@@ -216,7 +216,7 @@ Désactivé|Force les serveurs Edge à ignorer les paramètres de limitation de 
 
 Les deux options suivantes doivent être définies pour configurer correctement la limitation de bande passante.
 
-Option|Description
+Option|DESCRIPTION
 --|--
 Koctets par seconde|Définissez cette option sur la bande passante maximale (en Ko par seconde) qui peut être utilisée pour fournir la réponse.
 Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent attendre les serveurs Edge pour que soit effectuée la limitation de la bande passante. L’objectif de cette période de bande passante illimitée consiste à éviter les problèmes de coupure ou de mise en mémoire tampon pour un lecteur multimédia en raison d’une limitation de bande passante.
@@ -233,7 +233,7 @@ Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent a
 
 Valeur|Résultat
 --|--
-Activé|Force toutes les requêtes à passer par le serveur d’origine, même si le contenu a été précédemment mis en cache sur les serveurs Edge.
+activé|Force toutes les requêtes à passer par le serveur d’origine, même si le contenu a été précédemment mis en cache sur les serveurs Edge.
 Désactivé|Force les serveurs Edge à mettre les ressources en cache selon la stratégie de cache définie dans ses en-têtes de réponse.
 
 **Comportement par défaut :**
@@ -308,23 +308,23 @@ Supprimer| Cette option permet de garantir qu’aucun en-tête `Cache-Control` n
 
 ---
 ### <a name="cache-key-query-string"></a>Chaîne de requête de clé de cache
-**Objectif :** détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête.
+**Objectif :** détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête.
 
 Informations essentielles :
 
-- Spécifiez un ou plusieurs noms de paramètre de chaîne de requête. Chaque nom de paramètre doit être délimité par un espace.
-- Cette fonctionnalité détermine si les paramètres de chaîne de requête sont inclus ou exclus de la clé de cache. Vous trouverez des informations supplémentaires pour chaque option ci-dessous.
+- Spécifiez un ou plusieurs noms de paramètre de chaîne de requête. Délimite chaque nom de paramètre par un espace.
+- Cette fonctionnalité détermine si les paramètres de chaîne de requête sont inclus ou exclus de la clé de cache. Vous trouverez des informations supplémentaires pour chaque option dans le tableau suivant.
 
-Type|Description
+type|DESCRIPTION
 --|--
  Inclure|  Indique que chaque paramètre spécifié doit être inclus dans la clé de cache. Une clé de cache unique est générée pour chaque requête contenant une valeur unique pour un paramètre de chaîne de requête défini dans cette fonctionnalité. 
- Inclure tout  |Indique qu’une clé de cache unique est créée pour chaque requête dans une ressource qui inclut une chaîne de requête unique. Ce type de configuration n’est généralement pas recommandé, étant donné que cela peut entraîner un petit pourcentage d’accès au cache. Cela augmentera la charge sur le serveur d’origine, dans la mesure où il devra traiter plus de requêtes. Cette configuration duplique le comportement de mise en cache appelé « unique-cache » sur la page de mise en cache de la chaîne de requête. 
- Exclure | Indique que seuls les paramètres spécifiés seront exclus de la clé de cache. Tous les autres paramètres de chaîne de requête figureront dans la clé de cache. 
- Exclure tous  |Indique que tous les paramètres de chaîne de requête seront exclus de la clé de cache. Cette configuration duplique le comportement de mise en cache appelé « standard-cache » sur la page de mise en cache de la chaîne de requête. 
+ Inclure tout  |Indique qu’une clé de cache unique est créée pour chaque requête dans une ressource qui inclut une chaîne de requête unique. Ce type de configuration n’est généralement pas recommandé, car il peut entraîner un petit pourcentage de correspondances dans le cache. Un faible nombre de correspondances dans le cache augmente la charge sur le serveur d’origine, car il doit traiter plus de requêtes. Cette configuration duplique le comportement de mise en cache appelé « unique-cache » sur la page de mise en cache de la chaîne de requête. 
+ Exclure | Indique que seuls les paramètres spécifiés sont exclus de la clé de cache. Tous les autres paramètres de chaîne de requête figurent dans la clé de cache. 
+ Exclure tous  |Indique que tous les paramètres de chaîne de requête sont exclus de la clé de cache. Cette configuration duplique le comportement de mise en cache par défaut « standard-cache » sur la page de mise en cache de la chaîne de requête.  
 
-La puissance du moteur de règles HTTP vous permet de personnaliser la manière dont la mise en cache de la chaîne de requête est implémentée. Par exemple, vous pouvez spécifier que la mise en cache de la chaîne de requête est effectuée uniquement sur certains emplacements ou types de fichiers.
+Le moteur de règles vous permet de personnaliser la manière dont la mise en cache de la chaîne de requête est implémentée. Par exemple, vous pouvez spécifier que la mise en cache de la chaîne de requête est effectuée uniquement sur certains emplacements ou types de fichiers.
 
-Si vous souhaitez dupliquer le comportement de mise en cache de la chaîne de requête appelé « no-cache » sur la page de mise en cache de la chaîne de requête, vous devez créer une règle qui contient une condition de correspondance de caractère générique de requête d’URL et une fonctionnalité Ignorer le cache. La condition de correspondance de caractère générique de requête d’URL doit être définie sur un astérisque (*).
+Pour dupliquer le comportement de mise en cache de la chaîne de requête « no-cache » sur la page de mise en cache de la chaîne de requête, créez une règle qui contient une condition de correspondance de caractère générique de requête d’URL et une fonctionnalité Ignorer le cache. Définissez la condition de correspondance de caractère générique de requête d’URL sur un astérisque (*).
 
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 
@@ -387,7 +387,7 @@ Une clé de cache est le chemin d’accès relatif qui identifie une ressource p
 
 Configurez cette fonctionnalité en définissant les deux options suivantes :
 
-Option|Description
+Option|DESCRIPTION
 --|--
 Chemin d’accès d’origine| Permet de définir le chemin d’accès relatif aux types de requêtes dont la clé de cache est réécrite. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière.
 Nouveau chemin d’accès|Permet de définir le chemin d’accès relatif pour la nouvelle clé de cache. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière. Ce chemin d’accès relatif peut être construit de manière dynamique via l’utilisation de variables HTTP
@@ -422,7 +422,7 @@ Une absence de cache partielle décrit l’état du cache pour une ressource qui
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-Une absence de cache partielle se produit généralement après qu’un utilisateur a abandonné un téléchargement ou pour les ressources qui sont demandées uniquement à l’aide de requêtes de plage HTTP. Cette fonctionnalité est particulièrement utile pour les ressources volumineuses que les utilisateurs ne téléchargent pas entièrement (par exemple, les vidéos). Par conséquent, cette fonctionnalité est activée par défaut sur la plateforme HTTP Large. Elle est désactivée sur toutes les autres plateformes.
+Une absence de cache partielle se produit généralement après qu’un utilisateur a abandonné un téléchargement ou pour les ressources qui sont demandées uniquement à l’aide de requêtes de plage HTTP. Cette fonctionnalité est particulièrement utile pour les ressources volumineuses qui ne sont généralement pas téléchargées entièrement (par exemple, les vidéos). Par conséquent, cette fonctionnalité est activée par défaut sur la plateforme HTTP Large. Elle est désactivée sur toutes les autres plateformes.
 
 Conservez la configuration par défaut pour la plateforme HTTP Large, car cela réduit la charge sur le serveur d’origine de votre client et augmente la vitesse à laquelle vos clients téléchargent votre contenu.
 
@@ -430,8 +430,8 @@ En raison de la manière dont les paramètres de cache sont suivis, cette foncti
 
 Valeur|Résultat
 --|--
-Activé|Restaure le comportement par défaut. Le comportement par défaut consiste à forcer le serveur Edge à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du serveur Edge.
-Désactivé|Empêche un serveur Edge d’effectuer une récupération en arrière-plan pour la ressource. Cela signifie que la requête suivante pour cette ressource à partir de cette région force un serveur Edge à la demander à partir du serveur d’origine du client.
+activé|Restaure le comportement par défaut. Le comportement par défaut consiste à forcer le serveur Edge à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du serveur Edge.
+Désactivé|Empêche un serveur Edge d’effectuer une récupération en arrière-plan pour la ressource. Le résultat est tel que la requête suivante pour cette ressource à partir de cette région force un serveur Edge à la demander à partir du serveur d’origine du client.
 
 **Comportement par défaut :** Activé.
 
@@ -441,11 +441,11 @@ Désactivé|Empêche un serveur Edge d’effectuer une récupération en arrièr
 
 ---
 ### <a name="compress-file-types"></a>Compresser les types de fichiers
-**Objectif :** définit les formats de fichier à compresser sur le serveur.
+**Objectif :** définit les formats de fichier des fichiers qui sont compressés sur le serveur.
 
 Un format de fichier peut être spécifié à l’aide de son type de média Internet (par exemple, Content-Type). Le type de média Internet est constitué de métadonnées indépendantes de la plateforme, permettant aux serveurs d’identifier le format de fichier d’une ressource particulière. Vous trouverez ci-dessous une liste des types de média Internet courants.
 
-Type de média Internet|Description
+Type de média Internet|DESCRIPTION
 --|--
 texte/brut|Fichiers de texte brut
 texte/html| Fichiers HTML
@@ -456,9 +456,9 @@ Informations essentielles :
 
 - Spécifiez plusieurs types de média Internet en délimitant chacun d’entre eux à l’aide d’un seul espace. 
 - Cette fonctionnalité compresse uniquement les ressources dont la taille est inférieure à 1 Mo. Les ressources plus volumineuses ne sont pas compressées par les serveurs.
-- Certains types de contenu, tels que des images, des vidéos et des éléments multimédias audio (par exemple, JPG, MP3, MP4, etc.), sont déjà compressés. Une compression supplémentaire sur ces types de ressources ne diminuera pas la taille de fichier de manière significative. Par conséquent, il est recommandé de ne pas activer la compression sur ces types de ressources.
+- Certains types de contenu, tels que des images, des vidéos et des éléments multimédias audio (par exemple, JPG, MP3, MP4, etc.), sont déjà compressés. Étant donné que la compression supplémentaire sur ces types de ressources ne diminue pas considérablement la taille du fichier, il est recommandé de ne pas activer la compression sur ceux-ci.
 - Les caractères génériques, tels que des astérisques, ne sont pas pris en charge.
-- Avant d’ajouter cette fonctionnalité à une règle, veillez à définir l’option de désactivation de la compression sur la page Compression pour la plateforme à laquelle cette règle sera appliquée.
+- Avant d’ajouter cette fonctionnalité à une règle, veillez à définir l’option de désactivation de la compression sur la page Compression pour la plateforme à laquelle cette règle est appliquée.
 
 [Revenir en haut](#azure-cdn-rules-engine-features)
 
@@ -470,9 +470,9 @@ Informations essentielles :
 
 Ce champ personnalisé vous permet de déterminer quelles valeurs d’en-tête de réponse et de requête sont stockées dans vos fichiers journaux.
 
-Par défaut, le champ du fichier journal personnalisé est appelé « x-ec_custom-1 ». Toutefois, le nom de ce champ peut être personnalisé à partir de la page des paramètres de journalisation bruts.
+Par défaut, le champ du fichier journal personnalisé est appelé « x-ec_custom-1 ». Le nom de ce champ peut être personnalisé à partir de la page des paramètres de journalisation bruts.
 
-La mise en forme que vous devez utiliser pour spécifier des en-têtes de requête et de réponse est défini ci-dessous.
+Le format pour spécifier les en-têtes de requête et de réponse est défini comme suit :
 
 Type d’en-tête|Format|Exemples
 -|-|-
@@ -484,7 +484,7 @@ Informations essentielles :
 - Un champ de fichier journal personnalisé peut contenir n’importe quelle combinaison de champs d’en-tête et de texte brut.
 - Les caractères valides pour ce champ sont les suivants : caractères alphanumériques (par exemple, 0 à 9, a à z et A à Z), tirets, deux-points, points-virgules, apostrophes, virgules, points, traits de soulignement, signes égal, parenthèses, crochets et espaces. Le symbole de pourcentage et les accolades sont autorisés uniquement lorsqu’ils sont utilisés pour spécifier un champ d’en-tête.
 - L’orthographe de chaque champ d’en-tête spécifié doit correspondre au nom d’en-tête de requête/réponse souhaité.
-- Si vous souhaitez spécifier plusieurs en-têtes, il est recommandé d’utiliser un séparateur pour indiquer chaque en-tête. Par exemple, vous pouvez utiliser une abréviation pour chaque en-tête. Un exemple de syntaxe est fourni ci-dessous.
+- Si vous souhaitez spécifier plusieurs en-têtes, utilisez un séparateur pour indiquer chaque en-tête. Par exemple, vous pouvez utiliser une abréviation pour chaque en-tête :
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
 
 **Valeur par défaut :** -
@@ -506,13 +506,13 @@ Des en-têtes de réponse de cache de débogage peuvent être demandés en inclu
 
 X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
 
-**Exemple :**
+**Exemple :**
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Valeur|Résultat
 -|-
-Activé|Les requêtes des en-têtes de réponse de cache de débogage renvoient une réponse qui inclut l’en-tête X-EC-Debug.
+activé|Les requêtes des en-têtes de réponse de cache de débogage renvoient une réponse qui inclut l’en-tête X-EC-Debug.
 Désactivé|L’en-tête de réponse X-EC-Debug est exclu de la réponse.
 
 **Comportement par défaut** : Désactivé.
@@ -557,7 +557,7 @@ Informations essentielles :
 
 Valeur | Résultat
 ------|-------
-Activé| Entraîne le rejet de toutes les demandes qui répondent aux critères avec une réponse 403 Interdit.
+activé| Entraîne le rejet de toutes les demandes qui répondent aux critères avec une réponse 403 Interdit.
 Désactivé| Restaure le comportement par défaut. Le comportement par défaut consiste à autoriser le serveur d’origine à déterminer le type de réponse qui sera renvoyée.
 
 **Comportement par défaut** : Désactivé
@@ -617,7 +617,7 @@ Informations essentielles :
 
 Valeur|Résultat
 -|-
-Activé|Les requêtes peuvent être redirigées.
+activé|Les requêtes peuvent être redirigées.
 Désactivé|Les requêtes ne seront pas redirigées.
 
 **Comportement par défaut** : Désactivé.
@@ -678,7 +678,7 @@ Une demande non-cache se produit lorsque le client HTTP envoie un en-tête `Cach
 
 Valeur|Résultat
 --|--
-Activé|Permet de transmettre une requête non cache d’un client HTTP au serveur d’origine. Le serveur d’origine renvoie alors les en-têtes et le corps de la réponse via le serveur Edge au client HTTP.
+activé|Permet de transmettre une requête non cache d’un client HTTP au serveur d’origine. Le serveur d’origine renvoie alors les en-têtes et le corps de la réponse via le serveur Edge au client HTTP.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à éviter la transmission des requêtes non cache au serveur d’origine.
 
 Pour tout le trafic de production, il est fortement recommandé de laisser cette fonctionnalité désactivée par défaut. Dans le cas contraire, les serveurs d’origine ne seront pas protégés des utilisateurs finaux qui peuvent par inadvertance déclencher un grand nombre de demandes non-cache lors de l’actualisation des pages web ou des nombreux lecteurs multimédias populaires codés pour envoyer un en-tête non cache avec chaque requête vidéo. Néanmoins, il peut être utile d’appliquer cette fonctionnalité à certains répertoires de test ou intermédiaires hors production pour autoriser la collecte de contenu actualisé à partir du serveur d’origine à la demande.
@@ -728,7 +728,7 @@ Par défaut, ce code d’état est renvoyé lorsque la requête de plage d’oct
 
 Valeur|Résultat
 -|-
-Activé|Empêche les serveurs Edge de répondre à une requête de plage d’octets non valide avec un code d’état 416 Plage demandée non satisfaisante. Au lieu de cela, les serveurs fournissent la ressource demandée et retournent le code 200 - OK au client.
+activé|Empêche les serveurs Edge de répondre à une requête de plage d’octets non valide avec un code d’état 416 Plage demandée non satisfaisante. Au lieu de cela, les serveurs fournissent la ressource demandée et retournent le code 200 - OK au client.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à respecter le code d’état 416 Plage demandée non satisfaisante.
 
 **Comportement par défaut** : Désactivé.
@@ -777,7 +777,7 @@ Informations essentielles :
 
 Valeur|Résultat
 -|-
-Activé|Permet le stockage des chaînes de requête lors de l’enregistrement des URL dans un journal d’accès. Si une URL ne contient pas de chaîne de requête, cette option n’aura pas d’effet.
+activé|Permet le stockage des chaînes de requête lors de l’enregistrement des URL dans un journal d’accès. Si une URL ne contient pas de chaîne de requête, cette option n’aura pas d’effet.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à ignorer les chaînes de requête lors de l’enregistrement des URL dans un journal d’accès.
 
 **Comportement par défaut** : Désactivé.
@@ -814,7 +814,7 @@ Les requêtes transmises à un serveur d’origine reflètent les modifications 
 
 Une des actions suivantes peut être effectuée sur un en-tête de requête :
 
-Option|Description|Exemple
+Option|DESCRIPTION|exemples
 -|-|-
 Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (Client) :**Value1 <br/> **Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value1Value2
 Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (Client) :**Value1 <br/>**Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value2 <br/>
@@ -852,7 +852,7 @@ Par défaut, les valeurs d’en-tête de réponse sont définies par un serveur 
 
 Une des actions suivantes peut être effectuée sur un en-tête de réponse :
 
-Option|Description|Exemple
+Option|DESCRIPTION|exemples
 -|-|-
 Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
 Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
@@ -874,7 +874,7 @@ Informations essentielles :
     - content-length
     - content-range
     - date
-    - Serveur
+    - server
     - trailer
     - transfer-encoding
     - mettre à niveau
@@ -895,7 +895,7 @@ Ce cache partiel peut ensuite être utilisé pour répondre aux nouvelles requê
 
 Valeur|Résultat
 -|-
-Activé|Les requêtes peuvent générer du contenu partiellement mis en cache.
+activé|Les requêtes peuvent générer du contenu partiellement mis en cache.
 Désactivé|Les requêtes peuvent uniquement générer une version entièrement mise en cache du contenu demandé.
 
 **Comportement par défaut** : Désactivé.
@@ -943,7 +943,7 @@ Les valeurs autorisées sont :
 
 Valeur|Résultat
 --|--
-Activé|Force le serveur Edge à récupérer de nouveau la ressource à partir du serveur d’origine.
+activé|Force le serveur Edge à récupérer de nouveau la ressource à partir du serveur d’origine.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à fournir des ressources de cache valides sur requête.
 Cette fonctionnalité n’est pas requise pour la mise en cache correcte et la distribution de contenu, mais peut être utile comme solution de contournement. Par exemple, des générateurs de contenu dynamiques sur des serveurs d’origine peuvent entraîner par inadvertance l’envoi de réponses de 0 octet aux serveurs Edge. Ces types de réponses sont généralement mis en cache par les serveurs Edge. Si vous savez qu’une réponse de 0 octet n’est jamais une réponse valide 
 
@@ -981,7 +981,7 @@ Informations essentielles :
 
 L’option de nom d’en-tête définit le nom de l’en-tête de requête personnalisée où est stockée l’adresse IP du client.
 
-Cette fonctionnalité permet à un serveur d’origine du client de trouver les adresses IP du client via un en-tête de requête personnalisé. Si la requête est traitée à partir du cache, le serveur d’origine n’est pas informé de l’adresse IP du client. Par conséquent, il est recommandé que cette fonctionnalité soit utilisée avec ADN ou les ressources qui ne sont pas mises en cache.
+Cette fonctionnalité permet à un serveur d’origine du client de trouver les adresses IP du client via un en-tête de requête personnalisé. Si la requête est traitée à partir du cache, le serveur d’origine n’est pas informé de l’adresse IP du client. Par conséquent, il est recommandé que cette fonctionnalité soit utilisée avec les ressources qui ne sont pas mises en cache.
 
 Assurez-vous que le nom d’en-tête spécifié ne correspond pas à un des noms suivants :
 
@@ -1005,7 +1005,7 @@ Assurez-vous que le nom d’en-tête spécifié ne correspond pas à un des noms
 
 Valeur|Résultat
 -|-
-Activé|Le contenu est rendu obsolète pour le demandeur lorsqu’une erreur se produit lors d’une connexion à un serveur d’origine.
+activé|Le contenu est rendu obsolète pour le demandeur lorsqu’une erreur se produit lors d’une connexion à un serveur d’origine.
 Désactivé|L’erreur du serveur d’origine est transférée au demandeur.
 
 **Comportement par défaut :** Désactivé
@@ -1041,7 +1041,7 @@ La clé de chiffrement qui est utilisée pour chiffrer et déchiffrer des valeur
 
 Valeur | Résultat
 ------|---------
-Activé | Protège le contenu demandé avec l’authentification basée sur les jetons. Seules les demandes des clients qui fournissent un jeton valide et répondent aux exigences seront respectées. Les transactions FTP sont exclues de l’authentification basée sur les jetons.
+activé | Protège le contenu demandé avec l’authentification basée sur les jetons. Seules les demandes des clients qui fournissent un jeton valide et répondent aux exigences seront respectées. Les transactions FTP sont exclues de l’authentification basée sur les jetons.
 Désactivé| Restaure le comportement par défaut. Le comportement par défaut consiste à permettre à votre configuration d’authentification basée sur les jetons de déterminer si une demande sera sécurisée.
 
 **Comportement par défaut** : Désactivé.
@@ -1056,7 +1056,7 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 
 Les codes de réponse disponibles sont répertoriés ci-dessous.
 
-Code de la réponse|Nom de la réponse|Description
+Code de la réponse|Nom de la réponse|DESCRIPTION
 ----------------|-----------|--------
 301|Déplacé de façon permanente|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location.
 302|Trouvé|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location. Ce code d’état est la méthode standard du secteur en termes d’exécution d’une redirection.
@@ -1109,7 +1109,7 @@ Les valeurs autorisées sont :
 
 Valeur|Résultat
 ---|----
-Activé|Force le serveur Edge à ignorer la casse lors de la comparaison des URL pour les paramètres d’authentification basée sur les jetons.
+activé|Force le serveur Edge à ignorer la casse lors de la comparaison des URL pour les paramètres d’authentification basée sur les jetons.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut pour les comparaisons d’URL pour l’authentification du jeton consiste à respecter la casse.
 
 **Comportement par défaut** : Désactivé.
@@ -1130,7 +1130,7 @@ Informations essentielles :
 
 Valeur|Résultat
 ----|----
-Activé|L’option Valeur définit le nom de paramètre de chaîne de requête par le biais duquel les jetons doivent être définis.
+activé|L’option Valeur définit le nom de paramètre de chaîne de requête par le biais duquel les jetons doivent être définis.
 Désactivé|Un jeton peut être spécifié comme un paramètre de chaîne de requête non défini dans l’URL de requête.
 
 **Comportement par défaut** : Désactivé. Un jeton peut être spécifié comme un paramètre de chaîne de requête non défini dans l’URL de requête.
@@ -1145,7 +1145,7 @@ Désactivé|Un jeton peut être spécifié comme un paramètre de chaîne de req
 
 La configuration de cette fonctionnalité nécessite de définir les options suivantes :
 
-Option|Description
+Option|DESCRIPTION
 -|-
 Code|Sélectionnez le code de réponse qui sera renvoyé au demandeur.
 Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
@@ -1188,7 +1188,7 @@ Informations essentielles :
 
 - La configuration de cette fonctionnalité nécessite de définir les options suivantes :
 
-Option|Description
+Option|DESCRIPTION
 -|-
  Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
  Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - Des variables HTTP <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
@@ -1248,8 +1248,8 @@ Cette fonctionnalité inclut des critères de correspondance devant être rempli
 </br>
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Référence du moteur de règles](cdn-rules-engine-reference.md)
+* [Informations de référence du moteur de règles](cdn-rules-engine-reference.md)
 * [Expressions conditionnelles du moteur de règles](cdn-rules-engine-reference-conditional-expressions.md)
 * [Conditions de correspondance du moteur de règles](cdn-rules-engine-reference-match-conditions.md)
-* [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
-* [Vue d'ensemble d'Azure CDN](cdn-overview.md)
+* [Remplacement du comportement HTTP à l’aide du moteur de règles](cdn-rules-engine.md)
+* [Vue d’ensemble d’Azure CDN](cdn-overview.md)

@@ -229,5 +229,5 @@ PLAY RECAP ****************************************************************
 localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet exemple crée un environnement de machine virtuelle complète, avec les ressources de réseau virtuel nécessaires. Pour obtenir un exemple plus direct de création d’une machine virtuelle dans des ressources réseau existantes avec des options par défaut, consultez [Créer une machine virtuelle](ansible-create-vm.md).

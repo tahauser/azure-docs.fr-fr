@@ -420,7 +420,7 @@ Enfin, testez que votre fonction étendue peut maintenant traiter votre type d�
 
 Vous pouvez également tester cette fonctionnalité en direct en [envoyant un événement personnalisé avec CURL à partir du portail](./custom-event-quickstart-portal.md) ou en [publiant vers une rubrique personnalisée](./post-to-custom-topic.md) à l’aide d’un service ou d’une application qui peut PUBLIER sur un point de terminaison tel que [Postman](https://www.getpostman.com/). Créez une rubrique personnalisée et un abonnement à des événements avec le point de terminaison défini en tant qu’URL de la fonction.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Explorer les [Kits SDK Event Grid de gestion et de publication](./sdk-overview.md)
 * Découvrez comment [publier vers une rubrique personnalisée](./post-to-custom-topic.md)

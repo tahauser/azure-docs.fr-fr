@@ -84,6 +84,6 @@ Une fois que vous avez installé les agents sur toutes les machines du groupe, v
 Si vous souhaitez vérifier les dépendances d’une machine spécifique qui s’affichent dans le mappage de dépendances de groupe, [configurez le mappage de dépendances de la machine](how-to-create-group-machine-dependencies.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

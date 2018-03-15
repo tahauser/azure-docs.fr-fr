@@ -312,7 +312,7 @@ Nom du [hub de tâches](durable-functions-task-hubs.md) pour l’extension [Fonc
 Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](durable-functions-task-hubs.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Découvrez comment mettre à jour le fichier host.json](functions-reference.md#fileupdate)

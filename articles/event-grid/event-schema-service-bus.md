@@ -99,7 +99,7 @@ L’objet de données comporte les propriétés suivantes :
 | topicName | chaîne | Rubrique à laquelle appartient l’abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
 | subscriptionName | chaîne | Abonnement Service Bus contenant les messages actifs. Valeur null si une file d’attente est utilisée. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](overview.md).
 * Pour plus d’informations sur la création d’un abonnement Azure Event Grid, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).

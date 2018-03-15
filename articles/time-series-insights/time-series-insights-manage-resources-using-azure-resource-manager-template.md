@@ -269,6 +269,6 @@ La page d’accueil du modèle de démarrage rapide sur GitHub comporte égaleme
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur la gestion par programme de ressources Time Series Insights à l’aide d’API REST, consultez la page [Gestion de Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

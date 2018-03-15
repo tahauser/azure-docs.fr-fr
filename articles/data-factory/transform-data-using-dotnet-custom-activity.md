@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ Dans cet exemple, le fichier helloworld.exe est une application personnalisée q
 
 Le tableau suivant indique les noms et les descriptions des propriétés qui sont spécifiques à cette activité. 
 
-| Propriété              | DESCRIPTION                              | Obligatoire |
+| Propriété              | Description                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
 | Nom                  | Nom de l’activité dans le pipeline     | OUI      |
 | description           | Texte décrivant l’activité.  | Non        |
@@ -300,7 +300,7 @@ Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval
 
 ## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Différence entre une activité personnalisée dans Azure Data Factory version 2 et une activité DotNet (personnalisée) dans Azure Data Factory version 1
 
-  Dans la version 1, vous implémentez le code de l’activité DotNet (personnalisée) en créant un projet de bibliothèque de classes .Net avec une classe qui implémente la méthode Execute de l’interface IDotNetActivity. Les services liés, les jeux de données et les propriétés étendues dans la charge utile JSON d’activité DotNet (personnalisée) sont passés à la méthode d’exécution en tant qu’objets fortement typés. Pour en savoir plus, consultez la rubrique relative à [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). Pour cette raison, votre code personnalisé doit être écrit dans le .Net Framework 4.5.2 et être exécuté sur des nœuds de pool Azure Batch basés sur Windows. 
+  Dans la version 1, vous implémentez le code de l’activité DotNet (personnalisée) en créant un projet de bibliothèque de classes .Net avec une classe qui implémente la méthode Execute de l’interface IDotNetActivity. Les services liés, les jeux de données et les propriétés étendues dans la charge utile JSON d’activité DotNet (personnalisée) sont passés à la méthode d’exécution en tant qu’objets fortement typés. Pour en savoir plus, consultez la rubrique relative à [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). En raison de cette implémentation, votre code personnalisé doit être écrit dans le .Net Framework 4.5.2 et être exécuté sur des nœuds de pool Azure Batch basés sur Windows. 
 
   Dans une activité personnalisée Azure Data Factory V2, vous n’êtes pas obligé d’implémenter une interface .Net. Vous pouvez maintenant exécuter directement des commandes et des scripts, et exécuter votre propre code compilé comme exécutable. Pour cela, vous devez spécifier la propriété Command avec la propriété folderPath. L’activité personnalisée charge le fichier exécutable et les dépendances dans folderpath et exécute la commande pour vous. 
 
@@ -353,7 +353,7 @@ Pour plus d’informations, consultez [Mettre automatiquement à l’échelle le
 Si le pool utilise la valeur par défaut du paramètre [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), le service Batch peut mettre 15 à 30 minutes à préparer la machine virtuelle avant d’exécuter l’activité personnalisée.  Si le pool utilise une autre valeur pour autoScaleEvaluationInterval, le service Batch peut prendre la durée d’autoScaleEvaluationInterval + 10 minutes.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)

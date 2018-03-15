@@ -173,7 +173,7 @@ Les attributs sont définis comme suit :
 >Si vous démarrez le conteneur avec un nom autre que `sfonebox`, mettez à jour la valeur du nom dans le fichier testclient.sh de votre application Java pour Service Fabric.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 <!-- Links -->
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman (Créer et déployer votre première application Java Service Fabric sur Linux à l’aide de Yeoman)](service-fabric-create-your-first-linux-application-with-java.md)
 * [Créer et déployer votre première application Java Service Fabric sur Linux à l’aide du plug-in Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques
 
@@ -30,12 +30,12 @@ Pour créer des points de terminaison HTTP, vous pouvez ajouter ces déclencheur
 
 * [Requête](../connectors/connectors-native-reqres.md)
 
-* [Déclencheur ApiConnectionWebhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [Déclencheur ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Bien que nos exemples utilisent le déclencheur de **requête**, vous pouvez utiliser l’un des déclencheurs HTTP répertoriés, et tous les principes s’appliquent de la même façon aux autres types de déclencheurs.
+   > Bien que ces exemples utilisent le déclencheur de **requête**, vous pouvez utiliser l’un des déclencheurs HTTP répertoriés, et tous les principes s’appliquent de la même façon aux autres types de déclencheurs.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurer un point de terminaison HTTP pour votre application logique
 
@@ -166,6 +166,7 @@ Lorsque vous souhaitez que votre URL de point de terminaison HTTP accepte des pa
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Jetons générés à partir de schémas JSON pour votre application logique
 
 Lorsque vous fournissez un schéma JSON dans votre déclencheur de **requête**, le Concepteur d’application logique génère des jetons pour les propriétés de ce schéma. Vous pouvez ensuite utiliser ces jetons pour transmettre des données au workflow de votre application logique.
@@ -206,6 +207,9 @@ Vous pouvez imbriquer des workflows dans votre application logique en ajoutant d
 
 Une fois que vous avez créé votre point de terminaison HTTP, vous pouvez déclencher votre application logique via une méthode `POST` vers l’URL complète. Les applications logiques ont une prise en charge intégrée pour les points de terminaison à accès direct.
 
+> [!NOTE] 
+> Pour exécuter manuellement une application logique à tout moment, dans la barre d’outils Concepteur d’application logique ou Affichage du code de l’application logique, choisissez **Exécuter**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Référencer le contenu à partir d’une requête entrante
 
 Si le type de contenu est `application/json`, vous pouvez référencer des propriétés à partir de la requête entrante. Sinon, le contenu est traité comme une seule unité binaire que vous pouvez transmettre à d’autres API. Pour référencer ce contenu dans le workflow, vous devez le convertir. Par exemple, si vous transmettez le contenu `application/xml`, vous pouvez utiliser `@xpath()` pour une extraction XPath, ou `@json()` pour effectuer la conversion de XML vers JSON. Découvrez plus en détail comment [utiliser les types de contenu](../logic-apps/logic-apps-content-type.md).
@@ -234,13 +238,13 @@ Vous souhaitez peut-être répondre à certaines requêtes qui démarrent une ap
 
 ### <a name="construct-the-response"></a>Construire la réponse
 
-Vous pouvez inclure plusieurs en-têtes et n’importe quel type de contenu dans le corps de la réponse. Dans notre exemple de réponse, l’en-tête spécifie que la réponse a le type de contenu `application/json`. et que le corps contient `title` et `name`, selon le schéma JSON mis à jour précédemment pour le déclencheur de **requête**.
+Vous pouvez inclure plusieurs en-têtes et n’importe quel type de contenu dans le corps de la réponse. Dans l’exemple de réponse, l’en-tête spécifie que la réponse a le type de contenu `application/json`. et que le corps contient `title` et `name`, selon le schéma JSON mis à jour précédemment pour le déclencheur de **requête**.
 
 ![Action HTTP Response][3]
 
 Les réponses ont ces propriétés :
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
 | statusCode |Indique le code d’état HTTP pour répondre à la requête entrante. Ce code peut être tout code d’état valide commençant par 2xx, 4xx ou 5xx. Cependant, les codes d’état 3xx ne sont pas autorisés. |
 | headers |Définit un nombre quelconque d’en-têtes à inclure dans la réponse. |
@@ -309,7 +313,7 @@ Pour poser des questions ou y répondre et voir ce que font les autres utilisate
 
 Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer des définitions d’application logique](./logic-apps-author-definitions.md)
 * [Gérer les erreurs et exceptions](./logic-apps-exception-handling.md)

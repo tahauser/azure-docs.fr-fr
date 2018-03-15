@@ -236,7 +236,7 @@ def response_callback(response):
 
 ---
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans la première partie de la série, vous avez appris à rendre une application hautement disponible avec des comptes de stockage RA-GRS, en effectuant les opérations suivantes :
 

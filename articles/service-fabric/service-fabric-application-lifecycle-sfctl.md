@@ -164,7 +164,7 @@ Lorsqu’une mise à niveau de l’application est en cours, l’état peut êtr
 
 Enfin, si une mise à niveau est en cours et doit être annulée, vous pouvez utiliser la commande `sfctl application upgrade-rollback` pour restaurer la mise à niveau.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Concepts de base Service Fabric CLI](service-fabric-cli.md)
 * [Prise en main de Service Fabric sur Linux](service-fabric-get-started-linux.md)

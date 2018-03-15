@@ -178,7 +178,7 @@ AdlCopy prend en charge la copie de données contenant des milliers de fichiers 
 ## <a name="release-notes"></a>Notes de publication
 * 1.0.13 – si vous copiez des données sur le même compte Azure Data Lake Store sur plusieurs commandes adlcopy, il n’est pas nécessaire de saisir à nouveau vos informations d’identification pour chaque exécution. Adlcopy met alors en cache ces informations sur plusieurs exécutions.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

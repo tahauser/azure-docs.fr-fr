@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à ADP Federated SSO | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP Federated SSO."
+title: "Didacticiel : Intégration d’Azure Active Directory à ADP | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Didacticiel : Intégration d’Azure Active Directory à ADP Federated SSO
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Didacticiel : Intégration d’Azure Active Directory à ADP
 
-Dans ce didacticiel, vous allez apprendre à intégrer ADP Federated SSO à Azure Active Directory (Azure AD).
+Dans ce didacticiel, vous allez apprendre à intégrer ADP à Azure Active Directory (Azure AD).
 
-L’intégration d’ADP Federated SSO à Azure AD vous offre les avantages suivants :
+L’intégration d’ADP à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à ADP Federated SSO.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à ADP Federated SSO (par le biais de l’authentification unique) avec leur compte Azure AD.
+- Dans Azure AD, vous pouvez contrôler qui a accès à ADP.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à ADP (par authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à ADP Federated SSO, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à ADP, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement ADP Federated SSO pour lequel l’authentification unique est activée
+- Un abonnement ADP activé
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -50,13 +50,13 @@ Vous devez en outre suivre les recommandations ci-dessous :
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout d’ADP Federated SSO à partir de la galerie
+1. Ajout d’ADP depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-adp-federated-sso-from-the-gallery"></a>Ajout d’ADP Federated SSO à partir de la galerie
-Pour configurer l’intégration d’ADP Federated SSO à Azure AD, vous devez ajouter ADP Federated SSO à partir de la galerie à votre liste d’applications SaaS gérées.
+## <a name="adding-adp-from-the-gallery"></a>Ajout d’ADP depuis la galerie
+Pour configurer l’intégration d’ADP à Azure AD, vous devez ajouter ADP disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter ADP Federated SSO à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter ADP à partir de la galerie, procédez comme suit :**
 
 1.  Ouvrez une session en tant qu’administrateur sur votre environnement de fournisseur d’identité Microsoft Azure.
 
@@ -72,35 +72,35 @@ Pour configurer l’intégration d’ADP Federated SSO à Azure AD, vous devez a
 
     ![Bouton Nouvelle application][3]
 
-5. Dans la zone de recherche, tapez **ADP Federated SSO**, sélectionnez **ADP Federated SSO** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+5. Dans la zone de recherche, tapez **ADP**, sélectionnez **ADP** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![ADP Federated SSO dans la liste des résultats](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![ADP dans la liste des résultats](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès d’ADP Federated SSO avec un utilisateur de test appelé « Britta Simon ».
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec ADP, avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur ADP Federated SSO équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur ADP Federated SSO associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur ADP correspondant à l’utilisateur Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur ADP associé doit être établie.
 
-Dans ADP Federated SSO, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+Dans ADP, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
 
-Pour configurer et tester l’authentification unique Azure AD avec ADP Federated SSO, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec ADP, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test ADP Federated SSO](#create-an-adp-federated-sso-test-user)** pour avoir un équivalent de Britta Simon dans ADP Federated SSO lié à la représentation Azure AD de l’utilisateur.
+3. **[Créer un utilisateur de test ADP](#create-an-adp-test-user)** pour avoir un équivalent de Britta Simon dans ADP, associé à sa représentation dans Azure AD.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application ADP Federated SSO.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application ADP.
 
-**Pour configurer l’authentification unique Azure AD avec ADP Federated SSO, effectuez les étapes suivantes :**
+**Pour configurer l’authentification unique Azure AD avec ADP, procédez comme suit :**
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **ADP Federated SSO**, cliquez sur **l’onglet Propriétés** et effectuez les étapes suivantes : 
+1. Dans le portail Azure, dans la page d’intégration de l’application **ADP**, cliquez sur **l’onglet Propriétés** et effectuez les étapes suivantes : 
 
-    ![Propriétés de l’authentification unique](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Propriétés de l’authentification unique](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
     a. Définissez le champ **Activé pour que les utilisateurs se connectent** sur **Oui**.
 
@@ -110,25 +110,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Définissez le champ **Visible par les utilisateurs** sur **Non**.
 
-2. Cliquez sur **Authentification unique** dans la page d’intégration de l’application **ADP Federated SSO**.
+2. Cliquez sur **Authentification unique** dans la page d’intégration de l’application **ADP**.
 
     ![Lien Configurer l’authentification unique][4]
 
 3. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
 
-4. Dans la section **Domaine et URL ADP Federated SSO**, effectuez les étapes suivantes :
+4. Dans la section **Domaine et URL ADP**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL ADP Federated SSO](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![Informations d’authentification unique dans Domaine et URL ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
     Dans la zone de texte **Identificateur**, tapez une URL : `https://fed.adp.com/` 
     
-5. L’application ADP Federated SSO s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à **employeeid**. 
+5. Votre application ADP s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à **employeeid**. 
 
-    Ici, le mappage utilisateur d’Azure AD à ADP Federated SSO est effectué avec **employeeid**, mais vous pouvez le mapper à une valeur différente basée sur les paramètres de votre application. Ainsi, contactez d’abord [l’équipe du support ADP](https://www.adp.com/contact-us/overview.aspx) pour utiliser le bon identificateur d’utilisateur et mapper cette valeur à la revendication **« PersonImmutableID »**.
+    Ici, le mappage utilisateur d’Azure AD à ADP est effectué avec **employeeid**, mais vous pouvez le mapper à une valeur différente basée sur les paramètres de votre application. Ainsi, contactez d’abord [l’équipe du support ADP](https://www.adp.com/contact-us/overview.aspx) pour utiliser le bon identificateur d’utilisateur et mapper cette valeur à la revendication **« PersonImmutableID »**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -153,9 +153,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
-8. Pour configurer l’authentification unique côté **ADP Federated SSO**, vous devez charger le **XML de métadonnées** téléchargé sur le [site web ADP Federated SSO](https://adpfedsso.adp.com/public/login/index.fcc).
+8. Pour configurer l’authentification unique côté **ADP**, vous devez charger le **XML de métadonnées** téléchargé sur le [site web ADP](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
 > Ce processus peut prendre quelques jours. 
@@ -178,13 +178,13 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **ADP Federated SSO**, sélectionnez **ADP Federated SSO** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **ADP**, sélectionnez **ADP** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![ADP Federated SSO dans la liste des résultats](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![ADP dans la liste des résultats](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. Dans le portail Azure, dans votre page d’intégration de l’application **ADP Federated SSO**, cliquez sur **l’onglet Propriétés** et effectuez les étapes suivantes :  
+5. Dans le portail Azure, dans la page d’intégration de votre application **ADP**, cliquez sur **l’onglet Propriétés** et effectuez les étapes suivantes :  
 
-    ![Propriétés de l’authentification unique liée](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Propriétés de l’authentification unique liée](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Définissez le champ **Activé pour que les utilisateurs se connectent** sur **Oui**.
 
@@ -192,19 +192,19 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
 
     c.  Définissez le champ **Visible par les utilisateurs** sur **Oui**.
 
-6. Cliquez sur **Authentification unique** dans la page d’intégration de l’application **ADP Federated SSO**.
+6. Cliquez sur **Authentification unique** dans la page d’intégration de l’application **ADP**.
 
     ![Lien Configurer l’authentification unique][4]
 
-7. Dans la boîte de dialogue **Authentification unique**, sélectionnez **Mode** comme **Authentification liée** pour lier votre application à **Authentification unique fédérée ADP**.
+7. Dans la boîte de dialogue **Authentification unique**, sélectionnez **Mode** en tant que **Authentification liée**. pour lier votre application à **ADP**.
 
-    ![Authentification unique liée](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Authentification unique liée](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
 8. Accédez à la section **Configurer l’URL d’authentification**, puis effectuez les étapes suivantes :
 
-    ![Propriétés de l’authentification unique](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Propriétés de l’authentification unique](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
                                                               
-    a. Collez **l’URL d’accès utilisateur**, que vous avez copiée à partir de **l’onglet Propriétés** plus haut (à partir de l’application ADP Federated SSO principale).
+    a. Collez l’**URL d’accès utilisateur**, que vous avez copiée à partir de l’**onglet Propriétés** plus haut (à partir de l’application ADP principale).
                                                              
     b. Voici les 5 applications qui prennent en charge différentes **URL d’état de relais**. Vous devez ajouter la valeur **d’URL d’état de relais** appropriée pour une application particulière manuellement à **l’URL d’accès utilisateur**.
     
@@ -274,25 +274,25 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
  
-### <a name="create-an-adp-federated-sso-test-user"></a>Créer un utilisateur de test ADP Federated SSO
+### <a name="create-an-adp-test-user"></a>Création d’un utilisateur de test ADP
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ADP Federated SSO. Pour ajouter les utilisateurs au compte ADP Federated SSO, contactez [l’équipe du support ADP](https://www.adp.com/contact-us/overview.aspx).
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ADP. Pour ajouter les utilisateurs au compte ADP, contactez l’[équipe du support ADP](https://www.adp.com/contact-us/overview.aspx).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ADP Federated SSO.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ADP.
 
 ![Attribuer le rôle utilisateur][200] 
 
-**Pour affecter Britta Simon à ADP Federated SSO, effectuez les étapes suivantes :**
+**Pour affecter Britta Simon à ADP, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **ADP Federated SSO**.
+2. Dans la liste des applications, sélectionnez **ADP**.
 
-    ![Lien ADP Federated SSO dans la liste des applications](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![Lien ADP dans la liste des applications](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -312,15 +312,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette ADP Federated SSO dans le volet d’accès, vous devez être connecté automatiquement à votre application ADP Federated SSO.
+Lorsque vous cliquez sur la vignette ADP dans le volet d’accès, vous devez être connecté automatiquement à votre application ADP.
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -174,7 +174,7 @@ Pour réexécuter le travail, vous devez modifier le nom du dossier de sortie du
 
 Lorsque la tâche se termine correctement, l’application imprime le contenu du fichier de sortie « part-r-00000 ».
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * Pour soumettre un travail Hive, consultez [Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).

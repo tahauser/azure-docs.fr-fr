@@ -201,7 +201,7 @@ La télémétrie peut être utilisée pour la surveillance et la résolution des
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md).   
 * [Gérer Analysis Services](analysis-services-manage.md)
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)

@@ -256,5 +256,5 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 | 3 |A |
 | 3 |E |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

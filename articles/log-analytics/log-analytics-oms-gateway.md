@@ -312,5 +312,5 @@ Pour demander de l’aide, cliquez sur le symbole en forme de point d’interrog
 
 ![Nouvelle demande de support](./media/log-analytics-oms-gateway/support.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Ajoutez des sources de données](log-analytics-data-sources.md) pour collecter des données à partir de vos sources connectées et les stocker dans votre espace de travail Log Analytics.

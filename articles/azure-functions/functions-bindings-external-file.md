@@ -379,7 +379,7 @@ Dans les fonctions C#, vous pouvez également définir une sortie vers les types
 * `CloudBlockFile`
 * `CloudPageFile`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

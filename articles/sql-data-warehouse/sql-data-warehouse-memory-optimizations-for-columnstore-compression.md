@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 La taille de DWU et la classe de ressources utilisateur déterminent ensemble la quantité de mémoire disponible pour une requête utilisateur. Pour augmenter l’allocation de mémoire pour une requête de chargement, vous pouvez augmenter soit le nombre de DWU, soit la classe de ressources.
 
-- Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](sql-data-warehouse-manage-compute-overview.md#scale-compute).
+- Pour augmenter le nombre de DWU, voir [Comment mettre les performances à l’échelle ?](quickstart-scale-compute-portal.md).
 - Pour modifier la classe de ressources pour une requête, voir [Exemple de modification d’une classe de ressources utilisateur](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Par exemple, sur DWU 100, un utilisateur dans la classe de ressources smallrc peut utiliser 100 Mo de mémoire pour chaque distribution. Pour plus d’informations, voir [Gestion de la concurrence et des charges de travail dans SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
@@ -150,7 +150,7 @@ Supposons que vous déterminez que vous avez besoin de 700 Mo de mémoire pour 
 - En utilisant DWU 600 et largerc, votre allocation de mémoire est de 800 Mo.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour découvrir d’autres façons d’améliorer les performances dans SQL Data Warehouse, voir [Vue d’ensemble des performances](sql-data-warehouse-overview-manage-user-queries.md).
 

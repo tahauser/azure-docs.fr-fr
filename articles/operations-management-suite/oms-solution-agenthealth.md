@@ -131,6 +131,6 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Géolocalisation des agents |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Nombre de passerelles OMS installées |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez [Alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics.

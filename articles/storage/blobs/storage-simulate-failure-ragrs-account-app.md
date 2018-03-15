@@ -170,7 +170,7 @@ Pour permettre à l’application de reprendre son exécution, appuyez sur **une
 ![Reprendre l’exécution de l’application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce deuxième volet, vous avez appris à simuler une défaillance pour tester le stockage géoredondant avec accès en lecture. Vous avez notamment appris à :
 

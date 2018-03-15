@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -56,8 +56,8 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
-|Windows Server 2008 et versions ultérieures     | Prend uniquement en charge les évaluations de mises à jour.         |
-|Windows Server 2008 R2 SP1 et versions ultérieures     |.NET Framework 4.5 et WMF 5.0 ou des versions ultérieures sont nécessaires pour Windows Server 2008 R2 SP1.<br>Nano Server non pris en charge         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
+|Windows Server 2008 R2 SP1 et versions ultérieures     |.NET Framework 4.5 et WMF 5.0 ou des versions ultérieures sont nécessaires pour Windows Server 2008 R2 SP1.        |
 |CentOS 6 (x86/x64) et 7 (x 64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x 64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
@@ -70,7 +70,7 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 |Système d’exploitation  |Notes  |
 |---------|---------|
 |Client Windows     | Les systèmes d’exploitation clients (Windows 7, Windows 10, etc.) ne sont pas pris en charge.        |
-|Nano Server     | Nano Server fait partie de Windows 2016.        |
+|Windows Server 2016 Nano Server     | Non pris en charge       |
 
 ### <a name="client-requirements"></a>Configuration requise des clients
 
@@ -255,7 +255,7 @@ Si vous rencontrez des problèmes lorsque vous essayez d’intégrer la solution
 | The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. (Le certificat présenté par le service .oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL.) |Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|  
 | Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException : échec de la création d’un certificat auto-signé. --->System.UnauthorizedAccessException : accès refusé.) | Échec de génération du certificat auto-signé | Vérifiez que le compte système a<br>un accès en lecture au dossier :<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Poursuivez avec le tutoriel pour apprendre à gérer les mises à jour pour vos machines virtuelles Windows.
 

@@ -97,7 +97,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
  - [Déployer des modèles sur Azure Stack](azure-stack-arm-templates.md)
  - [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
 

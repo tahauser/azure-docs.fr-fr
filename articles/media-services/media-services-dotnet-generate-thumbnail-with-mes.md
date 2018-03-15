@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
 
@@ -34,6 +34,7 @@ La présélection JSON et XML suivante peut servir à générer un fichier de so
 
 ### <a name="json-preset"></a>Présélection JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ La présélection JSON et XML suivante peut servir à générer un fichier de so
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>Présélection XML
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ La présélection JSON et XML suivante peut servir à générer un fichier de so
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exemple de présélection d’une « série d’images JPEG »
 
@@ -86,6 +90,7 @@ La présélection JSON et XML suivante peut servir à générer un ensemble de 1
 
 ### <a name="json-preset"></a>Présélection JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ La présélection JSON et XML suivante peut servir à générer un ensemble de 1
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Présélection XML
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ La présélection JSON et XML suivante peut servir à générer un ensemble de 1
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exemple de présélection d’une « image à un horodatage spécifique »
 
@@ -142,6 +150,7 @@ La présélection JSON et XML suivante peut servir à générer une image JPEG �
 
 ### <a name="json-preset"></a>Présélection JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ La présélection JSON et XML suivante peut servir à générer une image JPEG �
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>Présélection XML
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ La présélection JSON et XML suivante peut servir à générer une image JPEG �
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exemple de présélection de « miniatures avec différentes résolutions »
 
 La présélection suivante peut servir à générer des miniatures avec différentes résolutions en une seule tâche. Dans cet exemple, à des positions de 5 %, 15 %, ..., 95 % de la chronologie d’entrée, l’encodeur génère deux images : l’une à 100 % de la résolution vidéo d’entrée et l’autre à 50 %.
@@ -200,6 +211,7 @@ Notez l’utilisation de la macro {Resolution} dans le nom de fichier. Elle donn
 
 ### <a name="json-preset"></a>Présélection JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Notez l’utilisation de la macro {Resolution} dans le nom de fichier. Elle donn
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Présélection XML
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Notez l’utilisation de la macro {Resolution} dans le nom de fichier. Elle donn
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exemple de génération d’une miniature durant l’encodage
 
 Bien que tous les exemples précédents illustrent la façon de soumettre une tâche d’encodage qui génère uniquement des images, vous pouvez également combiner l’encodage audio/vidéo avec la génération de miniatures. La présélection JSON et XML suivante donne à **Media Encoder Standard** l’instruction de générer une miniature durant l’encodage.
@@ -269,6 +283,7 @@ Bien que tous les exemples précédents illustrent la façon de soumettre une t�
 ### <a id="json"></a>Présélection JSON
 Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsoft.com/library/mt269962.aspx) article.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsof
         }
       ]
     }
+```
 
 ### <a id="xml"></a>Présélection XML
 Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsoft.com/library/mt269962.aspx) article.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsof
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Encoder la vidéo et générer la miniature avec .NET
 
@@ -400,7 +418,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 Consultez l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md) pour obtenir des instructions sur la configuration de votre environnement de développement.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -542,7 +560,7 @@ Les considérations suivantes s'appliquent :
   * La configuration par défaut est « Start:{Best} ».
 * Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez vérifier la [progression du travail](media-services-check-job-progress.md) pendant que le travail d’encodage est en attente.
 

@@ -54,7 +54,7 @@ Connectez-vous au [Portail Azure](http://portal.azure.com).
 6. La surveillance commence. Le moniteur de connexion procède à un sondage toutes les 60 secondes.
 7. Le moniteur de connexion vous montre les moyennes en temps et en pourcentage des sondages aller-retour qui échouent. Vous pouvez afficher les données de surveillance dans une grille ou un graphe.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en [créant une capture de paquets déclenchée par alerte](network-watcher-alert-triggered-packet-capture.md).
 

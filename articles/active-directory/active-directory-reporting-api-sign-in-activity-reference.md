@@ -186,7 +186,7 @@ La valeur d’appDisplayName est une valeur de chaîne
 Il existe deux options pour loginStatus : 0 - Réussite, 1 - Échec
 
 - - -
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Voulez-vous voir des exemples d’activités de connexion filtrées ? Consultez les [exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Vous souhaitez en savoir plus sur l’API de création de rapports Azure AD ? Consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 

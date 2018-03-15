@@ -1,6 +1,6 @@
 ---
 title: "Actions et déclencheurs de workflow - Azure Logic Apps | Microsoft Docs"
-description: "En savoir plus sur les types de déclencheurs et d’actions que vous pouvez utiliser pour la création et l’automatisation des workflows et des processus avec Azure Logic Apps"
+description: "En savoir plus sur les déclencheurs et les actions pour la création de workflows automatisés et de processus avec des applications logiques"
 services: logic-apps
 author: MandiOhlinger
 manager: anneta
@@ -12,13 +12,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: LADocs; mandia
-ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 10/13/2017
+ms.author: klam; LADocs
+ms.openlocfilehash: af30fd30f389cdc2070c45ae3b6e2cb1165239e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Déclencheurs et actions pour les workflows d’application logique
 
@@ -26,28 +26,28 @@ Toutes les applications logiques commencent par un déclencheur suivi d’action
   
 ## <a name="triggers-overview"></a>Vue d’ensemble des déclencheurs 
 
-Toutes les applications logiques commencent par un déclencheur, qui spécifie les appels qui peuvent démarrer l’exécution d’une application logique. Voici les deux façons dont vous pouvez initialiser l’exécution de votre workflow :  
+Toutes les applications logiques commencent par un déclencheur, qui spécifie les appels qui peuvent démarrer l’exécution d’une application logique. Voici les types de déclencheurs que vous pouvez utiliser :
 
-* Un déclencheur d’interrogation  
-* Un déclencheur d’émission (Push) qui appelle [l’API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows)  
+* Un déclencheur d’*interrogation*, qui vérifie le point de terminaison HTTP d’un service à intervalles réguliers
+* Un déclencheur d’*émission* (Push), qui appelle l’[API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows)
   
 Tous les déclencheurs contiennent ces éléments de niveau supérieur :  
   
 ```json
-"trigger-name": {
-    "type": "trigger-type",
-    "inputs": { call-settings },
+"<myTriggerName>": {
+    "type": "<triggerType>",
+    "inputs": { <callSettings> },
     "recurrence": {  
-        "frequency": "Second|Minute|Hour|Day|Week|Month",
-        "interval": recurrence-interval-based-on-frequency
+        "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+        "interval": "<recurrence-interval-based-on-frequency>"
     },
-    "conditions": [ array-of-required-conditions ],
-    "splitOn": "property-used-for-creating-separate-workflows",
-    "operationOptions": "operation-options-for-trigger"
+    "conditions": [ <array-with-required-conditions> ],
+    "splitOn": "<property-used-for-creating-runs>",
+    "operationOptions": "<options-for-operations-on-the-trigger>"
 }
 ```
 
-### <a name="trigger-types-and-inputs"></a>Types et entrées relatifs aux déclencheurs  
+## <a name="trigger-types-and-inputs"></a>Types et entrées relatifs aux déclencheurs  
 
 Chaque type de déclencheur a une interface différente et des *entrées* différentes qui définissent son comportement. 
 
@@ -57,15 +57,19 @@ Chaque type de déclencheur a une interface différente et des *entrées* diffé
 | **Requête**  | Transforme votre application logique en un point de terminaison que vous pouvez appeler, également connu en tant que déclencheur « manuel ». | 
 | **HTTP** | Vérifie ou *interroge* un point de terminaison web HTTP. Le point de terminaison HTTP doit être conforme à un contrat de déclenchement spécifique, soit en utilisant un modèle asynchrone « 202 », soit en renvoyant un tableau. | 
 | **ApiConnection** | Interroge comme un déclencheur HTTP, mais utilise des [API gérées par Microsoft](../connectors/apis-list.md). | 
-| **HTTPWebhook** | Transforme votre application logique en un point de terminaison pouvant être appelé, comme le déclencheur de requête, mais appelle une URL spécifiée pour l’inscription et la désinscription. |
+| **HTTPWebhook** | Transforme votre application logique en un point de terminaison pouvant être appelé, comme le déclencheur de **requête**, mais appelle une URL spécifiée pour l’inscription et la désinscription. |
 | **ApiConnectionWebhook** | Fonctionne comme le déclencheur **HTTPWebhook**, mais utilise des API gérées par Microsoft. | 
 ||| 
 
-Pour plus d’informations sur les autres détails, consultez [Langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). 
-  
+Pour plus d’informations, consultez [Langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+<a name="recurrence-trigger"></a>
+
 ## <a name="recurrence-trigger"></a>Déclencheur recurrence  
 
-Ce déclencheur s’exécute en fonction de la périodicité et de la planification que vous spécifiez et offre un moyen simple d’exécuter régulièrement un workflow. Voici un exemple de déclencheur de périodicité de base qui s’exécute quotidiennement :
+Ce déclencheur s’exécute en fonction de la périodicité et de la planification que vous spécifiez et offre un moyen simple d’exécuter régulièrement un workflow. 
+
+Voici un exemple de déclencheur de récurrence de base qui s’exécute quotidiennement :
 
 ```json
 "myRecurrenceTrigger": {
@@ -76,6 +80,7 @@ Ce déclencheur s’exécute en fonction de la périodicité et de la planificat
     }
 }
 ```
+
 Vous pouvez également planifier une date et une heure de début pour déclencher le déclencheur. Par exemple, pour démarrer un rapport hebdomadaire tous les lundis, vous pouvez planifier le démarrage de l’application logique un lundi spécifique, comme dans cet exemple : 
 
 ```json
@@ -84,29 +89,29 @@ Vous pouvez également planifier une date et une heure de début pour déclenche
     "recurrence": {
         "frequency": "Week",
         "interval": "1",
-        "startTime" : "2017-09-18T00:00:00Z"
+        "startTime": "2017-09-18T00:00:00Z"
     }
 }
 ```
 
-Voici la définition de ce déclencheur : 
+Voici la définition de ce déclencheur :
 
 ```json
 "myRecurrenceTrigger": {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "second|minute|hour|day|week|month",
-        "interval": recurrence-interval-based-on-frequency,
+        "interval": <recurrence-interval-based-on-frequency>,
         "schedule": {
             // Applies only when frequency is Day or Week. Separate values with commas.
-            "hours": [ one-or-more-hour-marks ], 
+            "hours": [ <one-or-more-hour-marks> ], 
             // Applies only when frequency is Day or Week. Separate values with commas.
-            "minutes": [ one-or-more-minute-marks ], 
+            "minutes": [ <one-or-more-minute-marks> ], 
             // Applies only when frequency is Week. Separate values with commas.
             "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
         },
-        "startTime": "start-date-time-with-format-YYYY-MM-DDThh:mm:ss",
-        "timeZone": "specify-time-zone"
+        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+        "timeZone": "<specify-time-zone>"
     }
 }
 ```
@@ -120,35 +125,31 @@ Voici la définition de ce déclencheur :
 | weekDays | Non  | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Lundi », « Mardi », « Mercredi », « Jeudi », « Vendredi », « Samedi » et « Dimanche » | 
 | hours | Non  | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
 | minutes | Non  | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » comme marque de minute et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
-|||||| 
+||||| 
 
 Par exemple, ce déclencheur de périodicité spécifie que votre application logique s’exécute toutes les semaines chaque lundi à 10h30, 12h30 et 14h30 heure standard du Pacifique, et il ne commence pas avant le 9 septembre 2017 à 14h :
 
 ``` json
-{
-    "triggers": {
-        "myRecurrenceTrigger": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
+"myRecurrenceTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Week",
+        "interval": 1,
+        "schedule": {
+            "hours": [
+                10,
+                12,
+                14
+            ],
+            "minutes": [
+                30
+            ],
+            "weekDays": [
+                "Monday"
+            ]
+        },
+       "startTime": "2017-09-07T14:00:00",
+       "timeZone": "Pacific Standard Time"
     }
 }
 ```
@@ -176,18 +177,18 @@ Ce déclencheur joue un rôle de point de terminaison que vous pouvez utiliser p
 } 
 ```
 
-Ce déclencheur dispose d’une propriété facultative appelée *schema* :
+Ce déclencheur dispose d’une propriété facultative appelée `schema` :
   
 | Nom de l'élément | Obligatoire | type | DESCRIPTION |
 | ------------ | -------- | ---- | ----------- |
 | schema | Non  | Object | Schéma JSON qui valide la requête entrante. Utile pour aider les étapes de workflow suivantes à déterminer les propriétés auxquelles faire référence. | 
 ||||| 
 
-Pour appeler ce point de terminaison, vous devez appeler l’API *listCallbackUrl*. Consultez [API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows).
+Pour appeler ce déclencheur en tant que point de terminaison, vous devez appeler l’API `listCallbackUrl`. Consultez [API REST du service de workflow](https://docs.microsoft.com/rest/api/logic/workflows).
 
 ## <a name="http-trigger"></a>Déclencheur HTTP  
 
-Les déclencheurs HTTP interrogent un point de terminaison spécifique et vérifient la réponse pour déterminer si le workflow doit être exécuté. Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP :  
+Le déclencheur interroge un point de terminaison spécifique et vérifie la réponse pour déterminer si le workflow doit être exécuté. Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP : 
 
 | Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
@@ -199,7 +200,17 @@ Les déclencheurs HTTP interrogent un point de terminaison spécifique et vérif
 | retryPolicy | Non  | Object | Utilisez cet objet pour personnaliser le comportement de nouvelle tentative pour les erreurs 4xx ou 5xx. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md). | 
 | Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
 ||||| 
- 
+
+Une *stratégie de nouvelle tentative* s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
+  
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
 Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Le déclencheur reconnaît ces propriétés :  
   
 | response | Obligatoire | DESCRIPTION | 
@@ -228,9 +239,11 @@ Voici les sorties de déclencheur HTTP :
 | body | Object | Corps de la réponse HTTP | 
 |||| 
 
-## <a name="api-connection-trigger"></a>Déclencheur ApiConnection  
+<a name="apiconnection-trigger"></a>
 
-Le déclencheur ApiConnection présente des fonctionnalités de base similaires à celles du déclencheur HTTP. Cependant, les paramètres d’identification de l’action sont différents. Voici un exemple :   
+## <a name="apiconnection-trigger"></a>Déclencheur APIConnection  
+
+Dans les fonctionnalités de base, ce déclencheur fonctionne comme le déclencheur HTTP. Cependant, les paramètres d’identification de l’action sont différents. Voici un exemple :    
   
 ```json
 "myDailyReportTrigger": {
@@ -247,7 +260,7 @@ Le déclencheur ApiConnection présente des fonctionnalités de base similaires 
     },  
     "method": "POST",
     "body": {
-        "category": "awesomest"
+        "category": "myCategory"
     }
 }
 ```
@@ -271,6 +284,16 @@ Pour l’objet `host`, voici les propriétés :
 | connection name |  | Nom de la connexion API gérée utilisée par le workflow. Doit faire référence à un paramètre nommé `$connection`. |
 |||| 
 
+Une *stratégie de nouvelle tentative* s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
+  
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
 Voici les sorties d’un déclencheur APIConnection :
   
 | Nom de l'élément | type | DESCRIPTION |
@@ -283,7 +306,7 @@ Apprenez-en davantage sur la [tarification des déclencheurs de connexion d’AP
 
 ## <a name="httpwebhook-trigger"></a>Déclencheur HTTPWebhook  
 
-Le déclencheur HTTPWebhook fournit un point de terminaison de la même manière que le déclencheur de requête, mais le déclencheur HTTPWebhook appelle également une URL spécifique à des fins d’inscription et de désinscription. Un déclencheur HTTPWebhook peut se présenter comme dans cet exemple :  
+Ce déclencheur fournit un point de terminaison de la même manière que le déclencheur `Request`, mais le déclencheur HTTPWebhook appelle également une URL spécifique à des fins d’inscription et de désinscription. Un déclencheur HTTPWebhook peut se présenter comme suit :
 
 ```json
 "myAppsSpotTrigger": {
@@ -292,27 +315,27 @@ Le déclencheur HTTPWebhook fournit un point de terminaison de la même manière
         "subscribe": {
             "method": "POST",
             "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": { },
+            "headers": {},
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
                 "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
             },
-            "authentication": { },
-            "retryPolicy": { }
+            "authentication": {},
+            "retryPolicy": {}
         },
         "unsubscribe": {
+            "method": "POST",
             "url": "https://pubsubhubbub.appspot.com/subscribe",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
                 "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
             },
-            "method": "POST",
-            "authentication": { }
+            "authentication": {}
         }
     },
-    "conditions": [ ]
+    "conditions": []
 }
 ```
 
@@ -324,7 +347,7 @@ La plupart de ces sections sont facultatives, et le comportement du déclencheur
 | unsubscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est supprimé. | 
 |||| 
 
-Vous pouvez spécifier les limites d’une action webhook de la même manière que les [limites asynchrones HTTP](#asynchronous-limits). Voici plus d’informations sur les actions `subscribe` et `unsubscribe` :
+Vous pouvez spécifier les limites d’un déclencheur Webhook de la même manière que les [limites asynchrones HTTP](#asynchronous-limits). Voici plus d’informations sur les actions `subscribe` et `unsubscribe` :
 
 * `subscribe` est appelée afin que le déclencheur puisse commencer à écouter les événements. Cet appel sortant démarre avec les mêmes paramètres que les actions HTTP standard. Cet appel est effectué lorsque le workflow change de quelque façon, par exemple lorsque les informations d’identification sont remplacées ou les paramètres d’entrée du déclencheur modifiés. 
   
@@ -346,9 +369,9 @@ Voici les sorties du déclencheur HTTPWebhook et le contenu de la requête entra
 | body | Object | Corps de la réponse HTTP | 
 |||| 
 
-## <a name="conditions"></a>Conditions  
+## <a name="triggers-conditions"></a>Déclencheurs : conditions
 
-Pour n’importe quel déclencheur, vous pouvez utiliser une ou plusieurs conditions pour déterminer si le workflow doit s’exécuter ou non. Par exemple :   
+Pour n’importe quel déclencheur, vous pouvez utiliser une ou plusieurs conditions pour déterminer si le workflow doit s’exécuter ou non. Dans cet exemple, le rapport se déclenche uniquement lorsque le paramètre `sendReports` du workflow est défini sur true. 
 
 ```json
 "myDailyReportTrigger": {
@@ -365,7 +388,7 @@ Pour n’importe quel déclencheur, vous pouvez utiliser une ou plusieurs condit
 }
 ```
 
-Dans ce cas, le rapport se déclenche uniquement lorsque le paramètre `sendReports` du workflow est défini sur true. Enfin, les conditions peuvent faire référence au code d’état du déclencheur. Par exemple, vous pouvez lancer un workflow uniquement lorsque votre site web retourne un code d’état 500, comme suit :
+Enfin, les conditions peuvent faire référence au code d’état du déclencheur. Par exemple, vous pouvez lancer un workflow uniquement lorsque votre site web renvoie un code d’état 500 :
   
 ``` json
 "conditions": [ 
@@ -374,59 +397,73 @@ Dans ce cas, le rapport se déclenche uniquement lorsque le paramètre `sendRepo
     }  
 ]  
 ```  
-  
-> [!NOTE]  
-> Quand une expression fait référence au code d’état du déclencheur de quelque façon, le comportement par défaut, qui est « trigger only on 200 » « OK », est remplacé. Par exemple, si vous souhaitez que le déclenchement soit effectué avec le code d’état 200 et le code d’état 201, vous devez inclure la condition `@or(equals(triggers().code, 200),equals(triggers().code,201))`.
-  
-## <a name="start-multiple-runs-for-a-request"></a>Démarrer plusieurs exécutions pour une requête
 
-Pour lancer plusieurs exécutions pour une requête unique, par exemple lorsque vous souhaitez interroger un point de terminaison qui peut présenter plusieurs nouveaux éléments entre les intervalles d’interrogation, vous pouvez utiliser `splitOn`.
-  
-Avec `splitOn`, vous spécifiez la propriété à l’intérieur de la charge utile de réponse qui contient le tableau de tous les éléments que vous souhaitez utiliser pour démarrer l’exécution du déclencheur. Par exemple, supposons que vous ayez une API qui retourne la réponse suivante :  
+> [!NOTE]
+> Par défaut, un déclencheur est activé uniquement lors de la réception une réponse « 200 OK ». Lorsqu’une expression fait référence au code d’état du déclencheur de quelque façon, le comportement par défaut du déclencheur est remplacé. Par conséquent, si vous souhaitez que le déclencheur s’active avec plusieurs codes d’état (par exemple, le code d’état 200 et code d’état 201), vous devez inclure cette instruction en tant que condition : 
+>
+> `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
+
+<a name="split-on-debatch"></a>
+
+## <a name="triggers-process-an-array-with-multiple-runs"></a>Déclencheurs : traiter un tableau avec plusieurs exécutions
+
+Si votre déclencheur renvoie un tableau à traiter pour votre application logique, il arrive qu’une boucle « for each » prenne trop de temps pour traiter chaque élément du tableau. Au lieu de cela, vous pouvez utiliser la propriété **SplitOn** dans votre déclencheur pour *décomposer* le tableau. 
+
+La décomposition sépare les éléments de tableau et démarre une nouvelle instance d’application logique qui s’exécute pour chaque élément du tableau. Par exemple, cette approche est utile lorsque vous souhaitez interroger un point de terminaison qui peut renvoyer plusieurs nouveaux éléments entre les intervalles d’interrogation.
+Pour connaître le nombre maximal d’éléments de tableau que **SplitOn** peut traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+
+> [!NOTE]
+> Vous pouvez ajouter **SplitOn** uniquement aux déclencheurs en définissant ou en remplaçant manuellement en mode code la définition JSON de votre application logique. Vous ne pouvez pas utiliser **SplitOn** lorsque vous souhaitez implémenter un modèle de réponse synchrone. Les workflows qui utilisent **SplitOn** et incluent une réponse action s’exécutent de façon asynchrone et envoient immédiatement une réponse `202 ACCEPTED`.
+
+Si le fichier Swagger de votre déclencheur décrit une charge utile sous forme de tableau, la propriété **SplitOn** est automatiquement ajoutée à votre déclencheur. Sinon, ajoutez cette propriété à l’intérieur de la charge utile de la réponse qui contient le tableau à décomposer. 
+
+Par exemple, supposons que vous ayez une API qui renvoie la réponse suivante : 
   
 ```json
 {
-    "status": "Succeeded",
-    "rows": [
-        {  
-            "id" : 938109380,
-            "name" : "myFirstRow"
+    "Status": "Succeeded",
+    "Rows": [ 
+        { 
+            "id": 938109380,
+            "name": "customer-name-one"
         },
         {
-            "id" : 938109381,
-            "name" : "mySecondRow"
+            "id": 938109381,
+            "name": "customer-name-two"
         }
     ]
 }
 ```
   
-Comme votre application logique a uniquement besoin du contenu `rows`, vous pouvez construire votre déclencheur comme dans cet exemple :  
+Comme votre application logique a uniquement besoin du contenu de `Rows`, vous pouvez créer votre déclencheur comme dans cet exemple.
 
-```json
-"mySplitterTrigger": {
+``` json
+"myDebatchTrigger": {
     "type": "Http",
     "recurrence": {
-        "frequency": "minute",
-        "interval": 1
+        "frequency": "Second",
+        "interval": "1"
     },
-    "intputs": {
+    "inputs": {
         "uri": "https://mydomain.com/myAPI",
         "method": "GET"
     },
-    "splitOn": "@triggerBody()?.rows"
+    "splitOn": "@triggerBody()?.Rows"
 }
 ```
-> [!NOTE]  
-> Si vous utilisez la commande `SplitOn`, vous ne pouvez pas obtenir les propriétés qui sont en dehors du tableau, donc pour cet exemple, vous ne pouvez pas obtenir la propriété `status` dans la réponse retournée par l’API.
-> De même, dans cet exemple, nous utilisons l’opérateur `?` afin d’éviter un échec si la propriété `rows` n’existe pas. 
 
-Donc dans la définition du workflow, `@triggerBody().name` retourne `myFirstRow` pour la première exécution, et `mySecondRow` pour la deuxième exécution. Les sorties du déclencheur se présentent comme dans cet exemple :  
+> [!NOTE]
+> Si vous utilisez la commande `SplitOn`, vous ne pouvez pas obtenir les propriétés qui ne se trouvent pas dans le tableau. Pour cet exemple, vous ne pouvez donc pas obtenir la propriété `status` dans la réponse renvoyée par l’API.
+> 
+> Dans cet exemple, nous utilisons l’opérateur `?` afin d’éviter un échec si la propriété `Rows` n’existe pas.
+
+Votre définition de workflow peut désormais utiliser `@triggerBody().name` pour obtenir `customer-name-one` à partir de la première exécution et `customer-name-two` à partir de la deuxième exécution. Par conséquent, les sorties du déclencheur se présentent comme dans les exemples suivants :
 
 ```json
 {
     "body": {
         "id": 938109380,
-        "name": "mySecondRow"
+        "name": "customer-name-one"
     }
 }
 ```
@@ -435,26 +472,25 @@ Donc dans la définition du workflow, `@triggerBody().name` retourne `myFirstRow
 {
     "body": {
         "id": 938109381,
-        "name": "mySecondRow"
+        "name": "customer-name-two"
     }
 }
 ```
   
-## <a name="single-run-instance"></a>Instance d’exécution unique
+## <a name="triggers-fire-only-after-all-active-runs-finish"></a>Déclencheurs : activer uniquement au terme de toutes les exécutions actives
 
-Vous pouvez configurer les déclencheurs de périodicité afin qu’ils se déclenchent uniquement lorsque toutes les exécutions actives sont terminées. Si une périodicité planifiée a lieu alors qu’une exécution d’instance du workflow est encore en cours, le déclencheur attend l’intervalle de périodicité planifié suivant pour effectuer une nouvelle vérification.
-Pour configurer ce paramètre, définissez la propriété `operationOptions` sur `singleInstance` :
+Vous pouvez configurer les déclencheurs de périodicité afin qu’ils se déclenchent uniquement lorsque toutes les exécutions actives sont terminées. Pour configurer ce paramètre, définissez la propriété `operationOptions` sur `singleInstance` :
 
 ```json
-"triggers": {
-    "myHTTPTrigger": {
-        "type": "Http",
-        "inputs": { ... },
-        "recurrence": { ... },
-        "operationOptions": "singleInstance"
-    }
+"myTrigger": {
+    "type": "Http",
+    "inputs": { },
+    "recurrence": { },
+    "operationOptions": "singleInstance"
 }
 ```
+
+Si une périodicité planifiée a lieu alors qu’une exécution d’instance du workflow est encore en cours, le déclencheur attend l’intervalle de périodicité planifié suivant pour effectuer une nouvelle vérification.
 
 ## <a name="actions-overview"></a>Vue d’ensemble des actions
 
@@ -468,6 +504,7 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 | **ApiConnection**  | Fonctionne comme l’action HTTP, mais utilise des [API gérées par Microsoft](https://docs.microsoft.com/azure/connectors/apis-list). | 
 | **ApiConnectionWebhook** | Fonctionne comme HTTPWebhook, mais utilise des API gérées par Microsoft. | 
 | **Réponse** | Définit la réponse pour un appel entrant. | 
+| **Composer** | Construit un objet arbitraire à partir des entrées de l’action. | 
 | **Fonction** | Représente une fonction Azure. | 
 | **Wait** | Attend pendant une durée définie ou jusqu’à une heure spécifique. | 
 | **Workflow** | Représente un workflow imbriqué. | 
@@ -476,21 +513,24 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 | **Sélection** | Projette chaque élément d’un tableau dans une nouvelle valeur. Par exemple, vous pouvez convertir un tableau de nombres en tableau d’objets. | 
 | **Table** | Convertit un tableau d’éléments en table CSV ou HTML. | 
 | **Arrêter** | Arrête l’exécution d’un workflow. | 
+| **Wait** | Attend pendant une durée définie ou jusqu’à une heure spécifique. | 
+| **Workflow** | Représente un workflow imbriqué. | 
 ||| 
 
 ### <a name="collection-actions"></a>Actions de collection
 
 | Type d’action | DESCRIPTION | 
 | ----------- | ----------- | 
-| **Condition** | Évalue une expression et en fonction du résultat, exécute la branche correspondante. | 
-| **Portée** | À utiliser pour le regroupement logique des autres actions. | 
+| **If** | Évalue une expression et en fonction du résultat, exécute la branche correspondante. | 
+| **Switch** | Effectue différentes actions en fonction des valeurs spécifiques d’un objet. | 
 | **ForEach** | Cette action en boucle effectue une itération dans un tableau et exécute des actions internes pour chaque élément. | 
 | **Until** | Cette action en boucle exécute des actions internes jusqu’à ce qu’une condition soit vérifiée. | 
-||| 
+| **Portée** | À utiliser pour le regroupement logique des autres actions. | 
+|||  
 
 ## <a name="http-action"></a>Action HTTP  
 
-Les actions HTTP appellent un point de terminaison spécifique et vérifient la réponse pour déterminer si le workflow doit s’exécuter. Par exemple : 
+Une action HHTP appelle un point de terminaison spécifique et vérifie la réponse pour déterminer si le workflow doit être exécuté. Par exemple : 
   
 ```json
 "myLatestNewsAction": {
@@ -516,6 +556,16 @@ Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un
 | Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>En plus de Scheduler, une autre propriété est prise en charge : `authority`. Par défaut, cette valeur est définie sur `https://login.windows.net` lorsqu’aucune valeur n’est spécifiée, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. | 
 ||||| 
 
+Les actions HTTP et ApiConnection prennent en charge les *stratégies de nouvelle tentative*. Une stratégie de nouvelle tentative s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
+  
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
 Cet exemple d’action HTTP tente à nouveau de récupérer les dernières actualités deux fois en cas d’échec temporaire, pour un total de 3 exécutions, avec un délai de 30 secondes entre chaque tentative :
   
 ```json
@@ -524,7 +574,7 @@ Cet exemple d’action HTTP tente à nouveau de récupérer les dernières actua
     "inputs": {
         "method": "GET",
         "uri": "https://mynews.example.com/latest",
-        "retryPolicy" : {
+        "retryPolicy": {
             "type": "fixed",
             "interval": "PT30S",
             "count": 2
@@ -533,7 +583,7 @@ Cet exemple d’action HTTP tente à nouveau de récupérer les dernières actua
 }
 ```
 
-L’intervalle avant nouvelle tentative est spécifié au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle présente une valeur par défaut (et minimale) de 20 secondes, tandis que la valeur maximale est d’une heure. Le nombre de nouvelles tentatives par défaut (et maximal) est de 4. Si vous ne spécifiez pas la définition de stratégie de nouvelle tentative, une stratégie `fixed` est utilisée avec les valeurs par défaut d’intervalle et de nombre de nouvelles tentatives. Pour désactiver la stratégie de nouvelle tentative, définissez son type sur `None`.
+L’intervalle avant nouvelle tentative est spécifié au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle présente une valeur par défaut (et minimale) de 20 secondes, tandis que la valeur maximale est d’une heure. Le nombre de nouvelles tentatives par défaut (et maximal) est de 4. Si vous ne spécifiez pas une définition de stratégie de nouvelle tentative, une stratégie `fixed` est utilisée avec les valeurs par défaut d’intervalle et de nombre de nouvelles tentatives. Pour désactiver la stratégie de nouvelle tentative, définissez son type sur `None`.
 
 ### <a name="asynchronous-patterns"></a>Modèles asynchrones
 
@@ -551,14 +601,16 @@ Pour désactiver le comportement asynchrone décrit précédemment, définissez 
     "operationOptions": "DisableAsyncPattern"
 }
 ```
+
 <a name="asynchronous-limits"></a>
 
 #### <a name="asynchronous-limits"></a>Limites asynchrones
 
-Vous pouvez limiter la durée d’un modèle asynchrone à un intervalle de temps spécifique. Si l’intervalle de temps s’écoule sans qu’un état terminal ait été atteint, l’état de l’action sera marqué comme `Cancelled` avec un code `ActionTimedOut`. Le délai d’expiration de la limite est spécifié au format ISO 8601. Vous pouvez spécifier les limites comme indiqué ici :
+Vous pouvez limiter la durée d’un modèle asynchrone à un intervalle de temps spécifique. Si l’intervalle de temps s’écoule sans qu’un état terminal ait été atteint, l’état de l’action sera marqué comme `Cancelled` avec un code `ActionTimedOut`. Le délai d’expiration de la limite est spécifié au format ISO 8601. Cet exemple montre comment vous pouvez spécifier des limites :
+
 
 ``` json
-"action-name": {
+"<action-name>": {
     "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
     "inputs": { },
     "limit": {
@@ -569,8 +621,7 @@ Vous pouvez limiter la durée d’un modèle asynchrone à un intervalle de temp
   
 ## <a name="apiconnection-action"></a>Action APIConnection
 
-L’action APIConnection fait référence à un connecteur géré par Microsoft. Cette action requiert une référence à une connexion valide, ainsi que des informations sur l’API et les paramètres.
-Voici un exemple d’action APIConnection :
+Cette action référence un connecteur géré par Microsoft, ce qui requiert une référence à une connexion valide, ainsi que des informations sur l’API et les paramètres. Voici un exemple d’action APIConnection :
 
 ```json
 "Send_Email": {
@@ -608,6 +659,16 @@ Voici un exemple d’action APIConnection :
 | operationsOptions | Non  | Chaîne | Définit l’ensemble de comportements spéciaux à substituer. | 
 | Authentification | Non  | Object | Représente la méthode à utiliser pour authentifier la requête. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
+
+Une stratégie de nouvelle tentative s’applique aux échecs temporaires, caractérisés par les codes d’état HTTP 408, 429 et 5xx, en plus de toutes les exceptions de connectivité. Vous pouvez définir cette stratégie avec l’objet `retryPolicy` comme indiqué ici :
+
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
 
 ## <a name="apiconnection-webhook-action"></a>Action APIConnection webhook
 
@@ -658,7 +719,7 @@ Cette action contient la charge utile de réponse entière d’une requête HTTP
   
 ```json
 "myResponseAction": {
-    "type": "response",
+    "type": "Response",
     "inputs": {
         "statusCode": 200,
         "body": {
@@ -682,16 +743,36 @@ L’action response présente des restrictions spéciales qui ne s’appliquent 
   
 * Un workflow avec des actions response ne peut pas utiliser la commande `splitOn` dans la définition du déclencheur car l’appel crée plusieurs exécutions. Par conséquent, vérifiez dans ce cas quand l’opération de workflow est indiquée PUT et retournez une réponse de « requête incorrecte ».
 
-## <a name="function-action"></a>Action function   
+## <a name="compose-action"></a>Action compose
+
+Cette action vous permet de construire un objet arbitraire, et la sortie est le résultat de l’évaluation des entrées de l’action. 
+
+> [!NOTE]
+> Vous pouvez utiliser l’action `Compose` pour construire n’importe quelle sortie, notamment des objets, des tableaux et tout autre type pris en charge de façon native par les applications logiques, tel que XML et binaire.
+
+Par exemple, vous pouvez utiliser l’action `Compose` pour fusionner les sorties de plusieurs actions :
+
+```json
+"composeUserRecordAction": {
+    "type": "Compose",
+    "inputs": {
+        "firstName": "@actions('getUser').firstName",
+        "alias": "@actions('getUser').alias",
+        "thumbnailLink": "@actions('lookupThumbnail').url"
+    }
+}
+```
+
+## <a name="function-action"></a>Action function
 
 Cette action vous permet de représenter et d’appeler une [fonction Azure](../azure-functions/functions-overview.md), par exemple :
 
 ```json
-"my-Azure-Function-name": {
+"<my-Azure-Function-name>": {
    "type": "Function",
     "inputs": {
         "function": {
-            "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/sites/{your-Azure-function-app-name}/functions/{your-Azure-function-name}"
+            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/sites/<your-Azure-function-app-name>/functions/<your-Azure-function-name>"
         },
         "queries": {
             "extrafield": "specialValue"
@@ -708,6 +789,7 @@ Cette action vous permet de représenter et d’appeler une [fonction Azure](../
     "runAfter": {}
 }
 ```
+
 | Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- |  
 | function id | OUI | Chaîne | ID de ressource de la fonction Azure que vous souhaitez appeler. | 
@@ -717,14 +799,162 @@ Cette action vous permet de représenter et d’appeler une [fonction Azure](../
 | body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
 |||||
 
-Lorsque vous enregistrez votre application logique, Azure Logic Apps effectue des contrôles de la fonction référencée :
+Lorsque vous enregistrez votre application logique, le moteur Logic Apps effectue des contrôles sur la fonction référencée :
 
 * Vous devez avoir accès à la fonction.
-* Seuls le déclencheur HTTP standard ou un déclencheur webhook JSON générique sont autorisés.
+* Seul un déclencheur HTTP standard ou un déclencheur Webhook JSON générique sont autorisés.
 * La fonction ne doit pas avoir d’itinéraire défini.
 * Seuls les niveaux d’autorisation « fonction » et « anonyme » sont autorisés.
 
-L’URL du déclencheur est récupéré, mis en cache et utilisé au runtime. Par conséquent, si une opération invalide l’URL en cache, l’action échoue au runtime. Pour contourner ce problème, enregistrez de nouveau l’application logique pour que l’application logique puisse de nouveau récupérer et mettre en cache l’URL du déclencheur.
+> [!NOTE]
+> Le moteur Logic Apps récupère et met en cache de l’URL du déclencheur, qui est utilisée lors de l’exécution. Par conséquent, si une opération invalide l’URL en cache, l’action échoue au runtime. Pour contourner ce problème, enregistrez de nouveau l’application logique pour que celle-ci puisse de nouveau récupérer et mettre en cache l’URL du déclencheur.
+
+## <a name="select-action"></a>Action select
+
+Cette action vous permet de projeter chaque élément d’un tableau dans une nouvelle valeur. Cet exemple convertit un tableau de nombres en tableau d’objets :
+
+```json
+"selectNumbersAction": {
+    "type": "Select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+| NOM | Obligatoire | type | DESCRIPTION | 
+| ---- | -------- | ---- | ----------- | 
+| from | OUI | Tableau | Tableau source |
+| select | OUI | Quelconque | Projection appliquée à chaque élément du tableau source |
+||||| 
+
+La sortie de l’action `select` est un tableau qui a la même cardinalité que le tableau d’entrée. Chaque élément est transformé comme défini par la propriété `select`. Si l’entrée est un tableau vide, la sortie est également un tableau vide.
+
+## <a name="terminate-action"></a>Action terminate
+
+Cette action arrête une exécution de workflow : elle annule toutes les actions en cours d’exécution et ignore les actions restantes. L’action terminate n’a pas d’effet sur les actions terminées.
+
+Par exemple, pour arrêter une exécution avec l’état `Failed`, procédez comme suit :
+
+```json
+"HandleUnexpectedResponse": {
+    "type": "Terminate",
+    "inputs": {
+        "runStatus": "Failed",
+        "runError": {
+            "code": "UnexpectedResponse",
+            "message": "Received an unexpected response",
+        }
+    }
+}
+```
+
+| NOM | Obligatoire | type | DESCRIPTION | 
+| ---- | -------- | ---- | ----------- | 
+| runStatus | OUI | Chaîne | État de l’exécution cible, `Failed` ou `Cancelled` |
+| runError | Non  | Object | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
+| runError code | Non  | Chaîne | Code d’erreur de l’exécution |
+| runError message | Non  | Chaîne | Message d’erreur de l’exécution | 
+||||| 
+
+## <a name="query-action"></a>Action de requête
+
+Cette action vous permet de filtrer un tableau en fonction d’une condition. 
+
+> [!NOTE]
+> Vous ne pouvez pas utiliser l’action Compose pour construire une sortie, y compris des objets, des tableaux et tout autre type pris en charge de façon native par les applications logiques, tel que XML et binaire.
+
+Par exemple, pour sélectionner des nombres supérieurs à 2, procédez comme suit :
+
+```json
+"filterNumbersAction": {
+    "type": "Query",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "where": "@greater(item(), 2)"
+    }
+}
+```
+
+| NOM | Obligatoire | type | DESCRIPTION | 
+| ---- | -------- | ---- | ----------- | 
+| from | OUI | Tableau | Tableau source |
+| where | OUI | Chaîne | Condition appliquée à chaque élément du tableau source. Si aucune valeur ne remplit la condition `where`, le résultat est un tableau vide. |
+||||| 
+
+La sortie de l’action `query` est un tableau qui contient les éléments du tableau d’entrée qui remplissent la condition.
+
+## <a name="table-action"></a>Action table
+
+Cette action vous permet de convertir un tableau en table CSV ou HTML. 
+
+```json
+"ConvertToTable": {
+    "type": "Table",
+    "inputs": {
+        "from": "<source-array>",
+        "format": "CSV | HTML"
+    }
+}
+```
+
+| NOM | Obligatoire | type | DESCRIPTION | 
+| ---- | -------- | ---- | ----------- | 
+| from | OUI | Tableau | Tableau source. Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau vide. | 
+| format | OUI | Chaîne | Format de table souhaité, CSV ou HTML. | 
+| colonnes | Non  | Tableau | Les colonnes de table que vous souhaitez. À utiliser pour remplacer la forme du tableau par défaut. | 
+| column header | Non  | Chaîne | En-tête de colonne | 
+| column value | OUI | Chaîne | Valeur de colonne | 
+||||| 
+
+Supposons que vous définissiez une action de table comme dans l’exemple suivant :
+
+```json
+"convertToTableAction": {
+    "type": "Table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "HTML"
+    }
+}
+```
+
+Et que vous utilisiez ce tableau pour `@triggerBody()` :
+
+```json
+[ {"ID": 0, "Name": "apples"},{"ID": 1, "Name": "oranges"} ]
+```
+
+Voici la sortie correspondant à cet exemple :
+
+<table><thead><tr><th>ID</th><th>NOM</th></tr></thead><tbody><tr><td>0</td><td>pommes</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
+
+Afin de personnaliser ce tableau, vous pouvez spécifier explicitement les colonnes, par exemple :
+
+```json
+"ConvertToTableAction": {
+    "type": "Table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [ 
+            {
+                "header": "Produce ID",
+                "value": "@item().id"
+            },
+            {
+              "header": "Description",
+              "value": "@concat('fresh ', item().name)"
+            }
+        ]
+    }
+}
+```
+
+Voici la sortie correspondant à cet exemple :
+
+<table><thead><tr><th>ID produit</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>
 
 ## <a name="wait-action"></a>Action wait  
 
@@ -756,8 +986,8 @@ Pour attendre jusqu’à un moment spécifique, vous pouvez utiliser cet exemple
 ```
   
 > [!NOTE]  
-> La durée d’attente peut être spécifiée soit à l’aide de l’objet `until`, soit à l’aide de l’objet `interval`, mais pas les deux.
-  
+> Vous pouvez spécifier la durée d’attente avec l’objet `interval` ou `until`, mais pas les deux.
+
 | Nom de l'élément | Obligatoire | type | DESCRIPTION | 
 | ------------ | -------- | ---- | ----------- | 
 | until | Non  | Object | Durée d’attente basée sur un point dans le temps | 
@@ -767,18 +997,16 @@ Pour attendre jusqu’à un moment spécifique, vous pouvez utiliser cet exemple
 | interval count | OUI | Entier  | Nombre entier positif représentant le nombre d’unités d’intervalle utilisées pour la durée d’attente | 
 ||||| 
 
-## <a name="workflow-action"></a>Action workflow   
+## <a name="workflow-action"></a>Action workflow
 
-Cette action représente un autre workflow. Logic Apps effectue une vérification d’accès sur le workflow, ou plus précisément, le déclencheur, ce qui signifie que vous devez avoir accès au workflow.
-
-Les sorties de cette action sont basées sur ce que vous avez défini pour l’action `response` pour le workflow enfant. Si vous n’avez pas défini d’action `response`, les sorties sont vides.
+Cette action vous permet d’imbriquer un workflow. Le moteur Logic Apps effectue une vérification d’accès sur le workflow enfant, ou plus précisément, le déclencheur. Vous devriez donc avoir accès au workflow enfant. Par exemple : 
 
 ```json
-"myNestedWorkflowAction": {
+"<my-nested-workflow-action-name>": {
     "type": "Workflow",
     "inputs": {
         "host": {
-            "id": "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001",
+            "id": "/subscriptions/<my-subscription-ID>/resourceGroups/<my-resource-group-name>/providers/Microsoft.Logic/<my-nested-workflow-action-name>",
             "triggerName": "mytrigger001"
         },
         "queries": {
@@ -804,208 +1032,47 @@ Les sorties de cette action sont basées sur ce que vous avez défini pour l’a
 | queries | Non  | Object | Représente les paramètres de requête que vous souhaitez inclure dans l’URL. <p>Par exemple, `"queries": { "api-version": "2015-02-01" }` ajoute `?api-version=2015-02-01` à l’URL. | 
 | headers | Non  | Object | Représente chaque en-tête envoyé dans la requête. <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Non  | Object | Représente la charge utile envoyée au point de terminaison. | 
-|||||   
-
-## <a name="compose-action"></a>Action compose
-
-Cette action vous permet de construire un objet arbitraire, et la sortie est le résultat de l’évaluation des entrées de l’action. 
-
-> [!NOTE]
-> Vous pouvez utiliser l’action `Compose` pour construire n’importe quelle sortie, notamment des objets, des tableaux et tout autre type pris en charge de façon native par les applications logiques, tel que XML et binaire.
-
-Par exemple, vous pouvez utiliser l’action compose pour fusionner les sorties de plusieurs actions :
-
-```json
-"composeUserRecordAction": {
-    "type": "Compose",
-    "inputs": {
-        "firstName": "@actions('getUser').firstName",
-        "alias": "@actions('getUser').alias",
-        "thumbnailLink": "@actions('lookupThumbnail').url"
-    }
-}
-```
-
-## <a name="select-action"></a>Action select
-
-Cette action vous permet de projeter chaque élément d’un tableau dans une nouvelle valeur.
-Par exemple, pour convertir un tableau de nombres en tableau d’objets, vous pouvez utiliser :
-
-```json
-"selectNumbersAction": {
-    "type": "Select",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "select": { "number": "@item()" }
-    }
-}
-```
-
-| NOM | Obligatoire | type | DESCRIPTION | 
-| ---- | -------- | ---- | ----------- | 
-| from | OUI | Tableau | Tableau source |
-| select | OUI | Quelconque | Projection appliquée à chaque élément du tableau source |
 ||||| 
 
-La sortie de l’action `select` est un tableau qui a la même cardinalité que le tableau d’entrée. Chaque élément est transformé comme défini par la propriété `select`. Si l’entrée est un tableau vide, la sortie est également un tableau vide.
-
-## <a name="query-action"></a>Action de requête
-
-Cette action vous permet de filtrer un tableau en fonction d’une condition. Cet exemple sélectionne les nombres supérieurs à deux :
-
-```json
-"filterNumbersAction": {
-    "type": "Query",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "where": "@greater(item(), 2)"
-    }
-}
-```
-
-La sortie de l’action `query` est un tableau qui contient les éléments du tableau d’entrée qui remplissent la condition.
-
-> [!NOTE]
-> Si aucune valeur ne remplit la condition `where`, le résultat est un tableau vide.
-
-| NOM | Obligatoire | type | DESCRIPTION | 
-| ---- | -------- | ---- | ----------- | 
-| from | OUI | Tableau | Tableau source |
-| where | OUI | Chaîne | Condition appliquée à chaque élément du tableau source |
-||||| 
-
-## <a name="table-action"></a>Action table
-
-Cette action vous permet de convertir un tableau d’éléments en table **CSV** ou **HTML**. Par exemple, supposons que vous ayez `@triggerBody()` avec ce tableau :
-
-```json
-[ 
-    {
-      "id": 0,
-      "name": "apples"
-    },
-    {
-      "id": 1, 
-      "name": "oranges"
-    }
-]
-```
-
-Et que vous définissiez une action table comme dans l’exemple suivant :
-
-```json
-"convertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "html"
-    }
-}
-```
-
-Le résultat de cet exemple ressemble à ce tableau HTML : 
-
-<table><thead><tr><th>id</th><th>Nom</th></tr></thead><tbody><tr><td>0</td><td>pommes</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>
-
-Afin de personnaliser ce tableau, vous pouvez spécifier explicitement les colonnes, par exemple :
-
-```json
-"ConvertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "html",
-        "columns": [ 
-            {
-                "header": "Produce ID",
-                "value": "@item().id"
-            },
-            {
-              "header": "Description",
-              "value": "@concat('fresh ', item().name)"
-            }
-        ]
-    }
-}
-```
-
-Le résultat de cet exemple ressemble à ce tableau HTML : 
-
-<table><thead><tr><th>ID produit</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>
-
-| NOM | Obligatoire | type | DESCRIPTION | 
-| ---- | -------- | ---- | ----------- | 
-| from | OUI | Tableau | Tableau source. Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau vide. | 
-| format | OUI | Chaîne | Le format de table que vous souhaitez, **CSV** ou **HTML** | 
-| colonnes | Non  | Tableau | Les colonnes de table que vous souhaitez. À utiliser pour remplacer la forme du tableau par défaut. | 
-| column header | Non  | Chaîne | En-tête de colonne | 
-| column value | OUI | Chaîne | Valeur de colonne | 
-||||| 
-
-## <a name="terminate-action"></a>Action terminate
-
-Cette action arrête l’exécution du workflow, annule toutes les actions en cours et ignore les autres actions. L’action terminate n’affecte pas les actions terminées.
-
-Par exemple, pour arrêter une exécution avec l’état « Échec », vous pouvez utiliser cet exemple :
-
-```json
-"handleUnexpectedResponseAction": {
-    "type": "Terminate",
-    "inputs": {
-        "runStatus": "Failed",
-        "runError": {
-            "code": "UnexpectedResponse",
-            "message": "Received an unexpected response"
-        }
-    }
-}
-```
-
-| NOM | Obligatoire | type | DESCRIPTION | 
-| ---- | -------- | ---- | ----------- | 
-| runStatus | OUI | Chaîne | État de l’exécution cible, `Failed` ou `Cancelled` |
-| runError | Non  | Object | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
-| runError code | Non  | Chaîne | Code d’erreur de l’exécution |
-| runError message | Non  | Chaîne | Message d’erreur de l’exécution |
-||||| 
+Les sorties de cette action sont basées sur ce que vous avez défini pour l’action `Response` pour le workflow enfant. Si le workflow enfant ne définit pas une action `Response`, les sorties sont vides.
 
 ## <a name="collection-actions-overview"></a>Vue d’ensemble des actions de collection
 
-Certaines actions peuvent inclure des actions. Il est possible de faire référence aux actions d’une collection directement en dehors de la collection. Par exemple, si vous définissez `Http` dans `scope`, alors `@body('http')` est toujours valide, n’importe où dans le workflow. Vous pouvez avoir des actions dans une collection `runAfter` uniquement avec d’autres actions dans la même collection.
+Pour faciliter le contrôle de l’exécution de workflow, les actions de collection peuvent inclure d’autres actions. Vous pouvez faire référence aux actions d’une collection directement en dehors de la collection. Par exemple, si vous définissez une action `Http` dans une portée, `@body('http')` est toujours valide, n’importe où dans un workflow. De plus, les actions d’une collection peuvent uniquement être exécutées après les autres actions de la même collection.
 
-## <a name="condition-if-action"></a>Condition : action If
+## <a name="if-action"></a>Action If
 
-Cette action vous permet d’évaluer une condition et d’exécuter une branche spécifique si l’expression évaluée présente la valeur `true`. 
-  
-```json
-"myCondition": {
-    "type": "If",
+En tant qu’instruction conditionnelle, cette action vous permet d’évaluer une condition et d’exécuter une branche spécifique si l’expression évaluée présente la valeur true. Si la condition est vérifiée (true), elle est marquée comme Réussite. Les actions qui se trouvent dans les objets `actions` ou `else` renvoient les valeurs suivantes :
+
+* Réussite, lorsqu’elles sont exécutées et qu’elles réussissent
+* Échec, lorsqu’elles sont exécutées et qu’elles échouent
+* Ignoré, lorsque la branche respective ne s’exécute pas
+
+En savoir plus sur les [instructions conditionnelles dans les applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+
+``` json
+"<my-condition-name>": {
+  "type": "If",
+  "expression": "<condition>",
+  "actions": {
+    "if-true-run-this-action": {
+      "type": <action-type>,
+      "inputs": {},
+      "runAfter": {}
+    }
+  },
+  "else": {
     "actions": {
-        "if_true": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
+        "if-false-run-this-action": {
+            "type": <action-type>,
+            "inputs": {},
             "runAfter": {}
         }
-    },
-    "else": {
-        "actions": {
-            "if_false": {
-                "type": "Http",
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://myurl"
-                },
-                "runAfter": {}
-            }
-        }
-    },
-    "expression": "@equals(triggerBody(), json(true))",
-    "runAfter": {}
+    }
+  },
+  "runAfter": {}
 }
-``` 
+```
 
 | NOM | Obligatoire | type | DESCRIPTION | 
 | ---- | -------- | ---- | ----------- | 
@@ -1014,49 +1081,150 @@ Cette action vous permet d’évaluer une condition et d’exécuter une branche
 | else | Non  | Object | Actions internes à exécuter quand `expression` prend la valeur `false` |
 ||||| 
 
-Si la condition est évaluée avec succès, elle est marquée comme `Succeeded` (Réussite). Les actions dans les objets `actions` ou `else` sont évaluées sur : 
-
-* `Succeeded` lorsqu’elles sont exécutées et qu’elles réussissent
-* `Failed` lorsqu’elles sont exécutées et qu’elles échouent
-* `Skipped` lorsque la branche respective ne s’exécute pas
-
-Voici des exemples illustrant comment les conditions peuvent utiliser des expressions dans une action :
-  
-| Valeur JSON | Résultat | 
-| ---------- | -------| 
-| `"expression": "@parameters('hasSpecialAction')"` | Cette condition est remplie dès lors que l’expression évaluée présente la valeur true. Seules les expressions booléennes sont prises en charge. Pour convertir d’autres types en valeurs booléennes, utilisez les fonctions `empty` et `equals`. | 
-| `"expression": "@greater(actions('act1').output.value, parameters('threshold'))"` | Prend en charge les fonctions de comparaison. Pour cet exemple, l’action s’exécute uniquement lorsque la sortie de `act1` est supérieure au seuil. | 
-| `"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"` | Prend en charge les fonctions logiques pour la création d’expressions booléennes imbriquées. Pour cet exemple, l’action s’exécute uniquement lorsque la sortie de `act1` est supérieure au seuil ou inférieure à 100. | 
-| `"expression": "@equals(length(actions('act1').outputs.errors), 0))"` | Vous pouvez utiliser les fonctions de tableau pour vérifier si un tableau contient des éléments. Pour cet exemple, l’action s’exécute lorsque le tableau `errors` est vide. | 
-| `"expression": "parameters('hasSpecialAction')"` | Erreur, n’est pas une condition valide, car @ est requis pour les conditions. |  
-|||
-
-## <a name="scope-action"></a>Action scope
-
-Cette action vous permet de logiquement regrouper les actions d’un workflow.
+Par exemple : 
 
 ```json
-"myScope": {
-    "type": "Scope",
+"myCondition": {
+    "type": "If",
     "actions": {
-        "call_bing": {
+        "if-true-check-this-website": {
             "type": "Http",
-             "inputs": {
-                "url": "http://www.bing.com"
+            "inputs": {
+                "method": "GET",
+                "uri": "http://this-url"
+            },
+            "runAfter": {}
+        }
+    },
+    "else": {
+        "actions": {
+            "if-false-check-this-other-website": {
+                "type": "Http",
+                "inputs": {
+                    "method": "GET",
+                    "uri": "http://this-other-url"
+                },
+                "runAfter": {}
             }
         }
     }
 }
+```  
+
+### <a name="how-conditions-can-use-expressions-in-actions"></a>Utilisation des expressions dans les actions pour les conditions
+
+Voici des exemples illustrant comment utiliser des expressions dans des conditions :
+  
+| Expression JSON | Résultat | 
+| --------------- | ------ | 
+| `"expression": "@parameters('hasSpecialAction')"` | Cette condition est remplie dès lors que l’expression évaluée présente la valeur true. Seules les expressions booléennes sont prises en charge. Pour convertir d’autres types en valeurs booléennes, utilisez les fonctions `empty` ou `equals`. | 
+| `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Prend en charge les fonctions de comparaison. Pour cet exemple, l’action s’exécute uniquement lorsque la sortie de l’action 1 est supérieure au seuil. | 
+| `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Prend en charge les fonctions logiques pour la création d’expressions booléennes imbriquées. Pour cet exemple, l’action s’exécute lorsque la sortie de l’action 1 est supérieure au seuil ou inférieure à 100. | 
+| `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Vous pouvez utiliser les fonctions de tableau pour vérifier si un tableau contient des éléments. Pour cet exemple, l’action s’exécute lorsque le tableau des erreurs est vide. | 
+| `"expression": "parameters('hasSpecialAction')"` | Cette expression provoque une erreur et n’est pas une condition valide. Les conditions doivent utiliser le symbole « @ ». | 
+||| 
+
+## <a name="switch-action"></a>Action Switch
+
+En tant qu’instruction de basculement, cette action effectue différentes actions en fonction des valeurs spécifiques d’un objet,d’ une expression ou d’un jeton. Cette action évalue l’objet, l’expression ou le jeton, choisit le cas qui correspond au résultat et exécute les actions pour ce cas seulement. Si aucun cas correspond au résultat, l’action par défaut s’exécute. Lors de l’exécution de l’instruction de basculement; un seul cas doit correspondre au résultat. En savoir plus sur les [instructions de basculement dans les applications logiques](../logic-apps/logic-apps-control-flow-switch-statement.md).
+
+``` json
+"<my-switch-statement-name>": {
+   "type": "Switch",
+   "expression": "<evaluate-this-object-expression-token>",
+   "cases": {
+      "myCase1" : {
+         "actions" : {
+           "myAction1": {}
+         },
+         "case": "<result1>"
+      },
+      "myCase2": {
+         "actions" : {
+           "myAction2": {}
+         },
+         "case": "<result2>"
+      }
+   },
+   "default": {
+      "actions": {
+          "myDefaultAction": {}
+      }
+   },
+   "runAfter": {}
+}
 ```
 
 | NOM | Obligatoire | type | DESCRIPTION | 
-| ---- | -------- | ---- | ----------- |  
-| actions | OUI | Object | Actions internes à exécuter dans l’étendue |
+| ---- | -------- | ---- | ----------- | 
+| expression | OUI | Chaîne | Objet, expression ou jeton à évaluer | 
+| cas | OUI | Object | Contient les ensembles d’actions internes qui s’exécutent en fonction du résultat de l’expression. | 
+| cas | OUI | Chaîne | Valeur de correspondance avec le résultat | 
+| actions | OUI | Object | Actions internes qui s’exécutent pour le cas qui correspond au résultat de l’expression | 
+| default | Non  | Object | Actions internes qui s’exécutent si aucun cas ne correspond au résultat | 
 ||||| 
 
-## <a name="foreach-action"></a>Action foreach
+Par exemple : 
 
-Cette action en boucle effectue une itération dans un tableau et exécute des actions internes pour chaque élément. Par défaut, la boucle `foreach` s’exécute en parallèle et peut exécuter 20 exécutions en parallèle en même temps. Vous pouvez définir les règles d’exécution à l’aide du paramètre `operationOptions`.
+``` json
+"myApprovalEmailAction": {
+   "type": "Switch",
+   "expression": "@body('Send_approval_email')?['SelectedOption']",
+   "cases": {
+      "Case": {
+         "actions" : {
+           "Send_an_email": {...}
+         },
+         "case": "Approve"
+      },
+      "Case_2": {
+         "actions" : {
+           "Send_an_email_2": {...}
+         },
+         "case": "Reject"
+      }
+   },
+   "default": {
+      "actions": {}
+   },
+   "runAfter": {
+      "Send_approval_email": [
+         "Succeeded"
+      ]
+   }
+}
+```
+
+## <a name="foreach-action"></a>Action Foreach
+
+Cette action en boucle effectue une itération dans un tableau et exécute des actions internes pour chaque élément. Par défaut, la boucle Foreach s’exécute en parallèle. Pour connaître le nombre maximal de cycles parallèles que peut exécuter chaque boucle « Foreach », consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). Pour exécuter chaque cycle de manière séquentielle, définissez le paramètre `operationOptions` sur `Sequential`. En savoir plus sur les [boucles Foreach dans les applications logiques](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+
+```json
+"<my-forEach-loop-name>": {
+    "type": "Foreach",
+    "actions": {
+        "myInnerAction1": {
+            "type": "<action-type>",
+            "inputs": {}
+        },
+        "myInnerAction2": {
+            "type": "<action-type>",
+            "inputs": {}
+        }
+    },
+    "foreach": "<array>",
+    "runAfter": {}
+}
+```
+
+| NOM | Obligatoire | type | DESCRIPTION | 
+| ---- | -------- | ---- | ----------- | 
+| actions | OUI | Object | Actions internes à exécuter dans la boucle | 
+| foreach | OUI | Chaîne | Tableau dans lequel effectuer l’itération | 
+| operationOptions | Non  | Chaîne | Spécifie les options de l’opération pour personnaliser le comportement. Prend actuellement en charge uniquement `Sequential` pour les itérations exécutées de manière séquentielle où le comportement par défaut est parallèle. |
+||||| 
+
+Par exemple : 
 
 ```json
 "forEach_EmailAction": {
@@ -1079,37 +1247,28 @@ Cette action en boucle effectue une itération dans un tableau et exécute des a
             }
         }
     },
+    "foreach": "@body('email_filter')",
     "runAfter": {
         "email_filter": [ "Succeeded" ]
     }
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
-| ---- | -------- | ---- | ----------- | 
-| actions | OUI | Object | Actions internes à exécuter dans la boucle | 
-| foreach | OUI | Chaîne | Tableau dans lequel effectuer l’itération | 
-| operationOptions | Non  | Chaîne | Spécifie les options de l’opération pour personnaliser le comportement. Prend actuellement en charge uniquement `Sequential` pour les itérations exécutées de manière séquentielle où le comportement par défaut est parallèle. |
-||||| 
-
 ## <a name="until-action"></a>Action until
 
-Cette action en boucle exécute des actions internes jusqu’à ce qu’une condition soit vérifiée.
+Cette action en boucle exécute des actions internes jusqu’à ce qu’une condition soit vérifiée (true). En savoir plus sur les [boucles Until dans les applications logiques](../logic-apps/logic-apps-control-flow-loops.md#until-loop).
 
 ```json
- "runUntilSucceededAction": {
+ "<my-Until-loop-name>": {
     "type": "Until",
     "actions": {
-        "Http": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
+        "myActionName": {
+            "type": "<action-type>",
+            "inputs": {},
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200)",
+    "expression": "<myCondition>",
     "limit": {
         "count": 1000,
         "timeout": "PT1H"
@@ -1127,7 +1286,56 @@ Cette action en boucle exécute des actions internes jusqu’à ce qu’une cond
 | timeout | Non  | Chaîne | La limite de délai d’expiration au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie la durée pendant laquelle la boucle doit s’exécuter |
 ||||| 
 
-## <a name="next-steps"></a>Étapes suivantes
+Par exemple : 
 
-* [Langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md)
-* [API REST de workflow](https://docs.microsoft.com/rest/api/logic/workflows)
+```json
+ "runUntilSucceededAction": {
+    "type": "Until",
+    "actions": {
+        "Http": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {}
+        }
+    },
+    "expression": "@equals(outputs('Http')['statusCode', 200)",
+    "limit": {
+        "count": 100,
+        "timeout": "PT1H"
+    },
+    "runAfter": {}
+}
+```
+
+## <a name="scope-action"></a>Action scope
+
+Cette action vous permet de logiquement regrouper les actions d’un workflow. Une fois toutes les actions d’une portée ont été exécutées, la portée récupère également son propre état. En savoir plus sur les [portées](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+
+```json
+"<my-scope-action-name>": {
+    "type": "Scope",
+    "actions": {
+        "myInnerAction1": {
+            "type": "<action-type>",
+            "inputs": {}
+        },
+        "myInnerAction2": {
+            "type": "<action-type>",
+            "inputs": {}
+        }
+    }
+}
+```
+
+| NOM | Obligatoire | type | DESCRIPTION | 
+| ---- | -------- | ---- | ----------- |  
+| actions | OUI | Object | Actions internes à exécuter dans l’étendue |
+||||| 
+
+## <a name="next-steps"></a>étapes suivantes
+
+* En savoir plus sur le [langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md)
+* En savoir plus sur l’[API REST de workflow](https://docs.microsoft.com/rest/api/logic/workflows)

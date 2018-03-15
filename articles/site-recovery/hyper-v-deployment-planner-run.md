@@ -305,5 +305,5 @@ Pour la réplication, définissez la bande passante recommandée pour atteindre 
 3. Vérifiez les caractéristiques de stockage local pour déterminer si vous pouvez améliorer le matériel (par exemple, passer d’un disque dur à un disque SSD).
 
     
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Analyser le rapport généré](hyper-v-deployment-planner-analyze-report.md)

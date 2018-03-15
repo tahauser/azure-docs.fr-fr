@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
 
@@ -40,7 +40,9 @@ Ce problème se produit si le certificat client est absent de **Certificats - Ut
 
 Pour résoudre ce problème, effectuez les opérations suivantes :
 
-1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
+1. Ouvrez le Gestionnaire de certificats : cliquez sur **Démarrer**, saisissez **gérer les certificats d’ordinateur**, puis cliquez sur **gérer les certificats d’ordinateur** dans les résultats de la recherche.
+
+2. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
     | Certificat | Lieu |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
 
-2. Accédez à Users\<nom_utilisateur>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, et installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
+3. Accédez à Users\<nom_utilisateur>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, et installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
 
 Pour en savoir plus sur la façon d’installer le certificat client, consultez la page [Générer et exporter des certificats pour les connexions de point à site](vpn-gateway-certificates-point-to-site.md).
 

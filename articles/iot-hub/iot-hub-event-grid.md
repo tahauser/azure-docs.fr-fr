@@ -118,7 +118,7 @@ Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiqu
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Suivre le didacticiel d’événements IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 * [En savoir plus sur Event Grid][lnk-eg-overview]

@@ -153,7 +153,7 @@ do
 done
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Planifier un déploiement de la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-planning.md)
 - [Résoudre les problèmes d’Azure Files sous Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Résoudre les problèmes d’Azure Files sous Linux](storage-troubleshoot-linux-file-connection-problems.md)

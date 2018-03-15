@@ -1,18 +1,43 @@
-### <a name="prerequisites"></a>Composants requis
-* Un compte [GitHub](http://GitHub.com) 
+---
+title: Fichier Include
+description: Fichier Include
+services: logic-apps
+author: MandiOhlinger
+ms.service: logic-apps
+ms.topic: include
+ms.date: 03/02/2018
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/05/2018
+---
+1. Dans le [portail Azure](https://portal.azure.com), créez une application logique vide. 
 
-Pour pouvoir utiliser votre compte GitHub dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure. 
+2. Dans le Concepteur d’applications logiques, entrez « github » comme filtre. 
 
-Pour autoriser votre application logique à se connecter à votre compte GitHub, procédez comme suit :
+3. Sélectionnez le connecteur GitHub et le déclencheur à utiliser.
 
-1. Pour créer une connexion à GitHub, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *GitHub* dans la zone de recherche. Sélectionnez le déclencheur ou l’action que vous allez utiliser :   
-   ![](./media/connectors-create-api-github/github-1.png)
-2. Si vous n’avez créé aucune connexion à GitHub auparavant, vous êtes invité à indiquer vos informations d’identification GitHub. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte GitHub :  
-   ![](./media/connectors-create-api-github/github-2.png)
-3. Indiquez votre nom d’utilisateur et votre mot de passe GitHub pour autoriser votre application logique :  
-   ![](./media/connectors-create-api-github/github-3.png)   
-4. Confirmez vos intentions :  
-   ![](./media/connectors-create-api-github/github-4.png)   
-5. Notez que la connexion a été créée dans le portail. Vous pouvez maintenant poursuivre la création de votre application logique et utiliser GitHub dans celle-ci :   
-   ![](./media/connectors-create-api-github/github-5.png)   
+   ![Sélectionner le connecteur GitHub et un déclencheur](./media/connectors-create-api-github/github-connector.png)
+
+   > [!NOTE]
+   > Tous les flux de travail d’application logique doivent démarrer avec un déclencheur. Vous ne pouvez sélectionner des actions que lorsque votre flux de travail logique démarre déjà avec un déclencheur. 
+
+4. Si vous n’avez pas créé de connexion, choisissez **Se connecter** afin de pouvoir fournir vos informations d’identification GitHub lorsque vous y êtes invité.  
+
+   ![Se connecter avec des informations d’identification GitHub](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
+
+   Votre application logique utilise ces informations d’identification pour autoriser la connexion et l’accès aux données pour votre compte GitHub. 
+
+5. Indiquez votre nom d’utilisateur et votre mot de passe GitHub, puis confirmez votre autorisation.
+
+   ![Fournir des informations d’identification et confirmer l’autorisation](./media/connectors-create-api-github/github-connector-authorize.png)   
+
+   Votre connexion est maintenant créée dans le portail Azure et est prête à être utilisée.
+
+6. Continuez à définir votre flux de travail d’application logique.
+
+   ![Ajouter des actions supplémentaires à votre flux de travail d’application logique](./media/connectors-create-api-github/github-connector-logic-app.png)
 

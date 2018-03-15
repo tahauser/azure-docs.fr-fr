@@ -271,7 +271,7 @@ Pour désactiver l’application logique, cliquez sur **Vue d’ensemble**, puis
 
 ![Journaux de fonction](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

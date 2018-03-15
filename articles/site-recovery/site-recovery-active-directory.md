@@ -209,5 +209,5 @@ Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises
 
     `dnscmd /config contoso.com /allowupdate 1`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [protection des charges de travail d’entreprise avec Azure Site Recovery](site-recovery-workload.md).

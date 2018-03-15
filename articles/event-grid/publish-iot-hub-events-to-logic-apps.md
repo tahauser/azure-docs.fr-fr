@@ -222,7 +222,7 @@ Même si vous conservez votre hub IoT, vous pouvez souhaiter supprimer l’abonn
 2. Sélectionnez l’abonnement aux événements que vous souhaitez supprimer. 
 3. Sélectionnez **Supprimer**. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez-en plus sur la [réaction aux événements IoT Hub en utilisant Event Grid pour déclencher des actions](../iot-hub/iot-hub-event-grid.md).
 

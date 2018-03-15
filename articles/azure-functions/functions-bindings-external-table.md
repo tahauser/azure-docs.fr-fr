@@ -198,7 +198,7 @@ Un connecteur sous forme de tableau fournit des jeux de données et chaque jeu d
 |**Google Sheet**|Feuille de calcul|Feuille de calcul 
 |**Excel**|Fichier Excel|Feuille 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

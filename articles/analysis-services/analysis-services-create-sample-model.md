@@ -1,6 +1,6 @@
 ---
-title: "Créer un exemple de modèle tabulaire pour votre serveur Azure Analysis Services | Microsoft Docs"
-description: "Découvrez comment créer un exemple de modèle dans Azure Analysis Services."
+title: "Ajouter un exemple de modèle tabulaire pour votre serveur Azure Analysis Services | Microsoft Docs"
+description: "Découvrez comment ajouter un exemple de modèle dans Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>Tutoriel : Créer un exemple de modèle
+# <a name="tutorial-add-a-sample-model"></a>Didacticiel : Ajouter un exemple de modèle
 
-Dans ce tutoriel, vous créez un exemple de modèle Adventure Works. L’exemple de modèle est une version complète du tutoriel de modélisation des données Adventure Works Internet Sales (1200). Un exemple de modèle sert à tester la gestion des modèles, à se connecter à des outils et des applications clientes, ainsi qu’à interroger des données de modèle.
+Dans ce didacticiel, vous ajoutez un exemple de modèle Adventure Works à votre serveur. L’exemple de modèle est une version complète du tutoriel de modélisation des données Adventure Works Internet Sales (1200). Un exemple de modèle sert à tester la gestion des modèles, à se connecter à des outils et des applications clientes, ainsi qu’à interroger des données de modèle.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour suivre ce tutoriel, vous avez besoin des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un serveur Azure Analysis Services
 - Des autorisations d’administrateur du serveur
@@ -67,7 +67,7 @@ Votre exemple de modèle utilise des ressources en mémoire cache. Si vous n’u
 
     ![Supprimer l’exemple de base de données](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 
 [Se connecter à Power BI Desktop](analysis-services-connect-pbi.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)

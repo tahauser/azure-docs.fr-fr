@@ -120,6 +120,6 @@ L’exemple suivant montre comment accéder aux certificats dans les runbooks Py
     # returns the binary cert content  
     print cert 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur l’utilisation des liens pour contrôler le flux logique d’activités que votre runbook est conçu pour effectuer, consultez [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow). 

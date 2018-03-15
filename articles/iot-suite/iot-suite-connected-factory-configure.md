@@ -343,6 +343,6 @@ L’une des caractéristiques de la valeur du nœud **NumberOfManufactureredProd
 
 La propriété **OpCode** de la configuration configure la logique de calcul permettant de calculer le résultat de la différence entre la valeur minimale et la valeur maximale. Ces résultats sont ensuite cumulés de manière à remonter jusqu’au niveau (global) racine et affichés dans le tableau de bord.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Comme étape suivante, nous vous suggérons de découvrir comment [Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée](iot-suite-connected-factory-gateway-deployment.md).

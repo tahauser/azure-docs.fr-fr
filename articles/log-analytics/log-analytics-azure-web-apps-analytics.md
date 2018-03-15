@@ -138,7 +138,7 @@ La **Liste de requêtes de recherche Azure Web Apps populaires** vous montre tou
 
 À l’aide d’une des requêtes de recherche dans les journaux comme point de départ, vous pouvez facilement créer une alerte. Par exemple, vous souhaiterez peut-être créer une alerte lorsque le temps de réponse moyen d’une mesure est supérieur à toutes les 1 seconde.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Créez une [alerte](log-analytics-alerts-creating.md) pour une mesure spécifique.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Résoudre les problèmes de déploiement liés à Azure Container Instances
 
@@ -91,6 +91,10 @@ La sortie inclut les propriétés principales de votre conteneur, ainsi que les 
 ## <a name="common-deployment-issues"></a>Problèmes de déploiement courants
 
 La plupart des erreurs de déploiement sont liées à quelques problèmes courants.
+
+## <a name="image-version-not-supported"></a>Version d’image non prise en charge
+
+Si l’image spécifiée n’est pas prise en charge par Azure Container Instances, une erreur est renvoyée sous la forme `ImageVersionNotSupported`. La valeur d’erreur affichée est `The version of image '{0}' is not supported.`. Cette erreur s’applique actuellement à des images Windows 1709. Pour l’éviter, utilisez une image LTS Windows. La prise en charge pour des images Windows 1709 est en cours d’élaboration.
 
 ## <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
@@ -184,7 +188,7 @@ Vous pouvez afficher la taille de votre image conteneur à l’aide de l’inter
 docker images
 ```
 
-Sortie :
+Output:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE

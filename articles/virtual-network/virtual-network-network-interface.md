@@ -4,7 +4,7 @@ description: "Découvrez les interfaces réseau et apprenez à les créer, en mo
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -30,12 +30,12 @@ Si vous devez ajouter, modifier ou supprimer des adresses IP pour une interface 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant d’effectuer une étape de cet article, quelle que soit sa section, effectuez les tâches suivantes :
+Avant de suivre les étapes décrites dans les sections de cet article, accomplissez les tâches suivantes :
 
-- Pour découvrir les limites des interfaces réseau, consultez [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Connectez-vous au [portail](https://portal.azure.com) Azure, à Azure CLI ou à Azure PowerShell avec un compte Azure. Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, vous devez [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que les applets de commande Azure PowerShell installées sont celles de la version la plus récente. Pour obtenir de l’aide sur les commandes PowerShell ainsi que des exemples, entrez `get-help <command> -full`.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, [installez et configurez Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que la version la plus récente d’Azure CLI est installée. Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> --help`. Au lieu d’installer CLI et ses prérequis, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Pour utiliser Cloud Shell, cliquez sur le bouton Cloud Shell **> _** en haut du [portail](https://portal.azure.com).
+- Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
+- Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 5.2.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce didacticiel requiert Azure CLI version 2.0.26 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 ## <a name="create-a-network-interface"></a>Créer une interface réseau
 
@@ -163,7 +163,7 @@ Vous pouvez modifier le sous-réseau, mais pas le réseau virtuel auquel une int
 
 ## <a name="delete-a-network-interface"></a>Supprimer une interface réseau
 
-Vous pouvez supprimer une interface réseau tant qu’elle n’est pas attachée à une machine virtuelle. Si elle est attachée à une machine virtuelle, vous devez d’abord placer la machine virtuelle en état Arrêté (libéré), puis détacher l’interface réseau de la machine virtuelle, avant de pouvoir supprimer l’interface réseau. Pour détacher une interface réseau d’une machine virtuelle, procédez de la manière décrite dans la section [Supprimer une interface réseau d’une machine virtuelle](virtual-network-network-interface-vm.md#vm-remove-nic) de l’article [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md). La suppression d’une machine virtuelle détache toutes les interfaces réseau attachées, mais elle ne supprime pas les interfaces réseau.
+Vous pouvez supprimer une interface réseau tant qu’elle n’est pas attachée à une machine virtuelle. Si elle est attachée à une machine virtuelle, vous devez d’abord placer la machine virtuelle en état Arrêté (libéré), puis détacher l’interface réseau de la machine virtuelle, avant de pouvoir supprimer l’interface réseau. Pour détacher une interface réseau d’une machine virtuelle, procédez de la manière décrite dans la section [Supprimer une interface réseau d’une machine virtuelle](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm) de l’article [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md). La suppression d’une machine virtuelle détache toutes les interfaces réseau attachées, mais elle ne supprime pas les interfaces réseau.
 
 1. Ouvrez une session sur le [portail Azure](https://portal.azure.com) à l’aide d’un compte disposant (au minimum) des autorisations associées au rôle Collaborateur de réseau de votre abonnement. Consultez l’article [Rôles intégrés pour contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) afin d’en savoir plus sur l’affectation des rôles et des autorisations aux comptes.
 2. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, saisissez *interfaces réseau*. Lorsque la mention **interfaces réseau** apparaît dans les résultats de recherche, cliquez dessus.
@@ -179,7 +179,7 @@ Lorsque vous supprimez une interface réseau, toutes les adresses MAC ou IP qui 
 |Interface de ligne de commande|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour créer une machine virtuelle avec plusieurs interfaces réseau ou adresses IP, lisez les articles suivants :
 
 **Commandes**

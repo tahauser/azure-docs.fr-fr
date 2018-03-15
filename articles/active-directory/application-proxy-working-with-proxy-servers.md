@@ -182,7 +182,7 @@ Le filtre précédent affiche uniquement les requêtes et réponses HTTPS vers/d
 
 Si vous voyez d’autres codes de réponse, comme 407 ou 502, cela signifie que le proxy nécessite une authentification ou n’autorise pas le trafic pour une raison quelconque. À ce stade, vous impliquez l’équipe de support technique de votre serveur proxy.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
 

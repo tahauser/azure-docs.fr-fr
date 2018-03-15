@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
 
@@ -100,7 +100,9 @@ Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
+  Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
+
+3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
 
 ### <a name="view-the-current-settings"></a>Afficher les paramètres actuels
 
@@ -136,13 +138,13 @@ Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre c
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
   ````
   
-Et voilà ! Vous avez défini votre stratégie de nommage et ajouté vos mots bloqués.
+Vous avez terminé. Vous avez défini votre stratégie de nommage et ajouté vos mots bloqués.
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exporter ou importer la liste de mots bloqués personnalisés
 
 Pour plus d’informations, consultez l’article [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
-Voici un exemple de script PowerShell permettant d’exporter plusieurs mots bloqués :
+Voici un exemple de script PowerShell permettant d’exporter plusieurs mots bloqués :
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
@@ -195,7 +197,7 @@ Applets de commande Azure Active Directory PowerShell | Les applets de commande 
 Centre d’administration Exchange | Le centre d’administration Exchange est conforme à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans le noms de groupe et l’alias de groupe.
 Centre d’administration Office 365 | Le centre d’administration Office 365 est conforme à la stratégie de nommage. Quand un utilisateur crée ou modifie des noms de groupes, la stratégie de nommage s’applique automatiquement, et les utilisateurs reçoivent les erreurs appropriées quand ils entrent des mots bloqués personnalisés. Le centre d’administration Office 365 n’affiche pas encore un aperçu de la stratégie de nommage et ne retourne pas d’erreurs liées aux mots bloqués personnalisés au moment où l’utilisateur entre le nom du groupe.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

@@ -81,7 +81,7 @@ Lorsque vous déclenchez un travail de reprotection et que la cible de que machi
 7. Une fois le travail de reprotection terminé, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
 8. Une fois la tâche de reprotection réussie, la machine virtuelle passe à l’état protégé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la machine virtuelle protégée, vous pouvez commencer un basculement. Le basculement arrête la machine virtuelle dans la région secondaire et crée et démarre la machine virtuelle dans la région principale, avec un léger temps d’indisponibilité. Nous vous recommandons de choisir une période en conséquence, et d’effectuer un test de basculement avant d’initialiser un basculement complet vers le site principal. [En savoir plus](site-recovery-failover.md) sur le basculement.
 

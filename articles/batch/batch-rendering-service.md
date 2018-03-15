@@ -258,6 +258,6 @@ Pour télécharger des sorties, modifiez le champ **Sorties** pour définir le r
 
 Vous pouvez fermer Maya sans interrompre le processus de téléchargement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Batch, consultez [Exécuter des charges de travail intrinsèquement parallèles avec Batch](batch-technical-overview.md).

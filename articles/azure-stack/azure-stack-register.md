@@ -193,5 +193,5 @@ Si vous souhaitez supprimer la ressource d’inscription, vous devez utiliser Un
    ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Se connecter à Azure Stack](azure-stack-connect-azure-stack.md)

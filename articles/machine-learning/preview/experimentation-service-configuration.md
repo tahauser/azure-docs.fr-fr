@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuration du service d’expérimentation Azure Machine Learning
 
@@ -29,7 +29,8 @@ Les environnements dans lesquels vous pouvez exécuter vos scripts sont les suiv
 
 * Python (3.5.2) sur votre ordinateur local installé par Workbench
 * Conda Python à l’intérieur d’un conteneur Docker sur un ordinateur local ;
-* Conda Python à l’intérieur d’un conteneur Docker sur une machine Linux distante, par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) ;
+* Environnement Python que vous possédez et gérez sur un ordinateur Linux distant
+* Conda Python à l’intérieur d’un conteneur Docker sur une machine Linux distante, Par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight pour Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) sur Azure.
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ La commande _az ml computetarget attach_ dans l’interface de ligne de commande
 Les cibles de calcul prises en charge sont les suivantes :
 * Environnement Python (3.5.2) sur votre ordinateur installé par Workbench
 * Docker local sur votre ordinateur ;
+* Environnement Python géré par l’utilisateur sur des machines virtuelles Ubuntu-Linux distantes. par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) ;
 * Docker distant sur machines virtuelles exécutant la distribution Linux Ubuntu, par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) ;
 * [cluster HDInsight pour Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) sur Azure.
 
@@ -69,14 +71,14 @@ Conda est utilisé pour gérer les exécutions sur Docker local et Docker distan
 ### <a name="run-configuration"></a>Configuration de série de tests
 En plus de la cible de calcul et de l’environnement d’exécution, Azure Machine Learning offre une infrastructure permettant de définir et de changer les *configurations de série de tests*. Dans le cadre d’une expérimentation itérative, les différentes exécutions de votre expérience peuvent nécessiter une configuration distincte. Vous balayez peut-être diverses plages de paramètres en utilisant des sources de données et paramètres de réglage Spark différents. Le service d’expérimentation fournit une infrastructure pour la gestion des configurations de série de tests.
 
-L’exécution de la commande _az ml computetarget attach_ a pour effet de générer deux fichiers dans le dossier **aml_config** de votre projet : un dossier .compute et un dossier .runconfig suivant la convention de dénomination _<nom_de_votre_cible_de_calcul>.compute_ et _<nom_de_votre_cible_de_calcul>.runconfig_. Par souci de facilité, le fichier .runconfig est créé automatiquement lorsque vous créez une cible de calcul. Vous pouvez créer et gérer d’autres configurations de série de tests à l’aide de la commande _az ml runconfigurations_ dans l’interface de ligne de commande. Vous pouvez également les créer et modifier sur votre système de fichiers.
+L’exécution de la commande _az ml computetarget attach_ a pour effet de générer deux fichiers dans le dossier **aml_config** de votre projet : un dossier « .compute » et un dossier « .runconfig » suivant la convention de dénomination _<nom_de_votre_cible_de_calcul>.compute_ et _<nom_de_votre_cible_de_calcul>.runconfig_. Par souci de facilité, le fichier .runconfig est créé automatiquement lorsque vous créez une cible de calcul. Vous pouvez créer et gérer d’autres configurations de série de tests à l’aide de la commande _az ml runconfigurations_ dans l’interface de ligne de commande. Vous pouvez également les créer et modifier sur votre système de fichiers.
 
 Une configuration de série de tests dans Workbench vous permet également de spécifier des variables d’environnement. Vous pouvez spécifier des variables d’environnement et les utiliser dans votre code en ajoutant la section suivante à votre fichier .runconfig. 
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Ces variables d’environnement sont accessibles dans votre code. Par exemple, cet extrait de code Python imprime la variable d’environnement nommée « EXAMPLE_ENV_VAR1 ».
@@ -101,7 +103,7 @@ Une manière simple de lancer l’interface de ligne de commande consiste à ouv
 Cette commande a pour effet d’ouvrir une fenêtre de terminal dans laquelle vous pouvez entrer des commandes pour exécuter des scripts dans le dossier du projet actuel. Cette fenêtre de terminal est configurée avec l’environnement Python 3.5.2 installé par Workbench.
 
 >[!NOTE]
-> Lorsque vous exécutez une commande _az ml_ à partir de la fenêtre Commande, il se peut que vous deviez vous authentifier auprès d’Azure. L’interface de ligne de commande utilisant un cache d’authentification indépendant, la connexion à Workbench ne signifie pas que vous êtes authentifié dans l’environnement de votre interface de ligne de commande. Pour vous authentifier, procédez comme suit. Le jeton d’authentification est mis en cache localement pendant un certain temps. Il suffit de répéter ces étapes lorsqu’il expire. Lorsque le jeton expire ou si vous rencontrez des erreurs d’authentification, exécutez les commandes suivantes :
+> Lorsque vous exécutez une commande _az ml_ à partir de la fenêtre Commande, il se peut que vous deviez vous authentifier auprès d’Azure. L’interface de ligne de commande utilisant un cache d’authentification indépendant, la connexion à Workbench ne signifie pas que vous êtes authentifié dans l’environnement de votre interface de ligne de commande. Pour l’authentification, suivez la procédure ci-dessous. Le jeton d’authentification est mis en cache localement pendant un certain temps. Il suffit de répéter ces étapes lorsqu’il expire. Lorsque le jeton expire ou si vous rencontrez des erreurs d’authentification, exécutez les commandes suivantes :
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>Exécution de scripts et d’expériences
 Workbench vous permet d’exécuter vos scripts Python et PySpark sur différentes cibles de calcul à l’aide de la commande _az ml experiment submit_. Cette commande requiert la définition d’une configuration de série de tests. 
 
-Workbench crée un fichier .runconfig correspondant quand vous créez une cible de calcul, mais vous pouvez créer des configurations de série de tests supplémentaires à l’aide de la commande _az ml runconfiguration  create_. Vous pouvez aussi modifier manuellement les fichiers de configuration de série de tests.
+Workbench crée un fichier runconfig correspondant quand vous créez une cible de calcul, mais vous pouvez créer des configurations de série de tests supplémentaires à l’aide de la commande _az ml runconfiguration  create_. Vous pouvez aussi modifier manuellement les fichiers de configuration de série de tests.
 
 Les configurations de série de tests apparaissent en tant que partie du processus d’exécution d’expérience dans Workbench. 
 
@@ -161,7 +163,7 @@ Pour exécuter votre script Python ou PySpark sur un Docker local, vous pouvez e
 ```
 $az ml experiment submit -c docker myscript.py
 ```
-ou
+or
 ```
 az ml experiment submit --run-configuration docker myscript.py
 ```
@@ -213,9 +215,50 @@ Le processus de construction du Docker pour les machines virtuelles distantes é
 >[!TIP]
 >Si vous préférez éviter la latence résultant de la création de l’image Docker pour votre première série de tests, vous pouvez utiliser la commande suivante pour préparer la cible de calcul avant l’exécution de votre script. az ml experiment prepare -c remotedocker
 
-
 _**Présentation de l’exécution de machine virtuelle distante pour un script Python :**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>Exécution d’un script sur une machine virtuelle distante ciblant les environnements gérés par l’utilisateur
+Le service d’expérimentation prend également en charge l’exécution d’un script dans l’environnement Python de l’utilisateur au sein d’une machine virtuelle Ubuntu distante. Cela vous permet de gérer votre propre environnement d’exécution et de toujours utiliser les fonctionnalités d’Azure Machine Learning. 
+
+Suivez les étapes ci-après pour exécuter votre script dans votre propre environnement.
+* Préparez votre environnement Python sur une machine virtuelle Ubuntu distante ou une machine virtuelle de science des données installant vos dépendances.
+* Installez la configuration requise d’Azure Machine Learning à l’aide de la commande suivante.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>Dans certains cas, vous devrez peut-être exécuter cette commande en mode sudo en fonction de vos privilèges. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* Utilisez la commande suivante afin de créer la définition de cible de calcul et la configuration de série de tests pour des exécutions gérées par l’utilisateur sur une machine virtuelle distante.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>Cela définira le paramètre « userManagedEnvironment » de votre fichier config .compute sur true.
+
+* Définissez l’emplacement de votre fichier exécutable de runtime Python dans votre fichier .compute. Vous devez faire référence au chemin d’accès complet de votre fichier exécutable Python. 
+```
+pythonLocation: python3
+```
+
+Une fois la cible de calcul configurée, vous pouvez utiliser la commande suivante pour exécuter votre script.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> Lorsque vous exécutez des opérations sur une machine virtuelle de science des données, vous devez utiliser les commandes suivantes
+
+Si vous souhaitez exécuter des opérations directement sur l’environnement Python global de la machine virtuelle de science des données, exécutez cette commande.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Exécution d’un script sur un cluster HDInsight
@@ -264,7 +307,7 @@ Vous suivez ces étapes pour utiliser cette fonctionnalité.
 ```
 az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
 ```
-ou
+or
 ```
 az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
 ```
@@ -279,6 +322,6 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 az ml experiment prepare -c remotevm
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Créer et installer Azure Machine Learning](quickstart-installation.md)
 * [Gestion des modèles](model-management-overview.md)

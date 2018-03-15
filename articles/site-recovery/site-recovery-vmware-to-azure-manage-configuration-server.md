@@ -1,5 +1,5 @@
 ---
-title: "Gérer le serveur de configuration pour la reprise après sinistre de VMware avec Azure Site Recovery | Microsoft Docs"
+title: "Gérer le serveur de configuration pour la récupération d’urgence de VMware avec Azure Site Recovery | Microsoft Docs"
 description: "Cet article explique comment utiliser Azure Site Recovery afin de gérer un serveur de configuration existant pour la reprise après sinistre de VMware sur Azure."
 services: site-recovery
 author: AnoopVasudavan
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2018
 ms.author: anoopkv
 ms.openlocfilehash: 80426b076481aaf2001644498da8cdce6f0311ab
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gérer le serveur de configuration pour les machines virtuelles VMware
 
@@ -153,6 +153,6 @@ Pour les déploiements de serveurs de configuration effectués avant mai 2016, l
 3. Sélectionnez **Renouveler les certificats**. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les tutoriels pour en savoir plus sur la configuration de la reprise après sinistre des [machines virtuelles VMware](tutorial-vmware-to-azure.md) dans Azure.

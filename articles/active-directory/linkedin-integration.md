@@ -9,21 +9,21 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="linkedin-integration-for-office-applications"></a>Intégration LinkedIn pour les applications Office
 Cet article vous indique comment restreindre les utilisateurs qui bénéficient de l’intégration LinkedIn dans Azure Active Directory (Azure AD). L’intégration de LinkedIn est activée par défaut lorsqu’elle est ajoutée à votre locataire, ce qui permet aux utilisateurs d’accéder aux données LinkedIn publiques dans certaines de leurs applications Microsoft. Chaque utilisateur peut choisir de connecter son compte professionnel ou scolaire à son compte LinkedIn.
 
 > [!IMPORTANT]
-> L’intégration de LinkedIn n'est pas déployée sur tous les locataires Azure AD en même temps. Une fois transférée vers votre locataire Azure, l’intégration LinkedIn est activée par défaut. L’intégration LinkedIn n’est pas disponible pour les locataires GoLocal, Sovereign et Government. 
+> L’intégration de LinkedIn n'est pas déployée sur tous les locataires Azure AD en même temps. Une fois transférée vers votre locataire Azure, l’intégration LinkedIn est activée par défaut. L’intégration LinkedIn n’est pas disponible pour les locataires GoLocal, Sovereign et Government. Pour obtenir une vue à jour des informations de déploiement, consultez la page [Feuille de route de Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
 
 ## <a name="linkedin-integration-from-the-user-perspective"></a>Intégration LinkedIn du point de vue de l’utilisateur
 Lorsque les utilisateurs de votre organisation connectent leur compte LinkedIn à leur compte professionnel ou scolaire, [ils autorisent LinkedIn à fournir des données](https://www.linkedin.com/help/linkedin/answer/84077) qui seront utilisées dans les applications et services Microsoft fournis par votre organisation. [Les utilisateurs peuvent déconnecter des comptes](https://www.linkedin.com/help/linkedin/answer/85097), retirant ainsi à LinkedIn l’autorisation de partager des données avec Microsoft. L’intégration LinkedIn utilise des informations de profil LinkedIn accessibles au public. [Les utilisateurs peuvent contrôler la manière dont leur profil LinkedIn est affiché](https://www.linkedin.com/help/linkedin/answer/83) à l’aide des paramètres de confidentialité LinkedIn, et notamment choisir si leur profil peut apparaître dans les applications Microsoft.
@@ -37,8 +37,8 @@ Pour les entreprises, l’intégration de LinkedIn est activée par défaut dans
 ### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Activer ou désactiver l’intégration LinkedIn pour votre organisation dans le portail Azure
 
 1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com/) en utilisant un compte d’administrateur général pour le locataire Azure AD.
-2. Sélectionnez **Utilisateurs et groupes**.
-3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Paramètres utilisateur**.
+2. Sélectionnez **Utilisateurs**.
+3. Dans le panneau **Utilisateurs**, sélectionnez **Paramètres utilisateur**.
 4. Sous **Intégration LinkedIn**, sélectionnez **Oui** ou **Non** pour activer ou désactiver l’intégration LinkedIn.
    ![Activation de l’intégration LinkedIn](./media/linkedin-integration/LinkedIn-integration.PNG)
 
@@ -59,7 +59,7 @@ Cette stratégie de groupe affecte uniquement les applications Office 2016 insta
 
 * [Centre d’aide LinkedIn](https://www.linkedin.com/help/linkedin)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Utilisez le lien suivant pour afficher vos paramètres d’intégration LinkedIn actuels dans le portail Azure :
 
 [Configurer l’intégration de LinkedIn](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

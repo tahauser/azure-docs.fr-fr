@@ -176,7 +176,7 @@ Vous pouvez utiliser le service de gestion de ressources Azure pour écrire un s
 ## <a name="limits-summary"></a>Synthèse des limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Échantillonnage](app-insights-sampling.md)
 

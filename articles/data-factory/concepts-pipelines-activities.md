@@ -389,7 +389,7 @@ Imaginons, par exemple, un déclencheur de planificateur, « Déclencheur A �
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les didacticiels suivants pour obtenir des instructions pas à pas de création de pipelines avec des activités : 
 
 - [Créer un pipeline avec une activité de copie](quickstart-create-data-factory-powershell.md)

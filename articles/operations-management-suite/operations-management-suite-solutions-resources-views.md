@@ -187,6 +187,6 @@ Par exemple, l’exemple suivant montre un fichier solution simple avec une vue.
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Découvrez plus de détails sur la création de [solutions de gestion](operations-management-suite-solutions-creating.md).
 * Inclure [des runbooks Automation dans votre solution de gestion](operations-management-suite-solutions-resources-automation.md).

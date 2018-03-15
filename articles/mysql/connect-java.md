@@ -393,7 +393,7 @@ public class DeleteTable {
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 La page [Exemples de connecteur MySQL/J](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html) comporte plusieurs autres exemples et exemples de code.
 
 > [!div class="nextstepaction"]

@@ -78,7 +78,7 @@ Les dernières versions de [jedis](https://github.com/xetorthio/jedis) prennent 
     }
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache.
 * Lisez la [documentation Redis](http://redis.io/documentation)officielle.
 * Découvrez comment [configurer une application Spring Initializr pour utiliser Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md).

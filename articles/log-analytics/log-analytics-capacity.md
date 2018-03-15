@@ -144,5 +144,5 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 | Répartition de la latence totale entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Latence de lectures/s de volume partagé de cluster » ou CounterName == « Latence d’écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [Recherches dans les journaux de Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de capacité et de performances.

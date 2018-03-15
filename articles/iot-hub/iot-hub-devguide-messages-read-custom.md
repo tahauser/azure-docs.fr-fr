@@ -51,7 +51,7 @@ Pour plus d’informations sur la lecture à partir de points de terminaison per
 * Lecture à partir de [files d’attente Service Bus][lnk-getstarted-queue].
 * Lecture à partir de [rubriques Service Bus][lnk-getstarted-topic].
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-devguide-endpoints].
 

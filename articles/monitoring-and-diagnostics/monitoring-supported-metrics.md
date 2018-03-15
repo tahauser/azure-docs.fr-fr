@@ -1146,7 +1146,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |CpuPercentage|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|Instance|
 |MemoryPercentage|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Instance|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les métriques dans Azure Monitor](monitoring-overview-metrics.md)
 * [Créer des alertes sur les métriques](insights-receive-alert-notifications.md)
 * [Exporter des métriques vers le stockage, un hub d’événements ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)

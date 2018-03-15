@@ -233,7 +233,7 @@ Ouvrez le fichier OpenAPI de votre application API Web afin d’ajouter l’obje
 ```
 Vous pouvez maintenant créer et inscrire votre connecteur personnalisé.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Inscrire votre connecteur](../logic-apps/logic-apps-custom-connector-register.md)
 * [FAQ sur les connecteurs personnalisés](../logic-apps/custom-connector-faq.md)

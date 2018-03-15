@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
@@ -29,7 +29,7 @@ Transférez votre abonnement à un autre utilisateur dans le Centre des comptes 
 
 > [!IMPORTANT]
 > 
-> Actuellement, nous ne prenons pas en charge les transferts d’abonnements pour les essais gratuits ou les abonnements [Azure dans Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Pour obtenir une solution de contournement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
+> Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-what-is.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfert de la propriété d’un abonnement Azure
 
@@ -49,7 +49,12 @@ Transférez votre abonnement à un autre utilisateur dans le Centre des comptes 
    ![Onglet Abonnements du compte Azure](./media/billing-subscription-transfer/image1.png)
 1. Spécifiez le destinataire.
 
+   > [!IMPORTANT]
+   > 
+   > Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-what-is.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
+
    ![Boîte de dialogue Transférer un abonnement](./media/billing-subscription-transfer/image2.PNG)
+
 1. Le destinataire reçoit automatiquement un e-mail contenant un lien d’acceptation.
 
    ![E-mail de transfert d’abonnement envoyé au destinataire](./media/billing-subscription-transfer/image3.png)
@@ -70,7 +75,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 1. Vous êtes désormais l’administrateur de compte. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les autres rôles RBAC. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
 1. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
-   1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d’informations, consultez [Créer et télécharger un certificat de gestion pour Microsoft Azure](../cloud-services/cloud-services-certs-create.md)
    1. Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
    1. Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure. 
 1. [Mettez à jour les alertes de facturation pour cet abonnement](billing-set-up-alerts.md) dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). 
@@ -80,7 +85,7 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 ## <a name="whats-supported"></a>Opérations prises en charge :
 
-Le transfert d’abonnements en libre-service est disponible pour les offres ou types d’abonnements répertoriés dans le tableau suivant. Pour transférer d’autres abonnements, comme [Sponsoring](https://azure.microsoft.com/offers/ms-azr-0036p/) ou des plans de support, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Le transfert d’abonnements en libre-service est disponible pour les offres ou types d’abonnements répertoriés dans le tableau suivant. Actuellement, vous ne pouvez pas transférer une version d’évaluation gratuite ou des abonnements [Azure dans Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Pour obtenir une solution de contournement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md). Pour transférer d’autres abonnements, comme [Sponsoring](https://azure.microsoft.com/offers/ms-azr-0036p/) ou des plans de support, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Nom de l’offre                                                                             | Numéro de l’offre |
 |----------------------------------------------------------------------------------------|--------------|

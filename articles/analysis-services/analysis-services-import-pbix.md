@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importer un fichier Power BI Desktop
 
-Vous pouvez créer un modèle dans Azure AS en important un fichier Power BI Desktop (pbix). Les connexions de sources de données, les données en cache et les métadonnées de modèle sont importées. Les rapports et les visualisations ne sont pas importés. Une fois dans votre serveur, des modifications peuvent être apportées au modèle en mettant à jour et en réimportant le fichier pbix à l’aide de la fonctionnalité (en préversion) de concepteur web du portail ou via SQL Server Management Studio (SSMS). Les modèles importés ne peuvent pas être ouverts ni exportés dans Visual Studio.
+Vous pouvez créer un modèle dans Azure AS en important un fichier Power BI Desktop (pbix). Les connexions de sources de données, les données en cache et les métadonnées de modèle sont importées. Les rapports et les visualisations ne sont pas importés.
 
-> [!NOTE]
-> Si votre modèle pbix se connecte aux sources de données locales, une [passerelle locale](analysis-services-gateway.md) doit être configurée pour votre serveur.
+**Restrictions**   
+- Le modèle pbix doit se connecter uniquement aux [sources de données prises en charge par Analysis Services](analysis-services-datasource.md). 
+- Le modèle pbix ne peut pas avoir de connexions DirectQuery ou en temps réel. 
+- Si le modèle pbix se connecte aux sources de données locales, une [passerelle de données locales](analysis-services-gateway.md) doit être configurée pour votre serveur Analysis Services.
+- L’importation risque d’échouer si votre modèle de données pbix contient des métadonnées non prises en charge dans Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Importation à partir de pbix
 

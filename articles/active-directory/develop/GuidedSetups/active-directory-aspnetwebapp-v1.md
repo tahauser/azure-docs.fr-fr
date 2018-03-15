@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion avec Microsoft à une application ASP.NET
@@ -48,7 +48,7 @@ Ce guide est basé sur des scénarios dans lesquels un navigateur accède à un 
 
 Ce guide utilise les packages suivants :
 
-|Bibliothèque|Description|
+|Bibliothèque|DESCRIPTION|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Intergiciel qui permet à une application d’utiliser OpenIDConnect pour l’authentification.|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Intergiciel qui permet à une application de maintenir la session utilisateur à l’aide de cookies.|
@@ -267,7 +267,7 @@ Sélectionnez le lien hypertexte pour afficher les revendications de l’utilisa
 #### <a name="expected-results"></a>Résultats attendus
  Vous devez voir une table contenant les propriétés de base de l’utilisateur connecté :
 
-| Propriété | Valeur | Description|
+| Propriété | Valeur | DESCRIPTION|
 |---|---|---|
 | NOM | {Nom complet de l’utilisateur} | Prénom et nom de l’utilisateur.
 |Nom d’utilisateur | <span>user@domain.com</span>| Nom d’utilisateur employé pour identifier l’utilisateur connecté.

@@ -75,7 +75,7 @@ while row:
 
 2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
 - [Python SQL Driver](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) (Pilote SQL Python)

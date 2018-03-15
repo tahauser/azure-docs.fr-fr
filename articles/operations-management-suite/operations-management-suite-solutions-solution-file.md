@@ -240,7 +240,7 @@ Vous pouvez voir des exemples de fichiers de solution avec une ressource de solu
 - [Ressources de recherche et d’alerte](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des alertes et des recherches enregistrées](operations-management-suite-solutions-resources-searches-alerts.md) à votre solution de gestion.
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks et d’autres ressources Automation](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.

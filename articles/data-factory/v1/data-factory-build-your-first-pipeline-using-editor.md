@@ -432,7 +432,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données pour traiter des 
 * Création de deux jeux de données qui décrivent les données d’entrée et de sortie pour l’activité HDInsight Hive dans le pipeline.
 * Création d’un pipeline avec une activité HDInsight Hive.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour savoir comment utiliser une activité de copie pour copier des données depuis un stockage d’objets blob vers une base de données SQL, voir [Didacticiel : Copie de données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Voir aussi

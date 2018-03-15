@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singletons avec état dans l’extension Fonctions durables - Échantillon de compteur
+
+> [!NOTE]
+> Nous réécrivons cet exemple. Les extraits de code ont été supprimés, et un nouvel article pour disposer d’un nouvel exemple le remplacera.
 
 Les singletons avec état sont des fonctions d’orchestrateur exécutées sur le long terme (voire à l’infini), capables de stocker un état et d’être appelées et interrogées par d’autres fonctions. Les singletons avec état sont similaires au [modèle d’acteur](https://en.wikipedia.org/wiki/Actor_model) des traitements distribués.
 
@@ -28,7 +31,7 @@ Les fonctions d’orchestrateur ne sont pas des implémentations d’« acteur �
 
 Cet article explique comment exécuter l’échantillon de *compteur*. Cet échantillon détaille un objet de singleton qui prend en charge les opérations *d’incrémentation* et de *décrémentation*, en mettant à jour son état interne comme il convient.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
 * Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
@@ -55,11 +58,11 @@ Les sections suivantes détaillent le code utilisé pour le développement de Vi
 
 Le fichier function.json :
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Le fichier run.csx :
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>C# précompilé 
 
@@ -67,7 +70,7 @@ Les sections suivantes détaillent le code utilisé pour le développement de Vi
 
 Voici le code qui implémente la fonction d’orchestrateur :
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Explication du code
 
@@ -150,7 +153,7 @@ Vous pouvez continuer à envoyer de nouvelles opérations à cette instance, et 
 > [!WARNING]
 > Au moment de l’écriture de cet article, il existe des conditions de concurrence connues lors de l’appel de l’élément `ContinueAsNew` en parallèle avec le traitement des messages, par exemple de demandes d’arrêt ou des événements externes. Pour en savoir plus sur ces conditions de concurrence, consultez cet [article de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Cet exemple a montré comment gérer les [événements externes](durable-functions-external-events.md) et implémenter les [orchestrations externes](durable-functions-eternal-orchestrations.md) dans les [singletons avec état](durable-functions-singletons.md). L’exemple suivant montre comment utiliser les événements externes et les [minuteurs durables](durable-functions-timers.md) pour gérer l’interaction humaine.
 

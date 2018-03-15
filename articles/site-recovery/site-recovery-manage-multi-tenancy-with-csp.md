@@ -121,7 +121,7 @@ Les partenaires peuvent également ajouter un nouvel utilisateur à l’abonneme
 
   Azure Site Recovery propose en outre trois [rôles d’utilisateur prédéfinis](site-recovery-role-based-linked-access-control.md), qui peuvent être utilisés pour limiter davantage les niveaux d’accès en fonction des besoins.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
   [Découvrez plus en détails](site-recovery-role-based-linked-access-control.md) le contrôle d’accès en fonction du rôle pour gérer les déploiements Azure Site Recovery.
 
   [Gérer les environnements VMware mutualisés](site-recovery-multi-tenant-support-vmware-using-csp.md)
