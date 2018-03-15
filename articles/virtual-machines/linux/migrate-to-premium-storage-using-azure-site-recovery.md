@@ -211,7 +211,7 @@ Site Recovery crée une instance de machine virtuelle dont le type est identique
 * [Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour des scénarios propres à la migration de machines virtuelles, consultez les ressources suivantes :
 

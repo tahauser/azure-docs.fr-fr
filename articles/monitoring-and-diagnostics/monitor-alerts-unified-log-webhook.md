@@ -193,7 +193,7 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [alertes de journal dans Azure Alerts (préversion)](monitor-alerts-unified-log.md)
 - Créer et gérer des [groupes d’actions dans Azure](monitoring-action-groups.md)
 - En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)

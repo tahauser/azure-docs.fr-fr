@@ -257,7 +257,7 @@ Le pipeline master transfère ces valeurs au pipeline appelé comme indiqué dan
 }
 
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Pour chaque activité](control-flow-for-each-activity.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -40,21 +40,15 @@ Ce plan est destiné à servir de base modulaire. Il pourra être adapté par le
 
 -   Il incombe aux clients d’effectuer des contrôles de conformité et de sécurité appropriés de toute solution générée à l’aide de cette architecture de base.
 
-Pour obtenir une présentation rapide du fonctionnement de cette solution, regardez cette [vidéo](https://aka.ms/healthblueprintvideo) qui explique son déploiement.
-
 ## <a name="deploying-the-automation"></a>Déploiement de l’automatisation
 
 - Pour déployer la solution, suivez les instructions fournies dans le guide de déploiement. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+Pour obtenir une présentation rapide du fonctionnement de cette solution, regardez cette [vidéo](https://aka.ms/healthblueprintvideo) qui explique son déploiement.
+
 - Vous trouverez un Forum aux questions [ici](https://aka.ms/healthblueprintfaq).
-
-
-## <a name="solution-components"></a>Composants de la solution
-
-
-L’architecture de base est constituée des éléments suivants :
 
 -   **Diagramme architectural.** Le diagramme illustre l’architecture de référence utilisée pour le plan et l’exemple de scénario de cas d’usage.
 
@@ -66,19 +60,23 @@ L’architecture de base est constituée des éléments suivants :
 -   Un script de configuration de l’installation des modules et de configuration de [l’administrateur général](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) est utilisé pour installer et vérifier que les modules PowerShell et rôles d’administrateur général nécessaires sont configurés correctement. 
 -   Un script d’installation PowerShell est utilisé pour déployer la solution. Il est fourni par le biais d’un fichier .zip qui contient des fonctions de démonstration prédéfinies.
 
+## <a name="solution-components"></a>Composants de la solution
+
+
+L’architecture de base est constituée des éléments suivants :
 
 -   **[Modèle de menaces](https://aka.ms/healththreatmodel)** Un modèle de menaces complet est fourni au format tm7 pour une utilisation avec [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168). Il présente les composants de la solution, les flux de données entre eux, ainsi que les délimitations d’approbation. Le modèle peut aider les clients à comprendre les points de risque potentiel dans l’infrastructure du système lors du développement de composants d’apprentissage automatique ou autres modifications.
 
--   **[Matrice de responsabilités client](https://aka.ms/healthcrmblueprint)** Un classeur Microsoft Excel répertorie les exigences HITRUST pertinentes, et explique de quelle manière Microsoft et le client doivent satisfaire chacune d’entre elles.
+-   **[Matrice d’implémentation client](https://aka.ms/healthcrmblueprint)** Un classeur Microsoft Excel répertorie les exigences HITRUST pertinentes, et explique de quelle manière Microsoft et le client doivent satisfaire chacune d’entre elles.
 
--   **[Contrôle d’intégrité. La solution a été contrôlée par Coalfire systems, Inc. Le document relatif au contrôle et aux instructions Health Compliance (HIPAA, and HITRUST) fournit l’évaluation de la solution réalisée par l’auditeur\', ainsi que des suggestions pour transformer le plan en déploiement prêt pour la production.
+-   **[Contrôle d’intégrité.](https://aka.ms/healthreviewpaper)** La solution a été contrôlée par Coalfire systems, Inc. Le document relatif au contrôle et aux instructions Health Compliance (HIPAA, and HITRUST) fournit l’évaluation de la solution réalisée par l’auditeur\', ainsi que des suggestions pour transformer le plan en déploiement prêt pour la production.
 
 # <a name="architectural-diagram"></a>Diagramme architectural
 
 
 ![](images/refarch.png)
 
-## <a name="roles"></a>Rôles
+## <a name="roles"></a>contrôleur
 
 
 Le plan définit deux rôles pour les utilisateurs administratifs (opérateurs) et trois rôles pour les utilisateurs membres de la direction et chargés du soin des patients. Un sixième rôle est défini afin de permettre à un auditeur d’évaluer la conformité avec les réglementations HIPAA ou autres. Le contrôle d’accès en fonction du rôle (RBAC) Azure autorise une gestion de l’accès très précise pour chaque utilisateur de la solution par le biais de rôles intégrés et personnalisés. Pour plus d’informations sur RBAC, les rôles et les autorisations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) et [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
@@ -311,7 +309,7 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 
 -   [Le contrôle d’accès en fonction du rôle](/azure/event-grid/security-authentication#management-access-control) pour diverses opérations de gestion telles que l’énumération des abonnements aux événements, la création de nouveaux abonnements et la génération de clés.
 
--   L’audit.
+-   Audit
 
 ## <a name="store"></a>STOCKAGE 
 

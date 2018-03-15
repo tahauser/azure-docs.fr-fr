@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Présentation de la référence Standard d’Azure Load Balancer (préversion)
 
@@ -68,7 +68,7 @@ Les groupes à haute disponibilité ne sont plus requis. Cependant, vous pouvez 
 
 La référence Standard de Load Balancer offre de nouvelles fonctionnalités de diagnostic multidimensionnel pour les configurations Load Balancer publiques et internes. Ces nouvelles métriques sont fournies par le biais d’Azure Monitor (préversion) et utilisent toutes les fonctions connexes, y compris la possibilité d’intégration à divers consommateurs en aval.
 
-| Métrique | DESCRIPTION |
+| Métrique | Description |
 | --- | --- |
 | Disponibilité VIP | La référence Standard de Load Balancer teste en continu le chemin de données d’une région vers le serveur frontal Load Balancer, jusqu’à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.|
 | Disponibilité DIP | La référence Standard de Load Balancer utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool Load Balancer.  Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité.
@@ -466,9 +466,10 @@ Les limitations suivantes s’appliquent au moment de la préversion et sont sus
 - Dans le contexte des zones de disponibilité, une adresse IP publique zonale ne peut pas être déplacée d’une zone à l’autre.
 - Les [alertes Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) ne sont pas prises en charge pour l’instant.
 - Le portail ne prend pas encore en charge les régions développées en préversion.  Veuillez utiliser les outils client comme les modèles, Azure CLI 2.0 ou PowerShell comme solution de contournement.
+- Les opérations de déplacement d’abonnement ne sont pas prises en charge.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur [la référence De base de Load Balancer](load-balancer-overview.md)
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

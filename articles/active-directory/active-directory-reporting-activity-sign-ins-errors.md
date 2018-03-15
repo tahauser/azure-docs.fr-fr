@@ -100,6 +100,6 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus, voir [Rapports d’activité des connexions dans le portail Azure Active Directory](active-directory-reporting-activity-sign-ins.md).

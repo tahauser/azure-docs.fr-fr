@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Planifier des tâches et flux de travail à exécuter régulièrement avec des applications logiques
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Créer et planifier l’exécution régulière de tâches avec Azure Logic Apps
 
 Pour planifier des tâches, actions, charges de travail ou processus à exécuter régulièrement, vous pouvez créer un flux de travail d’application logique qui démarre avec le **déclencheur** [Planification - Périodicité](../logic-apps/logic-apps-overview.md#logic-app-concepts). Ce déclencheur permet de définir une date et une heure de démarrage de la périodicité et une planification périodique de tâches comme les suivantes, entre autres :
 
@@ -42,7 +42,7 @@ Ce déclencheur prend en charge de nombreux modèles, par exemple :
 
 Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée et exécute une nouvelle instance de votre flux de travail d’application logique.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -96,7 +96,7 @@ Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée e
 
 Vous pouvez configurer ces propriétés pour le déclencheur de périodicité.
 
-| NOM | Obligatoire | Nom de la propriété | type | DESCRIPTION | 
+| NOM | Obligatoire | Nom de la propriété | type | Description | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Fréquence** | OUI | frequency | Chaîne | L’unité de temps de la périodicité est : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois**. | 
 | **Intervalle** | OUI | interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>L’intervalle par défaut est de 1 minute. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. | 
@@ -109,7 +109,7 @@ Vous pouvez configurer ces propriétés pour le déclencheur de périodicité.
 
 ## <a name="json-example"></a>Exemple JSON
 
-Voici un exemple de définition de déclencheur de périodicité :
+Voici un exemple de [définition de déclencheur de périodicité](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) :
 
 ``` json
 {
@@ -200,7 +200,7 @@ Dans ce scénario, le moteur Logic Apps calcule les heures d’exécution en fon
 
 Par conséquent, pour ce scénario, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première heure d’exécution est la même.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Actions et déclencheurs de flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Connecteurs](../connectors/apis-list.md)

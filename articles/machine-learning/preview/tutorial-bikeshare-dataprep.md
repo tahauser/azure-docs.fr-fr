@@ -834,7 +834,7 @@ Dans les étapes précédentes, vous avez utilisé les sources de données `2017
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez terminé le didacticiel de préparation des données BikeShare. Dans ce didacticiel, vous avez utilisé les services Machine Learning (préversion) pour apprendre à effectuer les tâches suivantes :
 > [!div class="checklist"]
 > * Préparer des données de manière interactive avec l’outil de préparation des données Machine Learning.

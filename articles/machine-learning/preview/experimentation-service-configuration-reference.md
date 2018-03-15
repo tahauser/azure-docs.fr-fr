@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Fichiers de configuration du service d’expérimentation Azure Machine Learning
 
@@ -32,9 +32,9 @@ Les fichiers appropriés dans ce dossier sont les suivants :
 >En général, vous disposez d’un fichier de cible de calcul et d’un fichier de configuration de série de tests pour chaque cible de calcul que vous créez. Vous pouvez cependant créer ces fichiers séparément et avoir plusieurs fichiers de configuration de série de tests pointant vers la même cible de calcul.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Ce fichier est un [fichier d’environnement conda](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) qui spécifie la version du runtime Python et les packages dont dépend votre code. Quand Azure Machine Learning Workbench exécute un script dans un conteneur Docker ou un cluster HDInsight, il crée un [environnement conda](https://conda.io/docs/using/envs.html) pour l’exécution de votre script. 
+Ce fichier est un [fichier d’environnement conda](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) qui spécifie la version du runtime Python et les packages dont dépend votre code. Quand Azure ML Workbench exécute un script dans un conteneur Docker ou un cluster HDInsight, il crée un [environnement conda](https://conda.io/docs/using/envs.html) pour l’exécution de votre script. 
 
-Dans ce fichier, vous spécifiez les packages Python nécessaires pour l’exécution de votre script. Le service d’expérimentation Azure ML crée l’environnement conda dans l’image Docker en fonction de votre liste de dépendances. La liste de packages présentée ici doit être accessible au moteur d’exécution. C’est pourquoi les packages doivent être répertoriés dans des canaux tels que :
+Dans ce fichier, vous spécifiez les packages Python nécessaires pour l’exécution de votre script. Le service d’expérimentation Azure ML crée l’environnement conda en fonction de votre liste de dépendances. La liste de packages présentée ici doit être accessible au moteur d’exécution via des canaux comme :
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ Dans ce fichier, vous spécifiez les packages Python nécessaires pour l’exéc
 * Autres canaux accessibles au moteur d’exécution
 
 >[!NOTE]
->Lors de l’exécution sur un cluster HDInsight, Azure Machine Learning Workbench crée un environnement conda pour votre série de tests. Ainsi, différents utilisateurs peuvent exécuter des tests dans des environnements Python différents sur le même cluster.  
+>Lors de l’exécution sur un cluster HDInsight, Azure ML Workbench crée un environnement conda pour votre série de tests. Ainsi, différents utilisateurs peuvent exécuter des tests dans des environnements Python différents sur le même cluster.  
 
 Voici un exemple de fichier **conda_dependencies.yml** classique.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure Machine Learning Workbench utilise le même environnement conda sans reconstruction tant que le fichier **conda_dependencies.yml** reste intact. En revanche, si quelque chose change dans ce fichier, cela entraîne une reconstruction de l’image Docker.
+Azure ML Workbench utilise le même environnement conda sans régénération tant que le fichier **conda_dependencies.yml** reste identique. Il régénèrera votre environnement si vos dépendances sont modifiées.
 
 >[!NOTE]
 >Si vous ciblez l’exécution dans le contexte de calcul _local_, le fichier **conda_dependencies.yml** n’est **pas** utilisé. Les dépendances de package pour l’environnement Python de votre Azure Machine Learning Workbench local doivent être installées manuellement.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Ce fichier Spécifie le nom de l’application Spark lorsque vous soumettez un script PySpark et des packages Spark à installer. Vous pouvez également spécifier un référentiel Maven public, ainsi qu’un package Spark figurant dans ce référentiel.
+Ce fichier spécifie le nom de l’application Spark lorsque vous soumettez un script PySpark et des packages Spark à installer. Vous pouvez également spécifier un référentiel Maven public, ainsi qu’un package Spark figurant dans ce référentiel.
 
 Voici un exemple : 
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->Les paramètres de réglage de cluster tels que la taille de worker et les cœurs doivent figurer dans la section « configuration » du fichier spark_dependecies.yml. 
+>Les paramètres de réglage de cluster tels que la taille de Worker et les cœurs doivent figurer dans la section « configuration » du fichier spark_dependecies.yml 
 
 >[!NOTE]
->Si vous exécutez le script dans un environnement Python, le fichier *spark_dependencies.yml* est ignoré. Il n’a d’effet si vous exécutez sur Spark (sur un cluster Docker ou HDInsight).
+>Si vous exécutez le script dans un environnement Python, le fichier *spark_dependencies.yml* est ignoré. Il est utilisé uniquement si vous exécutez sur Spark (sur un cluster Docker ou HDInsight).
 
 ## <a name="run-configuration"></a>Configuration de série de tests
-Pour spécifier une configuration de série de tests particulière, une paire de fichiers est nécessaire. Ceux-ci sont généralement générés à l’aide d’une commande d’interface de ligne de commande. Mais vous pouvez également cloner des fichiers existants, les renommer, puis les modifier.
+Pour spécifier une configuration de série de tests spécifique, vous avez besoin d’un fichier .compute et un fichier .runconfig. Ceux-ci sont généralement générés à l’aide d’une commande d’interface de ligne de commande. Vous pouvez également cloner des fichiers existants, les renommer, puis les modifier.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ Cette commande crée une paire de fichiers en fonction de la cible de calcul sp�
 > Les noms _local_ ou _docker_ des fichiers de configuration de série de tests sont arbitraires. Azure Machine Learning Workbench ajoute ces deux configurations de série de tests lorsque vous créez un projet vide par commodité. Vous pouvez renommer les fichiers « <run configuration name>.runconfig » accompagnant le modèle de projet, ou créer de nouveaux sous le nom de votre choix.
 
 ### <a name="compute-target-namecompute"></a>\<nom de cible de calcul>.compute
-Un fichier _\<compute target name>.compute_ spécifie les informations de connexion et de configuration de la cible de calcul. Il s’agit d’une liste de paires nom-valeur. Voici les paramètres pris en charge.
+Un fichier _\<compute target name>.compute_ spécifie les informations de connexion et de configuration de la cible de calcul. Il s’agit d’une liste de paires nom-valeur. Voici les paramètres pris en charge :
 
 **type** : type de l’environnement de calcul. Les valeurs prises en charge sont les suivantes :
   - local
+  - remote
   - docker
   - remotedocker
   - cluster
@@ -147,8 +148,10 @@ Un fichier _\<compute target name>.compute_ spécifie les informations de connex
 
 **nativeSharedDirectory** : cette propriété spécifie le répertoire de base (par exemple, _~/.azureml/share/_) dans lequel les fichiers peuvent être enregistrés pour être partagés entre les séries de tests sur la même cible de calcul. Si ce paramètre est utilisé lors de l’exécution sur un conteneur Docker, _sharedVolumes_ doit être défini sur true. Autrement, l’exécution échoue.
 
+**userManagedEnvironment**: cette propriété spécifie si cette cible de calcul est gérée directement par l’utilisateur ou via le service d’expérimentation.  
+
 ### <a name="run-configuration-namerunconfig"></a>\<nom de configuration de série de tests>.runconfig
-_\<nom de configuration de série de tests>.runconfig_ spécifie le comportement d’exécution de l’expérience Azure ML. Vous pouvez configurer des comportements d’exécution, comme le suivi de l’historique des exécutions ou la cible de calcul à utiliser, entre autres. Les noms des fichiers de configuration de série de tests sont utilisés pour remplir la liste déroulante des contextes d’exécution dans l’application de bureau Azure Machine Learning Workbench.
+_\<nom de configuration de série de tests>.runconfig_ spécifie le comportement d’exécution de l’expérience Azure ML. Vous pouvez configurer un comportement d’exécution, comme le suivi de l’historique des exécutions ou la cible de calcul à utiliser, entre autres. Les noms des fichiers de configuration de série de tests sont utilisés pour remplir la liste déroulante des contextes d’exécution dans l’application de bureau Azure Machine Learning Workbench.
 
 **ArgumentVector** : cette section spécifie le script à exécuter dans le cadre de cette exécution, ainsi que les paramètres du script. Par exemple, si vous avez dans votre fichier « <run configuration name>.runconfig » l’extrait de code suivant 
 
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Ces variables d’environnement sont accessibles dans le code de l’utilisateur. Par exemple, ce code Python imprime la variable d’environnement nommée « EXAMPLE_ENV_VAR ».
+Ces variables d’environnement sont accessibles dans le code de l’utilisateur. Par exemple, ce code Python imprime la variable d’environnement nommée « EXAMPLE_ENV_VAR »
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -189,7 +192,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **DataSourceSettings** : cette section de configuration spécifie les paramètres de source de données. Dans cette section, l’utilisateur spécifie l’échantillon de données existant pour une source de données particulière à utiliser dans le cadre de la série de tests. 
 
-Le paramètre de configuration suivant spécifie que l’exemple nommé « MySample » est utilisé pour la source de données nommée « MyDataSource »
+Le paramètre de configuration suivant spécifie que l’exemple nommé « MySample » est utilisé pour la source de données nommée « MyDataSource »
 ```
 DataSourceSettings:
     MyDataSource.dsource:
@@ -210,5 +213,5 @@ Suite à cette substitution, l’exemple de code suivant lit la source de donné
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur la [configuration du service d’expérimentation](experimentation-service-configuration.md).

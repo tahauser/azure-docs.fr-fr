@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
@@ -30,22 +30,24 @@ Planifiez vos découvertes et vos évaluations en fonction des contraintes suiva
 | **Entité** | **Limite de la machine** |
 | ---------- | ----------------- |
 | projet    | 1 500              | 
-| Découverte  | 1 000              |
-| Évaluation | 400               |
+| Découverte  | 1 500              |
+| Évaluation | 1 500               |
 
-- Si vous avez moins de 400 machines à découvrir et évaluer, vous n’avez besoin que d’un seul projet et d’une seule découverte. Selon vos besoins, vous pouvez évaluer toutes les machines en même temps ou en regrouper certaines pour effectuer plusieurs évaluations. 
-- Si vous avez entre 400 et 1 000 machines à découvrir, vous n’avez besoin que d’un seul projet et d’une seule découverte. Toutefois, vous devrez effectuer plusieurs évaluations, car vous ne pouvez évaluer que 400 machines à la fois.
-- Si vous avez entre 1 001 et 1 500 machines, vous n’avez besoin que d’un seul projet et de deux découvertes.
-- Si vous avez plus de 1 500 machines, vous devez créer plusieurs projets et effectuer plusieurs découvertes, selon vos besoins. Par exemple : 
-    - Si vous avez 3 000 machines, vous pouvez configurer deux projets avec deux découvertes, ou trois projets avec une seule découverte.
-    - Si vous avez 5 000 ordinateurs, vous pouvez configurer quatre projets : trois projets avec une découverte de 1 500 machines, et un projet avec une découverte de 500 machines. Vous pouvez également configurer cinq projets avec une découverte chacun. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Planifier plusieurs découvertes
 
 Vous pouvez utiliser la même instance d’Azure Migrate Collector pour effectuer plusieurs découvertes dans un ou plusieurs projets. Pour la planification, gardez à l’esprit les éléments suivants :
  
 - Lorsque vous effectuez une découverte à l’aide d’Azure Migrate Collector, vous pouvez définir l’étendue de la découverte sur un dossier vCenter Server, un centre de données, un cluster ou un hôte.
-- Pour effectuer plusieurs découvertes, vérifiez dans vCenter Server que les machines virtuelles que vous souhaitez découvrir se trouvent dans des dossiers, des centres de données, des clusters ou des hôtes qui prennent en charge la limite de 1 000 machines.
+- Pour effectuer plusieurs découvertes, vérifiez dans vCenter Server que les machines virtuelles que vous souhaitez découvrir se trouvent dans des dossiers, des centres de données, des clusters ou des hôtes qui prennent en charge la limite de 1 500 machines.
 - À des fins d’évaluation, nous vous recommandons de conserver les machines ayant des interdépendances au sein d’un même projet et d’une même évaluation. Dans vCenter Server, vérifiez que les machines dépendantes se trouvent dans le même dossier, centre de données ou cluster, pour l’évaluation.
 
 
@@ -83,6 +85,14 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer :
 
    Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Vérifiez que le hachage généré correspond aux paramètres suivants.
+
+    Pour OVA version 1.0.9.5
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     Pour OVA version 1.0.9.2
 
@@ -197,7 +207,7 @@ La durée de la découverte varie selon le nombre de machines virtuelles découv
 2. Vérifiez que les machines virtuelles que vous souhaitez découvrir apparaissent dans le portail.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez comment [créer un groupe](how-to-create-a-group.md) pour l'évaluation.
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

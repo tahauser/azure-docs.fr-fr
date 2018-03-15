@@ -262,7 +262,7 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 | 1008 |Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
 | 1011 |Un problème est survenu dans le service. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)

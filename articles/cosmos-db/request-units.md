@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 Désormais disponible : [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB. Pour en savoir plus, consultez [Estimation des besoins de débit](request-units.md#estimating-throughput-needs).
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 La modification du débit n’a aucun impact sur la disponibilité de votre conteneur. Le nouveau débit réservé est généralement effectif quelques secondes après son application.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolement de débit dans des bases de données distribués à l’échelle mondiale
+
+Une fois votre base de données répliquée dans plusieurs régions, Azure Cosmos DB fournit une isolation de débit pour garantir que l’utilisation de RU dans une région n’a aucune incidence sur l’utilisation de RU dans une autre région. Par exemple, si vous écrivez des données dans une région et lisez des données à partir d’une autre région, les RU permettant d’effectuer l’opération d’écriture dans la région A ne lèsent pas les RU utilisées pour l’opération de lecture dans la région B. Les RU ne sont pas fractionnées sur les différentes régions où vous avez effectué le déploiement. Chaque région dans laquelle la base de données est répliquée comporte la quantité totale de RU configurées. Pour en savoir plus sur la réplication à l’échelle mondiale, voir [Comment distribuer des données mondialement avec Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considérations relatives aux unités de requête
 Quand vous évaluez le nombre d’unités de requête à réserver pour votre conteneur Azure Cosmos DB, vous devez impérativement tenir compte des variables suivantes :
@@ -209,7 +213,7 @@ Par exemple :
 6. Calculer les unités de requête nécessaires étant donné l’estimation du nombre d’exécutions d’opérations prévues chaque seconde.
 
 ## <a id="GetLastRequestStatistics"></a>Utiliser la commande GetLastRequestStatistics de l’API pour MongoDB
-L’API pour MongoDB prend en charge une commande personnalisée, *getLastRequestStatistics*, pour récupérer les frais de requête des opérations spécifiées.
+L’API MongoDB prend en charge une commande personnalisée, *getLastRequestStatistics*, pour récupérer les frais de requête des opérations spécifiées.
 
 Par exemple, dans l’interpréteur de commandes Mongo, exécutez l’opération dont vous souhaitez vérifier les frais de demande.
 ```
@@ -235,10 +239,10 @@ Ainsi, une méthode permettant d’estimer la quantité de débit réservé requ
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Utiliser les mesures du portail de l’API pour MongoDB
-La méthode la plus simple pour obtenir une estimation correcte des frais d’unité de requête pour votre base de données API pour MongoDB consiste à utiliser les mesures du [portail Azure](https://portal.azure.com). Grâce aux graphiques *Nombre de demandes* et *Frais de demande*, vous pouvez obtenir une estimation du nombre d’unités de requête consommées par chaque opération et par les opérations les unes par rapport aux autres.
+## <a name="use-mongodb-api-portal-metrics"></a>Utiliser les mesures du portail de l’API MongoDB
+La méthode la plus simple pour obtenir une estimation correcte des frais d’unité de requête pour votre base de données d’API MongoDB consiste à utiliser les mesures du [portail Azure](https://portal.azure.com). Grâce aux graphiques *Nombre de demandes* et *Frais de demande*, vous pouvez obtenir une estimation du nombre d’unités de requête consommées par chaque opération et par les opérations les unes par rapport aux autres.
 
-![Mesures du portail de l’API pour MongoDB][6]
+![Mesures du portail de l’API MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Exemple d’estimation d’unités de requête
 Prenez le document suivant d’environ 1 Ko :
@@ -343,10 +347,10 @@ Si vous utilisez des requêtes LINQ et le SDK .NET Client, la plupart du temps v
 
 Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de requêtes, le comportement par défaut peut ne pas suffire, et le client générera dans l’application une exception DocumentClientException avec le code d’état 429. Dans ce cas, vous pourriez traiter le comportement et la logique de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou accroître le débit réservé pour le conteneur.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API pour MongoDB
-Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
+Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur le débit réservé avec les bases de données Azure Cosmos DB, explorez ces ressources :
 
 * [Tarification de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)

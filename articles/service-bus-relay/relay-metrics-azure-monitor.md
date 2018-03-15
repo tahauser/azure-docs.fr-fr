@@ -84,7 +84,7 @@ Azure Relay prend en charge les dimensions suivantes pour les mesures dans Azure
 | ------------------- | ----------------- |
 |EntityName| Azure Relay prend en charge les entités de messagerie sous l’espace de noms.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez la [Vue d’ensemble de surveillance Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

@@ -497,6 +497,6 @@ La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébe
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Add an IP address to an existing load balancer with PowerShell (Ajouter une adresse IP à un équilibrage de charge pour un deuxième groupe de disponibilité)](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

@@ -61,7 +61,7 @@ IoT Hub mesure la taille des messages d’une façon indépendante du protocole,
 
 Les noms et les valeurs des propriétés sont limités aux caractères ASCII ; ainsi, la longueur des chaînes est égale à la taille en octets.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les limites de taille des messages dans IoT Hub, consultez [Quotas et limitation IoT Hub][lnk-quotas].
 

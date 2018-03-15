@@ -141,11 +141,11 @@ Oui, vous pouvez choisir de basculer vers une machine virtuelle avec Managed Dis
 
 **La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery (ASR) par le biais de la réplication Azure vers Azure ?**
 
-Oui. La protection Azure vers Azure ASR n’est pas prise en charge pour les machines virtuelles avec Managed Disks. Elle sera prise en charge à la fin du 1er trimestre 2018. 
+Oui. La protection ASR Azure vers Azure pour machines virtuelles avec des disques managés n’est disponible qu’en tant que service de préversion public.
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
-Oui
+OUI
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks et Storage Service Encryption 
 
@@ -182,7 +182,7 @@ Oui. Tous les instantanés et les images gérés créés après le 9 juin 2017 s
 
 **Puis-je convertir des machines virtuelles avec des disques non gérés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques gérés ?**
 
-Oui
+OUI
 
 **Un disque dur virtuel exporté à partir d’un disque géré ou un instantané seront-ils également chiffrés ?**
 

@@ -185,7 +185,7 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 
 2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Tapez le nom de la ressource à supprimer, puis sélectionnez **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 

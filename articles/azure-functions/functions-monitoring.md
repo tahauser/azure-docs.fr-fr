@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 20b12da7dedb9c5ac76a09785b68fb384789c2d7
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -371,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -395,13 +395,13 @@ namespace functionapp0915
          
             // Track an Event
             var evt = new EventTelemetry("Function called");
-            UpdateTelemetryContext(evt.Context, context, userName);
-            telemetry.TrackEvent(evt);
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
             
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
-            UpdateTelemetryContext(metric.Context, context, userName);
-            telemetry.TrackMetric(metric);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -413,8 +413,8 @@ namespace functionapp0915
                     Duration = DateTime.UtcNow - start,
                     Success = true
                 };
-            UpdateTelemetryContext(dependency.Context, context, userName);
-            telemetry.TrackDependency(dependency);
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
             
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
@@ -436,11 +436,7 @@ namespace functionapp0915
 
 N’appelez pas `TrackRequest` ou `StartOperation<RequestTelemetry>`, afin d’éviter les doublons de demandes pour un appel de fonction.  Le runtime d’Azure Functions effectue automatiquement le suivi des demandes.
 
-Définissez `telemetry.Context.Operation.Id` sur l’identificateur d’invocation à chaque démarrage de votre fonction. Ainsi, vous pouvez mettre en corrélation tous les éléments de télémétrie pour un appel de fonction donné.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+Ne définissez pas `telemetryClient.Context.Operation.Id`. Il s’agit d’un paramètre global qui provoquera une corrélation incorrecte lorsqu’un grand nombre de fonctions sont exécutées en même temps. Au lieu de cela, créez une nouvelle instance de télémétrie (`DependencyTelemetry`, `EventTelemetry`) et modifiez sa propriété `Context`. Passez dans l’instance de télémétrie correspondant à la méthode `Track` sur `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Cela garantit que les données de télémétrie possèdent les détails de corrélation corrects pour l’appel de la fonction actuelle.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Données de télémétrie personnalisées dans les fonctions JavaScript
 
@@ -529,7 +525,7 @@ Pour plus d’informations, consultez [Diffusion en continu des journaux](../app
 
 [!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations, consultez les ressources suivantes :
 

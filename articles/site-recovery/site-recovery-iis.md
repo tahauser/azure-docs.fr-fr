@@ -164,5 +164,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Approfondissez vos connaissances sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.

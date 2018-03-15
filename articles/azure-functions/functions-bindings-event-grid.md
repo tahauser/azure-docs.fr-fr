@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Déclencheur Event Grid pour Azure Functions
 
@@ -33,7 +33,7 @@ Si vous préférez, vous pouvez utiliser un déclencheur HTTP pour gérer les é
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>exemples
+## <a name="example"></a>Exemple
 
 Consultez l’exemple de déclencheur Event Grid correspondant au langage souhaité :
 
@@ -146,7 +146,7 @@ Vous trouverez un exemple complet sur la page [Exemple C#](#c-example).
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Il n’y a aucun paramètre de constructeur ni aucune propriété à définir dans l’attribut `EventGridTrigger`.
 
-|Propriété function.json |DESCRIPTION|
+|Propriété function.json |Description|
 |---------|---------|----------------------|
 | **type** | Obligatoire : doit être défini sur `eventGridTrigger`. |
 | **direction** | Obligatoire : doit être défini sur `in`. |
@@ -318,7 +318,7 @@ Utilisez un outil comme [Postman](https://www.getpostman.com/) ou [curl](https:/
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Le paramètre `functionName` doit être le nom de la méthode, et non le nom spécifié dans l’attribut `FunctionName`. C’est pourquoi, lorsqu’un projet comporte plusieurs fonctions, celles-ci doivent avoir des noms uniques de méthode (il ne faut pas qu’elles soient toutes nommées `Run`) pour qu’il soit possible de tester les déclencheurs Event Grid en local.
+Le paramètre `functionName` doit être le nom spécifié dans l’attribut `FunctionName`.
 
 Les captures d’écran suivantes montrent les en-têtes et le corps de la requête dans Postman :
 
@@ -379,7 +379,7 @@ Créez un abonnement Event Grid du type à tester, et donnez-lui votre point de 
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Le paramètre `functionName` doit être le nom de la méthode, et non le nom spécifié dans l’attribut `FunctionName`. C’est pourquoi, lorsqu’un projet comporte plusieurs fonctions, celles-ci doivent avoir des noms uniques de méthode (il ne faut pas qu’elles soient toutes nommées `Run`) pour qu’il soit possible de tester les déclencheurs Event Grid en local.
+Le paramètre `functionName` doit être le nom spécifié dans l’attribut `FunctionName`.
 
 Voici un exemple utilisant Azure CLI :
 
@@ -474,7 +474,7 @@ Le code de gestion des événements s’intègre à la boucle par le biais du ta
 
 Pour plus d’informations sur l’URL à utiliser pour appeler la fonction en local ou en cas d’exécution dans Azure, consultez la [documentation de référence des liaisons de déclencheurs HTTP](functions-bindings-http-webhook.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

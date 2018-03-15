@@ -2,45 +2,53 @@
 title: Gestion des erreurs et des exceptions pour Logic Apps dans Azure | Microsoft Docs
 description: "Modèles de gestion des erreurs et des exceptions dans Logic Apps."
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: derek1ee
+documentationcenter: 
+author: dereklee
 manager: anneta
 editor: 
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/18/2016
-ms.author: LADocs; deli
-ms.openlocfilehash: a74c7d18306359c9152f139299de1208b5932fe5
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.workload: logic-apps
+ms.date: 01/31/2018
+ms.author: deli; LADocs
+ms.openlocfilehash: 91819d0fba30dd2ada981435fa13b8ae0a7fcc45
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Gérer les erreurs et les exceptions dans Logic Apps
 
-Logic Apps dans Azure propose un ensemble complet d’outils et de modèles afin de garantir la résistance et la fiabilité de vos intégrations contre les défaillances. Toute architecture d’intégration nécessite que les temps d’arrêt et les problèmes soient gérés de manière appropriée. Logic Apps fait de la gestion des erreurs une expérience hors pair. Il met à votre disposition les outils dont vous avez besoin pour agir sur les exceptions et les erreurs dans vos workflows.
+Une gestion de manière appropriée des temps d’arrêt ou des problèmes de systèmes dépendants peut s’avérer être un défi pour toute architecture d’intégration. Pour créer des intégrations fiables qui sont résilientes aux problèmes et aux échecs, Logic Apps offre une expérience de qualité pour la gestion des erreurs et des exceptions. 
 
 ## <a name="retry-policies"></a>Stratégies de nouvelle tentative
 
-Le type de gestion des erreurs et des exceptions le plus simple consiste à utiliser une stratégie de nouvelle tentative. Une stratégie de nouvelle tentative définit si et comment l’action doit être réessayée en cas d’expiration ou d’échec de la demande initiale (toute demande ayant entraîné une réponse 429 ou 5xx). 
+Pour le type de gestion des erreurs et des exceptions le plus simple, vous pouvez utiliser la stratégie de nouvelle tentative. Cette stratégie définit si et comment l’action fait l’objet d’une nouvelle tentative en cas d’expiration ou d’échec de la requête initiale, à savoir toute requête ayant entraîné une réponse 429 ou 5xx. 
 
-Il existe quatre types de stratégies de nouvelle tentative : par défaut, aucune, intervalle fixe et intervalle exponentiel. Si aucune stratégie de nouvelle tentative n’est fournie dans la définition de workflow, la stratégie par défaut telle que définie par le service est utilisée. 
+Il existe quatre types de stratégies de nouvelle tentative : par défaut, aucune, intervalle fixe et intervalle exponentiel. Si votre définition de flux de travail ne comporte pas de stratégie de nouvelle tentative, la stratégie par défaut telle que définie par le service est utilisée à la place.
 
-Vous pouvez configurer des stratégies de nouvelle tentative dans les *entrées* d’une action ou d’un déclencheur s’ils peuvent faire l’objet d’une nouvelle tentative. De même, vous pouvez configurer des stratégies de nouvelle tentative (le cas échéant) dans le Concepteur d’application logique. Pour configurer une stratégie de nouvelle tentative dans le Concepteur d’application logique, accédez à **Paramètres** pour une action spécifique.
+Pour configurer des stratégies de nouvelle tentative, le cas échéant, ouvrez le Concepteur d’application logique pour votre application logique, puis accédez à **Paramètres** pour une action spécifique dans votre application logique. Vous pouvez également définir des stratégies de nouvelle tentative dans la section **inputs** d’une action spécifique ou d’un déclencheur, si elle est peut faire l’objet d’une nouvelle tentative, dans votre définition de flux de travail. Voici la syntaxe générale :
 
-Pour plus d’informations sur les limitations des stratégies de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md). Pour plus d’informations sur la syntaxe prise en charge, consultez la [section relative aux stratégies de nouvelle tentative sous Déclencheurs et actions pour les workflows][retryPolicyMSDN].
+```json
+"retryPolicy": {
+    "type": "<retry-policy-type>",
+    "interval": <retry-interval>,
+    "count": <number-of-retry-attempts>
+}
+```
+
+Pour plus d’informations sur la syntaxe et la section **inputs**, consultez la [section relative aux stratégies de nouvelle tentative sous Déclencheurs et actions pour les flux de travail][retryPolicyMSDN]. Pour plus d’informations sur les limitations de la stratégie de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md). 
 
 ### <a name="default"></a>Default
 
-Si vous ne définissez pas de stratégie de nouvelle tentative (**retryPolicy** n’est pas défini), la stratégie par défaut est utilisée. La stratégie par défaut est une stratégie d’intervalles exponentiels qui envoie jusqu’à quatre tentatives à intervalles exponentiels définis à 7,5 secondes. L’intervalle est limité entre 5 et 45 secondes. Cette stratégie par défaut est équivalente à la stratégie dans cet exemple de définition de workflow HTTP :
+Lorsque vous ne définissez pas de stratégie de nouvelle tentative dans la section **retryPolicy**, votre application logique utilise la stratégie par défaut, qui est une [stratégie d’intervalle exponentielle](#exponential-interval) qui envoie jusqu’à quatre nouvelles tentatives à des intervalles à croissance exponentielle mis à l’échelle tous les 7,5 secondes. L’intervalle est limité entre 5 et 45 secondes. Cette stratégie est équivalente à la stratégie dans cet exemple de définition de flux de travail HTTP :
 
 ```json
-"HTTP":
-{
+"HTTP": {
+    "type": "Http",
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
@@ -52,60 +60,63 @@ Si vous ne définissez pas de stratégie de nouvelle tentative (**retryPolicy** 
             "maximumInterval": "PT45S"
         }
     },
-    "runAfter": {},
-    "type": "Http"
+    "runAfter": {}
 }
 ```
 
 ### <a name="none"></a>Aucun
 
-Si **retryPolicy** a la valeur **none**, une demande ayant échoué n’est pas renouvelée.
+Si vous définissez **retryPolicy** sur **none**, cette stratégie ne réessaie pas les requêtes ayant échoué.
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION |
-| ------------ | -------- | ---- | ----------- |
-| Type | OUI | Chaîne | **Aucune** |
+| Nom de l'élément | Obligatoire | type | Description | 
+| ------------ | -------- | ---- | ----------- | 
+| Type | OUI | Chaîne | **Aucune** | 
+||||| 
 
 ### <a name="fixed-interval"></a>Intervalle fixe
 
-Si **retryPolicy** est défini sur **fixed**, la stratégie réessaie une demande ayant échoué en attendant l’intervalle de temps spécifié avant d’envoyer la demande suivante.
+Si vous définissez **retryPolicy** sur **fixed**, cette stratégie réessaie une requête ayant échoué en attendant l’intervalle de temps spécifié avant d’envoyer la requête suivante.
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION |
+| Nom de l'élément | Obligatoire | type | Description |
 | ------------ | -------- | ---- | ----------- |
 | Type | OUI | Chaîne | **fixed** |
-| count | OUI | Entier  | Nombre de nouvelles tentatives. Doit être compris entre 1 et 90. |
-| interval | OUI | Chaîne | Intervalle de nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Doit être compris entre PT5S et PT1D. |
+| count | OUI | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
+| interval | OUI | Chaîne | Intervalle avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre PT5S et PT1D | 
+||||| 
+
+<a name="exponential-interval"></a>
 
 ### <a name="exponential-interval"></a>Intervalle exponentiel
 
-Si **retryPolicy** est défini sur **exponential**, la stratégie réessaie une demande ayant échoué après un intervalle de temps aléatoire à partir d’une plage à croissance exponentielle. Grâce à ce type de stratégie, chaque nouvelle tentative est envoyée à un intervalle aléatoire supérieur à **minimumInterval** et inférieur à **maximumInterval**. Une variable aléatoire uniforme dans la plage indiquée dans le tableau suivant est générée pour chaque nouvelle tentative jusqu’à **count** compris :
+Si vous définissez **retryPolicy** sur **exponential**, cette stratégie réessaie une requête ayant échoué après un intervalle de temps aléatoire à partir d’une plage à croissance exponentielle. La stratégie garantit également l’envoi de chaque nouvelle tentative à un intervalle aléatoire supérieur à **minimumInterval** et inférieur à **maximumInterval**. Les stratégies exponentielles nécessitent des valeurs **count** et **interval**, tandis que les valeurs **minimumInterval** and **maximumInterval** sont facultatives. Si vous souhaitez remplacer les valeurs par défaut PT5S et PT1D respectivement, vous pouvez ajouter ces valeurs.
+
+| Nom de l'élément | Obligatoire | type | Description |
+| ------------ | -------- | ---- | ----------- |
+| Type | OUI | Chaîne | **exponential** |
+| count | OUI | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90  |
+| interval | OUI | Chaîne | Intervalle avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre PT5S et PT1D. |
+| minimumInterval | Non  | Chaîne | Intervalle minimal avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre PT5S et **interval** |
+| maximumInterval | Non  | Chaîne | Intervalle minimal avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre **interval** et PT1D | 
+||||| 
+
+Ce tableau montre comment une variable aléatoire uniforme dans la plage indiquée est générée pour chaque nouvelle tentative jusqu’à **count** compris :
 
 **Plage des variables aléatoires**
 
 | Nombre de nouvelles tentatives | Intervalle minimal | Intervalle maximal |
-| ------------ |  ------------ |  ------------ |
+| ------------ | ---------------- | ---------------- |
 | 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
 | 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
 | 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
 | 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
-| ... |
+| .... | | | 
+|||| 
 
-Pour les stratégies de type exponentiel, **count** et **interval** sont requis. Les valeurs pour **minimumInterval** et **maximumInterval** sont facultatives. Vous pouvez les ajouter pour remplacer les valeurs par défaut de PT5S et PT1D, respectivement.
+## <a name="catch-and-handle-failures-with-the-runafter-property"></a>Intercepter et gérer les échecs avec la propriété RunAfter
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION |
-| ------------ | -------- | ---- | ----------- |
-| Type | OUI | Chaîne | **exponential** |
-| count | OUI | Entier  | Nombre de nouvelles tentatives. Doit être compris entre 1 et 90.  |
-| interval | OUI | Chaîne | Intervalle de nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Doit être compris entre PT5S et PT1D. |
-| minimumInterval | Non  | Chaîne | Intervalle minimal de nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Doit être compris entre PT5S et **interval**. |
-| maximumInterval | Non  | Chaîne | Intervalle maximal de nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Doit être compris entre **interval** et PT1D. |
+Chaque action d’application logique déclare les actions qui doivent être terminées avant le début de cette action, semblable à la façon dont vous spécifiez l’ordre des étapes dans votre flux de travail. Dans une définition d’action, la propriété **runAfter** définit l’ordre et est un objet qui décrit les actions et les états d’action qui exécutent l’action.
 
-## <a name="catch-failures-with-the-runafter-property"></a>Identification des échecs avec la propriété RunAfter
-
-Chaque action d’application logique déclare quelles actions doivent se terminer avant de démarrer une autre action. Cette opération revient à hiérarchiser les étapes de votre workflow. Ce classement est connu sous le nom de propriété **runAfter** dans la définition de l’action. 
-
-La propriété **runAfter** est un objet qui décrit les actions et les états d’action qui exécutent l’action. Par défaut, toutes les actions que vous avez ajoutées à l’aide du Concepteur d’application logique sont définies pour s’exécuter après l’étape précédente, si le résultat de celle-ci est **Succeeded**. 
-
-Toutefois, vous pouvez personnaliser la valeur **runAfter** pour déclencher des actions quand les actions précédentes ont pour résultat **Failed**, **Skipped** ou un ensemble de ces valeurs possible. Si vous souhaitez ajouter un élément à une rubrique Service Bus désignée suite à l’échec d’une action spécifique **Insert_Row**, vous pouvez utiliser la configuration **runAfter** suivante :
+Par défaut, toutes les actions que vous ajoutez dans le Concepteur d’application logique sont définies pour s’exécuter après l’étape précédente, lorsque le résultat de l’étape précédente est **Succeeded**. Vous pouvez toutefois personnaliser la propriété **runAfter** de sorte que les actions soient déclenchées lorsque le résultat des actions précédentes est **Failed**, **Skipped**, ou une combinaison de ces valeurs. Par exemple, pour ajouter un élément à une rubrique Service Bus spécifique après l’échec d’une action **Insert_Row** donnée, vous pouvez utiliser cet exemple de définition **runAfter** :
 
 ```json
 "Send_message": {
@@ -133,7 +144,7 @@ Toutefois, vous pouvez personnaliser la valeur **runAfter** pour déclencher des
 }
 ```
 
-Notez que **runAfter** est défini pour se déclencher si le résultat de l’action **Insert_Row** est **Failed**. Pour exécuter l’action si l’état de l’action est **Succeeded**, **Failed** ou **Skipped**, utilisez cette syntaxe :
+La propriété **runAfter** est définie pour exécuter l’action lorsque l’état de l’action **Insert_Row** est **Failed**. Pour exécuter l’action si l’état de l’action est **Succeeded**, **Failed** ou **Skipped**, utilisez cette syntaxe :
 
 ```json
 "runAfter": {
@@ -144,27 +155,31 @@ Notez que **runAfter** est défini pour se déclencher si le résultat de l’ac
 ```
 
 > [!TIP]
-> Les actions qui s’exécutent et se terminent correctement suite à l’échec d’une action précédente sont marquées comme **Succeeded**. Cela signifie que si vous avez correctement intercepté tous les échecs dans un workflow, l’exécution elle-même est marquée comme **Succeeded**.
+> Les actions qui s’exécutent et se terminent correctement suite à l’échec d’une action précédente sont marquées comme **Succeeded**. Ce comportement signifie que si vous avez correctement intercepté tous les échecs dans un flux de travail, l’exécution elle-même est marquée comme **Succeeded**.
 
-## <a name="scopes-and-results-to-evaluate-actions"></a>Étendues et résultats permettant d’évaluer les actions
+<a name="scopes"></a>
 
-Vous pouvez regrouper des actions dans une [étendue](../logic-apps/logic-apps-loops-and-scopes.md), à l’image des actions individuelles dont l’issue détermine le déclenchement d’une exécution. Une étendue fait office de regroupement logique d’actions. 
+## <a name="evaluate-actions-with-scopes-and-their-results"></a>Évaluer les actions avec des étendues et leurs résultats
 
-Les étendues sont utiles pour organiser vos actions d’application logique et pour effectuer des évaluations d’agrégation sur l’état d’une étendue. L’étendue elle-même se voit attribuer un état une fois toutes les actions de l’étendue effectuées. L’état de l’étendue est déterminé avec les mêmes critères que pour une exécution. Si la dernière action dans une branche de l’exécution est **Failed** ou **Aborted**, l’état est **Failed**.
+Comme pour l’exécution d’étapes après des actions individuelles avec la propriété **runAfter**, vous pouvez regrouper des actions dans une [étendue](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Vous pouvez utiliser des étendues lorsque vous souhaitez regrouper des actions de manière logique, évaluer l’état d’agrégation de l’étendue et effectuer des actions en fonction de cet état. Une fois que toutes les actions d’une étendue ont été exécutées, l’étendue récupère son propre état. 
 
-Vous pouvez utiliser la propriété **runAfter** sur une étendue qui a été marquée comme **Failed** pour déclencher des actions spécifiques en raison d’échecs survenus dans l’étendue. Si *des* actions figurant dans l’étendue échouent et que vous utilisez **runAfter** pour celle-ci, vous pouvez créer une seule action pour intercepter des échecs.
+Pour vérifier l’état d’une étendue, vous pouvez utiliser les mêmes critères que ceux utilisés pour vérifier l’état d’exécution d’une application logique, tels que **Succeeded**, **Failed**, etc. 
 
-### <a name="get-the-context-of-failures-with-results"></a>Obtenir le contexte des échecs avec les résultats
+Par défaut, lorsque toutes les actions de l’étendue réussissent, l’état de l’étendue est défini sur **Succeeded**. Si l’état de la dernière action d’une étendue est **Failed** ou **Aborted**, l’état de l’étendue est défini sur **Failed**. 
 
-Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué et pour comprendre les codes d’erreur ou d’état retournés. La fonction de workflow **@result()** fournit le contexte dans le résultat de toutes les actions au sein d’une étendue.
+Pour intercepter des exceptions dans une étendue **Failed** et exécuter des actions qui gèrent ces erreurs, vous pouvez utiliser la propriété **runAfter** de cette étendue **Failed**. Ainsi, si *des* actions figurant dans l’étendue échouent, et que vous utilisez la propriété **runAfter** pour cette étendue, vous pouvez créer une seule action pour intercepter des échecs.
 
-La fonction **@result()** prend un paramètre unique, le nom de l’étendue, et retourne un tableau de tous les résultats d’action dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet **@actions()**, y compris l’heure de début de l’action, l’heure de fin de l’action, l’état de l’action, les entrées de l’action, les ID de corrélation d’action, ainsi que ses résultats. 
+Pour les limites sur les étendues, consultez [Limites et configuration](../logic-apps/logic-apps-limits-and-config.md).
 
-Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
+### <a name="get-context-and-results-for-failures"></a>Obtenir le contexte et les résultats des échecs
 
-Pour exécuter une action *pour chaque* action dans une étendue marquée comme **Failed** et filtrer les résultats sur les actions ayant échoué, associez **@result()** à une action [Filter_array](../connectors/connectors-native-query.md) et une boucle [foreach](../logic-apps/logic-apps-loops-and-scopes.md). Avec le tableau des résultats filtrés, vous pouvez effectuer une action pour chaque échec à l’aide de la boucle **foreach**. 
+Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. La fonction de workflow **@result()** fournit le contexte dans le résultat de toutes les actions au sein d’une étendue.
 
-Voici un exemple qui envoie une demande HTTP POST avec le corps de réponse de toutes les actions qui ont échoué dans l’étendue My_Scope :
+La fonction **@result()** accepte un paramètre unique (le nom de l’étendue), et retourne un tableau de tous les résultats d’action dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet  **@actions()**, tels que l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
+
+Pour exécuter une action *pour chaque* action dans une étendue marquée comme **Failed** et filtrer les résultats sur les actions ayant échoué, vous pouvez associer **@result()** à une action **[Filter Array](../connectors/connectors-native-query.md)** et une boucle **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**. Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **ForEach** . 
+
+Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse de toutes les actions qui ont échoué dans l’étendue « My_Scope » :
 
 ```json
 "Filter_array": {
@@ -205,21 +220,22 @@ Voici un exemple qui envoie une demande HTTP POST avec le corps de réponse de t
 }
 ```
 
-Voici la procédure détaillée pour décrire ce qui se produit dans l’exemple précédent :
+Voici la procédure détaillée pour décrire ce qui se produit dans cet exemple :
 
-1. Pour obtenir le résultat de toutes les actions au sein de My_Scope, l’action **Filter_array** permet de filtrer **@result('My_Scope')**.
+1. Pour obtenir le résultat de toutes les actions au sein de « My_Scope », l’action **Filter Array** permet de filtrer **@result('My_Scope')**.
 
-2. La condition de l’action **Filter_array** est tout élément **@result()** dont l’état est égal à **Failed**. Cette condition filtre le tableau de tous les résultats d’action de My_Scope selon un tableau contenant uniquement les résultats d’action ayant échoué.
+2. La condition de l’action **Filter Array** est tout élément **@result()** dont l’état est égal à **Failed**. Cette condition filtre le tableau de tous les résultats d’action de « My_Scope » selon un tableau contenant uniquement les résultats d’action ayant échoué.
 
-3. Exécution d’une action **foreach** sur les résultats du *tableau filtré*. Cette étape exécute une action *pour chaque* résultat d’action ayant échoué filtré précédemment.
+3. Exécution d’une action en boucle **For Each** sur les résultats du *tableau filtré*. Cette étape exécute une action *pour chaque* résultat d’action ayant échoué filtré précédemment.
 
-    Si une action unique dans l’étendue a échoué, les actions de **foreach** s’exécutent une seule fois. Plusieurs actions ayant échoué peuvent provoquer une action par échec.
+   Si une action unique dans l’étendue a échoué, les actions de **foreach** s’exécutent une seule fois. 
+   Plusieurs actions ayant échoué peuvent provoquer une action par échec.
 
-4. Envoi d’une requête HTTP POST sur le corps de réponse de l’élément **foreach**, ou **@item()['outputs']['body']**. La forme de l’élément **@result()** est la même que celle de **@actions()**. Elle peut être analysée de la même façon.
+4. Envoi d’une requête HTTP POST sur le corps de réponse de l’élément **foreach**, qui est **@item()['outputs']['body']**. La forme de l’élément **@result()** est identique à la forme **@actions()** et peut être analysée de la même façon.
 
 5. Deux en-têtes personnalisés avec le nom de l’action qui a échoué **@item()['name']** sont également inclus, ainsi que l’ID de suivi du client d’exécution qui a échoué **@item()['clientTrackingId']**.
 
-Pour référence, voici un exemple d’un élément **@result()** unique. Il montre les propriétés **name**, **body** et **clientTrackingId** qui sont analysées dans l’exemple précédent. En dehors d’une action **foreach**, **@result()** retourne un tableau de ces objets.
+Pour référence, voici un exemple d’un seul élément **@result()**, montrant les propriétés **name**, **body** et **clientTrackingId** analysées dans l’exemple précédent. En dehors d’une action **foreach**, **@result()** retourne un tableau de ces objets.
 
 ```json
 {
@@ -251,20 +267,21 @@ Pour référence, voici un exemple d’un élément **@result()** unique. Il mon
 }
 ```
 
-Vous pouvez utiliser les expressions décrites plus haut dans cet article pour découvrir différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs et de supprimer **foreach**. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse **@result()**, comme décrit précédemment.
+Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs et de supprimer l’action **foreach**. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse **@result()** comme décrit précédemment.
 
 ## <a name="azure-diagnostics-and-telemetry"></a>Azure Diagnostics et télémétrie
 
-Les modèles décrit dans cet article sont très utiles pour gérer les erreurs et les exceptions dans une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de workflow (y compris tous les états d’exécution et d’action) à un compte de stockage Azure ou un hub d’événements dans Azure Event Hubs. 
+Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. 
+[Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail, y compris tous les états d’exécution et d’action, à un compte de stockage Azure ou un hub d’événements créé avec Azure Event Hubs. 
 
-Vous pouvez surveiller des journaux et des métriques ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via Event Hubs à [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives basées sur des anomalies, moyennes ou échecs dans les journaux de diagnostic. Vous pouvez utiliser Stream Analytics pour envoyer des informations à d’autres sources de données, telles que des files d’attente, des rubriques, SQL, Azure Cosmos DB ou Power BI.
+Vous pouvez surveiller les journaux et les mesures ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via Event Hubs à [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives basées sur des anomalies, moyennes ou échecs dans les journaux de diagnostic. Vous pouvez utiliser Stream Analytics pour envoyer des informations à d’autres sources de données, telles que des files d’attente, des rubriques, SQL, Azure Cosmos DB ou Power BI.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-* Voir comment un client [conçoit la gestion des erreurs avec Logic Apps dans Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md).
-* Consulter d’autres [exemples et scénarios Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md).
-* Découvrir comment créer des [déploiements automatisés pour des applications logiques](../logic-apps/logic-apps-create-deploy-template.md).
-* Découvrir comment [créer et déployer des applications logiques avec Visual Studio](logic-apps-deploy-from-vs.md).
+* [Voir comment un client conçoit la gestion des erreurs avec Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Consultez d’autres exemples et scénarios Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Découvrez comment créer des déploiements automatisés pour des applications logiques](../logic-apps/logic-apps-create-deploy-template.md)
+* [Créer et déployer des applications logiques avec Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

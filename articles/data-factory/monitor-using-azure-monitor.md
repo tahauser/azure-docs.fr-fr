@@ -398,5 +398,5 @@ ADFV2 émet les métriques suivantes :
 
 Pour accéder aux métriques, suivez les instructions contenues dans l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant . 

@@ -105,7 +105,7 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 
 Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce guide de démarrage rapide, vous avez appris à ajouter la marque de société à votre annuaire Azure AD. 
 
 Vous pouvez utiliser le lien suivant pour configurer la marque de votre société dans Azure AD à partir du portail Azure.

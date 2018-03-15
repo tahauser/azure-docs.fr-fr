@@ -256,7 +256,7 @@ az group delete --name myResourceGroup
 
 ---
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un compte de stockage standard à usage général. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au démarrage rapide du stockage Blob.
 

@@ -227,7 +227,7 @@ The following example of a Content Moderator JSON output was truncated.
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [solution de modération et de révision de vidéo](../cognitive-services/Content-Moderator/video-moderation-human-review.md) de Content Moderator.
 

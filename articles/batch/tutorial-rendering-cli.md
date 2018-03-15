@@ -337,7 +337,7 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group d
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 

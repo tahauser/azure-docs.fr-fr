@@ -79,6 +79,6 @@ Vous trouverez ci-dessous les détails de sortie correspondant à la requête HT
 | --- | --- | --- |
 | Tableau filtré |array |Tableau contenant un objet pour chaque résultat filtré |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

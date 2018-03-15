@@ -266,7 +266,7 @@ Vous pouvez modifier le niveau de service, le niveau de performances et le nivea
     );
     ```
 
-## <a name="next-steps"></a>étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > * Créer une base de données SQL Azure vide dans le portail Azure 

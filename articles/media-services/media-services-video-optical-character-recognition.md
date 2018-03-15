@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique
 ## <a name="overview"></a>Vue d'ensemble
@@ -41,7 +41,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
 >
 
 ### <a name="attribute-descriptions"></a>Descriptions des attributs
-| Nom de l’attribut | Description |
+| Nom de l’attribut | DESCRIPTION |
 | --- | --- |
 |AdvancedOutput| Si vous définissez AdvancedOutput sur true, le résultat JSON contient les données sur la position de chaque mot unique (en plus des régions et des expressions). Si vous ne souhaitez pas voir ces détails, définissez l’indicateur sur False. La valeur par défaut est false. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Langage |(facultatif) indique la langue du texte à rechercher. Une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
@@ -51,6 +51,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
 
 #### <a name="json-preset-example"></a>Exemple de présélection JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Exemple de présélection XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>Fichiers de sortie OCR
 La sortie du processeur multimédia OCR est un fichier JSON.
@@ -97,7 +102,7 @@ La sortie vidéo OCR fournit des données temporelles segmentées sur les caract
 
 La sortie contient les attributs suivants :
 
-| Élément | Description |
+| Élément | DESCRIPTION |
 | --- | --- |
 | Échelle de temps |« cycles » par seconde de la vidéo |
 | Offset |décalage des horodatages. Cette valeur sera toujours 0 dans la version 1.0 des API vidéo. |
@@ -113,11 +118,12 @@ La sortie contient les attributs suivants :
 | Langage |langue du texte détecté dans une région |
 | orientation |orientation du texte détecté dans une région |
 | lignes |tableau de lignes de texte détecté dans une région |
-| texte |le texte réel |
+| text |le texte réel |
 
 ### <a name="json-output-example"></a>Exemple de sortie JSON
 L’exemple de sortie suivant contient des informations générales sur la vidéo et plusieurs fragments vidéo. Chaque fragment vidéo contient toutes les régions détectées par le processeur multimédia OCR selon la langue et l’orientation du texte choisies. La région contient également toutes les lignes de mots de cette région, avec le texte et la position de chaque ligne, et des informations sur chaque mot (contenu, position et niveau de confiance du mot). En voici un exemple (avec mes commentaires).
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ L’exemple de sortie suivant contient des informations générales sur la vidé
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Exemple de code .NET
 
@@ -183,9 +190,9 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>exemples
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

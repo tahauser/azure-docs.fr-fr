@@ -115,6 +115,6 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création d’une solution de récupération d’urgence pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver : Création d’une solution de récupération d’urgence avec Azure Site Recovery](http://aka.ms/asr-sap). Ce livre blanc présente les recommandations émises pour les diverses architectures SAP, il répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de récupération d’urgence.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

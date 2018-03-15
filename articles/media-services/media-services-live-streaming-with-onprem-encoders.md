@@ -14,14 +14,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en direct avec des encodeurs locaux qui créent des flux multidébits
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Dans Azure Media Services, un *canal* représente un pipeline de traitement du contenu vidéo en flux continu. Un canal reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
 * Un encodeur live local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n’est pas activé pour effectuer un encodage live avec Media Services. Les flux reçus transitent par les canaux sans traitement supplémentaire. Cette méthode est appelée *pass-through*. Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour l’encodage en temps réel, mais ce n’est pas recommandé. Media Services fournit le flux aux clients qui le demandent.
@@ -74,13 +74,13 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 
 8. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 
-9. Arrêtez le programme chaque fois que vous voulez arrêter le streaming et l’archivage de l’événement.
+9. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 
 10. Supprimez le programme (et éventuellement l’élément multimédia).     
 
 ## <a id="channel"></a>Description d’un canal et de ses composants associés
 ### <a id="channel_input"></a>Configurations de l’entrée (réception) des canaux
-#### <a id="ingest_protocols"></a>Protocole de streaming de réception
+#### <a id="ingest_protocols"></a>Protocole de diffusion en continu de réception
 Media Services prend en charge la réception des flux live en utilisant des flux au format MP4 fragmenté ou RTMP multidébit comme protocoles de diffusion en continu. Lorsque le protocole de streaming de réception RTMP est sélectionné, deux points de terminaison de réception (entrée) sont créés pour le canal :
 
 * **URL principale**: spécifie l’URL complète du point de terminaison de réception RTMP principal du canal.
@@ -114,7 +114,7 @@ Lorsque vous utilisez un encodeur live local pour générer un flux multidébit,
 
 Le tableau suivant montre le mode de calcul de la durée du segment :
 
-| Intervalle d’image clé | Coefficient d’empaquetage de segment HLS (FragmentsPerSegment) | Exemple |
+| Intervalle d’image clé | Coefficient d’empaquetage de segment HLS (FragmentsPerSegment) | exemples |
 | --- | --- | --- |
 | Inférieur ou égal à 3 secondes |3 |Si KeyFrameInterval (ou GOP) est égal à 2 secondes, le coefficient d’empaquetage de segment HLS est de 3 pour 1. Cela crée un segment HLS de 6 secondes. |
 | 3 à 5 secondes |2:1 |Si KeyFrameInterval (ou GOP) est égal à 4 secondes, le coefficient d’empaquetage de segment HLS est de 2 pour 1. Cela crée un segment HLS de 8 secondes. |
@@ -182,14 +182,14 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
 | --- | --- | --- | --- |
 | **Démarrage en cours** |**Démarrage en cours** |Aucun (état transitoire) |
-| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>ou<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |Oui |
+| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |OUI |
 | **En cours d’arrêt** |**En cours d’arrêt** |Aucun (état transitoire) |
-| **Arrêté** |**Arrêté** |Non |
+| **Arrêté** |**Arrêté** |Non  |
 
 ## <a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités
 Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
 
-| Standard | Remarques |
+| standard | Notes |
 | --- | --- |
 | CEA-708 et EIA-608 (708/608) |CEA-708 et EIA-608 sont des normes de sous-titrage codé pour les États-Unis et le Canada.<p><p>Actuellement, le sous-titrage est uniquement pris en charge s’il est inclus dans le flux d’entrée encodé. Vous devez utiliser un encodeur multimédia live capable d’insérer des sous-titres 608 ou 708 dans le flux encodé qui est envoyé à Media Services. Media Services distribue le contenu avec les sous-titres insérés à vos utilisateurs. |
 | TTML dans .ismt (pistes textuelles Smooth Streaming) |L’empaquetage dynamique de Media Services permet à vos clients de diffuser en continu du contenu dans un des formats suivants : DASH, HLS ou Smooth Streaming. Toutefois, si votre flux est au format MP4 fragmenté (Smooth Streaming) avec des sous-titres dans un fichier .ismt (pistes textuelles Smooth Streaming), vous pouvez distribuer le flux aux clients Smooth Streaming. |
@@ -208,7 +208,11 @@ Lorsque vous utilisez un encodeur live local pour envoyer un flux multidébit da
 
 Voici d’autres considérations liées à l’utilisation des canaux et des composants associés :
 
-* Chaque fois que vous reconfigurez l’encodeur live, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme.
+* Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme.
+
+  > [!NOTE]
+  > Lorsque vous redémarrez le programme, vous devez l’associer à un nouvel élément multimédia et créer un localisateur. 
+  
 * Un canal peut être arrêté uniquement lorsqu’il est dans l’état **En cours d’exécution** et que tous les programmes du canal ont été arrêtés.
 * Par défaut, vous pouvez seulement ajouter cinq canaux à votre compte Media Services. Pour plus d’informations, consultez [Quotas et limitations](media-services-quotas-and-limitations.md).
 * Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, consultez la section [États du canal et facturation](media-services-live-streaming-with-onprem-encoders.md#states).

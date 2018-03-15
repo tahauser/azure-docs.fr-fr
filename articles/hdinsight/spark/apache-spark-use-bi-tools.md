@@ -226,7 +226,7 @@ Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres v
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
 -->
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Jusqu’ici, vous avez appris à créer un cluster, des trames de données Spark pour interroger des données, et à accéder à ces données depuis des outils décisionnels. Vous pouvez maintenant suivre les instructions pour gérer les ressources du cluster et pour déboguer les tâches exécutées sur un cluster HDInsight Spark.
 

@@ -123,7 +123,7 @@ Dans l’exemple ci-dessous, l’entreprise a deux centres de données, A et B, 
 
 ![AzureAD Aucun groupe de connecteurs](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
 * [Activer l’authentification unique](application-proxy-sso-overview.md)

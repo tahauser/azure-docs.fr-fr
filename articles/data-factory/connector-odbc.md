@@ -397,5 +397,5 @@ Pour résoudre les problèmes de connexion, utilisez l’onglet **Diagnostics** 
 4. Spécifiez la **chaîne de connexion** utilisée pour se connecter à la banque de données, choisissez l’**authentification**, puis entrez le **nom d’utilisateur**, le **mot de passe** et/ou les **informations d’identification**.
 5. Cliquez sur **Tester la connexion** pour tester la connexion au magasin de données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

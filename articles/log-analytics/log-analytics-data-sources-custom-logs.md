@@ -170,6 +170,6 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 
 ![Requête de journal avec des champs personnalisés](media/log-analytics-data-sources-custom-logs/query-02.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les entrées du journal personnalisé dans des champs individuels.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.

@@ -140,5 +140,5 @@ Pour copier des données d’Oracle Eloqua, définissez le type de source dans l
 ]
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des magasins de données pris en charge par Azure Data Factory, consultez l’article [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

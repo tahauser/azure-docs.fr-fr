@@ -517,7 +517,7 @@ Le fichier de paramètres suivant fournit des exemples de valeurs pour cette sol
     }
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks Automation et d’autres ressources](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.
 

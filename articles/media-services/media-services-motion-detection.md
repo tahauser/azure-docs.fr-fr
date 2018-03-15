@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Détecter les mouvements avec Azure Media Analytics
 ## <a name="overview"></a>Vue d'ensemble
 Le processeur multimédia **Azure Media Motion Detector** vous permet d’identifier efficacement les passages intéressants dans une vidéo qui, autrement, serait longue et monotone. La détection de mouvement peut être utilisée sur des séquences d’une caméra fixe pour identifier les passages de la vidéo où un mouvement se produit. Elle génère un fichier JSON contenant des métadonnées avec des horodateurs et le cadre de limitation de la vidéo où s’est produit l’événement.
 
-Ciblant les vidéos de surveillance, cette technologie est en mesure de classer les mouvements en événements pertinents et en faux positifs, tels que les ombres et les variations d’éclairage. Cela vous permet de générer des alertes de sécurité à partir de séquences vidéo sans perdre de temps avec d’innombrables faux positifs, et tout en accédant rapidement aux moments clés dans des vidéos de surveillance extrêmement longues.
+Ciblant les vidéos de surveillance, cette technologie est en mesure de classer les mouvements en événements pertinents et en faux positifs, tels que les ombres et les variations d’éclairage. Cela vous permet de générer des alertes de sécurité à partir de séquences vidéo sans perdre de temps avec d’innombrables faux positifs, et tout en accédant rapidement aux moments clés dans des vidéos de surveillance longues.
 
 Le processeur multimédia **Azure Media Motion Detector** est uniquement disponible en version préliminaire.
 
@@ -35,10 +35,10 @@ Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MO
 ## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Motion Detector**, vous devez spécifier une présélection de configuration. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 Vous pouvez utiliser les paramètres suivants :
 
-| Nom | Options | Description | Default |
+| NOM | Options | DESCRIPTION | Default |
 | --- | --- | --- | --- |
 | sensitivityLevel |Chaîne : « low », « medium », « high » |Définit le niveau de sensibilité auquel les mouvements sont signalés. Réglez cette option pour ajuster le nombre de faux positifs. |« medium » |
 | frameSamplingValue |Entier positif |Définit la fréquence d’exécution de l’algorithme. 1 = chaque trame, 2 = toutes les 2 trames, etc. |1 |
@@ -47,6 +47,8 @@ Vous pouvez utiliser les paramètres suivants :
 | detectionZones |Tableau de zones de détection :<br/>- Zone de détection est un tableau de 3 points ou plus<br/>- Point est une coordonnée x et y de 0 à 1. |Décrit la liste des zones de détection polygonale à utiliser.<br/>Les résultats sont signalés avec les zones en tant qu’ID, la première étant « id » :0 |Zone unique, couvrant la trame entière. |
 
 ### <a name="json-example"></a>Exemple JSON
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,7 +76,7 @@ Vous pouvez utiliser les paramètres suivants :
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Fichiers de sortie du détecteur de mouvement
 Une tâche de détection de mouvement renvoie un fichier JSON dans l’élément multimédia de sortie qui décrit les alertes de mouvement et leurs catégories dans la vidéo. Le fichier contient des informations sur l’heure et la durée du mouvement détecté dans la vidéo.
@@ -89,7 +91,7 @@ L’API de détecteur de mouvement indique lorsqu’un mouvement a été détect
 
 Le tableau suivant décrit les éléments du fichier de sortie JSON.
 
-| Élément | Description |
+| Élément | DESCRIPTION |
 | --- | --- |
 | Version |Cela vaut pour la version de l’API vidéo. La version actuelle est 2. |
 | Échelle de temps |« Cycles » par seconde de la vidéo. |
@@ -97,18 +99,19 @@ Le tableau suivant décrit les éléments du fichier de sortie JSON.
 | Framerate |Images par seconde de la vidéo. |
 | Width, Height |Fait référence à la largeur et à la hauteur de la vidéo en pixels. |
 | Démarrer |L’horodatage de début en « cycles ». |
-| Durée |La durée de l’événement en « cycles ». |
+| Duration |La durée de l’événement en « cycles ». |
 | Intervalle |L’intervalle de chaque entrée dans l’événement en « cycles ». |
 | Événements |Chaque fragment d’événement contient le mouvement détecté pendant cette durée. |
-| Type |Dans la version actuelle, cette valeur est toujours de « 2 » pour le mouvement générique. Ce libellé permet aux API vidéo de classer le mouvement dans les versions ultérieures. |
+| type |Dans la version actuelle, cette valeur est toujours de « 2 » pour le mouvement générique. Ce libellé permet aux API vidéo de classer le mouvement dans les versions ultérieures. |
 | RegionID |Comme expliqué ci-dessus, cette valeur sera toujours « 0 » dans la présente version. Ce libellé permet aux API vidéo de détecter du mouvement dans différentes régions dans les versions ultérieures. |
 | Régions |Fait référence à la zone dans la vidéo où un mouvement est susceptible de vous intéresser. <br/><br/>-« id » représente la zone de la région ; dans cette version, la seule valeur existante est ID 0. <br/>-« type » représente la forme de la région où un mouvement est susceptible de vous intéresser. Pour l’instant, seules « rectangle » et « polygone » sont prises en charge.<br/> Si vous avez indiqué « rectangle », les dimensions de la région sont X, Y, Width et Height. Les coordonnées X et Y représentent les coordonnées XY de l’angle supérieur gauche de la région sur une échelle normalisée de 0,0 à 1,0. La largeur et la hauteur représentent la taille de la région sur une échelle normalisée de 0,0 à 1,0. Dans la version actuelle, X, Y, Width et Height sont toujours fixés à 0, 0 et 1, 1. <br/>Si vous avez indiqué « polygone », les dimensions de la région sont en points. <br/> |
 | Fragments |Les métadonnées sont mémorisées dans différents segments appelés fragments. Chaque fragment contient des valeurs de début (start), de durée (duration), un numéro d’intervalle et des événements (event). Un fragment sans aucun événement signifie qu’aucun mouvement n’a été détecté pendant cette heure de début et la durée. |
 | Crochets [] |Chaque crochet représente un intervalle dans l’événement. Les crochets vides pour cet intervalle signifient qu’aucun mouvement n’a été détecté. |
 | emplacements |Cette nouvelle entrée sous les événements répertorie l’emplacement dans lequel le mouvement s’est produit. Cette entrée est plus précise que les zones de détection. |
 
-Voici un exemple de sortie JSON :
+L’exemple JSON ci-après illustre la sortie obtenue :
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Voici un exemple de sortie JSON :
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Limites
 * Les formats de fichier vidéo d’entrée pris en charge incluent WMV, MOV et MP4.
 * La détection de mouvement est optimisée pour les vidéos dont l’arrière-plan est fixe. L’algorithme est axé sur la réduction des fausses alertes, telles que les variations d’éclairage et les ombres.
@@ -164,42 +167,45 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
 2. Créer un travail avec une tâche de détection du mouvement vidéo basée sur un fichier de configuration qui contient la présélection json suivante : 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Télécharger les fichiers JSON de sortie. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>exemples
 
-```
+```csharp
 
 using System;
 using System.Configuration;

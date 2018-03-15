@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
 
-Azure Active Directory permet à une application d’utiliser ses propres informations d’identification pour l’authentification (par exemple, le flux d’octroi d’informations d’identification du client d’OAuth 2.0 ou le flux On-Behalf-Of).
+Azure Active Directory permet à une application d’utiliser ses propres informations d’identification pour l’authentification, par exemple, le flux d’octroi d’informations d’identification du client d’OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) ou le flux On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Parmi les types d’informations d’identification que vous pouvez utiliser figure l’assertion JSON Web Token signée avec un certificat dont est propriétaire l’application.
 
 ## <a name="format-of-the-assertion"></a>Format de l’assertion

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -33,6 +33,8 @@ Si vous disposez d’un environnement Active Directory local et que vous souhait
 Avant de commencer à configurer des appareils hybrides joints à Azure AD dans votre environnement, vous devez vous familiariser avec les scénarios pris en charge et avec les contraintes.  
 
 Si vous comptez sur [l’outil de préparation système (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), assurez-vous que vous créez des images à partir d’une installation de Windows qui n’a pas été encore inscrite auprès d’Azure AD.
+
+Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs une fois les étapes de configuration mentionnées ci-dessous terminées. Si ce comportement d’inscription automatique n’est pas recommandé, ou si un lancement contrôlé est souhaité, suivez tout d’abord les instructions de la section Contrôle du déploiement et du lancement ci-dessous pour activer ou désactiver le lancement automatique de manière sélective avant de suivre les autres étapes de configuration.  
 
 Pour améliorer la lisibilité des descriptions, cet article utilise les termes suivants : 
 
@@ -58,7 +60,7 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
 
 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer à activer des appareils hybrides joints à Azure AD dans votre organisation, vous devez vous assurer que vous exécutez une version à jour d’Azure AD Connect.
 
@@ -566,7 +568,8 @@ Pour contrôler le lancement des ordinateurs Windows actuels, vous devez déploy
    > [!NOTE]
    > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Sélectionnez **Activé**, puis cliquez sur **Appliquer**.
+7. Sélectionnez **Activé**, puis cliquez sur **Appliquer**. Vous devez sélectionner **Désactivé** si vous souhaitez que la stratégie bloque l’inscription automatique auprès d’Azure AD des appareils contrôlés par cette stratégie de groupe.
+
 8. Cliquez sur **OK**.
 9. Liez l’objet de stratégie de groupe à un emplacement de votre choix. Par exemple, vous pouvez le lier à une unité organisationnelle spécifique. Vous pouvez également le lier à un groupe de sécurité spécifique d’ordinateurs qui rejoignent automatiquement Azure AD. Pour définir cette stratégie pour tous les ordinateurs Windows 10 ou Windows Server 2016 joints à un domaine de votre organisation, liez l’objet de stratégie de groupe au domaine.
 
@@ -584,7 +587,7 @@ Vous pouvez vérifier les appareils qui ont été correctement joints dans votre
 
 La sortie de cette applet de commande affiche les appareils qui sont enregistrés et joints à Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
 

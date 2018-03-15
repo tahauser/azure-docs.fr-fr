@@ -65,7 +65,7 @@ Les kits SDK et intégrations que vous pouvez utiliser avec les points de termin
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Vous pouvez afficher la [source spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) sur GitHub.
 * [Intégration Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-endpoints].
 

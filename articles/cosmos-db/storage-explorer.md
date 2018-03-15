@@ -149,7 +149,7 @@ Modifiez le filtre de document en entrant une [requête SQL](sql-api-sql-query.m
 
 * Les opérations pour les **déclencheurs** et les **fonctions définies par l’utilisateur** sont similaires à celles des **procédures stockées**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Regardez la vidéo suivante pour savoir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure : [Utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Pour en savoir plus sur l’Explorateur de stockage et se connecter à plusieurs services, consultez [Prise en main de l’Explorateur de stockage (préversion)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).

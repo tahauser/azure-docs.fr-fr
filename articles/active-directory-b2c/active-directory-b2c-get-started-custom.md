@@ -196,7 +196,7 @@ Lorsqu’un fichier est chargé, son nom est précédé de `B2C_1A_`.
 >Souvent, la mauvaise configuration de l’application IdentityExperienceFramework est à l’origine des échecs de connexion.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Ajouter Facebook en tant que fournisseur d’identité
 Pour configurer Facebook :

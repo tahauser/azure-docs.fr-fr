@@ -355,5 +355,5 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |NameIdentifier|chaîne|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
 |ProviderName|chaîne|Nom du fournisseur d’authentification.|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

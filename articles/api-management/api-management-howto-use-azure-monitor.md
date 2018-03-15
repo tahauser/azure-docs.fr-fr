@@ -110,7 +110,7 @@ Pour configurer des alertes :
 
     ![Configurer une alerte](./media/api-management-azure-monitor/set-up-alert.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

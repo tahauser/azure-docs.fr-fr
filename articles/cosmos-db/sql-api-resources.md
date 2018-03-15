@@ -457,7 +457,7 @@ La seule façon d'obtenir une clé de ressource est de créer une ressource d'au
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les autorisations dans Azure Cosmos DB en utilisant des API REST ou l’un des SDK clients. Azure Cosmos DB fournit toujours une cohérence forte pour la lecture ou l’interrogation des métadonnées d’une autorisation. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, consultez l’article [Interactions RESTful avec les ressources Azure Cosmos DB](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png

@@ -117,7 +117,7 @@ Pour connecter directement des ordinateurs locaux avec Log Analytics, différent
 |Ordinateur Linux| [Installation manuelle](log-analytics-quick-collect-linux-computer.md)|Installez l’agent pour Linux, qui appelle un script wrapper hébergé sur GitHub. | 
 | System Center Operations Manager|[Intégration d’Operations Manager à Log Analytics](log-analytics-om-agents.md) | Configurez l’intégration entre Operations Manager et Log Analytics pour transférer les données collectées à partir d’ordinateurs Linux et Windows associés à un groupe d’administration.|  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez les [sources de données](log-analytics-data-sources.md) pour connaître les sources de données disponibles pour collecter des données sur votre système Windows ou Linux. 
 

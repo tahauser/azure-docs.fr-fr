@@ -1,8 +1,8 @@
 ---
-title: Connecteur GitHub dans Azure Logic Apps | Documents Microsoft
-description: "Créez des applications logiques avec Azure App Service. GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités."
+title: "Se connecter à GitHub avec Azure Logic Apps | Microsoft Docs"
+description: Automatiser les flux de travail pour GitHub avec Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: 
@@ -13,34 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
-ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: cd7cd3babbfb7efc5917d3a7ec5b9d10112ba791
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="get-started-with-the-github-connector"></a>Prise en main du connecteur GitHub
-GitHub est un servie d’hébergement de dépôt Git sur le web. Il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git, ainsi que ses propres fonctionnalités.
+# <a name="connect-to-github"></a>Se connecter à GitHub
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+GitHub est un service d’hébergement de référentiel Git basé sur le web. Outre d’autres fonctionnalités, il offre toutes les fonctionnalités distribuées de contrôle de révision et de gestion du code source (SCM) de Git.
+
+Pour bien commencer avec le connecteur GitHub, [commencez par créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Créer une connexion à GitHub
-Pour créer des applications logiques avec GitHub, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes : 
 
-| Propriété | Obligatoire | DESCRIPTION |
-| --- | --- | --- |
-| par jeton |OUI |Fournir des informations d’identification GitHub |
+Pour utiliser le connecteur GitHub dans une application logique, commencez par créer une *connexion*, puis spécifiez les détails des propriétés suivantes : 
 
-Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article. 
+| Propriété | Obligatoire | Description | 
+| -------- | -------- | ----------- | 
+| par jeton | OUI | Indiquez vos informations d’identification GitHub. |
+
+Après avoir créé la connexion, vous pouvez exécuter les actions et rechercher les déclencheurs décrits dans cet article.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/github/).
+Passez en revue les [détails des connecteurs](/connectors/github/) pour connaître les déclencheurs et actions définis dans Swagger ainsi que les éventuelles limites.
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+## <a name="find-more-connectors"></a>Rechercher d’autres connecteurs
+
+* Passez en revue la [liste des connecteurs](apis-list.md).

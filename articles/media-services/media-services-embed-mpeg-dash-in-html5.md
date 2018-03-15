@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 499c78737b95885b753589c06f2614ce917adfea
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporation d’une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js
 ## <a name="overview"></a>Vue d'ensemble
-MPEG-DASH est une norme ISO pour la diffusion en continu adaptative de contenu vidéo, qui offre des avantages significatifs pour ceux qui souhaitent proposer un résultat de diffusion vidéo en continu adaptative de haute qualité. Avec MPEG-DASH, le flux vidéo est automatiquement ramené à une définition inférieure quand le réseau est encombré. Cela réduit le risque pour un utilisateur de voir une vidéo « interrompue » pendant que le lecteur télécharge les quelques secondes suivantes à lire (également appelée mise en mémoire tampon). À mesure que l’encombrement du réseau diminue, le lecteur vidéo renvoie à son tour un flux de qualité supérieure. Cette capacité d'adaptation de la bande passante requise entraîne également un temps de départ plus rapide pour la vidéo. Cela signifie que les premières secondes peuvent être lues dans un segment de moindre qualité rapide à télécharger, puis que la qualité s'améliore une fois le contenu suffisant mis en mémoire tampon.
+MPEG-DASH est une norme ISO pour la diffusion en continu adaptative de contenu vidéo, qui offre des avantages significatifs pour les développeurs qui souhaitent proposer un résultat de diffusion vidéo en continu adaptative de haute qualité. Avec MPEG-DASH, le flux vidéo s’ajuste automatiquement à une définition inférieure quand le réseau est encombré. Cela réduit le risque pour un utilisateur de voir une vidéo « interrompue » pendant que le lecteur télécharge les quelques secondes suivantes à lire (également appelée mise en mémoire tampon). À mesure que l’encombrement du réseau diminue, le lecteur vidéo renvoie à son tour un flux de qualité supérieure. Cette capacité d'adaptation de la bande passante requise entraîne également un temps de départ plus rapide pour la vidéo. Cela signifie que les premières secondes peuvent être lues dans un segment de moindre qualité rapide à télécharger, puis que la qualité s'améliore une fois le contenu suffisant mis en mémoire tampon.
 
 Dash.js est un lecteur de vidéo MPEG-DASH open source écrit en JavaScript. Son objectif est de fournir un lecteur robuste, inter-plateformes qui peut être réutilisé librement dans les applications qui requièrent une lecture vidéo. Il assure la lecture MPEG-DASH dans n’importe quel navigateur prenant en charge W3C Media Source Extensions (MSE) aujourd’hui, à savoir Chrome, Microsoft Edge et IE11 (d’autres navigateurs ont indiqué leur intention de prendre en charge MSE). Pour plus d'informations sur DASH.js, consultez le référentiel dash.js GitHub.
 
@@ -41,6 +41,7 @@ L'initialisation du lecteur peut être effectuée en seulement quelques lignes d
 ## <a name="creating-the-html-page"></a>Création de la page HTML
 La première étape consiste à créer une page HTML standard qui contient l’élément **video**, à enregistrer ce fichier sous basicPlayer.html, comme l’illustre l’exemple suivant :
 
+```html
     <!DOCTYPE html>
     <html>
       <head><title>Adaptive Streaming in HTML5</title></head>
@@ -49,18 +50,21 @@ La première étape consiste à créer une page HTML standard qui contient l’�
         <video id="videoplayer" controls></video>
       </body>
     </html>
+```
 
 ## <a name="adding-the-dashjs-player"></a>Ajout du lecteur DASH.js
 Pour ajouter l’implémentation de référence dash.js à l’application, vous devez extraire le fichier dash.all.js de la version 1.0 du projet dash.js. Celui-ci doit être enregistré dans le dossier JavaScript de votre application. Ce fichier est un fichier de convenance qui rassemble tout le code dash.js requis dans un seul fichier. En examinant le contenu du dépôt dash.js, vous trouverez entre autres les fichiers individuels et le code de test, mais si vous voulez seulement utiliser dash.js, alors c’est du fichier dash.all.js dont vous avez besoin.
 
 Pour ajouter le lecteur dash.js à vos applications, ajoutez une balise de script à la section d'en-tête de basicPlayer.html :
 
+```html
     <!-- DASH-AVC/265 reference implementation -->
     < script src="js/dash.all.js"></script>
-
+```
 
 Ensuite, créez une fonction pour initialiser le lecteur pendant le chargement de la page. Ajoutez le script suivant après la ligne dans laquelle vous chargez dash.all.js :
 
+```html
     <script>
     // setup the video element and attach it to the Dash player
     function setupVideo() {
@@ -72,25 +76,30 @@ Ensuite, créez une fonction pour initialiser le lecteur pendant le chargement d
                       player.attachSource(url);
     }
     </script>
+```
 
 Cette fonction crée d'abord un DashContext. Celui-ci permet de configurer l'application pour un environnement d'exécution spécifique. D'un point de vue technique, il définit les classes que l'infrastructure d'injection de dépendance doit utiliser pour construire l'application. Dans la plupart des cas, vous utilisez Dash.di.DashContext.
 
 Ensuite, instanciez la classe principale de l'infrastructure dash.js, MediaPlayer. Cette classe contient les principales méthodes requises, telles que la lecture et la mise en pause, gère la relation avec l’élément vidéo et gère également l’interprétation du fichier MPD (Media Presentation Description) qui décrit la vidéo à lire.
 
-La fonction startup() de la classe MediaPlayer est appelée pour s'assurer que le lecteur est prêt à lire la vidéo. Entre autres choses, cette fonction garantit que toutes les classes nécessaires (comme défini par le contexte) ont été chargées. Une fois que le lecteur est prêt, vous pouvez y associer l'élément vidéo à l'aide de la fonction attachView(). Cela permet à MediaPlayer d'injecter le flux vidéo dans l'élément et également de contrôler la lecture si besoin.
+La fonction startup() de la classe MediaPlayer est appelée pour s'assurer que le lecteur est prêt à lire la vidéo. Entre autres choses, cette fonction garantit que toutes les classes nécessaires (comme définies par le contexte) ont été chargées. Une fois que le lecteur est prêt, vous pouvez y associer l'élément vidéo à l'aide de la fonction attachView(). La fonction startup permet à MediaPlayer d’injecter le flux vidéo dans l’élément et également de contrôler la lecture si besoin.
 
 Passez l’URL du fichier MPD à MediaPlayer, afin qu’il ait connaissance de la vidéo qu’il est censé lire. La fonction setupVideo() qui vient d’être créée devra être exécutée une fois la page entièrement chargée. Pour cela, utilisez l'événement onload de l'élément body. Remplacez votre élément <body> par :
 
+```html
     <body onload="setupVideo()">
+```
 
 Enfin, définissez la taille de l'élément vidéo à l'aide de CSS. Dans un environnement de diffusion en continu adaptative, cela s'avère particulièrement important car la taille de la vidéo lue peut changer au gré de l'adaptation de la lecture aux conditions changeantes du réseau. Cette démonstration simple force l'élément vidéo à constituer 80 % de la fenêtre de navigateur disponible en ajoutant le fichier CSS suivant à la section head de la page :
 
+```html
     <style>
     video {
       width: 80%;
       height: 80%;
     }
     </style>
+```
 
 ## <a name="playing-a-video"></a>Lecture d'une vidéo
 Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html et cliquez sur Lire sur le lecteur vidéo affiché.

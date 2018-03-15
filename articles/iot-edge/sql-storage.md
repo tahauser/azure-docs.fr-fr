@@ -331,7 +331,7 @@ Consultez les données :
    GO
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [configurer les images de conteneur SQL Server 2017 sur Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
 

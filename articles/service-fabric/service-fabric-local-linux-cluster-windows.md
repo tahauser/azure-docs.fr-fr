@@ -81,7 +81,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     > [!NOTE]
     > Le plug-in Eclipse n’est actuellement pas pris en charge sous Windows. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Prise en main d'[Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Consulter d’autres [exemples Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

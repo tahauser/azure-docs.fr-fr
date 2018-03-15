@@ -225,7 +225,7 @@ En raison de la configuration créée plus tôt sous Identité -> Paramètres de
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Facultatif : configurer l’approvisionnement utilisateur dans Azure AD
 Éventuellement, si vous préfériez qu’Azure AD gère directement l’approvisionnement utilisateur pour une application SaaS donnée, consultez ce document sur la gestion de l’approvisionnement de compte utilisateur pour des applications d’entreprise dans Azure AD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
 - [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)

@@ -56,7 +56,7 @@ Dans l’exemple, vous pouvez voir les services qui ont le plus dépensé. Comme
 
 Dans l’image ci-dessus, le coût projeté annuel des machines virtuelles Azure est de 28 374 USD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

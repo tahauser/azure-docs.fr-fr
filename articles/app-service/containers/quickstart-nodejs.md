@@ -185,7 +185,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 >[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Node.js avec MongoDB](tutorial-nodejs-mongodb-app.md)

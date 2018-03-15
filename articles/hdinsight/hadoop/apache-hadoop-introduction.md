@@ -160,7 +160,7 @@ Les outils décisionnels courants permettent de récupérer des données intégr
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Prise en main de Hadoop dans HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Prise en main de Spark dans HDInsight](../spark/apache-spark-jupyter-spark-sql.md)

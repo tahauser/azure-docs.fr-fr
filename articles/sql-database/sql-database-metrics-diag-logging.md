@@ -466,7 +466,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 ### <a name="intelligent-insights-dataset"></a>Jeu de données Intelligent Insights
 Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et métriques prises en charge par les différents services Azure, consultez :
 

@@ -343,6 +343,6 @@ Ces fonctions vous permettent d’obtenir des informations sur le flux de travai
 |listCallbackUrl|Retourne une chaîne à appeler pour appeler le déclencheur ou l’action. <p> **Remarque** : cette fonction peut être utilisée uniquement dans **httpWebhook** et **apiConnectionWebhook**, et pas dans **manuel**, **recurrence**, **http** ou **apiConnection**. <p>Par exemple, la fonction `listCallbackUrl()` retourne : <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  
 |flux de travail|Cette fonction vous fournit tous les détails du flux de travail à l’exécution. <p> Les propriétés disponibles sur l’objet flux de travail sont : <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> La valeur de la propriété `run` est un objet avec les propriétés suivantes : <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>Pour en savoir plus sur ces propriétés, consultez l’article sur [l’API Rest](http://go.microsoft.com/fwlink/p/?LinkID=525617).<p> Par exemple, pour obtenir le nom de l’exécution en cours, utilisez l’expression `"@workflow().run.name"`. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Actions et déclencheurs de flux de travail](logic-apps-workflow-actions-triggers.md)

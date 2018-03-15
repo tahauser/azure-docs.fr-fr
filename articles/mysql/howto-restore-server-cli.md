@@ -65,5 +65,5 @@ La commande `az mysql server restore` est synchrone. Une fois le serveur restaur
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md)

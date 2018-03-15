@@ -60,7 +60,7 @@ Procédez comme suit pour créer un environnement :
 
 Lorsque le déploiement réussit, vous pouvez sélectionner **Aller à la ressource** pour configurer d’autres propriétés, définir la sécurité avec les stratégies d’accès aux données, ajouter les sources d’événements et d’autres actions.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Définissez des stratégies d’accès aux données](time-series-insights-data-access.md) pour sécuriser votre environnement.
 * [Ajoutez une source d’événement Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) à votre environnement Azure Time Series Insights. 
 * [Envoyez des événements](time-series-insights-send-events.md) à la source d’événement.

@@ -134,7 +134,7 @@ L’état de tous les nœuds gérés se trouvent dans la vue **DSC Nodes** (Nœu
 
 ![État du nœud DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez intégré une machine virtuelle Linux à DSC, vous avez créé une configuration pour une pile LAMP et vous l’avez déployée sur la machine virtuelle. Pour savoir comment utiliser Automation DSC pour un déploiement continu, lisez l’article suivant :
 

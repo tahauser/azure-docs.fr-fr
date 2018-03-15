@@ -583,7 +583,7 @@ Ce pipeline exécute deux étapes :
 
 3. Connectez-vous à votre récepteur Azure SQL Data Warehouse et vérifiez que les données ont bien été copiées à partir d’Azure SQL Database.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]

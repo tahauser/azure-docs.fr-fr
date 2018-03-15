@@ -5,18 +5,18 @@ services: machine-learning
 author: hughz
 ms.author: cforbe
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/13/2018
-ms.openlocfilehash: 76bf850df5c8f4a93268dd06f7b9254bbd2cfce6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0849747fe6d66d55d11c131b51b07d8f689774e1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="data-preparation-operationalization"></a>Opérationnalisation de la préparation des données 
 
@@ -38,7 +38,7 @@ Pour simplifier l’utilisation, le point de terminaison de modèle accepte les 
 
 ## <a name="read-json-literal-transformation"></a>Transformation ReadJsonLiteral
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 À des fins d’opérationnalisation, la préparation des données contient une transformation **ReadJsonLiteral** pour exécuter une activité et générer un DataFrame Pandas ou Spark. Cette transformation prend exclusivement comme entrée un package de préparation des données existant et une source de données JSON. Elle est exposée par le biais de l’interface CLI Python de DataPrep.
 

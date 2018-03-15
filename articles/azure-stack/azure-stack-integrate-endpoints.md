@@ -3,29 +3,30 @@ title: "Intégration au centre de données Azure Stack : publier des points de t
 description: "Découvrez comment publier des points de terminaison Azure Stack dans votre centre de données"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
-Azure Stack configure diverses adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement.
+Azure Stack configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement.
 
 
 Le diagramme architectural suivant montre les différentes couches réseau et les listes ACL :
 
-![Diagramme architectural](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Image structurelle](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Ports et protocoles (en entrée)
 
-Les adresses IP virtuelles d’infrastructure requises pour la publication des points de terminaison Azure Stack sur des réseaux externes sont répertoriées ci-dessous. La liste affiche chaque point de terminaison, le port requis et le protocole. Les points de terminaison requis pour les fournisseurs de ressources supplémentaires, le fournisseur de ressources SQL entre autres, sont traités dans la documentation de déploiement spécifique au fournisseur de ressources.
+Un ensemble d’adresses IP virtuelles d’infrastructure sont nécessaires pour la publication des points de terminaison Azure Stack sur des réseaux externes. Le tableau *Point de terminaison (VIP)* affiche chaque point de terminaison, le port requis et le protocole. Consultez la documentation de déploiement spécifique au fournisseur de ressources pour les points de terminaison nécessitant des fournisseurs de ressources supplémentaires, comme le fournisseur de ressources SQL.
 
 Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requises pour la publication Azure Stack.
 
@@ -69,5 +70,6 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
+
 [Exigences relatives à l’infrastructure à clé publique d’Azure Stack](azure-stack-pki-certs.md)

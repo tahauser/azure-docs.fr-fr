@@ -2791,7 +2791,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
  [Syntaxe SQL et requête SQL pour Azure Cosmos DB](sql-api-sql-query.md)   
  [Documentation Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
   

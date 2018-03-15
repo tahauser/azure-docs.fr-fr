@@ -224,7 +224,7 @@ Vous pouvez également utiliser `IsEnabled` pour implémenter des stratégies d�
 
 En présence de plusieurs écouteurs `DiagnosticSource` pour la même source, il suffit qu’un seul écouteur accepte l’événement. L’appel de `IsEnabled` n’est donc pas garanti.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Corrélation dans Application Insights](../application-insights/application-insights-correlation.md)

@@ -82,6 +82,6 @@ La résolution des problèmes de connexion retourne les types d’erreur liés �
 |NetworkSecurityRule    | Le trafic est bloqué par une règle de groupe de sécurité réseau (règle retournée)        |
 |UserDefinedRoute|Le trafic est ignoré en raison d’un itinéraire défini par l’utilisateur ou le système. |
 
-### <a name="next-steps"></a>étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment résoudre les problèmes de connexion à l’aide du [portail Azure](network-watcher-connectivity-portal.md), de [PowerShell](network-watcher-connectivity-powershell.md), d’[Azure CLI](network-watcher-connectivity-cli.md) ou de l’[API REST](network-watcher-connectivity-rest.md).

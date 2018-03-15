@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
 ## <a name="overview"></a>Vue d'ensemble
@@ -41,7 +41,7 @@ Cet article contient les rubriques suivantes :
   * [Ajout d’une ou plusieurs sorties MP4 supplémentaires](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
   * [Configuration des noms de fichier de sortie](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
   * [Ajout d’une piste audio distincte](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
-  * [Ajout du fichier SMIL .ISM](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
+  * [Ajout du fichier SMIL ISM](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Encodage du fichier MXF en fichiers MP4 multidébit : plan optimisé](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
   * [Vue d’ensemble du workflow à améliorer](#workflow-overview-to-enhance)
   * [Conventions d’appellation de fichiers](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
@@ -67,12 +67,12 @@ Cet article contient les rubriques suivantes :
   * [Ajout d’une propriété de commodité ClippingEnabled](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ## <a id="MXF_to_MP4"></a>Encodage du fichier MXF au format MP4 à débit binaire unique
-Dans cette procédure pas à pas, nous allons créer un fichier .MP4 à débit binaire unique avec des données audio encodées en AAC-HE à partir d’un fichier d’entrée .MXF.
+Cette section explique comment créer un fichier .MP4 à débit binaire unique avec des données audio encodées en AAC-HE à partir d’un fichier d’entrée .MXF.
 
 ### <a id="MXF_to_MP4_start_new"></a>Démarrage d’un nouveau workflow
-Ouvrez Workflow Designer et sélectionnez « Fichier » > « Nouvel espace de travail » > « Plan de transcodage ».
+Ouvrez le concepteur de flux de travail et sélectionnez Fichier > Nouvel espace de travail > Plan de transcodage.
 
-Le nouveau workflow affiche 3 éléments :
+Le nouveau flux de travail affiche trois éléments :
 
 * Fichier source principal
 * Fichier XML de liste de séquences
@@ -83,35 +83,35 @@ Le nouveau workflow affiche 3 éléments :
 *Nouveau workflow d’encodage*
 
 ### <a id="MXF_to_MP4_with_file_input"></a>Utilisation du composant Media File Input
-Pour accepter notre fichier multimédia d’entrée, nous devons commencer par ajouter un composant Media File Input. Pour ajouter un composant au workflow, recherchez-le dans la zone de recherche du référentiel et faites glisser l’entrée souhaitée dans le volet du concepteur. Effectuez cette opération pour le composant Media File Input et connectez le composant Primary Source File à la broche d’entrée FileName du composant Media File Input.
+Pour accepter le fichier multimédia d’entrée, nous devons commencer par ajouter un composant Media File Input. Pour ajouter un composant au workflow, recherchez-le dans la zone de recherche du référentiel et faites glisser l’entrée souhaitée dans le volet du concepteur. Répétez cette opération pour le composant Media File Input et connectez le composant Primary Source File à la broche d’entrée FileName du composant Media File Input.
 
 ![Composant Media File Input connecté](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
 
 *Composant Media File Input connecté*
 
-Avant d’aller plus loin, nous devons tout d’abord indiquer au concepteur de workflows l’exemple de fichier que nous souhaitons utiliser pour la conception de notre workflow. Pour ce faire, cliquez sur l’arrière-plan du volet du concepteur et recherchez la propriété Primary Source File dans le volet des propriétés à droite de l’écran. Cliquez sur l’icône de dossier et sélectionnez le fichier que vous voulez utiliser pour tester le workflow. Une fois cette opération effectuée, le composant Media File Input inspectera le fichier et remplira ses broches de sortie afin de refléter le fichier inspecté.
+Au départ, identifiez un fichier d’exemple approprié à utiliser lors de la conception d’un workflow personnalisé. Pour ce faire, cliquez sur l’arrière-plan du volet du concepteur et recherchez la propriété Primary Source File dans le volet des propriétés à droite de l’écran. Cliquez sur l’icône de dossier et sélectionnez le fichier à utiliser pour tester le workflow. Le composant Media File Input inspecte le fichier et remplit ses broches de sortie afin de refléter les détails du fichier d’exemple inspecté.
 
 ![Composant Media File Input renseigné](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
 *Composant Media File Input renseigné*
 
-Si cette opération permet de spécifier l’entrée que nous souhaitons utiliser, elle ne donne aucune indication quant à l’emplacement de destination de la sortie encodée. En suivant la même procédure que la configuration du fichier source principal, vous devez à présent configurer la propriété Output Folder Variable, qui se trouve juste en dessous.
+Maintenant que l’entrée est remplie, l’étape suivante consiste à configurer les paramètres d’encodage de sortie. En suivant la même procédure que la configuration du fichier source principal, vous devez à présent configurer la propriété Output Folder Variable, qui se trouve juste en dessous.
 
 ![Propriétés d’entrée et de sortie configurées](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
 
 *Propriétés d’entrée et de sortie configurées*
 
 ### <a id="MXF_to_MP4_streams"></a>Inspection des flux multimédias
-Il est souvent intéressant de savoir à quoi ressemble le flux qui transite via le workflow. Pour examiner à tout moment un flux de données dans le workflow, cliquez simplement sur une broche de sortie ou d’entrée sur l’un des composants. Dans ce cas, essayez de cliquer sur la broche de sortie Uncompressed Video à partir de notre composant Media File Input. Vous accédez à une boîte de dialogue dans laquelle vous pouvez examiner la sortie vidéo.
+Il est souvent intéressant de savoir à quoi ressemble le flux qui transite via le workflow. Pour examiner à tout moment un flux de données dans le workflow, cliquez simplement sur une broche de sortie ou d’entrée sur l’un des composants. Dans ce cas, essayez de cliquer sur la broche de sortie Uncompressed Video à partir du composant Media File Input. Vous accédez à une boîte de dialogue dans laquelle vous pouvez examiner la sortie vidéo.
 
 ![Inspection de la broche de sortie Uncompressed Video](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
 
 *Inspection de la broche de sortie Uncompressed Video*
 
-Dans notre cas, nous savons par exemple que nous avons affaire à une entrée 1920 x 1080 à 24 images par seconde en échantillonnage 4:2:2 pour une vidéo d’un peu moins de 2 minutes.
+Dans ce cas, nous avons affaire à une vidéo avec une entrée 1920 x 1080 à 24 images par seconde en échantillonnage 4:2:2 pour une vidéo d’un peu moins de 2 minutes.
 
 ### <a id="MXF_to_MP4_file_generation"></a>Ajout d’un encodeur vidéo pour la génération de fichiers MP4
-Notez que notre composant Media File Input comporte maintenant une broche de sortie Uncompressed Video et plusieurs broches de sortie Uncompressed Audio. Pour encoder la vidéo d’entrée, nous avons besoin d’un composant d’encodage (pour, dans le cas présent, générer des fichiers .MP4).
+Le composant Media File Input comporte maintenant une broche de sortie Uncompressed Video et plusieurs broches de sortie Uncompressed Audio. Pour encoder la vidéo d’entrée, il faut ajouter un composant d’encodage au workflow (pour, dans le cas présent, générer des fichiers .MP4).
 
 Pour encoder le flux vidéo en H.264, ajoutez le composant AVC Video Encoder à la surface du concepteur. Ce composant utilise un flux vidéo non compressé comme entrée et génère un flux vidéo AVC compressé sur sa broche de sortie.
 
@@ -121,29 +121,29 @@ Pour encoder le flux vidéo en H.264, ajoutez le composant AVC Video Encoder à 
 
 Ses propriétés déterminent le déroulement exact de la procédure d’encodage. Observons quelques-uns des principaux paramètres :
 
-* Largeur de sortie et hauteur de sortie : ces paramètres déterminent la résolution de la vidéo encodée. Dans le cas présent, partons sur une résolution de 640 x 360.
-* Fréquence d’images : lorsque ce paramètre est défini sur un transfert direct, il adopte simplement la fréquence d’images source (il est cependant possible de remplacer cette valeur). Notez que cette conversion de fréquence d’images n’est pas compensée en mouvement.
-* Profil et niveau : ces paramètres déterminent le profil et le niveau de l’encodeur AVC. Pour obtenir facilement des informations supplémentaires sur les différents niveaux et profils, cliquez sur l’icône de point d’interrogation au niveau du composant AVC Video Encoder pour accéder à une page d’aide qui décrit en détail chaque niveau. Dans notre exemple, prenons un profil principal avec un niveau de 3.2 (la valeur par défaut).
-* Mode de contrôle du débit et débit binaire (kbit/s) : dans notre scénario, nous allons opter pour un débit binaire constant (CBR) à 1 200 kbit/s.
-* Format vidéo : informations d’état qualitatif de la vidéo écrites dans le flux H.264 (informations annexes pouvant être utilisées par un décodeur afin d’améliorer l’affichage mais n’ayant aucun caractère essentiel pour le déroulement du décodage) :
+* Largeur de sortie et hauteur de sortie : ce paramètre détermine la résolution de la vidéo encodée. Dans ce cas, 640 x 360 est un paramètre approprié.
+* Fréquence d’images : lorsque ce paramètre est défini sur un transfert direct, il adopte simplement la fréquence d’images source (il est cependant possible de remplacer cette valeur). Cette conversion de fréquence d’images n’est pas compensée en mouvement.
+* Profil et niveau : ce paramètre détermine le profil et le niveau de l’encodeur AVC. Pour obtenir facilement des informations supplémentaires sur les différents niveaux et profils, cliquez sur l’icône de point d’interrogation au niveau du composant AVC Video Encoder pour accéder à une page d’aide qui décrit en détail chaque niveau. Pour cet exemple, utilisez le profil principal au niveau 3.2 (valeur par défaut).
+* Mode de contrôle du débit et débit binaire (kbit/s) : dans ce scénario, optez pour un débit binaire constant (CBR) à 1 200 kbit/s.
+* Format vidéo : cette option fournit des informations d’état qualitatif de la vidéo écrites dans le flux H.264 (informations annexes pouvant être utilisées par un décodeur afin d’améliorer l’affichage, mais n’ayant aucun caractère essentiel pour le déroulement du décodage) :
 * NTSC (standard aux États-Unis ou au Japon, avec un débit de 30 images par seconde)
 * PAL (standard en Europe, avec un débit de 25 images par seconde)
-* Mode de taille de groupe d’images : nous allons ici configurer une taille de groupe d’images fixe avec un intervalle de clé de 2 secondes et des groupes d’images fermés. Cela garantira la compatibilité avec l’empaquetage dynamique fourni par Azure Media Services.
+* Mode de taille de groupe d’images : configurez une taille de groupe d’images fixe avec un intervalle de clé de 2 secondes et des groupes d’images fermés. Ce délai de 2 secondes garantit la compatibilité avec l’empaquetage dynamique fourni par Azure Media Services.
 
-Pour charger notre encodeur AVC, connectez la broche de sortie Uncompressed Video du composant Media File Input à la broche d’entrée Uncompressed Video de l’encodeur AVC.
+Pour charger l’encodeur AVC, connectez la broche de sortie Uncompressed Video du composant Media File Input à la broche d’entrée Uncompressed Video de l’encodeur AVC.
 
 ![Encodeur AVC connecté](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
 
 *Encodeur AVC principal connecté*
 
 ### <a id="MXF_to_MP4_audio"></a>Encodage du flux audio
-À ce stade, nous avons encodé le flux vidéo, mais il nous reste encore à compresser le flux audio non compressé d’origine. Pour cela, nous allons effectuer un encodage AAC à l’aide du composant AAC Encoder (Dolby). Ajoutez ce composant au workflow.
+À ce stade, il reste encore à compresser le flux audio non compressé d’origine. Pour la compression du flux audio, ajoutez un composant d’encodeur AAC (Dolby) au workflow.
 
 ![Encodeur AVC non connecté](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
 
 *Encodeur AAC non connecté*
 
-Nous sommes maintenant confrontés à une incompatibilité : l’encodeur AAC comporte une seule broche d’entrée Uncompressed Audio alors que le composant Media File Input disposera très probablement de deux flux audio non compressés : un pour le canal audio de gauche, l’autre pour celui de droite (soit 6 canaux dans le cas d’un son surround). Il est donc impossible de connecter directement l’audio de la source Media File Input dans l’encodeur audio AAC. Le composant AAC attend un flux audio dit « entrelacé », c’est-à-dire un flux unique dans lequel les canaux de gauche et de droite sont entrelacés. Une fois que notre fichier multimédia source nous permet de connaître la position des pistes audio dans la source, nous pouvons générer ce flux audio entrelacé en affectant correctement les positions de haut-parleur pour les canaux de gauche et de droite.
+Nous sommes maintenant confrontés à une incompatibilité : l’encodeur AAC comporte une seule broche d’entrée Uncompressed Audio, alors que le composant Media File Input disposera très probablement de deux flux audio non compressés : un pour le canal audio de gauche, l’autre pour celui de droite (soit 6 canaux dans le cas d’un son surround). Il est donc impossible de connecter directement l’audio de la source Media File Input dans l’encodeur audio AAC. Le composant AAC attend un flux audio dit « entrelacé », c’est-à-dire un flux unique dans lequel les canaux de gauche et de droite sont entrelacés. Une fois que notre fichier multimédia source nous permet de connaître la position des pistes audio dans la source, nous pouvons générer ce flux audio entrelacé en affectant correctement les positions de haut-parleur pour les canaux de gauche et de droite.
 
 Tout d’abord, nous allons générer un flux entrelacé à partir des canaux audio source requis. Le composant Audio Stream Interleaver s’en charge automatiquement. Ajoutez ce composant au workflow et connectez-y les sorties audio du composant Media File Input.
 
@@ -157,12 +157,12 @@ Nous disposons maintenant d’un flux audio entrelacé, mais nous n’avons pas 
 
 *Ajout d’un composant Speaker Position Assigner*
 
-Configurez le composant Speaker Position Assigner pour pouvoir l’utiliser avec un flux d’entrée stéréo via un filtre de présélection d’encodeur « personnalisé » et une présélection de canal nommée « 2.0 (L,R) ». Ceci vous permettra d’affecter la position de haut-parleur gauche au canal 1 et la position de haut-parleur droit au canal 2.
+Configurez le composant Speaker Position Assigner pour pouvoir l’utiliser avec un flux d’entrée stéréo via un filtre de présélection d’encodeur « personnalisé » et une présélection de canal nommée « 2.0 (L,R) ». (Ceci vous permet d’affecter la position de haut-parleur gauche au canal 1 et la position de haut-parleur droit au canal 2.)
 
 Connectez la sortie du composant Speaker Position Assigner à l’entrée de l’encodeur AAC. Indiquez ensuite à l’encodeur AAC d’utiliser une présélection de canal « 2.0 (L,R) » afin qu’il puisse traiter le flux audio stéréo en tant qu’entrée.
 
 ### <a id="MXF_to_MP4_audio_and_fideo"></a>Multiplexage des flux audio et vidéo dans un conteneur de fichiers MP4
-Nous pouvons maintenant capturer notre flux vidéo encodé en AVC et notre flux audio encodé en AAC dans un conteneur de fichiers .MP4. On appelle « multiplexage » (ou « muxing ») le processus qui consiste à combiner différents flux en un seul. Dans ce cas, nous allons entrelacer les flux audio et flux vidéo en un seul package de fichiers .MP4 cohérent. Le composant qui coordonne cette opération pour un conteneur . MP4 est appelé « multiplexeur ISO MPEG-4 ». Ajoutez-en un à la surface du concepteur et connectez l’encodeur vidéo AVC et l’encodeur AAC à ses entrées.
+Nous pouvons maintenant capturer notre flux vidéo encodé en AVC et notre flux audio encodé en AAC dans un conteneur de fichiers .MP4. On appelle « multiplexage » (ou « muxing ») le processus qui consiste à combiner différents flux en un seul. Dans ce cas, nous allons entrelacer les flux audio et flux vidéo en un seul package de fichiers .MP4 cohérent. Le composant qui coordonne cette opération pour un conteneur . MP4 est appelé « multiplexeur ISO MPEG-4 ». Ajoutez-en un à la surface du concepteur et connectez l’encodeur vidéo AVC et l’encodeur AAC à ses entrées.
 
 ![Multiplexeur MPEG4 connecté](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
 
@@ -175,7 +175,7 @@ Le composant File Output est utilisé pour l’écriture d’un fichier de sorti
 
 *Composant File Output connecté*
 
-Le nom de fichier qui sera utilisé est déterminé par la propriété de fichier. Si cette propriété peut être codée en dur sur une valeur donnée, il est sans doute préférable de la définir dans une expression.
+Le nom de fichier utilisé est déterminé par la propriété de fichier. Si cette propriété peut être codée en dur sur une valeur donnée, il est sans doute préférable de la définir dans une expression.
 
 Pour que le workflow détermine automatiquement la propriété de nom du fichier de sortie à partir d’une expression, cliquez sur le bouton en regard du nom de fichier (près de l’icône de dossier). Dans le menu déroulant, sélectionnez « Expression ». L’éditeur d’expressions s’affiche. Commencez par effacer le contenu de l’éditeur.
 
@@ -183,7 +183,7 @@ Pour que le workflow détermine automatiquement la propriété de nom du fichier
 
 *Éditeur d’expressions vide*
 
-L’éditeur d’expressions vous permet de saisir n’importe quelle valeur littérale, combinée avec une ou plusieurs variables. Les variables commencent par le symbole de dollar. Lorsque vous appuyez sur la touche $, l’éditeur affiche une zone de liste déroulante contenant les variables disponibles. Dans notre cas, nous allons utiliser à la fois la variable de répertoire de sortie et la variable de nom du fichier d’entrée de base :
+L’éditeur d’expressions vous permet de saisir n’importe quelle valeur littérale, combinée avec une ou plusieurs variables. Les variables commencent par le symbole de dollar. Lorsque vous appuyez sur la touche $, l’éditeur affiche une liste déroulante contenant les variables disponibles. Dans notre cas, nous allons utiliser à la fois la variable de répertoire de sortie et la variable de nom du fichier d’entrée de base :
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
 
@@ -203,7 +203,7 @@ Lorsque vous cliquez sur OK pour confirmer l’expression, la fenêtre des propr
 *L’expression du fichier résout le répertoire de sortie*
 
 ### <a id="MXF_to_MP4_asset_from_output"></a>Création d’un élément multimédia Media Services à partir du fichier de sortie
-Bien que nous ayons écrit un fichier de sortie MP4, il nous reste encore à indiquer que ce fichier appartient à la ressource de sortie qui sera générée par Media Services suite à l’exécution de ce workflow. Le nœud Output File/Asset sur le canevas du workflow est utilisé à cette fin. Tous les fichiers entrants dans ce nœud feront partie intégrante de l’élément multimédia Azure Media Services généré.
+Bien que nous ayons écrit un fichier de sortie MP4, il nous reste encore à indiquer que ce fichier appartient à la ressource de sortie générée par Media Services suite à l’exécution de ce workflow. Le nœud Output File/Asset sur le canevas du workflow est utilisé à cette fin. Tous les fichiers entrants dans ce nœud font partie intégrante de l’élément multimédia Azure Media Services généré.
 
 Connectez le composant File Output au composant Output File/Asset pour terminer le workflow.
 
@@ -215,7 +215,7 @@ Connectez le composant File Output au composant Output File/Asset pour terminer 
 Pour tester le workflow en local, appuyez sur le bouton de lecture situé dans la barre d’outils en haut de l’écran. Une fois l’exécution du workflow terminée, examinez la sortie générée dans le dossier de sortie configuré. Vous y verrez le fichier de sortie MP4 terminé qui a été encodé à partir du fichier d’entrée MXF source.
 
 ## <a id="MXF_to_MP4_with_dyn_packaging"></a>Encodage du fichier MXF en fichiers MP4 multidébit avec l’empaquetage dynamique
-Dans cette procédure pas à pas, nous allons créer un ensemble de fichiers .MP4 multidébit avec un flux audio encodé en AAC à partir d’un seul fichier d’entrée .MXF.
+Cette procédure pas à pas explique comment créer un ensemble de fichiers MP4 multidébit avec un flux audio encodé en AAC à partir d’un seul fichier d’entrée  MXF.
 
 Si vous souhaitez combiner une sortie d’élément multimédia multidébit aux fonctionnalités d’empaquetage dynamique offertes par Azure Media Services, vous devez générer plusieurs fichiers MP4 alignés sur le groupe d’images ayant chacun un débit binaire et une résolution différents. La procédure d’ [encodage d’un fichier MXF en fichier MP4 à débit binaire unique](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) offre un excellent point de départ pour y parvenir.
 
@@ -224,9 +224,9 @@ Si vous souhaitez combiner une sortie d’élément multimédia multidébit aux 
 *Démarrage du workflow*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Ajout d’une ou plusieurs sorties MP4 supplémentaires
-Chaque fichier MP4 contenu dans l’élément multimédia Azure Media Services que nous avons généré prendra en charge des valeurs de débit binaire et de résolution différentes. Nous allons ajouter un ou plusieurs fichiers de sortie MP4 au workflow.
+Chaque fichier MP4 contenu dans l’élément multimédia Azure Media Services que nous avons généré prend en charge des valeurs de débit binaire et de résolution différentes. Nous allons ajouter un ou plusieurs fichiers de sortie MP4 au workflow.
 
-Pour avoir la certitude que tous nos encodeurs vidéo sont créés avec les mêmes paramètres, le mieux est de dupliquer l’encodeur vidéo AVC existant et de configurer une autre combinaison de résolution et de débit binaire (soit une résolution de 960 x 540 à 25 images par seconde pour un débit de 2,5 Mbit/s). Pour dupliquer l’encodeur existant, vous devez le copier et le coller sur la surface du concepteur.
+Pour avoir la certitude que tous nos encodeurs vidéo sont créés avec les mêmes paramètres, le mieux est de dupliquer l’encodeur vidéo AVC existant et de configurer une autre combinaison de résolution et de débit binaire (soit une résolution de 960 x 540 à 25 images par seconde pour un débit de 2,5 Mbit/s). Pour dupliquer l’encodeur existant, vous devez le copier et le coller sur la surface du concepteur.
 
 Connectez la broche de sortie Uncompressed Video du composant Media File Input dans notre nouveau composant AVC.
 
@@ -234,7 +234,7 @@ Connectez la broche de sortie Uncompressed Video du composant Media File Input d
 
 *Deuxième encodeur AVC connecté*
 
-Nous devons maintenant adapter la configuration de notre nouvel encodeur AVC à une sortie de 960 x 540 à 2,5 Mbit/s. (Pour cela, utilisez les propriétés « largeur de sortie », « hauteur de sortie » et « débit binaire (Kbit/s) »).
+Nous devons maintenant adapter la configuration de notre nouvel encodeur AVC à une sortie de 960 x 540 à 2,5 Mbit/s. (Pour cela, utilisez les propriétés « largeur de sortie », « hauteur de sortie » et « débit binaire (Kbit/s) »).
 
 Comme nous voulons utiliser l’élément multimédia obtenu avec les fonctionnalités d’empaquetage dynamique d’Azure Media Services, le point de terminaison de streaming doit être capable d’utiliser ces fichiers MP4 pour générer des fragments MP4/DASH HLS/fragmentés qui soient précisément alignés entre eux afin de permettre aux clients qui basculent d’un débit binaire à un autre de bénéficier d’une expérience audio et vidéo parfaitement fluide et homogène. Nous devons pour cela nous assurer que la taille du groupe d’images (GOP) pour les deux fichiers MP4 est bien définie sur 2 secondes dans les propriétés de ces deux encodeurs AVC, en procédant comme suit :
 
@@ -242,7 +242,7 @@ Comme nous voulons utiliser l’élément multimédia obtenu avec les fonctionna
 * configurer un intervalle de trame-clé de deux secondes ;
 * et définir le contrôle IDR du groupe d’images sur un groupe d’images fermé afin de s’assurer que tous les groupes d’images seront autonomes et sans aucune dépendance.
 
-Pour simplifier la compréhension de notre workflow, renommez le premier encodeur AVC « Encodeur vidéo AVC 640x360 1 200 Kbit/s » et le second « Encodeur vidéo AVC 960x540 2 500 Kbit/s ».
+Pour simplifier la compréhension de ce workflow, renommez le premier encodeur AVC « Encodeur vidéo AVC 640x360 1 200 Kbit/s » et le second « Encodeur vidéo AVC 960x540 2 500 Kbit/s ».
 
 Ajoutez maintenant un deuxième multiplexeur ISO MPEG-4 et un deuxième composant File Output. Connectez le multiplexeur au nouvel encodeur AVC et assurez-vous que sa sortie est dirigée vers le composant File Output. Connectez également la sortie de l’encodeur audio AAC à l’entrée du nouveau multiplexeur. Le composant File Output peut à son tour être connecté au nœud Output File/Asset pour être ajouté à l’élément multimédia Media Services qui sera créé.
 
@@ -265,7 +265,7 @@ La dénomination des fichiers de sortie peut être contrôlée au moyen d’expr
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
 
-Autrement dit, notre nom de fichier est déterminé par deux variables : le répertoire de sortie dans lequel écrire et le nom de base du fichier source. Le premier est exposé sous la forme d’une propriété sur la racine du workflow et le second est déterminé par le fichier entrant. Notez que le répertoire de sortie sert au test en local ; cette propriété sera remplacée par le moteur de workflows lorsque le workflow est exécuté par le processeur multimédia cloud dans Azure Media Services.
+Autrement dit, notre nom de fichier est déterminé par deux variables : le répertoire de sortie dans lequel écrire et le nom de base du fichier source. Le premier est exposé sous la forme d’une propriété sur la racine du workflow et le second est déterminé par le fichier entrant. Le répertoire de sortie sert au test en local ; cette propriété sera remplacée par le moteur de workflow lorsque le workflow est exécuté par le processeur multimédia cloud dans Azure Media Services.
 Pour donner à nos deux fichiers de sortie des noms de sortie cohérents, modifiez la première expression d’affectation de noms de fichier comme suit :
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
@@ -294,6 +294,7 @@ Créez un troisième composant File Output pour générer le flux sortant à par
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Ajout du fichier SMIL .ISM
 Pour garantir la compatibilité de l’empaquetage dynamique avec les deux fichiers MP4 (et le fichier MP4 audio uniquement) de notre élément multimédia Media Services, nous avons également besoin d’un fichier manifeste (également appelé fichier « SMIL », ou Synchronized Multimedia Integration Language). Ce fichier indique à Azure Media Services les fichiers MP4 disponibles pour l’empaquetage dynamique ainsi que ceux qui doivent être pris en compte pour le streaming audio. Le fichier manifeste associé à un ensemble de fichiers MP4 à un seul flux audio se présente généralement comme suit :
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -308,10 +309,11 @@ Pour garantir la compatibilité de l’empaquetage dynamique avec les deux fichi
         </switch>
       </body>
     </smil>
+```
 
 Le fichier .ism contient, au sein d’une instruction switch, une référence à chaque fichier vidéo MP4 ainsi qu’une ou plusieurs références de fichier audio à un fichier MP4 contenant uniquement les données audio.
 
-Un composant appelé « AMS Manifest Writer » permet de générer le fichier manifeste pour notre ensemble de fichiers MP4. Pour utiliser ce composant, faites-le glisser sur la surface et connectez les broches de sortie « Write Complete » des trois composants File Output dans l’entrée AMS Manifest Writer. Veillez ensuite à connecter la sortie du composant AMS Manifest Writer au composant Output File/Asset.
+Un composant appelé « AMS Manifest Writer » permet de générer le fichier manifeste pour notre ensemble de fichiers MP4. Pour utiliser ce composant, faites-le glisser sur la surface et connectez les broches de sortie « Write Complete » des trois composants File Output dans l’entrée AMS Manifest Writer. Veillez ensuite à connecter la sortie du composant AMS Manifest Writer au composant Output File/Asset.
 
 Comme pour nos autres composants de sortie de fichier, configurez le nom de sortie du fichier .ism à l’aide d’une expression, comme suit :
 
@@ -324,7 +326,7 @@ Notre workflow terminé prend l’aspect suivant :
 *Workflow de la conversion du MXF en MP4 multidébit*
 
 ## <a id="MXF_to__multibitrate_MP4"></a>Encodage du fichier MXF en fichiers MP4 multidébit : plan optimisé
-Dans la [procédure ci-dessus](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) , nous avons vu comment convertir un élément multimédia d’entrée MXF en un élément multimédia de sortie comprenant des fichiers MP4 multidébit, un fichier MP4 audio uniquement et un fichier manifeste pouvant être utilisés avec les fonctionnalités d’empaquetage dynamique Azure Media Services.
+Dans la [procédure ci-dessus](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), nous avons vu comment convertir un élément multimédia d’entrée MXF en un élément multimédia de sortie comprenant des fichiers MP4 multidébit, un fichier MP4 audio uniquement et un fichier manifeste pouvant être utilisés avec les fonctionnalités d’empaquetage dynamique Azure Media Services.
 
 Cette procédure pas à pas explique comment améliorer et simplifier certains aspects.
 
@@ -344,7 +346,7 @@ Quant à la deuxième sortie vidéo, nous obtenons une expression du type :
 
     ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
 
-Pourquoi ne pas rendre tout cela plus clair, juste et pratique en évitant ces doublons et en renforçant les possibilités de configuration ? Heureusement, cela est possible : nous pouvons renforcer la convivialité de l’ensemble en utilisant à la fois les fonctionnalités d’expression du concepteur et les fonctions permettant de créer des propriétés personnalisées à la racine de notre workflow.
+Pourquoi ne pas rendre tout cela plus clair, juste et pratique en évitant ces doublons et en renforçant les possibilités de configuration ? Heureusement, cela est possible : nous pouvons renforcer la convivialité en utilisant à la fois les fonctionnalités d’expression du concepteur et les fonctions permettant de créer des propriétés personnalisées à la racine de notre workflow.
 
 Imaginons que la configuration des noms de fichiers soit dérivée des débits binaires de chaque fichier MP4. Nous cherchons à configurer ces débits binaires dans un emplacement centralisé (à la racine de notre graphique), d’où ils seront accessibles pour configurer et exécuter la génération des noms de fichiers de disque. Pour ce faire, nous allons commencer par publier la propriété de débit binaire à partir des deux encodeurs AVC à la racine de notre workflow, afin qu’elle devienne accessible aussi bien depuis la racine qu’à partir des encodeurs AVC (même si cette propriété s’affiche à deux endroits différents, il n’y a qu’une seule valeur sous-jacente).
 
@@ -369,7 +371,7 @@ En vérifiant maintenant les propriétés à la racine du workflow, nous pouvons
 
 Chaque fois que vous souhaitez accéder à ces propriétés à partir du code ou d’une expression, vous pouvez procéder de la manière suivante :
 
-* à partir du code en ligne d’un composant, directement sous la racine : node.getPropertyAsString('.. / video1bitrate', null)
+* à partir du code en ligne d’un composant, directement sous la racine : node.getPropertyAsString('../ video1bitrate', null)
 * dans une expression : ${ROOT_video1bitrate}
 
 Complétons le groupe « Streaming Bitrates » en y publiant également le débit binaire de notre piste audio. Dans les propriétés de l’encodeur AAC, recherchez le paramètre de débit binaire et sélectionnez Publier dans la liste déroulante en regard de celui-ci. Publiez la propriété à la racine du graphique en lui attribuant le nom « audio1bitrate » et le nom d’affichage « Audio 1 Bitrate » au sein de notre groupe personnalisé « Streaming Bitrates ».
@@ -382,14 +384,14 @@ Complétons le groupe « Streaming Bitrates » en y publiant également le dé
 
 *Propriétés vidéo et audio générées à la racine*
 
-Notez que la modification d’une de ces trois valeurs a également pour effet de reconfigurer et modifier les valeurs sur les composants respectifs auxquels elles sont liées (et à partir desquels elles sont publiées).
+La modification d’une de ces trois valeurs a également pour effet de reconfigurer et de modifier les valeurs sur les composants respectifs auxquels elles sont liées (et à partir desquels elles sont publiées).
 
 ### <a id="MXF_to__multibitrate_MP4_output_files"></a>Utilisation des valeurs de propriété publiées pour les noms de fichiers de sortie générés
-Au lieu de coder les noms de fichier générés, nous pouvons maintenant modifier notre expression de nom de fichier sur chacun des composants File Output pour qu’elle utilise les propriétés de débit binaire que nous venons de publier sur la racine du graphique. En commençant par la première sortie de fichier, recherchez la propriété de fichier et modifiez l’expression comme suit :
+Au lieu de coder les noms de fichier générés, nous pouvons maintenant modifier notre expression de nom de fichier sur chacun des composants File Output pour qu’elle utilise les propriétés de débit binaire que nous avons publiées sur la racine du graphique. En commençant par la première sortie de fichier, recherchez la propriété de fichier et modifiez l’expression comme suit :
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
 
-Vous pouvez consulter et saisir les différents paramètres de cette expression en vous plaçant dans la fenêtre d’expression et en appuyant sur le signe dollar du clavier. La propriété video1bitrate que nous avons publiée précédemment apparaît parmi les propriétés disponibles.
+Vous pouvez consulter et saisir les différents paramètres de cette expression en vous plaçant dans la fenêtre d’expression et en appuyant sur le signe dollar du clavier. La propriété video1bitrate que nous avons publiée précédemment apparaît parmi les paramètres disponibles.
 
 ![Accès aux paramètres dans une expression](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-accessing-parameters-within-an-expression.png)
 
@@ -441,7 +443,7 @@ S’il semble logiquement possible désormais de connecter à la fois les broche
 
 *Erreur de l’espace colorimétrique d’entrée*
 
-Cette erreur est liée au fait que la représentation des informations colorimétriques dans notre flux vidéo non compressé d’origine (brut) en provenance de notre MXF est différente de la représentation attendue par l’encodeur JPG. L’encodeur attend plus précisément un « espace colorimétrique » de type « RVB » ou « Échelle de gris ». Autrement dit, vous devrez d’abord appliquer une conversion au flux vidéo entrant du composant Video Frame Gate compte tenu de son espace colorimétrique.
+Cette erreur est liée au fait que la représentation des informations colorimétriques dans notre flux vidéo non compressé d’origine (brut) en provenance de notre MXF est différente de la représentation attendue par l’encodeur JPG. L’encodeur attend plus précisément un « espace colorimétrique » de type « RVB » ou « Échelle de gris ». Autrement dit, vous devez d’abord appliquer une conversion au flux vidéo entrant du composant Video Frame Gate compte tenu de son espace colorimétrique.
 
 Faites glisser le convertisseur d’espace colorimétrique sur le workflow et connectez-le à la porte de trame.
 
@@ -452,7 +454,7 @@ Faites glisser le convertisseur d’espace colorimétrique sur le workflow et co
 Dans la fenêtre des propriétés, sélectionnez l’entrée RVB 24 dans la liste des présélections.
 
 ### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Écriture des miniatures
-Contrairement aux vidéos MP4, le composant JPG Encoder génère plusieurs fichiers. Pour gérer cette opération, on peut utiliser un composant Scene Search JOG File Writer, qui capture les miniatures JPG entrantes et les écrit sur la sortie, chaque nom de fichier étant suivi d’un nombre différent (ce nombre indiquant généralement le nombre de secondes/d’unités contenus dans le flux à partir duquel la miniature a été extraite).
+Contrairement aux vidéos MP4, le composant JPG Encoder génère plusieurs fichiers. Pour gérer cette opération, on peut utiliser un composant Scene Search JOG File Writer, qui capture les miniatures JPG entrantes et les écrit sur la sortie, chaque nom de fichier étant suivi d’un nombre différent. (Ce nombre indique généralement le nombre de secondes/d’unités contenues dans le flux à partir duquel la miniature a été extraite.)
 
 ![Présentation du composant Scene Search JPG File Writer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
@@ -464,7 +466,7 @@ et la propriété de préfixe de nom de fichier avec :
 
     ${ROOT_sourceFileBaseName}_thumb_
 
-Le préfixe détermine la dénomination des fichiers de miniatures. Ces fichiers seront suivis d’un nombre indiquant la position du curseur de défilement dans le flux.
+Le préfixe détermine la dénomination des fichiers de miniatures. Ces fichiers sont suivis d’un nombre indiquant la position du curseur de défilement dans le flux.
 
 ![Propriétés du composant Scene Search JPG File Writer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
@@ -487,7 +489,7 @@ Cliquez sur la petite icône rouge « E » située en haut à droite du compos
 
 Il s’avère, comme vous pouvez le voir, que l’espace colorimétrique entrant du convertisseur d’espace colorimétrique doit normalement être rec601 pour notre demande de conversion du format YUV au format RVB. Apparemment, notre flux n’indique pas qu’il s’agit de la norme rec601 (Rec 601 est une norme d’encodage de signaux vidéo analogiques entrelacés sous forme de vidéo numérique. Elle spécifie une région active couvrant 720 échantillons de luminance et 360 échantillons de chrominance par ligne. Le système d’encodage colorimétrique est appelé YCbCr 4:2:2).
 
-Pour résoudre ce problème, nous allons indiquer dans les métadonnées de notre flux que nous avons affaire à un contenu rec601. Pour ce faire, nous allons utiliser un composant Video Data Type Updater, que nous allons insérer entre notre source brute et le composant de conversion d’espace colorimétrique. Ce composant de mise à jour du type de données permet de mettre à jour manuellement certaines propriétés du type de données vidéo. Configurez-le pour indiquer une norme d’espace colorimétrique de « Rec 601 ». Le composant Video Data Type Updater ajoutera alors au flux un indicateur d’espace colorimétrique « Rec 601 » si aucun espace colorimétrique n’est encore défini (les métadonnées existantes ne seront pas écrasées, sauf si la case indiquant un écrasement est activée).
+Pour résoudre ce problème, nous allons indiquer dans les métadonnées de notre flux que nous avons affaire à un contenu rec601. Pour ce faire, nous allons utiliser un composant Video Data Type Updater, que nous allons insérer entre notre source brute et le composant de conversion d’espace colorimétrique. Ce composant de mise à jour du type de données permet de mettre à jour manuellement certaines propriétés du type de données vidéo. Configurez-le pour indiquer une norme d’espace colorimétrique de « Rec 601 ». Le composant Video Data Type Updater ajoute alors au flux un indicateur d’espace colorimétrique « Rec 601 » si aucun espace colorimétrique n’est encore défini (les métadonnées existantes ne seront pas écrasées, sauf si la case indiquant un écrasement est activée).
 
 ![Mise à jour de la norme d’espace colorimétrique sur le composant de mise à jour du type de données](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
 
@@ -523,7 +525,7 @@ Au lieu de lier directement les encodeurs AVC et le composant d’affectation de
 
 Nous allons maintenant configurer le composant de découpage afin de traiter uniquement les données vidéo et audio contenues dans l’intervalle de 15 à 60 secondes du flux vidéo.
 
-Accédez aux propriétés du composant Video Stream Trimmer et configurez l’heure de début (15 s) et l’heure de fin (60 s). Pour avoir la certitude que nos composants de découpage audio et vidéo seront toujours configurés avec les mêmes valeurs de début et de fin, nous allons les publier à la racine du workflow.
+Accédez aux propriétés du composant Video Stream Trimmer et configurez l’heure de début (15 s) et l’heure de fin (60 s). Pour avoir la certitude que nos composants de découpage audio et vidéo seront toujours configurés avec les mêmes valeurs de début et de fin, nous les publions à la racine du workflow.
 
 ![Publication de la propriété d’heure de début à partir du composant Stream Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
 
@@ -599,6 +601,7 @@ L’objet de nœud sur lequel nous appelons la méthode de journalisation fait r
 
 À partir de notre environnement de script, nous avons également accès aux propriétés d’autres composants. Procédez comme suit :
 
+```java
     //inspect current node:
     def nodepath = node.getNodePath();
     node.log("this node path: " + nodepath);
@@ -612,6 +615,7 @@ L’objet de nœud sur lequel nous appelons la méthode de journalisation fait r
     def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null );
     def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null);
     node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
+```
 
 La fenêtre du journal présente les éléments suivants :
 
@@ -628,9 +632,9 @@ La fenêtre du journal présente les éléments suivants :
 *Workflow pour l’ajout du découpage*
 
 ### <a id="frame_based_trim_clip_list"></a>Utilisation du fichier XML Clip List
-Dans tous les didacticiels de workflow précédents, nous avons utilisé le composant Media File Input comme source d’entrée vidéo. Pour ce scénario, en revanche, nous allons utiliser le composant Clip List Source. Notez que cette approche n’est pas recommandée ; utilisez uniquement le composant Clip List Source lorsque cela est véritablement justifié (comme dans le cas ci-dessous où nous utilisons les fonctionnalités de découpage d’une liste de séquences).
+Dans tous les didacticiels de workflow précédents, nous avons utilisé le composant Media File Input comme source d’entrée vidéo. Pour ce scénario, en revanche, nous allons utiliser le composant Clip List Source. Cette approche n’est pas recommandée ; utilisez uniquement le composant Clip List Source lorsque cela est véritablement justifié (comme dans le cas suivant, où nous utilisons les fonctionnalités de découpage d’une liste de séquences).
 
-Pour passer du composant Media File Input au composant Clip List Source, faites glisser le composant Clip List Source sur la surface du concepteur et connectez la broche Clip List XML au nœud Clip List XML du concepteur de workflow. Le composant Clip List Source devrait maintenant comporter des broches de sortie correspondant à notre vidéo d’entrée. Connectez à présent les broches Uncompressed Video et Uncompressed Audio du composant Clip List Source à leurs encodeurs AVC respectifs et à l’entrelaceur de flux audio. Supprimez maintenant le composant Media File Input.
+Pour passer du composant Media File Input au composant Clip List Source, faites glisser le composant Clip List Source sur la surface du concepteur et connectez la broche Clip List XML au nœud Clip List XML du concepteur de workflow. Le composant Clip List Source comporte maintenant des broches de sortie correspondant à notre vidéo d’entrée. Connectez à présent les broches Uncompressed Video et Uncompressed Audio du composant Clip List Source à leurs encodeurs AVC respectifs et à l’entrelaceur de flux audio. Supprimez maintenant le composant Media File Input.
 
 ![Remplacement du composant Media File Input par le composant Clip List Source](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
@@ -656,9 +660,9 @@ Cela ne reflète toutefois pas les fonctionnalités du fichier XML de liste de s
 
 Si vous modifiez le fichier XML de liste de séquences comme indiqué ci-dessus et que vous effectuez une série de tests en local, la vidéo sera coupée dans l’intervalle 10 à 20 secondes du flux vidéo.
 
-Mais contrairement au résultat obtenu lors d’une exécution en local, ce même fichier XML de liste de séquences aurait le même effet s’il était appliqué dans un workflow exécuté sous Azure Media Services. Au démarrage d’Azure Premium Encoder, le fichier XML de liste de séquences est de nouveau généré à chaque fois, compte tenu du fichier d’entrée affecté à la tâche d’encodage. Cela signifie que toutes les modifications apportées au fichier XML seront malheureusement écrasées.
+Mais contrairement au résultat obtenu lors d’une exécution en local, ce fichier XML de liste de séquences aurait le même effet s’il était appliqué dans un workflow exécuté sous Azure Media Services. Au démarrage d’Azure Premium Encoder, le fichier XML de liste de séquences est de nouveau généré à chaque fois, compte tenu du fichier d’entrée affecté à la tâche d’encodage. Cela signifie que toutes les modifications apportées au fichier XML seront malheureusement écrasées.
 
-Pour éviter d’écraser le fichier XML de liste de séquences au démarrage d’une tâche d’encodage, nous pouvons le régénérer à la volée immédiatement après le démarrage de notre workflow. Ces actions personnalisées peuvent être exécutées via ce que l’on appelle un « composant de script ». Pour plus d’informations, consultez le paragraphe [Présentation du composant de script](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
+Pour éviter d’écraser le fichier XML de liste de séquences au démarrage d’une tâche d’encodage, nous pouvons le régénérer à la volée immédiatement après le démarrage de notre workflow. Ces actions personnalisées peuvent être exécutées via ce que l’on appelle un « composant de script ». Pour plus d’informations, consultez le paragraphe [Présentation du composant de script](media-services-media-encoder-premium-workflow-tutorials.md#scripting).
 
 Faites glisser un composant de script sur la surface du concepteur et renommez-le « SetClipListXML ».
 
@@ -673,11 +677,13 @@ Lorsque vous examinez les propriétés du composant de script, les quatre types 
 *Propriétés du composant de script*
 
 ### <a id="frame_based_trim_modify_clip_list"></a>Modification de la liste de séquences à partir d’un composant de script
-Avant de pouvoir réécrire le fichier XML de liste de séquences généré au cours du démarrage du workflow, nous devons accéder à la propriété et au contenu du fichier XML de liste de séquences. Pour cela, nous pouvons procéder de la manière suivante :
+Avant de pouvoir réécrire le fichier XML de liste de séquences généré au cours du démarrage du workflow, nous devons accéder à la propriété et au contenu du fichier XML de liste de séquences. Pour cela, nous pouvons procéder de la manière suivante :
 
+```java
     // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
     node.log("clip list xml coming in: " + clipListXML);
+```
 
 ![Liste de séquences entrantes consignée dans le journal](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
 
@@ -704,12 +710,14 @@ Configurez les deux propriétés sur une valeur appropriée :
 
 À partir de dans notre script, nous pouvons désormais accéder aux deux propriétés, comme suit :
 
+```java
     // get start and end of clipping:
     def clipstart = node.getProperty("../ClippingTimeStart").toString();
     def clipend = node.getProperty("../ClippingTimeEnd").toString();
 
     node.log("clipping start: " + clipstart);
     node.log("clipping end: " + clipend);
+```
 
 ![Fenêtre de journal indiquant le début et la fin du découpage](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
 
@@ -717,6 +725,7 @@ Configurez les deux propriétés sur une valeur appropriée :
 
 Nous allons analyser les chaînes de code temporel sous une forme plus conviviale, à l’aide d’une expression régulière simple :
 
+```java
     //parse the start timing:
     def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
     startregresult.matches();
@@ -732,6 +741,7 @@ Nous allons analyser les chaînes de code temporel sous une forme plus convivial
     node.log("timecode end is: " + endtimecode);
     def endframerate = endregresult.group(2);
     node.log("framerate end is: " + endframerate);
+```
 
 ![Fenêtre de journal avec la sortie du code temporel analysé](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
 
@@ -749,12 +759,13 @@ Nous avons utilisé pour cela des opérations normales de manipulation de chaîn
 
 *Consignation de la liste de séquences obtenue*
 
-Effectuez une série de tests pour voir la manière dont les flux vidéo et audio ont été découpés. Lorsque vous effectuerez plusieurs séries de tests avec des valeurs différentes pour les points de découpage, vous remarquerez que ceux ne seront pas pris en compte ! Ceci s’explique par le fait que le concepteur, contrairement à l’exécution Azure, n’écrase PAS le fichier XML de liste de séquences à chaque exécution. Autrement dit, le fichier XML ne sera transformé que la première fois où vous définissez les points d’entrée et de sortie. Toutes les autres fois, notre clause de garde (if(clipListXML.indexOf("<trim>") == -1)) empêchera le workflow d’ajouter un autre élément de découpage si un autre est déjà présent.
+Effectuez une série de tests pour voir la manière dont les flux vidéo et audio ont été découpés. Lorsque vous effectuerez plusieurs séries de tests avec des valeurs différentes pour les points de découpage, vous remarquerez que ceux ne seront pas pris en compte ! Ceci s’explique par le fait que le concepteur, contrairement à l’exécution Azure, n’écrase PAS le fichier XML de liste de séquences à chaque exécution. Autrement dit, le fichier XML ne sera transformé que la première fois où vous définissez les points d’entrée et de sortie. Toutes les autres fois, notre clause de garde (if(clipListXML.indexOf("<trim>") == -1)) empêchera le workflow d’ajouter un élément de découpage si un autre est déjà présent.
 
 Pour faciliter le test en local de notre workflow, le mieux est d’ajouter du code d’entretien qui vérifie la présence préalable d’un élément de découpage. Si tel est le cas, nous pouvons supprimer cet élément avant de modifier le fichier XML avec les nouvelles valeurs. Au lieu d’utiliser de simples manipulations de chaînes, il est probablement plus prudent de procéder à une analyse du modèle d’objet XML réel.
 
 Mais avant de pouvoir ajouter ce code, nous devons d’abord ajouter un certain nombre d’instructions d’importation au début de notre script :
 
+```java
     import javax.xml.parsers.*;
     import org.xml.sax.*;
     import org.w3c.dom.*;
@@ -763,9 +774,11 @@ Mais avant de pouvoir ajouter ce code, nous devons d’abord ajouter un certain 
     import javax.xml.transform.*;
     import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
+```
 
 Après quoi, nous pouvons ajouter le code de nettoyage requis :
 
+```java
     //for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
     DocumentBuilder builder=factory.newDocumentBuilder();
@@ -797,6 +810,7 @@ Après quoi, nous pouvons ajouter le code de nettoyage requis :
     DOMSource source = new DOMSource(dom);
     transformer.transform(source, result);
     clipListXML = result.getWriter().toString();
+```
 
 Ce code doit être inséré juste au-dessus du point auquel nous ajoutons les éléments de découpage au fichier XML de liste de séquences.
 
@@ -813,6 +827,7 @@ Comme auparavant, publiez à la racine de notre workflow une nouvelle propriét�
 
 Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpage est ou non requis et déterminer si notre liste de séquences doit ou non être modifiée.
 
+```java
     //check if clipping is required:
     def clippingrequired = node.getProperty("../ClippingEnabled");
     node.log("clipping required: " + clippingrequired.toString());
@@ -822,9 +837,11 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
         node.log("no clipping required");
         return;
     }
-
+```
 
 ### <a id="code"></a>Code complet
+
+```java
     import javax.xml.parsers.*;
     import org.xml.sax.*;
     import org.w3c.dom.*;
@@ -918,7 +935,7 @@ Avec la simple clause de garde ci-dessus, nous pouvons vérifier si le découpag
         node.log( "clip list going out: \n" +clipListXML );
         node.setProperty("../clipListXml",clipListXML);
     }
-
+```
 
 ## <a name="also-see"></a>Voir aussi
 [Présentation de l’encodage Premium dans Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)

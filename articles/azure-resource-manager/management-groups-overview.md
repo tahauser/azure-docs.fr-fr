@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure 
 
-Si vous avez plusieurs abonnements, vous pouvez les organiser en conteneurs appelés « groupes d’administration » pour vous aider à gérer l’accès, la stratégie et la conformité sur l’ensemble de vos abonnements. Ces conteneurs vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.  
+Si vous avez plusieurs abonnements, vous pouvez les organiser en conteneurs appelés « groupes d’administration » pour vous aider à gérer l’accès, la stratégie et la conformité sur l’ensemble de vos abonnements. Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.  
 
 La fonctionnalité de groupe d’administration est disponible dans une préversion publique. Pour commencer à utiliser des groupes d’administration, connectez-vous au [portail Azure](https://portal.azure.com) et recherchez **Groupes d’administration** dans la section **Tous les services**. 
 
@@ -66,7 +66,7 @@ Tout [rôle RBAC intégré](../active-directory/role-based-access-control-what-i
 - **Lecteur** peut consulter les ressources Azure existantes. 
 
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 Pour en savoir plus sur les groupes d’administration, consultez : 
 - [Créer des groupes d’administration pour organiser les ressources Azure](management-groups-create.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](management-groups-manage.md)

@@ -166,7 +166,7 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 >> 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous trouverez une explication complète de la fonctionnalité d’alias DNS pour SQL Database dans la section [Alias DNS pour Azure SQL Database][dns-alias-overview-37v].
 

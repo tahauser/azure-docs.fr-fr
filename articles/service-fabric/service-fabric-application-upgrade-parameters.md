@@ -59,7 +59,7 @@ Les critères d'évaluation d'intégrité sont facultatifs. Si les critères d�
 <br>
 Les critères MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService et MaxPercentUnhealthyReplicasPerPartition peuvent être spécifiés par type de service pour une instance d’application. La configuration de ces paramètres par service permet à une application de contenir différents types de services avec des stratégies d’évaluation différentes. Par exemple, pour une instance d’application donnée, un type de service de passerelle sans état et un type de service de moteur avec état peuvent avoir des valeurs MaxPercentUnhealthyPartitionsPerService différentes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
 [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.

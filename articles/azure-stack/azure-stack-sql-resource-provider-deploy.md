@@ -259,7 +259,7 @@ Pour supprimer le fournisseur de ressources, il est essentiel de supprimer d’a
     - Les informations d’identification du compte d’administrateur local du service
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Ajoutez des serveurs d’hébergement](azure-stack-sql-resource-provider-hosting-servers.md) et [créez des bases de données](azure-stack-sql-resource-provider-databases.md).
 

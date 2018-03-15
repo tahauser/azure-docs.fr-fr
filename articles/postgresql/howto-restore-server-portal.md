@@ -1,55 +1,77 @@
 ---
-title: Comment restaurer un serveur dans Azure Database pour PostgreSQL | Microsoft Docs
+title: Comment restaurer un serveur dans Azure Database pour PostgreSQL
 description: "Cet article décrit comment restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL à l’aide du portail Azure
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
-Lorsque vous utilisez Azure Database pour PostgreSQL, le service de base de données crée automatiquement une sauvegarde du serveur toutes les 5 minutes. 
+Les serveurs Azure Database pour PostgreSQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
 
-Les sauvegardes sont disponibles pendant 7 jours avec le niveau De base et 35 jours lors de l’utilisation de niveau Standard. Pour plus d’informations, consultez [Niveaux de service d’Azure Database pour PostgreSQL](concepts-service-tiers.md)
+## <a name="set-backup-configuration"></a>Définir la configuration de sauvegarde
 
-À l’aide de cette fonctionnalité de sauvegarde automatique, vous pouvez restaurer le serveur et toutes ses bases de données dans un nouveau serveur à un moment antérieur.
+Vous choisissez entre la configuration de votre serveur pour des sauvegardes redondantes localement ou géographiquement redondantes lors de la création du serveur, dans la fenêtre **Niveau tarifaire**.
 
-## <a name="restore-in-the-azure-portal"></a>Restauration dans le portail Azure
-Azure Database pour PostgreSQL vous permet de restaurer le serveur à un moment donné et dans une nouvelle copie du serveur. Vous pouvez utiliser ce nouveau serveur pour récupérer vos données. 
+> [!NOTE]
+> Après la création d’un serveur, son type de redondance (géographique ou locale) ne peut pas être modifié.
+>
 
-Par exemple, si une table a été accidentellement supprimée à midi aujourd'hui, vous pourrez restaurer à l’heure juste avant midi et retrouver la table et les données manquantes à partir de cette nouvelle copie du serveur.
+Lors de la création d’un serveur via le portail Azure, la fenêtre **Niveau tarifaire** vous permet de sélectionner **Localement redondant** ou **Géographiquement redondant** pour les sauvegardes de votre serveur. Cette fenêtre vous permet également de sélectionner la **période de rétention de la sauvegarde**, c’est-à-dire la durée (en nombre de jours) pendant laquelle vous souhaitez conserver les sauvegardes de serveur.
 
-Les étapes suivantes restaurent l’exemple de serveur à un point dans le temps :
+   ![Niveau tarifaire - Choisir la redondance de sauvegarde](./media/howto-restore-server-portal/pricing-tier.png)
+
+Pour plus d’informations sur la définition de ces valeurs lors de la création, consultez [Créer un serveur Azure Database pour PostgreSQL dans le portail Azure](quickstart-create-server-database-portal.md).
+
+La période de rétention de sauvegarde d’un serveur peut être modifiée en suivant les étapes ci-après :
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Recherchez votre serveur Azure Database pour PostgreSQL. Dans le portail Azure, cliquez sur **Toutes les ressources** à partir du menu de gauche et saisissez le nom du serveur, par exemple **mypgserver-20170401**, pour rechercher votre serveur existant. Cliquez sur le nom du serveur figurant dans les résultats de la recherche. La page **Présentation** pour votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
+2. Sélectionnez votre serveur Azure Database pour PostgreSQL. Cette action ouvre la page **Vue d’ensemble**.
+3. Sélectionnez **Niveau tarifaire** dans le menu, sous **PARAMÈTRES**. Le curseur vous permet de modifier la **période de rétention de sauvegarde** selon vos préférences entre 7 et 35 jours.
+Dans la capture d’écran ci-dessous, elle a été augmentée à 34 jours.
+![Période de rétention de sauvegarde augmentée](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-   ![Portail Azure - Recherche pour localiser votre serveur](media/postgresql-howto-restore-server-portal/1-locate.png)
+4. Cliquez sur **OK** pour confirmer la modification.
 
-3. Dans la barre d’outils de la page de vue d’ensemble du serveur, cliquez sur **Restaurer**. La page Restaurer s’ouvre.
+La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La restauration à un point dans le temps est décrite plus loin dans la section suivante. 
 
-   ![Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Restaurer](./media/postgresql-howto-restore-server-portal/2_server.png)
+## <a name="point-in-time-restore-in-the-azure-portal"></a>Restauration à un point dans le temps dans le portail Azure
+Azure Database pour PostgreSQL vous permet de restaurer le serveur à un point dans le temps et dans une nouvelle copie du serveur. Vous pouvez utiliser ce nouveau serveur pour récupérer vos données ou faire en sorte que vos applications client pointent vers ce nouveau serveur.
 
-4. Remplissez le formulaire Restaurer avec les informations requises :
+Par exemple, si une table a été accidentellement supprimée à midi aujourd'hui, vous pourrez restaurer à l’heure juste avant midi et retrouver la table et les données manquantes à partir de cette nouvelle copie du serveur. La restauration à un point dans le temps est effectuée au niveau du serveur, pas au niveau de la base de données.
 
-   ![Azure Database pour PostgreSQL - Informations de restauration ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Point de restauration :** sélectionnez un point dans le temps avant la modification du serveur.
-  - **Serveur cible :** spécifiez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration.
+Les étapes suivantes restaurent l’exemple de serveur à un point dans le temps :
+1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour PostgreSQL. 
+
+2. Dans la barre d’outils de la page **Vue d’ensemble** du serveur, sélectionnez **Restaurer**.
+
+   ![Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Restaurer](./media/howto-restore-server-portal/2-server.png)
+
+3. Remplissez le formulaire Restaurer avec les informations requises :
+
+   ![Azure Database pour PostgreSQL - Informations de restauration ](./media/howto-restore-server-portal/3-restore.png)
+  - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
+  - **Serveur cible** : fournissez un nom pour le nouveau serveur.
   - **Emplacement :** vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
-  - **Niveau tarifaire** : vous ne pouvez pas modifier cette valeur lors de la restauration d’un serveur. Identique au serveur source. 
+  - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
 
-5. Cliquez sur **OK** pour restaurer le serveur à restaurer à un moment donné. 
+4. Cliquez sur **OK** pour restaurer le serveur à un point dans le temps. 
 
-6. Une fois la restauration terminée, recherchez le nouveau serveur créé pour vérifier que les données ont été restaurées correctement.
+5. Une fois la restauration terminée, recherchez le nouveau serveur créé pour vérifier que les données ont été restaurées correctement.
 
-## <a name="next-steps"></a>Étapes suivantes
-- [Bibliothèques de connexions pour Azure Database pour PostgreSQL](concepts-connection-libraries.md)
+>[!Note]
+>Le serveur créé par la restauration à un point dans le temps a les mêmes nom de connexion administrateur de serveur et mot de passe qui étaient valides pour le serveur existant au point dans le temps choisi. Vous pouvez modifier le mot de passe sur la page **Vue d’ensemble** du nouveau serveur.
+
+## <a name="next-steps"></a>étapes suivantes
+- En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
+- En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

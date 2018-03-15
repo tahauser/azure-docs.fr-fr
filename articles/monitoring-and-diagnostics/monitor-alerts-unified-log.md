@@ -116,7 +116,7 @@ La requête créerait une valeur moyenne pour chaque ordinateur à intervalles d
 Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 dans la mesure où le seuil de 90 % a été dépassé 3 fois au cours de la fenêtre de temps.  Si le **déclencheur d’alerte** était remplacé par **Consécutif**, une alerte serait créée uniquement pour srv03, car il a dépassé le seuil sur 3 échantillons consécutifs.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Comprendre les [actions Webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md)
 * [Consulter une présentation d’Azure Alerts (préversion)](monitoring-overview-unified-alerts.md)
 * En savoir plus sur l’[utilisation d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md)

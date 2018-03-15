@@ -1,24 +1,24 @@
 ---
-title: "Compréhension des rapports sur les coûts dans Azure Cost Management | Microsoft Docs"
-description: Cet article vous permet de comprendre la structure et les fonctions de base des rapports Cloudyn.
+title: "Compréhension des rapports de gestion des coûts dans Azure Cost Management | Microsoft Docs"
+description: "Cet article vous permet de comprendre la structure et les fonctions de base des rapports de gestion des coûts Cloudyn."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Compréhension des rapports sur les coûts
+# <a name="understanding-cost-management-reports"></a>Compréhension des rapports de gestion des coûts
 
-Cet article vous permet de comprendre la structure et les fonctions de base des rapports Cloudyn. La plupart des rapports Cloudyn sont intuitifs et ont une apparence uniforme. Après lecture de cet article, vous êtes prêt à utiliser tous les rapports. La plupart des fonctionnalités standard sont disponibles dans les différents rapports, vous permettant de naviguer facilement dans les rapports. Les rapports sont personnalisables et vous pouvez sélectionner plusieurs options pour calculer et afficher des résultats.
+Cet article vous permet de comprendre la structure et les fonctions de base des rapports de gestion des coûts Cloudyn. La plupart des rapports Cloudyn sont intuitifs et ont une apparence uniforme. Après lecture de cet article, vous êtes prêt à utiliser tous les rapports de gestion des coûts. La plupart des fonctionnalités standard sont disponibles dans les différents rapports, vous permettant de naviguer facilement dans les rapports. Les rapports sont personnalisables et vous pouvez sélectionner plusieurs options pour calculer et afficher des résultats.
 
 ## <a name="report-fields-and-options"></a>Champs et options des rapports
 
@@ -132,6 +132,27 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez Action pour enregistrer, exporter ou planifier le rapport.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="save-and-schedule-reports"></a>Enregistrer et planifier des rapports
+
+Après avoir créé un rapport, vous pouvez l’enregistrer pour une utilisation ultérieure. Les rapports enregistrés sont disponibles dans **Mes outils** > **Mes rapports**. Si vous apportez des modifications à un rapport existant et que vous l’enregistrez, le rapport est enregistré sous une nouvelle version. Vous pouvez également l’enregistrer sous un nouveau rapport.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Enregistrer un rapport dans le portail Cloudyn
+
+Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Save to my reports** (Enregistrer dans Mes rapports). Nommez le rapport, puis ajoutez votre propre URL ou utilisez l’URL créée automatiquement. Vous pouvez éventuellement **Partager** le rapport publiquement avec d’autres personnes de votre organisation, ou vous pouvez le partager à votre entité. Si vous ne partagez pas le rapport, il reste un rapport personnel que vous êtes le seul à pouvoir afficher. Enregistrez le rapport.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Enregistrer un rapport sur un stockage de fournisseur de cloud
+
+Pour enregistrer un rapport dans votre fournisseur de services cloud, vous devez avoir configuré un compte de stockage. Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Nommez le rapport, puis ajoutez votre propre URL ou utilisez l’URL créée automatiquement. Sélectionnez **Enregistrer sur un support de stockage**, puis sélectionnez le compte de stockage ou ajoutez-en un nouveau. Entrez un préfixe qui est ajouté au nom de fichier du rapport. Sélectionnez le format de fichier CSV ou JSON, puis enregistrez le rapport.
+
+### <a name="schedule-a-report"></a>Planifier un rapport
+
+Vous pouvez exécuter des rapports à des intervalles planifiés et les envoyer à une liste de destinataire ou dans un compte de stockage de fournisseur de services cloud. Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Vous pouvez envoyer le rapport par courrier électronique et l’enregistrer dans un compte de stockage. Sous **Planifier**, sélectionnez l’intervalle (tous les jours, toutes les semaines ou tous les mois). Pour les intervalles hebdomadaire et mensuel, sélectionnez le jour ou les dates de remise et sélectionnez l’heure. Enregistrez le rapport planifié. Si vous sélectionnez le format de rapport Excel, le rapport est envoyé en pièce jointe. Lorsque vous sélectionnez le format de contenu par courrier électronique, les résultats du rapport affichés au format graphique sont délivrés dans un graphique.
+
+### <a name="export-a-report-as-a-csv-file"></a>Exporter un rapport dans un fichier CSV
+
+Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Export all report data** (Exporter toutes les données du rapport). Une fenêtre contextuelle s’affiche et un fichier CSV est téléchargé.
+
+## <a name="next-steps"></a>étapes suivantes
 
 - Si vous n’avez pas encore suivi le premier didacticiel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).

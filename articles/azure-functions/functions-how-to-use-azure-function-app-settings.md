@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Comment gérer une Function App dans le portail Azure 
 
@@ -119,13 +119,13 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 
 | | |
 |-|-|
-| ![Définition Swagger de l’API Function App dans le portail Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions prend en charge Swagger pour permettre aux clients de consommer plus facilement vos fonctions déclenchées via HTTP. Pour plus d’informations sur la création de définitions d’API avec Swagger, consultez [Prise en main d’API Apps et de Swagger dans Azure](../app-service/app-service-web-tutorial-rest-api.md). Vous pouvez également utiliser les Functions Proxies pour définir une surface d’API unique pour plusieurs fonctions. Pour plus d’informations, consultez [Utilisation de Azure Functions Proxies (préversion)](functions-proxies.md). |
+| ![Définition Swagger de l’API Function App dans le portail Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions prend en charge Swagger pour permettre aux clients de consommer plus facilement vos fonctions déclenchées via HTTP. Pour plus d’informations sur la création de définitions d’API avec Swagger, consultez [Héberger une API RESTful avec CORS dans Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Vous pouvez également utiliser les Functions Proxies pour définir une surface d’API unique pour plusieurs fonctions. Pour plus d’informations, consultez [Utilisation de Azure Functions Proxies (préversion)](functions-proxies.md). |
 
 ![Configurer l’API de Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 + [Configurer des applications web dans Azure App Service](../app-service/web-sites-configure.md)
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)

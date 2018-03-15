@@ -121,7 +121,7 @@ Azure Databricks est intégré à Azure AD. Cela vous permet de définir des aut
 
 Connectez-vous au portail Azure en tant qu’administrateur. Pour Azure Active Directory, accédez à l’onglet **Paramètres utilisateur** et vérifiez que l’option **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** est définie sur **Oui**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Démarrage rapide : Prise en main d’Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Présentation d’Azure Databricks](what-is-azure-databricks.md)

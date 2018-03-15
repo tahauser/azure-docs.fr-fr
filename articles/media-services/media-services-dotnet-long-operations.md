@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4e794d8983470efe3ff4eef4947f4654ce2c523
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9e79542d6acfcbf27a21e058f382bebacf0c2d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Diffusion vidéo en flux continu avec Azure Media Services
 
@@ -39,7 +39,7 @@ Pour interroger l’état de l’opération, utilisez la méthode **GetOperation
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md).
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 L’exemple suivant définit une classe appelée **ChannelOperations**. Cette définition de classe peut constituer un point de départ pour la définition de classe de votre service Web. Par souci de simplicité, les exemples suivants utilisent les versions synchrones des méthodes.
 
@@ -47,7 +47,7 @@ L'exemple montre également comment le client peut utiliser cette classe.
 
 ### <a name="channeloperations-class-definition"></a>Définition de la classe ChannelOperations
 
-```
+```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -192,7 +192,7 @@ public class ChannelOperations
 
 ### <a name="the-client-code"></a>Le code du client
 
-```
+```csharp
 ChannelOperations channelOperations = new ChannelOperations();
 string opId = channelOperations.StartChannelCreation("MyChannel001");
 

@@ -415,6 +415,6 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les exemples de modèles Azure Policy en consultant [Modèles pour Azure Policy](json-samples.md).

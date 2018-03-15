@@ -183,7 +183,7 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans la deuxième partie de la série, vous avez appris à charger de grandes quantités de données aléatoires dans un compte de stockage, notamment comment :
 

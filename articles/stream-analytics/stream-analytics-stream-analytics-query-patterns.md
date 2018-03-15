@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 ## <a name="introduction"></a>Introduction
@@ -504,6 +504,81 @@ Par exemple, générer toutes les cinq secondes un événement qui indique le p
 
 
 **Explication** : Cette requête génère des événements toutes les cinq secondes et indique le dernier événement précédemment reçu. La [Fenêtre récurrente](https://msdn.microsoft.com/library/dn835041.aspx "Fenêtre récurrente - Azure Stream Analytics") détermine la période que la requête remonte pour rechercher le dernier événement (300 secondes, dans cet exemple).
+
+
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exemple de requête : mettre en corrélation deux types d’événement dans le même flux
+**Description** : nous avons parfois besoin de générer des alertes en fonction de plusieurs types d’événement qui se sont produits au cours d’un intervalle de temps donné.
+Par exemple, dans un scénario IoT concernant des fours domestiques, nous souhaitons déclencher une alerte lorsque la température du ventilateur est inférieure à 40 et que la puissance maximale au cours des 3 dernières minutes a été inférieure à 10.
+
+**Entrée**:
+
+| time | deviceId | sensorName | value |
+| --- | --- | --- | --- |
+| « 2018-01-01T16:01:00 » | « Oven1 » | « temp » |120 |
+| « 2018-01-01T16:01:00 » | « Oven1 » | « power » |15 |
+| « 2018-01-01T16:02:00 » | « Oven1 » | « temp » |100 |
+| « 2018-01-01T16:02:00 » | « Oven1 » | « power » |15 |
+| « 2018-01-01T16:03:00 » | « Oven1 » | « temp » |70 |
+| « 2018-01-01T16:03:00 » | « Oven1 » | « power » |15 |
+| « 2018-01-01T16:04:00 » | « Oven1 » | « temp » |50 |
+| « 2018-01-01T16:04:00 » | « Oven1 » | « power » |15 |
+| « 2018-01-01T16:05:00 » | « Oven1 » | « temp » |30 |
+| « 2018-01-01T16:05:00 » | « Oven1 » | « power » |8 |
+| « 2018-01-01T16:06:00 » | « Oven1 » | « temp » |20 |
+| « 2018-01-01T16:06:00 » | « Oven1 » | « power » |8 |
+| « 2018-01-01T16:07:00 » | « Oven1 » | « temp » |20 |
+| « 2018-01-01T16:07:00 » | « Oven1 » | « power » |8 |
+| « 2018-01-01T16:08:00 » | « Oven1 » | « temp » |20 |
+| « 2018-01-01T16:08:00 » | « Oven1 » | « power » |8 |
+
+**Sortie**:
+
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| « 2018-01-01T16:05:00 » | « Oven1 » |30 | « Short circuit heating elements » |15 |
+| « 2018-01-01T16:06:00 » | « Oven1 » |20 | « Short circuit heating elements » |15 |
+| « 2018-01-01T16:07:00 » | « Oven1 » |20 | « Short circuit heating elements » |15 |
+
+**Solution**:
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+    t2.maxPower AS maxPowerDuringLast3mins
+    
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+    
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**Explication** : la première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
+
 
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

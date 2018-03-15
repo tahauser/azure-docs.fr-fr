@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c59300cd5dc8dcb67ba3b2e035bb7a3b9dce216
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Streaming en direct avec des encodeurs locaux avec .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Ce didacticiel vous guide tout au long des étapes d’utilisation du Kit de développement logiciel (SDK) .NET Azure Media Services afin de créer un **canal** configuré pour une livraison directe. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure.
@@ -47,7 +47,7 @@ Il est recommandé de consulter les articles suivants :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 L’exemple de code suivant montre comment réaliser les tâches suivantes :
 
 * Connexion à Media Services
@@ -69,7 +69,7 @@ L’exemple de code suivant montre comment réaliser les tâches suivantes :
 
 Pour plus d’informations sur la configuration d’un encodeur dynamique, voir [Prise en charge RTMP et encodeurs en direct dans Azure Media Services](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -389,7 +389,7 @@ namespace AMSLiveTest
 }
 ```
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>étape suivante
 Consulter les parcours d’apprentissage de Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

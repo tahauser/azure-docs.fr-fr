@@ -91,7 +91,7 @@ Voici un exemple de chaîne JSON du journal des opérations :
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Service Bus, voir les liens suivants :
 

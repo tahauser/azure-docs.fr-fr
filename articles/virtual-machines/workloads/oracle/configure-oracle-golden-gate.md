@@ -803,7 +803,7 @@ La commande suivante permet de supprimer le groupe de ressources, la machine vir
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Didacticiel de création de machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 

@@ -3,22 +3,16 @@ title: "Utilisation du service Azure Import/Export pour transférer des données
 description: "Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure pour transférer des données vers et à partir de Stockage Azure."
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
@@ -31,25 +25,34 @@ Cet article fournit des instructions pas à pas sur l’utilisation du service A
 Suivez les étapes ci-dessous si les données sur le disque doivent être importées dans Stockage Azure.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Étape 1 : Préparer les lecteurs à l’aide de l’outil WAImportExport et générer les fichiers journaux.
 
-1.  Identifiez les données à importer dans Stockage Azure. Il peut s’agir de répertoires et de fichiers autonomes sur un serveur local ou sur un partage réseau.
+1.  Identifiez les données à importer dans Stockage Azure. Vous pouvez importer des répertoires et des fichiers autonomes sur un serveur local ou sur un partage réseau.
 2.  En fonction de la taille totale des données, procurez-vous le nombre requis de SSD de 2,5 pouces ou HDD SATA II ou III de 2,5 ou 3,5 pouces.
 3.  Attachez les disques durs directement à l’aide de SATA ou avec des adaptateurs USB externes à un ordinateur Windows.
-4.  Créez un seul volume NTFS sur chaque disque dur et affectez-lui une lettre de lecteur. Pas de points de montage.
-5.  Pour activer le chiffrement sur l’ordinateur Windows, activez le chiffrement BitLocker sur le volume NTFS. Suivez les instructions à l’adresse https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Copiez entièrement les données vers ces volumes NTFS uniques chiffrés sur les disques à l’aide des fonctions Copier/Coller ou Glisser-déplacer, de Robocopy ou de n’importe quel outil de ce type.
+1.  Créez un seul volume NTFS sur chaque disque dur et affectez-lui une lettre de lecteur. Pas de points de montage.
+2.  Pour activer le chiffrement sur l’ordinateur Windows, activez le chiffrement BitLocker sur le volume NTFS. Suivez les instructions à l’adresse https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Copiez entièrement les données vers ces volumes NTFS uniques chiffrés sur les disques à l’aide des fonctions Copier/Coller ou Glisser-déplacer, de Robocopy ou de n’importe quel outil de ce type.
 7.  Téléchargez WAImportExport V1 à partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Effectuez la décompression dans le dossier par défaut waimportexportv1. Par exemple, C:\WaImportExportV1  
 9.  Sélectionnez l’option Exécuter en tant qu’administrateur et ouvrez PowerShell ou une ligne de commande, puis remplacez le répertoire par le dossier décompressé. Par exemple, cd C:\WaImportExportV1
-10. Copiez la ligne de commande suivante dans un Bloc-notes et modifiez-la pour créer une ligne de commande.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. Copiez la ligne de commande suivante dans un éditeur de texte et modifiez-la pour en créer une autre :
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: nom d’un fichier appelé fichier journal avec l’extension jrn. Comme un fichier journal est généré par lecteur, il est recommandé d’utiliser le numéro de série du disque en tant que nom du fichier journal.
-    /sk: clé de compte de stockage Azure. /t: lettre de lecteur du disque à expédier. Par exemple, D /bk: est la clé BitLocker du lecteur /srcdir: lettre de lecteur du disque à expédier suivie de :\. Par exemple, D:\
-    /dstdir: nom du conteneur de stockage Azure dans lequel les données doivent être importées.
-    /skipwrite 
-    
-11. Répétez l’étape 10 pour chaque disque qui doit être expédié.
-12. Un fichier journal avec le nom fourni avec le paramètre /j: est créé pour chaque exécution de la ligne de commande.
+    Les options de ligne de commande sont décrites dans le tableau suivant :
+
+    |Option  |Description  |
+    |---------|---------|
+    |/j:     |Nom du fichier journal, avec l’extension .jrn. Un fichier journal est généré par lecteur. Il est recommandé d’utiliser le numéro de série du disque comme nom de fichier journal.         |
+    |/sk:     |Clé de compte de stockage Azure.         |
+    |/t:     |Lettre de lecteur du disque à expédier. Exemple : lecteur `D`.         |
+    |/bk:     |Clé BitLocker du lecteur.         |
+    |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
+    |/dstdir:     |Nom du conteneur de destination dans Stockage Azure.         |
+
+1. Répétez l’étape 10 pour chaque disque qui doit être expédié.
+2. Un fichier journal avec le nom fourni avec le paramètre /j: est créé pour chaque exécution de la ligne de commande.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Étape 2 : Créer une tâche d’importation dans le portail Azure.
 
@@ -83,11 +86,16 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 * Sauvegarde : sauvegardez vos données locales dans Stockage Azure.
 * Récupération des données : récupérez les grandes quantités de données stockées pour les transférer vers votre site local.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 Cette section décrit les prérequis de ce service. Lisez-les soigneusement avant d’expédier vos lecteurs.
 
 ### <a name="storage-account"></a>Compte de stockage
 Vous devez disposer d’un abonnement Azure et d’un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Azure Import/Export prend uniquement en charge les comptes classiques, de stockage Blob et les comptes de stockage v1 à usage général. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> Le service Azure Import/Export ne prend pas en charge les comptes de stockage où la fonctionnalité [Points de terminaison de service sur réseaux virtuels](../../virtual-network/virtual-network-service-endpoints-overview.md) a été activée. 
+> 
+> 
 
 ### <a name="data-types"></a>Types de données
 Vous pouvez utiliser le service Azure Import/Export pour copier des données dans des objets blob de **blocs**, des objets blob de **pages** ou des **fichiers**. En revanche, vous ne pouvez qu’exporter les objets blob de **bloc**, de **page** ou **d’ajout** depuis le stockage Azure. Le service prend en charge uniquement l’importation d’Azure Files vers Stockage Azure. L’exportation d’Azure Files n’est pas prise en charge actuellement.
@@ -251,7 +259,7 @@ Vous pouvez suivre l’état de vos tâches d’importation ou d’exportation d
 
 Selon la phase de traitement de votre lecteur, vous obtiendrez l’un des statuts suivants :
 
-| Statut de tâche | DESCRIPTION |
+| Statut de tâche | Description |
 |:--- |:--- |
 | Creating | Après qu’une tâche a été créée, son état est défini sur Création. Pendant que la tâche se trouve dans l’état Création, le service Import/Export suppose que les disques n’ont pas été expédiés au centre de données. Une tâche peut rester dans l’état Création pendant deux semaines maximum. Passé ce délai, elle est automatiquement supprimée par le service. |
 | Expédition | Après avoir expédié votre colis, vous devez mettre à jour les informations de suivi dans le portail Azure.  La tâche passera alors à l’état Expédition. La tâche restera dans l’état Expédition pendant deux semaines maximum. 
@@ -264,7 +272,7 @@ Selon la phase de traitement de votre lecteur, vous obtiendrez l’un des statut
 Le tableau ci-dessous décrit le cycle de vie d’un disque individuel tout au long d’une tâche d’importation ou d’exportation. L’état actuel de chaque disque d’une tâche est désormais visible dans le portail Azure.
 Le tableau suivant décrit chacun des états par lesquels le disque d’une tâche peut passer.
 
-| État du disque | DESCRIPTION |
+| État du disque | Description |
 |:--- |:--- |
 | Spécifié | Pour une tâche d’importation, lorsque la tâche est créée à partir du portail Azure, l’état initial d’un disque est l’état Spécifié. Pour une tâche d’exportation, comme aucun disque n’est spécifié lors de la création de la tâche, l’état initial du disque est l’état Reçu. |
 | Reçu | Le disque passe à l’état Reçu une fois que l’opérateur du service Import/Export a traité les disques reçus de l’entreprise de transport pour une tâche d’importation. Pour une tâche d’exportation, l’état initial du disque est l’état Reçu. |
@@ -415,7 +423,7 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
    
    Le tableau suivant présente des exemples de chemins d’accès d’objet blob valides :
    
-   | Sélecteur | Chemin d'accès d'objet blob | DESCRIPTION |
+   | Sélecteur | Chemin d'accès d'objet blob | Description |
    | --- | --- | --- |
    | Starts With |/ |Exporte tous les objets blob présents dans le compte de stockage. |
    | Starts With |/$root/ |Exporte tous les objets blob présents dans le conteneur racine. |
@@ -561,7 +569,7 @@ Si vous utilisez [WAImportExport Tool](http://download.microsoft.com/download/3/
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Configuration de l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)

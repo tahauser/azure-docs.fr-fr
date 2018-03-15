@@ -204,7 +204,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     ![Vérifier la sortie SQL](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Le pipeline dans cet exemple copie des données d’un stockage d’objets blob vers une base de données SQL. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]

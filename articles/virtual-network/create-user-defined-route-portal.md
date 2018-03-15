@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Créer un routage défini par l’utilisateur - Portail Azure
 
@@ -53,7 +53,7 @@ Cet article explique comment créer un routage (ou itinéraire) défini par l'ut
 
         |Paramètre|Valeur|
         |-----|-----|
-        |Nom|DMZ|
+        |NOM|DMZ|
         |Plage d’adresses (bloc CIDR)|10.0.2.0/24|
 
 6. Créez une machine virtuelle d’appliance virtuelle réseau :
@@ -63,7 +63,7 @@ Cet article explique comment créer un routage (ou itinéraire) défini par l'ut
 
         |Paramètre|Valeur|
         |---|---|
-        |Nom|myVm-Nva|
+        |NOM|myVm-Nva|
         |Nom d'utilisateur|azureuser|
         |Mot de passe et Confirmer le mot de passe|Mot de passe de votre choix.|
         |Abonnement|Sélectionnez votre abonnement|
@@ -102,7 +102,7 @@ Cet article explique comment créer un routage (ou itinéraire) défini par l'ut
 
         |Paramètre|Valeur|
         |---|---|
-        |Nom|myRouteTable-Publique|
+        |NOM|myRouteTable-Publique|
         |Abonnement|Sélectionnez votre abonnement|
         |Groupe de ressources|Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**|
         |Lieu|Est des États-Unis|
@@ -327,7 +327,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 2. Dans le panneau **myResourceGroup**, cliquez sur l’icône **Supprimer**.
 3. Pour confirmer la suppression, dans le champ **TAPEZ LE NOM DU GROUPE DE RESSOURCES :**, entrez **myResourceGroup**, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Créez une [appliance virtuelle réseau hautement disponible](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Souvent, plusieurs interfaces réseau et adresses IP sont attribuées aux appliances virtuelles réseau. Découvrez comment [ajouter des interfaces réseau à une machine virtuelle existante](virtual-network-network-interface-vm.md#vm-add-nic) et [ajouter des adresses IP à une interface réseau existante](virtual-network-network-interface-addresses.md#add-ip-addresses). Même si au moins deux interfaces réseau peuvent être attribuées à des machines virtuelles, quelle que soit leur taille, chaque taille de machine virtuelle prend en charge un nombre maximal d’interfaces réseau. Pour connaître le nombre d’interfaces réseau pris en charge par chaque la taille de machine virtuelle, consultez les tailles de machine virtuelle [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 

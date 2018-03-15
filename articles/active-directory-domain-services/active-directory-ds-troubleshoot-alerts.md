@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -34,6 +34,13 @@ Choisissez les étapes de résolution qui correspondent au message ou ID d’err
 | AADDS102 | *Un principal de service requis pour que les services de domaine Azure AD fonctionnent correctement a été supprimé de votre annuaire Azure AD. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.* | [Principal de service manquant](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *La plage d’adresses IP pour le réseau virtuel dans lequel vous avez activé les services de domaine Azure AD est dans une plage d’adresses IP publiques. Les services de domaine Azure AD doivent être activés dans un réseau virtuel avec une plage d’adresses IP privées. Cette configuration affecte la capacité de Microsoft à surveiller, gérer, mettre à jour et synchroniser votre domaine géré.* | [L’adresse est dans une plage d’adresses IP publiques](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft ne peut pas atteindre les contrôleurs de domaine pour ce domaine géré. Cela peut se produire si un groupe de sécurité réseau (NSG) configuré sur votre réseau virtuel bloque l’accès à un domaine géré. Une autre raison possible est s’il existe un itinéraire défini par l’utilisateur qui bloque le trafic entrant à partir d’Internet.* | [Erreur réseau](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *La dernière synchronisation du domaine managé avec Azure AD a eu lieu de {0}. Les utilisateurs sont peut-être dans l’impossibilité de se connecter au domaine managé, ou les appartenances aux groupes ne sont peut-être pas synchronisées avec Azure AD.* | [Il n’y a pas eu de synchronisation depuis un certain temps.](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *La dernière sauvegarde du domaine managé a eu lieu le XX.* | [Il n’y a pas eu de sauvegarde depuis un certain temps.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *Le certificat LDAP sécurisé pour le domaine managé va expirer le XX.* | [Expiration du certificat LDAP sécurisé](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *Le domaine managé est suspendu, car l’abonnement Azure associé au domaine n’est pas actif.* | [Suspension en raison de l’abonnement désactivé](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *Le domaine managé est suspendu en raison d’une configuration non valide. Le service n’a pas pu gérer, corriger ou mettre à jour les contrôleurs du domaine managé depuis un certain temps.* | [Suspension en raison d’une configuration non valide](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100 : Répertoire manquant
 **Message d'alerte :**
@@ -75,7 +82,7 @@ Pour restaurer votre service, procédez comme suit :
 
 Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-À l’intérieur du réseau virtuel, les machines peuvent effectuer des requêtes sur les ressources Azure qui se trouvent dans la même plage d’adresses IP que celles configurées pour le sous-réseau. Toutefois, étant donné que le réseau virtuel est configuré pour cette plage, ces requêtes sont routées au sein du réseau virtuel et n’atteignent pas les ressources web prévues. Il peut en résulter des erreurs imprévisibles avec Azure AD Domain Services.
+À l’intérieur du réseau virtuel, les machines peuvent effectuer des requêtes sur les ressources Azure qui se trouvent dans la même plage d’adresses IP que celles configurées pour le sous-réseau. Toutefois, étant donné que le réseau virtuel est configuré pour cette plage, ces requêtes sont routées au sein du réseau virtuel et n’atteignent pas les ressources web prévues. Cette configuration risque d’entraîner des erreurs imprévisibles avec Azure AD Domain Services.
 
 **Si vous avez la plage d’adresses IP dans l’Internet configuré dans votre réseau virtuel, vous pouvez ignorer cette alerte. Il est toutefois impossible pour Azure AD Domain Services de respecter les termes du contrat [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) avec cette configuration, car elle peut entraîner des erreurs imprévisibles.**
 
@@ -93,6 +100,47 @@ Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet artic
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Pour vérifier que l’alerte est résolue, vérifiez l’intégrité de votre domaine dans deux heures.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500 : La synchronisation ne parvient pas à se terminer depuis un certain temps.
+
+**Message d'alerte :**
+
+*La dernière synchronisation du domaine managé avec Azure AD a eu lieu de {0}. Les utilisateurs sont peut-être dans l’impossibilité de se connecter au domaine managé, ou les appartenances aux groupes ne sont peut-être pas synchronisées avec Azure AD.*
+
+**Correction :**
+
+[Vérifiez l’intégrité de votre domaine](active-directory-ds-check-health.md) : recherchez les alertes susceptibles d’indiquer des problèmes dans la configuration de votre domaine managé. Dans certains cas, les problèmes de configuration peuvent empêcher Microsoft de synchroniser votre domaine managé. Si vous êtes en mesure de résoudre les alertes, patienter deux heures et vérifiez si la synchronisation est terminée.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501 : Il n’y a pas eu de sauvegarde depuis un certain temps.
+
+**Message d'alerte :**
+
+*La dernière sauvegarde du domaine managé a eu lieu le XX.*
+
+**Correction :**
+
+[Vérifiez l’intégrité de votre domaine](active-directory-ds-check-health.md) : recherchez les alertes susceptibles d’indiquer des problèmes dans la configuration de votre domaine managé. Dans certains cas, les problèmes de configuration peuvent empêcher Microsoft de synchroniser votre domaine managé. Si vous êtes en mesure de résoudre les alertes, patienter deux heures et vérifiez si la synchronisation est terminée.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503 : Suspension en raison de l’abonnement désactivé
+
+**Message d'alerte :**
+
+*Le domaine managé est suspendu, car l’abonnement Azure associé au domaine n’est pas actif.*
+
+**Correction :**
+
+Pour restaurer votre service, [renouvelez l’abonnement Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associé à votre domaine managé.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504 : Suspension en raison d’une configuration non valide
+
+**Message d'alerte :**
+
+*Le domaine managé est suspendu en raison d’une configuration non valide. Le service n’a pas pu gérer, corriger ou mettre à jour les contrôleurs du domaine managé depuis un certain temps.*
+
+**Correction :**
+
+[Vérifiez l’intégrité de votre domaine](active-directory-ds-check-health.md) : recherchez les alertes susceptibles d’indiquer des problèmes dans la configuration de votre domaine managé. Si vous pouvez résoudre une de ces alertes, faites-le. Ensuite, contactez le support pour réactiver votre abonnement.
 
 ## <a name="contact-us"></a>Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](active-directory-ds-contact-us.md).

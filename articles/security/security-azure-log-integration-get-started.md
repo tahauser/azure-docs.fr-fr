@@ -208,7 +208,7 @@ Si vous rencontrez des problèmes pendant l’installation et la configuration, 
 
 Une autre option de support est le [Forum MSDN relatif à l’intégration des journaux Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). Ce forum permet aux membres de la communauté de s’entraider, grâce à des questions, des réponses, des conseils et des astuces, afin de profiter au mieux de l’intégration des journaux Azure. De plus, l’équipe Azure Log Integration supervise ce forum et apporte son aide quand cela est possible.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’intégration des journaux Azure, consultez les documents suivants :
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : Centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation sur l’intégration des journaux Azure.

@@ -83,7 +83,7 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 | Compte Automation |Le Runbook parent peut utiliser uniquement un Runbook enfant du même compte Automation. |Le Runbook parent peut utiliser un Runbook enfant de n’importe quel compte Automation du même abonnement Azure ou d’un autre abonnement si vous disposez de la connexion correspondante. |
 | Publication |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le Runbook enfant doit être publié avant le démarrage du Runbook parent. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 * [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 

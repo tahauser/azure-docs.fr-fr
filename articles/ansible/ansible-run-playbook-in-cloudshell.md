@@ -174,7 +174,7 @@ La commande [ansible-playbook](https://docs.ansible.com/ansible/2.4/ansible-play
   localhost : ok=2 changed=1 unreachable=0 failed=0
   ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
 > [Créer une machine virtuelle Linux de base dans Azure avec Ansible](/azure/virtual-machines/linux/ansible-create-vm)

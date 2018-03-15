@@ -88,7 +88,7 @@ Ce tableau permet de déterminer les meilleurs indicateurs de performances pour 
 |TotalConnectionFailures|Nombre total d’échecs de connexion|Count|Moyenne|Total des échecs de tentatives de connexion.|
 |TotalConnectionRequests|Nombre total de demandes de connexion|Count|Moyenne|Nombre total de demandes de connexion. |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Surveillance dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Indicateurs de performances dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Indicateurs de performances dans l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx)
