@@ -1,4 +1,4 @@
----
+﻿---
 title: "Vue d’ensemble du stockage de table Azure | Microsoft Docs"
 description: "Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL."
 services: cosmos-db
