@@ -1,4 +1,4 @@
----
+﻿---
 title: "Didacticiel Kubernetes sur Azure - Préparer un enregistrement de contrôle d’accès"
 description: "Didacticiel ACS - Préparer Azure Container Registry"
 services: container-service
