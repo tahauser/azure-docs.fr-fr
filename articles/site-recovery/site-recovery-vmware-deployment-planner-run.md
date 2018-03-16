@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Exécuter Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modes d’exécution du planificateur de déploiement
-Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants : 
+Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants :
 
 1.  [Profilage](#profile-vmware-vms)
 2.  [Génération de rapport](#generate-report)
@@ -49,8 +49,8 @@ Tout d’abord, vous avez besoin d’une liste des machines virtuelles à profil
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. Vous pourriez avoir besoin d’exécuter la commande suivante, dans le cas où Connect-VIServer ne serait pas reconnu comme nom de cmdlet.
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Pour obtenir tous les noms des machines virtuelles sur un serveur vCenter/hôte vSphere ESXi et enregistrer la liste dans un fichier .txt, exécutez les deux commandes répertoriées ici.
 Remplacez &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo; et &lsaquo;outputfile.txt&rsaquo; par vos entrées.
@@ -101,7 +101,7 @@ Par défaut, l’outil est configuré pour profiler et générer un rapport comp
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Avec les paramètres par défaut, pour profiler 1500 machines virtuelles, créez deux fichiers VMList.txt. Un fichier avec 1 000 machines virtuelles et un autre avec une liste de 500 machines virtuelles. Exécutez les deux instances du planificateur de déploiement ASR, une avec le fichier VMList1.txt et l’autre avec le fichier VMList2.txt. Vous pouvez utiliser le même chemin d’accès de répertoire pour stocker les données profilées des machines virtuelles correspondant aux deux fichiers VMList. 
+Avec les paramètres par défaut, pour profiler 1500 machines virtuelles, créez deux fichiers VMList.txt. Un fichier avec 1 000 machines virtuelles et un autre avec une liste de 500 machines virtuelles. Exécutez les deux instances du planificateur de déploiement ASR, une avec le fichier VMList1.txt et l’autre avec le fichier VMList2.txt. Vous pouvez utiliser le même chemin d’accès de répertoire pour stocker les données profilées des machines virtuelles correspondant aux deux fichiers VMList.
 
 Nous avons vu que, selon la configuration matérielle et particulière en fonction de la mémoire RAM du serveur à partir duquel l’outil pour générer le rapport est exécuté, l’opération peut échouer à cause d’une quantité de mémoire insuffisante. Si vous avez un bon matériel, vous pouvez modifier la clé MaxVMsSupported avec n’importe quelle valeur supérieure.  
 
@@ -272,7 +272,7 @@ L’outil crée plusieurs fichiers asrvhdfile<#>.vhd de 64 Mo (où # représent
 
 Le débit est mesuré à un moment donné et il s’agit du débit maximal que Site Recovery peut atteindre lors d’une réplication, sous réserve que tous les autres facteurs restent identiques. Par exemple, si une application commence à consommer davantage de bande passante sur le même réseau, le débit réel varie pendant la réplication. Si vous exécutez la commande GetThroughput à partir d’un serveur de configuration, l’outil ne reconnaît pas les machines virtuelles protégées ni la réplication en cours. Le résultat du débit mesuré est différent si l’opération GetThroughput est exécutée lorsque les machines virtuelles protégées présentent des taux d’activité élevés. Nous vous recommandons d’exécuter l’outil à différents moments dans le temps pendant le profilage pour comprendre les niveaux de débit pouvant être atteints à des moments différents. Dans le rapport, l’outil affiche le dernier débit mesuré.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Analysez le rapport généré](site-recovery-vmware-deployment-planner-analyze-report.md).
-

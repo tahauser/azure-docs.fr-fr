@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6a5912117a475c7af028f01ea47a7042677992ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Déployer le Kit de développement Azure Stack
 
-*S’applique à : Kit de développement Azure Stack*
+*S’applique au Kit de développement Azure Stack*
 
-Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous devez effectuer les étapes suivantes :
+Pour déployer le [Kit de développement Azure Stack](azure-stack-poc.md), vous devez effectuer les étapes suivantes :
 
 1. [Téléchargez le package de déploiement](https://azure.microsoft.com/overview/azure-stack/try/?v=try) pour obtenir le fichier Cloudbuilder.vhdx.
 2. Préparez le fichier cloudbuilder.vhdx pour configurer l’ordinateur (l’hôte du kit de développement) sur lequel vous voulez installer le kit de développement. Après cette étape, l’hôte du Kit de développement démarre à partir du fichier Cloudbuilder.vhdx.
@@ -40,8 +40,8 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
   - L’ordinateur doit avoir au moins 60 Go d’espace disque disponible sur quatre disques durs logiques identiques et distincts en plus du disque de système d’exploitation.
   - [.NET Framework 4.6 (ou ultérieur)](https://aka.ms/r6mkiy) doit être installé.
 
-2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try) sur laquelle vous pouvez télécharger le kit de développement Azure Stack, renseignez vos informations, puis cliquez sur **Envoyer**.
-3. Téléchargez et exécutez le script de vérification des conditions requises du [kit de développement de vérification du déploiement pour Azure Stack](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour le kit de développement Azure Stack. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux du kit de développement Azure Stack.
+2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try) sur laquelle vous pouvez télécharger le Kit de développement Azure Stack, renseignez vos informations, puis cliquez sur **Envoyer**.
+3. Téléchargez et exécutez le script de vérification des conditions requises du [vérificateur de déploiement pour le Kit de développement Azure Stack](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour le Kit de développement Azure Stack. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux du Kit de développement Azure Stack.
 4. Sous **Télécharger le logiciel**, cliquez sur **Kit de développement Azure Stack**.
 
   > [!NOTE]
@@ -50,7 +50,7 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
 5. Une fois le téléchargement terminé, cliquez sur **Exécuter** pour lancer l’auto-extracteur ASDK (AzureStackDevelopmentKit.exe).
 6. Lisez et acceptez le contrat de licence de la page **Contrat de licence** de l’Assistant de l’auto-extracteur, plus cliquez sur **Suivant**.
 7. Passez en revue la déclaration de confidentialité de la page **Avis important** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**.
-8. Sélectionnez l’emplacement où les fichiers de configuration Azure Stack doivent être extraits sur la page **Sélectionner l’emplacement de destination** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**. L’emplacement par défaut est*dossier actuel*\Azure Stack Development Kit. 
+8. Sélectionnez l’emplacement où les fichiers de configuration Azure Stack doivent être extraits sur la page **Sélectionner l’emplacement de destination** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**. L’emplacement par défaut est *dossier actuel*\Kit de développement Azure Stack. 
 9. Passez en revue le résumé de l’emplacement de la page **Ready to Extract** (Prêt pour l’extraction) de l’Assistant de l’auto-extracteur, puis cliquez sur **Extraire** pour extraire les fichiers CloudBuilder.vhdx (environ 25 Go) et ThirdPartyLicenses.rtf. Ce processus prend un certain temps.
 10. Copiez ou déplacez le fichier CloudBuilder.vhdx à la racine du lecteur C:\ (C:\CloudBuilder.vhdx) sur l’ordinateur hôte ASDK.
 
@@ -61,7 +61,7 @@ Pour déployer le [kit de développement Azure Stack](azure-stack-poc.md), vous 
 L’ASDK peut être déployé à l’aide d’une interface graphique utilisateur (GUI) fournie en téléchargeant et exécutant le script PowerShell asdk-installer.ps1.
 
 > [!NOTE]
-> L’interface utilisateur du programme d’installation du kit de développement Azure Stack est un script open source basé sur WCF et PowerShell.
+> L’interface utilisateur du programme d’installation du Kit de développement Azure Stack est un script open source basé sur WCF et PowerShell.
 
 ### <a name="prepare-the-development-kit-host-using-a-guided-user-experience"></a>Préparer l’hôte du kit de développement à l’aide d’une expérience d’interface graphique utilisateur
 Avant de pouvoir installer l’ASDK sur l’ordinateur hôte, l’environnement ASDK doit être préparé.
@@ -70,6 +70,7 @@ Avant de pouvoir installer l’ASDK sur l’ordinateur hôte, l’environnement 
 3. Exécutez le script suivant pour télécharger le fichier du programme d’installation du kit de développement (asdk-installer.ps1) du [répertoire des outils GitHub Azure Stack](https://github.com/Azure/AzureStack-Tools) au dossier **C:\AzureStack_Installer** de votre ordinateur hôte du kit de développement :
 
   ```powershell
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
   $LocalPath = 'C:\AzureStack_Installer'
@@ -218,9 +219,9 @@ Si votre environnement **n’a pas** de DHCP activé, vous devez inclure les par
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Paramètres facultatifs InstallAzureStackPOC.ps1 ASDK
 |Paramètre|Obligatoire ou facultatif|Description|
 |-----|-----|-----|
-|AdminPassword|Requis|Définit le compte d’administrateur local et tous les autres comptes d’utilisateur sur toutes les machines virtuelles créées dans le cadre du déploiement du kit de développement. Ce mot de passe doit correspondre au mot de passe d’administrateur local actuel sur l’hôte.|
-|InfraAzureDirectoryTenantName|Requis|Définit le répertoire du locataire. Utilisez ce paramètre pour indiquer un répertoire spécifique où le compte AAD dispose des autorisations pour gérer plusieurs répertoires. Nom complet d’un locataire d’annuaire AAD au format .onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD.|
-|TimeServer|Requis|Utilisez ce paramètre pour spécifier un serveur de temps spécifique. Ce paramètre doit être fourni sous la forme d’une adresse IP de serveur temps valide. Les noms de serveur ne sont pas pris en charge.|
+|AdminPassword|Obligatoire|Définit le compte d’administrateur local et tous les autres comptes d’utilisateur sur toutes les machines virtuelles créées dans le cadre du déploiement du kit de développement. Ce mot de passe doit correspondre au mot de passe d’administrateur local actuel sur l’hôte.|
+|InfraAzureDirectoryTenantName|Obligatoire|Définit le répertoire du locataire. Utilisez ce paramètre pour indiquer un répertoire spécifique où le compte AAD dispose des autorisations pour gérer plusieurs répertoires. Nom complet d’un locataire d’annuaire AAD au format .onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD.|
+|TimeServer|Obligatoire|Utilisez ce paramètre pour spécifier un serveur de temps spécifique. Ce paramètre doit être fourni sous la forme d’une adresse IP de serveur temps valide. Les noms de serveur ne sont pas pris en charge.|
 |InfraAzureDirectoryTenantAdminCredential|Facultatif|Définit le nom d’utilisateur et le mot de passe Azure Active Directory. Ces informations d’identification Azure doivent être un ID org.|
 |InfraAzureEnvironment|Facultatif|Sélectionnez l’environnement Azure avec lequel vous souhaitez enregistrer ce déploiement Azure Stack. Les options incluent Azure public, Azure - Chine, Azure - Gouvernement des États-Unis.|
 |DNSForwarder|Facultatif|Un serveur DNS est créé dans le cadre du déploiement Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.|

@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager avec Azure Site Recovery
 
@@ -49,11 +44,11 @@ En cas d’incident, la société A peut déclencher un [basculement](site-recov
 
 En fonction de ses besoins, la **société A** peut choisir une [fréquence de détection](../traffic-manager/traffic-manager-monitoring.md) plus ou moins élevée pour basculer d’un environnement local vers Azure en cas d’incident, et garantir un temps d’arrêt minimal pour les utilisateurs.
 
-Lorsque l’incident est maîtrisé, la **société A** peut effectuer une restauration automatique d’Azure vers son environnement local ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) ou [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) à l’aide d’Azure Site Recovery. Quand Traffic Manager détecte que le point de terminaison **Principal** est à nouveau sain, il utilise automatiquement le point de terminaison **Principal** dans les réponses DNS.
+Lorsque l’incident est maîtrisé, la **société A** peut effectuer une restauration automatique d’Azure vers son environnement local ([VMware](vmware-azure-failback.md) ou [Hyper-V](hyper-v-azure-failback.md)) à l’aide d’Azure Site Recovery. Quand Traffic Manager détecte que le point de terminaison **Principal** est à nouveau sain, il utilise automatiquement le point de terminaison **Principal** dans les réponses DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>Migration d’un environnement local vers Azure
 
-En plus de la reprise après sinistre, Azure Site Recovery permet également d’effectuer des [migrations vers Azure](site-recovery-migrate-to-azure.md). Grâce aux puissantes fonctionnalités de test de basculement d’Azure Site Recovery, les clients peuvent évaluer les performances des applications sur Azure, sans affecter leur environnement local. Lorsque les clients sont prêts à effectuer la migration, ils peuvent choisir de migrer plusieurs charges de travail entières, ou d’effectuer une migration et une mise à l’échelle progressivement.
+En plus de la reprise après sinistre, Azure Site Recovery permet également d’effectuer des [migrations vers Azure](migrate-overview.md). Grâce aux puissantes fonctionnalités de test de basculement d’Azure Site Recovery, les clients peuvent évaluer les performances des applications sur Azure, sans affecter leur environnement local. Lorsque les clients sont prêts à effectuer la migration, ils peuvent choisir de migrer plusieurs charges de travail entières, ou d’effectuer une migration et une mise à l’échelle progressivement.
 
 La méthode de routage [Pondérée](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) d’Azure Traffic Manager peut être utilisée pour diriger une partie du trafic entrant et diriger la plus grande partie du trafic vers l’environnement local. Cette approche peut aider à évaluer les performances de mise à l’échelle, car elle vous permet d’accroître la pondération affectée à Azure à mesure que vous migrez vos charges de travail vers Azure.
 

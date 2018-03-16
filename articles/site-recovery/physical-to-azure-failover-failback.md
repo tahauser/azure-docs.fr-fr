@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
 
@@ -30,7 +30,7 @@ Le basculement et la restauration automatique comportent quatre étapes :
 
 ## <a name="verify-server-properties"></a>Vérifier les propriétés du serveur
 
-Vérifiez les propriétés du serveur et que le serveur est conforme aux [conditions requises Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) pour les machines virtuelles.
+Vérifiez les propriétés du serveur et que le serveur est conforme aux [conditions requises Azure](vmware-physical-azure-support-matrix.md#replicated-machines) pour les machines virtuelles.
 
 1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** et sélectionnez la machine.
 
@@ -62,7 +62,7 @@ Le serveur de processus reçoit des données de la machine virtuelle Azure et le
 
 - À des fins de test, si vous avez une connexion Azure ExpressRoute, vous pouvez utiliser le serveur de processus local qui est installé automatiquement sur le serveur de configuration.
 - Si vous avez une connexion VPN ou si vous effectuez la restauration automatique dans un environnement de production, vous devez configurer une machine virtuelle Azure comme serveur de processus basé sur Azure pour la restauration automatique.
-- Pour configurer un serveur de processus dans Azure, suivez les instructions de [cet article](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Pour configurer un serveur de processus dans Azure, suivez les instructions de [cet article](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Configurer le serveur cible maître
 

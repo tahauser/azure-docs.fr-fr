@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -56,6 +56,7 @@ Quand vous décidez du contenu à inclure dans votre Place de marché Azure Stac
 Lorsque vous déployez Azure Stack en mode déconnecté (sans connexion Internet), vous ne peut pas utiliser le portail Azure Stack pour télécharger des éléments de la Place de marché. Vous pouvez cependant pouvez utiliser l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché sur un ordinateur qui dispose d’une connexion Internet, puis les transférer vers votre environnement Azure Stack.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Avant de pouvoir utiliser l’outil de syndication de la Place de marché, vérifiez que vous avez bien [inscrit Azure Stack auprès de votre abonnement Azure](azure-stack-register.md).  
 
 À partir de l’ordinateur connecté à Internet, procédez de la manière suivante pour télécharger les éléments de la Place de marché dont vous avez besoin :
@@ -75,6 +76,7 @@ Avant de pouvoir utiliser l’outil de syndication de la Place de marché, véri
 
    ```PowerShell
    # Download the tools archive.
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
      -OutFile master.zip
 

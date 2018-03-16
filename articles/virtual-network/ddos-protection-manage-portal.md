@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -33,7 +33,7 @@ Découvrez comment activer et désactiver la protection contre les attaques par 
 1. Connectez-vous au Portail Azure à l’adresse http://portal.azure.com. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 2. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 3. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
-4. Créer un réseau virtuel avec les paramètres choisis. Pour en savoir plus sur la création de réseaux virtuels, consultez la rubrique [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md). Sous **Protection DDoS**, cliquez sur **Activé**, puis cliquez sur **Créer**. Si vous ne voyez pas **Protection DDoS**, la cause probable en est que votre abonnement n’est pas inscrit pour la fonctionnalité. Vous devez effectuer [l’inscription](http://aka.ms/ddosprotection) et recevoir une notification que votre abonnement a été activé pour la fonctionnalité avant que **Protection DDoS** apparaisse.
+4. Créer un réseau virtuel avec les paramètres choisis. Pour en savoir plus sur la création de réseaux virtuels, consultez la rubrique [Créer un réseau virtuel](manage-virtual-network.md#create-a-virtual-network). Sous **Protection DDoS**, cliquez sur **Activé**, puis cliquez sur **Créer**. Si vous ne voyez pas **Protection DDoS**, la cause probable en est que votre abonnement n’est pas inscrit pour la fonctionnalité. Vous devez effectuer [l’inscription](http://aka.ms/ddosprotection) et recevoir une notification que votre abonnement a été activé pour la fonctionnalité avant que **Protection DDoS** apparaisse.
 
     ![Création d’un réseau virtuel](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

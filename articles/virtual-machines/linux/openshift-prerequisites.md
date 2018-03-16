@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prérequis courants pour déployer OpenShift dans Azure
 
@@ -52,7 +52,7 @@ Ce guide décrit comment créer les artefacts associés aux prérequis.
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
-Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#az_login) et suivez les instructions à l’écran ou cliquez sur **Essayer** pour utiliser Cloud Shell.
+Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index#az_login) et suivez les instructions à l’écran ou cliquez sur **Essayer** pour utiliser Cloud Shell.
 
 ```azurecli 
 az login

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8604863b9394c5af9494c47f821601441ecee308
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/02/2018
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Bien démarrer**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Démarrer**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 

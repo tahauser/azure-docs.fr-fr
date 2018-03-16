@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -27,7 +27,7 @@ Ce document vous guide tout au long des processus de création par programmation
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/overview), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
+Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
 
 Chacun de ces outils et API offre des moyens de créer, répertorier, récupérer, modifier et supprimer des ressources.  Étant donné que les tableaux de bord sont des ressources, vous pouvez choisir l’API/outil que vous préférez utiliser.
 

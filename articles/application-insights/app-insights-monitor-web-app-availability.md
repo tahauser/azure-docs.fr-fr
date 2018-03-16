@@ -1,8 +1,23 @@
- ;---titre : Surveiller la disponibilité et la réactivité de tout site web | Description Microsoft Docs : Configurer des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
-services: application-insights documentationcenter: ’’ author: SoubhagyaDash manager: carmonm
-
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: na ms.topic: get-started-article ms.date: 02/09/2018 ms.author: sdash ; mbullwin
-
+---
+title: "Analyse de la disponibilité et de la réactivité d’un site Web | Microsoft Docs"
+description: "Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement."
+services: application-insights
+documentationcenter: 
+author: SoubhagyaDash
+manager: carmonm
+ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 02/09/2018
+ms.author: sdash ; mbullwin
+ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.

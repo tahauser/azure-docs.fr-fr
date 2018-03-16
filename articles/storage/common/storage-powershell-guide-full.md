@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -136,8 +136,6 @@ Pour modifier les paramètres pour un compte de stockage, utilisez [Set-AzureRmS
 * Le nom de référence (**SKU**) est le paramètre de réplication pour le compte de stockage, comme LRS (stockage localement redondant). Par exemple, vous pouvez passer de Standard\_LRS à Standard\_GRS ou Standard\_RAGRS. Notez que vous ne pouvez pas passer du stockage Standard\_ZRS ou Premium\_LRS à d’autres références (SKU), ou modifier d’autres références sur celles-ci.
 
 * Le **niveau d’accès** pour les comptes de stockage d’objets blob. La valeur du niveau d’accès est définie sur **chaud** ou **froid**, et vous permet de réduire les coûts en sélectionnant le niveau d’accès qui s’aligne avec l’utilisation du compte de stockage. Pour plus d’informations, consultez [Niveaux de stockage chauds et froid et d’archivage](../blobs/storage-blob-storage-tiers.md).
-
-* Le paramètre de chiffrement du service de stockage pour le stockage d’objets blob et/ou le stockage de fichiers. Pour plus d’informations sur SSE, consultez [Chiffrement du service de stockage](storage-service-encryption.md).
 
 * Autorisez uniquement le trafic HTTPS. 
 

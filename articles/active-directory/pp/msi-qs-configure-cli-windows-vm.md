@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 495ed6daf0d73d89a4bc572f6bccf294cee7decb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e8d21aad23782f22b93baf12ce58d1aed4dd5dee
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Configurer une identité MSI (Managed Service Identity) affectée à l’utilisateur pour une machine virtuelle avec Azure CLI
 
@@ -30,12 +30,13 @@ Dans cet article, vous allez apprendre à activer et à supprimer l’identité 
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 Pour exécuter les exemples de script CLI dans ce didacticiel, vous avez deux possibilités :
 
 - Utiliser [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dans le portail Azure ou via le bouton « Essayer » situé en haut à droite de chaque bloc de code.
-- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale. Connectez-vous ensuite à Azure avec la commande [az login](/cli/azure/#az_login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer l’identité MSI affectée par l’utilisateur et la machine virtuelle :
+- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale. Connectez-vous ensuite à Azure avec la commande [az login](/cli/azure/reference-index#az_login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer l’identité MSI affectée par l’utilisateur et la machine virtuelle :
 
    ```azurecli
    az login

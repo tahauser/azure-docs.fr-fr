@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Activer Azure Active Directory Domain Services à l’aide du portail Azure
 
@@ -49,7 +49,7 @@ La tâche de configuration suivante consiste à créer un réseau virtuel Azure 
   > [!WARNING]
   > Veillez à choisir un espace d’adressage qui se trouve dans l’espace d’adressage IP privé. Les adresses IP qui ne vous appartiennent pas et qui se trouvent dans l’espace d’adressage public provoquent des erreurs dans Azure AD Domain Services.
 
-5. **Réseau virtuel existant** : si vous prévoyez de sélectionner un réseau virtuel existant, [créez un sous-réseau dédié à l’aide de l’extension de réseaux virtuels](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), puis choisissez ce sous-réseau. Cliquez sur **Réseau virtuel** pour choisir le réseau virtuel existant. Cliquez sur **Sous-réseau** pour sélectionner le sous-réseau dédié dans votre réseau virtuel existant, afin d’y activer votre nouveau domaine managé. Cliquez sur **OK** quand vous avez terminé.
+5. **Réseau virtuel existant** : si vous prévoyez de sélectionner un réseau virtuel existant, [créez un sous-réseau dédié à l’aide de l’extension de réseaux virtuels](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), puis choisissez ce sous-réseau. Cliquez sur **Réseau virtuel** pour choisir le réseau virtuel existant. Cliquez sur **Sous-réseau** pour sélectionner le sous-réseau dédié dans votre réseau virtuel existant, afin d’y activer votre nouveau domaine managé. Cliquez sur **OK** quand vous avez terminé.
 
     ![Sélectionner un sous-réseau au sein du réseau virtuel](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 
@@ -63,5 +63,6 @@ La tâche de configuration suivante consiste à créer un réseau virtuel Azure 
 6. Lorsque vous avez terminé, cliquez sur **OK** pour accéder à la page **Groupe des administrateurs** de l’Assistant.
 
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
+
 [Tâche 3 : Configurer le groupe d’administration et activer Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)

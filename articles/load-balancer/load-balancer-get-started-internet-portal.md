@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Création d’un équilibrage de charge accessible sur Internet à l’aide du portail Azure
 
@@ -54,7 +54,7 @@ Pour obtenir plus d’informations sur les composants de l’équilibreur de cha
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configurer un équilibreur de charge dans le portail Azure
 
 > [!IMPORTANT]
-> Cet exemple suppose que vous disposez d’un réseau virtuel appelé **myVNet**. Pour effectuer cette opération, consultez [Créer un réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) . Il suppose également que vous disposez d’un sous-réseau dans **myVNet** appelé **LB-Subnet-BE** et de deux machines virtuelles appelées **web1** et **web2** respectivement dans le même groupe à haute disponibilité appelé **myAvailSet** dans **myVNet**. Pour créer les machines virtuelles, consultez [ce lien](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+> Cet exemple suppose que vous disposez d’un réseau virtuel appelé **myVNet**. Pour effectuer cette opération, consultez [Créer un réseau virtuel](../virtual-network/manage-virtual-network.md#create-a-virtual-network) . Il suppose également que vous disposez d’un sous-réseau dans **myVNet** appelé **LB-Subnet-BE** et de deux machines virtuelles appelées **web1** et **web2** respectivement dans le même groupe à haute disponibilité appelé **myAvailSet** dans **myVNet**. Pour créer les machines virtuelles, consultez [ce lien](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 1. Dans un navigateur, accédez au portail Azure : [http://portal.azure.com](http://portal.azure.com) et connectez-vous avec votre compte Azure.
 2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibrage de charge**.

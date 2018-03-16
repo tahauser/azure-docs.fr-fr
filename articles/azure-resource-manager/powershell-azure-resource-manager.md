@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gérer les ressources avec Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -30,7 +30,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, consultez 
 
 ## <a name="understand-scope"></a>Comprendre l’étendue
 
-[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 Dans cet article, vous appliquez tous les paramètres de gestion à un groupe de ressources afin de pouvoir facilement supprimer ces paramètres lorsque vous avez terminé.
 
@@ -45,7 +45,7 @@ Pour le moment, le groupe de ressources est vide.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### <a name="assign-a-role"></a>Attribuer un rôle
 
@@ -73,7 +73,7 @@ En règle générale, vous répétez ce processus pour **Contributeur de réseau
 
 ## <a name="azure-policies"></a>Stratégies Azure
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Appliquer les stratégies
 
@@ -131,7 +131,7 @@ Une fois votre déploiement terminé, vous pouvez appliquer davantage de paramè
 
 ## <a name="lock-resources"></a>Verrouiller des ressources
 
-[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### <a name="lock-a-resource"></a>Verrouiller une ressource
 
@@ -154,11 +154,11 @@ La machine virtuelle ne peut être supprimée que si vous supprimez le verrou. C
 
 ## <a name="tag-resources"></a>Baliser des ressources
 
-[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="tag-resources"></a>Baliser des ressources
 
-[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 Pour appliquer des balises à une machine virtuelle, utilisez ceci :
 

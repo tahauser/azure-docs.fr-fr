@@ -15,17 +15,18 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a562851330d325ca4a8be20ec82b5f421e23c4f1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Utilisation de PHP pour interroger une base de données SQL Azure
 
 Ce didacticiel de démarrage rapide montre comment utiliser [PHP](http://php.net/manual/en/intro-whatis.php) pour créer un programme qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
@@ -35,7 +36,7 @@ Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
 - Installé PHP et les logiciels connexes sur votre système d’exploitation :
 
-    - **MacOS** : installez Homebrew et PHP, installez le pilote ODBC et SQLCMD, puis installez le pilote PHP pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **MacOS** : installez Homebrew et PHP, installez le pilote ODBC et SQLCMD, puis installez le pilote PHP pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
     - **Ubuntu** : installez PHP et les autres packages requis, puis installez le pilote PHP pour SQL Server. Consultez les [étapes 1.2 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
     - **Windows**: installez la version la plus récente de PHP pour IIS Express, la version la plus récente des Pilotes Microsoft SQL Server dans IIS Express, Chocolatey, le pilote ODBC et SQLCMD. Consultez les [étapes 1.2 et 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
@@ -74,7 +75,7 @@ Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
    ?>
    ```
 
-## <a name="run-the-code"></a>Exécution du code
+## <a name="run-the-code"></a>Exécuter le code
 
 1. Exécutez ensuite les commandes suivantes dans l’invite de commandes :
 

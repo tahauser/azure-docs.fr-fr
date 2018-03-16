@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>Managed Service Identity (préversion)
 
@@ -62,17 +62,17 @@ L’identité de service administré de l’application web a désormais accès 
 
 ### <a name="run-the-app"></a>Exécution de l'application
 
-À présent, modifiez la page par défaut de l’application ASP.NET que vous avez créée. Vous pouvez également utiliser le code d’application web à partir de [ce référentiel GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+À présent, modifiez la page par défaut de l’application ASP.NET que vous avez créée. Vous pouvez également utiliser le code d’application web à partir de [ce référentiel GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 La page Default.aspx est votre page d’accueil. Le code se trouve dans le fichier Default.aspx.cs. Le résultat est une application web minimale avec quelques champs d’entrée et les boutons **send** (envoyer) et **receive** (recevoir) qui permettent de se connecter à Service Bus pour envoyer ou recevoir des messages.
 
-Notez la façon dont l’objet [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) est initialisé. Au lieu d’utiliser le fournisseur de jetons SAP, le code crée un fournisseur de jetons pour l’identité de service administré avec l’appel `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)`. Ainsi, il n’est pas nécessaire de conserver et d’utiliser des secrets. Le flux du contexte de l’identité de service administré vers Service Bus et la négociation des autorisations sont gérés automatiquement par le fournisseur de jetons, qui est un modèle plus simple que l’utilisation de SAP.
+Notez la façon dont l’objet [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) est initialisé. Au lieu d’utiliser le fournisseur de jetons SAP, le code crée un fournisseur de jetons pour l’identité de service administré avec l’appel `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)`. Ainsi, il n’est pas nécessaire de conserver et d’utiliser des secrets. Le flux du contexte de l’identité de service administré vers Service Bus et la négociation des autorisations sont gérés automatiquement par le fournisseur de jetons, qui est un modèle plus simple que l’utilisation de SAP.
 
 Une fois que vous avez apporté ces modifications, publiez et exécutez l’application. Un moyen facile d’obtenir les données de publication correctes consiste à télécharger un profil de publication, puis à l’importer dans Visual Studio :
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-Pour envoyer ou recevoir des messages, saisissez le nom de l’espace de noms et le nom de l’entité que vous avez créée, puis cliquez sur **send** (envoyer) ou **receive** (recevoir). 
+Pour envoyer ou recevoir des messages, saisissez le nom de l’espace de noms et le nom de l’entité que vous avez créée, puis cliquez sur **send** (envoyer) ou **receive** (recevoir).
  
 Notez que l’identité de service administré fonctionne uniquement à l’intérieur de l’environnement Azure et seulement dans le déploiement App Service dans lequel vous l’avez configurée. Notez également que les identités de service administré ne fonctionnent pas avec les emplacements de déploiement App Service pour l’instant.
 

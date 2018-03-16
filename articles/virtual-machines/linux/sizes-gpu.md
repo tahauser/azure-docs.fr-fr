@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 9e8b682d8d7e409f97144d344ec58e710327df7a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: a1057cd901725f2c8ad209db507a5bb9fdf33e77
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à GPU optimisé
 

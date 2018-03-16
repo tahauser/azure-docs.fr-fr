@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Résoudre les erreurs liées aux noms de compte de stockage
 
@@ -48,16 +48,12 @@ Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en min
 
 ## <a name="solution"></a>Solution
 
-### <a name="solution-1"></a>Solution 1
-
 Assurez-vous que le nom du compte de stockage est unique. Vous pouvez créer un nom unique en concaténant votre nommage avec le résultat de la fonction [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>Solution 2
 
 Vérifiez que le nom de votre compte de stockage ne présente pas plus de 24 caractères. La fonction [uniqueString](resource-group-template-functions-string.md#uniquestring) renvoie 13 caractères. Si vous concaténez un préfixe ou un suffixe au résultat de la fonction **uniqueString**, fournissez une valeur de 11 caractères maximum.
 
@@ -73,7 +69,5 @@ Vérifiez que le nom de votre compte de stockage ne présente pas plus de 24 car
     }
 }
 ```
-
-### <a name="solution-3"></a>Solution 3
 
 Assurez-vous que le nom de votre compte de stockage n’inclut aucune majuscule, ni aucun caractère spécial.

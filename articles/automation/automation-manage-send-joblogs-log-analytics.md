@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)
 Automation peut envoyer l’état d’un travail de runbook et des flux de travail vers votre espace de travail Log Analytics dans Microsoft Operations Management Suite (OMS). Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :
@@ -69,7 +69,7 @@ Pour rechercher Le *Nom* de votre compte Automation, sélectionnez votre compte 
 
 Une fois ce script exécuté, les enregistrements s’affichent dans Log Analytics dans les 10 minutes suivant l’écriture des nouveaux JobLogs ou JobStreams.
 
-Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Pour afficher les journaux, exécutez la requête suivante dans la recherche de journal de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Vérifier la configuration
 Pour vous assurer que votre compte Automation envoie des journaux à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante :
@@ -171,7 +171,7 @@ L’envoi de vos données de diffusion en continu et d’état des travaux Autom
 Log Analytics offre une plus grande visibilité opérationnelle sur vos travaux Automation et peut permettre de traiter les incidents plus rapidement.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour savoir comment construire différentes requêtes de recherche et consulter les journaux de travaux Automation avec Log Analytics, consultez la page [Recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* Pour plus d’informations sur la façon de construire différentes requêtes de recherche et sur la manière de consulter les journaux de travaux Automation avec Log Analytics, consultez [Recherches de journal dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur de runbooks, consultez la page [Sortie et messages de runbooks](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et autres détails techniques, voir [Suivi d’une tâche de runbook](automation-runbook-execution.md).
 * Pour plus d’informations sur OMS Log Analytics et sur les sources de collecte de données, consultez la page [Collecter des données de stockage Azure dans Log Analytics – Vue d’ensemble](../log-analytics/log-analytics-azure-storage.md).

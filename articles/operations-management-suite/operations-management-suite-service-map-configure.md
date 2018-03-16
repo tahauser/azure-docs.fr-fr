@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 66023a501360a8d73f88e2fe9682c1bf8f207a07
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Configurer Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
@@ -35,7 +35,7 @@ Cet article décrit en détail la configuration de Carte de service et de l’in
 ## <a name="connected-sources"></a>Sources connectées
 Carte de service obtient ses données à partir de l’agent de dépendances Microsoft. Celui-ci dépend de l’agent OMS pour ses connexions à Log Analytics. Cela signifie qu’un serveur doit disposer de l’agent OMS installé et configuré avant que l’agent de dépendances puisse être installé. Le tableau suivant décrit les sources connectées prises en charge par la solution Service Map.
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 |:--|:--|:--|
 | Agents Windows | OUI | Carte de service analyse et collecte des données à partir des ordinateurs agents Windows. <br><br>Outre [l’agent OMS](../log-analytics/log-analytics-windows-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
 | Agents Linux | OUI | Carte de service analyse et collecte des données à partir des ordinateurs agents Linux. <br><br>Outre [l’agent OMS](../log-analytics/log-analytics-linux-agents.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
@@ -84,7 +84,7 @@ Utilisez les options dans le tableau suivant pour effectuer l’installation à 
 
     InstallDependencyAgent-Windows.exe /?
 
-| Indicateur | DESCRIPTION |
+| Indicateur | Description |
 |:--|:--|
 | /? | Récupérez la liste des options de ligne de commande. |
 | /S | Effectuez une installation silencieuse sans invite utilisateur. |
@@ -106,7 +106,7 @@ Pour afficher la liste des indicateurs d’installation, exécutez le programme 
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Indicateur | DESCRIPTION |
+| Indicateur | Description |
 |:--|:--|
 | -help | Récupérez la liste des options de ligne de commande. |
 | -s | Effectuez une installation silencieuse sans invite utilisateur. |
@@ -147,7 +147,7 @@ Pour déployer l’Extension de machine virtuelle Azure par le biais de PowerShe
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.3"
+$version = "9.4"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Pour être sûr que l’Agent de dépendances se trouve sur chacune de vos machi
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.3",
+    "typeHandlerVersion": "9.4",
     "autoUpgradeMinorVersion": true
 }
 
@@ -254,7 +254,7 @@ Il peut être utile d’installer d’abord les [dernières bibliothèques runti
 
 Le tableau ci-dessous liste des numéros de code et des suggestions de résolutions.
 
-| Code | DESCRIPTION | Résolution : |
+| Code | Description | Résolution : |
 |:--|:--|:--|
 | 0x17 | Le programme d’installation de la bibliothèque nécessite une mise à jour Windows qui n’a pas été installée. | Consultez le dernier journal du programme d’installation de la bibliothèque.<br><br>Si une référence à « Windows8.1-KB2999226-x64.msu » est suivie d’une ligne « Erreur 0x80240017 : Impossible d’exécuter le package MSU », cela signifie que vous n’avez pas la configuration requise pour installer KB2999226. Suivez les instructions de la section Conditions préalables sur la page [Universal C Runtime sous Windows](https://support.microsoft.com/kb/2999226). Vous devrez peut-être exécuter Windows Update et redémarrer plusieurs fois afin d’installer les composants nécessaires.<br><br>Exécutez à nouveau le programme d’installation de l’agent de dépendances Microsoft. |
 
@@ -387,5 +387,5 @@ Pour plus d’informations sur la collecte et l’utilisation des données, cons
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [utiliser Service Map](operations-management-suite-service-map.md) une fois le déploiement et la configuration effectués.

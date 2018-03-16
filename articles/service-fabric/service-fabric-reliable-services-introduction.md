@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Présentation de Reliable Services
 Azure Service Fabric simplifie l’écriture et la gestion de Reliable Services avec et sans état. Cette rubrique couvre :
@@ -87,10 +87,6 @@ Un exemple courant illustrant comment les services sans état sont utilisés dan
 Un service avec état est un service qui doit avoir une partie de l'état sans cesse cohérente et présente pour que le service fonctionne. Prenons pour exemple un service qui calcule constamment une moyenne mobile d’une valeur en fonction des mises à jour qu’il reçoit. Pour ce faire, il doit disposer de l’ensemble actuel des requêtes entrantes qu’il doit traiter et la moyenne actuelle. Tout service qui récupère, traite et stocke des informations dans un magasin externe (comme un magasin de tables ou d’objets blob Azure) est un service avec état. Il conserve seulement son état dans le magasin d’état externe.
 
 Actuellement, la plupart des services stockent leur état en externe, car le magasin externe fournit la fiabilité, la disponibilité, l’évolutivité et la cohérence pour cet état. Dans Service Fabric, les services ne sont pas obligés de stocker leur état en externe. Service Fabric s’occupe de ces exigences pour le code de service et l’état du service.
-
-> [!NOTE]
-> La prise en charge de Reliable Services avec état n’est pas encore disponible sur Linux (pour C# ou Java).
->
 
 Supposons que nous souhaitions écrire un service qui traite des images. Pour ce faire, le service récupère une image et la série de conversions à effectuer sur cette image. Ce service renvoie un écouteur de communication (par exemple, une API Web) qui expose une API telle que `ConvertImage(Image i, IList<Conversion> conversions)`. Lorsqu’il reçoit une requête, le service la stocke dans une `IReliableQueue` et renvoie un ID au client pour suivre la requête.
 

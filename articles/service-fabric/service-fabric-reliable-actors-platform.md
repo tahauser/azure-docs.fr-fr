@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Comment le service Reliable Actors utilise la plateforme Service Fabric
 Cet article décrit le fonctionnement du service Reliable Actors sur la plateforme Azure Service Fabric. La solution Reliable Actors s’exécute dans une infrastructure hébergée dans une implémentation d’un service fiable avec état nommé *service d’acteur*. Le service d’acteur contient tous les composants nécessaires pour gérer le cycle de vie et la distribution des messages destinés à vos acteurs :
@@ -41,9 +41,6 @@ Dans Reliable Services, votre service hérite de la classe `StatefulService`. Ce
 * Sauvegarde et restauration du service.
 * Fonctionnalité partagée par tous les acteurs. Par exemple, un disjoncteur.
 * Appels de procédure à distance sur le service d’acteur proprement dit et sur chaque acteur.
-
-> [!NOTE]
-> Actuellement, les services avec état ne sont pas pris en charge par Java / Linux.
 
 ### <a name="using-the-actor-service"></a>Utilisation du service d’acteur
 Les instances d’acteur ont accès au service d’acteur dans lequel elles s’exécutent. Via le service d’acteur, les instances d’acteur peuvent obtenir par programmation le contexte de service. Le contexte de service comprend l’ID de partition, le nom du service, le nom de l’application et d’autres informations spécifiques de la plateforme Service Fabric :

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: ee7bdf03c96e078d0d64eeaaffc38ff61596d837
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte est créée dans Azure (préversion)](monitor-alerts-unified-usage.md), vous avez la possibilité d’effectuer une [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -170,7 +170,7 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
     
 
     {
-    "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
+    "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
         {
         "tables":[

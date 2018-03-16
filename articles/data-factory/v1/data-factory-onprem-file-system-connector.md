@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a717ea57642c0fb56eec176542ae401f83af6841
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Vous pouvez lier un système de fichiers local à une fabrique de données Azure avec le service lié **Serveur de fichiers local**. Le tableau suivant décrit les éléments JSON spécifiques au service lié Serveur de fichiers local.
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |OUI |
 | host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. |OUI |
@@ -83,8 +83,8 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exemples de définitions de jeux de données et de service liés
 | Scénario | Hôte dans la définition du service lié | folderPath dans la définition du jeu de données |
 | --- | --- | --- |
-| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples: D:\\\* ou D:\dossier\sous-dossier\\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
-| Dossier partagé distant :  <br/><br/>Exemples: \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
+| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
+| Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 
 ### <a name="example-using-username-and-password-in-plain-text"></a>Exemple : utilisation d’un nom d'utilisateur et d’un mot de passe en texte brut
@@ -125,7 +125,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section typeProperties est différente pour chaque type de jeu de données. Elle fournit des informations telles que l’emplacement et le format des données dans la banque de données. La section typeProperties pour le jeu de données de type **FileShare** a les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | folderPath |Spécifie le sous-chemin vers le dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |OUI |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque **fileName** n'est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré est au format suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non  |
@@ -177,13 +177,13 @@ Pour l’activité de copie, elles dépendent des types de sources et récepteur
 
 **FileSystemSource** prend en charge les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True, False (par défaut) |Non  |
 
 **FileSystemSink** prend en charge les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
+| Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | copyBehavior |Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. |**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy**: tous les fichiers du dossier source sont créés dans le premier niveau du dossier cible. Les fichiers cibles sont créés avec un nom généré automatiquement.<br/><br/>**MergeFiles** : fusionne tous les fichiers du dossier source dans un même fichier. Si le nom d’objet blob ou le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. |Non  |
 

@@ -3,8 +3,8 @@ title: "API d’utilisation des ressources de locataire | Microsoft Docs"
 description: "Informations de référence sur l’utilisation de ressources API, lesquelles récupèrent des informations relatives à l’utilisation d’Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
 ms.service: azure-stack
@@ -12,21 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2016
-ms.author: alfredop
-ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tenant-resource-usage-api"></a>API d’utilisation des ressources de locataire
+
 Un locataire peut utiliser l’API locataire pour afficher ses propres données d’utilisation des ressources. Cette API est cohérente avec l’API d’utilisation Azure (actuellement en préversion limitée).
 
 Vous pouvez utiliser l’applet de commande Windows PowerShell **Get-UsageAggregates** pour obtenir des données d’utilisation comme dans Azure.
 
 ## <a name="api-call"></a>Appel d’API
-### <a name="request"></a>Demande
+### <a name="request"></a>Requête
 La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de demande.
 
 | **Méthode** | **URI de la requête** |
@@ -44,7 +46,7 @@ La requête obtient les détails de la consommation pour les abonnements demand�
 | *api-version* |Version du protocole utilisé pour effectuer cette requête. Vous devez utiliser 2015-06-01-preview. |
 | *continuationToken* |Jeton récupéré à partir du dernier appel au fournisseur d’API d’utilisation. Ce jeton est nécessaire quand une réponse comprend plus de 1 000 lignes. Il joue alors le rôle de signet pour la progression. En son absence, les données sont récupérées à partir du début de la journée ou de l’heure, en fonction de la granularité transmise. |
 
-### <a name="response"></a>Réponse
+### <a name="response"></a>response
 GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
 
 ```json
@@ -83,6 +85,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *instanceData* |Paires clé-valeur des détails de l’instance (dans un nouveau format) :<br>  *resourceUri* : ID de ressource complet, notamment les groupes de ressources et le nom de l’instance <br>  *location* : région dans laquelle ce service a été exécuté <br>  *tags* : balises de ressources spécifiées par l’utilisateur <br>  *additionalInfo* : informations supplémentaires sur la ressource consommée, par exemple, la version du système d’exploitation ou le type d’image |
 | *quantity* |Quantité de ressources consommées au cours de cette période |
 | *meterId* |ID unique de la ressource consommée (également appelé *ResourceID*) |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 [API Utilisation des ressources de fournisseur](azure-stack-provider-resource-api.md)

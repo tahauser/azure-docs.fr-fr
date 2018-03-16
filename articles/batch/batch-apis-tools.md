@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 177601110dd7ec799dc4a350d1a8b88b9f6af4f1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Vue d’ensemble des outils et API Batch
 
@@ -60,7 +60,7 @@ Les API Azure Resource Manager pour le service Batch fournissent un accès par p
 Ces outils en ligne de commande fournissent les mêmes fonctionnalités que les API des services Batch et Batch Management : 
 
 * [Applets de commande PowerShell pour Batch][batch_ps] : les applets de commande Azure Batch contenues dans le module [Azure PowerShell](/powershell/azure/overview) vous permettent de gérer les ressources du service Batch avec PowerShell.
-* [Azure CLI 2.0](/cli/azure/overview) : l’interface de ligne de commande Azure est un ensemble d’outils multiplateforme qui fournit des commandes d’environnement permettant d’interagir avec de nombreux services Azure, y compris les services Batch et Batch Management. Consultez la page [Gérer les ressources Batch avec Azure CLI](batch-cli-get-started.md) pour plus d’informations sur l’utilisation d’Azure CLI avec Batch.
+* [Azure CLI 2.0](/cli/azure) : l’interface de ligne de commande Azure est un ensemble d’outils multiplateforme qui fournit des commandes d’environnement permettant d’interagir avec de nombreux services Azure, y compris les services Batch et Batch Management. Consultez la page [Gérer les ressources Batch avec Azure CLI](batch-cli-get-started.md) pour plus d’informations sur l’utilisation d’Azure CLI avec Batch.
 
 ## <a name="other-tools-for-application-development"></a>Autres outils pour le développement d’applications
 

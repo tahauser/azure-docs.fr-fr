@@ -6,18 +6,18 @@ author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
-ms.date: 01/03/2018
+ms.date: 03/02/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Solutions d'identité hybride Microsoft
 Les solutions d’identité hybride [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permettent de synchroniser des objets de répertoire locaux avec Azure AD tout en gérant vos utilisateurs locaux. La première décision à prendre lorsque vous envisagez de synchroniser votre Active Directory Windows Server local avec Azure AD est de savoir si vous souhaitez utiliser une identité synchronisée ou une identité fédérée. Les identités synchronisées et éventuellement les hachages du mot de passe, permettent à vos utilisateurs d’utiliser le même mot de passe pour accéder aux ressources de l’organisation locales et sur le cloud. Pour obtenir des spécifications de scénario plus avancées, telles que l’authentification unique (SSO) ou l’authentification multifacteur locale, vous devez déployer Active Directory Federation Services (AD FS) pour fédérer les identités. 
@@ -50,9 +50,6 @@ L’authentification directe peut être configurée par le biais d’Azure AD Co
 
 - Windows Server 2012 R2 ou version ultérieure
 - Joint à un domaine dans la forêt dans laquelle les utilisateurs sont validés
-
-L’authentification directe n’est pas prise en charge si vous utilisez les périphériques Windows 10 joints à Azure AD. Toutefois, vous pouvez utiliser la synchronisation du hachage du mot de passe comme solution de secours automatique pour prendre en charge Windows 10 et les clients hérités mentionnés précédemment. Lors de l’aperçu, la synchronisation du hachage du mot de passe est activée par défaut lorsque l’authentification directe est sélectionnée en tant qu’option de connexion dans Azure AD Connect.
-
 
 ## <a name="federated-identity-ad-fs"></a>Identité fédérée (AD FS)
 Pour obtenir un meilleur contrôle sur le mode d’accès des utilisateurs à Office 365 et autres services cloud, vous pouvez configurer la synchronisation de répertoires avec authentification unique (SSO) à l’aide de [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). La fédération des connexions utilisateurs avec AD FS délègue l’authentification à un serveur local qui valide les informations d’identification de l’utilisateur. Dans ce modèle, les informations d’identification Active Directory locales ne sont jamais passées à Azure AD.

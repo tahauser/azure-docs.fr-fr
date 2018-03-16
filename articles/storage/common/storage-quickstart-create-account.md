@@ -9,20 +9,21 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Un compte de stockage Azure fournit un espace de noms unique dans le cloud pour stocker vos objets de données dans le stockage Azure et y accéder. Un compte de stockage contient des objets blob, des fichiers, des files d’attente, des tables et des disques que vous créez sous ce compte. 
 
-Pour démarrer avec le stockage Azure, vous devez d’abord créer un compte de stockage. Vous pouvez créer un compte de stockage Azure avec le [portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Ce démarrage rapide montre comment utiliser chacune de ces options pour créer votre compte de stockage. 
+Pour démarrer avec le stockage Azure, vous devez d’abord créer un compte de stockage. Vous pouvez créer un compte de stockage Azure avec le [portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Ce démarrage rapide montre comment utiliser chacune de ces options pour créer votre compte de stockage. 
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

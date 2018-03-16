@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 873bd0f8c98cfa67c77841df8aa53eb2b895cd54
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Découvrez le type de tronçon suivant grâce à la fonction Tronçon suivant Azure Network Watcher dans l’interface de ligne de commande Azure 2.0
 
 > [!div class="op_single_selector"]
-> - [Portail Azure](network-watcher-check-next-hop-portal.md)
+> - [Portail Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -50,7 +50,7 @@ Le scénario décrit dans cet article utilise Tronçon suivant, une fonctionnali
 
 Pour obtenir le tronçon suivant, appelez l’applet de commande `az network watcher show-next-hop`. Nous transférons à l’applet de commande le groupe de ressources Network Watcher, Network Watcher, l’identifiant de la machine virtuelle, l’adresse IP source et l’adresse IP de destination. Dans cet exemple, l’adresse IP de destination désigne une machine virtuelle sur un autre réseau virtuel. Les deux réseaux virtuels sont séparés par une passerelle réseau virtuelle.
 
-Si vous ne l’avez pas encore fait, installez et configurez la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure par le biais de la commande [az login](/cli/azure/#az_login). Exécutez ensuite la commande suivante :
+Si vous ne l’avez pas encore fait, installez et configurez la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure par le biais de la commande [az login](/cli/azure/reference-index#az_login). Exécutez ensuite la commande suivante :
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

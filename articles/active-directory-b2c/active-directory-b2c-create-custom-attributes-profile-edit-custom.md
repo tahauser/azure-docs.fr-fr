@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : création et utilisation d’attributs personnalisés dans une stratégie personnalisée de modification de profil
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 12/11/2017
 
 Dans cet article, vous allez créer un attribut personnalisé dans votre répertoire Azure AD B2C et utiliser ce nouvel attribut comme une revendication personnalisée dans le parcours utilisateur Modification de profil.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Suivez les étapes de l’article [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Utilisation d’attributs personnalisés pour recueillir des informations sur vos consommateurs dans Azure Active Directory B2C à l’aide des stratégies personnalisées
-Votre répertoire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’attributs : prénom, nom, ville, code postal, userPrincipalName, etc.  Vous serez souvent amené à créer vos propres attributs.  Par exemple :
+Votre répertoire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’attributs : prénom, nom, ville, code postal, userPrincipalName, etc.  Vous serez souvent amené à créer vos propres attributs.  Par exemple : 
 * Une application côté client a besoin de conserver un attribut tel que « LoyaltyNumber ».
 * Un fournisseur d’identité a un identificateur d’utilisateur unique qui doit être enregistré, par exemple « uniqueUserGUID ».
 * Un parcours utilisateur personnalisé doit conserver un état de l’utilisateur, par exemple « migrationStatus ».
@@ -65,8 +66,8 @@ Les propriétés d’extension n’existent que dans le contexte d’une applica
 1. Dans Autorisations d’application, cochez l’option **Lire et écrire les données de l’annuaire**, puis cliquez sur **Enregistrer**.
 1. Sélectionnez **Accorder des autorisations**, puis confirmez en cliquant sur **Oui**.
 1. Copiez dans le presse-papiers et enregistrez les identificateurs suivants à partir de WebApp-GraphAPI-DirectoryExtensions > Paramètres > Propriétés >
-*  **ID de l’application**. Exemple : `103ee0e6-f92d-4183-b576-8c3739027780`
-* **ID objet**. Exemple : `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **ID de l’application**. Exemple : `103ee0e6-f92d-4183-b576-8c3739027780`
+* **ID objet**. Exemple : `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -152,7 +153,7 @@ Les propriétés d’extension n’existent que dans le contexte d’une applica
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +163,7 @@ Les propriétés d’extension n’existent que dans le contexte d’une applica
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -227,7 +228,7 @@ Les propriétés d’extension n’existent que dans le contexte d’une applica
 >[!IMPORTANT]
 >L’élément IncludeTechnicalProfile ajoute tous les éléments de « AAD-Common » à cet élément TechnicalProfile.
 
-## <a name="test-the-custom-policy-using-run-now"></a>Tester la stratégie personnalisée avec « Exécuter maintenant »
+## <a name="test-the-custom-policy-using-run-now"></a>Testez la stratégie personnalisée à l’aide de « Exécuter maintenant »
 1. Ouvrez le **panneau Azure AD B2C** et accédez à **Infrastructure d’expérience d’identité > Stratégies personnalisées**.
 1. Sélectionnez la stratégie personnalisée que vous avez téléchargée, puis cliquez sur le bouton **Exécuter maintenant**.
 1. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
@@ -289,7 +290,7 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 * Un **profil technique (PT)** est un type d’élément qui peut être considéré comme une *fonction* qui définit le nom d’un point de terminaison, ses métadonnées et son protocole, et détaille l’échange de revendications que l’IEF doit effectuer.  Lorsque cette *fonction* est appelée au cours d’une étape d’orchestration ou à partir d’un autre élément TechnicalProfile, InputClaims et OutputClaims sont fournis comme paramètres par l’appelant.
 

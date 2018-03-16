@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: maheshu
 ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 Cet article explique comment activer le protocole LDAPS pour votre domaine géré par les services de domaine Azure Active Directory. Le protocole LDAP sécurisé est également appelé « protocole LDAP sur SSL (Secure Sockets Layer) / TLS (Transport Layer Security) ».
@@ -89,5 +89,6 @@ Dans l’exemple ci-dessus, remplacez « *.contoso100.com » par le nom de dom
 Le nouveau certificat auto-signé est placé dans le magasin de certificats de l’ordinateur local.
 
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
+
 [Tâche 2 : Exporter le certificat du protocole LDAP sécurisé vers un fichier .PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

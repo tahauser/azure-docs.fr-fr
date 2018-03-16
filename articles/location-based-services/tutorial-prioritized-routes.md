@@ -3,8 +3,8 @@ title: "Itinéraires multiples avec Azure Location Based Services | Microsoft Do
 description: "Rechercher des itinéraires pour différents modes de déplacement à l’aide d’Azure Location Based Services"
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: tutorial
 ms.service: location-based-services
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9501f3c8fa1abb6bcbfee086c542139596ab5504
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 986e8667ca421baa78647e77e43fef92d81a7982
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Rechercher des itinéraires pour différents modes de déplacement à l’aide d’Azure Location Based Services
 
@@ -27,6 +27,7 @@ Ce didacticiel montre comment utiliser votre compte Azure Location Based Service
 > * Afficher les itinéraires priorisés par mode de déplacement
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Services](./tutorial-search-location.md#createaccount) et [d’obtenir une clé de votre compte](./tutorial-search-location.md#getkey). Vous pouvez également consulter l’utilisation des API Map Control et Search Service comme indiqué dans le didacticiel [Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services](./tutorial-search-location.md). Vous pouvez également découvrir l’utilisation de base des API Route Service comme indiqué dans le didacticiel [Obtenir l’itinéraire vers un point d’intérêt à l’aide d’Azure Location Based Services](./tutorial-route-location.md).
 

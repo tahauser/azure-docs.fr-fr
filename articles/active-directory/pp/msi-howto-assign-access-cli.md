@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8cdfd80f436a9ef39426da9d3f2f76ae59677847
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Attribuer à une identité du service administré (MSI) affectée par l’utilisateur un accès à une ressource à l’aide d’Azure CLI
 
@@ -28,12 +28,13 @@ Une fois que vous avez créé une identité MSI affectée par l’utilisateur, v
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 Pour exécuter les exemples de script CLI dans ce didacticiel, vous avez deux possibilités :
 
 - Utiliser [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dans le portail Azure ou via le bouton « Essayer » situé en haut à droite de chaque bloc de code.
-- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale. Connectez-vous ensuite à Azure avec la commande [az login](/cli/azure/#az_login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer l’identité MSI affectée par l’utilisateur et la machine virtuelle :
+- [Installer la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale. Connectez-vous ensuite à Azure avec la commande [az login](/cli/azure/reference-index#az_login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer l’identité MSI affectée par l’utilisateur et la machine virtuelle :
 
    ```azurecli
    az login

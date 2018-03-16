@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Cet article vous aide à comprendre les pipelines et les activités dans Azure D
 > [!NOTE]
 > Cet article suppose que vous avez parcouru les articles [Présentation du service Azure Data Factory](data-factory-introduction.md). Si vous n’avez pas d’expérience pratique de création de fabriques de données, le [didacticiel relatif à la transformation de données](data-factory-build-your-first-pipeline.md) et/ou [le didacticiel relatif au déplacement de données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) vous aidera à mieux comprendre cet article.  
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local dans un stockage Blob Azure. Utilisez ensuite une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter/transformer les données du stockage Blob afin de produire des données de sortie. Enfin, utilisez une deuxième activité de copie pour copier les données de sortie dans un Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. 
 
 Une activité peut inclure zéro ou plusieurs [jeux de données](data-factory-create-datasets.md) d’entrée et produire un ou plusieurs [jeux de données](data-factory-create-datasets.md) de sortie. Le diagramme suivant montre la relation entre le pipeline, l’activité et le jeu de données dans Data Factory : 
@@ -93,7 +93,7 @@ Examinons de plus près la définition d’un pipeline au format JSON. La struct
 }
 ```
 
-| Tag | DESCRIPTION | Obligatoire |
+| Tag | Description | Obligatoire |
 | --- | --- | --- |
 | Nom |Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
 | description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. |OUI |
@@ -131,7 +131,7 @@ La section **Activités** peut contenir une ou plusieurs activités définies. C
 
 Le tableau suivant décrit des propriétés de la définition JSON de l’activité :
 
-| Tag | DESCRIPTION | Obligatoire |
+| Tag | Description | Obligatoire |
 | --- | --- | --- |
 | Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
 | description | Texte décrivant la raison motivant l’activité ou son utilisation |OUI |
@@ -147,7 +147,7 @@ Le tableau suivant décrit des propriétés de la définition JSON de l’activi
 ### <a name="policies"></a>Stratégies
 Les stratégies affectent le comportement d'exécution d'une activité, en particulier lors du traitement du segment d'une table. Le tableau suivant fournit les détails.
 
-| Propriété | Valeurs autorisées | Valeur par défaut | DESCRIPTION |
+| Propriété | Valeurs autorisées | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | accès concurrentiel |Entier  <br/><br/>Valeur max : 10 |1 |Nombre d’exécutions simultanées de l’activité.<br/><br/>Il détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. Par exemple, si une activité doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Détermine l’ordre des segments de données qui sont traités.<br/><br/>Par exemple, si vous avez 2 segments (l’un se produisant à 16 heures et l’autre à 17 heures) et que les deux sont en attente d’exécution. Si vous définissez executionPriorityOrder sur NewestFirst, le segment à 17 h est traité en premier. De même, si vous définissez executionPriorityOrder sur OldestFIrst, le segment à 16 h est traité en premier. |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST
 
@@ -42,7 +42,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!IMPORTANT]
 > À l’heure actuelle, Media Services prend en charge le modèle d’authentification des services Azure Access Control. Toutefois, l’authentification Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 - [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
@@ -53,13 +53,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenir les informations d’authentification à partir du portail Azure
 
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Vue d'ensemble
 
 Pour accéder aux API Media Services, vous devez collecter des points de données suivants.
 
-|Paramètre|exemples|Description|
+|Paramètre|exemples|DESCRIPTION|
 |---|-------|-----|
-|Domaine du locataire Azure Active Directory|microsoft.onmicrosoft.com|Azure AD en tant que point de terminaison Secure Token Service (STS) est créé à l’aide du format suivant : https://login.microsoftonline.com/ {votre-nom-locataire-aad.onmicrosoft.com}/oauth2/token. Azure AD émet un JWT pour accéder aux ressources (jeton d’accès).|
+|Domaine du locataire Azure Active Directory|microsoft.onmicrosoft.com|Azure AD en tant que point de terminaison Secure Token Service (STS) est créé au format suivant : https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD émet un JWT pour accéder aux ressources (jeton d’accès).|
 |Point de terminaison d'API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Il s’agit du point de terminaison vis-à-vis duquel tous les appels d’API REST Media Services dans votre application sont effectués.|
 |ID client (ID d’application)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID (client) d’application Azure AD. L’ID client est nécessaire pour obtenir le jeton d’accès. |
 |Clé secrète client|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Clés d’application Azure AD (clé secrète client). La clé secrète client est nécessaire pour obtenir le jeton d’accès.|
@@ -123,7 +123,7 @@ Cette section explique comment utiliser **Postman** pour exécuter une API REST 
 2. Sélectionnez **POST**.
 3. Entrez l’URL qui inclut votre nom de locataire en utilisant le format suivant : le nom du locataire doit se terminer par **. onmicrosoft.com** et l’URL doit se terminer par **oauth2/token** : 
 
-    https://login.microsoftonline.com/{votre-nom-locataire-aad.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Sélectionnez l’onglet **En-têtes**.
 5. Entrez les informations sur les **en-têtes** à l’aide de la grille de données « Clé/Valeur ». 
@@ -159,7 +159,7 @@ Cette section explique comment accéder à l’API **Assets** à l’aide de **P
 
 1. Ouvrez **Postman**.
 2. Sélectionnez **GET**.
-3. Collez le point de terminaison de l’API REST (par exemple, https://amshelloworld.restv2.westus.media.azure.net/api/Assets).
+3. Collez le point de terminaison de l’API REST (par exemple, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Sélectionnez l’onglet **Autorisation**. 
 5. Sélectionnez le type **jeton du porteur**.
 6. Collez le jeton créé dans la section précédente.
@@ -185,7 +185,7 @@ Cette section explique comment accéder à l’API **Assets** à l’aide de **P
 
 La réponse retournée contient les ressources qui se trouvent dans votre compte.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Essayez l’exemple de code qui se trouve dans [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Authentification Azure AD pour l’accès à Azure Media Services : par le biais d’une API REST)
 * [Charger des fichiers à l’aide de .NET](media-services-dotnet-upload-files.md)

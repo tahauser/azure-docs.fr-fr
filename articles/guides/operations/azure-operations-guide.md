@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
@@ -48,7 +48,7 @@ Avec l’infrastructure locale, vous disposez d’un contrôle total sur le mat�
 
 Microsoft a déployé de nombreux centres de données Azure dans le monde entier et en a déjà prévu d’autres. Microsoft augmente aussi le nombre de clouds souverains dans des régions telles que la Chine et l’Allemagne. Seules les plus grandes entreprises mondiales peuvent ainsi déployer des centres de données, c’est la raison pour laquelle l’utilisation d’Azure permet aux entreprises de toutes tailles de déployer des services proches de leurs clients.
 
-Aux petites entreprises, Azure propose un point d’entrée à bas coût, avec une mise à l’échelle rapide à mesure que la demande en capacité de calcul augmente. Un investissement initial important est alors évité au niveau de l’infrastructure tandis que la souplesse nécessaire est assurée pour concevoir et modifier en fonction des besoins l’architecture des systèmes. L’utilisation du cloud computing convient bien au modèle de croissance et de décroissance rapides (« scale-fast and fail-fast ») d’une start-up.
+Aux petites entreprises, Azure propose un point d’entrée à bas coût, avec une mise à l’échelle rapide à mesure que la demande en capacité de calcul augmente. Un investissement initial important est alors évité au niveau de l’infrastructure tandis que la souplesse nécessaire est assurée pour concevoir et modifier en fonction des besoins l’architecture des systèmes. L’utilisation du cloud computing convient bien au modèle de croissance et de décroissance rapides (« scale-fast and Fail-fast ») d’une start-up.
 
 Pour plus d’informations sur les régions Azure disponibles, consultez [Régions Azure](https://azure.microsoft.com/regions/).
 
@@ -491,19 +491,19 @@ Il existe plusieurs options pour déployer un réseau virtuel.
 
 **Portail**
 
-Le déploiement d’un réseau virtuel Azure à l’aide du portail Azure ne demande qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau réseau virtuel dans un groupe de ressources existant ou nouveau. Lorsque vous créez une machine virtuelle à partir du portail, vous pouvez sélectionner un réseau virtuel existant ou en créer un. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide du Portail Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Le déploiement d’un réseau virtuel Azure à l’aide du portail Azure ne demande qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau réseau virtuel dans un groupe de ressources existant ou nouveau. Lorsque vous créez une machine virtuelle à partir du portail, vous pouvez sélectionner un réseau virtuel existant ou en créer un. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide du Portail Azure](../../virtual-network/quick-create-portal.md).
 
 En plus du déploiement d’un réseau virtuel Azure à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources sont alors déployées et configurées, comme défini dans le modèle, notamment les ressources du réseau virtuel. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Le déploiement d’un réseau virtuel Azure à l’aide de PowerShell permet l’automatisation du déploiement complet du compte de stockage. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide de PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Le déploiement d’un réseau virtuel Azure à l’aide de PowerShell permet l’automatisation du déploiement complet du compte de stockage. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide de PowerShell](../../virtual-network/quick-create-powershell.md).
 
 En plus de déployer des ressources Azure individuellement, vous pouvez utiliser le module Azure PowerShell pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interface de ligne de commande (CLI)**
 
-À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement et s’utilise sur les systèmes Windows, OS X ou Linux. Vous pouvez utiliser la commande d’Azure CLI **network vnet create** pour créer un réseau virtuel. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide de l’interface de ligne de commande Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement et s’utilise sur les systèmes Windows, OS X ou Linux. Vous pouvez utiliser la commande d’Azure CLI **network vnet create** pour créer un réseau virtuel. Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide de l’interface de ligne de commande Azure](../../virtual-network/quick-create-cli.md).
 
 De même, vous pouvez utiliser l’interface de ligne de commande Azure pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

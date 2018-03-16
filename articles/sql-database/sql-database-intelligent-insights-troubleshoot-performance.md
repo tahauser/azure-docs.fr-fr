@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
@@ -69,7 +69,7 @@ La ressource relative aux limites de sessions indique le nombre de connexions si
 
 L’atteinte des limites de threads de travail est un cas spécifique d’atteinte des limites de ressources dans la mesure où les threads de travail disponibles ne sont pas comptabilisés dans l’utilisation des DTU. L’atteinte des limites de threads de travail sur une base de données peut entraîner une augmentation des temps d’attente propres aux ressources, ce qui mène à une détérioration des performances des requêtes.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère les codes de hachage des requêtes qui ont affecté les performances et les pourcentages de consommation de ressources. Vous pouvez utiliser ces informations comme point de départ de l’optimisation de la charge de travail de votre base de données. En particulier, vous pouvez optimiser les requêtes qui détériorent les performances en ajoutant des index. Vous pouvez également optimiser les applications avec une distribution de charge de travail plus homogène. Si vous ne pouvez pas réduire les charges de travail ou effectuer des optimisations, augmentez éventuellement le niveau tarifaire de votre abonnement SQL Database pour accroître la quantité de ressources disponibles.
 
@@ -87,7 +87,7 @@ Cette détection s’effectue en combinant plusieurs métriques. La mesure de ba
 
 Dans sa forme la plus grave, la charge de travail s’accumule en permanence en raison de l’incapacité de SQL Database à la gérer. Ainsi, la taille de la charge de travail ne cesse d’augmenter, ce qui correspond à une situation d’accumulation. En raison de cette situation, le temps d’attente pour l’exécution de la charge de travail augmente. Cela représente l’un des problèmes de performances de base de données les plus graves. Vous pouvez détecter ce problème en surveillant l’augmentation du nombre de threads de travail abandonnés. 
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère le nombre de requêtes dont l’exécution a augmenté, ainsi que le code de hachage de la requête qui contribue le plus à l’augmentation de la charge de travail. Vous pouvez utiliser ces informations comme point de départ pour l’optimisation de la charge de travail. Plus précisément, vous pouvez utiliser la requête identifiée comme étant celle qui contribue le plus à l’augmentation de la charge de travail.
 
@@ -103,7 +103,7 @@ La sollicitation de la mémoire est une situation où il existe un nombre élev�
 
 La forme la plus grave de sollicitation de la mémoire est la situation d’accumulation de mémoire. Cette situation indique que le nombre de threads de travail qui demandent des allocations de mémoire est plus élevé que le nombre de requêtes qui libèrent de la mémoire. Ce nombre de threads de travail demandant des allocations de mémoire peut aussi augmenter en continu (c’est-à-dire s’accumuler), car le moteur de base de données SQL ne peut pas allouer de la mémoire de manière suffisamment efficace pour répondre à la demande. La situation d’accumulation de mémoire représente l’un des problèmes de performances de base de données les plus graves.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des détails sur le magasin d’objets mémoire avec le régisseur (c’est-à-dire le thread de travail) marqué en tant que raison la plus importante de l’utilisation élevée de la mémoire, ainsi que les horodatages concernés. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes. 
 
@@ -123,13 +123,13 @@ Dans un SGBDR (Système de Gestion de Base de Données Relationnelle) moderne, l
 
 Si les transactions exécutées par le moteur SQL attendent très longtemps pour accéder à des ressources verrouillées pour cause d’utilisation, ce temps d’attente entraîne un ralentissement des performances d’exécution de la charge de travail. 
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des détails sur le verrouillage que vous pouvez utiliser comme base pour la résolution des problèmes. Vous pouvez analyser les requêtes bloquantes signalées, c’est-à-dire les requêtes qui introduisent une détérioration des performances liée au verrouillage, et les supprimer. Dans certains cas, vous pouvez réussir à optimiser les requêtes bloquantes.
 
 La façon la plus simple et la plus sûre d’atténuer ce problème consiste à préférer des transactions courtes et à réduire l’empreinte de verrou des requêtes les plus coûteuses. Vous pouvez décomposer un grand lot d’opérations en opérations plus petites. Une bonne pratique consiste à réduire l’empreinte de verrou des requêtes en les rendant les plus efficaces possible. Réduisez les analyses de grande taille, car elles augmentent le risque d’interblocages et ont un impact négatif sur les performances globales de la base de données. Pour les requêtes identifiées qui entraînent un verrouillage, vous pouvez créer des index ou ajouter des colonnes à l’index existant afin d’éviter les analyses de tables. 
 
-Pour plus de suggestions, consultez [Comment résoudre les problèmes de blocage provoqués par l’escalade de verrous dans SQL Server](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Pour plus de suggestions, consultez [Comment résoudre les problèmes de blocage provoqués par l’escalade de verrous dans SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Augmentation de MAXDOP
 
@@ -141,7 +141,7 @@ Le système expert analyse les performances de la base de données actuelle par 
 
 L’option de configuration de serveur MAXDOP est utilisée sur SQL Database pour contrôler le nombre de cœurs d’UC pouvant être utilisés pour exécuter la même requête en parallèle. 
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère les codes de hachage des requêtes dont la durée d’exécution a augmenté en raison d’une parallélisation trop importante. Le journal génère également des temps d’attente CXP. Ce temps représente la durée pendant laquelle un thread organisateur/coordinateur unique (thread 0) attend que tous les autres threads aient terminé avant de fusionner les résultats et de continuer. De plus, le journal de diagnostic génère les temps d’attente d’exécution globale des requêtes peu performantes. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes.
 
@@ -161,7 +161,7 @@ Il existe de nombreux types de verrou disponibles dans SQL Database. Pour des ra
 
 Une contention des verrous de page se produit quand plusieurs threads tentent simultanément d’acquérir des verrous sur la même structure en mémoire, ce qui allonge le temps d’attente d’exécution des requêtes. En cas de contention d’E/S de verrous de page, quand des données ont besoin d’être accessibles à partir du stockage, ce temps d’attente est encore plus important. Il peut donc considérablement affecter les performances de la charge de travail. La contention de verrous de page constitue le scénario le plus courant dans lequel des threads s’attendent les uns les autres et entrent en concurrence pour obtenir des ressources sur plusieurs systèmes de processeur.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des détails sur la contention de verrous de page. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes.
 
@@ -181,7 +181,7 @@ Un index est utilisé pour accélérer les performances des requêtes. Il fourni
 
 Les requêtes spécifiques responsables d’une détérioration des performances sont identifiées via cette détection pour laquelle la création d’index permet d’accroître les performances.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère les codes de hachage des requêtes qui affectent les performances de la charge de travail. Vous pouvez créer des index pour ces requêtes. Vous pouvez également optimiser ou supprimer ces requêtes, si elles ne sont pas nécessaires. Pour ménager les performances, il est préférable d’éviter d’interroger les données que vous n’utilisez pas.
 
@@ -199,7 +199,7 @@ Ce modèle de performances indique qu’une nouvelle requête est détectée, qu
 
 Parfois, l’écriture d’une requête efficace est une tâche difficile. Pour plus d’informations sur l’écriture des requêtes, consultez [Écriture des requêtes SQL](https://msdn.microsoft.com/library/bb264565.aspx). Pour optimiser les performances des requêtes existantes, consultez [Paramétrage des requêtes](https://msdn.microsoft.com/library/ms176005.aspx).
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des informations sur deux nouvelles requêtes, au maximum, parmi celles qui consomment le plus d’UC, avec notamment leurs codes de hachage. Dans la mesure où la requête détectée affecte les performances de la charge de travail, vous pouvez optimiser votre requête. Il est conseillé de récupérer uniquement les données que vous devez utiliser. Nous vous recommandons également d’utiliser les requêtes avec une clause WHERE. Nous vous recommandons également de simplifier les requêtes complexes et de les décomposer en requêtes plus petites. Il est conseillé de fractionner les requêtes de traitement par lots volumineuses en requêtes plus petites. Introduire des index pour les nouvelles requêtes constitue généralement une bonne pratique pour atténuer ce problème de performances.
 
@@ -213,7 +213,7 @@ Ce modèle de performances détectables indique une détérioration des performa
 
 Dans ce cas, le système ne peut pas classer les requêtes peu performantes dans une autre catégorie de performances détectables standard. Toutefois, il a détecté les statistiques d’attente responsables de la régression. Il les considère donc comme des requêtes ayant des *statistiques d’attente inhabituelles*. De plus, les statistiques d’attente inhabituelles responsables de la régression sont également exposées. 
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des informations détaillées sur les temps d’attente inhabituels, les codes de hachage des requêtes affectées et les temps d’attente.
 
@@ -227,7 +227,7 @@ Pour plus d’informations sur l’optimisation des performances des requêtes, 
 
 Ce modèle de performances détectables indique un problème au niveau des performances de base de données, car il existe un goulot d’étranglement pour les threads qui tentent d’accéder aux ressources tempDB. (Cette situation n’est pas liée aux E/S.) Le scénario classique de ce problème de performances implique des centaines de requêtes simultanées qui créent, utilisent, puis suppriment de petites tables tempDB. Le système a détecté que le nombre de requêtes simultanées qui utilisent les mêmes tables tempDB a augmenté et qu’il présente une pertinence statistique suffisante pour affecter les performances de la base de données par rapport à la base de référence des performances des sept jours précédents.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des détails sur la contention de tempDB. Vous pouvez utiliser ces informations comme point de départ pour la résolution des problèmes. Il existe deux choses que vous pouvez faire pour limiter ce genre de contention et augmenter le débit de la charge de travail globale. Tout d’abord, vous pouvez arrêter d’utiliser les tables temporaires. Ensuite, vous pouvez utiliser des tables à mémoire optimisée. 
 
@@ -241,7 +241,7 @@ Ce modèle de performances détectables indique une détérioration des performa
 
 Les ressources de SQL Database sont généralement appelées [ressources DTU](sql-database-what-is-a-dtu.md) et consistent en une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Les [ressources du pool élastique Azure](sql-database-elastic-pool.md) sont utilisées comme pool de ressources eDTU disponibles partagées entre plusieurs bases de données à des fins de mise à l’échelle. Quand les ressources eDTU disponibles dans le pool élastique ne sont pas suffisantes pour prendre en charge toutes les bases de données du pool, un problème de performances lié à une pénurie de DTU dans le pool élastique est détecté par le système.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère des informations sur le pool élastique, liste les bases de données qui consomment le plus de DTU et fournit un pourcentage des ressources DTU du pool utilisées par la base de données la plus consommatrice.
 
@@ -263,7 +263,7 @@ La régression de nouveau plan fait référence à un état dans lequel SQL Data
 
 Pour plus d’informations sur les régressions de plans, consultez [Qu’est-ce que la régression de plan dans SQL Server ?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère les codes de hachage des requêtes, l’ID du plan approprié, l’ID du plan inapproprié et les ID de requêtes. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes.
 
@@ -285,11 +285,11 @@ Ce modèle de performances détectables indique une situation dans laquelle un c
 
 Vous pouvez apporter un changement de configuration à l’échelle de la base de données pour chaque base de données. Cette configuration est utilisée au cas par cas pour optimiser les performances individuelles de votre base de données. Vous pouvez configurer les options suivantes pour chaque base de données : MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES et CLEAR PROCEDURE_CACHE.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Le journal de diagnostic génère les changements de configuration à l’échelle de la base de données qui ont été apportés récemment et qui ont provoqué la détérioration des performances par rapport au comportement de la charge de travail pendant les sept jours précédents. Vous pouvez restaurer les changements de configuration aux valeurs antérieures. Vous pouvez paramétrer chaque valeur jusqu’à ce que le niveau de performance souhaité soit atteint. Vous pouvez copier les valeurs de configuration à l’échelle de la base de données à partir d’une base de données similaire dont les performances sont satisfaisantes. Si vous n’arrivez pas à résoudre les problèmes de performances, restaurez les valeurs par défaut de SQL Database, puis essayez de les paramétrer de manière plus précise à partir de cette base de référence.
 
-Pour plus d’informations sur l’optimisation de la configuration à l’échelle de la base de données et sur la syntaxe T-SQL utilisée pour changer la configuration, consultez [Changer la configuration à l’échelle de la base de données (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
+Pour plus d’informations sur l’optimisation de la configuration à l’échelle de la base de données et sur la syntaxe T-SQL utilisée pour changer la configuration, consultez [Changer la configuration à l’échelle de la base de données (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
 ## <a name="slow-client"></a>Client lent
 
@@ -299,7 +299,7 @@ Ce modèle de performances détectables indique une situation dans laquelle le c
 
 Cette situation est générée uniquement si une régression des performances est détectée par rapport au comportement de la charge de travail de la base de données pendant les sept jours précédents. Ainsi, ce problème de performances est détecté uniquement s’il existe une détérioration des performances statistiquement significative par rapport au comportement antérieur des performances.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Ce modèle de performances détectables indique un problème côté client. Vous devez résoudre les problèmes au niveau de l’application côté client ou du réseau côté client. Le journal de diagnostic génère les codes de hachage des requêtes et les temps d’attente les plus longs par rapport à la consommation du client au cours des deux dernières heures. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes.
 
@@ -313,7 +313,7 @@ Ce modèle de performances détectables indique une situation dans laquelle le n
 
 De plus, il existe peut-être une situation dans laquelle le niveau tarifaire de votre abonnement SQL Database a été passé à un niveau inférieur, puis repassé à un niveau supérieur sur une courte période. La détection de cette détérioration temporaire des performances est indiquée dans la section des détails du journal de diagnostic sous la forme d’une baisse et d’une augmentation du niveau tarifaire.
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Si vous avez réduit votre niveau tarifaire, et donc les DTU disponibles pour SQL Database, et si vous êtes satisfait des performances, vous n’avez rien à faire. Si vous avez réduit le niveau tarifaire et si vous n’êtes pas satisfait des performances de SQL Database, réduisez vos charges de travail de base de données, ou passez à un niveau tarifaire supérieur.
 

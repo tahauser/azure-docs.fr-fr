@@ -4,7 +4,7 @@ description: "Découvrez comment planifier et concevoir des réseaux virtuels da
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planifier et concevoir des réseaux virtuels Azure
-La création d’un réseau virtuel à titre d’essai est assez facile, mais vous risquez de déployer plusieurs réseaux virtuels au fil du temps pour prendre en charge les besoins en production de votre organisation. La planification et la conception vous permettent de déployer des réseaux virtuels et de vous connecter aux ressources dont vous avez besoin plus efficacement. Si vous n’êtes pas familiarisé avec les réseaux virtuels, il est recommandé de [découvrir les réseaux virtuels](virtual-networks-overview.md) et d’apprendre [comment en déployer](virtual-networks-create-vnet-arm-pportal.md) un avant de continuer.
+La création d’un réseau virtuel à titre d’essai est assez facile, mais vous risquez de déployer plusieurs réseaux virtuels au fil du temps pour prendre en charge les besoins en production de votre organisation. La planification et la conception vous permettent de déployer des réseaux virtuels et de vous connecter aux ressources dont vous avez besoin plus efficacement. Si vous n’êtes pas familiarisé avec les réseaux virtuels, il est recommandé de [découvrir les réseaux virtuels](virtual-networks-overview.md) et d’apprendre [comment en déployer](quick-create-portal.md) un avant de continuer.
 
 ## <a name="plan"></a>Planification
 Une bonne compréhension des abonnements Azure, des régions et des ressources réseau est essentielle pour réussir. Vous pouvez utiliser la liste des éléments à prendre en compte ci-dessous comme point de départ. Une fois que vous avez compris ces éléments, vous pouvez définir les conditions requises pour la conception de votre réseau.
@@ -61,7 +61,7 @@ Les réseaux virtuels contiennent les propriétés suivantes.
 | Propriété | Description | Contraintes |
 | --- | --- | --- |
 | **name** |Nom du réseau virtuel |Chaîne de 80 caractères au maximum. Peut contenir des lettres, des chiffres, un trait de soulignement, des points ou des traits d’union. Doit commencer par une lettre ou un chiffre. Doit se terminer par une lettre, un chiffre ou un trait de soulignement. Peut contenir des majuscules ou minuscules. |
-| **emplacement** |Emplacement Azure (également appelé région). |Doit être l’un des emplacements Azure valides. |
+| **location** |Emplacement Azure (également appelé région). |Doit être l’un des emplacements Azure valides. |
 | **addressSpace** |Collection de préfixes d’adresses qui composent le réseau virtuel dans la notation CIDR. |Doit être un tableau de blocs d’adresses CIDR valides, y compris des plages d’adresses IP publiques. |
 | **Sous-réseaux** |Collection des sous-réseaux qui composent le réseau virtuel |consultez le tableau de propriétés des sous-réseaux ci-dessous. |
 | **dhcpOptions** |Objet qui contient une seule propriété obligatoire nommée **dnsServers**. | |
@@ -74,7 +74,7 @@ Les sous-réseaux contiennent les propriétés suivantes.
 | Propriété | Description | Contraintes |
 | --- | --- | --- |
 | **name** |Nom du sous-réseau |Chaîne de 80 caractères au maximum. Peut contenir des lettres, des chiffres, un trait de soulignement, des points ou des traits d’union. Doit commencer par une lettre ou un chiffre. Doit se terminer par une lettre, un chiffre ou un trait de soulignement. Peut contenir des majuscules ou minuscules. |
-| **emplacement** |Emplacement Azure (également appelé région). |Doit être l’un des emplacements Azure valides. |
+| **location** |Emplacement Azure (également appelé région). |Doit être l’un des emplacements Azure valides. |
 | **addressPrefix** |Préfixe d’adresse unique qui constitue le sous-réseau dans la notation CIDR |Doit être un bloc CIDR unique qui fait partie de l’un des espaces d’adressage  du réseau virtuel. |
 | **networkSecurityGroup** |NSG appliquée au sous-réseau | |
 | **routeTable** |Table de routage appliquée au sous-réseau | |
@@ -208,13 +208,13 @@ Vous devez également spécifier l’espace d’adressage pour chaque réseau vi
 
 | **Abonnement** | **Réseau virtuel** | **Région Azure** | **Espace d’adressage** |
 | --- | --- | --- | --- |
-| BU1 |ProdBU1US1 |Ouest des États-Unis |172.16.0.0/16 |
+| BU1 |ProdBU1US1 |États-Unis de l’Ouest |172.16.0.0/16 |
 | BU1 |ProdBU1US2 |Est des États-Unis |172.17.0.0/16 |
 | BU1 |ProdBU1EU1 |Europe du Nord |172.18.0.0/16 |
 | BU1 |ProdBU1EU2 |Europe de l'Ouest |172.19.0.0/16 |
-| BU1 |TestDevBU1 |Ouest des États-Unis |172.20.0.0/16 |
-| BU2 |TestDevBU2 |Ouest des États-Unis |172.21.0.0/16 |
-| BU2 |ProdBU2US1 |Ouest des États-Unis |172.22.0.0/16 |
+| BU1 |TestDevBU1 |États-Unis de l’Ouest |172.20.0.0/16 |
+| BU2 |TestDevBU2 |États-Unis de l’Ouest |172.21.0.0/16 |
+| BU2 |ProdBU2US1 |États-Unis de l’Ouest |172.22.0.0/16 |
 | BU2 |ProdBU2US2 |Est des États-Unis |172.23.0.0/16 |
 | BU2 |ProdBU2EU1 |Europe du Nord |172.24.0.0/16 |
 | BU2 |ProdBU2EU2 |Europe de l'Ouest |172.25.0.0/16 |

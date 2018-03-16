@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 976ddf25a57dd1eff66e121c5a66bc31f664a9dc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Prise en main d’Azure Data Lake Store avec Azure CLI 2.0
 > [!div class="op_single_selector"]
@@ -30,10 +30,11 @@ ms.lasthandoff: 01/10/2018
 
 Apprenez à utiliser Azure CLI 2.0 pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake Store, consultez [Vue d’ensemble de Data Lake Store](data-lake-store-overview.md).
 
-Azure CLI 2.0 est la nouvelle expérience de ligne de commande Azure pour la gestion des ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Pour plus d’informations, voir [Présentation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). Pour obtenir la liste complète des commandes et de la syntaxe, consultez la [Référence Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls).
+Azure CLI 2.0 est la nouvelle expérience de ligne de commande Azure pour la gestion des ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Pour plus d’informations, voir [Présentation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure). Pour obtenir la liste complète des commandes et de la syntaxe, consultez la [Référence Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls).
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -39,7 +39,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 ## <a name="create-a-network-interface"></a>Créer une interface réseau
 
-Lorsque vous créez une machine virtuelle par le biais du portail Azure, ce dernier crée pour vous une interface réseau avec des paramètres par défaut. Si vous préférez spécifier vous-même tous les paramètres de votre interface réseau, vous pouvez créer une interface réseau avec des paramètres personnalisés, puis l’attacher à une machine virtuelle lors de la création de cette dernière (à l’aide de PowerShell ou d’Azure CLI). Vous pouvez également créer une interface réseau et l’ajouter à une machine virtuelle existante (à l’aide de PowerShell ou d’Azure CLI). Pour savoir comment créer une machine virtuelle avec une interface réseau existante, ou comment ajouter ou supprimer des interfaces réseau sur des machines virtuelles existantes, consultez l’article [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md). Avant de créer une interface réseau, vous devez disposer d’un [réseau virtuel](virtual-networks-create-vnet-arm-pportal.md) dans les mêmes emplacement et abonnement que ceux dans lesquels vous créez l’interface.
+Lorsque vous créez une machine virtuelle par le biais du portail Azure, ce dernier crée pour vous une interface réseau avec des paramètres par défaut. Si vous préférez spécifier vous-même tous les paramètres de votre interface réseau, vous pouvez créer une interface réseau avec des paramètres personnalisés, puis l’attacher à une machine virtuelle lors de la création de cette dernière (à l’aide de PowerShell ou d’Azure CLI). Vous pouvez également créer une interface réseau et l’ajouter à une machine virtuelle existante (à l’aide de PowerShell ou d’Azure CLI). Pour savoir comment créer une machine virtuelle avec une interface réseau existante, ou comment ajouter ou supprimer des interfaces réseau sur des machines virtuelles existantes, consultez l’article [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md). Avant de créer une interface réseau, vous devez disposer d’un [réseau virtuel](manage-virtual-network.md#create-a-virtual-network) dans les mêmes emplacement et abonnement que ceux dans lesquels vous créez l’interface.
 
 1. Ouvrez une session sur le [portail Azure](https://portal.azure.com) à l’aide d’un compte disposant (au minimum) des autorisations associées au rôle Collaborateur de réseau de votre abonnement. Consultez l’article [Rôles intégrés pour contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) afin d’en savoir plus sur l’affectation des rôles et des autorisations aux comptes.
 2. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, saisissez *interfaces réseau*. Lorsque la mention **interfaces réseau** apparaît dans les résultats de recherche, cliquez dessus.
@@ -179,7 +179,7 @@ Lorsque vous supprimez une interface réseau, toutes les adresses MAC ou IP qui 
 |Interface de ligne de commande|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec plusieurs interfaces réseau ou adresses IP, lisez les articles suivants :
 
 **Commandes**

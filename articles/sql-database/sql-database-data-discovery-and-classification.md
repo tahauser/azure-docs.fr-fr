@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage**  & et la **protection** des données sensibles dans vos bases de données.
@@ -95,12 +95,12 @@ La classification comprend deux attributs de métadonnées :
 
 Un aspect important du paradigme de protection des informations est la possibilité de surveiller l’accès aux données sensibles.
 
-[L’audit Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre las classifications de la sensibilité (étiquettes) des données réelles retournées par la requête.
+[L’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre las classifications de la sensibilité (étiquettes) des données réelles retournées par la requête.
 
 ![Volet de navigation][11]
 
 ## <a id="subheading-4"></a>Étapes suivantes
-Vous pouvez configurer [l’audit Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
+Vous pouvez configurer [l’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

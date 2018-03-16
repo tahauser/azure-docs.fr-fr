@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
 
@@ -31,7 +31,7 @@ Cet article comprend deux parties principales :
     * Le didacticiel utilise l’exemple d’application SaaS Wingtip Tickets, adaptée à l’application autonome par modèle de client.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Modèle d’application autonome par client
-L’application autonome par modèle de client est l’un des modèles pour les applications SaaS mutualisées.  Dans ce modèle, une application autonome est approvisionnée pour chaque client. L’application comprend des composants de niveau application et une base de données SQL.  Chaque application cliente peut être déployée dans l’abonnement du fournisseur.  Azure offre également un [programme d’applications managées](https://docs.microsoft.com/en-us/azure/managed-applications/overview) dans le cadre duquel une application peut être déployée dans l’abonnement d’un client et gérée par le fournisseur pour le compte du client. 
+L’application autonome par modèle de client est l’un des modèles pour les applications SaaS mutualisées.  Dans ce modèle, une application autonome est approvisionnée pour chaque client. L’application comprend des composants de niveau application et une base de données SQL.  Chaque application cliente peut être déployée dans l’abonnement du fournisseur.  Azure offre également un [programme d’applications managées](https://docs.microsoft.com/azure/managed-applications/overview) dans le cadre duquel une application peut être déployée dans l’abonnement d’un client et gérée par le fournisseur pour le compte du client. 
 
    ![modèle d’application-par-client](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Si l’application et la base de données de chaque client sont totalement isol�
 Le catalogue de clients contient un mappage entre un identificateur de client et une base de données client, ce qui permet qu’un identificateur soit résolu en un serveur et un nom de base de données.  Dans l’application SaaS Wingtip, l’identificateur du client est calculé comme un hachage du nom de client, bien que d’autres schémas pourraient être utilisés.  Si les applications autonomes n’ont pas besoin du catalogue pour gérer les connexions, le catalogue peut être utilisé pour définir l’étendue d’autres actions sur un ensemble de bases de données client. Par exemple, une demande élastique peut utiliser le catalogue pour déterminer l’ensemble des bases de données sur lesquelles les requêtes sont distribuées pour la création de rapports inter-client.
 
 ## <a name="elastic-database-client-library"></a>Bibliothèque cliente de base de données élastique
-Dans l’exemple d’application SaaS Wingtip, le catalogue est implémenté par les fonctionnalités de gestion de partitionnement de base de données de la [bibliothèque cliente de bases de données élastiques](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library).  La bibliothèque permet à une application de créer, gérer et utiliser une carte de partitions stockée dans une base de données. Dans l’exemple Wingtip Tickets, le catalogue est stocké dans la base de données du *catalogue de clients*.  La partition mappe une clé de client à la partition (base de données) dans laquelle sont stockées les données de ce client.  Les fonctions de bibliothèque cliente de bases de données élastiques gèrent une *carte de partitions globale* stockée dans des tables d’une base de données de *catalogue du client* et une *carte de partitions locale* stockée dans chaque partition.
+Dans l’exemple d’application SaaS Wingtip, le catalogue est implémenté par les fonctionnalités de gestion de partitionnement de base de données de la [bibliothèque cliente de bases de données élastiques](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library).  La bibliothèque permet à une application de créer, gérer et utiliser une carte de partitions stockée dans une base de données. Dans l’exemple Wingtip Tickets, le catalogue est stocké dans la base de données du *catalogue de clients*.  La partition mappe une clé de client à la partition (base de données) dans laquelle sont stockées les données de ce client.  Les fonctions de bibliothèque cliente de bases de données élastiques gèrent une *carte de partitions globale* stockée dans des tables d’une base de données de *catalogue du client* et une *carte de partitions locale* stockée dans chaque partition.
 
 Les fonctions de bibliothèque cliente de bases de données élastiques peuvent être appelées à partir d’applications ou de scripts PowerShell pour créer et gérer les entrées dans la carte de partitions. D’autres fonctions de la bibliothèque cliente de bases de données élastiques peuvent être utilisées pour récupérer l’ensemble de partitions ou se connecter à la base de données correcte pour une clé de client donnée. 
     
@@ -67,9 +67,10 @@ Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’
 À la fin de ce didacticiel, vous avez un ensemble d’applications clientes autonomes, avec chaque base de données inscrite dans le catalogue.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis : 
 * Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Les trois exemples d’applications clientes sont déployés. Pour déployer ces applications en moins de cinq minutes, voir [Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Les trois exemples d’applications clientes sont déployés. Pour déployer ces applications en moins de cinq minutes, voir [Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Approvisionner le catalogue
 Cette tâche montre comment configurer le catalogue utilisé pour inscrire toutes les bases de données client. Vous allez effectuer les étapes suivantes : 
@@ -149,4 +150,4 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Explorer les serveurs et les bases de données qui composent l’application.
 > * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
 
-Vous pouvez explorer la manière dont le catalogue est utilisé pour prendre en charge différents scénarios inter-clients à l’aide de la version base de données par client de [l’application SaaS de Tickets Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Vous pouvez explorer la manière dont le catalogue est utilisé pour prendre en charge différents scénarios inter-clients à l’aide de la version base de données par client de [l’application SaaS de Tickets Wingtip](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
