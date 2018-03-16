@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -30,12 +30,12 @@ Cet article vous indique comment configurer la récupération d’urgence vers u
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce scénario :
 
 - Examinez [l’architecture et les composants du scénario](hyper-v-vmm-architecture.md).
-- Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md) pour tous les composants.
-- Assurez-vous que les serveurs VMM et les hôtes Hyper-V sont conformes aux [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md).
-- Vérifiez que les machines virtuelles à répliquer sont conformes aux [exigences de prise en charge de la machine répliquée](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Assurez-vous que les serveurs VMM et les hôtes Hyper-V sont conformes aux [exigences de prise en charge](hyper-v-vmm-secondary-support-matrix.md).
+- Vérifiez que les machines virtuelles à répliquer sont conformes aux [exigences de prise en charge de la machine répliquée](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Préparez les serveurs VMM pour le mappage réseau.
 
 ### <a name="prepare-for-network-mapping"></a>Préparer le mappage réseau

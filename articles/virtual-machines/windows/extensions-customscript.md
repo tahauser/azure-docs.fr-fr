@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 454bfde69248538a92d2fc447c54509afb08129a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -27,7 +27,8 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 
 Ce document explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 > [!NOTE]  
 > N’utilisez pas l’extension de script personnalisé pour exécuter Update-AzureRmVM avec la même machine virtuelle en tant que paramètre, car elle s’attendra elle-même.  
@@ -138,7 +139,7 @@ où `<n>` est un entier décimal, qui peut changer d’une exécution de l’ext
 
 Étant donné que le chemin de téléchargement absolu peut varier au fil du temps, il est préférable d’opter pour des chemins d’accès au script/fichier relatifs dans la chaîne `commandToExecute`, si possible. Par exemple : 
 ```json
-    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+    "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 Les informations de chemin d’accès après le premier segment d’URI sont conservées pour les fichiers téléchargés par le biais de la liste de propriétés `fileUris`.  Comme l’indique le tableau ci-dessous, les fichiers téléchargés sont mappés avec des sous-répertoires de téléchargement afin de refléter la structure des valeurs `fileUris`.  

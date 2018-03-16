@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Utilisation de l’interface de ligne de commande Azure sur Windows
 
 L’interface de ligne de commande Azure (CLI) fournit un environnement de script et de ligne de commande pour la création et la gestion des ressources Azure. Azure CLI est disponible pour les systèmes d’exploitation Windows, Linux et Mac OS. Dans ces systèmes d’exploitation, les commandes CLI sont identiques, mais la syntaxe de script peut varier.
 
-Ce document détaille la façon dont l’interface de ligne de commande Azure peut être installée et exécutée sur Windows, ainsi que sa syntaxe. Pour en savoir plus sur Azure CLI, voir la [documentation Azure CLI]( https://docs.microsoft.com/cli/azure/overview).
+Ce document détaille la façon dont l’interface de ligne de commande Azure peut être installée et exécutée sur Windows, ainsi que sa syntaxe. Pour en savoir plus sur Azure CLI, voir la [documentation Azure CLI]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Sous-système Windows pour Linux
 
@@ -33,7 +33,7 @@ Le sous-système Windows pour Linux fournit un environnement Linux Ubuntu sur la
 
 Pour utiliser l’interface de ligne de commande Azure dans le sous-système Windows pour Linux, procédez comme suit.
 
-|Task | Instructions |
+|Tâche | Instructions |
 |---|---|
 | Activer le sous-système Windows pour Linux | [Documentation d’installation du sous-système Windows pour Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Installer l’interface de ligne de commande Microsoft Azure |[Installer l’interface de ligne de commande sur le sous-système Windows pour Linux/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|

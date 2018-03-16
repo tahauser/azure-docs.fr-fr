@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 694d75807d978ece6296b945bf348f08688d3b5d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 48504f258b13a7ff5f4c91db2d9de09269e92424
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Utilisation avancée du modèle de programmation de services fiables
 Azure Service Fabric simplifie l’écriture et la gestion des services fiables avec et sans état. Ce guide vous présente les utilisations avancées de Reliable Services offrant plus de contrôle et de flexibilité sur vos services. Avant de lire ce guide, familiarisez-vous avec [le modèle de programmation de services fiables](service-fabric-reliable-services-introduction.md).
@@ -40,11 +40,6 @@ Bien que `RunAsync` devrait suffire dans presque tous les cas, les événements 
 * `void OnAbort() - C# / void onAbort() - Java` OnAbort est appelée lorsque l’instance du service sans état est arrêtée brutalement. Cette méthode est généralement appelée lorsqu'une erreur permanente est détectée sur le nœud, ou lorsque Service Fabric ne peut pas gérer de façon fiable le cycle de vie de l'instance du service en raison de défaillances internes.
 
 ## <a name="stateful-service-replica-lifecycle"></a>Cycle de vie d’un réplica de service avec état
-
-> [!NOTE]
-> Les services fiables avec état ne sont pas encore pris en charge par Java.
->
->
 
 Le cycle de vie d’un réplica de service avec état est beaucoup plus complexe qu’une instance de service sans état. En plus des événements d’ouverture, de fermeture et d’abandon, un réplica de service avec état subit des modifications de rôle pendant sa durée de vie. Lorsqu’un réplica de service avec état change de rôle, l’événement `OnChangeRoleAsync` est déclenché :
 

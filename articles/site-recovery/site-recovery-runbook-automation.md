@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
@@ -193,7 +193,7 @@ Pour chaque plan de récupération, créez des variables indépendantes afin de 
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Utiliser une variable complexe pour stocker plus d’informations
 
-Imaginez un scénario dans le cadre duquel vous souhaitez disposer d’un script unique pour activer une adresse IP publique sur des machines virtuelles spécifiques. Dans un autre scénario, vous pourriez vouloir appliquer différents groupes de sécurité réseau à différentes machines virtuelles (au lieu de toutes). Vous pouvez créer un script réutilisable pour tout plan de récupération. Chaque plan de récupération peut avoir un nombre variable de machines virtuelles. Par exemple, une récupération SharePoint a deux serveurs frontaux. Une application métier n’a qu’un seul serveur frontal. Vous ne pouvez pas créer des variables distinctes pour chaque plan de récupération. 
+Imaginez un scénario dans le cadre duquel vous souhaitez disposer d’un script unique pour activer une adresse IP publique sur des machines virtuelles spécifiques. Dans un autre scénario, vous pourriez vouloir appliquer différents groupes de sécurité réseau à différentes machines virtuelles (au lieu de toutes). Vous pouvez créer un script réutilisable pour tout plan de récupération. Chaque plan de récupération peut avoir un nombre variable de machines virtuelles. Par exemple, une récupération SharePoint a deux serveurs frontaux. Une application métier n’a qu’un seul serveur frontal. Vous ne pouvez pas créer des variables distinctes pour chaque plan de récupération.
 
 Dans l’exemple suivant, nous utilisons une nouvelle technique et créons une [variable complexe](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) dans les ressources du compte Azure Automation. Pour ce faire, spécifiez plusieurs valeurs. Vous devez utiliser Azure PowerShell pour suivre les étapes suivantes :
 

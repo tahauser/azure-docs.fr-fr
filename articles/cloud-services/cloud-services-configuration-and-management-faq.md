@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -47,7 +47,7 @@ Cet article comprend des questions fréquentes sur les problèmes de configurati
 - [Quelles sont les fonctionnalités et capacités IPS/ID et DDOS de base sur Azure ?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Comment activer HTTP/2 sur la machine virtuelle de services cloud ?](#how-to-enable-http2-on-cloud-services-vm)
 
-**Autorisations**
+**autorisations**
 
 - [Les ingénieurs internes Microsoft peuvent-ils se connecter en utilisant le Bureau à distance à des instances de service cloud sans autorisation ?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Je ne peux pas me connecter en utilisant le Bureau à distance à la machine virtuelle de service cloud à l’aide du fichier RDP. J’obtiens l’erreur suivante : Une erreur d’authentification s’est produite (Code : 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)

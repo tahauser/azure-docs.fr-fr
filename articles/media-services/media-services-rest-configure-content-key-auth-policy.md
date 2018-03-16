@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -43,7 +43,7 @@ Pour plus d’informations, consultez les articles suivants :
 * Votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif. Pour plus d'informations, consultez [Encoder une ressource](media-services-encode-asset.md).
 * Chargez et codez vos ressources à l’aide de l’option AssetCreationOptions.StorageEncrypted.
 * Si vous prévoyez d’avoir plusieurs clés de contenu qui nécessitent la même configuration de stratégie, nous vous recommandons de créer une stratégie d’autorisation unique et de la réutiliser avec plusieurs clés de contenu.
-* Le service de remise de clé met en cache ContentKeyAuthorizationPolicy et ses objets connexes (options de stratégie et restrictions) pendant 15 minutes. Vous pouvez créer une stratégie ContentKeyAuthorizationPolicy et spécifier l’utilisation d’une restriction de jeton, la tester, puis mettre à jour la stratégie avec la restriction ouverte. Ce processus prend environ 15 minutes avant que la stratégie ne passe à la version ouverte de la stratégie.
+* Le service de remise de clé met en cache ContentKeyAuthorizationPolicy et ses objets connexes (options de stratégie et restrictions) pendant 15 minutes. Vous pouvez créer une stratégie ContentKeyAuthorizationPolicy et spécifier l’utilisation d’une restriction de jeton, la tester, puis mettre à jour la stratégie avec la restriction ouverte. Ce processus prend environ 15 minutes avant que la stratégie ne passe à la version ouverte de la stratégie.
 * Si vous ajoutez ou mettez à jour la stratégie de distribution de votre élément multimédia, vous devez supprimer tout localisateur existant et en créer un nouveau.
 * Actuellement, vous ne pouvez pas chiffrer les téléchargements progressifs.
 * Un point de terminaison de streaming Media Services définit la valeur de l’en-tête Access-Control-Allow-Origin CORS dans la réponse préliminaire comme le caractère générique « \* ». Cela fonctionne bien avec la plupart des lecteurs, notamment Azure Media Player, Roku et JWPlayer. Cependant, certains lecteurs qui utilisent dash.js ne fonctionnent pas, car avec le mode des informations d’identification défini sur « inclure », XMLHttpRequest dans leur dash.js n’autorise pas le caractère générique « \* » comme valeur de Access-Control-Allow-Origin. Comme solution de contournement de cette limitation dans dash.js, si vous hébergez votre client à partir d’un domaine unique, Media Services peut indiquer ce domaine dans l’en-tête de la réponse préliminaire. Pour obtenir une assistance, ouvrez un ticket de support par le biais du portail Azure.
@@ -177,7 +177,7 @@ Réponse :
     HTTP/1.1 204 No Content
 
 ### <a name="token-restriction"></a>Restriction à jeton
-Cette section décrit comment créer une stratégie d’autorisation de clé de contenu et l’associer à la clé de contenu. La stratégie d’autorisation décrit les conditions d’autorisation devant être remplies pour déterminer si l’utilisateur est autorisé à recevoir la clé. Par exemple, la liste des clés de vérification contient-elle la clé avec laquelle le jeton a été signé ?
+Cette section décrit comment créer une stratégie d’autorisation de clé de contenu et l’associer à la clé de contenu. La stratégie d’autorisation décrit les conditions d’autorisation devant être remplies pour déterminer si l’utilisateur est autorisé à recevoir la clé. Par exemple, la liste des clés de vérification contient-elle la clé avec laquelle le jeton a été signé ?
 
 Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML suivant :
 
@@ -280,7 +280,7 @@ Liez ContentKeyAuthorizationPolicies avec les options, comme illustré dans la s
 Ajoutez AuthorizationPolicy à ContentKey, comme indiqué dans la section [Ajouter une stratégie d’autorisation à la clé de contenu](#AddAuthorizationPolicyToKey).
 
 ## <a name="playready-dynamic-encryption"></a>Chiffrement dynamique PlayReady
-Media Services vous permet de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent lorsqu’un utilisateur tente de lire un contenu protégé. 
+Media Services vous permet de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent quand un utilisateur tente de lire un contenu protégé. 
 
 Quand vous protégez votre contenu avec PlayReady, vous devez spécifier dans votre stratégie d’autorisation une chaîne XML qui définit le [modèle de licence PlayReady](media-services-playready-license-template-overview.md). 
 

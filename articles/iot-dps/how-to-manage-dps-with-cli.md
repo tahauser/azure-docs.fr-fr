@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 674245f1e284e7308474fed0f6c53b350ec1c819
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Comment utiliser Azure CLI 2.0 et l’extension IoT pour gérer les services Device Provisioning
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) est un outil à ligne de commande open source et multiplateforme, destiné à la gestion des ressources Azure telles que IoT Edge. Azure CLI 2.0 est disponible sur Windows, Linux et Mac OS. Azure CLI 2.0 vous permet de gérer les ressources Azure IoT Hub, les instances de service Device Provisioning et les hubs liés dès l’installation.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) est un outil à ligne de commande open source et multiplateforme, destiné à la gestion des ressources Azure telles que IoT Edge. Azure CLI 2.0 est disponible sur Windows, Linux et Mac OS. Azure CLI 2.0 vous permet de gérer les ressources Azure IoT Hub, les instances de service Device Provisioning et les hubs liés dès l’installation.
 
 L’extension IoT enrichit Azure CLI 2.0 avec des fonctionnalités telles que la gestion des périphériques et la fonctionnalité complète de IoT Edge.
 

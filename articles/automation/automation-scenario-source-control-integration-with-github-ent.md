@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
 ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scénario Azure Automation - Intégration du contrôle de code source Automation avec GitHub Enterprise
 
-Automation prend actuellement en charge l’intégration du contrôle de code source, qui vous permet d’associer des runbooks dans votre compte Automation à un dépôt de contrôle de code source GitHub. Toutefois, les clients qui ont déployé [GitHub Enterprise](https://enterprise.github.com/home) pour prendre en charge leurs pratiques DevOps, souhaitent également l’utiliser pour gérer le cycle de vie des runbooks développés afin d’automatiser les processus d’entreprise et les opérations de gestion des services.  
+Automation prend actuellement en charge l’intégration du contrôle de code source, qui vous permet d’associer des runbooks dans votre compte Automation à un référentiel de contrôle de code source GitHub. Toutefois, les clients qui ont déployé [GitHub Enterprise](https://enterprise.github.com/home) pour prendre en charge leurs pratiques DevOps, souhaitent également l’utiliser pour gérer le cycle de vie des runbooks développés afin d’automatiser les processus d’entreprise et les opérations de gestion des services.  
 
-Dans ce scénario, vous disposez d’un ordinateur Windows dans votre centre de données, configuré en tant que Runbook Worker hybride, sur lequel les modules Azure Resource Manager et les outils Git sont installés. L’ordinateur worker hybride inclut un clone du dépôt Git local. Lorsque le runbook est exécuté sur le Worker hybride, le répertoire Git est synchronisé et le contenu du fichier de runbook est importé dans le compte Automation.
+Dans ce scénario, vous disposez d’un ordinateur Windows dans votre centre de données, configuré en tant que Runbook Worker hybride, sur lequel les modules Azure Resource Manager et les outils Git sont installés. L’ordinateur Worker hybride inclut un clone du référentiel Git local. Lorsque le runbook est exécuté sur le Worker hybride, le répertoire Git est synchronisé et le contenu du fichier de runbook est importé dans le compte Automation.
 
 Cet article décrit comment procéder à cette configuration dans votre environnement Azure Automation. Commencez par configurer Automation avec les informations d’identification de sécurité, les runbooks nécessaires pour prendre en charge ce scénario et le déploiement d’un Runbook Worker hybride dans votre centre de données pour exécuter les runbooks et accéder à votre dépôt GitHub Enterprise afin de synchroniser des runbooks avec votre compte Automation.  
 
@@ -35,20 +35,21 @@ Ce scénario se compose de deux runbooks PowerShell que vous pouvez importer dir
 
 ### <a name="runbooks"></a>Runbooks
 
-Runbook | DESCRIPTION| 
+Runbook | Description| 
 --------|------------|
 Export-RunAsCertificateToHybridWorker | Ce runbook exporte un certificat d’identification (RunAs) d’un compte Automation vers un Worker hybride afin que les runbooks sur le Worker puissent s’authentifier auprès d’Azure pour pouvoir importer les runbooks dans le compte Automation.| 
 Sync-LocalGitFolderToAutomationAccount | Ce runbook synchronise le dossier Git local sur l’ordinateur hybride, puis importe les fichiers de runbook (*.ps1) dans le compte Automation.|
 
 ### <a name="credentials"></a>Informations d'identification
 
-Informations d'identification | DESCRIPTION|
+Informations d'identification | Description|
 -----------|------------|
 GitHRWCredential | La ressource d’informations d’identification que vous créez inclut le nom d’utilisateur et le mot de passe d’un utilisateur disposant d’autorisations sur le Worker hybride.|
 
 ## <a name="installing-and-configuring-this-scenario"></a>Installation et configuration de ce scénario
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 1. Le runbook Sync-LocalGitFolderToAutomationAccount s’authentifie à l’aide du [Compte d’identification Azure](automation-sec-configure-azure-runas-account.md). 
 

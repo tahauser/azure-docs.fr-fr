@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurer un réseau virtuel (Classic) à l’aide d’un fichier config réseau
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Vous pouvez utiliser PowerShell ou l’interface CLI Azure pour exporter un fic
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Créer ou modifier un fichier config réseau
 
-Un fichier config réseau est un fichier XML (lorsque vous utilisez PowerShell) ou un fichier JSON (lorsque vous utilisez l’interface de ligne de commande Azure CLI). Vous pouvez modifier le fichier dans n’importe quel éditeur de texte, ou XML/JSON. L’article [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Paramètres de schéma de fichier config réseau) inclut des informations détaillées pour tous les paramètres. Pour obtenir des explications supplémentaires sur les paramètres, consultez [Afficher des réseaux virtuels et des paramètres](virtual-network-manage-network.md#view-vnet). Les modifications apportées au fichier :
+Un fichier config réseau est un fichier XML (lorsque vous utilisez PowerShell) ou un fichier JSON (lorsque vous utilisez l’interface de ligne de commande Azure CLI). Vous pouvez modifier le fichier dans n’importe quel éditeur de texte, ou XML/JSON. L’article [Network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Paramètres de schéma de fichier config réseau) inclut des informations détaillées pour tous les paramètres. Pour obtenir des explications supplémentaires sur les paramètres, consultez [Afficher des réseaux virtuels et des paramètres](manage-virtual-network.md#view-virtual-networks-and-settings). Les modifications apportées au fichier :
 
 - Doivent respecter le schéma, sans quoi l’importation du fichier config réseau échouera.
 - Remplacent les paramètres réseau existants de votre abonnement : soyez donc très vigilant lors de vos modifications. Par exemple, servez-vous des exemples de fichier config réseau qui suivent. Supposons que le fichier d’origine contienne deux instances **VirtualNetworkSite** et que vous l’avez modifié comme indiqué dans les exemples. Lorsque vous importez le fichier, Azure supprime le réseau virtuel de l’instance **VirtualNetworkSite** que vous avez supprimée dans le fichier. Ce scénario simplifié suppose qu’aucune ressource ne se trouve dans le réseau virtuel, car dans le cas contraire, le réseau virtuel ne pourrait pas être supprimé, et l’importation échouerait.

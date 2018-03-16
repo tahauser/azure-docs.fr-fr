@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport de Azure Site Recovery Deployment Planner
 Le rapport Microsoft Excel généré contient les feuilles suivantes :
@@ -132,16 +132,16 @@ Le graphique affiche la vue Résumé du coût estimé de la récupération d’u
 ![Résumé de l’estimation des coûts](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 Le résumé vous aide à comprendre le coût que vous devez payer pour le stockage, le calcul, le réseau et la licence lorsque vous protégez toutes vos machines virtuelles compatibles avec Azure à l’aide de Azure Site Recovery. Le coût est calculé à partir de machines virtuelles compatibles et non sur toutes les machines virtuelles profilées.  
- 
+
 Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [régions cibles prises en charge](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) et les [devises prises en charge](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Coût par composant** Le coût total de la récupération d’urgence est divisé en quatre composants : coût de la licence d’Azure Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence de Azure Site Recovery.
 
-**Coût par état** Le coût total de la récupération d’urgence (DR) est catégorisé selon deux états différents, la réplication et l’extraction de la récupération d’urgence. 
+**Coût par état** Le coût total de la récupération d’urgence (DR) est catégorisé selon deux états différents, la réplication et l’extraction de la récupération d’urgence.
 
-**Coût de la réplication** : le coût qui sera engendré par la réplication. Il couvre le coût du stockage, du réseau et de la licence d’Azure Site Recovery. 
+**Coût de la réplication** : le coût qui sera engendré par la réplication. Il couvre le coût du stockage, du réseau et de la licence d’Azure Site Recovery.
 
-**Coût d’extraction de la récupération d’urgence** : le coût engendré par les basculements de test. Azure Site Recovery prépare des machines virtuelles pendant le basculement de test. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution. 
+**Coût d’extraction de la récupération d’urgence** : le coût engendré par les basculements de test. Azure Site Recovery prépare des machines virtuelles pendant le basculement de test. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution.
 
 **Coût de stockage Azure par mois/année** Il montre le coût de stockage total qui sera engagé pour le stockage standard et premium pour la réplication et l’extraction de récupération d’urgence.
 Vous pouvez afficher une analyse détaillée des coûts par machine virtuelle dans la feuille [Estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md).
@@ -266,7 +266,7 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.
 
-**OS Type** : le type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle. 
+**OS Type** : le type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle.
 
 ## <a name="azure-site-recovery-limits"></a>Limites Azure Site Recovery
 Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Pour de meilleurs résultats, même après la planification du déploiement, nous vous recommandons toujours d’effectuer des tests d’application approfondis à l’aide d’un test de basculement pour obtenir une image réelle des performances de l’application.
@@ -282,15 +282,15 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |10 Mo/s | 842 Go par 
 
 **Activité de données sources** | **Limite maximale**
 ---|---
-Activité moyenne des données par machine virtuelle| 25 Mo/s 
+Activité moyenne des données par machine virtuelle| 25 Mo/s
 Activité des données de pointe sur tous les disques d’une machine virtuelle | 54 Mo/s
-Activité des données maximale par jour prise en charge par un serveur de processus | 2 To 
+Activité des données maximale par jour prise en charge par un serveur de processus | 2 To
 
 Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 pour cent. Site Recovery est capable de gérer un débit plus élevé en fonction du ratio de chevauchement, de tailles d’écriture plus grandes et du comportement d’E/S des charges de travail réelles. Les valeurs précédentes supposent un retard de traitement typique de cinq minutes. Autrement dit, une fois que les données sont chargées, elles sont traitées, et un point de récupération est créé dans un délai de cinq minutes.
 
 
 ## <a name="cost-estimation"></a>Estimation des coûts
-En savoir plus sur [l’estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+En savoir plus sur [l’estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

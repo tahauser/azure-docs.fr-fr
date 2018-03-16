@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Créer un appareil simulé
 
@@ -84,6 +84,7 @@ La vidéo suivante explique pas à pas comment connecter des appareils simulés 
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Une instance déployée de la solution de surveillance à distance dans votre abonnement Azure. Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez terminer le didacticiel [Déployer la solution de surveillance à distance préconfigurée](iot-suite-remote-monitoring-deploy.md).
@@ -104,7 +105,7 @@ Effectuez les tâches suivantes afin de préparer votre environnement de dévelo
 
 Quand vous avez créé votre solution de surveillance à distance sur [www.azureiotsuite.com](https://www.azureiotsuite.com), vous avez choisi un nom de solution. Le nom de la solution devient le nom du groupe de ressources Azure qui contient les différentes ressources déployées utilisées par la solution. Les commandes suivantes utilisent un groupe de ressources nommé **Contoso-01**. Vous devez remplacer **Contoso-01** par le nom de votre groupe de ressources.
 
-Ces commandes utilisent la commande `az` [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Vous pouvez installer Azure CLI 2.0 sur votre ordinateur de développement, ou utiliser [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dans le [portail Azure](http://portal.azure.com). Azure CLI 2.0 est préinstallé dans Cloud Shell.
+Ces commandes utilisent la commande `az` [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Vous pouvez installer Azure CLI 2.0 sur votre ordinateur de développement, ou utiliser [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dans le [portail Azure](http://portal.azure.com). Azure CLI 2.0 est préinstallé dans Cloud Shell.
 
 1. Pour vérifier le nom du groupe de ressources qui contient vos ressources de surveillance à distance, exécutez la commande suivante :
 

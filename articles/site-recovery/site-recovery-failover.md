@@ -2,28 +2,23 @@
 title: Basculement dans Site Recovery | Microsoft Docs
 description: "Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Informez-vous sur le basculement dans Microsoft Azure ou un centre de données secondaire."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
-ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
 
 ## <a name="prerequisites"></a>Prérequis
+
 1. Avant de procéder à un basculement, effectuez un [test de basculement](site-recovery-test-failover-to-azure.md) pour vous vérifier que tout fonctionne comme prévu.
 1. Avant le basculement, [préparez le réseau](site-recovery-network-design.md) au niveau de l’emplacement cible.  
 
@@ -96,18 +91,18 @@ Le déclenchement d’un basculement implique les étapes suivantes :
 Dans certains cas, le basculement des machines virtuelles nécessite une étape supplémentaire intermédiaire qui dure généralement de 8 à 10 minutes. Dans les cas suivants, le temps de basculement sera plus élevé que prévu :
 
 * Machines virtuelles VMware utilisant une version antérieure à la 9.8 pour le service de mobilité
-* Serveurs physiques 
+* Serveurs physiques
 * Machines virtuelles VMware Linux
 * Machines virtuelles Hyper-V protégées en tant que serveurs physiques
-* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * Machines virtuelles VMware qui n’ont pas de service DHCP activé, que vous utilisiez des adresses IP statiques ou DHCP
 
-Dans tous les autres cas, cette étape intermédiaire n’est pas utile et le temps nécessaire au basculement est réduit. 
+Dans tous les autres cas, cette étape intermédiaire n’est pas utile et le temps nécessaire au basculement est réduit.
 
 
 
@@ -118,7 +113,7 @@ Si vous le souhaitez, vous pouvez automatiser certaines actions pendant l’exé
 
 ## <a name="post-failover-considerations"></a>Points à prendre en compte après le basculement
 Après le basculement, vous souhaiterez peut-être prendre en compte les recommandations suivantes :
-### <a name="retaining-drive-letter-after-failover"></a>Conserver la lettre de lecteur après le basculement 
+### <a name="retaining-drive-letter-after-failover"></a>Conserver la lettre de lecteur après le basculement
 Pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle sur **Activé**. [En savoir plus](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
@@ -126,8 +121,8 @@ Pour conserver la lettre de lecteur sur les machines virtuelles après basculeme
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!WARNING]
-> Une fois le basculement des machines virtuelles effectué et le centre de données local disponible, vous devez [**à nouveau protéger**](site-recovery-how-to-reprotect.md) les machines virtuelles VMware dans le centre de données local.
+> Une fois le basculement des machines virtuelles effectué et le centre de données local disponible, vous devez [**à nouveau protéger**](vmware-azure-reprotect.md) les machines virtuelles VMware dans le centre de données local.
 
-Utilisez l’option [**Basculement planifié**](site-recovery-failback-from-azure-to-hyper-v.md) pour **restaurer automatiquement** les machines virtuelles Hyper-v en local à partir d’Azure.
+Utilisez l’option [**Basculement planifié**](hyper-v-azure-failback.md) pour **restaurer automatiquement** les machines virtuelles Hyper-v en local à partir d’Azure.
 
 Si vous avez basculé une machine virtuelle Hyper-v vers un autre centre de données local géré par un serveur VMM et que le centre de données principal est disponible, utilisez l’option **Réplication inverse** pour redémarrer la réplication vers le centre de données principal.

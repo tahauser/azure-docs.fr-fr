@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
 
@@ -46,7 +46,7 @@ Voir [Gestion de la disponibilité des machines virtuelles Windows](virtual-mach
 L’un des deux [modèles de déploiement](resource-manager-deployment-model.md) utilisés pour déployer des ressources dans Azure (Azure Resource Manager est le modèle plus récent). Certains services Azure prennent en charge uniquement le modèle de déploiement du Gestionnaire de ressources, certains prennent en charge uniquement le modèle de déploiement standard, et d’autres prennent en charge les deux. La documentation de chaque service Azure spécifie le ou les modèles qu’il prend en charge.
 
 ## <a name="cli"></a>Interface de ligne de commande Microsoft Azure
-Interface de ligne de commande qui peut être utilisée pour gérer les services Azure à partir de Windows, macOS et Linux.  Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande. Voir [Azure CLI 2.0](/cli/azure/overview)
+Interface de ligne de commande qui peut être utilisée pour gérer les services Azure à partir de Windows, macOS et Linux.  Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande. Voir [Azure CLI 2.0](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Interface de ligne de commande permettant de gérer les services Azure via une ligne de commande sur un PC Windows. Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande.
@@ -124,7 +124,7 @@ Signature qui vous permet d’accorder un accès limité à une ressource, sans 
 Compte qui vous donne accès aux services Azure Objet blob, File d’attente, Table et Fichier dans le stockage Azure. Le nom du compte de stockage définit l’espace de noms unique pour vos objets de données de stockage Azure.  
 Voir [À propos des comptes de stockage Azure](storage/common/storage-create-storage-account.md)
 
-## <a name="subscription"></a>abonnement
+## <a name="subscription"></a>subscription
 Accord d’un client avec Microsoft qui lui permet de bénéficier de services Azure. La tarification des abonnements et les conditions associées sont régies par l’offre choisie pour l’abonnement.
 Voir [Contrat d’abonnement à Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) et [Association des abonnements Azure avec Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 

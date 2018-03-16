@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 5c099a7fd8848c2934603ec9b2db8947885226f9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c9df11e528601d94cb72a8e3ef0868dc7781e12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure
 
@@ -32,9 +32,10 @@ Le contrôle d’accès en fonction du rôle (RBAC) vous permet de définir l’
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour pouvoir gérer RBAC à partir d’Azure CLI, vous devez satisfaire les prérequis suivants :
 
-* [Azure CLI 2.0](/cli/azure/overview). Vous pouvez l’utiliser dans votre navigateur avec [Azure Cloud Shell](../cloud-shell/overview.md) ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux et Windows et l’exécuter à partir de la ligne de commande.
+* [Azure CLI 2.0](/cli/azure). Vous pouvez l’utiliser dans votre navigateur avec [Azure Cloud Shell](../cloud-shell/overview.md) ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux et Windows et l’exécuter à partir de la ligne de commande.
 
 ## <a name="list-roles"></a>Répertorier les rôles
 
@@ -188,9 +189,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-access"></a>Lister les accès
+## <a name="list-access"></a>Répertorier les accès
 
-### <a name="list-role-assignments-for-a-user"></a>Lister les attributions de rôles pour un utilisateur
+### <a name="list-role-assignments-for-a-user"></a>Répertorier les attributions de rôles pour un utilisateur
 
 Pour lister les attributions de rôles d’un utilisateur déterminé, utilisez [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) :
 
@@ -248,7 +249,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ## <a name="assign-access"></a>Attribuer l’accès
 
-### <a name="assign-a-role-to-a-user"></a>Attribuer un rôle à un utilisateur
+### <a name="assign-a-role-to-a-user"></a>Affecter un rôle à un utilisateur
 
 Pour attribuer un rôle à un utilisateur dans l’étendue du groupe de ressources, utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) :
 
@@ -296,7 +297,7 @@ L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à une
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-access"></a>Retirer l’accès
+## <a name="remove-access"></a>Suppression d'accès
 
 ### <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 

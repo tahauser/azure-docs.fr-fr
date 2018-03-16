@@ -1,4 +1,4 @@
-| Ressource | Gratuit | Partagé (version préliminaire) | De base | standard | Premium (version préliminaire)</th> |
+| Ressource | Gratuit | Partagé (version préliminaire) | De base | standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Applications Web, mobiles ou API](https://azure.microsoft.com/services/app-service/) par [plan App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup> |
 | [Applications logiques](https://azure.microsoft.com/services/app-service/logic/) par [plan App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 par cœur |20 par cœur |

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 18578f87ec6b58d72da7a7a81cbdc3d2c98ffaf6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 730753efb6efaad659e1a713b0b68329032b3983
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/28/2018
  Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre machine de développement Windows, installez le runtime, le Kit de développement logiciel (SDK) et les outils. Vous devez également activer l’exécution des scripts Windows PowerShell inclus dans le Kit de développement logiciel (SDK).
 
 ## <a name="prerequisites"></a>Prérequis
+
 ### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 

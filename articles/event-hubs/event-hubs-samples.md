@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Exemples de hubs d’événements 
 
@@ -61,10 +61,6 @@ L’exemple de [prise en main des Event Hub](https://code.msdn.microsoft.com/Ser
 
 L’exemple de [traitement d’événement mis à l’échelle](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) montre comment utiliser [l’hôte du processeur d’événements](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) pour distribuer la charge de travail de la consommation de flux de hubs d’événements. Il montre comment implémenter les objets **EventProcessor** et **EventProcessorFactory** pour gérer le flux d’événements. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Extraire des données web dans un Event Hub 
-
-L’exemple [d’importation des données à partir du web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) montre comment extraire des données à partir de flux publics (par exemple, le flux d’informations sur la circulation du Ministère des transports) et les distribuer vers un Event Hub.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les versions de .NET Framework, visitez les liens suivants :
@@ -75,5 +71,5 @@ Pour en savoir plus sur les versions de .NET Framework, visitez les liens suivan
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 
 - [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Créer un concentrateur d’événements](event-hubs-create.md)
+- [Fonctionnalités Event Hubs](event-hubs-features.md)
 - [FAQ sur les hubs d'événements](event-hubs-faq.md)

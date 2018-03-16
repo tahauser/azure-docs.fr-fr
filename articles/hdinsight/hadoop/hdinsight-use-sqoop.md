@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilisation de Sqoop avec Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -118,7 +118,7 @@ Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL 
   > 
   > 
   
-  * Pour créer et configurer un réseau virtuel, consultez [Créer un réseau virtuel au moyen du portail Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * Pour créer et configurer un réseau virtuel, consultez [Créer un réseau virtuel au moyen du portail Azure](../../virtual-network/quick-create-portal.md).
     
     * Lorsque vous utilisez SQL Server dans votre centre de données, vous devez configurer le réseau virtuel comme étant *de site à site* ou *de point à site*.
       

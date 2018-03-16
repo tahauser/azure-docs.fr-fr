@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0589f2efeaaafc35bcb9d869c391a0533fe6e502
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
 Un service cloud est créé à partir de trois composants : la définition de service *(.csdef)*, la configuration de service*(.cscfg)* et un package de service *(.cspkg)*. Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration, qui désignent collectivement le modèle. Le fichier ZIP **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
@@ -142,7 +142,7 @@ Le fichier de configuration de service n’est pas fourni dans le package de l�
 
 Vous pouvez vous reporter au [schéma de configuration de service](https://msdn.microsoft.com/library/azure/ee758710.aspx) pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication des éléments :
 
-**rôle web**  
+**Instances**  
 Configure le nombre d’instances du rôle en cours d’exécution. Pour empêcher le service cloud d’être potentiellement indisponible pendant les mises à niveau, il est conseillé de déployer plusieurs instances de vos rôles web. En déployant plus d’une instance, vous respectez les recommandations du [contrat de niveau de service de Calcul Azure](http://azure.microsoft.com/support/legal/sla/), ce qui garantit une connectivité externe à 99,95 % pour les rôles Internet lorsque deux instances de rôle au moins sont déployées pour un service.
 
 **ConfigurationSettings**  
@@ -291,7 +291,7 @@ J’utilise Visual Studio et souhaite...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

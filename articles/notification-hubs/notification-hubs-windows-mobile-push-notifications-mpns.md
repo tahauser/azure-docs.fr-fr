@@ -13,18 +13,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
-ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38d60001293a3bae6eb9f90179abb8af7815fbe7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Prendre en main Azure Notification Hubs pour les applications Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 > [!NOTE]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 > 
@@ -41,6 +41,7 @@ Ce didacticiel vous apprend à créer une application Windows Phone 8 vide qui 
 Ce didacticiel présente un scénario de diffusion simple avec Notification Hubs.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce didacticiel requiert les éléments suivants :
 
 * [Visual Studio 2012 Express pour Windows Phone]ou version ultérieure.
@@ -67,7 +68,7 @@ Le concentrateur est maintenant créé et configuré pour envoyer une notificati
 ## <a name="connecting-your-app-to-the-notification-hub"></a>Connexion de votre application au hub de notification
 1. Dans Visual Studio, créez une application Windows Phone 8.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio - Nouveau projet - Application Windows Phone][13]
    
     Dans Visual Studio 2013 Update 2 ou version ultérieure, vous créez plutôt une application Silverlight Windows Phone.
    
@@ -119,9 +120,9 @@ Le concentrateur est maintenant créé et configuré pour envoyer une notificati
    > 
 6. Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier `WMAppManifest.xml`, cliquez sur l’onglet **Fonctionnalités** et assurez-vous que la fonctionnalité **ID_CAP_PUSH_NOTIFICATION** soit activée.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Fonctionnalités des applications Windows Phone][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    Cela garantit que votre application peut recevoir des notifications Push. À défaut, toute tentative d’envoi d’une notification Push à l’application échouera.
 7. Appuyez sur la touche `F5` pour exécuter l’application.
    
     Un message d’inscription s’affiche dans l’application.

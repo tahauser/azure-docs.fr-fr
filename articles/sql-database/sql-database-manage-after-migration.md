@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -47,7 +47,7 @@ Vous ne créez pas de sauvegardes sur Azure SQL Database parce que vous n’avez
 |Niveau de performance|Période de rétention en jours|
 |---|:---:|
 |De base|7|
-|Standard|35|
+|standard|35|
 |Premium|35|
 |||
 
@@ -133,7 +133,7 @@ Dans SQL Database, par défaut, vos données au repos dans les fichiers journaux
 |**Caractéristiques**|**Always Encrypted**|**Chiffrement transparent des données**|
 |---|---|---|
 |**Étendue de chiffrement**|Bout en bout|Données au repos|
-|**Le serveur de base de données peut accéder aux données sensibles**|Non|Oui, étant donné que le chiffrement concerne les données au repos|
+|**Le serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
 |**Opérations T-SQL autorisées**|Comparaison d’égalité|Toute la surface d’exposition T-SQL est disponible|
 |**Modifications de l’application exigées pour utiliser la fonctionnalité**|Minimales|Très minimes|
 |**Granularité de chiffrement**|Au niveau des colonnes|Au niveau de la base de données|
@@ -172,7 +172,7 @@ Le trafic réseau entre votre organisation et SQL Database est généralement ac
 
 Express Route vous permet également de doubler la limite de bande passante que vous achetez sans frais supplémentaires. Vous pouvez également configurer une connectivité interrégion à l’aide d’ExpressRoute. Pour obtenir la liste des fournisseurs de connectivité ER, consultez : [Partenaires et emplacements d’homologation Express Route](../expressroute/expressroute-locations.md). Les articles suivants décrivent Express Route de façon plus approfondie :
 - [Présentation d’ExpressRoute](../expressroute/expressroute-introduction.md)
-- [Configuration requise](../expressroute/expressroute-prerequisites.md)
+- [Composants requis](../expressroute/expressroute-prerequisites.md)
 - [Flux de travail](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Est-ce que SQL Database est conforme aux exigences réglementaires et comment cela peut-il répondre aux exigences de conformité de mon organisation ?
@@ -260,7 +260,7 @@ SQL Database utilise des techniques intelligentes pour gérer certaines classes 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Comment faire pour synchroniser des données entre SQL Database et SQL Server ?
 Il existe plusieurs méthodes : 
 - La fonctionnalité **[Data Sync](sql-database-sync-data.md)** vous permet de synchroniser les données de façon bidirectionnelle entre plusieurs bases de données SQL Server locales et SQL Database. Pour synchroniser des bases de données SQL Server locales, vous devez installer et configurer l’agent de synchronisation sur un ordinateur local et ouvrir le port TCP sortant 1433.
-- La fonctionnalité **[Réplication transactionnelle](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** vous permet de synchroniser vos données locales avec Azure SQL Azure, le serveur de publication étant la base de données locale et l’abonné étant Azure SQL Database. Pour l’instant, seule cette configuration est prise en charge. Pour plus d’informations sur la façon de faire migrer vos données locales vers Azure SQL Database avec un temps d’arrêt minimal, consultez : [Utiliser la réplication transactionnelle](sql-database-cloud-migrate.md#method-2-use-transactional-replication).
+- La fonctionnalité **[Réplication transactionnelle](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** vous permet de synchroniser vos données locales avec Azure SQL Azure, le serveur de publication étant la base de données locale et l’abonné étant Azure SQL Database. Pour l’instant, seule cette configuration est prise en charge. Pour plus d’informations sur la façon de faire migrer vos données locales vers Azure SQL Database avec un temps d’arrêt minimal, consultez : [Utiliser la réplication transactionnelle](sql-database-cloud-migrate.md#method-2-use-transactional-replication).
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [SQL Database](sql-database-technical-overview.md).

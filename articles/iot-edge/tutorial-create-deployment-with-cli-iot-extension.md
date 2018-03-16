@@ -11,21 +11,22 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
 ms.reviewer: kgremban
-ms.openlocfilehash: 1986c9881c09ffa480103e009dc42d18aad4e2aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Déployer des modules sur un appareil IoT Edge à l’aide de l’extension IoT pour Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) est un outil à ligne de commande open source et multiplateforme, destiné à la gestion des ressources Azure telles que IoT Edge. Azure CLI 2.0 est disponible sur Windows, Linux et Mac OS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) est un outil à ligne de commande open source et multiplateforme, destiné à la gestion des ressources Azure telles que IoT Edge. Azure CLI 2.0 est disponible sur Windows, Linux et Mac OS.
 
 Azure CLI 2.0 vous permet de gérer les ressources Azure IoT Hub, les instances de service Device Provisioning et les hubs liés dès l’installation. La nouvelle extension IoT enrichit Azure CLI 2.0 avec des fonctionnalités telles que la gestion des périphériques et la fonctionnalité complète de IoT Edge.
 
 Dans ce didacticiel, vous commencez par les étapes de configuration de Azure CLI 2.0 et de l’extension IoT. Ensuite, vous découvrez comment déployer des modules sur un périphérique IoT Edge à l’aide des commandes CLI disponibles.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?v=17.39a) dès à présent. 
 

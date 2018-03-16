@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: garye;bradsev
 ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données
 Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d'analyse prédictive, vous pouvez : 
@@ -61,7 +61,7 @@ Vous pouvez importer un certain nombre de types de données dans votre expérien
 * Tab-separated values (TSV) avec un en-tête (.tsv) ou sans (. nh.tsv)
 * Fichier Excel
 * Table Azure
-* Table Hive
+* Table hive
 * Base de données SQL
 * Valeurs OData
 * Données SVMLight (.svmlight) (voir la [définition SVMLight](http://svmlight.joachims.org/) pour les informations relatives au format)
@@ -77,12 +77,12 @@ Vous pouvez spécifier de manière explicite ou modifier les titres et les types
 
 Voici les **types de données** reconnus par Machine Learning Studio :
 
-* String
-* Integer
+* Chaîne
+* Entier 
 * Double
-* Boolean
-* DateTime
-* TimeSpan
+* Booléen
+* Datetime
+* intervalle de temps
 
 Machine Learning Studio utilise un type de données interne appelé ***Table de données*** pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
 

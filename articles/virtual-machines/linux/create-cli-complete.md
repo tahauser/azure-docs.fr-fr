@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux complète avec Azure CLI
 Pour créer rapidement une machine virtuelle dans Azure, vous pouvez utiliser une seule commande Azure CLI qui utilise des valeurs par défaut pour créer toutes les ressources associées requises. Les ressources telles que le réseau virtuel, l’adresse IP publique et les règles de groupe de sécurité réseau sont automatiquement créées. Pour un meilleur contrôle de votre environnement en production, vous pouvez créer ces ressources à l’avance, puis leur ajouter vos machines virtuelles. Cet article vous accompagne dans la création d’une machine virtuelle et de chacune des ressources associées.
 
-Assurez-vous que vous avez installé la dernière version de l’interface [Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/#az_login).
+Assurez-vous que vous avez installé la dernière version de l’interface [Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
 
@@ -35,7 +35,7 @@ Un groupe de ressources Azure est un conteneur logique dans lequel les ressource
 az group create --name myResourceGroup --location eastus
 ```
 
-Par défaut, la sortie des commandes Azure CLI est au format JSON (JavaScript Object Notation). Pour remplacer la sortie par défaut pour une liste ou une table, par exemple, utilisez [az configure --output](/cli/azure/#az_configure). Vous pouvez également ajouter `--output` à n’importe quelle commande pour modifier ponctuellement le format de sortie. L’exemple suivant illustre la sortie JSON obtenue avec la commande `az group create` :
+Par défaut, la sortie des commandes Azure CLI est au format JSON (JavaScript Object Notation). Pour remplacer la sortie par défaut pour une liste ou une table, par exemple, utilisez [az configure --output](/cli/azure/reference-index#az_configure). Vous pouvez également ajouter `--output` à n’importe quelle commande pour modifier ponctuellement le format de sortie. L’exemple suivant illustre la sortie JSON obtenue avec la commande `az group create` :
 
 ```json                       
 {
@@ -111,7 +111,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -181,7 +181,7 @@ Examinez le groupe et les règles de sécurité réseau avec la commande [az net
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -344,7 +344,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -514,7 +514,7 @@ Pour configurer le protocole SSH avec votre machine virtuelle, utilisez l’entr
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Sortie :
+Output:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

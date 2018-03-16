@@ -16,10 +16,10 @@ ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Bien démarrer avec l’application web Azure AD Java
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -1713,7 +1713,7 @@ Vous disposez à présent d’un fichier adal4jsample.war dans votre répertoire
 > Vous pouvez aisément déployer un fichier .war avec les derniers serveurs Tomcat. Accédez à http://localhost:8080/manager/, puis suivez les instructions de chargement du fichier adal4jsample.war. Il se déploiera automatiquement pour vous avec le point de terminaison correct.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous disposez désormais d’une application Java fonctionnelle qui peut authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant les utilisateurs. Si vous n’avez pas encore rempli votre client avec des utilisateurs, il est judicieux de le faire à ce stade.
 
 À titre de référence supplémentaire, vous pouvez obtenir l’exemple terminé (sans vos valeurs de configuration) de deux manières :

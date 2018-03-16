@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Répliquer une application Dynamics AX multiniveau à l’aide d’Azure Site Recovery
 
@@ -33,7 +33,8 @@ Cet article explique comment créer une solution de récupération d’urgence p
 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 L’implémentation de la récupération d’urgence pour l’application Dynamics AX à l’aide de Site Recovery nécessite les prérequis suivants :
 
@@ -51,13 +52,13 @@ Pour les besoins de cet article, des machines virtuelles VMware avec Dynamics AX
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Oui | Oui
-**VMware** | Oui | Oui
-**Serveur physique** | Oui | Oui
+**Hyper-V** | OUI | OUI
+**VMware** | OUI | OUI
+**Serveur physique** | OUI | OUI
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Permettre la récupération d’urgence de l’application Dynamics AX à l’aide de Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Protéger votre application Dynamics AX
-Pour permettre la réplication et la récupération complètes de l’application, chaque composant de Dynamics AX doit être protégé. 
+Pour permettre la réplication et la récupération complètes de l’application, chaque composant de Dynamics AX doit être protégé.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configurer la réplication Active Directory et DNS
 
@@ -137,7 +138,7 @@ Ajoutez un script (via Azure Automation) après l’affichage du groupe de machi
 
 ### <a name="perform-a-test-failover"></a>Exécution d’un test de basculement
 
-Pour plus d’informations sur Active Directory pendant le test de basculement, consultez le guide d’accompagnement « Solution de récupération d’urgence d’Active Directory ». 
+Pour plus d’informations sur Active Directory pendant le test de basculement, consultez le guide d’accompagnement « Solution de récupération d’urgence d’Active Directory ».
 
 Pour plus d’informations sur SQL Server pendant le test de basculement, consultez [Répliquer des applications avec SQL Server et Azure Site Recovery](site-recovery-sql.md).
 
