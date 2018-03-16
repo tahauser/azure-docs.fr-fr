@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: c0686e3fe129abcdcecc5870f7384dd68271e7b3
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 51ca159945098c2467124db07f68caf06794b9e3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents 
 
@@ -29,7 +29,7 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 
 |Modèle de déploiement Azure  | Abonnement Azure  |
 |--------- |---------|
-|[Tous deux Resource Manager](virtual-network-create-peering.md) |Identique|
+|[Tous deux Resource Manager](tutorial-connect-virtual-networks-portal.md) |Identique|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models-subscriptions.md) |Différent|
 
@@ -334,7 +334,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 ## <a name="register"></a>Préversion de l’inscription à l’homologation de réseaux virtuels mondiaux
 
-L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’homologation des réseaux virtuels dans des régions différentes est une fonctionnalité en préversion pour le moment. Consultez [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) (Mises à jour du réseau virtuel) pour les régions disponibles. Pour homologuer des réseaux virtuels dans différentes régions, vous devez d’abord vous inscrire à la préversion, en effectuant les étapes suivantes (dans l’abonnement dans lequel se trouve chaque réseau virtuel à homologuer) à l’aide d’Azure PowerShell ou d’Azure CLI :
+L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels dans des régions différentes est actuellement en version préliminaire. Consultez [Virtual network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) (Mises à jour du réseau virtuel) pour les régions disponibles. Pour homologuer des réseaux virtuels dans différentes régions, vous devez d’abord vous inscrire à la préversion, en effectuant les étapes suivantes (dans l’abonnement dans lequel se trouve chaque réseau virtuel à homologuer) à l’aide d’Azure PowerShell ou d’Azure CLI :
 
 ### <a name="powershell"></a>PowerShell
 

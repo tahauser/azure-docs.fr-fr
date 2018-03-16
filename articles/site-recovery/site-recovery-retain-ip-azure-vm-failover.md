@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Conservation des adresses IP pour le basculement de machines virtuelles Azure
 
@@ -88,7 +88,7 @@ Les passerelles VPN utilisent des adresses IP publiques et des tronçons de pass
 
 Cette fonctionnalité est actuellement disponible en préversion publique et est en cours d’extension pour prendre en charge un plus grand nombre de régions, pour une connectivité de machine virtuelle à machine virtuelle directe sans passer par le réseau Internet public ni utiliser de tronçons supplémentaires.
 
-Pour plus d’informations, reportez-vous à la [documentation sur l’homologation](../virtual-network/virtual-network-create-peering.md#register) et aux informations relatives aux [prix](https://azure.microsoft.com/en-us/pricing/details/virtual-network/).
+Pour plus d’informations, reportez-vous à la [documentation sur l’homologation](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) et aux informations relatives aux [prix](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Connectivité locale vers Azure
 

@@ -2,25 +2,20 @@
 title: Restauration automatique dans Azure Site Recovery | Microsoft Docs
 description: "Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration locale avec le service Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Vue d’ensemble de la restauration automatique
+
 Une fois que vous avez basculé vers Azure, vous pouvez opérer une restauration automatique sur votre site local. Deux types de restaurations automatiques sont possibles avec Azure Site Recovery : 
 
 - Restauration dans l’emplacement d’origine 
@@ -55,5 +50,5 @@ Si la machine virtuelle locale n’existe pas avant la reprotection, la solution
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez les étapes pour effectuer l’[opération de restauration automatique](site-recovery-how-to-failback-azure-to-vmware.md).
+Suivez les étapes pour effectuer l’[opération de restauration automatique](vmware-azure-failback.md).
 

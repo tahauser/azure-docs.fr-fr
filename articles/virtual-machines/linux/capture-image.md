@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Créer une image d’une machine virtuelle ou d’un disque dur virtuel
 
@@ -37,7 +37,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 
 * Vous avez besoin d’une machine virtuelle Azure créée avec le modèle de déploiement Resource Manager à l’aide de disques managés. Si vous n’avez pas créé de machine virtuelle Linux, vous pouvez utiliser le [portail](quick-create-portal.md), l’interface [Azure CLI](quick-create-cli.md) ou les [modèles Resource Manager](create-ssh-secured-vm-from-template.md). Configurez la machine virtuelle en fonction de vos besoins. Par exemple, [ajoutez des disques de données](add-disk.md), appliquez des mises à jour et installez des applications. 
 
-* Vous devez également disposer de la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#az_login).
+* Vous devez également disposer de la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Commandes rapides
 
@@ -143,4 +143,4 @@ Vous pouvez créer plusieurs machines virtuelles à partir de votre image de mac
 - Suivez de nouveau ces étapes pour annuler le déploiement, libérer, généraliser et créer une image.
 - Utilisez cette nouvelle image pour les déploiements futurs. Si vous le souhaitez, supprimez l’image d’origine.
 
-Pour plus d’informations sur la gestion de vos machines virtuelles avec l’interface de ligne de commande, consultez [Azure CLI 2.0](/cli/azure/overview).
+Pour plus d’informations sur la gestion de vos machines virtuelles avec l’interface de ligne de commande, consultez [Azure CLI 2.0](/cli/azure).

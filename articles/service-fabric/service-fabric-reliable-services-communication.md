@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Utilisation des API de communication de Reliable Services
 Azure Service Fabric, en tant que plateforme, est totalement indépendant de la communication entre les services. Tous les protocoles et toutes les piles sont acceptables, de UDP à HTTP. C'est au développeur de services de choisir comment les services doivent communiquer. L’infrastructure d’application de Reliable Services fournit des piles de communication intégrées, ainsi que des API que vous pouvez utiliser pour générer vos composants de communication personnalisés.
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 Pour des services avec état :
 
-> [!NOTE]
-> Les services fiables ne sont pas encore pris en charge par Java.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService
@@ -212,7 +215,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Pour vous connecter à des services figurant dans un autre cluster, vous pouvez créer un ServicePartitionResolver avec un ensemble de points de terminaison de passerelle de cluster. Notez que les points de terminaison de passerelle sont simplement des points de terminaison différents pour la connexion au même cluster. Par exemple :
+Pour vous connecter à des services figurant dans un autre cluster, vous pouvez créer un ServicePartitionResolver avec un ensemble de points de terminaison de passerelle de cluster. Notez que les points de terminaison de passerelle sont simplement des points de terminaison différents pour la connexion au même cluster. Par exemple : 
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0bed776526e3e2f3ee4cdce596c591d0b8419030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Comment utiliser le filtre de paquets de FreeBSD pour créer un pare-feu sécurisé dans Azure
 Cet article explique comment déployer un pare-feu NAT à l’aide du filtre de paquets FreeBSD via le modèle Azure Resource Manager pour un scénario de serveur web courant.
@@ -34,7 +34,7 @@ Le modèle Azure Resource Manager configure une machine virtuelle FreeBSD qui ef
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
-Vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#az_login). Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US`.
+Vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login). Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US`.
 
 ```azurecli
 az group create --name myResourceGroup --location westus

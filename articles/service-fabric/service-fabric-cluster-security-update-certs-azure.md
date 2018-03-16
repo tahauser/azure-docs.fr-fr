@@ -1,8 +1,24 @@
---titre : Gérer les certificats d’un cluster Azure Service Fabric | Microsoft Docs description : Explique comment ajouter de nouveaux certificats, substituer un certificat ou supprimer un certificat pour un cluster Service Fabric.
-services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
-
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
-
+---
+title: "Gérer les certificats d’un cluster Azure Service Fabric | Microsoft Docs"
+description: Explique comment ajouter de nouveaux certificats, substituer un certificat ou supprimer un certificat pour un cluster Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
 Nous vous recommandons de vous familiariser avec la façon dont Service Fabric utilise les certificats X.509 et de prendre connaissance des [scénarios de sécurité d’un cluster](service-fabric-cluster-security.md). Vous devez comprendre ce qu’est un certificat de cluster et quelle est son utilité avant de passer à la suite.
@@ -283,7 +299,7 @@ Pour supprimer un certificat secondaire afin de ne plus l’utiliser pour la sé
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Lisez les articles suivants pour plus d’informations sur la gestion des clusters :
 
 * [Processus de mise à niveau du cluster Service Fabric et attentes à votre égard](service-fabric-cluster-upgrade.md)

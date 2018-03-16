@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: c78d2646471e40d60972cf91cb5bbd351f71a66c
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obtenir des ressources dans un groupe de ressources managé et redimensionner des machines virtuelles avec Azure CLI
 
@@ -34,9 +34,9 @@ Ce script récupère les ressources à partir d’un groupe de ressources manag�
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour déployer l’application managée. Chaque commande de la table renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes pour déployer l’application managée. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Répertorier les applications managées. Fournir des valeurs de requête pour affiner les résultats. |
 | [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Répertoriez les ressources. Fournir un groupe de ressources et des valeurs de requête pour affiner le résultat. |
@@ -46,4 +46,4 @@ Ce script utilise les commandes suivantes pour déployer l’application managé
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](../overview.md).
-* Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+* Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).

@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -32,7 +32,7 @@ Cet article vous aide à configurer la solution de haute disponibilité et scala
 
 >**Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
 
 - Les performances du déplacement des données entre les magasins de données locaux et dans le cloud sont améliorées.  
@@ -184,7 +184,7 @@ Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel 
 
 Vous pouvez activer l’option **Paramètres avancés** dans la page **Passerelle** pour afficher des métriques avancées telles que **Réseau**(entrée/sortie), **État du rôle et des informations d’identification**, ce qui s’avère utile pour résoudre les problèmes liés à la passerelle, ainsi que **Tâches simultanées** (en cours d’exécution/limite) que vous pouvez modifier en conséquence lors du réglage des performances. Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :  
 
-Propriété de surveillance | DESCRIPTION
+Propriété de surveillance | Description
 :------------------ | :---------- 
 NOM | Nom de la passerelle logique et nœuds associés à la passerelle.  
 Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 

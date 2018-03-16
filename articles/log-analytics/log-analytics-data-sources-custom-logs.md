@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
 La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog.  Une fois collectés, vous pouvez analyser chaque enregistrement du journal dans des champs individuels à l’aide de la fonctionnalité [Champs Personnalisés](log-analytics-custom-fields.md) de Log Analytics.
@@ -70,7 +70,7 @@ Par exemple, une application peut créer un fichier journal chaque jour avec la 
 
 Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
 
-| DESCRIPTION | path |
+| Description | path |
 |:--- |:--- |
 | Tous les fichiers sous *C:\Logs* avec l’extension .txt sur l’agent Windows |C:\Logs\\\*.txt |
 | Tous les fichiers sous *C:\Logs* avec un nom commençant par log et portant l’extension .txt sur l’agent Windows |C:\Logs\log\*.txt |
@@ -118,7 +118,7 @@ L’entrée de journal est intégralement inscrite dans une propriété unique a
 ## <a name="custom-log-record-properties"></a>Propriétés d’enregistrement de journal personnalisé
 Les enregistrements de journal personnalisé sont caractérisés par le nom du journal que vous fournissez et les propriétés dans le tableau suivant.
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Log Analytics.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
 | SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
@@ -130,7 +130,7 @@ Les enregistrements de journaux personnalisés sont stockés dans l’espace de 
 
 Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements de journaux personnalisés.
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 |:--- |:--- |
 | MyApp_CL |Tous les événements du fichier journal nommé MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Tous les événements d’un journal personnalisé nommé MyApp_CL avec la valeur *error* dans le champ personnalisé nommé *Severity_CF*. |

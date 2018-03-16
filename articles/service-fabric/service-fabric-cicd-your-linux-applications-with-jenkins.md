@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/27/2017
+ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 00a6d04e7ec1da48ea17af4f17d3aba3cf4407d6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utiliser Jenkins pour générer et déployer vos applications Linux
 Jenkins est un outil populaire pour l’intégration et le déploiement en continu de vos applications. Voici comment générer et déployer votre application Azure Service Fabric à l’aide de Jenkins.
@@ -31,6 +31,7 @@ Jenkins est un outil populaire pour l’intégration et le déploiement en conti
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les sections suivantes montrent comment le configurer dans un cluster lors de l’utilisation d’un compte de stockage Azure pour enregistrer l’état de l’instance de conteneur.
 
 ### <a name="prerequisites"></a>Prérequis
+
 1. Avoir un cluster Linux Service Fabric de prêt. Un cluster Service Fabric créé à partir du portail Azure avec Docker doit être installé. Si vous exécutez le cluster en local, vérifiez si Docker est installé à l’aide de la commande ``docker info``. S’il n’est pas installé, installez-le en utilisant les commandes suivantes :
 
   ```sh
@@ -44,8 +45,8 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
 
 2. Clonez l’application en procédant comme suit :
   ```sh
-  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  git clone https://github.com/suhuruli/jenkins-container-application.git
+  cd jenkins-container-application
   ```
 
 3. Conservez l’état du conteneur Jenkins dans un partage de fichiers :
@@ -118,6 +119,7 @@ ssh user@PublicIPorFQDN -p [port]
 Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Service Fabric. Les sections suivantes expliquent comment le configurer en dehors d’un cluster.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Docker doit être installé. Les commandes suivantes peuvent être utilisées pour installer Docker à partir du terminal :
 
   ```sh

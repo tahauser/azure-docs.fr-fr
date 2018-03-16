@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
 
@@ -24,6 +24,7 @@ Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une 
 Cet article explique comment créer une solution de récupération d’urgence pour Active Directory. Il inclut les conditions préalables et les instructions de basculement. Avant de commencer, vous devez vous familiariser avec Active Directory et Site Recovery.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
 * Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.
@@ -73,7 +74,7 @@ Pour éviter tout impact sur les charges de travail de production, le test de ba
 
 La plupart des applications nécessitent la présence d’un contrôleur de domaine ou d’un serveur DNS. Par conséquent, avant que l’application bascule, vous devez créer dans le réseau isolé un contrôleur de domaine à utiliser pour le test de basculement. Pour ce faire, le méthode la plus simple consiste à utiliser Site Recovery pour répliquer une machine virtuelle hébergeant un contrôleur de domaine ou un DNS. Ensuite, effectuez un test de basculement de la machine virtuelle du contrôleur de domaine avant d’exécuter un test de basculement du plan de récupération pour l’application. Voici comment procéder :
 
-1. Utilisez Site Recovery pour [répliquer](site-recovery-replicate-vmware-to-azure.md) la machine virtuelle hébergeant le contrôleur de domaine ou DNS.
+1. Utilisez Site Recovery pour [répliquer](vmware-azure-tutorial.md) la machine virtuelle hébergeant le contrôleur de domaine ou DNS.
 2. Créez un réseau isolé. Par défaut, tout réseau virtuel que vous créez dans Azure est isolé d’autres réseaux. Nous vous recommandons d’utiliser pour ce réseau la plage d’adresses IP que vous utilisez dans votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
 3. Fournissez une adresse IP DNS dans le réseau isolé. Utilisez l’adresse IP que vous prévoyez pour la machine virtuelle du DNS. Si vous répliquez sur Azure, fournissez l’adresse IP de la machine virtuelle utilisée lors du basculement. Pour entrer l’adresse IP, dans la machine virtuelle répliquée, dans les paramètres **Calcul et réseau**, sélectionnez les paramètres **Adresse IP cible**.
 

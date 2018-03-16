@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
 
@@ -61,7 +61,7 @@ Le tableau ci-dessous présente quelques différences clés entre StorSimple Clo
 
 |  | Appareil physique | Appliance cloud |
 | --- | --- | --- |
-| **Emplacement** |Se trouve dans le centre de données. |S'exécute dans Azure. |
+| **Lieu** |Se trouve dans le centre de données. |S'exécute dans Azure. |
 | **Interfaces réseau** |Comporte six interfaces réseau : de DATA 0 à DATA 5. |A une seule interface réseau : DATA 0. |
 | **Inscription** |Inscrit durant l’étape de configuration initiale. |L'inscription est une tâche distincte. |
 | **Clé de chiffrement de données du service** |Régénérer la clé sur l’appareil physique, puis mettre à jour l’appliance cloud avec la nouvelle clé. |Ne peut pas régénérer à partir de l’appliance cloud. |
@@ -78,7 +78,7 @@ Les sections suivantes décrivent les conditions préalables à StorSimple Cloud
 Avant d’approvisionner l’appliance cloud, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
 * Assurez-vous qu’un appareil physique de la série StorSimple 8000 (modèle 8100 ou 8600) est déployé et exécuté dans votre centre de données. Inscrivez cet appareil avec le même service StorSimple Device Manager pour lequel vous souhaitez créer une appliance cloud StorSimple.
-* Pour l’appliance cloud, [configurez un réseau virtuel sur Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Les régions de stockage Premium sont des régions qui correspondent à la ligne Stockage sur disque dans la liste des [services Azure par région](https://azure.microsoft.com/regions/services/).
+* Pour l’appliance cloud, [configurez un réseau virtuel sur Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Si vous utilisez le stockage Premium, vous devez créer un réseau virtuel dans une région Azure qui prend en charge le stockage Premium. Les régions de stockage Premium sont des régions qui correspondent à la ligne Stockage sur disque dans la liste des [services Azure par région](https://azure.microsoft.com/regions/services/).
 * Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n’est pas valide ou si le serveur DNS n’est pas en mesure de résoudre correctement les adresses IP, la création de l’appliance cloud échoue.
 * Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés.
 * Vous pouvez créer des [Machines virtuelles Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appliance cloud. Ces serveurs doivent répondre aux exigences suivantes :

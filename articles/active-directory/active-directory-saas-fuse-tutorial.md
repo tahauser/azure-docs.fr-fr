@@ -4,7 +4,7 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 10798152d5ab31b845499f69be61ac2916cde640
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d228ebff245cf5e94bb17c8fb3a506824ff7f4c0
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Didacticiel : Intégration d’Azure Active Directory avec Fuse
 
@@ -28,11 +28,12 @@ L’intégration de Fuse dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Fuse.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Fuse (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD avec Fuse, vous avez besoin des éléments suivants :
 
@@ -48,7 +49,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter Fuse depuis la galerie
 2. Configurer et tester l’authentification unique Azure AD
@@ -84,10 +85,10 @@ Dans Fuse, assignez la valeur du **nom d’utilisateur** d’Azure AD comme val
 
 Pour configurer et tester l’authentification unique Azure AD avec Fuse, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test Fuse](#create-a-fuse-test-user)** pour avoir dans Fuse un équivalent de Britta Simon lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -108,14 +109,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Informations d’authentification unique dans Fuse Domain and URLs (Domaine et URL Fuse)](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_url.png)
     
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant name>.fusion-universal.com/`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant name>.fusionuniversal.com/`
 
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe de support client Fuse](mailto:support@fusion-universal.com). 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez l’[équipe de support client Fuse](mailto:support@fusion-universal.com). 
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (brut)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_certificate.png) 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -166,7 +167,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="create-a-fuse-test-user"></a>Créer un utilisateur de test Fuse
 
@@ -177,7 +178,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans F
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Fuse.
 
-![Attribuer le rôle d’utilisateur][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour affecter Britta Simon à Fuse, procédez comme suit :**
 

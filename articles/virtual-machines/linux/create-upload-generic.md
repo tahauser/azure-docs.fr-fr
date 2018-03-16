@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -150,8 +150,6 @@ L' [Agent Linux Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-m
 * Modifiez la ligne de démarrage du noyau dans GRUB ou GRUB2 afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
-  
-    Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure.
   
     Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants s'ils sont présents :
   

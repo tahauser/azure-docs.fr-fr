@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 1b2bba200ea98d7499c1dbf99d2db6552c314d19
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cab3b03dceffc68400a7481aecbb7ee2425d8095
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Surveiller et mettre à l’échelle un serveur Azure Database pour MySQL à l’aide de la CLI Azure
 Cet exemple de script CLI met à l’échelle un serveur de base de données Azure unique pour MySQL vers un nouveau niveau de performance après l’analyse des métriques.
@@ -42,6 +42,6 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
+- En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour MySQL](../sample-scripts-azure-cli.md)
 - Pour plus d’informations sur la mise à l’échelle, consultez [Niveaux de service](../concepts-service-tiers.md) et [Unités de calcul et unités de stockage](../concepts-compute-unit-and-storage.md).

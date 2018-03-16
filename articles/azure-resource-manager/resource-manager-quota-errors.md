@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Résoudre les erreurs liées aux quotas de ressources
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Les quotas sont appliqués par groupe de ressources, abonnement, compte ou autre étendue. Par exemple, votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une machine virtuelle avec plus de cœurs que la quantité autorisée, vous recevez une erreur indiquant que le quota a été dépassé.
 Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Solution
+## <a name="troubleshooting"></a>Résolution de problèmes
 
-### <a name="solution-1"></a>Solution 1
+### <a name="azure-cli"></a>Azure CLI
 
 Dans le cas d’Azure CLI, utilisez la commande `az vm list-usage` pour rechercher des quotas de machine virtuelle.
 
@@ -73,7 +73,7 @@ Résultat :
 ]
 ```
 
-### <a name="solution-2"></a>Solution 2
+### <a name="powershell"></a>PowerShell
 
 Pour PowerShell, utilisez la commande **Get-AzureRmVMUsage** pour rechercher des quotas de machine virtuelle.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Solution 3
+## <a name="solution"></a>Solution
 
 Pour demander une augmentation du quota, accédez au portail et soumettez une requête de support. Dans la requête de support, demandez une augmentation de votre quota pour la région dans laquelle vous souhaitez effectuer le déploiement.
 

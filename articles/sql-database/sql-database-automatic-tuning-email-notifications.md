@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 
 Des recommandations relatives au réglage de SQL Database sont générées par le [réglage automatique](sql-database-automatic-tuning.md) Azure SQL Database. Cette solution surveille et analyse en permanence les charges de travail des bases de données SQL, et fournit pour chaque base de données des recommandations de réglage personnalisées liées à la création d’index, la suppression d’index et l’optimisation des plans d’exécution de requête.
 
-Les recommandations de réglage automatique Azure SQL Database peuvent être consultées dans le [portail Azure](sql-database-advisor-portal.md) ou récupérées avec des appels [API REST](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou à l’aide de commandes [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) et [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Cet article est basé sur l’utilisation d’un script PowerShell pour récupérer les recommandations de réglage automatique.
+Les recommandations de réglage automatique Azure SQL Database peuvent être consultées dans le [portail Azure](sql-database-advisor-portal.md) ou récupérées avec des appels [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou à l’aide de commandes [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) et [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Cet article est basé sur l’utilisation d’un script PowerShell pour récupérer les recommandations de réglage automatique.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatiser les notifications par e-mail pour les recommandations de réglage automatique
 
@@ -34,7 +34,7 @@ La solution suivante automatise l’envoi des notifications par e-mail contenant
 
 ## <a name="create-azure-automation-account"></a>Créer un compte Azure Automation
 
-Pour utiliser Azure Automation, la première étape consiste à créer un compte Automation et à le configurer avec des ressources Azure à utiliser pour l’exécution du script PowerShell. Pour en savoir plus sur Azure Automation et ses fonctionnalités, consultez [Bien démarrer avec Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Pour utiliser Azure Automation, la première étape consiste à créer un compte Automation et à le configurer avec des ressources Azure à utiliser pour l’exécution du script PowerShell. Pour en savoir plus sur Azure Automation et ses fonctionnalités, consultez [Bien démarrer avec Azure Automation](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Suivez ces étapes pour créer un compte Azure Automation en sélectionnant et en configurant l’application Automation de la Place de Marché :
 
@@ -47,7 +47,7 @@ Suivez ces étapes pour créer un compte Azure Automation en sélectionnant et e
 
 - Une fois dans le volet « Créer un compte Automation », cliquez sur « **Créer** »
 - Fournissez les informations requises : entrez un nom pour ce compte Automation, sélectionnez votre ID d’abonnement Azure et les ressources Azure à utiliser pour l’exécution du script PowerShell.
-- Pour l’option « **Créer un compte d’identification Azure** », sélectionnez **Oui** afin de configurer le type de compte sous lequel le script PowerShell s’exécute avec l’aide d’Azure Automation. Pour en savoir plus sur les types de comptes, consultez [Compte d’identification](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+- Pour l’option « **Créer un compte d’identification Azure** », sélectionnez **Oui** afin de configurer le type de compte sous lequel le script PowerShell s’exécute avec l’aide d’Azure Automation. Pour en savoir plus sur les types de comptes, consultez [Compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 - Terminez la création du compte Automation en cliquant sur **Créer**.
 
 > [!TIP]
@@ -58,7 +58,7 @@ Si vous avez plusieurs abonnements Azure pour lesquels vous souhaitez générer 
 
 ## <a name="update-azure-automation-modules"></a>Mettre à jour les modules Azure Automation
 
-Le script PowerShell de récupération des recommandations de réglage automatique utilise les commandes [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) et [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction), pour lesquelles la mise à jour des modules Azure vers la version 4 ou ultérieure est nécessaire.
+Le script PowerShell de récupération des recommandations de réglage automatique utilise les commandes [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) et [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction), pour lesquelles la mise à jour des modules Azure vers la version 4 ou ultérieure est nécessaire.
 
 Suivez ces étapes pour mettre à jour les modules Azure PowerShell :
 
@@ -195,7 +195,7 @@ Pour terminer la solution, la dernière étape consiste à créer un flux d’au
 2. « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
 3. « **Office 365 Outlook - Envoyer un message électronique** » : sert à envoyer un e-mail. Les e-mails sont envoyés à l’aide du compte Office 365 de la personne qui crée le flux.
 
-Pour en savoir plus sur les fonctionnalités de Microsoft Flow, consultez [Bien démarrer avec Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Pour en savoir plus sur les fonctionnalités de Microsoft Flow, consultez [Bien démarrer avec Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Les prérequis pour cette étape consistent à créer un compte [Microsoft Flow](https://flow.microsoft.com) et à se connecter. Une fois dans la solution, suivez ces étapes pour configurer un **nouveau flux** :
 

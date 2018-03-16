@@ -3,21 +3,22 @@ title: "Guide pratique pour rechercher une adresse à l’aide d’Azure Locatio
 description: "Découvrez comment rechercher une adresse à l’aide d’Azure Location Based Services (préversion)"
 services: location-based-services
 keywords: "N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO."
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 Search Service est un ensemble d’API RESTful destinées aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de lieux, de points d’intérêt, de listes d’entreprises et autres informations d’ordre géographique. Search Service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude retournées par les API Search Service peuvent être utilisées comme paramètres dans d’autres services Azure Location Based Services, tels que les API Route et Traffic Flow.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Installer [l’application Postman](https://www.getpostman.com/apps).
 
 * Disposer d’un compte et d’une clé Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé, consultez [Guide pratique pour gérer votre compte et vos clés Azure Location Based Services](how-to-manage-account-keys.md). 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
@@ -51,7 +51,7 @@ Vous pouvez télécharger et exécuter l’outil [Azure Virtual Machine Readines
 
 Nous vous recommandons également de consulter les didacticiels, guides et vidéos sur les thèmes suivants :
 
-* [Configuration d’un réseau virtuel sur le cloud uniquement dans le portail Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Configuration d’un réseau virtuel sur le cloud uniquement dans le portail Azure](../virtual-network/quick-create-portal.md)
 * [Configuration d’un VPN de site à site dans le portail Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md)
 * [Installation d’un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure](active-directory-install-replica-active-directory-domain-controller.md)

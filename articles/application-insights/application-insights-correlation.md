@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -39,7 +39,7 @@ Dans un environnement de microservices, les traces des composants peuvent se dir
 Le modèle de données Application Insights définit deux champs pour résoudre ce problème : `request.source` et `dependency.target`. Le premier champ identifie le composant qui a initié la demande de dépendance, alors que le deuxième identifie le composant qui a retourné la réponse de l’appel de dépendance.
 
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Prenons l’exemple d’une application STOCK PRICES affichant le cours actuel sur le marché d’une action en utilisant l’API externe nommée STOCKS API. Le navigateur web client ouvre la page `Stock page` de l’application STOCK PRICES en utilisant `GET /Home/Stock`. L’application interroge l’API STOCK au moyen d’un appel HTTP `GET /api/stock/value`.
 
@@ -53,7 +53,7 @@ Vous pouvez analyser la télémétrie obtenue en exécutant une requête :
 
 Dans la vue du résultat, notez que tous les éléments de télémétrie partagent la racine `operation_Id`. Lorsque l’appel ajax est établi à partir de la page, le nouvel ID unique `qJSXU` est affecté à la télémétrie des dépendances et l’ID de pageView est utilisé en tant que `operation_ParentId`. À son tour, la requête du serveur utilise l’ID d’ajax en tant que `operation_ParentId`, etc.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | Nom                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -98,7 +98,7 @@ Le [guide d’utilisation des classes Activity](https://github.com/dotnet/corefx
 
 ASP.NET Core 2.0 prend en charge l’extraction des en-têtes Http et le démarrage de la nouvelle classe Activity. 
 
-`System.Net.HttpClient` à partir de la version `<fill in>` prend en charge l’injection automatique des en-têtes Http de corrélation et le suivi de l’appel Http en tant que classe Activity.
+`System.Net.HttpClient` à partir de la version `4.1.0` prend en charge l’injection automatique des en-têtes Http de corrélation et le suivi de l’appel Http en tant que classe Activity.
 
 Il existe un nouveau module Http [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) pour ASP.NET Classic. Ce module implémente la corrélation de télémétrie à l’aide de DiagnosticsSource. Il démarre l’activité en fonction des en-têtes de requête entrante. Il met également en corrélation la télémétrie à différentes étapes du traitement de la requête. Même dans les cas où chaque étape du traitement IIS s’exécute sur différents threads de gestion.
 

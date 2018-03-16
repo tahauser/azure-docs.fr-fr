@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -45,7 +45,7 @@ Chaque itinéraire comporte un préfixe d’adresse et le type de tronçon suiva
 
 Les types de tronçon suivants répertoriés dans le tableau précédent représentent la façon dont Azure achemine le trafic à destination du préfixe d’adresse répertorié. Des explications sont fournies ci-après pour les types de tronçon suivants :
 
-- **Réseau virtuel** : achemine le trafic entre les plages d’adresses au sein de [l’espace d’adressage](virtual-network-manage-network.md#add-address-spaces) d’un réseau virtuel. Azure crée un itinéraire avec un préfixe d’adresse qui correspond à chaque plage d’adresses définie dans l’espace d’adressage d’un réseau virtuel. Si plusieurs plages d’adresses sont définies dans l’espace d’adressage de réseau virtuel, Azure crée un itinéraire individuel pour chaque plage d’adresses. Azure achemine automatiquement le trafic entre les sous-réseaux à l’aide des itinéraires créés pour chaque plage d’adresses. Il n’est pas nécessaire de définir des passerelles pour qu’Azure achemine le trafic entre les sous-réseaux. Bien qu’un réseau virtuel contienne des sous-réseaux, et chaque sous-réseau dispose d’une plage d’adresses définie, Azure *ne crée pas* des itinéraires par défaut pour les plages d’adresses de sous-réseau, car chaque plage d’adresses de sous-réseau fait partie d’une plage d’adresses de l’espace d’adressage d’un réseau virtuel.
+- **Réseau virtuel** : achemine le trafic entre les plages d’adresses au sein de [l’espace d’adressage](manage-virtual-network.md#add-or-remove-an-address-range) d’un réseau virtuel. Azure crée un itinéraire avec un préfixe d’adresse qui correspond à chaque plage d’adresses définie dans l’espace d’adressage d’un réseau virtuel. Si plusieurs plages d’adresses sont définies dans l’espace d’adressage de réseau virtuel, Azure crée un itinéraire individuel pour chaque plage d’adresses. Azure achemine automatiquement le trafic entre les sous-réseaux à l’aide des itinéraires créés pour chaque plage d’adresses. Il n’est pas nécessaire de définir des passerelles pour qu’Azure achemine le trafic entre les sous-réseaux. Bien qu’un réseau virtuel contienne des sous-réseaux, et chaque sous-réseau dispose d’une plage d’adresses définie, Azure *ne crée pas* des itinéraires par défaut pour les plages d’adresses de sous-réseau, car chaque plage d’adresses de sous-réseau fait partie d’une plage d’adresses de l’espace d’adressage d’un réseau virtuel.
 
 - **Internet** : achemine le trafic spécifié par le préfixe d’adresse à Internet. L’itinéraire par défaut du système spécifie le préfixe d’adresse 0.0.0.0/0. Si vous ne substituez pas les itinéraires par défaut d’Azure, Azure achemine le trafic pour n’importe quelle adresse non spécifiée par une plage d’adresses au sein d’un réseau virtuel, à Internet, avec une exception. Si l’adresse de destination correspond à l’un des services d’Azure, Azure achemine le trafic directement au service via le réseau principal d’Azure plutôt que d’acheminer le trafic vers Internet. Le trafic entre les services Azure ne traverse pas le réseau Internet, quelle que soit la région Azure où le réseau virtuel existe ou la région Azure dans laquelle une instance du service Azure est déployée. Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le préfixe d’adresse 0.0.0.0/0 avec un [itinéraire personnalisé](#custom-routes).
 
@@ -250,7 +250,7 @@ La table de routage du *Sous-réseau2* contient tous les itinéraires par défau
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une table de routage définie par l’utilisateur avec des itinéraires et une appliance virtuelle de réseau](create-user-defined-route-portal.md)
+- [Créer une table de routage définie par l’utilisateur avec des itinéraires et une appliance virtuelle de réseau](tutorial-create-route-table-portal.md)
 - [Configurer BGP pour une passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Utiliser le protocole BGP avec ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Afficher tous les itinéraires pour un sous-réseau](virtual-network-routes-troubleshoot-portal.md). Une table de routage définie par l’utilisateur vous montre uniquement les itinéraires définis par l’utilisateur, et n’affiche pas les itinéraires par défaut et BGP pour un sous-réseau. L’affichage de tous les itinéraires affiche les itinéraires par défaut, BGP et définis par l’utilisateur pour le sous-réseau auquel une interface réseau appartient.

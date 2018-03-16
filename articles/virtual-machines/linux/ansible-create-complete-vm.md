@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Création d’un environnement de machine virtuelle Linux complète dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer vos machines virtuelles dans Azure comme vous le feriez pour toute autre ressource. Cet article vous explique comment créer un environnement Linux complet et des ressources de support avec Ansible. Vous pouvez aussi découvrir comment [créer une machine virtuelle de base avec Ansible](ansible-create-vm.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour gérer des ressources Azure avec Ansible, vous avez besoin des éléments suivants :
 
 - Ansible et les modules du SDK Azure Python installés sur votre système hôte.
@@ -44,7 +45,7 @@ La section suivante d’un playbook Ansible crée un réseau virtuel nommé *myV
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 Pour ajouter un sous-réseau, la section suivante crée un sous-réseau nommé *mySubnet* dans le réseau virtuel *myVnet* :
@@ -81,7 +82,7 @@ Les groupes de sécurité réseau contrôlent le flux du trafic réseau en direc
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001

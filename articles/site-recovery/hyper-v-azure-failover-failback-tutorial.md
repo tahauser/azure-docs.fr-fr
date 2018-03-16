@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/8/2018
 ms.author: raynew
-ms.openlocfilehash: 7d2d99c2429a461307cbb9a276eb3b62d13718d2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7863feb29fbb04f643aa3b7e1984209f44cdbe9a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
@@ -44,7 +44,7 @@ Le basculement et la restauration automatique comportent quatre étapes :
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
-Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle est conforme aux [conditions requises pour Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle est conforme aux [conditions requises pour Azure](hyper-v-azure-support-matrix.md#replicated-vms).
 
 1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > <VM-name>.
 

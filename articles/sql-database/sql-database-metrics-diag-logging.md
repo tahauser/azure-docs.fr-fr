@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
@@ -385,7 +385,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |query_hash_s|Hachage de requête de la requête ayant échoué si disponible.|
 |query_plan_hash_s|Hachage du plan de requête de la requête ayant échoué si disponible.|
 
-En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### <a name="database-wait-statistics-dataset"></a>Jeu de données de statistiques d’attente de base de données
 

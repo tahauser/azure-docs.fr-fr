@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ee01b83101d4ab4ee8665c32aca22a793b41ac0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurer des points de terminaison de service de réseau virtuel
 
@@ -135,7 +135,7 @@ Utilisez la commande ci-dessous pour obtenir la liste des services pris en charg
 Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
-Sortie : 
+Output: 
 NOM | ID | type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
@@ -214,7 +214,7 @@ Subnets : [
 $subnet=Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet"
 $subnet.ServiceEndpoints
 ```
-Sortie :
+Output:
 ```
 ProvisioningState Service           Locations
 ----------------- -------           ---------
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 Conditions préalables pour la configuration :
-- Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#az_login) et suivez les instructions à l’écran. Pour plus d’informations sur la connexion, consultez [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index#az_login) et suivez les instructions à l’écran. Pour plus d’informations sur la connexion, consultez [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
  - Le compte doit avoir les [autorisations](#provisioning) nécessaires pour créer un réseau virtuel et un point de terminaison de service.
 
  Pour voir la liste complète des commandes pour les réseaux virtuels, consulter [Commandes Azure CLI pour réseau virtuel](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest)
@@ -241,7 +241,7 @@ Utilisez la commande ci-dessous pour obtenir la liste des services pris en charg
 ```azure-cli
 az network vnet list-endpoint-services -l eastus
 ```
-Sortie :
+Output:
 ```
     {
     "id": "/subscriptions/xxxx-xxxx-xxxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage",
@@ -265,7 +265,7 @@ az network vnet subnet create -g myRG -n mySubnet --vnet-name myVNet --address-p
 
 Pour ajouter plusieurs points de terminaison : --service-endpoints Microsoft.Storage Microsoft.Sql
 
-Sortie :
+Output:
 ```
 {
   "addressPrefix": "10.0.1.0/24",
@@ -335,7 +335,7 @@ az network vnet subnet show -g myRG -n mySubnet --vnet-name myVNet
 az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-endpoints ""
 ```
 
-Sortie : 
+Output: 
 ```
 {
   "addressPrefix": "10.0.1.0/24",

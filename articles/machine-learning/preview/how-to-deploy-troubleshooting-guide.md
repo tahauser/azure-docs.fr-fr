@@ -5,17 +5,17 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Résolution des problèmes de configuration d’environnement et de déploiement de services
 Les informations suivantes peuvent vous aider à déterminer la cause des erreurs susceptibles de se produire lors de la configuration de l’environnement de gestion des modèles.

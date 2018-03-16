@@ -3,7 +3,7 @@ title: "Charger les fichiers d’un appareil sur Azure IoT Hub avec Python | Mic
 description: "Guide pratique pour charger les fichiers d’un appareil sur le cloud avec Azure IoT device SDK pour Python. Les fichiers téléchargés sont stockés dans un conteneur d’objets blob de stockage Azure."
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: 
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
@@ -12,15 +12,15 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: ac871a03ebb93dac3b91f7df2220cd5f4506498b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/05/2018
+ms.author: kgremban
+ms.openlocfilehash: 5939f87684e92e1f95d39ea5bd52b424ca683acc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger les fichiers d’un appareil sur le cloud avec IoT Hub
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -29,7 +29,7 @@ Ce didacticiel explique comment utiliser les [fonctionnalités de chargement d�
 - Fournir en toute sécurité un conteneur de stockage pour le chargement d’un fichier
 - Utiliser le client Python pour charger un fichier par le biais de votre hub IoT
 
-Les didacticiels [Bien démarrer avec IoT Hub](iot-hub-node-node-getstarted.md) et [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-node-node-c2d.md) montrent les fonctionnalités de base de messagerie appareil-à-cloud et cloud-à-appareil d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
+Les didacticiels [Bien démarrer avec IoT Hub](iot-hub-node-node-getstarted.md) et [Envoyer des messages du cloud vers un appareil avec IoT Hub](iot-hub-node-node-c2d.md) illustrent les fonctionnalités de base de la messagerie d’un appareil vers le cloud et du cloud vers un appareil offertes par IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
 
 > [!NOTE]
 > À l’heure actuelle, le kit IoT Hub Python SDK prend uniquement en charge le chargement de fichiers basés sur des caractères, tels que les fichiers **.txt**.
@@ -45,7 +45,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Python 2.x ou 3.x][lnk-python-download]. Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme. Si vous utilisez Python 2.x, vous devrez peut-être [installer ou mettre à niveau *pip*, le système de gestion de package Python][lnk-install-pip].
 * Si vous utilisez le système d’exploitation Windows, utilisez le [package redistribuable Visual C++][lnk-visual-c-redist] pour autoriser l’utilisation de DLL natives de Python.
-* Un compte Azure actif. (Si vous n’avez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -57,7 +57,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="upload-a-file-from-a-device-app"></a>Charger un fichier à partir d’une application d’appareil
 
-Dans cette section, créez l’application d’appareil pour charger un fichier sur un hub IoT.
+Dans cette section, créez l’application d’appareil pour charger un fichier sur IoT Hub.
 
 1. À partir de votre invite de commandes, exécutez la commande suivante pour installer le package **azure-iothub-device-client** :
 
@@ -133,7 +133,7 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
     > À l’heure actuelle, le kit IoT Hub Python SDK prend uniquement en charge le chargement de fichiers basés sur des caractères, tels que les fichiers **.txt**.
 
 
-## <a name="run-the-application"></a>Exécuter l’application
+## <a name="run-the-application"></a>Exécution de l'application
 
 Vous êtes maintenant prêt à exécuter l’application.
 
@@ -154,11 +154,11 @@ Vous êtes maintenant prêt à exécuter l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de chargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et fonctionnalités d’IoT Hub avec les articles suivants :
+Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et fonctionnalités d’IoT Hub avec les articles suivants :
 
-* [Créer un hub IoT par programmation][lnk-create-hub]
-* [Présentation du kit SDK C][lnk-c-sdk]
-* [Kits SDK Azure IoT][lnk-sdks]
+* [Créer un IoT Hub par programme][lnk-create-hub]
+* [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
+* [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks]
 
 <!-- Links -->
 [Centre de développement Azure IoT]: http://azure.microsoft.com/develop/iot

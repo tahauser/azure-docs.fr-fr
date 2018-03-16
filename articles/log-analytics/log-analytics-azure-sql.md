@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -50,6 +50,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Azure Diagnostics](log-analytics-azure-storage.md) | OUI | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Un abonnement Azure. Si vous n’en avez pas, créez-en un [gratuitement](https://azure.microsoft.com/free/).
 - Un espace de travail Log Analytics. Vous pouvez utiliser un élément existant, ou en [créez un nouveau](log-analytics-quick-create-workspace.md) avant de commencer à utiliser cette solution.
@@ -103,7 +104,7 @@ Cliquez sur la vignette **Azure SQL Analytics** afin d’ouvrir le tableau de bo
 
 En sélectionnant l’une des vignettes, vous ouvrez le rapport détaillé d’une perspective en particulier. Une fois la perspective sélectionnée, le rapport détaillé est ouvert.
 
-![Délais d’expiration d’Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Délais d’expiration d’Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Chaque perspective fournit des récapitulatifs sur l’abonnement, le serveur, le pool de bases de données élastique et la base de données. En outre, sur la droite, chaque perspective présente une vision spécifique au rapport. Pour approfondir davantage, sélectionnez l’abonnement, le serveur, le pool ou la base de données dans la liste.
 
@@ -148,13 +149,19 @@ Vous pouvez facilement créer des alertes avec les données provenant de ressour
 *DTU élevé sur Azure SQL Database*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *DTU élevé sur un pool élastique Azure SQL Database*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains seuils sont atteints pour Azure SQL Database comme pour les pools élastiques. Pour configurer une alerte pour votre espace de travail Log Analytics :
@@ -167,7 +174,7 @@ Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains se
 4. Exécutez l’un des exemples de requêtes.
 5. Dans la recherche dans les journaux, cliquez sur **Alerte**.  
 ![création d’une alerte dans la recherche](./media/log-analytics-azure-sql/create-alert01.png)
-6. Sur la page **Ajouter une règle d’alerte**, configurez les propriétés appropriées et les seuils spécifiques, puis cliquez sur **Enregistrer**.  
+6. Sur la page **Ajouter une règle d’alerte**, configurez les propriétés appropriées et les seuils spécifiques, puis cliquez sur **Enregistrer**. 
 ![ajout d’une règle d’alerte](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Étapes suivantes

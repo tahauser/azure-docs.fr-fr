@@ -18,10 +18,10 @@ ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Applications, autorisations et consentement dans Azure Active Directory
 Dans Azure Active Directory, vous pouvez ajouter des applications à votre répertoire.  Les types d’applications peuvent varier.  Pour afficher des applications dans le portail, sélectionnez un répertoire et choisissez-en quelques-unes.
@@ -101,7 +101,7 @@ Dans le portail Azure, sélectionnez **Les utilisateurs peuvent inscrire des app
 >- Les utilisateurs ne peuvent pas apporter de modifications aux applications dont ils sont propriétaires.
 
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Par exemple, prenons l’application « FabrikamMail pour Office 365 » à laquelle vous avez remarqué que les utilisateurs de votre client se connectent. « FabrikamMail » est une application de lecture de courriers pour Android, publiée par « Fabrikam, Inc. ». Elle correspond à la définition « Applications multi-locataires développées par d’autres personnes, pour lesquelles Contoso peut donner son consentement ».
 

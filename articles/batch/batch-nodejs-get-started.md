@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 96a4203c11cc20e01eb164dfdd9178988074ff48
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 02/28/2018
 Découvrez les concepts de base de création d’un client Batch dans Node.js à l’aide du [Kit de développement logiciel (SDK) Node.js pour Azure Batch](/javascript/api/overview/azure/batch). Nous allons présenter pas à pas un scénario pour une application Batch, puis la configurer à l’aide d’un client Node.js.  
 
 ## <a name="prerequisites"></a>Prérequis
+
 Cet article suppose que vous avez acquis une connaissance pratique de Node.js et que vous êtes familiarisé avec Linux. Il suppose également que vous disposez d’un compte Azure configuré avec des droits d’accès pour créer des services Batch et Stockage.
 
 Nous vous recommandons de lire [Présentation technique d’Azure Batch](batch-technical-overview.md) avant d’effectuer les étapes présentées dans cet article.
@@ -73,7 +74,7 @@ Cette commande installe la dernière version du Kit de développement logiciel (
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Étape 2 : Créer un compte Azure Batch
 
-Vous pouvez le créer à partir du [portail Azure](batch-account-create-portal.md) ou de la ligne de commande ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure/overview)).
+Vous pouvez le créer à partir du [portail Azure](batch-account-create-portal.md) ou de la ligne de commande ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
 Ci-après figurent les commandes permettant d’en créer un via Azure CLI.
 

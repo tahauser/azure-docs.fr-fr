@@ -1,6 +1,6 @@
 ---
 title: "Utiliser un service web Machine Learning à l’aide d’un modèle d’application web | Microsoft Docs"
-description: "Utilisez un modèle d’application web dans la Place de marché Azure pour consommer un service web prédictif dans Azure Machine Learning."
+description: "Utilisez un modèle d’application Web dans Azure Marketplace pour exploiter un service Web prédictif dans Azure Machine Learning."
 keywords: "service Web, opérationnalisation, API REST, apprentissage automatique"
 services: machine-learning
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
-ms.openlocfilehash: 93e75a2864d9aef266b16f8dd7dcc3411b24864b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: raymondl
+ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Utiliser un service web Azure Machine Learning à l’aide d’un modèle d’application web
 
@@ -29,19 +29,19 @@ Vous pouvez développer un modèle prédictif et le déployer en tant que servic
 
 Après cela, vous pouvez accéder au modèle opérationnalisé à l’aide d’une API REST.
 
-Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service web. Vous pouvez par exemple écrire une application en C#, R ou Python en utilisant l’exemple de code généré lors du déploiement du service web. Cet exemple de code est disponible sur le [portail des services web Machine Learning](https://services.azureml.net/quickstart) et dans le tableau de bord du service web, dans Machine Learning Studio. Vous pouvez également utiliser l’exemple de classeur Microsoft Excel créé en même temps.
+Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service Web. Vous pouvez par exemple écrire une application en C#, R ou Python en utilisant l’exemple de code généré lors du déploiement du service web. Cet exemple de code est disponible sur le [portail des services web Machine Learning](https://services.azureml.net/quickstart) et dans le tableau de bord du service web, dans Machine Learning Studio. Vous pouvez également utiliser l’exemple de classeur Microsoft Excel créé en même temps.
 
 Toutefois, le moyen le plus rapide et le plus simple d’accéder à votre service web est d’utiliser les modèles d’applications web de la [Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/web-applications/all/).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Modèles d’applications web Azure Machine Learning
-Les modèles d’applications web disponibles dans la Place de marché Azure peuvent générer une application web personnalisée qui connaît les données d’entrée et les résultats attendus de votre service web. Il vous suffit de donner à l’application Web l’accès à votre service Web et aux données associées, et le modèle fait le reste.
+Les modèles d’applications Web disponibles dans Azure Marketplace peuvent générer une application Web personnalisée qui connaît les données d’entrée et les résultats attendus de votre service Web. Il vous suffit de donner à l’application Web l’accès à votre service Web et aux données associées, et le modèle fait le reste.
 
 Il existe deux modèles :
 
-* [Modèle d’application web Azure ML Request-Response Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Modèle d’application web Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Modèle d’application Web Azure ML Request-Response Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Modèle d’application Web Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
 Chaque modèle crée un exemple d’application ASP.NET en utilisant l’URI et la clé de l’API correspondant à votre service web. Le modèle déploie ensuite l’application en tant que site web sur Azure. 
 

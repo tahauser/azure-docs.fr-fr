@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2018
+ms.date: 2/27/2018
 ms.author: jeffgilb
-ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8d520e1917d63b56a2adf3823ddbb741721fe751
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Inscrire Azure Stack auprès de votre abonnement Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/08/2018
 Vous pouvez inscrire [Azure Stack](azure-stack-poc.md) auprès d’Azure pour télécharger des éléments de la Place de Marché à partir d’Azure et configurer la génération de rapports de données commerciales envoyés à Microsoft.
 
 > [!NOTE]
->L’inscription est recommandée, car elle vous permet de tester des fonctionnalités Azure Stack importantes, telles que la syndication de la Place de Marché et les rapports d’utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toute utilisation que les utilisateurs du kit de développement Azure Stack signalent ne leur sera pas facturée.
+>L’inscription est recommandée, car elle vous permet de tester des fonctionnalités Azure Stack importantes, telles que la syndication de la Place de Marché et les rapports d’utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toute utilisation que les utilisateurs du Kit de développement Azure Stack signalent ne leur sera pas facturée.
 
 
 ## <a name="get-azure-subscription"></a>Prendre un abonnement Azure
@@ -87,7 +87,7 @@ Si vous n’avez pas d’abonnement Azure répondant à ces exigences, vous pouv
    | Paramètre | Description |  
    |--------|-------------|
    | CloudAdminCredential | Les informations d’identification de domaine de cloud qui sont utilisées pour [accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Le nom d’utilisateur est au format **\<Azure Stack domain\>\cloudadmin**. Pour le kit de développement, le nom d’utilisateur est défini sur **azurestack\cloudadmin**. Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur.|  
-   | PrivilegedEndpoint | Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour le kit de développement, le point de terminaison privilégié est hébergé sur la machine virtuelle « AzS-ERCS01 ». Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur. Pour en savoir plus, reportez-vous à la rubrique relative à l’article [Utilisation du point de terminaison privilégié](azure-stack-privileged-endpoint.md).|  
+   | PrivilegedEndpoint | Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour le kit de développement, le point de terminaison privilégié est hébergé sur la machine virtuelle « AzS-ERCS01 ». Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur. Pour en savoir plus, reportez-vous à l’article relatif à l’[utilisation du point de terminaison privilégié](azure-stack-privileged-endpoint.md).|  
    | BillingModel | Le modèle de facturation utilisé par votre abonnement. Les valeurs autorisées pour ce paramètre sont **Capacity**, **PayAsYouUse** et **Development**. Pour le kit de développement, cette valeur est définie sur **Development**. Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur. |
 
 8. Une fois le script terminé, un message « Activation d’Azure Stack (cette étape peut prendre jusqu’à 10 minutes) » s’affiche.
@@ -140,7 +140,7 @@ Si vous enregistrez Azure Stack dans un environnement déconnecté, vous devez o
       > [!TIP]  
       > Le jeton d’inscription est enregistré dans le fichier spécifié pour *$env:SystemDrive\RegistrationToken.txt*.
 
-  2. Enregistrez ce jeton d’inscription pour l’utiliser sur une machine connectée par Azure.
+  2. Enregistrez ce jeton d’inscription pour l’utiliser sur la machine connectée à Azure.
 
 
 ### <a name="connect-to-azure-and-register"></a>Se connecter à Azure et s’inscrire

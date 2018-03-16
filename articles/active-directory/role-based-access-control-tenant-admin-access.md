@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
 ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Élever l’accès en tant qu’administrateur client avec le contrôle d’accès en fonction du rôle
 
@@ -190,7 +190,7 @@ Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour 
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [gestion du contrôle d’accès en fonction du rôle à l’aide de REST](role-based-access-control-manage-access-rest.md)
 

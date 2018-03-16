@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 195a9d1162798e916a9fc8fc6efce58a0af9f2eb
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 1e62868523bece0d6154f0b4a32ea6231ecec1b3
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Activer et télécharger les journaux de requêtes lentes d’un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux de requêtes lentes d’un seul serveur Azure Database pour PostgreSQL.
@@ -46,6 +46,6 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure/overview)
+- En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
 - Essayer des scripts supplémentaires : [Exemples Azure CLI pour Base de données Azure pour PostgreSQL](../sample-scripts-azure-cli.md)
 - [Configurer et consulter les journaux du serveur sur le Portail Azure](../howto-configure-server-logs-in-portal.md)

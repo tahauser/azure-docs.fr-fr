@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 318f322196b0028e42268b8d6d003457869d1117
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure CLI 2.0 pour connecter votre disque dur virtuel à une autre machine virtuelle Linux afin de corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -32,7 +32,7 @@ Le processus de résolution de problème se présente comme suit :
 4. Démontez le disque dur virtuel d’origine et dissociez-le de la machine virtuelle de dépannage.
 5. Créez une machine virtuelle à l’aide du disque dur virtuel d’origine.
 
-Pour mener à bien ces étapes de dépannage, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#az_login).
+Pour mener à bien ces étapes de dépannage, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
 
 Dans les exemples suivants, remplacez les noms de paramètres avec vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `myVM`.
 

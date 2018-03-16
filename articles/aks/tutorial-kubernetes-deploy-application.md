@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Exécuter des applications dans Azure Container Service (ACS)
 
@@ -46,16 +46,10 @@ Obtenez le nom du serveur de connexion ACR à l’aide de la commande [az acr li
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Le fichier manifeste a été précréé avec le nom de serveur de connexion `microsoft`. Ouvrez le fichier avec un éditeur de texte. Dans cet exemple, le fichier est ouvert avec `vi`.
+Le fichier manifeste a été précréé avec le nom de serveur de connexion `microsoft`. Ouvrez le fichier avec un éditeur de texte. Dans cet exemple, le fichier est ouvert avec `nano`.
 
 ```console
-vi azure-vote-all-in-one-redis.yaml
-```
-
-Vous pouvez également, si vous travaillez sur Windows, utiliser Visual Studio Code.
-
-```console
-code azure-vote-all-in-one-redis.yaml
+nano azure-vote-all-in-one-redis.yaml
 ```
 
 Remplacez `microsoft` par le nom de serveur de connexion ACR. Cette valeur se trouve sur la ligne **47** du fichier manifeste.

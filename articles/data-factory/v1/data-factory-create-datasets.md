@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 > [!NOTE]
 > Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md) pour obtenir une vue d’ensemble. Si vous n’avez pas d’expérience pratique de la création de fabriques de données, vous pouvez obtenir une meilleure compréhension en lisant le [tutoriel de transformation des données](data-factory-build-your-first-pipeline.md) et le [tutoriel de déplacement des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. Pour plus d’informations sur les pipelines et les activités, voir [Pipelines et activités dans Azure Data Factory](data-factory-create-pipelines.md).
 
 Une activité peut inclure zéro ou plusieurs **jeux de données** d’entrée et produire un ou plusieurs jeux de données de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets Blob Azure spécifie le conteneur et le dossier du stockage Blob à partir duquel le pipeline doit lire les données. 
@@ -80,7 +80,7 @@ Un jeu de données dans la fabrique de données est défini au format JSON comme
 
 La table suivante décrit les propriétés dans le JSON ci-dessus :   
 
-| Propriété | DESCRIPTION | Obligatoire | Default |
+| Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
 | Nom |Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |OUI |N/D |
 | Type |Type du jeu de données. Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus d’informations, consultez [Type du jeu de données](#Type). |OUI |N/D |
@@ -193,7 +193,7 @@ structure:
 
 Chaque colonne de la structure contient les propriétés suivantes :
 
-| Propriété | DESCRIPTION | Obligatoire |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Nom |Nom de la colonne. |OUI |
 | Type |Type de données de la colonne.  |Non  |
@@ -236,7 +236,7 @@ Le jeu de données de sortie est généré toutes les heures dans la plage des h
 
 Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section availability :
 
-| Propriété | DESCRIPTION | Obligatoire | Default |
+| Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
 | frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b>: minute, heure, jour, semaine, mois |OUI |N/D |
 | interval |Spécifie un multiplicateur de fréquence.<br/><br/>« Frequency x interval » déterminent la fréquence à laquelle la tranche est produite. Par exemple, si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/>Notez que si vous spécifiez **frequency** sur **Minute**, vous devez définir l’intervalle sur une valeur au minimum égale à 15. |OUI |N/D |
@@ -283,7 +283,7 @@ Le jeu de données suivant est mensuel et est généré le 3 de chaque mois à 8
 La section **policy** dans la définition du jeu de données définit les critères ou la condition que les tranches du jeu de données doivent remplir.
 
 ### <a name="validation-policies"></a>Stratégies de validation
-| Nom de la stratégie | DESCRIPTION | Appliqué(e) à | Obligatoire | Default |
+| Nom de la stratégie | Description | Appliqué(e) à | Obligatoire | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valide le fait que les données dans un **stockage blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |Stockage d'objets blob Azure |Non  |N/D |
 | minimumRows |Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Base de données SQL Azure</li><li>Table Azure</li></ul> |Non  |N/D |
@@ -319,7 +319,7 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 
 À moins qu’un jeu de données ne soit généré par la fabrique de données, il doit être marqué comme **external**(externe). Ce paramètre s’applique généralement aux entrées de la première activité d’un pipeline, à moins que le chaînage des activités ou pipelines ne soit utilisé.
 
-| NOM | DESCRIPTION | Obligatoire | Valeur par défaut |
+| NOM | Description | Obligatoire | Valeur par défaut |
 | --- | --- | --- | --- |
 | dataDelay |Durée du délai de la vérification de la disponibilité des données externes pour la tranche donnée. Par exemple, vous pouvez retarder une vérification de toutes les heures à l’aide de ce paramètre.<br/><br/>Le paramètre s’applique uniquement à l’heure actuelle.  Par exemple, s’il est 13 h et si cette valeur est de 10 minutes, la validation commence à 13 h 10.<br/><br/>Notez que ce paramètre n’affecte pas les tranches du passé. Les tranches avec **Slice End Time** + **dataDelay** < **Now** sont traitées sans aucun délai.<br/><br/>Les heures supérieures à 23:59 doivent être spécifiées à l’aide du format `day.hours:minutes:seconds`. Par exemple, pour spécifier 24 heures, n’utilisez pas 24:00:00. Utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur est traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. |Non  |0 |
 | retryInterval |Délai d'attente entre un échec et la tentative suivante. Ce paramètre s’applique à l’heure actuelle. Si la tentative précédente a échoué, la tentative suivante est effectuée après la période **retryInterval**. <br/><br/>S’il est 13 h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l’opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13 h 02. <br/><br/>Pour les segments dans le passé, il n’y a aucun délai. La nouvelle tentative se fait immédiatement. |Non  |00:01:00 (1 minute) |

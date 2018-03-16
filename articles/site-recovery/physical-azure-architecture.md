@@ -4,13 +4,13 @@ description: "Cet article fournit une vue d’ensemble des composants et de l’
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: e8a5f4fad75ea6211e96ba216c8b506306dcfa34
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a8af2ee4a32925603d24aee2403ab504a0ca05a8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Architecture de la réplication de serveurs physiques vers Azure
 
@@ -27,7 +27,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 **Serveur de configuration** | Une seule machine virtuelle VMware ou machine physique locale est déployée pour exécuter tous les composants Site Recovery locaux. La machine virtuelle exécute le serveur de configuration, le serveur de traitement et le serveur cible maître. | Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
  **Serveur de traitement**:  | Installé par défaut avec le serveur de configuration. | Fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure.<br/><br/> En outre, le serveur de traitement installe le service Mobilité sur les serveurs que vous souhaitez répliquer.<br/><br/> À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.
  **Serveur cible maître** | Installé par défaut avec le serveur de configuration. | Gère les données de réplication pendant la restauration automatique à partir d’Azure.<br/><br/> Pour les déploiements à grande échelle, vous pouvez ajouter un serveur cible maître distinct à des fins de restauration automatique.
-**Serveurs répliqués** | Le service Mobilité est installé sur chaque serveur que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de traitement. Vous pouvez également installer le service manuellement, ou utiliser une méthode de déploiement automatisé telle que System Center Configuration Manager. 
+**Serveurs répliqués** | Le service Mobilité est installé sur chaque serveur que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de traitement. Vous pouvez également installer le service manuellement, ou utiliser une méthode de déploiement automatisé telle que System Center Configuration Manager.
 
 **Architecture de serveur physique vers Azure**
 
