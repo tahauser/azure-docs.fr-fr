@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrer le trafic réseau avec les groupes de sécurité réseau
 
 Un groupe de sécurité réseau (NSG) contient une liste de règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées aux réseaux virtuels Azure (VNet). Les NSG peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques (Classic) ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Lorsqu’un NSG est associé à un sous-réseau, les règles s’appliquent à toutes les ressources connectées au sous-réseau. Vous pouvez restreindre davantage le trafic en associant également un NSG à une machine virtuelle ou à une NIC.
-
+ 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite des deux modèles, mais Microsoft recommande d’utiliser le modèle Resource Manager dans la plupart des nouveaux déploiements.
 
@@ -98,7 +98,7 @@ Vous pouvez associer un NSG à des machines virtuelles, à des NIC et à des sou
 
 * **Machine virtuelle (Classic uniquement) :** les règles de sécurité sont appliquées à l’ensemble du trafic à destination/en provenance de la machine virtuelle. 
 * **NIC (Resource Manager uniquement) :** les règles de sécurité sont appliquées à l’ensemble du trafic à destination/en provenance de la NIC à laquelle le NSG est associé. Dans une machine virtuelle dotée de plusieurs NIC, vous pouvez appliquer des NSG différents (ou les mêmes NSG) à chaque NIC individuellement. 
-* **Sous-réseau (Resource Manager et Classic) :** les règles de sécurité sont appliquées à l’ensemble du trafic à destination/en provenance des ressources connectées au réseau virtuel.
+* **Sous-réseau (Resource Manager et Classic) :** les règles de sécurité sont appliquées à l’ensemble du trafic à destination/en provenance des ressources connectées au sous-réseau.
 
 Vous pouvez associer différents NSG à une machine virtuelle (ou à une NIC, selon le modèle de déploiement) et au sous-réseau auquel la NIC ou la machine virtuelle sont connectées. Les règles de sécurité sont appliquées au trafic par priorité dans chaque NSG, dans l’ordre suivant :
 

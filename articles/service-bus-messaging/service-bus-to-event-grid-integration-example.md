@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid
 
@@ -30,6 +30,7 @@ Dans ce document, vous allez apprendre à configurer des fonctions Azure et une 
 * Utilisez [Logic Apps](#receive-messages-using-azure-logic-app).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="service-bus-namespace"></a>Espace de noms Service Bus
 
@@ -118,7 +119,7 @@ Cliquez sur Enregistrer et exécuter.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Connecter une fonction et un espace de noms via Event Grid
 
-Dans l’étape suivante, vous allez relier la fonction et l’espace de noms Service Bus ensemble. Pour cet exemple, utilisez le portail Azure. Consultez la page [concepts] (service-bus-to-event-grid-integration-concept.md pour savoir comment utiliser PowerShell ou Azure CLI pour obtenir le même résultat.
+Dans l’étape suivante, vous allez relier la fonction et l’espace de noms Service Bus ensemble. Pour cet exemple, utilisez le portail Azure. Consultez la page [concepts](service-bus-to-event-grid-integration-concept.md) pour savoir comment utiliser PowerShell ou Azure CLI pour obtenir le même résultat.
 
 Pour créer un nouvel abonnement Azure Event Grid, accédez à votre espace de noms dans le portail Azure, puis sélectionnez le panneau Event Grid. Cliquez sur « + Abonnement aux événements ».
 

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) Node.js
 
@@ -62,7 +62,7 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
     ```
 
     > [!NOTE]
-    > Il existe quelques erreurs connues lors de l’installation des packages ci-dessus. Pour les résoudre, exécutez la commande `npm install --global --production windows-build-tools` dans l’invite de commandes en mode **Exécuter en tant qu’administrateur**, exécutez `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` après avoir remplacé le chemin par votre version installée, puis exécutez de nouveau les commandes d’installation ci-dessus.
+    > Il existe quelques erreurs connues lors de l’installation des packages ci-dessus. Pour résoudre ces problèmes, exécutez `npm install --global --production windows-build-tools` en utilisant une invite de commandes en mode **Exécuter en tant qu’administrateur**, exécutez `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` après avoir remplacé le chemin par votre version installée, puis exécutez de nouveau les commandes d’installation ci-dessus.
     >
 
 1. Installez les packages suivants qui contiennent les composants utilisés pendant l’inscription :
@@ -81,7 +81,7 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
     > Les exemples ci-dessous utilisent les modes de transports `azure-iot-provisioning-device-http` et `azure-iot-device-mqtt`.
     > 
 
-    Vous pouvez tous les installer d’un coup en exécutant la commande suivante dans l’invite de commandes, dans le dossier **registereddevice** :
+    Vous pouvez installer tous ces packages d’un coup en exécutant la commande suivante dans l’invite de commandes, dans le dossier **registerdevice** :
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
