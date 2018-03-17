@@ -380,7 +380,6 @@
             - name: Clients d’approvisionnement
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Base de données par client
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Introduction du didacticiel
               href: saas-dbpertenant-wingtip-app-overview.md
