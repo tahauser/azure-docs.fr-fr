@@ -5,17 +5,15 @@ services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
 
@@ -31,6 +29,7 @@ Dans ce troisième volet, vous apprenez à :
 Le [stockage Blob Azure](../common/storage-introduction.md#blob-storage) fournit un service fiable pour stocker les fichiers des applications. Ce didacticiel est un prolongement de [la rubrique précédente][previous-tutorial] et décrit comment sécuriser l’accès à votre compte de stockage à partir d’une application web. À la fin de ce didacticiel, les images sont chiffrées et l’application web utilise des jetons SAS sécurisés pour accéder aux images miniatures.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer ce didacticiel, vous devez avoir terminé le didacticiel précédent sur le stockage : [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid][previous-tutorial]. 
 
@@ -147,47 +146,7 @@ Les classes, propriétés et méthodes suivantes sont utilisées dans la tâche 
 
 Le [chiffrement du service de stockage (SSE) Azure](../common/storage-service-encryption.md) vous permet de protéger vos données. SSE chiffre les données au repos et assure le chiffrement, le déchiffrement et la gestion de clés. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
 
-Dans l’exemple suivant, vous activez le chiffrement pour des objets blob. Les objets blob existants créés avant l’activation du chiffrement ne sont pas chiffrés. L’en-tête `x-ms-server-encrypted` dans une demande d’objet blob indique l’état de chiffrement de l’objet blob.
-
-```azurecli-interactive
-az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
-```
-
-Chargez une nouvelle image dans l’application web maintenant que le chiffrement est activé.
-
-À l’aide de `curl` avec le commutateur `-I` pour récupérer uniquement les en-têtes, remplacez vos propres valeurs par `<storage-account-name>`, `<container>` et `<blob-name>`.  
-
-```azurecli-interactive
-sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <blob-name> \
-    --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
-
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
-```
-
-Dans la réponse, notez que l’en-tête `x-ms-server-encrypted` affiche `true`. Cet en-tête identifie que les données sont maintenant chiffrées avec SSE.
-
-```
-HTTP/1.1 200 OK
-Content-Length: 209489
-Content-Type: image/png
-Last-Modified: Mon, 11 Sep 2017 19:27:42 GMT
-Accept-Ranges: bytes
-ETag: "0x8D4F94B2BE76D45"
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
-x-ms-request-id: 57047db3-001e-0050-3e34-2ba769000000
-x-ms-version: 2017-04-17
-x-ms-lease-status: unlocked
-x-ms-lease-state: available
-x-ms-blob-type: BlockBlob
-x-ms-server-encrypted: true
-Date: Mon, 11 Sep 2017 19:27:46 GMT
-```
+Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de stockage Azure (blob, file d’attente, table et fichier). 
 
 ## <a name="enable-https-only"></a>Activer HTTPS uniquement
 

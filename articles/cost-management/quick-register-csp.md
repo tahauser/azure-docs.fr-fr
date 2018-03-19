@@ -1,6 +1,6 @@
 ---
 title: "S’inscrire à l’aide des informations de partenaire CSP à la Gestion des coûts Azure | Microsoft Docs"
-description: "Utilisez vos informations de partenaire CSP pour vous inscrire à la Gestion des coûts Azure par Cloudyn."
+description: "Utilisez vos informations de partenaire CSP pour vous inscrire à Azure Cost Management."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>S’inscrire au programme pour les partenaires CSP et afficher les données de coût
 
-En tant que partenaire CSP, vous pouvez vous inscrire à la Gestion des coûts Azure par Cloudyn. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
+En tant que partenaire CSP, vous pouvez vous inscrire à Azure Cost Management. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ Les partenaires CSP indirects se connectent au portail Cloudyn à l’aide des c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à la Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
+Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à la Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel sur Cost Management.
 
 > [!div class="nextstepaction"]
 > [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/29/2018
+ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: ec0731534da2543d48bedc575bf882b790fa136b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1256e2fefe1ad3d37403f37804888ab9dcf6e99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrer des applications locales AD FS vers Azure 
 
@@ -167,7 +167,7 @@ Les applications qui nécessitent les fonctionnalités suivantes ne peuvent actu
 - Revendications dans les fonctionnalités des jetons
     - Émission des noms de groupe locaux en tant que revendications
     - Revendications depuis des magasins autres que Azure AD
-    - Règles de transformation d’émission de revendications complexes (voir ce document et celui-ci pour en savoir plus sur les mappages de revendications pris en charge)
+    - Règles de transformation d’émission de revendications complexes (voir ce [document](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) et [celui-ci](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) pour en savoir plus sur les mappages de revendications pris en charge)
     - Émission d’extensions de répertoire en tant que revendications
     - Spécification personnalisée de format NameID
     - Émission d’attributs à valeur multiple

@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure
 
@@ -30,7 +30,7 @@ Il s’agit du quatrième didacticiel d’une série. Ce didacticiel suppose que
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
-Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle, et assurez-vous que la machine virtuelle est conforme aux [conditions requises pour Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Avant d’exécuter un test de basculement, vérifiez les propriétés de la machine virtuelle et assurez-vous que la machine virtuelle Hyper-V [hyper-v-azure-support-matrix.md#replicated-vms], [la machine virtuelle VMware ou le serveur physique](vmware-physical-azure-support-matrix.md#replicated-machines) sont conformes aux exigences d’Azure.
 
 1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine virtuelle.
 2. Dans le volet **Élément répliqué**, vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
@@ -66,4 +66,4 @@ Dans certains scénarios, le basculement nécessite un traitement supplémentair
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exécuter un basculement et une restauration pour des machines virtuelles VMware locales](tutorial-vmware-to-azure-failover-failback.md).
+> [Exécuter un basculement et une restauration pour des machines virtuelles VMware locales](vmware-azure-tutorial-failover-failback.md).

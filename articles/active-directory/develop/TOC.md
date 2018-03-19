@@ -1,10 +1,10 @@
-# [Vue d'ensemble](active-directory-developers-guide.md)
+# [Vue d’ensemble](active-directory-developers-guide.md)
 ## [Pourquoi choisir Azure AD ?](https://azure.microsoft.com/develop/identity/signin/)
 ## [Concepts de base de l’authentification](active-directory-authentication-scenarios.md)
 ## [Types d’applications](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Prise en main
 ## Applications mobiles et de bureau
-### [Vue d'ensemble](active-directory-authentication-scenarios.md#native-application-to-web-api)
+### [Vue d’ensemble](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
 ### [.NET](active-directory-devquickstarts-dotnet.md)
@@ -13,22 +13,22 @@
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## les applications web
-### [Vue d'ensemble](active-directory-authentication-scenarios.md#web-browser-to-web-application)
+### [Vue d’ensemble](active-directory-authentication-scenarios.md#web-browser-to-web-application)
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ## Applications à page unique
-### [Vue d'ensemble](active-directory-authentication-scenarios.md#single-page-application-spa)
+### [Vue d’ensemble](active-directory-authentication-scenarios.md#single-page-application-spa)
 ### [Angular JS](active-directory-devquickstarts-angular.md)
 ### [Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)
 ## API Web
-### [Vue d'ensemble](active-directory-authentication-scenarios.md#web-application-to-web-api)
+### [Vue d’ensemble](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
 ## Service à service
-### [Vue d'ensemble](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
+### [Vue d’ensemble](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 ### [Informations d’identification du client OAuth 2.0](active-directory-protocols-oauth-service-to-service.md)
 # Guides
@@ -39,7 +39,7 @@
 ### [Protocole OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Octroi du code d’authentification OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Octroi implicite OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
-## [SAML 2.0](active-directory-saml-protocol-reference.md)
+## [SAML 2.0](active-directory-saml-protocol-reference.md)
 ### [Personnaliser des revendications](active-directory-saml-claims-customization.md)
 ### [Déboguer l’authentification unique SAML](active-directory-saml-debugging.md)
 ### [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md)
@@ -57,14 +57,16 @@
 ## [Galerie d’applications Azure AD](active-directory-app-gallery-listing.md)
 ## [Mon tableau de bord vendeur Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Utilisation de Visual Studio
-### [Prise en main des services connectés Visual Studio](vs-active-directory-dotnet-getting-started.md)
+### [Utiliser le service connecté Active Directory](vs-active-directory-add-connected-service.md)
+### [Prise en main des projets .NET MVC](vs-active-directory-dotnet-getting-started.md)
+### [Qu’est-il arrivé à mon projet .NET MVC ?](vs-active-directory-dotnet-what-happened.md)
+### [Prise en main des projets WebAPI](vs-active-directory-webapi-getting-started.md)
+### [Qu’est-il arrivé à mon projet WebAPI ?](vs-active-directory-webapi-what-happened.md)
 ### [Erreur lors de la détection de l'authentification](vs-active-directory-error.md)
-### [Prise en main de WebApi](vs-active-directory-webapi-getting-started.md)
-### [Qu’est-il arrivé à mon projet d’API web ?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migration ACS](active-directory-acs-migration.md)
 ## [Meilleures pratiques en matière de gestion des erreurs pour ADAL](active-directory-devhowto-adal-error-handling.md)
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Bibliothèques d’authentification (ADAL)](active-directory-authentication-libraries.md)
 ## [Article d’exemples de code](active-directory-code-samples.md)
@@ -84,7 +86,7 @@
 ## [Durées de vie des jetons](../active-directory-configurable-token-lifetimes.md)
 ## [Limites du service](../active-directory-service-limits-restrictions.md)
 # Point de terminaison v2.0
-## [Vue d'ensemble](active-directory-appmodel-v2-overview.md)
+## [Vue d’ensemble](active-directory-appmodel-v2-overview.md)
 ### [Types d’applications](active-directory-v2-flows.md)
 ### [Limitations](active-directory-v2-limitations.md)
 ### [Comparaison v1-v2](active-directory-v2-compare.md)
@@ -99,7 +101,7 @@
 #### [Application web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
 ### [Inscription d’une application](active-directory-v2-app-registration.md)
-## Référence
+## Informations de référence
 ### [Bibliothèques d’authentification](active-directory-v2-libraries.md)
 ### [Protocoles d’authentification v2.0](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)

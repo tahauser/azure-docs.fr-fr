@@ -11,11 +11,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b9cb7923b177c73f83a7ac17b1022a5455c7f30
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Créer une fonction sur Linux en utilisant une image personnalisée (préversion)
 
@@ -38,6 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Linux.  
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -127,7 +128,7 @@ docker login --username <docker-id>
 Un message « login succeeded » (connexion réussie) confirme que vous êtes connecté. Une fois connecté, vous pouvez transférer l’image à Docker Hub au moyen de la commande [docker push](https://docs.docker.com/engine/reference/commandline/push/).
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Vérifiez que le transfert a réussi en consultant les résultats de la commande.

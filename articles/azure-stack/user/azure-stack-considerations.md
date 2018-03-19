@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considérations importantes : utilisation de services ou génération d’applications pour Azure Stack
 
@@ -48,8 +48,8 @@ Le tableau suivant décrit les principales différences entre Azure Stack et Azu
 | Qui est en charge de son fonctionnement ? | Microsoft | Votre organisation ou fournisseur de services.|
 | Qui contactez-vous pour obtenir un support ? | Microsoft | Pour un système intégré, contactez votre opérateur Azure Stack (auprès de votre organisation ou fournisseur de services) pour obtenir un support.<br><br>Pour la prise en charge du Kit de développement Azure Stack, visitez les [forums Microsoft](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Étant donné que le kit de développement est un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services clients Microsoft.
 | Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack prend en charge une partie des services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
-| Point de terminaison Azure Resource Manager* | https://management.azure.com | Pour un système intégré Azure Stack, utilisez le point de terminaison fourni par votre opérateur Azure Stack.<br><br>Pour le kit de développement, accédez à l’URL https://management.local.azurestack.external
-| URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack, accédez à l’URL fournie par votre opérateur Azure Stack.<br><br>Pour le kit de développement, accédez à l’URL https://portal.local.azurestack.external
+| Point de terminaison Azure Resource Manager* | https://management.azure.com | Pour un système intégré Azure Stack, utilisez le point de terminaison fourni par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://management.local.azurestack.external
+| URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack, accédez à l’URL fournie par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external
 | Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack, utilisez la région disponible sur votre système.<br><br>Pour le kit de développement, la région est toujours définie sur **local**.
 | Groupes de ressources | Un groupe de ressources peut s’étendre sur plusieurs régions. | Pour les systèmes intégrés et le kit de développement, il n’existe qu’une seule région.
 |Espaces de noms, types de ressources et versions d’API pris en charge | La dernière version (ou les versions antérieures qui ne sont pas encore obsolètes). | Azure Stack prend en charge des versions spécifiques. Consultez la section « Configuration requise pour la version » de cet article.

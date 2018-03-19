@@ -190,11 +190,10 @@
 #### [Créer des rapports sur l’approvisionnement d’utilisateurs automatique](active-directory-saas-provisioning-reporting.md)
 #### [Résoudre les problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Accéder aux applications à distance avec le proxy d’application](active-directory-application-proxy-get-started.md)
 #### Prise en main
 ##### [Activer le Proxy d’application](active-directory-application-proxy-enable.md)
+##### [Prise en charge de RGPD](active-directory-application-proxy-gdpr.md)
 ##### [Publiez des applications](application-proxy-publish-azure-portal.md)
 ##### [Domaines personnalisés](active-directory-application-proxy-custom-domains.md)
 #### [Authentification unique](application-proxy-sso-overview.md)
@@ -311,7 +310,7 @@
 #### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Condition d’emplacement](active-directory-conditional-access-locations.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Démarrer](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
@@ -333,7 +332,7 @@
 ### Authentification par certificat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Démarrer](active-directory-certificate-based-authentication-get-started.md)
+#### [Prise en main](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)

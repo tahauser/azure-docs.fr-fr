@@ -1,6 +1,6 @@
 ---
-title: "Notes de publication sur l’agent Azure File Sync | Microsoft Docs"
-description: Notes de version sur la synchronisation de fichiers Azure
+title: "Notes de publication sur l’agent Azure File Sync (préversion) | Microsoft Docs"
+description: "Notes de publication sur l’agent Azure File Sync (préversion)"
 services: storage
 documentationcenter: 
 author: wmgries
@@ -14,134 +14,134 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-file-sync-agent-release-notes"></a>Notes de publication sur l’agent Azure File Sync
-La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+# <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notes de publication sur l’agent Azure File Sync (préversion)
+Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
-Cet article comprend les notes de publication concernant les versions prises en charge de l’agent Azure File Sync.
+Cet article fournit les notes de publication concernant les versions prises en charge de l’agent Azure File Sync.
 
 ## <a name="supported-versions"></a>Versions prises en charge
-Les versions suivantes sont prises en charge Azure File Sync :
+Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
-| Numéro de version de l’agent | Date de lancement | Pris en charge jusqu’à |
-|----------------------|--------------|------------------|
-| 2.1.0.0 | 2018-02-28 | Version actuelle |
-| 2.0.11.0 | 2018-02-08 | Version actuelle |
-| 1.1.0.0 | 2017-09-26 | 2018-07-30 |
+| Version | Date de lancement | Date de fin de prise en charge |
+|---------|--------------|------------------|
+| 2.1.0.0 | 28 février 2018 | Version actuelle |
+| 2.0.11.0 | 8 février 2018 | Version actuelle |
+| 1.1.0.0 | 26 septembre 2017 | 30 juillet 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="agent-version-2100"></a>Agent version 2.1.0.0
-Les notes de publication suivantes concernent l’agent version 2.1.0, disponible depuis le 28 février 2018. Celles-ci s’ajoutent aux notes de publications ci-dessous pour la version 2.0.11.0
+Les notes de publication suivantes concernent la version 2.1.0.0 de l’agent Azure File Sync mise en production le 28 février 2018. Ces notes s’ajoutent aux notes de publication répertoriées pour la version 2.0.11.0.
 
-Parmi les changements uniques à cette mise à jour mensuelle :
-- Amélioration de la gestion du basculement du cluster.
-- Amélioration de la gestion de fichiers hiérarchisés pour les rendre plus fiables.
-- Autorise l’installation d’agent sur des machines de contrôleur de domaine ajoutées à un environnement de domaine 2008R2.
-- Corrige la génération excessive de diagnostics sur des serveurs avec de nombreux fichiers.
-- Amélioration de la gestion d’erreur lors d’échecs de session.
-- Amélioration de la gestion d’erreur pour des problèmes de transfert de fichiers.
-- Modifie l’intervalle par défaut pour exécuter la hiérarchisation cloud lorsqu’elle est activée sur un point de terminaison de serveur à une heure. 
-- Bloque temporairement des ressources Azure File Sync (Storage Sync Service) en mouvement vers un nouvel abonnement Azure
+Cette mise en production inclut les changements suivants :
+- Améliorations de la gestion du basculement du cluster.
+- Améliorations afin de permettre la gestion fiable de fichiers hiérarchisés.
+- Prise en charge de l’installation de l’agent sur des machines de contrôleur de domaine ajoutées à un environnement de domaine Windows Server 2008 R2.
+- Corrigé lors de cette mise en production : génération de diagnostics excessifs sur des serveurs comprenant de nombreux fichiers.
+- Améliorations de la gestion des erreurs lors d’échecs de session.
+- Améliorations de la gestion des erreurs lors de problèmes de transfert de fichiers.
+- Dans cette mise en production, l’intervalle par défaut pour exécuter la hiérarchisation cloud lorsqu’elle est activée sur un serveur de point de terminaison est passé à 1 heure. 
+- Problème bloquant temporaire : déplacer des ressources Azure File Sync (service de synchronisation de stockage) vers un nouvel abonnement Azure.
 
 ## <a name="agent-version-20110"></a>Agent version 2.0.11.0
-Les notes de publication suivantes concernent l’agent version 2.0.11.0, disponible depuis le 9 février 2018. 
+Les notes de publication suivantes concernent la version 2.0.11.0 de l’agent Azure File Sync (mise en production le 9 février 2018). 
 
 ### <a name="agent-installation-and-server-configuration"></a>Installation de l’agent et configuration du serveur
 Pour en savoir plus sur l’installation et la configuration de l’agent Azure File Sync avec un serveur Windows, consultez [Planification d’un déploiement Azure File Sync (préversion)](storage-sync-files-planning.md) et [Déploiement Azure File Sync (préversion)](storage-sync-files-deployment-guide.md).
 
 - Le package d’installation (MSI) de l’agent doit être installé avec des autorisations (administrateur) élevées.
-- Non pris en charge avec les options de déploiement Windows Server Core ou Nano Server.
-- Pris en charge uniquement sur Windows Server 2016 et 2012 R2.
+- L’agent n’est pas pris en charge par les options de déploiement Windows Server Core ou Nano Server.
+- L’agent est uniquement pris en charge sur Windows Server 2016 et Windows Server 2012 R2.
 - 2 Go de mémoire physique nécessaires pour l’agent.
 
 ### <a name="interoperability"></a>Interopérabilité
-- Les antivirus, applications de sauvegarde et autres applications qui ont accès à des fichiers hiérarchisés peuvent provoquer des rappels indésirables, sauf s’ils respectent l’attribut hors connexion et ignorent la lecture du contenu de ces fichiers. Pour plus d’informations, consultez [Résoudre les problèmes d’Azure File Sync (préversion)](storage-sync-files-troubleshoot.md)
-- Dans cette mise à jour, DFS-R est désormais pris en charge.  Consultez le [guide de planification](storage-sync-files-planning.md#distributed-file-system-dfs) pour plus d’informations.
-- Ne pas utiliser les filtres de fichiers de l’outil de gestion de ressources pour serveur de fichiers (ou autre) : les filtres de fichiers peuvent entraîner d’interminables échecs de synchronisation si les fichiers sont bloqués par un filtre.
-- La duplication d’un serveur inscrit (y compris le clonage de machine virtuelle) peut entraîner des résultats inattendus (convergence de la synchronisation impossible, principalement).
+- Les antivirus, applications de sauvegarde et autres applications qui ont accès à des fichiers hiérarchisés peuvent provoquer des rappels indésirables, sauf s’ils respectent l’attribut hors connexion et ignorent la lecture du contenu de ces fichiers. Pour plus d’informations, consultez [Résoudre les problèmes d’Azure File Sync (préversion)](storage-sync-files-troubleshoot.md).
+- Cette mise en production ajoute la prise en charge de DFS-R. Pour plus d’informations, consultez le [Guide de planification](storage-sync-files-planning.md#distributed-file-system-dfs).
+- N’utilisez pas les Outils de gestion de ressources pour serveur de fichiers (FSRM) ou d’autres filtres de fichiers. Les filtres de fichiers peuvent entraîner des échecs de synchronisation sans fin lorsque les fichiers sont bloqués en raison du filtre de fichier.
+- La duplication de serveurs inscrits (y compris le clonage de machines virtuelles) peut produire des résultats inattendus. En particulier, il se peut que la synchronisation ne converge jamais.
 - La déduplication des données et la hiérarchisation cloud ne sont pas prises en charge pour le même volume.
  
 ### <a name="sync-limitations"></a>Limitations de synchronisation
 Les éléments suivants ne se synchronisent pas, mais le reste du système continue d’opérer normalement :
-- Chemins de plus de 2048 caractères
-- Portion DACL d’un descripteur de sécurité, si plus grand que 2000. Ceci constitue un problème si vous avez plus de 40 entrées Access Control sur le même élément.
-- Portion SACL d’un descripteur de sécurité (pour audit)
-- Attributs étendus
-- Autres flux de données
-- Points d’analyse
-- Liens physiques
-- Si définie sur un serveur de fichiers, la compression n’est pas conservée lorsque les changements se synchronisent avec ce fichier depuis d’autres points de terminaison
-- Tous les fichiers chiffrés avec EFS (ou tout autre chiffrement de mode utilisateur) qui empêche le service de lire les données 
+- Chemins de plus de 2 048 caractères.
+- La partie liste de contrôle d’accès discrétionnaire (DACL) d’un descripteur de sécurité si elle est supérieure à 2 Ko. (Ce problème survient uniquement lorsque vous avez plus de 40 entrées de contrôle d’accès (ACE) sur un seul élément.)
+- La partie liste de contrôle d’accès système (SACL) d’un descripteur de sécurité qui est utilisée pour l’audit.
+- Attributs étendus.
+- Autres flux de données.
+- Points d’analyse.
+- Liens physiques.
+- Si définie sur un serveur de fichiers, la compression n’est pas conservée lorsque les changements se synchronisent avec ce fichier depuis d’autres points de terminaison.
+- Tous les fichiers chiffrés avec EFS (ou tout autre chiffrement de mode utilisateur) qui empêche le service de lire les données. 
     
     > [!Note]  
-    > Azure File Sync chiffre toujours les données en transit, et ces données peuvent être chiffrées au repos dans Azure.
+    > Azure File Sync chiffre toujours les données en transit. Les données sont toujours chiffrées au repos dans Azure.
  
 ### <a name="server-endpoints"></a>Points de terminaison de serveur
 - Un point de terminaison de serveur ne peut être créé que sur un volume NTFS. ReFS, FAT, FAT32 et autres systèmes de fichiers ne sont actuellement pas pris en charge par Azure File Sync.
-- Un point de terminaison de serveur peut ne pas se trouver sur le volume du serveur. Par exemple : C:\MyFolder n’est pas un chemin accepté, à moins qu’il soit un point de montage.
-- Le clustering de basculement est pris en charge avec les disques en cluster uniquement, pas avec les volumes partagés de cluster (CSV).
-- Un point de terminaison de serveur ne peut pas être imbriqué, mais il peut coexister sur le même volume en parallèle des autres.
-- La suppression d’un grand nombre de répertoires d’un serveur en une fois (plus de 10000) peut entraîner des échecs de synchronisation. Supprimez moins de 10000 répertoires et veillez à ce que la synchronisation des opérations de suppression ait réussi avant d’en supprimer davantage.
-- Dans cette version, la racine de synchronisation présente à la racine d’un volume est désormais prise en charge.
-- Ne stockez pas de système d’exploitation ni de fichier de pagination d’application au sein d’un point de terminaison de serveur.
-- Dans cette version, de nouveaux événements ont été ajoutés pour suivre le temps total d’exécution de la hiérarchisation cloud (EventID 9016), la progression du chargement de la synchronisation (EventID 9302) et les fichiers non synchronisés (EventID 9900).
-- Dans cette version, les performances rapides de synchronisation d’espace de noms de récupération d’urgence ont été considérablement améliorées.
+- Un point de terminaison ne peut pas se trouver sur le volume système. Par exemple, C:\MonDossier n’est pas un chemin d’accès acceptable, sauf si C:\MonDossier est un point de montage.
+- Le clustering de basculement est pris en charge uniquement avec les disques en cluster, pas avec les volumes partagés de cluster (CSV).
+- Un point de terminaison de serveur ne peut pas être imbriqué. Il peut coexister sur le même volume en parallèle avec un autre point de terminaison.
+- La suppression d’un grand nombre de répertoires (plus de 10 000) d’un serveur en une seule fois peut entraîner des échecs de synchronisation. Supprimez les répertoires par lots de moins de 10 000. Assurez-vous que la synchronisation des opérations de suppression réussisse avant de supprimer le lot suivant.
+- Dans cette mise en production, la racine de synchronisation présente à la racine d’un volume est désormais prise en charge.
+- Ne stockez pas un système d’exploitation ni ou un fichier de pagination d’application qui se trouve au sein d’un point de terminaison de serveur.
+- Dans cette mise en production, de nouveaux événements ont été ajoutés pour suivre le temps total d’exécution de la hiérarchisation cloud (EventID 9016), la progression du chargement de la synchronisation (EventID 9302) et les fichiers non synchronisés (EventID 9900).
+- Dans cette mise en production, les performances rapides de synchronisation d’espace de noms de récupération d’urgence ont été considérablement améliorées.
  
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
-- Dans cette nouvelle version, les nouveaux fichiers sont hiérarchisés en 1 heure conformément au paramétrage de la stratégie de hiérarchisation (contre 32 heures précédemment). Nous fournissons une applet de commande PowerShell afin de hiérarchiser à la demande et d’évaluer la hiérarchisation plus efficacement sans attendre le processus en arrière-plan.
-- Si un fichier hiérarchisé est copié dans un autre emplacement à l’aide de Robocopy, le fichier obtenu ne sera pas hiérarchisé mais l’attribut hors ligne peut être défini, car Robocopy inclut mal cet attribut lors des opérations de copie.
+- Dans cette version, les nouveaux fichiers sont hiérarchisés dans un délai d’1 heure (contre 32 heures auparavant) sous réserve des paramètres de stratégie de hiérarchisation. Nous fournissons une cmdlet PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser la cmdlet pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.
+- Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lorsque vous consultez les propriétés de fichier depuis un client SMB, l’attribut hors ligne peut sembler mal défini en raison de la mise en cache SMB des métadonnées du fichier.
 - Dans cette nouvelle version, les fichiers sont maintenant téléchargés en tant que fichiers hiérarchisés sur d’autres serveurs, dans la mesure où le fichier est nouveau ou a déjà été hiérarchisé.
 
 ## <a name="agent-version-1100"></a>Agent version 1.1.0.0
-Les notes de publication suivantes concernent l’agent version 1.1.0.0, disponible depuis le 9 septembre 2017. Sa sortie marque le début de la version préliminaire d’Azure File Sync !
+Les notes de publication suivantes concernent la version 1.1.0.0 de l’agent Azure File Sync (mise en production le 9 septembre 2017, préversion initiale). 
 
 ### <a name="agent-installation-and-server-configuration"></a>Installation de l’agent et configuration du serveur
 Pour en savoir plus sur l’installation et la configuration de l’agent Azure File Sync avec un serveur Windows, consultez [Planification d’un déploiement Azure File Sync (préversion)](storage-sync-files-planning.md) et [Déploiement Azure File Sync (préversion)](storage-sync-files-deployment-guide.md).
 
 - Le package d’installation (MSI) de l’agent doit être installé avec des autorisations (administrateur) élevées.
-- Non pris en charge avec les options de déploiement Windows Server Core ou Nano Server.
-- Pris en charge uniquement sur Windows Server 2016 et 2012 R2.
+- L’agent n’est pas pris en charge par les options de déploiement Windows Server Core ou Nano Server.
+- L’agent est pris en charge uniquement sur Windows Server 2016 et 2012 R2.
 - 2 Go de mémoire physique nécessaires pour l’agent.
 
 ### <a name="interoperability"></a>Interopérabilité
-- Les antivirus, applications de sauvegarde et autres applications qui ont accès à des fichiers hiérarchisés peuvent provoquer des rappels indésirables, sauf s’ils respectent l’attribut hors connexion et ignorent la lecture du contenu de ces fichiers. Pour plus d’informations, consultez [Résoudre les problèmes d’Azure File Sync (préversion)](storage-sync-files-troubleshoot.md)
-- Ne pas utiliser les filtres de fichiers de l’outil de gestion de ressources pour serveur de fichiers (ou autre) : les filtres de fichiers peuvent entraîner d’interminables échecs de synchronisation si les fichiers sont bloqués par un filtre.
-- La duplication d’un serveur inscrit (y compris le clonage de machine virtuelle) peut entraîner des résultats inattendus (convergence de la synchronisation impossible, principalement).
+- Les antivirus, applications de sauvegarde et autres applications qui ont accès à des fichiers hiérarchisés peuvent provoquer des rappels indésirables, sauf s’ils respectent l’attribut hors connexion et ignorent la lecture du contenu de ces fichiers. Pour plus d’informations, consultez [Résoudre les problèmes d’Azure File Sync (préversion)](storage-sync-files-troubleshoot.md).
+- N’utilisez pas FSRM ou autres filtres de fichiers. Les filtres de fichiers peuvent entraîner des échecs de synchronisation sans fin lorsque les fichiers sont bloqués en raison du filtre de fichier.
+- La duplication de serveurs inscrits (y compris le clonage de machines virtuelles) peut produire des résultats inattendus. En particulier, il se peut que la synchronisation ne converge jamais.
 - La déduplication des données et la hiérarchisation cloud ne sont pas prises en charge pour le même volume.
  
 ### <a name="sync-limitations"></a>Limitations de synchronisation
 Les éléments suivants ne se synchronisent pas, mais le reste du système continue d’opérer normalement :
-- Chemins de plus de 2048 caractères
-- Portion DACL d’un descripteur de sécurité, si plus grand que 2000. Ceci constitue un problème si vous avez plus de 40 entrées Access Control sur le même élément.
-- Portion SACL d’un descripteur de sécurité (pour audit)
-- Attributs étendus
-- Autres flux de données
-- Points d’analyse
-- Liens physiques
-- Si définie sur un serveur de fichiers, la compression n’est pas conservée lorsque les changements se synchronisent avec ce fichier depuis d’autres points de terminaison
-- Tous les fichiers chiffrés avec EFS (ou tout autre chiffrement de mode utilisateur) qui empêche le service de lire les données 
+- Chemins de plus de 2 048 caractères.
+- La partie DACL d’un descripteur de sécurité si elle est supérieure à 2 Ko. (Ce problème survient uniquement lorsque vous avez plus de 40 entrées de contrôle d’accès (ACE) sur un seul élément.)
+- La partie SACL d’un descripteur de sécurité utilisée pour l’audit.
+- Attributs étendus.
+- Autres flux de données.
+- Points d’analyse.
+- Liens physiques.
+- Si définie sur un serveur de fichiers, la compression n’est pas conservée lorsque les changements se synchronisent avec ce fichier depuis d’autres points de terminaison.
+- Tous les fichiers chiffrés avec EFS (ou tout autre chiffrement de mode utilisateur) qui empêche le service de lire les données. 
     
     > [!Note]  
-    > Azure File Sync chiffre toujours les données en transit, et ces données peuvent être chiffrées au repos dans Azure.
+    > Azure File Sync chiffre toujours les données en transit. Les données sont toujours chiffrées au repos dans Azure.
  
 ### <a name="server-endpoints"></a>Points de terminaison de serveur
-- Un point de terminaison de serveur ne peut être créé que sur un volume NTFS. ReFS, FAT, FAT32 et autres systèmes de fichiers ne sont actuellement pas pris en charge par Azure File Sync.
-- Un point de terminaison de serveur peut ne pas se trouver sur le volume du serveur. Par exemple : C:\MyFolder n’est pas un chemin accepté, à moins qu’il soit un point de montage.
-- Le clustering de basculement est pris en charge avec les disques en cluster uniquement, pas avec les volumes partagés de cluster (CSV).
-- Un point de terminaison de serveur ne peut pas être imbriqué, mais il peut coexister sur le même volume en parallèle des autres.
-- La suppression d’un grand nombre de répertoires d’un serveur en une fois (plus de 10000) peut entraîner des échecs de synchronisation. Supprimez moins de 10000 répertoires et veillez à ce que la synchronisation des opérations de suppression ait réussi avant d’en supprimer davantage.
-- Non pris en charge à la racine d’un volume.
-- Ne stockez pas de système d’exploitation ni de fichier de pagination d’application au sein d’un point de terminaison de serveur.
+- Un point de terminaison de serveur ne peut être créé que sur un volume NTFS. ReFS, FAT, FAT32 et d’autres systèmes de fichiers ne sont actuellement pas pris en charge par Azure File Sync.
+- Un point de terminaison ne peut pas se trouver sur le volume système. Par exemple, C:\MonDossier n’est pas un chemin d’accès acceptable, sauf si C:\MonDossier est un point de montage.
+- Le clustering de basculement est pris en charge uniquement avec les disques en cluster, pas avec les CSV.
+- Un point de terminaison de serveur ne peut pas être imbriqué. Il peut coexister sur le même volume en parallèle avec un autre point de terminaison.
+- La suppression d’un grand nombre de répertoires (plus de 10 000) d’un serveur en une seule fois peut entraîner des échecs de synchronisation. Supprimez les répertoires par lots de moins de 10 000. Assurez-vous que la synchronisation des opérations de suppression réussisse avant de supprimer le lot suivant.
+- Un point de terminaison de serveur à la racine d’un volume n’est actuellement pas pris en charge.
+- Ne stockez pas un système d’exploitation ni ou un fichier de pagination d’application qui se trouve au sein d’un point de terminaison de serveur.
  
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
-- Afin de garantir que les fichiers puissent être rappelés correctement, le système ne peut pas hiérarchiser des fichiers modifiés ou nouveaux jusqu’à 32 heures, et cela inclut la première hiérarchisation après configuration d’un nouveau point de terminaison de serveur. Nous fournissons une cmdlet PowerShell pour hiérarchiser à la demande. Ceci vous permettra d’évaluer la hiérarchisation plus efficacement sans attendre le processus en arrière-plan.
-- Si un fichier hiérarchisé est copié dans un autre emplacement à l’aide de Robocopy, le fichier obtenu ne sera pas hiérarchisé mais l’attribut hors ligne peut être défini, car Robocopy inclut mal cet attribut lors des opérations de copie.
+- Afin de garantir que les fichiers peuvent être rappelés correctement, il se peut que le système ne hiérarchise pas automatiquement les fichiers nouveaux ou modifiés avant 32 heures. Ce processus inclut la première hiérarchisation après avoir configuré un nouveau point de terminaison de serveur. Nous fournissons une cmdlet PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser la cmdlet pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.
+- Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lorsque vous consultez les propriétés de fichier depuis un client SMB, l’attribut hors ligne peut sembler mal défini en raison de la mise en cache SMB des métadonnées du fichier.

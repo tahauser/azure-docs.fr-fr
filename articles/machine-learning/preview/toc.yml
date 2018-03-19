@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Procédures
   items:
+    - name: Tâches d’interface de ligne de commande supérieures
+      href: cli-for-azure-machine-learning.md
     - name: Utiliser Workbench
       items:
         - name: Travailler avec des environnements IDE Python

@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Didacticiel : Autoriser l’accès aux données de gestion des coûts
 
@@ -32,6 +32,7 @@ Quand vous avez inscrit votre contrat ou compte Azure, un compte avec l’autori
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
@@ -54,7 +55,7 @@ En principe, les utilisateurs ayant besoin d’accéder à des données de gesti
 
 ![ajouter un nouvel utilisateur avec un accès utilisateur](.\media\tutorial-user-access\new-user-access.png)
 
-Pour visionner un didacticiel vidéo sur l’ajout d’utilisateurs, consultez [Ajout d’utilisateurs à la gestion des coûts Azure de Cloudyn](https://youtu.be/Nzn7GLahx30).
+Pour visionner un didacticiel vidéo sur l’ajout d’utilisateurs, consultez [Ajout d’utilisateurs à Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Créer des entités
 
@@ -75,9 +76,9 @@ En regard de **Entities (Entités)**, cliquez sur **Add Entity (Ajouter une enti
 Quand vous avez terminé, **enregistrez** l’entité.
 
 
-Pour visionner un didacticiel vidéo sur la création d’une hiérarchie d’entités de coût, consultez [Création d’une hiérarchie d’entités de coût dans la gestion des coûts Azure de Cloudyn](https://youtu.be/dAd9G7u0FmU).
+Pour visionner un didacticiel vidéo sur la création d’une hiérarchie d’entités de coût, consultez [Création d’une hiérarchie d’entités de coût dans Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
-Si vous êtes un utilisateur Azure Enterprise Agreement, regardez un didacticiel vidéo sur l’association des comptes et des abonnements à des entités à l’adresse [Connexion à Azure Resource Manager avec la gestion des coûts Azure de Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Si vous êtes un utilisateur Azure Enterprise Agreement, regardez un didacticiel vidéo sur l’association des comptes et des abonnements à des entités à l’adresse [Connexion à Azure Resource Manager avec Azure Cost Management](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

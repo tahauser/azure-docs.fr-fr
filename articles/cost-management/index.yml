@@ -5,19 +5,19 @@ metadata:
   title: "Documentation Gestion des coûts - Didacticiels, informations de référence sur les API | Microsoft Docs"
   description: "Azure Cost Management est une solution de gestion des coûts multicloud qui vous aide dans votre utilisation d’Azure et autres ressources cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels."
   services: cost-management
-  author: czeumault
-  manager: carolz
+  author: bandersmsft
+  manager: carmonm
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 02/27/2018
+  ms.author: banders
+  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Azure Cost Management, sous licence Cloudyn, une filiale de Microsoft, est une solution de gestion des coûts multicloud qui vous permet d’optimiser l’utilisation et la gestion d’Azure et d’autres ressources de cloud. Découvrez comment examiner l’utilisation et les coûts, gérer de façon active les coûts, anticiper les dépenses et optimiser les coûts grâce à nos démarrages rapides et didacticiels."
 sections:
@@ -40,6 +40,7 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"tutorial-review-usage\">Examiner l’utilisation et les coûts pour détecter les anomalies et mesurer l’efficacité</a>"
-    - html: "<a href=\"tutorial-user-access\">Autoriser l’accès aux données Gestion des coûts</a>"
     - html: "<a href=\"tutorial-forecast-spending\">Prévoir les dépenses futures</a>"
     - html: "<a href=\"tutorial-manage-costs\">Gérer les coûts grâce à des rapports de facturation, de refacturation et d’allocation des coûts</a>"
+    - html: "<a href=\"tutorial-optimize-reserved-instances\">Optimiser les instances réservées</a>"
+    - html: "<a href=\"tutorial-user-access\">Autoriser l’accès aux données Gestion des coûts</a>"

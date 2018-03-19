@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -41,13 +41,13 @@ L’expérience d’intégration protection de point de terminaison peut varier 
 
 | Protection du point de terminaison               | Plateformes                             | Installation du centre de sécurité | Détection du centre de sécurité |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)                  | Windows Server 2016                   | Non, intégré au système d’exploitation           | Oui                       |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via l’extension                | Oui                       |
-| Trend Micro : toutes les versions         | Gamme Windows Server                 | Via l’extension                | Oui                       |
-| Symantec v12.1.1100+                     | Gamme Windows Server                 | Non                           | Oui                        |
-| MacAfee                           | Gamme Windows Server                 | Non                           | Non                        |
-| Kaspersky                         | Gamme Windows Server                 | Non                           | Non                        |
-| Sophos                            | Gamme Windows Server                 | Non                           | Non                        |
+| Windows Defender (logiciel anti-programme malveillant de Microsoft)                  | Windows Server 2016                   | Non, intégré au système d’exploitation           | OUI                       |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via l’extension                | OUI                       |
+| Trend Micro : toutes les versions         | Gamme Windows Server                 | Via l’extension                | OUI                       |
+| Symantec v12.1.1100+                     | Gamme Windows Server                 | Non                            | OUI                        |
+| MacAfee                           | Gamme Windows Server                 | Non                            | Non                         |
+| Kaspersky                         | Gamme Windows Server                 | Non                            | Non                         |
+| Sophos                            | Gamme Windows Server                 | Non                            | Non                         |
 
 
 
@@ -63,7 +63,15 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gérer des solutions de sécurité Azure intégrées et d’autres sources de données
 
-Après le déploiement, vous pouvez consulter des informations sur le fonctionnement de la solution de sécurité Azure intégrée et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux de pare-feu et des alertes Azure AD Identity Protection au format CEF. Dans le tableau de bord de Security Center, sélectionnez Solutions de sécurité.
+1. Connectez-vous au [Portail Azure](https://azure.microsoft.com/features/azure-portal/).
+
+2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
+
+  ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
+
+3. Sous **Vue d’ensemble**, sélectionnez **Solutions de sécurité**.
+
+Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux de pare-feu et des alertes Azure AD Identity Protection au format CEF.
 
 ### <a name="connected-solutions"></a>Solutions connectées
 
@@ -71,13 +79,22 @@ La section **Solutions connectées** inclut des solutions de sécurité qui sont
 
 ![Solutions connectées](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Consultez [gestion des solutions partenaires connectées](security-center-partner-solutions.md) pour en savoir plus.
+
 ### <a name="discovered-solutions"></a>Solutions découvertes
 
-La section **Solutions découvertes** affiche toutes les solutions ajoutées via Azure. Elle affiche également toutes les solutions auxquelles Security Center suggère de se connecter.
+Security Center découvre automatiquement les solutions exécutées dans Azure mais qui ne sont pas connectées à Security Center. Elles sont ensuite affichées dans la section **Solutions découvertes**. Cela inclut les solutions Azure, telles que [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), ainsi que les solutions partenaires.
+
+> [!NOTE]
+> La fonctionnalité des solutions découvertes est disponible pour le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+>
+>
+
+Sélectionne **CONNECTER** sous une solution pour l’intégrer à Security Center et être notifié sur les alertes de sécurité.
 
 ![Solutions découvertes](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center détecte automatiquement d’autres solutions de sécurité s’exécutant dans Azure. Cela inclut les solutions Azure, telles que [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), ainsi que les solutions de partenaire qui s’exécutent dans Azure. Pour intégrer ces solutions à Security Center, sélectionnez **CONNECTER**.
+Security Center découvre aussi les solutions déployées dans l’abonnement, capables d’envoyer des journaux CEF (Common Event Format). Découvrez comment [Connecter une solution de sécurité](quick-security-solutions.md) qui utilise des journaux CEF dans Security Center.
 
 ### <a name="add-data-sources"></a>Ajouter des sources de données
 
@@ -90,7 +107,6 @@ La section **Ajouter des sources de données** comprend d’autres sources de do
 
 Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
-* [Guide des opérations et de planification de Security Center](security-center-planning-and-operations-guide.md)
 * [Connexion de Microsoft Advanced Threat Analytics à Azure Security Center](security-center-ata-integration.md)
 * [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md) (Connexion d’Azure Active Directory Identity Protection à Azure Security Center)
 * [Surveillance de l’intégrité de la sécurité dans Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.

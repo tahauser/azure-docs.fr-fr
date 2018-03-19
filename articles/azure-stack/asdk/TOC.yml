@@ -1,0 +1,87 @@
+- name: Documentation relative au Kit de développement Azure Stack
+  href: index.yml
+- name: Vue d'ensemble
+  expanded: true
+  items:
+    - name: "Qu’est-ce que l’ASDK\_?"
+      href: asdk-what-is.md
+    - name: Notes de publication relatives à l’ASDK
+      href: asdk-release-notes.md
+- name: Didacticiels
+  items:
+    - name: 1. Déployer l’ASDK
+      items:
+        - name: Déployer l’ASDK -Programme d’installation
+          href: asdk-deploy.md
+        - name: Déployer l’ASDK - PowerShell
+          href: asdk-deploy-powershell.md
+        - name: Redéployer l’ASDK
+          href: asdk-redeploy.md
+    - name: 2. Ajouter un élément du Marketplace
+      items:
+        - name: Télécharger à partir d’Azure
+          href: asdk-marketplace-item.md
+        - name: Ajouter à partir d’une source locale
+          href: asdk-marketplace-item-offline.md
+    - name: 3. Proposer des services IaaS
+      href: asdk-offer-services.md
+    - name: 4. S’abonner à une offre
+      href: asdk-subscribe-services.md
+    - name: 5. Offres et plans de mise à jour
+      href: asdk-update-offers.md
+    - name: 6. Créer une machine virtuelle à partir d’un modèle
+      href: asdk-create-vm-template.md
+- name: Concepts
+  items:
+    - name: Considérations en matière de planification du déploiement
+      href: asdk-deploy-considerations.md
+    - name: Architecture du kit de développement
+      href: asdk-architecture.md
+    - name: Informations de base sur l’administration de l’ASDK
+      href: asdk-admin-basics.md
+    - name: Tâches d’évaluation avancées
+      href: asdk-advanced-eval.md
+- name: Procédures
+  items:
+    - name: Configurer l’ASDK
+      items:
+        - name: Télécharger et extraire le Kit de développement
+          href: asdk-download.md
+        - name: Préparer l’ordinateur hôte de l’ASDK
+          href: asdk-prepare-host.md
+        - name: Installer l’ASDK
+          href: asdk-install.md
+        - name: Configuration post-déploiement
+          href: asdk-post-deploy.md
+    - name: Inscrire l’ASDK
+      href: asdk-register.md
+    - name: Configurer les paramètres de télémétrie Azure Stack
+      href: asdk-telemetry.md
+    - name: Résolution de problèmes
+      href: asdk-troubleshooting.md
+- name: Informations de référence
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: "CLI\_Azure Stack"
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Rubriques connexes
+  items:
+    - name: Documentation pour opérateur Azure Stack
+      href: /azure/azure-stack/
+    - name: Documentation sur les utilisateurs Azure Stack
+      href: /azure/azure-stack/user/
+- name: Ressources
+  items:
+    - name: Feuille de route Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Forum MSDN Azure Stack
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Commentaires sur la documentation Azure Stack
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Informations sur la tarification
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Dépassement de capacité de la pile
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Formation et certification
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

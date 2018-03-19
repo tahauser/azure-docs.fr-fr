@@ -64,6 +64,7 @@
 ## Outils Visual Studio
 ### [Installer des outils](stream-analytics-tools-for-visual-studio-install.md)
 ### [Développer un travail cloud](stream-analytics-tools-for-visual-studio.md)
+### [Développer un travail Edge](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Résolution des problèmes

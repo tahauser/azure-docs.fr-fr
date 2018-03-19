@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
@@ -48,8 +48,13 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     * Pour **Abonnement**, sélectionnez votre abonnement Azure dans la liste déroulante.
     * Pour **Groupe de ressources**, indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionnez un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).
     * Pour **Emplacement**, sélectionnez **États-Unis de l’Est 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).
+    * Pour le **niveau tarifaire**, sélectionnez **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).
 
-4. Cliquez sur **Créer**.
+    Cliquez sur **Créer**.
+
+4. La création du compte prend quelques minutes. Lors de la création d’un compte, le portail affiche la vignette **Envoi du déploiement pour Azure Databricks** sur le côté droit. Vous devrez peut-être faire défiler votre tableau de bord vers la droite pour voir la vignette. Il existe également une barre de progression en haut de l’écran. Vous pouvez surveiller la progression de la zone souhaitée.
+
+    ![Vignette de déploiement Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Vignette de déploiement Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Créer un cluster Spark dans Databricks
 
@@ -64,7 +69,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     ![Créer un cluster Databricks Spark sur Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Créer un cluster Databricks Spark sur Azure")
 
     * Entrez un nom pour le cluster.
-    * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)**. 
+    * Pour cet article, créez un cluster avec le runtime **4.0**. 
     * Veillez à cocher la case **Arrêter après ___ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
     * Acceptez toutes les autres valeurs par défaut. 
     * Cliquez sur **Créer le cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
@@ -96,7 +101,7 @@ Procédez comme suit pour créer un notebook dans Databricks, configurer le note
     > [!IMPORTANT]
     >Cet article utilise la **méthode de montage du stockage au système de fichiers DBFS**. Cette méthode garantit l’association du stockage monté et du cluster de système de fichiers. Ainsi, toute application qui accède au cluster est en mesure d’utiliser aussi le stockage associé. La méthode d’accès direct est limitée à l’application à partir de laquelle vous configurez l’accès.
     >
-    > Pour utiliser la méthode de montage, vous devez créer un cluster Spark avec la version **4.0 (bêta)** du runtime de Databricks, que vous choisissez dans cet article.
+    > Pour utiliser la méthode de montage, vous devez créer un cluster Spark avec la version **4.0** du runtime de Databricks, que vous choisissez dans cet article.
 
     Dans l’extrait suivant, remplacez les valeurs `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` et `{YOUR STORAGE ACCOUNT ACCESS KEY}` par les valeurs correspondantes à votre compte de Stockage Azure. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée pour exécuter la cellule de code.
 

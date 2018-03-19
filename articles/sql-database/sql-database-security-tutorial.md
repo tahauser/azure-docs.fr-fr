@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
@@ -39,7 +39,8 @@ Quelques étapes simples suffisent pour améliorer la protection d’une base de
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vérifiez que vous disposez des éléments suivants :
 
@@ -187,7 +188,7 @@ L’audit Azure SQL Database suit les événements de base de données et les é
 5. Cliquez sur **Enregistrer**.
 
 > [!IMPORTANT]
-> Si vous voulez personnaliser les événements audités, vous pouvez le faire via PowerShell ou l’API REST. Pour plus d’informations, consultez [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
+> Si vous voulez personnaliser les événements audités, vous pouvez le faire via PowerShell ou l’API REST. Pour plus d’informations, consultez [Audit de bases de données SQL](sql-database-auditing.md).
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Activer la détection de menaces pour les bases de données SQL
@@ -216,7 +217,7 @@ Par exemple, il détecte certaines activités de base de données anormales indi
 
     ![Enregistrements d’audit](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Cliquez sur les enregistrements d’audit pour afficher plus de détails sur les activités de base de données suspects, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
+7. Cliquez sur les enregistrements d’audit pour afficher plus d’informations sur les activités de base de données suspectes, comme l’instruction SQL, la cause de l’échec et l’adresse IP client.
 
     ![Détails des enregistrements](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 

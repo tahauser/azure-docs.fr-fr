@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -26,7 +26,7 @@ L’homologation de réseaux virtuels vous permet de connecter deux [réseaux vi
 
 Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
 
-* Le trafic réseau entre les réseaux virtuels homologués est privé. Le trafic entre les réseaux virtuels reste sur le réseau principal de Microsoft. Aucun chiffrement et aucune connexion Internet publique, ni passerelle ne sont nécessaires pour que les réseaux virtuels communiquent.
+* Le trafic réseau entre les réseaux virtuels homologués est privé. Le trafic entre les réseaux virtuels reste sur le réseau principal de Microsoft. Aucun chiffrement et aucune connexion Internet publique, ni passerelle ne sont nécessaires pour que les réseau virtuels communiquent.
 * Connexion à latence faible et haut débit entre les ressources de différents réseaux virtuels.
 * La possibilité pour les ressources d’un réseau virtuel de communiquer avec les ressources d’un autre réseau virtuel, une fois que les réseaux virtuels sont homologués.
 * La possibilité de transférer des données dans des abonnements Azure, des modèles de déploiement et dans les régions Azure (préversion).
@@ -35,7 +35,7 @@ Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
 
 ## <a name="requirements-constraints"></a>Exigences et contraintes
 
-* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage des réseaux virtuels de différentes régions est actuellement en préversion dans les régions suivantes : États-Unis Centre-Ouest, Centre du Canada, Ouest des États-Unis 2, Corée du Sud, Royaume-Uni Sud, Royaume-Uni Ouest, Est du Canada, Inde Sud, Inde Centre et Inde Ouest. Avant de procéder à l’homologation de réseaux virtuels dans des régions différentes, vous devez d’abord [enregistrer votre abonnement](virtual-network-create-peering.md#register) pour la préversion. Toute tentative d’homologation entre des réseaux virtuels se trouvant dans des régions différentes échoue si vous n’avez pas suivi la procédure d’enregistrement pour la préversion.
+* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage des réseaux virtuels de différentes régions est actuellement en préversion dans les régions suivantes : États-Unis Centre-Ouest, Centre du Canada, Ouest des États-Unis 2, Corée du Sud, Royaume-Uni Sud, Royaume-Uni Ouest, Est du Canada, Inde Sud, Inde Centre et Inde Ouest. Avant de procéder à l’homologation de réseaux virtuels dans des régions différentes, vous devez d’abord [enregistrer votre abonnement](tutorial-connect-virtual-networks-powershell.md#register) pour la préversion. Toute tentative d’homologation entre des réseaux virtuels se trouvant dans des régions différentes échoue si vous n’avez pas suivi la procédure d’enregistrement pour la préversion.
     > [!WARNING]
     > Les homologations de réseaux virtuels créées entre les régions peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que les homologations d’une version publique. Les appairages de réseaux virtuels peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -126,7 +126,7 @@ Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une 
 
     |Modèle de déploiement Azure  | Abonnement  |
     |---------|---------|
-    |Les deux modèles Resource Manager |[Identique](virtual-network-create-peering.md)|
+    |Les deux modèles Resource Manager |[Identique](tutorial-connect-virtual-networks-portal.md)|
     | |[Différent](create-peering-different-subscriptions.md)|
     |Un modèle Resource Manager, un modèle classique     |[Identique](create-peering-different-deployment-models.md)|
     | |[Différent](create-peering-different-deployment-models-subscriptions.md)|

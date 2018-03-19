@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
 
@@ -51,10 +51,7 @@ Les machines virtuelles Azure présentent différentes tailles pour répondre au
 Pour commencer, choisissez une image de machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation requis. Les sections suivantes fournissent des liens directs vers le portail Azure pour les images de la galerie de machines virtuelles SQL Server.
 
 > [!TIP]
-> Pour en savoir plus sur la tarification des machines virtuelles SQL pour ces images, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
-
-> [!TIP]
-> Pour comprendre la stratégie de cycle de vie et de mise à jour pour les images de la galerie de machines virtuelles SQL Server, consultez l’article [SQL Server VMs FAQ (Forum aux questions relatif aux machines virtuelles SQL Server)](virtual-machines-windows-sql-server-iaas-faq.md#images).
+> Pour en savoir plus sur la tarification des images SQL, consultez l’article [Tarification des machines virtuelles SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Paiement à l’utilisation
 Le tableau suivant fournit une matrice des images SQL Server de paiement à l’utilisation.
@@ -86,6 +83,9 @@ Lorsque vous avez créé votre machine virtuelle SQL Server, connectez-vous à c
 
 ### <a name="migrate-your-data"></a>Migration de vos données
 Si vous disposez d’une base de données existante, vous voudrez la déplacer vers la machine virtuelle SQL récemment approvisionnée. Pour obtenir la liste des options de migration ainsi que de l’aide, voir [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-windows-migrate-sql.md).
+
+## <a id="lifecycle"></a> Stratégie d’actualisation des images machine virtuelle SQL
+Azure conserve uniquement une image de machine virtuelle pour chaque combinaison de système d’exploitation, de version et d’édition prise en charge. Cela signifie qu’au fil du temps, les images sont actualisées et les images plus anciennes sont supprimées. Pour plus d’informations, consultez la section **Images** des [FAQ relatifs aux machines virtuelles SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programme d’amélioration du produit (CEIP)
 Le Programme d’amélioration du produit est activé par défaut. Il transmet régulièrement des rapports à Microsoft afin de contribuer à améliorer SQL Server. Aucune tâche de gestion n’est requise dans le cadre de ce programme, sauf si vous souhaitez le désactiver après sa mise en service. Vous pouvez personnaliser ou désactiver le CEIP en vous connectant à la machine virtuelle avec le Bureau à distance. Exécutez ensuite l’utilitaire **Rapports d’erreurs et d’utilisation SQL Server** . Suivez les instructions pour désactiver la création de rapports. Pour plus d’informations sur la collecte de données, consultez la [Déclaration de confidentialité de SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).

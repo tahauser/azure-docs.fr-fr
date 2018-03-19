@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>Didacticiel : Prévoir les dépenses futures
 
-La Gestion des coûts Azure par Cloudyn vous permet de prévoir les futures dépenses à l’aide de l’historique d’utilisation et des données de dépenses. Les rapports Cloudyn vous permettent d’afficher toutes les données de projection des coûts. Les exemples de ce didacticiel vous guident tout au long de l’étude des projections de coûts à l’aide de rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Azure Cost Management vous permet de prévoir les futures dépenses à l’aide de l’historique d’utilisation et des données de dépenses. Les rapports Cloudyn vous permettent d’afficher toutes les données de projection des coûts. Les exemples de ce didacticiel vous guident tout au long de l’étude des projections de coûts à l’aide de rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Prévoir les dépenses futures
@@ -26,6 +26,7 @@ La Gestion des coûts Azure par Cloudyn vous permet de prévoir les futures dép
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
