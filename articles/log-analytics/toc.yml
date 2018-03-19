@@ -50,7 +50,7 @@
     - name: Recherche dans les journaux
       items:
         - name: Présentation de la recherche dans les journaux
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Portails de recherche dans les journaux
           href: log-analytics-log-search-portals.md
 - name: Procédures
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: API Recherche de journal
           href: 'https://dev.loganalytics.io/'
-    - name: Recherche de journal hérité
-      items:
-        - name: Présentation de la recherche dans les journaux
-          href: log-analytics-log-searches.md
-        - name: Référence sur la recherche
-          href: log-analytics-search-reference.md
-          items:
-            - name: Expressions régulières
-              href: log-analytics-log-searches-regex.md
-        - name: API Recherche de journal
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Analyser des données
       items:
         - name: Tableaux de bord

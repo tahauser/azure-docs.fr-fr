@@ -27,14 +27,9 @@
 ### [Groupes de sécurité réseau](virtual-networks-nsg.md)
 
 ## Déployer
-### Réseaux virtuels
-#### [Portail Azure](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [interface de ligne de commande Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [Modèle](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Groupes de sécurité réseau
-#### [Portail Azure](virtual-networks-create-nsg-arm-pportal.md)
+#### [Portail Azure](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [interface de ligne de commande Azure](virtual-networks-create-nsg-arm-cli.md)
 #### [Modèle](virtual-networks-create-nsg-arm-template.md)
@@ -44,7 +39,7 @@
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Tables de routage
-#### [Portail Azure](tutorial-create-route-table-portal.md)
+#### [Portail Azure](tutorial-create-route-table-portal.md)
 #### [Azure PowerShell](tutorial-create-route-table-powershell.md)
 #### [interface de ligne de commande Azure](tutorial-create-route-table-cli.md)
 #### [Modèle](virtual-network-create-udr-arm-template.md)
@@ -54,7 +49,7 @@
 
 ### Homologation de réseaux virtuels
 #### Même mode de déploiement - même abonnement
-##### [Portail Azure](tutorial-connect-virtual-networks-portal.md)
+##### [Portail Azure](tutorial-connect-virtual-networks-portal.md)
 ##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
 ##### [interface de ligne de commande Azure](tutorial-connect-virtual-networks-cli.md)
 #### [Même mode de déploiement - mêmes abonnements](create-peering-different-subscriptions.md)
@@ -63,15 +58,10 @@
 
 ### [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-configure.md)
 
-### Adresse IP publique - zone de disponibilité
-#### [Portail Azure](create-public-ip-availability-zone-portal.md)
-#### [interface de ligne de commande Azure](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
-
 ### Machines virtuelles
 #### [Débit réseau de machine virtuelle](virtual-machine-network-throughput.md)
 #### Créer une machine virtuelle avec une adresse IP publique statique
-##### [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
+##### [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Modèle](virtual-network-deploy-static-pip-arm-template.md)
@@ -79,11 +69,11 @@
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### Créer des machines virtuelles : adresse IP privée statique
-##### [Portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
+##### [Portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
 ##### Classique
-###### [Portail Azure](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Portail Azure](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [interface de ligne de commande Azure](virtual-networks-static-private-ip-classic-cli.md)
 
@@ -97,7 +87,7 @@
 ###### [interface de ligne de commande Azure](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Créer des machines virtuelles : plusieurs adresses IP
-##### [Portail Azure](virtual-network-multiple-ip-addresses-portal.md)
+##### [Portail Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [interface de ligne de commande Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modèle](virtual-network-multiple-ip-addresses-template.md)
@@ -126,7 +116,7 @@
 
 ### Classique
 #### [Réseau virtuel](create-virtual-network-classic.md)
-##### [Portail Azure](virtual-networks-create-vnet-classic-pportal.md)
+##### [Portail Azure](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [interface de ligne de commande Azure](virtual-networks-create-vnet-classic-cli.md)
 #### [Définir des paramètres DNS dans un fichier de configuration de réseau virtuel](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
@@ -147,18 +137,18 @@
 
 ### Classique
 #### Listes de contrôle d'accès
-##### [Portail Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Portail Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## gérer
-### [Réseaux virtuels](virtual-network-manage-network.md)
+### [Réseaux virtuels](manage-virtual-network.md)
 #### [Sous-réseaux](virtual-network-manage-subnet.md)
 #### [Homologations](virtual-network-manage-peering.md)
 #### Classique
 ##### [Fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 ##### [Migrer depuis un groupe d’affinités vers une région](virtual-networks-migrate-to-regional-vnet.md)
 ### Groupes de sécurité réseau
-#### [Portail Azure](virtual-network-manage-nsg-arm-portal.md)
+#### [Portail Azure](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [Interface de ligne de commande Azure](virtual-network-manage-nsg-arm-cli.md)
 
@@ -171,15 +161,15 @@
 #### [Déplacer une machine virtuelle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md)
 ### [Adresses IP publiques](virtual-network-public-ip-address.md)
 ### Protection DDOS
-#### [Portail Azure](ddos-protection-manage-portal.md)
+#### [Portail Azure](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 
 ## Résolution des problèmes
 ### Groupes de sécurité réseau
-#### [Portail Azure](virtual-network-nsg-troubleshoot-portal.md)
+#### [Portail Azure](virtual-network-nsg-troubleshoot-portal.md)
 #### [Azure PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### Itinéraires
-#### [Portail Azure](virtual-network-routes-troubleshoot-portal.md)
+#### [Portail Azure](virtual-network-routes-troubleshoot-portal.md)
 #### [Azure PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Test de débit](virtual-network-bandwidth-testing.md)
 ### [Impossible de supprimer des réseaux virtuels](virtual-network-troubleshoot-cannot-delete-vnet.md)
