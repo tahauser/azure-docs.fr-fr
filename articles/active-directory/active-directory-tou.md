@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cela permet de garantir qu’ils se voient présenter les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
@@ -36,7 +36,8 @@ Vous pouvez utiliser la fonctionnalité Conditions d’utilisation d’Azure Act
 -   Conditions d’utilisation spécifiques en fonction de l’accès aux applications à fort impact commercial, comme Salesforce.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour configurer les conditions d’utilisation d’Azure AD, effectuez les étapes suivantes :
 
 1. Connectez-vous à Azure AD en tant qu’administrateur général, administrateur de la sécurité ou administrateur à accès conditionnel de l’annuaire pour lequel vous souhaitez configurer les conditions d’utilisation d’Azure AD.
@@ -119,16 +120,16 @@ Cela vient du fait que les stratégies d’accès conditionnel prennent effet im
 
 
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**</br>
 R : Un utilisateur qui accepte les conditions d’utilisation est consigné dans le journal d’audit. Vous pouvez rechercher le journal d’audit Azure AD pour voir les résultats.  
 
 **Q : Si vous changez les conditions d’utilisation, les utilisateurs doivent-ils les accepter à nouveau ?**</br>
-R : Oui. Si un administrateur change les conditions d’utilisation, les utilisateurs doivent les accepter à nouveau.
+R : Oui. Si un administrateur change les conditions d’utilisation, les utilisateurs doivent les accepter à nouveau.
 
-**Q : Les conditions d’utilisation prennent-elles en charge plusieurs langues ?**</br>
-R : Non. À l’heure actuelle, les conditions d’utilisation ne prennent en charge qu’une langue à la fois.  Toutefois, vous pouvez définir leur étendue à un groupe (par exemple, les conditions d’utilisation pour la France sont différentes de celles pour le Royaume-Uni). 
+**Q : Les conditions d’utilisation prennent-elles en charge plusieurs langues ?**</br>
+R. : Oui.  Actuellement, un administrateur peut configurer 18 langues différentes pour une seule condition d’utilisation. 
 
 **Q : À quel moment les conditions d’utilisation sont-elles déclenchées ?**</br>
 R : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.

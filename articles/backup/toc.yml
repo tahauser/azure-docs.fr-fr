@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: Activer la sauvegarde de machines virtuelles lors de leur création
               href: backup-during-vm-creation.md
+            - name: Mise à niveau vers la pile de sauvegarde de machine virtuelle V2
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: Gestion et surveillance des machines virtuelles
           items:
             - name: Gérer les sauvegardes de machines Virtuelles Azure dans le portail Azure

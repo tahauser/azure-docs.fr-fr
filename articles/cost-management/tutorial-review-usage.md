@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Didacticiel : Vérifier l’utilisation et les coûts
 
-La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coûts pour que vous puissiez effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes. Toutes les données d’utilisation et de coût sont affichées dans les rapports et tableaux de bord Cloudyn. Les exemples de ce didacticiel vous montrent comment réviser l’utilisation et les coûts à l’aide de tableaux de bord et rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Azure Cost Management vous indique l’utilisation et les coûts pour que vous puissiez effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes. Toutes les données d’utilisation et de coût sont affichées dans les rapports et tableaux de bord Cloudyn. Les exemples de ce didacticiel vous montrent comment réviser l’utilisation et les coûts à l’aide de tableaux de bord et rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Suivre les tendances d’utilisation et de coût
@@ -31,6 +31,7 @@ La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coû
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
@@ -57,7 +58,7 @@ Dans l’exemple précédent, la quantité d’argent dépensée a baissé à pa
 
 Dans l’exemple, vous observez clairement que les coûts du stockage Azure ont baissé à partir du 31/08/2017 tandis que les dépenses pour d’autres services Azure se sont maintenus au même niveau. Pourquoi cette baisse des dépenses ? Dans cet exemple, certains employés étaient en vacances et n’ont donc pas utilisé le service de stockage.
 
-Pour visionner un didacticiel vidéo sur le suivi de l’utilisation et des tendances de coût, consultez [Analyse des données de facturation cloud en fonction du temps avec Azure Cost Management de Cloudyn](https://youtu.be/7LsVPHglM0g).
+Pour visionner un didacticiel vidéo sur le suivi de l’utilisation et des tendances de coût, consultez [Analyse des données de facturation cloud en fonction du temps avec Azure Cost Management](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Détecter le manque d’efficacité au niveau de l’utilisation
 
@@ -81,7 +82,7 @@ Pour afficher les ID d’instance de machine virtuelle, cliquez sur le signe plu
 
 ![Liste de candidats](./media/tutorial-review-usage/sizing03.png)
 
-Pour visionner un didacticiel vidéo sur la détection des inefficacités d’utilisation, consultez [Optimisation de la taille de machine virtuelle dans Azure Cost Management de Cloudyn](https://youtu.be/1xaZBNmV704).
+Pour visionner un didacticiel vidéo sur la détection des inefficacités d’utilisation, consultez [Optimisation de la taille de machine virtuelle dans Azure Cost Management](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Créer des alertes pour dépenses inhabituelles
 

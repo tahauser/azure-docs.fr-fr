@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Didacticiel : Gérer les coûts à l’aide d’Azure Cost Management
 
-Vous gérez les coûts et générez des rapports de récupération des données de facturation dans Azure Cost Management par Cloudyn en allouant les coûts en fonction des balises. Le processus d’allocation des coûts affecte des coûts à vos ressources cloud consommées. Les coûts sont entièrement alloués quand toutes les ressources sont classées avec des balises. Une fois les coûts alloués, vous pouvez fournir à vos utilisateurs des informations de récupération des données de facturation ou de facturation interne sous la forme de rapports et de tableaux de bord. Toutefois, de nombreuses ressources peuvent ne pas être identifiées ou identifiables avec une balise quand vous commencez à utiliser Cost Management.
+Vous gérez les coûts et générez des rapports de récupération des données de facturation dans Azure Cost Management en allouant les coûts en fonction des balises. Le processus d’allocation des coûts affecte des coûts à vos ressources cloud consommées. Les coûts sont entièrement alloués quand toutes les ressources sont classées avec des balises. Une fois les coûts alloués, vous pouvez fournir à vos utilisateurs des informations de récupération des données de facturation ou de facturation interne sous la forme de rapports et de tableaux de bord. Toutefois, de nombreuses ressources peuvent ne pas être identifiées ou identifiables avec une balise quand vous commencez à utiliser Cost Management.
 
 Par exemple, vous pouvez souhaiter être remboursé de coûts d’ingénierie. Vous devez pouvoir montrer à votre équipe d’ingénierie que vous avez besoin d’un montant spécifique, basé sur les coûts des ressources. Vous pouvez leur montrer un rapport pour toutes les ressources consommées qui portent la balise *ingénierie*.
 
@@ -31,6 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.

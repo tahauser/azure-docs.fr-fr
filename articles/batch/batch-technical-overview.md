@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -85,7 +85,7 @@ Le schéma suivant illustre les étapes d’un flux de travail Batch courant, da
 
 N’oubliez pas qu’il ne s’agit ici que d’une des nombreuses façons d’utiliser Azure Batch et que ce scénario ne décrit que quelques-unes de ses fonctionnalités. Par exemple, vous pouvez exécuter [plusieurs tâches en parallèle](batch-parallel-node-tasks.md) sur chaque nœud de calcul. Ou, utiliser des [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md) pour préparer les nœuds pour vos travaux, puis nettoyer par la suite. 
 
-Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md) pour des informations plus détaillées sur les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités d’API que vous pouvez utiliser lors de la création de votre application Batch. 
+Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md) pour des informations plus détaillées sur les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités d’API que vous pouvez utiliser lors de la création de votre application Batch. Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

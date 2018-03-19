@@ -67,6 +67,8 @@
       items:
         - name: Réplication sur Azure
           items:
+            - name: Questions courantes pour la réplication de VMware vers Azure
+              href: vmware-azure-common-questions.md
             - name: Matrice de prise en charge VMware/physique vers Azure
               href: vmware-physical-azure-support-matrix.md
             - name: Architecture VMware vers Azure
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: À propos du service Mobilité
               href: vmware-azure-install-mobility-service.md
+            - name: Options d’emplacement de la restauration automatique
+              href: concepts-types-of-failback.md
         - name: Réplication vers un site secondaire
           items:
             - name: Matrice de prise en charge VMware/physique vers un site secondaire
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Préparer le mappage réseau pour la récupération d’urgence de machines virtuelles Azure
               href: azure-to-azure-network-mapping.md
-            - name: Configurer l’adressage IP après un basculement de la machine virtuelle Azure
+            - name: Configurer l’adressage IP pour le basculement
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Récupération d'urgence
           items:
@@ -139,7 +143,7 @@
           items:
             - name: Gérer les interfaces réseau en local dans le cadre de la réplication Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configurer l’adressage IP après le basculement vers Azure
+            - name: Configurer l’adressage IP pour le basculement
               href: concepts-on-premises-to-azure-networking.md
         - name: planification de la capacité
           items:
@@ -241,7 +245,7 @@
           items:
             - name: Gérer les interfaces réseau en local dans le cadre de la réplication Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configurer l’adressage IP après le basculement vers Azure
+            - name: Configurer l’adressage IP pour le basculement
               href: concepts-on-premises-to-azure-networking.md
         - name: planification de la capacité
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: Analyser le rapport d’estimation des coûts
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: Tests de mise à l’échelle des performances pour la réplication Hyper-V sur un site secondaire
-              href: hyper-v-vmm-performance-results.md
         - name: Récupération d'urgence
           items:
             - name: Configurer la réplication Hyper-V vers Azure (sans VMM) à l’aide de PowerShell
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Exécuter une simulation de récupération d’urgence des machines virtuelles Hyper-V vers un site secondaire
           href: hyper-v-vmm-test-failover.md
-        - name: Configurer l’adressage IP après le basculement sur un site secondaire
+        - name: Configurer l’adressage IP pour le basculement
           href: hyper-v-vmm-networking.md
         - name: Ajouter des scripts VMM à des plans de récupération
           href: hyper-v-vmm-recovery-script.md
         - name: Exécuter un basculement et une restauration automatique sur des sites locaux
           href: hyper-v-vmm-failover-failback.md
+        - name: Tests de mise à l’échelle des performances pour la réplication Hyper-V sur un site secondaire
+          href: hyper-v-vmm-performance-results.md
     - name: Répliquer des applications
       items:
         - name: Active Directory et DNS

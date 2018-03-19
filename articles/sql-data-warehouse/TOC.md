@@ -18,7 +18,7 @@
 
 
 # Didacticiels
-## [1 - Charger des données à partir d’un objet blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - Charger WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Concepts
 ## Fonctionnalités du service
@@ -101,6 +101,7 @@
 
 
 ## Chargement et transfert de données
+### [Données sur les taxis de New York](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Données publiques de Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

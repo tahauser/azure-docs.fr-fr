@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble de la gestion des coûts Azure selon Cloudyn | Microsoft Docs"
-description: "La gestion des coûts Azure selon Cloudyn est une solution de gestion des coûts multicloud qui vous aide dans votre utilisation d’Azure et autres ressources cloud."
+title: "Vue d’ensemble d’Azure Cost Management | Microsoft Docs"
+description: "Azure Cost Management est une solution de gestion des coûts multicloud qui vous aide dans votre utilisation d’Azure et autres ressources cloud."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,17 +10,17 @@ ms.topic: overview
 ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f09bb135d4521325ab3e3e12af2f69d862434b75
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-cost-management"></a>Qu’est-ce que la gestion des coûts Azure ?
 
-La gestion des coûts Azure selon Cloudyn vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google. Les rapports du tableau de bord vous aident à comprendre la répartition des coûts, de même que la rétrofacturation et la facturation interne. La gestion des coûts vous permet d’optimiser vos dépenses cloud en identifiant les ressources sous-utilisées que vous pouvez ainsi gérer et ajuster.
+Azure Cost Management fourni par Cloudyn, affilié à Microsoft, vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google. Les rapports du tableau de bord vous aident à comprendre la répartition des coûts, de même que la rétrofacturation et la facturation interne. La gestion des coûts vous permet d’optimiser vos dépenses cloud en identifiant les ressources sous-utilisées que vous pouvez ainsi gérer et ajuster.
 
-Pour visionner une vidéo de présentation, consultez [Introduction à la gestion des coûts Azure de Cloudyn](https://youtu.be/NWIRny6Wpsk).
+Pour visionner une vidéo de présentation, consultez [Introduction à Azure Cost Management](https://youtu.be/NWIRny6Wpsk).
 
 ## <a name="monitor-usage-and-spending"></a>Surveiller l’utilisation et les dépenses
 

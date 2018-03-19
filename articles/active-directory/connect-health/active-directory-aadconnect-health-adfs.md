@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ Ce rapport fournit les informations suivantes :
 | IP du dernier échec |Affiche l’adresse IP du client à partir de la dernière requête incorrecte. |
 
 > [!NOTE]
-> Ce rapport est automatiquement mis à jour toutes les 12 heures avec les nouvelles informations collectées durant ce laps de temps. En conséquence, les tentatives de connexion effectuées dans les deux dernières heures peuvent ne pas être incluses dans le rapport.
+> Ce rapport est automatiquement mis à jour toutes les 12 heures avec les nouvelles informations collectées durant ce laps de temps. En conséquence, les tentatives de connexion effectuées dans les 12 dernières heures peuvent ne pas être incluses dans le rapport.
 >
 >
+
+### <a name="risky-ip-report"></a>Rapport de l’adresse IP risquée 
+Version préliminaire prochainement disponible.
 
 ## <a name="related-links"></a>Liens connexes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

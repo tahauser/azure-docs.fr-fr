@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: b91d1c1eb452ade005fceb095f8d9e62b28a14ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Présentation d’Apache Kafka sur HDInsight
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/28/2018
 
 Le logiciel Kafka sur HDInsight offre les fonctionnalités suivantes :
 
-* __Contrat de niveau de service (SLA) de 99 % sur le temps d’activité de Kafka__ : pour plus d’information, consultez le document [Informations du SLA pour HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __Contrat de niveau de service (SLA) de 99,9 % sur le temps d’activité de Kafka__ : pour plus d’information, consultez le document [Informations du SLA pour HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * __Tolérance aux pannes et reconnaissance de rack__: Kafka a été conçu avec une seule vue dimensionnelle d’un rack qui fonctionne correctement sur certains environnements. Toutefois, sur des environnements tels qu’Azure, un rack est réparti en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils garantissant le rééquilibrage des partitions et réplicas Kafka entre les UD et les FD. 
 

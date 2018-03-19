@@ -38,6 +38,7 @@
 #### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Travailler avec des groupes identiques de grande taille](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertir un modèle de groupe identique pour utiliser un disque géré](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Utiliser la faible priorité](virtual-machine-scale-sets-use-low-priority.md)
 
 ## gérer
 ### Tâches de gestion courantes

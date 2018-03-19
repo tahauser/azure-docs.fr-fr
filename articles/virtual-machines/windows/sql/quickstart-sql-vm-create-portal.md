@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
 
@@ -28,7 +28,12 @@ ms.lasthandoff: 02/21/2018
 Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle SQL Server dans le portail Azure.
 
 > [!TIP]
-> Ce démarrage rapide vous explique les étapes pour mettre en service et connecter rapidement une machine virtuelle SQL. Pour plus d’informations sur les autres options de mise en service des machines virtuelles SQL, consultez le [guide de mise en service des machines virtuelles Windows SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
+> Ce démarrage rapide vous présente les étapes de mise en service et de connexion rapide d’une machine virtuelle SQL. Pour plus d’informations sur les autres options de mise en service des machines virtuelles SQL, consultez le [guide de mise en service des machines virtuelles Windows SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
+
+> [!TIP]
+> Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Obtenir un abonnement Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

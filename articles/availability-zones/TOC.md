@@ -22,8 +22,9 @@
 ### Groupes identiques de machines virtuelles 
 #### [Créer un groupe identique dans une zone de disponibilité](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Équilibrage de charge
-#### [Qu’est-ce qu’un équilibreur de charge ?](../load-balancer/load-balancer-standard-overview.md)
+### Équilibreur de charge
+#### [Qu’est-ce que l’équilibrage de charge ?](../load-balancer/load-balancer-standard-overview.md)
+#### [Standard d’équilibrage de charge et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Créer un niveau Standard d’équilibrage de charge publique et redondant dans une zone à l’aide du portail Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Créer un niveau Standard d’équilibrage de charge et redondant dans une zone à l’aide de PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Créer un niveau Standard d’équilibrage de charge publique et redondant dans une zone à l’aide de l’interface CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)

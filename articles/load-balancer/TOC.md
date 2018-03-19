@@ -11,6 +11,7 @@
 ## [Prise en charge d’IPv6](load-balancer-ipv6-overview.md)
 ## [Plusieurs adresses IP virtuelles](load-balancer-multivip-overview.md)
 ## [Comprendre les connexions sortantes](load-balancer-outbound-connections.md)
+## [Équilibreur de charge standard et zones de disponibilité](load-balancer-standard-availability-zones.md)
 
 # Prise en main
 
@@ -49,6 +50,7 @@
 ### [Résolution des problèmes de l’équilibrage de charge Azure](load-balancer-troubleshoot.md)
 
 ## Articles sur le modèle de déploiement classique
+### [Connexions sortantes (classique)](load-balancer-outbound-connections-classic.md)
 ### [Configurer l’équilibreur de charge interne pour les Services cloud](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Configurer l’équilibreur de charge interne pour les Services cloud (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Configurer l’équilibreur de charge interne pour les Services cloud (interface de ligne de commande)](load-balancer-get-started-ilb-classic-cli.md)

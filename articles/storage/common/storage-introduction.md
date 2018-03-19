@@ -2,23 +2,17 @@
 title: "Présentation du stockage Azure | Microsoft Docs"
 description: "Présentation du stockage Azure, stockage de données de Microsoft dans le cloud."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 
@@ -137,7 +131,7 @@ Il existe deux types de chiffrement de base pour les services de stockage. Pour 
 
 Le Chiffrement du service de stockage Azure au repos permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, Azure Storage chiffre automatiquement vos données avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. La gestion du chiffrement, du déchiffrement et des clés est totalement transparente pour les utilisateurs.
 
-Vous pouvez activer le Chiffrement du service de stockage pour le stockage d’objets Blob ou pour les fichiers Azure (version préliminaire). En cas d’activation, toutes les données écrites dans ce service sont chiffrées avant l’écriture. Lorsque vous lisez les données, elles sont déchiffrées avant d’être retournées.
+Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de Stockage Azure (blob, file d’attente, table et fichier). Le chiffrement du service de stockage n’affecte pas les performances de Stockage Azure.
 
 Pour plus d’informations sur le chiffrement du service de stockage, consultez [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md).
 

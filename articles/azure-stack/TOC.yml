@@ -85,7 +85,8 @@
   items:
     - name: Déployer l’ASDK
       items:
-        - name: configuration requise
+        - name: |
+            Prérequis
           href: azure-stack-deploy.md
         - name: Télémétrie
           href: azure-stack-telemetry.md
@@ -232,14 +233,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Avant de commencer
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Comment redistribuer Azure App Service sur Azure Stack dans les domaines d’erreur
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Déployer le fournisseur de ressources App Service
               href: azure-stack-app-service-deploy.md
             - name: Déployer App Service hors connexion
               href: azure-stack-app-service-deploy-offline.md
+            - name: Mettre à jour App Service
+              href: azure-stack-app-service-update.md
+            - name: Mettre à jour App Service hors connexion
+              href: azure-stack-app-service-update-offline.md
             - name: Ajouter de nouveaux rôles de travail web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurer des sources de déploiement
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Notes de publication relatives à la première mise à jour d’App Service
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Renseigner le Marketplace
           items:
             - name: Présentation de la Place de marché

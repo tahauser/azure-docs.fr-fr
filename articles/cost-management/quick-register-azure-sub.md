@@ -1,6 +1,6 @@
 ---
 title: "Inscrire votre abonnement Azure auprès du service Gestion des coûts Azure | Microsoft Docs"
-description: "Utilisez votre abonnement Azure pour vous inscrire auprès du service Gestion des coûts Azure de Cloudyn."
+description: "Utilisez votre abonnement Azure pour vous inscrire auprès du service Azure Cost Management."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Inscrire un abonnement Azure individuel et afficher les données de coût
 
-Vous utilisez votre abonnement Azure pour vous inscrire auprès du service Gestion des coûts Azure de Cloudyn. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
+Vous utilisez votre abonnement Azure pour vous inscrire auprès du service Azure Cost Management. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -40,13 +40,13 @@ Vous utilisez votre abonnement Azure pour vous inscrire auprès du service Gesti
 9. Cliquez sur **Go to Cloudyn** (Accéder à Cloudyn) pour ouvrir le portail Cloudyn, puis, dans la page **Accounts Management** (gestion des comptes), vous devriez voir les informations de compte de votre abonnement Azure.  
     ![Gestion des comptes](./media/quick-register-azure-sub/accounts-mgt.png)
 
-Pour regarder un didacticiel vidéo sur l’inscription de votre abonnement Azure, consultez l’article [Comment trouver le GUID de répertoire et l’ID taux à utiliser dans Azure Cost Management de Cloudyn](https://youtu.be/PaRjnyaNGMI).
+Pour regarder un didacticiel vidéo sur l’inscription de votre abonnement Azure, consultez l’article [Comment trouver le GUID de répertoire et l’ID taux à utiliser dans Azure Cost Management](https://youtu.be/PaRjnyaNGMI).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé les informations de votre abonnement Azure pour vous inscrire au service Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
+Dans ce guide de démarrage rapide, vous avez utilisé les informations de votre abonnement Azure pour vous inscrire au service Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel sur Cost Management.
 
 > [!div class="nextstepaction"]
 > [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)
