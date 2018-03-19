@@ -52,11 +52,12 @@
 ### [Requête élastique SQL Database](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## Surveiller et régler
-### [gestion des charges de travail](resource-classes-for-workload-management.md)
+## Performances des requêtes
+### [Classes de ressources](resource-classes-for-workload-management.md)
 ### [Compression columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Surveiller](sql-data-warehouse-manage-monitor.md)
-### [Résolution des problèmes](sql-data-warehouse-troubleshoot.md)
+
+## [Surveiller](sql-data-warehouse-manage-monitor.md)
+
 
 ## Développer des entrepôts de données
 ### [Vue d'ensemble](sql-data-warehouse-overview-develop.md)
@@ -87,6 +88,8 @@
 #### [Schémas définis par l’utilisateur](sql-data-warehouse-develop-user-defined-schemas.md)
 #### [Attribution de variables](sql-data-warehouse-develop-variable-assignment.md)
 #### [Views](sql-data-warehouse-develop-views.md)
+
+## [Résolution des problèmes](sql-data-warehouse-troubleshoot.md)
 
 # Procédures
 ## Fonctionnalités du service
