@@ -11,8 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Didacticiels
   items:
-    - name: Diffuser en continu des événements à l’aide d’Event Hubs
+    - name: Diffuser en continu des données à l’aide d’Event Hubs
       href: databricks-stream-from-eventhubs.md
+    - name: Analyse des sentiments à l’aide de Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Procédures
   items:
     - name: 'Connexion à Excel, R et Python'
