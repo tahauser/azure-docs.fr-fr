@@ -1,4 +1,4 @@
----
+﻿---
 title: "Introduction à Azure Cosmos DB | Microsoft Docs"
 description: "En savoir plus sur Azure Cosmos DB. Cette base de données multimodèle distribuée à l’échelle mondiale est conçue pour offrir une faible latence, une scalabilité élastique et une haute disponibilité."
 services: cosmos-db
@@ -71,7 +71,7 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
 
 * **Aucune gestion de schéma ou d’index de base de données**
     * Itérez rapidement le schéma de votre application sous vous soucier du schéma de la base de données et/ou de la gestion de l’indexation.
-    * Le moteur de base de données Azure Cosmos DB est entièrement indépendant du schéma : il indexe automatiquement toutes les données qu’il reçoit sans schéma ni index et répond aux requêtes de façon ultrarapide. 
+    * Le moteur de base de données Azure Cosmos DB est entièrement indépendant du schéma : il indexe automatiquement toutes les données qu’il reçoit sans schéma ni index et répond aux requêtes de façon ultrarapide. 
 
 * **Faible coût total de possession**
     * Cinq à dix fois [plus économique](https://aka.ms/cosmos-db-tco-paper) qu’une solution non managée ou une solution NoSQL en local.

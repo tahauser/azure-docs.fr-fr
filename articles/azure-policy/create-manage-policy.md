@@ -1,4 +1,4 @@
----
+﻿---
 title: "Utiliser une stratégie Azure pour créer et gérer des stratégies afin d’appliquer la conformité de l’organisation | Microsoft Docs"
 description: "Utilisez une stratégie Azure pour appliquer des normes, se conformer aux réglementations de conformité et d’audit, maîtriser les coûts, garantir la sécurité et maintenir les performances, et imposer les principes de conception à l’échelle de l’entreprise."
 services: azure-policy

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Guide de démarrage rapide - Création de cluster Kubernetes dans le portail Azure"
 description: "Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans ACS avec le portail Azure."
 services: container-service

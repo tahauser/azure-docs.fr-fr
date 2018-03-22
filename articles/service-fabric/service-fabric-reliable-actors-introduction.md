@@ -1,4 +1,4 @@
----
+﻿---
 title: "Vue d’ensemble de Service Fabric Reliable Actors | Microsoft Docs"
 description: "Présentation du modèle de programmation Service Fabric Reliable Actors."
 services: service-fabric
