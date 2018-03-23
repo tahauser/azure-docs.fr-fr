@@ -3,18 +3,18 @@ title: Configuration d’un réseau virtuel Azure SQL Database Managed Instance 
 description: Cette rubrique décrit les options de configuration d’un réseau virtuel avec Azure SQL Database Managed Instance.
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1a839a9bb2355da9451816828f6f9f0e99f43f5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel pour Azure SQL Database Managed Instance
 
@@ -33,7 +33,7 @@ Planifiez votre déploiement de Managed Instance dans un réseau virtuel en util
 
    Si vous envisagez d’utiliser un réseau virtuel existant, vous devez modifier sa configuration pour prendre en compte Managed Instance. Pour plus d’informations, consultez [Modifier un réseau virtuel existant pour Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Si vous envisagez de créer un réseau virtuel, consultez [Créer un réseau virtuel pour Managed Instance](#create-new-virtual-network-for-managed-instances).
+   Si vous envisagez de créer un réseau virtuel, consultez [Créer un réseau virtuel pour Managed Instance](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Configuration requise
 

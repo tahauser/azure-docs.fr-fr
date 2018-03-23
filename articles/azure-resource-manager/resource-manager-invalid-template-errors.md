@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -38,6 +38,8 @@ Le message d’erreur varie selon le type d’erreur.
 
 Cette erreur peut résulter de différents types d’erreurs. Elles impliquent généralement une erreur de syntaxe ou de structure dans le modèle.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Solution 1 - erreur de syntaxe
 
 Si vous recevez un message d’erreur qui indique que la validation du modèle a échoué, vous avez peut-être un problème de syntaxe dans votre modèle.
@@ -56,6 +58,8 @@ Cette erreur est facile à commettre car les expressions de modèle peuvent êtr
 Si vous ne fournissez pas la syntaxe correspondante, le modèle produit une valeur très différente de celle souhaitée.
 
 Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression. Vous pouvez utiliser un éditeur JSON comme [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou [Visual Studio Code](resource-manager-vs-code.md), qui vous signale des erreurs de syntaxe.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Solution 2 - longueurs de segments incorrectes
 
@@ -116,6 +120,8 @@ Obtenir des segments valides peut être difficile si des types Resource Manager 
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Solution 3 - le paramètre n’est pas valide
 
 Si vous fournissez une valeur de paramètre qui ne fait pas partie des valeurs autorisées, vous recevez un message similaire à celui de l’erreur suivante :
@@ -129,9 +135,13 @@ part of the allowed values
 
 Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement. Pour plus d’informations sur les valeurs de paramètres autorisées, consultez [Section Parameters des modèles Azure Resource Manager](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solution 4 : trop de groupes de ressources cibles
 
 Si vous spécifiez plus de cinq groupes de ressources cibles dans un déploiement unique, vous recevez cette erreur. Songez à consolider le nombre de groupes de ressources dans votre déploiement, ou à déployer certains modèles en tant que déploiements distincts. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Solution 5 : dépendance circulaire détectée
 

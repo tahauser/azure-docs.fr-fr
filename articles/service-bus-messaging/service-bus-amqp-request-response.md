@@ -613,7 +613,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|chaîne|Non |Description de l’état.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 

@@ -124,7 +124,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 
 Vous pouvez télécharger la mise à jour 1710 [ici](https://aka.ms/azurestackupdatedownload).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour une vue d’ensemble de la gestion des mises à jour dans Azure Stack, voir [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md).
 - Pour plus d’informations sur la façon d’appliquer les mises à jour, voir [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).

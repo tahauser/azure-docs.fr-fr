@@ -81,6 +81,6 @@ Suivez les étapes ci-dessous pour planifier l’exécution de ce script toutes 
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 - [Azure AD Connect Health et RGPD](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
